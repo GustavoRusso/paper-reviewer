@@ -1,0 +1,20 @@
+# Agent documentation map
+
+This file is for coding agents. Humans use [README.md](README.md) for a quick product introduction; agents use this map to find the right documentation and keep it accurate.
+
+## Documentation layout
+
+- **[README.md](README.md)** — User-facing only: short introduction to the project (what it is, who it is for, terminology, high-level workflow). Do not put install steps, runbooks, or deep technical detail there.
+- **`/docs`** — All other documentation (setup, workflows, architecture, operations). Agents and users share the same files; there is no separate agent-only install path.
+
+## Maintenance rules
+
+1. **Keep docs in sync with the project.** When behavior, setup, tooling, or workflows change, update the matching document in the same change.
+2. **Single source of truth.** Before adding or editing content, check other docs and the README so the same facts are not duplicated. Prefer linking to the authoritative document over copying text.
+3. **Update this index** when you add, rename, or remove a documentation file under `/docs`.
+
+## Documentation index
+
+| Document | Description | When to use |
+| --- | --- | --- |
+| [docs/host-requirements.md](docs/host-requirements.md) | Install Docker Desktop and `just` on the host | Before first local setup; whenever host tooling is missing or version guidance changes |

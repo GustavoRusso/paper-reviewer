@@ -29,6 +29,10 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 5. **Paper briefs** — For each retained paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references). Each paper is identified by its **DOI**.
 6. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 
+## Getting started
+
+Install the host requirements described in [docs/host-requirements.md](docs/host-requirements.md).
+
 
 
 
