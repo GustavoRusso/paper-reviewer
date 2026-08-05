@@ -2,10 +2,11 @@
 
 Agents use this document when choosing libraries or structuring features. It is the single source of truth for the **application** runtime stack.
 
-Host tooling (Docker Desktop, `just`) and local recipes live elsewhere:
+Host tooling (Docker Desktop, `just`), repo layout, and local recipes live elsewhere:
 
 - [host-requirements.md](host-requirements.md) — what belongs on the host
 - [local-development.md](local-development.md) — `just` recipes and app vs sandbox
+- [project-structure.md](project-structure.md) — package layout and what enters production images
 
 All stack components below run **inside Docker images**. Do not install Python, uv, or app frameworks on the host.
 
