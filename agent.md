@@ -18,3 +18,4 @@ This file is for coding agents. Humans use [README.md](README.md) for a quick pr
 | Document | Description | When to use |
 | --- | --- | --- |
 | [docs/host-requirements.md](docs/host-requirements.md) | Install Docker Desktop and `just` on the host | Before first local setup; whenever host tooling is missing or version guidance changes |
+| [docs/local-development.md](docs/local-development.md) | Persistent app vs ephemeral sandbox; `just` recipes and data lifecycle | After host tools are installed; whenever starting, testing, seeding, or resetting the local stack |

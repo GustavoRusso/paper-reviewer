@@ -31,7 +31,8 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ## Getting started
 
-Install the host requirements described in [docs/host-requirements.md](docs/host-requirements.md).
+1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
+2. Run the stack with `just`: [docs/local-development.md](docs/local-development.md)
 
 
 
