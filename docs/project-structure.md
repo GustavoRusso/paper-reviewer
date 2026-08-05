@@ -53,7 +53,9 @@ flowchart TB
 
 Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `agent.md`, `.git/`, and similar paths.
 
-One application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
+**Target:** one application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
+
+**Current Compose:** a single **`workspace`** service (Python + uv, repo bind-mounted) used to bootstrap the project via `just shell` / `just sandbox-shell`. Postgres and application services are not defined yet—see [local-development.md](local-development.md).
 
 ## Target tree
 

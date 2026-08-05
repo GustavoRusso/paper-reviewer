@@ -4,11 +4,19 @@ All local workflows run through `just` recipes that wrap Docker Compose. Install
 
 Do **not** run `docker compose`, language runtimes, or package managers on the host. Use the recipes below.
 
+## Current stack
+
+Compose currently defines a single **`workspace`** service: a Python 3.12 + uv image with the repository bind-mounted at `/workspace`. There is no Postgres or application (`app`) service yet.
+
+Use `just shell` / `just sandbox-shell` to run commands that create or modify the project (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
+
+Postgres, Streamlit/Prefect app services, seeding, `just test`, and `just reset` will be added later.
+
 ## Two environments
 
 | Environment | Compose project | Data | When to use |
 | --- | --- | --- | --- |
-| **Persistent app** | `paper-reviewer` | Named volumes survive `just down` | End-user local use; keep data between sessions |
+| **Persistent app** | `paper-reviewer` | Named volumes survive `just down` (when volumes exist) | End-user local use; keep data between sessions |
 | **Ephemeral sandbox** | `paper-reviewer-sandbox` | Volumes removed on teardown | Agents, CI, bug reproduction, disposable experiments |
 
 Both share the same [compose.yml](../compose.yml). Isolation comes from the Compose **project name** (`-p`), so wiping the sandbox never deletes app data.
@@ -39,18 +47,18 @@ just
 
 | Recipe | Effect |
 | --- | --- |
-| `just up` | Build/start the app stack; wait until healthy. Volumes are kept. |
+| `just up` | Build/start the `workspace` service; wait until healthy. |
 | `just down` | Stop containers; **volumes are preserved**. |
-| `just logs` | Follow logs (`just logs app`, `just logs db` optional). |
+| `just logs` | Follow logs (`just logs workspace` is the default). |
 | `just status` | Show container status. |
-| `just reset CONFIRM=yes` | **Destructive:** `down -v`, recreate, then seed. |
+| `just shell` | Auto-start if needed, then open an interactive bash in `workspace`. |
 
 ### Ephemeral sandbox
 
 | Recipe | Effect |
 | --- | --- |
-| `just sandbox` | Create a clean sandbox project, wait until healthy, then seed. |
+| `just sandbox` | Build/start a clean sandbox `workspace`; wait until healthy. |
 | `just sandbox-down` | Tear down the sandbox and **delete its volumes**. |
-| `just test` | `sandbox` → run tests in the sandbox → `sandbox-down`. |
+| `just sandbox-shell` | Auto-start if needed, then open an interactive bash in the sandbox `workspace`. |
 
-Agents should prefer `just sandbox` / `just test`, not `just up` / `just reset`, so user data stays safe when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md).
+Agents should prefer `just sandbox` / `just sandbox-shell` for disposable work so the persistent app project stays untouched when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md).

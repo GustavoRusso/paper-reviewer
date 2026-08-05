@@ -1,0 +1,12 @@
+services:
+  workspace:
+    build: .
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    healthcheck:
+      test: ["CMD", "uv", "--version"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s

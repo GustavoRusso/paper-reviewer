@@ -8,7 +8,7 @@ Host tooling (Docker Desktop, `just`), repo layout, and local recipes live elsew
 - [local-development.md](local-development.md) — `just` recipes and app vs sandbox
 - [project-structure.md](project-structure.md) — package layout and what enters production images
 
-All stack components below run **inside Docker images**. Do not install Python, uv, or app frameworks on the host.
+All stack components below run **inside Docker images**. Do not install Python, uv, or app frameworks on the host. Bootstrap and package work happens in the Compose `workspace` image via `just shell` / `just sandbox-shell` ([local-development.md](local-development.md)).
 
 ## Stack
 
