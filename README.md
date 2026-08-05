@@ -13,6 +13,8 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper** — Any scientific article, published or not
 - **Paper sources** — Predefined online providers used to look up related papers
 - **Research query** — Free-form input that specifies what to investigate
+- **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can reload paper data and build a **paper brief**. Not a paper brief; not a bibliographic reference.
+- **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
 - **Paper brief** — Structured summary of a paper related to the topic
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 
