@@ -10,7 +10,7 @@ Compose currently defines a single **`workspace`** service: a Python 3.12 + uv i
 
 Use `just shell` / `just sandbox-shell` to run commands that create or modify the project (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-Postgres, Streamlit/Prefect app services, seeding, `just test`, and `just reset` will be added later.
+Postgres, Streamlit/Prefect app services, seeding, and `just reset` will be added later.
 
 ## Two environments
 
@@ -60,5 +60,6 @@ just
 | `just sandbox` | Build/start a clean sandbox `workspace`; wait until healthy. |
 | `just sandbox-down` | Tear down the sandbox and **delete its volumes**. |
 | `just sandbox-shell` | Auto-start if needed, then open an interactive bash in the sandbox `workspace`. |
+| `just test` | Run pytest in the sandbox (`just test` or `just test path/to/test.py`). Auto-starts the sandbox if needed. |
 
 Agents should prefer `just sandbox` / `just sandbox-shell` for disposable work so the persistent app project stays untouched when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md).

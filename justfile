@@ -40,3 +40,8 @@ sandbox-down:
 # Interactive shell in the sandbox workspace (auto-starts if needed)
 sandbox-shell: sandbox
     {{compose}} -p {{sandbox_project}} exec -it workspace bash
+
+# Run pytest in the sandbox (optional args forwarded to pytest)
+# Exit code 5 (no tests collected) is treated as success for an empty suite.
+test *args: sandbox
+    {{compose}} -p {{sandbox_project}} exec -T workspace sh -c 'uv run pytest {{args}}; e=$?; [ "$e" -eq 0 ] || [ "$e" -eq 5 ]'

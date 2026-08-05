@@ -1,0 +1,5 @@
+# Force LF for shell scripts so they run inside Linux containers on Windows checkouts
+*.sh text eol=lf
+justfile text eol=lf
+Dockerfile text eol=lf
+compose.yml text eol=lf
