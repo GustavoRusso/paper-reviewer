@@ -22,6 +22,7 @@ All stack components below run **inside Docker images**. Do not install Python, 
 | Schema migrations | Alembic | Versioned DDL against SQLAlchemy metadata |
 | Web UI | Streamlit | User-facing research workflows |
 | Job orchestrator | Prefect | Search, ingest, and brief-generation pipelines |
+| Tests | pytest | Specs and regression tests for `paper_reviewer` (dev-only; run via `just test` in the sandbox) |
 
 ## Layer sketch
 
@@ -51,7 +52,8 @@ flowchart TB
 - **Alembic** — Owns relational schema versioning. dlt loads into tables that already match that schema; do not let dlt freely evolve production DDL against Alembic.
 - **Prefect** — Orchestrate long-running or multi-step jobs (search, ingest, briefs). Trigger from the UI or schedules; keep business steps in flows/tasks, not in Streamlit callbacks alone.
 - **Streamlit** — Presentation and user interaction only. Delegate heavy work to Prefect; persist via SQLAlchemy (or kick off dlt through Prefect).
+- **pytest** — Specs and regressions under `tests/` (mirrors `src/paper_reviewer/`). Prefer pytest style (`assert`, fixtures) over `unittest.TestCase`. Fake boundary I/O (no live paper-source HTTP). Keep Streamlit thin and test schemas/domain/flows rather than widget chrome. Do not unit-test third-party library internals. Agents follow [tdd.md](tdd.md) for the Test-First Spec workflow.
 
 ## Out of scope here
 
-Install steps, Compose projects, and `just` recipes are not documented in this file. See [host-requirements.md](host-requirements.md) and [local-development.md](local-development.md).
+Install steps, Compose projects, and `just` recipes are not documented in this file. See [host-requirements.md](host-requirements.md) and [local-development.md](local-development.md). The TDD process for agents is in [tdd.md](tdd.md).

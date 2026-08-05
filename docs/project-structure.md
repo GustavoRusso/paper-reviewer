@@ -89,6 +89,8 @@ paper-reviewer/
 └── agent.md
 ```
 
+Tests live under `tests/` and mirror the package layout. Agents write those specs first when changing app behavior—see [tdd.md](tdd.md).
+
 ## Module map
 
 Aligned with [technology-stack.md](technology-stack.md) boundaries:

@@ -53,4 +53,4 @@ just
 | `just sandbox-down` | Tear down the sandbox and **delete its volumes**. |
 | `just test` | `sandbox` → run tests in the sandbox → `sandbox-down`. |
 
-Agents should prefer `just sandbox` / `just test`, not `just up` / `just reset`, so user data stays safe when both stacks run on the same machine.
+Agents should prefer `just sandbox` / `just test`, not `just up` / `just reset`, so user data stays safe when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md).
