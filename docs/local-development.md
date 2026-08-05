@@ -63,3 +63,60 @@ just
 | `just test` | Run pytest in the sandbox (`just test` or `just test path/to/test.py`). Auto-starts the sandbox if needed. |
 
 Agents should prefer `just sandbox` / `just sandbox-shell` for disposable work so the persistent app project stays untouched when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md).
+
+## dltHub workspace and Cursor AI workbench
+
+This repo is a **dltHub workspace** (marker: [`.dlt/.workspace`](../.dlt/.workspace)). App Python work still runs in Compose via `just`; do not install a second app toolchain on the host for day-to-day coding.
+
+### Bootstrap (already applied for this project)
+
+These were run inside the sandbox `workspace` container (repo bind-mounted at `/workspace`):
+
+```bash
+just sandbox
+# then in the container (e.g. just sandbox-shell):
+uvx dlthub-init@latest
+uv add "dlt[hub]"
+uv add fastmcp
+uv run dlthub ai init --agent cursor
+uv run dlthub ai toolkit install rest-api-pipeline
+```
+
+That creates/updates the workspace marker, `.dlt` config, Cursor skills/rules under [`.cursor/`](../.cursor/), MCP config [`.cursor/mcp.json`](../.cursor/mcp.json), and the **rest-api-pipeline** toolkit. The workspace image includes `git` because `dlthub ai init` clones the workbench repo.
+
+Re-check status anytime:
+
+```bash
+just sandbox-shell
+# then:
+uv run dlthub ai status
+```
+
+### Enable the dlt-workspace-mcp server in Cursor (manual)
+
+MCP is configured to run **inside the Compose `workspace` container** (no host `uv`). See [`.cursor/mcp.json`](../.cursor/mcp.json).
+
+1. Start the persistent app workspace so the container is running:
+
+   ```bash
+   just up
+   ```
+
+   (`docker compose exec` only works against a running service. Prefer the **paper-reviewer** project over the sandbox so MCP is not torn down by `just sandbox-down`.)
+
+2. Open this project in **Cursor**.
+3. Open **Cursor Settings → MCP**.
+4. Find **`dlt-workspace-mcp`** and **Enable** / approve it if prompted.
+5. Confirm status is connected (not error / needsAuth).
+6. Start a **new Agent** chat in this project (Agent mode, not plain Chat) so skills, rules, and MCP tools load.
+7. Smoke-check: ask the agent to use workspace MCP tools (e.g. list pipelines) once any pipeline exists.
+
+If the server fails to start:
+
+- Error `service "shell" is not running` / unknown service: the Compose service name is **`workspace`**, not `shell` (see `compose.yml`). Reload MCP after fixing `.cursor/mcp.json`.
+- Error `service "workspace" is not running`: run `just up`, wait until healthy (`just status`), then toggle the MCP server off/on or reload the Cursor window.
+- Confirm `fastmcp` is installed in the project env (`uv add fastmcp` inside `just shell` if missing).
+- Re-run `uv run dlthub ai init --agent cursor` in the workspace container only if you need to regenerate skills/rules; keep the Docker-based `mcp.json` (do not let init overwrite it back to host `uv` without re-applying the compose exec form).
+- Run `uv run dlthub ai status` inside the container for diagnostics.
+
+Official references: [REST API Source with dltHub AI Workbench](https://dlthub.com/docs/hub/ingestion/rest-api-source), [Installation](https://dlthub.com/docs/hub/getting-started/installation).

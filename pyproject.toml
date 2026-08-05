@@ -4,7 +4,8 @@ version = "0.1.0"
 description = "Assistant to explore biomedical and life sciences topics via related papers"
 requires-python = ">=3.12"
 dependencies = [
-    "dlt",
+    "dlt[hub]",
+    "fastmcp>=3.4.6",
     "pydantic",
 ]
 

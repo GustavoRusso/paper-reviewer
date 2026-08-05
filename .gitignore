@@ -24,6 +24,12 @@ htmlcov/
 .env
 .env.*
 
+# dltHub workspace local state and secrets (keep .dlt/.workspace and config.toml)
+.dlt/secrets.toml
+.dlt/*.secrets.toml
+.dlt/data/
+.dlt/state/
+
 # OS / editor
 .DS_Store
 .idea/

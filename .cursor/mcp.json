@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "dlt-workspace-mcp": {
+      "command": "docker",
+      "args": [
+        "compose",
+        "-p",
+        "paper-reviewer",
+        "-f",
+        "compose.yml",
+        "exec",
+        "-T",
+        "workspace",
+        "uv",
+        "run",
+        "dlthub",
+        "ai",
+        "mcp",
+        "--stdio"
+      ]
+    }
+  }
+}

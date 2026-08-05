@@ -17,7 +17,7 @@ All stack components below run **inside Docker images**. Do not install Python, 
 | Language / validation | Python + Pydantic | Runtime and shared schemas (inputs, paper models, dlt resources) |
 | Package manager | uv | Dependencies and virtualenvs inside container images |
 | Relational database | PostgreSQL | Papers, briefs, citations, job-related app data |
-| Data ingestion | dlt (dlthub) + Pydantic | Load from paper sources into Postgres |
+| Data ingestion | dlt (dlthub) + Pydantic | Load from paper sources into Postgres; workspace uses `dlt[hub]` and the Cursor rest-api-pipeline toolkit |
 | ORM / DB access | SQLAlchemy | Models and application reads/writes |
 | Schema migrations | Alembic | Versioned DDL against SQLAlchemy metadata |
 | Web UI | Streamlit | User-facing research workflows |
