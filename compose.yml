@@ -4,6 +4,8 @@ services:
     working_dir: /workspace
     volumes:
       - .:/workspace
+    environment:
+      DATABASE_URL: postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer
     healthcheck:
       test: ["CMD", "uv", "--version"]
       interval: 5s
@@ -11,16 +13,39 @@ services:
       retries: 5
       start_period: 5s
 
-  # Query intake Streamlit UI (same image, different command).
-  # Enabled only with --profile ui (see just up) so sandbox stays workspace-only.
+  # App runtimes (Streamlit UI, Postgres, …). Enabled with --profile app
+  # (see just up) so sandbox stays workspace-only.
+  db:
+    profiles: ["app"]
+    image: postgres:16
+    environment:
+      POSTGRES_USER: paper_reviewer
+      POSTGRES_PASSWORD: paper_reviewer
+      POSTGRES_DB: paper_reviewer
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paper_reviewer -d paper_reviewer"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
   ui:
-    profiles: ["ui"]
+    profiles: ["app"]
     build: .
     working_dir: /workspace
     volumes:
       - .:/workspace
     ports:
       - "8501:8501"
+    environment:
+      DATABASE_URL: postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer
+    depends_on:
+      db:
+        condition: service_healthy
     command:
       [
         "uv",
@@ -38,3 +63,6 @@ services:
       timeout: 5s
       retries: 6
       start_period: 60s
+
+volumes:
+  postgres_data:

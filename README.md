@@ -52,3 +52,4 @@ After `just up`, these services are available:
 | Service | URL | Description |
 | --- | --- | --- |
 | Query intake | [http://localhost:8501](http://localhost:8501) | Streamlit UI to submit a research query |
+| PostgreSQL | `localhost:5432` | App relational database (local-dev credentials in [docs/local-development.md](docs/local-development.md)) |
