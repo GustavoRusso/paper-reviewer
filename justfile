@@ -9,16 +9,16 @@ app_project := "paper-reviewer"
 sandbox_project := "paper-reviewer-sandbox"
 compose := "docker compose"
 
-# Build/start the persistent app workspace; wait until healthy
+# Build/start the persistent app stack (workspace + Query intake UI); wait until healthy
 up:
-    {{compose}} -p {{app_project}} up -d --build --wait
+    {{compose}} -p {{app_project}} --profile ui up -d --build --wait
 
 # Stop the persistent app stack; volumes are preserved
 down:
     {{compose}} -p {{app_project}} down
 
-# Follow logs (optional service name; default: workspace)
-logs service="workspace":
+# Follow logs (optional service name; default: ui = Query intake Streamlit)
+logs service="ui":
     {{compose}} -p {{app_project}} logs -f {{service}}
 
 # Show container status for the persistent app project

@@ -6,17 +6,24 @@ Do **not** run `docker compose`, language runtimes, or package managers on the h
 
 ## Current stack
 
-Compose currently defines a single **`workspace`** service: a Python 3.12 + uv image with the repository bind-mounted at `/workspace`. There is no Postgres or application (`app`) service yet.
+Compose defines:
+
+- **`workspace`** — Python 3.12 + uv image with the repository bind-mounted at `/workspace` (agents, MCP, `just shell` / `just run`).
+- **`ui`** — same image, Streamlit **Query intake** UI on port **8501** (enabled via Compose profile `ui`; started by `just up`).
+
+There is no Postgres or Prefect service yet.
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
+
+After `just up`, open **Query intake** at [http://localhost:8501](http://localhost:8501). Follow UI logs with `just logs` (defaults to the `ui` service).
 
 ## Agent shells
 
 Coding-agent terminals (Cursor, Claude Code, Codex, and similar) run on the **host**, not inside the Compose container. The Linux `.venv` and `uv` binary exist only in the image, so host `uv` / `python` / `pytest` will fail.
 
-Follow [AGENTS.md](../AGENTS.md): wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP so `just sandbox-down` does not tear it down.
+Follow [AGENTS.md](../AGENTS.md): wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Query intake UI so `just sandbox-down` does not tear them down.
 
-Postgres, Streamlit/Prefect app services, seeding, and `just reset` will be added later.
+The sandbox Compose project starts **`workspace` only** (no `ui` profile), so it does not bind port 8501. Postgres, Prefect, seeding, and `just reset` will be added later.
 
 ## Two environments
 

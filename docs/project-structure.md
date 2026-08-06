@@ -55,7 +55,7 @@ Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `test
 
 **Target:** one application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
 
-**Current Compose:** a single **`workspace`** service (Python + uv, repo bind-mounted) used to bootstrap the project via `just shell` / `just run` / sandbox equivalents. Postgres and application services are not defined yet—see [local-development.md](local-development.md).
+**Current Compose:** **`workspace`** (Python + uv, repo bind-mounted) for bootstrap/`just shell` / MCP, and **`ui`** (Compose profile `ui`) running Streamlit **Query intake** (`paper_reviewer.ui` → `schemas/query_intake`). Postgres and Prefect are not defined yet—see [local-development.md](local-development.md).
 
 ## Target tree
 

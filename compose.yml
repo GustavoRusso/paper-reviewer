@@ -10,3 +10,31 @@ services:
       timeout: 3s
       retries: 5
       start_period: 5s
+
+  # Query intake Streamlit UI (same image, different command).
+  # Enabled only with --profile ui (see just up) so sandbox stays workspace-only.
+  ui:
+    profiles: ["ui"]
+    build: .
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    ports:
+      - "8501:8501"
+    command:
+      [
+        "uv",
+        "run",
+        "streamlit",
+        "run",
+        "src/paper_reviewer/ui/app.py",
+        "--server.address=0.0.0.0",
+        "--server.port=8501",
+        "--server.headless=true",
+      ]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 60s

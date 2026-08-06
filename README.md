@@ -34,9 +34,21 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 ## Getting started
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
-2. Run the stack with `just`: [docs/local-development.md](docs/local-development.md)
+2. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
+3. Open the services listed above (start with **Query intake**)
+
+### Optional but recommended prerequisites:
+
+Configure NCBI API key from NCBI account settings.
+Without a key, E-utilities allow ~3 requests/sec; with a key, ~10/sec.
+Pass it as api_key= — current code does not auto-read .dlt/secrets.toml
 
 
 
+## Services
 
+After `just up`, these services are available:
 
+| Service | URL | Description |
+| --- | --- | --- |
+| Query intake | [http://localhost:8501](http://localhost:8501) | Streamlit UI to submit a research query |
