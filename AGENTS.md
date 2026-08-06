@@ -11,11 +11,13 @@ Agent shells run on the **host**, not inside Docker. This project does **not** i
 **Never** run on the host:
 
 - `uv` / `uvx`
-- `python` / `pytest`
+- `python` / `pytest` / `pip`
 - `dlthub`
 - raw `docker compose` (use `just` recipes instead)
+- any command that needs Python, including pipes like `curl … | python -c "…"` and other one-liners
+- API connectivity or endpoint debugging that parses JSON with Python (PubMed E-utilities probes, smoke checks, etc.)
 
-**Always** use `just` recipes. Host tools allowed: `just`, `docker` / `docker compose` only when a recipe wraps them, and `git`.
+**Always** use `just` recipes so the command runs inside the Compose `workspace` container. Host tools allowed: `just`, `docker` / `docker compose` only when a recipe wraps them, and `git`.
 
 List recipes and descriptions: `just`. Recipe definitions: [justfile](justfile).
 
@@ -25,6 +27,13 @@ If a skill, toolkit, or third-party doc says `uv run …`, wrap it:
 just run "uv run …"
 # or for disposable work:
 just sandbox-run "uv run …"
+```
+
+Same rule for ad-hoc probes and scripts (quote the whole in-container command):
+
+```bash
+just sandbox-run "curl -sS 'https://example.com/api' | python -c 'import sys,json; print(json.load(sys.stdin))'"
+just sandbox-run "uv run python scripts/smoke_search_related_papers.py"
 ```
 
 Do **not** install `uv` or Python on the host to satisfy those docs. Prefer the **sandbox** for disposable agent work; keep the persistent app (`just up`) for long-lived MCP.
