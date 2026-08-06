@@ -12,19 +12,16 @@ SESSION_KEY = "research_query"
 
 def render_query_intake() -> None:
     """Render the Query intake form and show the accepted research query."""
-    st.set_page_config(
-        page_title="New Topic brief generation", page_icon=None, layout="centered"
-    )
-    st.title("Topic brief generation")
+    st.title("New Topic brief")
     st.write(
-        "Start a cited topic brief by completing Query intake: "
-        "provide a research query specifying what to investigate."
+        "This form starts Topic brief generation. After you submit a research query, "
+        "the assistant analyzes its scope, searches paper sources for related papers, "
+        "lets you triage which results to keep, builds a paper brief for each retained "
+        "paper, and drafts a cited topic brief that explains what is currently known."
     )
-
-    st.subheader("Query intake")
     with st.form("query_intake_form"):
         raw_text = st.text_area(
-            "Research query",
+            "Define the topic and research scope",
             height=160,
             placeholder="e.g. GLP-1 agonists in heart failure with preserved ejection fraction",
         )

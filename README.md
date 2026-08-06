@@ -35,7 +35,7 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
 2. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
-3. Open the services listed below (start with **Topic brief generation**)
+3. Open the services listed below (start on the landing page, then create a **Topic brief**)
 
 ### Optional but recommended prerequisites:
 
@@ -51,5 +51,5 @@ After `just up`, these services are available:
 
 | Service | URL | Description |
 | --- | --- | --- |
-| Topic brief generation | [http://localhost:8501](http://localhost:8501) | Streamlit UI; starts with Query intake to submit a research query |
+| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) | Streamlit UI; landing page links to create a new Topic brief (Query intake) |
 | PostgreSQL | `localhost:5432` | App relational database (local-dev credentials in [docs/local-development.md](docs/local-development.md)) |

@@ -9,7 +9,7 @@ Do **not** run `docker compose`, language runtimes, or package managers on the h
 Compose defines:
 
 - **`workspace`** — Python 3.12 + uv image with the repository bind-mounted at `/workspace` (agents, MCP, `just shell` / `just run`). Unprofiled so it starts with both `just up` and `just sandbox`.
-- **`ui`** — same image, Streamlit **Topic brief generation** UI on port **8501** (Compose profile `app`; started by `just up`).
+- **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up`).
 - **`db`** — PostgreSQL 16 on port **5432** (Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
 
 There is no Prefect service yet.
@@ -18,13 +18,13 @@ Local-dev database defaults (override via host `.env` if needed): user / passwor
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open **Topic brief generation** at [http://localhost:8501](http://localhost:8501). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` for one service.
+After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` for one service.
 
 ## Agent shells
 
 Coding-agent terminals (Cursor, Claude Code, Codex, and similar) run on the **host**, not inside the Compose container. The Linux `.venv` and `uv` binary exist only in the image, so host `uv` / `python` / `pytest` will fail.
 
-Follow [AGENTS.md](../AGENTS.md): wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Topic brief generation UI so `just sandbox-down` does not tear them down.
+Follow [AGENTS.md](../AGENTS.md): wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Paper Reviewer UI so `just sandbox-down` does not tear them down.
 
 The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect, seeding, and `just reset` will be added later.
 
