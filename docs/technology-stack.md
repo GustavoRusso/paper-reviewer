@@ -2,10 +2,11 @@
 
 Agents use this document when choosing libraries or structuring features. It is the single source of truth for the **application** runtime stack.
 
-Host tooling (Docker Desktop, `just`), repo layout, and local recipes live elsewhere:
+Host tooling (Docker Desktop, `just`), repo layout, and local workflows live elsewhere:
 
 - [host-requirements.md](host-requirements.md) — what belongs on the host
-- [local-development.md](local-development.md) — `just` recipes and app vs sandbox
+- [justfile](../justfile) — recipe definitions (`just` to list them)
+- [local-development.md](local-development.md) — app vs sandbox lifecycle
 - [project-structure.md](project-structure.md) — package layout and what enters production images
 
 All stack components below run **inside Docker images**. Do not install Python, uv, or app frameworks on the host. Bootstrap and package work happens in the Compose `workspace` image via `just shell` / `just sandbox-shell` ([local-development.md](local-development.md)).
@@ -56,4 +57,4 @@ flowchart TB
 
 ## Out of scope here
 
-Install steps, Compose projects, and `just` recipes are not documented in this file. See [host-requirements.md](host-requirements.md) and [local-development.md](local-development.md). The TDD process for agents is in [tdd.md](tdd.md).
+Install steps, Compose projects, and `just` recipes are not documented in this file. See [host-requirements.md](host-requirements.md), [justfile](../justfile), and [local-development.md](local-development.md). The TDD process for agents is in [tdd.md](tdd.md).
