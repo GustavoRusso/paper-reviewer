@@ -51,6 +51,6 @@ sandbox-shell: sandbox
 sandbox-run *args: sandbox
     {{compose}} -p {{sandbox_project}} exec -T workspace sh -c '{{args}}'
 
-# Run pytest in the sandbox (optional path/args; exit 5 = no tests = success)
+# Run pytest in the sandbox (optional path/args; fails if no tests collected)
 test *args: sandbox
-    {{compose}} -p {{sandbox_project}} exec -T workspace sh -c 'uv run pytest {{args}}; e=$?; [ "$e" -eq 0 ] || [ "$e" -eq 5 ]'
+    {{compose}} -p {{sandbox_project}} exec -T workspace sh -c 'uv run pytest {{args}}'
