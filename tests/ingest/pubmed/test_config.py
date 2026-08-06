@@ -8,8 +8,11 @@ from urllib.parse import parse_qs, urlparse
 import responses
 from dlt.sources.rest_api import rest_api_resources
 
+import pytest
+
 from paper_reviewer.ingest.pubmed.config import (
     EUTILS_BASE_URL,
+    _flatten_esummary_docsums,
     build_pubmed_rest_api_config,
 )
 
@@ -102,6 +105,37 @@ def test_config_targets_eutils_esearch_then_esummary() -> None:
     assert child_params["retmode"] == "json"
     assert child_params["WebEnv"] == "{resources.esearch.webenv}"
     assert child_params["query_key"] == "{resources.esearch.querykey}"
+    assert child_params["retmax"] == 10
+
+
+def test_esummary_retmax_defaults_to_20_when_caller_omits_retmax() -> None:
+    config = build_pubmed_rest_api_config(term="CRISPR")
+    esearch = _resource_by_name(config, "esearch")
+    assert "retmax" not in esearch["endpoint"]["params"]
+    esummary = _resource_by_name(config, "esummary")
+    assert esummary["endpoint"]["params"]["retmax"] == 20
+
+
+def test_esummary_retmax_capped_at_500_for_json() -> None:
+    config = build_pubmed_rest_api_config(term="CRISPR", retmax=1000)
+    esearch = _resource_by_name(config, "esearch")
+    assert esearch["endpoint"]["params"]["retmax"] == 1000
+    esummary = _resource_by_name(config, "esummary")
+    assert esummary["endpoint"]["params"]["retmax"] == 500
+
+
+def test_flatten_esummary_raises_on_ncbi_json_error() -> None:
+    class _FakeResponse:
+        def json(self) -> dict[str, Any]:
+            return {
+                "error": (
+                    "Too many UIDs in request. "
+                    "Maximum number of UIDs is 500 for JSON format output."
+                )
+            }
+
+    with pytest.raises(RuntimeError, match="Too many UIDs"):
+        _flatten_esummary_docsums(_FakeResponse())
 
 
 def test_config_includes_api_key_in_query_when_provided() -> None:
@@ -170,3 +204,4 @@ def test_stubbed_http_yields_real_shaped_docsums_via_history() -> None:
         assert esummary_qs["WebEnv"] == ["MCID_TEST_HISTORY"]
         assert esummary_qs["query_key"] == ["1"]
         assert esummary_qs["api_key"] == ["TESTKEY"]
+        assert esummary_qs["retmax"] == ["2"]

@@ -8,6 +8,10 @@ from typing import Any
 from dlt.sources.rest_api.typing import RESTAPIConfig
 
 EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+# NCBI JSON ESummary rejects requests larger than this.
+ESUMMARY_JSON_RETMAX_CAP = 500
+# Used when caller omits retmax so History mode never fetches the full set.
+ESUMMARY_DEFAULT_RETMAX = 20
 
 
 def build_pubmed_rest_api_config(
@@ -28,6 +32,14 @@ def build_pubmed_rest_api_config(
         esearch_params["retmax"] = retmax
     if sort is not None:
         esearch_params["sort"] = sort
+
+    # History stores the full hit set; ESummary must pass retmax or NCBI tries
+    # to return every UID (JSON max 500).
+    esummary_retmax = (
+        ESUMMARY_DEFAULT_RETMAX
+        if retmax is None
+        else min(retmax, ESUMMARY_JSON_RETMAX_CAP)
+    )
 
     client: dict[str, Any] = {"base_url": EUTILS_BASE_URL}
     if api_key is not None:
@@ -57,6 +69,7 @@ def build_pubmed_rest_api_config(
                     "params": {
                         "db": "pubmed",
                         "retmode": "json",
+                        "retmax": esummary_retmax,
                         "WebEnv": "{resources.esearch.webenv}",
                         "query_key": "{resources.esearch.querykey}",
                     },
@@ -72,6 +85,9 @@ def build_pubmed_rest_api_config(
 def _flatten_esummary_docsums(response: Any, *args: Any, **kwargs: Any) -> Any:
     """Rewrite ESummary JSON so DocSums are a list under ``docsums``."""
     payload = response.json()
+    error = payload.get("error")
+    if error:
+        raise RuntimeError(str(error))
     result = payload.get("result") or {}
     uids = result.get("uids") or []
     records = [result[uid] for uid in uids if isinstance(result.get(uid), dict)]

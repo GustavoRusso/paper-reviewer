@@ -93,6 +93,7 @@ Recommended sequence per strategy:
 - URL-encode `term`; avoid raw spaces (use `+` or encoding).
 - Boolean operators must be uppercase.
 - Prefer History for large result sets instead of huge `id` lists on every call.
+- ESearch `retmax` only truncates the `idlist` in the ESearch response; with `usehistory=y` the History set still holds **all** matching UIDs. ESummary via History **must** pass `retmax` (capped at **500** for JSON). Omitting it makes NCBI try to return the full History set and fail with a JSON `error` for large queries.
 
 ## DocSum → `PaperCandidate`
 
