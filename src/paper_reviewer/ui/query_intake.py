@@ -1,4 +1,4 @@
-"""Query intake Streamlit page."""
+"""Query intake Streamlit page (first step of topic brief generation)."""
 
 from __future__ import annotations
 
@@ -12,13 +12,16 @@ SESSION_KEY = "research_query"
 
 def render_query_intake() -> None:
     """Render the Query intake form and show the accepted research query."""
-    st.set_page_config(page_title="Query intake", page_icon=None, layout="centered")
-    st.title("Query intake")
+    st.set_page_config(
+        page_title="New Topic brief generation", page_icon=None, layout="centered"
+    )
+    st.title("Topic brief generation")
     st.write(
-        "Provide a research query specifying what to investigate. "
-        "This is the first step toward a cited topic brief."
+        "Start a cited topic brief by completing Query intake: "
+        "provide a research query specifying what to investigate."
     )
 
+    st.subheader("Query intake")
     with st.form("query_intake_form"):
         raw_text = st.text_area(
             "Research query",
