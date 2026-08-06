@@ -12,6 +12,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pytest",
+    "responses>=0.26.2",
 ]
 
 [build-system]
