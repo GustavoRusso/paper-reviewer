@@ -1,6 +1,50 @@
-# Agent documentation map
+# Agent operating instructions
 
-This file is for coding agents. Humans use [README.md](README.md) for a quick product introduction; agents use this map to find the right documentation and keep it accurate.
+This file is the single entry point for every coding agent (Cursor, Claude Code, Codex, and similar). Humans use [README.md](README.md) for a short product introduction.
+
+It overrides tool-specific skills that assume a host `uv` install (including dltHub Cursor rules).
+
+## CLI policy (mandatory)
+
+Agent shells run on the **host**, not inside Docker. This project does **not** install `uv`, Python, or app tooling on the host.
+
+**Never** run on the host:
+
+- `uv` / `uvx`
+- `python` / `pytest`
+- `dlthub`
+- raw `docker compose` (use `just` recipes instead)
+
+**Always** use `just` recipes. Host tools allowed: `just`, `docker` / `docker compose` only when a recipe wraps them, and `git`.
+
+| Intent | Recipe |
+| --- | --- |
+| Arbitrary command (persistent app) | `just run "…"` |
+| Arbitrary command (disposable sandbox) | `just sandbox-run "…"` |
+| Tests | `just test` or `just test path/to/test.py` |
+| Interactive shell | `just shell` / `just sandbox-shell` |
+
+Examples:
+
+```bash
+just run "uv run dlthub ai status"
+just sandbox-run "uv run pytest tests/search -q"
+just test
+```
+
+If a skill, toolkit, or third-party doc says `uv run …`, wrap it:
+
+```bash
+just run "uv run …"
+# or for disposable work:
+just sandbox-run "uv run …"
+```
+
+Do **not** install `uv` or Python on the host to satisfy those docs. Prefer the **sandbox** for disposable agent work; keep the persistent app (`just up`) for long-lived MCP.
+
+Recipe details: [docs/local-development.md](docs/local-development.md).
+
+Host tooling: [docs/host-requirements.md](docs/host-requirements.md).
 
 ## Documentation layout
 
@@ -19,7 +63,7 @@ This file is for coding agents. Humans use [README.md](README.md) for a quick pr
 | Document | Description | When to use |
 | --- | --- | --- |
 | [docs/host-requirements.md](docs/host-requirements.md) | Install Docker Desktop and `just` on the host | Before first local setup; whenever host tooling is missing or version guidance changes |
-| [docs/local-development.md](docs/local-development.md) | Persistent app vs ephemeral sandbox; `just` recipes; `shell` / `sandbox-shell` for in-container bootstrap; **dltHub workspace + Cursor MCP enable checklist** | After host tools are installed; whenever starting the workspace, opening a shell to create/modify the Python project, managing app vs sandbox, or enabling dlt-workspace-mcp |
+| [docs/local-development.md](docs/local-development.md) | Persistent app vs ephemeral sandbox; `just` recipes including `run` / `sandbox-run`; agent shells; **dltHub workspace + Cursor MCP enable checklist** | After host tools are installed; whenever starting the workspace, opening a shell to create/modify the Python project, managing app vs sandbox, or enabling dlt-workspace-mcp |
 | [docs/technology-stack.md](docs/technology-stack.md) | App runtime stack: Python, uv, Postgres, dlt/dltHub, SQLAlchemy/Alembic, Streamlit, Prefect | When adding libraries or structuring features across UI, ingest, DB, and jobs |
 | [docs/project-structure.md](docs/project-structure.md) | Repo layout, deploy vs local-only paths, `pyproject.toml` placement, package module map | When adding packages/modules, deciding what Docker images copy, or where to put ORM/UI/ingest/flow code |
 | [docs/tdd.md](docs/tdd.md) | Test-First Spec Implementation (TDD): write failing tests, implement, refactor, then wire into the app | When implementing features, behavior changes, or bug fixes under `src/paper_reviewer/` |

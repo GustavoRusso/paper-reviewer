@@ -8,7 +8,21 @@ Do **not** run `docker compose`, language runtimes, or package managers on the h
 
 Compose currently defines a single **`workspace`** service: a Python 3.12 + uv image with the repository bind-mounted at `/workspace`. There is no Postgres or application (`app`) service yet.
 
-Use `just shell` / `just sandbox-shell` to run commands that create or modify the project (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
+Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
+
+## Agent shells
+
+Coding-agent terminals (Cursor, Claude Code, Codex, and similar) run on the **host**, not inside the Compose container. The Linux `.venv` and `uv` binary exist only in the image, so host `uv` / `python` / `pytest` will fail.
+
+Follow [AGENTS.md](../AGENTS.md): wrap every in-container command with `just`:
+
+```bash
+just run "uv run dlthub ai status"
+just sandbox-run "uv run pytest tests/search -q"
+just test
+```
+
+Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP so `just sandbox-down` does not tear it down.
 
 Postgres, Streamlit/Prefect app services, seeding, and `just reset` will be added later.
 
@@ -52,6 +66,7 @@ just
 | `just logs` | Follow logs (`just logs workspace` is the default). |
 | `just status` | Show container status. |
 | `just shell` | Auto-start if needed, then open an interactive bash in `workspace`. |
+| `just run "…"` | Auto-start if needed, then run a non-interactive command in `workspace` (`exec -T`). |
 
 ### Ephemeral sandbox
 
@@ -60,9 +75,10 @@ just
 | `just sandbox` | Build/start a clean sandbox `workspace`; wait until healthy. |
 | `just sandbox-down` | Tear down the sandbox and **delete its volumes**. |
 | `just sandbox-shell` | Auto-start if needed, then open an interactive bash in the sandbox `workspace`. |
+| `just sandbox-run "…"` | Auto-start if needed, then run a non-interactive command in the sandbox `workspace` (`exec -T`). |
 | `just test` | Run pytest in the sandbox (`just test` or `just test path/to/test.py`). Auto-starts the sandbox if needed. |
 
-Agents should prefer `just sandbox` / `just sandbox-shell` for disposable work so the persistent app project stays untouched when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md).
+Agents should prefer `just sandbox` / `just sandbox-run` / `just test` for disposable work so the persistent app project stays untouched when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md). For the cross-tool CLI harness, see [AGENTS.md](../AGENTS.md).
 
 ## dltHub workspace and Cursor AI workbench
 
@@ -87,10 +103,10 @@ That creates/updates the workspace marker, `.dlt` config, Cursor skills/rules un
 Re-check status anytime:
 
 ```bash
-just sandbox-shell
-# then:
-uv run dlthub ai status
+just sandbox-run "uv run dlthub ai status"
 ```
+
+Or with an interactive shell: `just sandbox-shell`, then `uv run dlthub ai status`.
 
 ### Enable the dlt-workspace-mcp server in Cursor (manual)
 

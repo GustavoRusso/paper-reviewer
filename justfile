@@ -29,6 +29,11 @@ status:
 shell: up
     {{compose}} -p {{app_project}} exec -it workspace bash
 
+# Non-interactive command in the persistent app workspace (auto-starts if needed)
+# Example: just run "uv run dlthub ai status"
+run *args: up
+    {{compose}} -p {{app_project}} exec -T workspace sh -c '{{args}}'
+
 # Build/start a clean sandbox workspace; wait until healthy
 sandbox:
     {{compose}} -p {{sandbox_project}} up -d --build --wait
@@ -40,6 +45,11 @@ sandbox-down:
 # Interactive shell in the sandbox workspace (auto-starts if needed)
 sandbox-shell: sandbox
     {{compose}} -p {{sandbox_project}} exec -it workspace bash
+
+# Non-interactive command in the sandbox workspace (auto-starts if needed)
+# Example: just sandbox-run "uv run pytest tests/search -q"
+sandbox-run *args: sandbox
+    {{compose}} -p {{sandbox_project}} exec -T workspace sh -c '{{args}}'
 
 # Run pytest in the sandbox (optional args forwarded to pytest)
 # Exit code 5 (no tests collected) is treated as success for an empty suite.

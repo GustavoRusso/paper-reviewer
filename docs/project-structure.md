@@ -37,7 +37,7 @@ flowchart TB
   subgraph localOnly [Repo-only / not in prod images]
     testsDir["tests/"]
     docsDir["docs/"]
-    hostTools["justfile, agent.md, README.md"]
+    hostTools["justfile, AGENTS.md, README.md"]
     composeFiles["compose.yml, .env examples"]
   end
 
@@ -49,13 +49,13 @@ flowchart TB
 | --- | --- | --- |
 | **Runtime (deployed)** | `src/paper_reviewer/`, `alembic/`, `alembic.ini`, `pyproject.toml`, `uv.lock` | What production containers need to run the UI, flows, ingest, and migrations |
 | **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile` | Image build and local workflows on the host; not application runtime code |
-| **Development-only** | `tests/`, `docs/`, `agent.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, and agent guidance; exclude from production images |
+| **Development-only** | `tests/`, `docs/`, `AGENTS.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, and agent guidance; exclude from production images |
 
-Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `agent.md`, `.git/`, and similar paths.
+Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `AGENTS.md`, `.git/`, and similar paths.
 
 **Target:** one application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
 
-**Current Compose:** a single **`workspace`** service (Python + uv, repo bind-mounted) used to bootstrap the project via `just shell` / `just sandbox-shell`. Postgres and application services are not defined yet—see [local-development.md](local-development.md).
+**Current Compose:** a single **`workspace`** service (Python + uv, repo bind-mounted) used to bootstrap the project via `just shell` / `just run` / sandbox equivalents. Postgres and application services are not defined yet—see [local-development.md](local-development.md).
 
 ## Target tree
 
@@ -88,7 +88,7 @@ paper-reviewer/
 ├── pyproject.toml
 ├── uv.lock
 ├── README.md
-└── agent.md
+└── AGENTS.md
 ```
 
 Tests live under `tests/` and mirror the package layout. Agents write those specs first when changing app behavior—see [tdd.md](tdd.md).
