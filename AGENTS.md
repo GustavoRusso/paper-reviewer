@@ -57,7 +57,7 @@ Host tooling: [docs/host-requirements.md](docs/host-requirements.md). App vs san
 | Document | Description | When to use |
 | --- | --- | --- |
 | [docs/host-requirements.md](docs/host-requirements.md) | Install Docker Desktop and `just` on the host | Before first local setup; whenever host tooling is missing or version guidance changes |
-| [docs/local-development.md](docs/local-development.md) | Persistent app vs ephemeral sandbox; agent shells; dltHub workspace + Cursor MCP enable checklist | After host tools are installed; whenever starting the workspace, opening a shell to create/modify the Python project, managing app vs sandbox, or enabling dlt-workspace-mcp |
+| [docs/local-development.md](docs/local-development.md) | Persistent app vs ephemeral sandbox; agent shells; Alembic migrations; dltHub workspace + Cursor MCP enable checklist | After host tools are installed; whenever starting the workspace, opening a shell to create/modify the Python project, managing app vs sandbox, applying DB migrations, or enabling dlt-workspace-mcp |
 | [docs/technology-stack.md](docs/technology-stack.md) | App runtime stack: Python, uv, Postgres, dlt/dltHub, SQLAlchemy/Alembic, Streamlit, Prefect | When adding libraries or structuring features across UI, ingest, DB, and jobs |
 | [docs/project-structure.md](docs/project-structure.md) | Repo layout, deploy vs local-only paths, `pyproject.toml` placement, package module map | When adding packages/modules, deciding what Docker images copy, or where to put ORM/UI/ingest/flow code |
 | [docs/tdd.md](docs/tdd.md) | Test-First Spec Implementation (TDD): write failing tests, implement, refactor, then wire into the app | When implementing features, behavior changes, or bug fixes under `src/paper_reviewer/` |

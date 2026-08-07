@@ -1,0 +1,6 @@
+Alembic migrations for Paper Reviewer.
+
+Configuration: repo-root `alembic.ini`. Environment: `alembic/env.py` (uses
+`DATABASE_URL` and `paper_reviewer.models` metadata).
+
+How to run migrations locally: see [docs/local-development.md](../docs/local-development.md).
