@@ -33,6 +33,21 @@ services:
       retries: 10
       start_period: 10s
 
+  # One-shot: apply Alembic migrations before UI (and other app services) start.
+  migrate:
+    profiles: ["app"]
+    build: .
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      DATABASE_URL: postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["uv", "run", "alembic", "upgrade", "head"]
+    restart: "no"
+
   ui:
     profiles: ["app"]
     build: .
@@ -46,6 +61,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     command:
       [
         "uv",

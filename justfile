@@ -9,9 +9,14 @@ app_project := "paper-reviewer"
 sandbox_project := "paper-reviewer-sandbox"
 compose := "docker compose"
 
-# Build/start the persistent app stack (workspace + app profile: UI + Postgres); wait until healthy
+# Build/start the persistent app stack (workspace + app profile: migrate + UI + Postgres); wait until healthy
 up:
     {{compose}} -p {{app_project}} --profile app up -d --build --wait
+
+# Apply Alembic migrations to app Postgres (idempotent; also runs automatically on just up)
+migrate:
+    {{compose}} -p {{app_project}} --profile app up -d --build --wait db
+    {{compose}} -p {{app_project}} --profile app run --rm --build migrate
 
 # Stop the persistent app stack; volumes are preserved
 down:

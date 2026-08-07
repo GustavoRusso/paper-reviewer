@@ -9,25 +9,28 @@ Do **not** run `docker compose`, language runtimes, or package managers on the h
 Compose defines:
 
 - **`workspace`** — Python 3.12 + uv image with the repository bind-mounted at `/workspace` (agents, MCP, `just shell` / `just run`). Unprofiled so it starts with both `just up` and `just sandbox`.
-- **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up`).
 - **`db`** — PostgreSQL 16 on port **5432** (Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
+- **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
+- **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up` after `migrate` succeeds).
 
 There is no Prefect service yet.
 
 Local-dev database defaults (override via host `.env` if needed): user / password / database `paper_reviewer`. From other containers use hostname `db` and `DATABASE_URL=postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer`. From the host: `localhost:5432`.
 
-Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose already sets it on `workspace` and `ui`. Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose already sets it on `workspace`, `migrate`, and `ui`. Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
 ### Schema migrations (Alembic)
 
-Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). Apply them against the **app** Postgres (`just up` so `db` is healthy), not the sandbox (sandbox has no `db` service):
+Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). The **app** stack applies them automatically: `just up` starts `db`, runs the `migrate` service to `alembic upgrade head`, then starts `ui`. The sandbox has no `db` / `migrate` services.
+
+Manual / one-off apply (idempotent):
 
 ```bash
-just run "uv run alembic upgrade head"
+just migrate
 just run "uv run alembic current"
 ```
 
-Generate a new revision after model changes (review the file before applying):
+Generate a new revision after model changes (review the file before applying; then `just up` or `just migrate`):
 
 ```bash
 just run "uv run alembic revision --autogenerate -m 'describe change'"
