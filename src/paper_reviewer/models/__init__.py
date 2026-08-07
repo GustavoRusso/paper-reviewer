@@ -5,6 +5,7 @@ from paper_reviewer.models.topic_brief_generation import (
     TopicBriefGeneration,
     create_topic_brief_generation,
     get_topic_brief_generation_by_public_id,
+    start_topic_brief_from_query_intake,
 )
 
 __all__ = [
@@ -12,4 +13,5 @@ __all__ = [
     "TopicBriefGeneration",
     "create_topic_brief_generation",
     "get_topic_brief_generation_by_public_id",
+    "start_topic_brief_from_query_intake",
 ]

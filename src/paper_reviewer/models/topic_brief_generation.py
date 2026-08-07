@@ -10,6 +10,7 @@ from sqlalchemy.orm import Mapped, Session, mapped_column
 from sqlalchemy.types import Uuid
 
 from paper_reviewer.models.base import Base
+from paper_reviewer.schemas.query_intake import ResearchQuery, accept_query_intake
 
 
 class TopicBriefGeneration(Base):
@@ -56,3 +57,14 @@ def get_topic_brief_generation_by_public_id(
             TopicBriefGeneration.public_id == public_id
         )
     )
+
+
+def start_topic_brief_from_query_intake(
+    session: Session,
+    raw_text: str,
+) -> tuple[ResearchQuery, TopicBriefGeneration]:
+    """Validate Query intake text and persist a Topic brief generation."""
+    research_query = accept_query_intake(raw_text)
+    generation = create_topic_brief_generation(session, research_query.text)
+    session.flush()
+    return research_query, generation

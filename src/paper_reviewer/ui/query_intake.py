@@ -2,12 +2,24 @@
 
 from __future__ import annotations
 
+import uuid
+
 import streamlit as st
 from pydantic import ValidationError
+from sqlalchemy.orm import Session, sessionmaker
 
-from paper_reviewer.schemas.query_intake import ResearchQuery, accept_query_intake
+from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
+from paper_reviewer.models.topic_brief_generation import start_topic_brief_from_query_intake
+from paper_reviewer.schemas.query_intake import ResearchQuery
 
 SESSION_KEY = "research_query"
+PUBLIC_ID_KEY = "topic_brief_generation_public_id"
+
+
+@st.cache_resource
+def _session_factory() -> sessionmaker[Session]:
+    """Shared SQLAlchemy session factory for the Streamlit process."""
+    return create_session_factory(create_db_engine())
 
 
 def render_query_intake() -> None:
@@ -29,14 +41,24 @@ def render_query_intake() -> None:
 
     if submitted:
         try:
-            research_query = accept_query_intake(raw_text)
+            with session_scope(_session_factory()) as session:
+                research_query, generation = start_topic_brief_from_query_intake(
+                    session,
+                    raw_text,
+                )
         except ValidationError:
             st.error("Enter a non-empty research query.")
+        except Exception:
+            st.error("Could not start Topic brief generation. Try again.")
         else:
             st.session_state[SESSION_KEY] = research_query
-            st.success("Research query accepted.")
+            st.session_state[PUBLIC_ID_KEY] = generation.public_id
+            st.success("Topic brief generation started.")
 
     accepted: ResearchQuery | None = st.session_state.get(SESSION_KEY)
+    public_id: uuid.UUID | None = st.session_state.get(PUBLIC_ID_KEY)
     if accepted is not None:
         st.subheader("Accepted research query")
         st.write(accepted.text)
+        if public_id is not None:
+            st.caption(f"Reference id: `{public_id}`")
