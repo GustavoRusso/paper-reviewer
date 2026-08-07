@@ -16,6 +16,8 @@ There is no Prefect service yet.
 
 Local-dev database defaults (override via host `.env` if needed): user / password / database `paper_reviewer`. From other containers use hostname `db` and `DATABASE_URL=postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer`. From the host: `localhost:5432`.
 
+Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose already sets it on `workspace` and `ui`. Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
 After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` for one service.
