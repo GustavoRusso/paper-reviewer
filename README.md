@@ -20,7 +20,7 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — One end-to-end run of the workflow below (Topic intake through Topic brief). In the app this is a `TopicBriefGeneration` record that owns artifacts from each step.
 
-## Paper Sources
+## Paper sources
 
 The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 

@@ -22,7 +22,7 @@ Use a **single** [`pyproject.toml`](../pyproject.toml) at the **repository root*
 | Inside `src/` | **Forbidden.** `src/` holds importable packages only; tooling expects project metadata at the root. |
 | Multiple files (workspace / multi-package) | **Not used.** Domain areas share schemas and ORM models; split only if a piece later becomes a separately versioned product. |
 
-Domain boundaries are Python **subpackages** (`models`, `schemas`, `ingest`, `search`, `ui`, `flows`), not separate installable projects.
+Domain boundaries are Python **subpackages** (`models`, `schemas`, `topic_analysis`, `ingest`, `search`, `ui`, `flows`), not separate installable projects.
 
 ## Deploy boundary
 
@@ -55,7 +55,7 @@ Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `test
 
 **Target:** one application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
 
-**Current Compose:** **`workspace`** (Python + uv, repo bind-mounted, unprofiled) for bootstrap/`just shell` / MCP; under Compose profile `app` (started by `just up`): **`db`** (PostgreSQL), **`migrate`** (one-shot `alembic upgrade head`), and **`ui`** (Streamlit **Paper Reviewer** UI, waits for migrate). Prefect is not defined yet—see [local-development.md](local-development.md).
+**Current Compose services** (names, profiles, ports, migrate-before-ui): owned by [local-development.md](local-development.md). Do not restate that inventory here.
 
 ## Target tree
 
@@ -68,6 +68,7 @@ paper-reviewer/
 │       │   ├── __init__.py
 │       │   └── base.py           # DeclarativeBase, shared metadata
 │       ├── schemas/              # shared Pydantic models
+│       ├── topic_analysis/       # Topic analysis analyzer + persist helpers
 │       ├── ingest/               # dlt sources / resources (extract)
 │       ├── search/               # related-paper search orchestration / merge
 │       ├── ui/                   # Streamlit app entry + pages
@@ -78,6 +79,7 @@ paper-reviewer/
 ├── alembic.ini
 ├── tests/                        # mirrors package layout (not deployed)
 │   ├── models/
+│   ├── topic_analysis/
 │   ├── ingest/
 │   ├── search/
 │   ├── ui/
@@ -101,8 +103,9 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes only |
-| Pydantic | `paper_reviewer.schemas` | Shared validated shapes (topic statement, paper, brief, dlt resources) |
+| SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes only (e.g. `TopicBriefGeneration`, facet rows) |
+| Pydantic | `paper_reviewer.schemas` | Shared validated shapes: `TopicStatement`; `TopicFacet` / `TopicAnalysisResult` / `SearchCriteria` / source overrides / `RelatedPaperSearchResult` in `schemas.search`; `PaperCandidate` in `schemas.candidate`; future brief shapes. Topic analysis types live under `schemas.search` because search consumes them. |
+| Topic analysis | `paper_reviewer.topic_analysis` | Analyzer (`analyze_topic_statement` or equivalent) and persist helper (`run_topic_analysis` or equivalent). Behavior: [specs/topic-analysis.md](specs/topic-analysis.md). NER library: [technology-stack.md](technology-stack.md). |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
 | Related-paper search | `paper_reviewer.search` | Orchestration, registry, merge of `PaperCandidate` lists |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |

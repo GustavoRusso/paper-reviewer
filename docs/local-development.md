@@ -46,6 +46,18 @@ Coding-agent terminals (Cursor, Claude Code, Codex, and similar) run on the **ho
 
 Follow [AGENTS.md](../AGENTS.md): wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Paper Reviewer UI so `just sandbox-down` does not tear them down.
 
+### Running tests
+
+Use the sandbox (not host `pytest` / `uv`). Recipes start the sandbox workspace if needed:
+
+```bash
+just test
+just test tests/search -q
+just test tests/schemas/test_topic_intake.py -q
+```
+
+`just test` runs `uv run pytest` inside the sandbox `workspace` container. Pass optional path or pytest args after the recipe name. Equivalent ad-hoc form: `just sandbox-run "uv run pytest tests/search -q"`. Spec workflow: [tdd.md](tdd.md).
+
 The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect, seeding, and `just reset` will be added later.
 
 ## Two environments

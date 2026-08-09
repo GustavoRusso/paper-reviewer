@@ -1,6 +1,6 @@
 # Test-First Spec Implementation (TDD)
 
-Coding agents follow this workflow for every app behavior change. Test runner and stack boundaries: [technology-stack.md](technology-stack.md). Layout of `tests/`: [project-structure.md](project-structure.md). How to run tests: [local-development.md](local-development.md).
+Coding agents follow this workflow for every app behavior change. Test runner and stack boundaries: [technology-stack.md](technology-stack.md). Layout of `tests/`: [project-structure.md](project-structure.md). How to run tests (`just test` / sandbox): [local-development.md](local-development.md#running-tests).
 
 ## When this applies
 

@@ -13,7 +13,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
 | ESearch + ESummary against `db=pubmed` | EFetch / full abstract payloads for **paper briefs** |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
-| `source_overrides.pubmed` for fixtures | Topic analysis that generates criteria |
+| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`) or wrapping it into `SearchCriteria` |
 
 ## Source identity
 

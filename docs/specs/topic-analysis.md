@@ -170,6 +170,8 @@ If you run Topic analysis again for the same `TopicBriefGeneration`, replace the
 
 ## Orchestration boundary
 
+Package path for analyzer and persist helpers: `paper_reviewer.topic_analysis` — see [project-structure.md](../project-structure.md).
+
 | Responsibility | Owner |
 | --- | --- |
 | Change text into a `TopicAnalysisResult` | Analyzer (`analyze_topic_statement` or an equivalent function) |

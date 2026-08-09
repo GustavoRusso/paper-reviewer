@@ -62,6 +62,8 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 Source-agnostic contract so new providers plug in without changing this workflow’s input shape. [Topic analysis](topic-analysis.md) produces a `TopicAnalysisResult` (facet field rules and persistence owned there); this workflow wraps it in `SearchCriteria`. Tests may still inject full criteria manually.
 
+Illustrative `SearchCriteria` for search / fixtures (not the v1 Topic analysis emission shape — that step sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`; see [topic-analysis.md](topic-analysis.md)):
+
 ```json
 {
   "topic_analysis": {
@@ -184,6 +186,8 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 
 
 ## Example fixture (manual injection)
+
+Injected search criteria for tests — not produced by Topic analysis v1:
 
 ```json
 {
