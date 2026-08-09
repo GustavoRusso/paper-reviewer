@@ -27,7 +27,7 @@ This document specifies only step 2 (Topic analysis) for that `TopicBriefGenerat
 
 Related-paper search wraps the analysis result in `SearchCriteria`. See [related-paper-search.md](related-paper-search.md).
 
-For the technology stack, see [technology-stack.md](../technology-stack.md). That stack includes Pydantic schemas, SQLAlchemy persistence, and scispaCy for biomedical NER.
+For the application runtime stack, see [technology-stack.md](../technology-stack.md). This step specifies scispaCy (`en_core_sci_sm`) for biomedical NER; the stack document lists that library and points here for behavior.
 
 ## Scope
 

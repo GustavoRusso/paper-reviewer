@@ -31,9 +31,9 @@ For each generic `TopicFacet`, the PubMed adapter builds (or accepts) an Entrez 
 
 | Generic field | PubMed / Entrez mapping |
 | --- | --- |
-| `concepts` | Combined with `AND`; each concept searched in `[Title/Abstract]` unless also listed as MeSH (see below) |
+| `concepts` | Combined with `AND`; each concept searched in `[Title/Abstract]` by default |
 | `synonyms` | Grouped with the related concept using `OR` inside parentheses |
-| MeSH-oriented concepts | When a concept is known/intended as MeSH, use `[Mesh]` (or `[mh]`) — Topic analysis or overrides may mark this; structured default may treat `filters.mesh_terms` as MeSH if present |
+| MeSH (v1) | Topic analysis does **not** emit MeSH markup. Use `[Mesh]` (or `[mh]`) only for terms in `filters.mesh_terms`, or supply a full Entrez `term` via `source_overrides.pubmed` `raw_term` |
 | `date_from` / `date_to` | Publication date via `[pdat]` range (e.g. `2018:2024[pdat]`) |
 | `filters` | Only keys documented for PubMed (e.g. `mesh_terms`, `article_types` if added later); ignore unknown keys |
 | `retmax` | Passed to ESearch as `retmax` |
@@ -62,10 +62,10 @@ Suggested override shape (opaque to the workflow; defined here):
 
 Illustrative only — exact quoting/escaping is an implementation concern:
 
-1. For each concept, build a clause: `"concept"[Title/Abstract]` or `"concept"[Mesh]` when MeSH is indicated.
+1. For each concept, build a clause: `"concept"[Title/Abstract]`.
 2. Fold synonyms into the concept clause with `OR`.
 3. Join concept clauses with `AND`.
-4. Append date range and supported filters with `AND`.
+4. Append `filters.mesh_terms` (if any) as `[Mesh]` clauses, then date range and other supported filters, with `AND`.
 5. Result is the ESearch `term`.
 
 ## API approach
@@ -86,16 +86,20 @@ Recommended sequence per facet:
 2. ESummary via History server (`WebEnv`, `query_key`) or batched `id` lists.
 3. Map each DocSum to a `PaperCandidate`.
 
-### Operational constraints
+### Operational constraints (NCBI API key and rate limits)
+
+This document owns PubMed/NCBI operational detail (README links here).
 
 - Prefer an NCBI **API key** (higher rate limits); include `api_key` on requests when configured.
-- Respect NCBI usage guidelines (rate limits without/with key).
+- Without a key, E-utilities allow about 3 requests/sec; with a key, about 10/sec. Respect NCBI usage guidelines.
 - URL-encode `term`; avoid raw spaces (use `+` or encoding).
 - Boolean operators must be uppercase.
 - Prefer History for large result sets instead of huge `id` lists on every call.
 - ESearch `retmax` only truncates the `idlist` in the ESearch response; with `usehistory=y` the History set still holds **all** matching UIDs. ESummary via History **must** pass `retmax` (capped at **500** for JSON). Omitting it makes NCBI try to return the full History set and fail with a JSON `error` for large queries.
 
 ## DocSum → `PaperCandidate`
+
+Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-paper-search.md](../related-paper-search.md). Do not invent extra candidate fields here.
 
 | `PaperCandidate` field | PubMed source |
 | --- | --- |
@@ -105,7 +109,7 @@ Recommended sequence per facet:
 | `title` | DocSum title |
 | `authors` | DocSum author list |
 | `journal` | DocSum source / full journal name when available |
-| `published_year` / date | DocSum pubdate / epubdate |
+| `published_year` | Year parsed from DocSum pubdate / epubdate when available |
 | `url` | `https://pubmed.ncbi.nlm.nih.gov/<pmid>/` |
 | `snippet` | Only if DocSum provides a usable short text; otherwise omit |
 | `facet_id` | Facet id from `SearchCriteria.topic_analysis` |
@@ -119,13 +123,15 @@ Retained candidates are fetched later (paper briefs) using:
 
 Related-paper search does not call EFetch.
 
-## dlt resource (intent)
+## dlt resource
 
-Future `paper_reviewer.ingest` exposes a PubMed dlt source/resource that:
+`paper_reviewer.ingest.pubmed` exposes a PubMed dlt source/resource that:
 
 1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
-3. Yields `PaperCandidate`-shaped rows for the workflow merge step.
+3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.search`.
+
+This step extracts candidates in memory for the workflow; it does not load them into Postgres.
 
 ## Behavior notes
 

@@ -4,7 +4,7 @@ Workflow step 3 from [README.md](../../README.md): search registered **paper sou
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
-Stack context: [technology-stack.md](../technology-stack.md) (dlt + Pydantic, Prefect later).
+Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect planned). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
 
 ## Scope
 
@@ -15,12 +15,13 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt + Pydantic, Pr
 | Run extract via **dlt** for each registered paper source                           | Implementing ingest/flows/UI code in this doc                               |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Building **paper briefs** or calling full-record fetch (e.g. PubMed EFetch) |
 | Fail-soft when one source errors                                                   | Adding new paper sources beyond registering them here                       |
+|                                                                                    | Loading candidates into Postgres (not part of this step today)              |
 
 
 
 ### `PaperCandidate` shape
 
-Every paper source must map its API hit into a shared `PaperCandidate` with two concerns kept distinct.
+Every paper source must map its API hit into a shared `PaperCandidate` with two concerns kept distinct. This document owns the candidate contract; each [paper-sources/](paper-sources/) doc only maps its API fields onto these names.
 
 **Source fetch handle** (required for later steps)
 
@@ -37,14 +38,14 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 **Summary** (for triage only)
 
 
-| Field                   | Description                                                                                              |
-| ----------------------- | -------------------------------------------------------------------------------------------------------- |
-| `title`                 | Title                                                                                                    |
-| `authors`               | List of author names                                                                                     |
-| `journal`               | Journal or venue                                                                                         |
-| `published_year` / date | Publication year or date when available                                                                  |
-| `url`                   | Canonical link on the source (e.g. PubMed URL)                                                           |
-| `snippet`               | Optional short text only if the search API already returns it — not a substitute for paper-brief content |
+| Field            | Description                                                                                              |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| `title`          | Title                                                                                                    |
+| `authors`        | List of author names                                                                                     |
+| `journal`        | Journal or venue                                                                                         |
+| `published_year` | Publication year when available                                                                          |
+| `url`            | Canonical link on the source (e.g. PubMed URL)                                                           |
+| `snippet`        | Optional short text only if the search API already returns it — not a substitute for paper-brief content |
 
 
 **Provenance**
@@ -59,7 +60,7 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 ## Input: generic `SearchCriteria`
 
-Source-agnostic contract so new providers plug in without changing this workflow’s input shape. [Topic analysis](topic-analysis.md) produces a `TopicAnalysisResult` (facet persistence owned there); this workflow wraps it in `SearchCriteria`. Tests may still inject full criteria manually.
+Source-agnostic contract so new providers plug in without changing this workflow’s input shape. [Topic analysis](topic-analysis.md) produces a `TopicAnalysisResult` (facet field rules and persistence owned there); this workflow wraps it in `SearchCriteria`. Tests may still inject full criteria manually.
 
 ```json
 {
@@ -68,7 +69,7 @@ Source-agnostic contract so new providers plug in without changing this workflow
       {
         "id": "core-concepts",
         "label": "Core concepts",
-        "intent": "Narrow topical match",
+        "intent": "Narrow topical match from biomedical entities",
         "concepts": ["glioblastoma", "immunotherapy"],
         "synonyms": ["GBM"],
         "date_from": "2018-01-01",
@@ -91,19 +92,10 @@ Source-agnostic contract so new providers plug in without changing this workflow
 ```
 
 
-| Field                                              | Required | Description                                                                             |
-| -------------------------------------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `topic_analysis`                                   | Yes      | `TopicAnalysisResult` from Topic analysis (or a test fixture)                           |
-| `topic_analysis.facets`                            | Yes      | One or more named facets; each may yield candidates tagged with `facet_id`              |
-| `topic_analysis.facets[].id`                       | Yes      | Stable id used as `facet_id` on candidates                                              |
-| `topic_analysis.facets[].label`                    | Yes      | Human-readable label for UI / logs                                                      |
-| `topic_analysis.facets[].intent`                   | No       | Free-text note for humans / later analysis                                              |
-| `topic_analysis.facets[].concepts`                 | No       | Primary topic terms                                                                     |
-| `topic_analysis.facets[].synonyms`                 | No       | Alternate terms for the same ideas                                                      |
-| `topic_analysis.facets[].date_from` / `date_to`    | No       | Inclusive date bounds when set                                                          |
-| `topic_analysis.facets[].filters`                  | No       | Generic filter bag; each source interprets what it supports                             |
-| `topic_analysis.facets[].retmax`                   | No       | Max hits requested per facet per source                                                 |
-| `source_overrides`                                 | No       | Map `source_id` → opaque payload defined by that source’s spec (fixtures / power tests) |
+| Field                | Required | Description                                                                                         |
+| -------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `topic_analysis`     | Yes      | `TopicAnalysisResult` from Topic analysis (or a test fixture). Facet semantics: [topic-analysis.md](topic-analysis.md). |
+| `source_overrides`   | No       | Map `source_id` → opaque payload defined by that source’s spec (fixtures / power tests)             |
 
 
 The workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
@@ -116,17 +108,17 @@ The workflow passes each facet (plus any matching override) into each registered
 | `pubmed`    | [paper-sources/pubmed.md](paper-sources/pubmed.md) | First / only source |
 
 
-To add a source later: add `docs/specs/paper-sources/<source-id>.md`, register a row here, and implement a dlt source that yields `PaperCandidate`-shaped records. Do not put source-API details in this file.
+To add a source later: add `docs/specs/paper-sources/<source-id>.md`, register a row here, and implement a dlt source under `paper_reviewer.ingest` that yields `PaperCandidate`-shaped records. Do not put source-API details in this file.
 
 ## Extraction with dlt
 
 Per [technology-stack.md](../technology-stack.md):
 
-- Each paper source is a **dlt source/resource** under future `paper_reviewer.ingest`.
-- Resources yield records shaped toward `PaperCandidate` (Pydantic models shared via `paper_reviewer.schemas`).
-- Prefect (later) runs extracts for enabled sources for the given `SearchCriteria`.
-- Application logic then **unifies** results into one global list (see merge rules below).
-- dlt owns source → load; this workflow’s contract to Retrieval triage is the global `PaperCandidate` list. Persistence details stay implementation-level.
+- Each paper source is a **dlt source/resource** under `paper_reviewer.ingest` (e.g. PubMed).
+- Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
+- `paper_reviewer.search` runs registered sources for the given `SearchCriteria` and **merges** results into one global list (see merge rules below).
+- Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
+- The contract to Retrieval triage is the global `PaperCandidate` list (plus `source_runs` metadata).
 
 ```mermaid
 flowchart TB
@@ -162,10 +154,10 @@ flowchart TB
 ## Output
 
 
-| Output          | Description                                                                                                                    |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `candidates`    | Global list of `PaperCandidate`                                                                                                |
-| `source_runs[]` | Per source: `source_id`, status (`ok` / `error` / `empty`), hit counts, compiled queries or facet ids, error message if any |
+| Output          | Description                                                                 |
+| --------------- | --------------------------------------------------------------------------- |
+| `candidates`    | Global list of `PaperCandidate`                                             |
+| `source_runs[]` | Per source: `source_id`, `status` (`ok` / `error` / `empty`), `hit_count`, `facet_ids`, `error` if any |
 
 
 Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports debugging and UI status.
@@ -175,10 +167,10 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 
 | Case                                       | Expected                                                                                         |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Empty `topic_analysis.facets`              | Empty `candidates`; metadata notes no facets                                                     |
+| Empty `topic_analysis.facets`              | Allowed for injected/test criteria: empty `candidates` and a note that there are no facets. The normal path expects Topic analysis output (one or more facets). |
 | Facet yields zero hits from a source       | That facet contributes nothing; other facets/sources continue                                    |
 | Source failure (network, rate limit, auth) | **Fail-soft**: other sources still contribute; `source_runs` records the error                   |
-| `retmax` truncates                         | Candidates limited accordingly; `source_runs` may flag truncation / total reported by the source |
+| `retmax` truncates                         | Candidates limited accordingly                                                                   |
 
 
 

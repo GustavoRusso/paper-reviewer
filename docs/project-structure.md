@@ -22,7 +22,7 @@ Use a **single** [`pyproject.toml`](../pyproject.toml) at the **repository root*
 | Inside `src/` | **Forbidden.** `src/` holds importable packages only; tooling expects project metadata at the root. |
 | Multiple files (workspace / multi-package) | **Not used.** Domain areas share schemas and ORM models; split only if a piece later becomes a separately versioned product. |
 
-Domain boundaries are Python **subpackages** (`models`, `ingest`, `ui`, `flows`), not separate installable projects.
+Domain boundaries are Python **subpackages** (`models`, `schemas`, `ingest`, `search`, `ui`, `flows`), not separate installable projects.
 
 ## Deploy boundary
 
@@ -68,9 +68,10 @@ paper-reviewer/
 │       │   ├── __init__.py
 │       │   └── base.py           # DeclarativeBase, shared metadata
 │       ├── schemas/              # shared Pydantic models
-│       ├── ingest/               # dlt sources / pipelines
+│       ├── ingest/               # dlt sources / resources (extract)
+│       ├── search/               # related-paper search orchestration / merge
 │       ├── ui/                   # Streamlit app entry + pages
-│       ├── flows/                # Prefect flows and tasks
+│       ├── flows/                # Prefect flows and tasks (planned)
 │       └── db/                   # engine, session, URL helpers
 ├── alembic/                      # migrations (deployed)
 │   └── versions/
@@ -78,6 +79,7 @@ paper-reviewer/
 ├── tests/                        # mirrors package layout (not deployed)
 │   ├── models/
 │   ├── ingest/
+│   ├── search/
 │   ├── ui/
 │   └── flows/
 ├── docs/
@@ -101,9 +103,10 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 | --- | --- | --- |
 | SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes only |
 | Pydantic | `paper_reviewer.schemas` | Shared validated shapes (topic statement, paper, brief, dlt resources) |
-| dlt | `paper_reviewer.ingest` | Source → Postgres loads |
+| dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
+| Related-paper search | `paper_reviewer.search` | Orchestration, registry, merge of `PaperCandidate` lists |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
-| Prefect | `paper_reviewer.flows` | Search, ingest, and brief pipelines |
+| Prefect | `paper_reviewer.flows` | Search, ingest, and brief pipelines (planned) |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
 | Alembic | repo-root `alembic/` | DDL versioning against `models` metadata |
 
