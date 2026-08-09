@@ -24,7 +24,7 @@ _STREAMLIT_PAGES: dict[str, Any] = {}
 def build_app_pages() -> list[AppPage]:
     """Return ordered app pages (landing first as the default entry)."""
     from paper_reviewer.ui.landing import render_landing
-    from paper_reviewer.ui.query_intake import render_query_intake
+    from paper_reviewer.ui.topic_intake import render_topic_intake
 
     return [
         AppPage(
@@ -36,7 +36,7 @@ def build_app_pages() -> list[AppPage]:
         AppPage(
             key="new_topic_brief",
             title="New Topic brief",
-            render=render_query_intake,
+            render=render_topic_intake,
             url_path="new-topic-brief",
         ),
     ]

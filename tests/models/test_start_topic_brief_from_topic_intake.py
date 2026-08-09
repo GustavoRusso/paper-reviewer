@@ -1,4 +1,4 @@
-"""Start Topic brief generation from Query intake text."""
+"""Start Topic brief generation from Topic intake text."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.topic_brief_generation import TopicBriefGeneration
-from paper_reviewer.schemas.query_intake import ResearchQuery
+from paper_reviewer.schemas.topic_intake import TopicStatement
 
 
 @pytest.fixture
@@ -35,34 +35,34 @@ def session() -> Iterator[Session]:
         engine.dispose()
 
 
-def test_start_topic_brief_from_query_intake_persists_and_returns_public_id(
+def test_start_topic_brief_from_topic_intake_persists_and_returns_public_id(
     session: Session,
 ) -> None:
     from paper_reviewer.models.topic_brief_generation import (
         get_topic_brief_generation_by_public_id,
-        start_topic_brief_from_query_intake,
+        start_topic_brief_from_topic_intake,
     )
 
-    research_query, generation = start_topic_brief_from_query_intake(
+    topic_statement, generation = start_topic_brief_from_topic_intake(
         session,
         "  GLP-1 agonists in heart failure  ",
     )
 
-    assert isinstance(research_query, ResearchQuery)
-    assert research_query.text == "GLP-1 agonists in heart failure"
+    assert isinstance(topic_statement, TopicStatement)
+    assert topic_statement.text == "GLP-1 agonists in heart failure"
     assert isinstance(generation, TopicBriefGeneration)
     assert isinstance(generation.public_id, uuid.UUID)
-    assert generation.research_query == research_query.text
+    assert generation.topic_statement == topic_statement.text
 
     found = get_topic_brief_generation_by_public_id(session, generation.public_id)
     assert found is not None
     assert found.id == generation.id
 
 
-def test_start_topic_brief_from_query_intake_rejects_empty(session: Session) -> None:
+def test_start_topic_brief_from_topic_intake_rejects_empty(session: Session) -> None:
     from paper_reviewer.models.topic_brief_generation import (
-        start_topic_brief_from_query_intake,
+        start_topic_brief_from_topic_intake,
     )
 
     with pytest.raises(ValidationError):
-        start_topic_brief_from_query_intake(session, "   ")
+        start_topic_brief_from_topic_intake(session, "   ")

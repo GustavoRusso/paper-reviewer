@@ -10,11 +10,11 @@ from sqlalchemy.orm import Mapped, Session, mapped_column
 from sqlalchemy.types import Uuid
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.schemas.query_intake import ResearchQuery, accept_query_intake
+from paper_reviewer.schemas.topic_intake import TopicStatement, accept_topic_intake
 
 
 class TopicBriefGeneration(Base):
-    """One Topic brief generation process started from a research query."""
+    """One end-to-end Topic brief generation run (intake through topic brief)."""
 
     __tablename__ = "topic_brief_generations"
 
@@ -29,7 +29,7 @@ class TopicBriefGeneration(Base):
         nullable=False,
         default=uuid.uuid4,
     )
-    research_query: Mapped[str] = mapped_column(Text, nullable=False)
+    topic_statement: Mapped[str] = mapped_column(Text, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         nullable=False,
@@ -39,10 +39,10 @@ class TopicBriefGeneration(Base):
 
 def create_topic_brief_generation(
     session: Session,
-    research_query: str,
+    topic_statement: str,
 ) -> TopicBriefGeneration:
-    """Persist a new Topic brief generation for ``research_query``."""
-    generation = TopicBriefGeneration(research_query=research_query)
+    """Persist a new Topic brief generation for ``topic_statement``."""
+    generation = TopicBriefGeneration(topic_statement=topic_statement)
     session.add(generation)
     return generation
 
@@ -59,12 +59,12 @@ def get_topic_brief_generation_by_public_id(
     )
 
 
-def start_topic_brief_from_query_intake(
+def start_topic_brief_from_topic_intake(
     session: Session,
     raw_text: str,
-) -> tuple[ResearchQuery, TopicBriefGeneration]:
-    """Validate Query intake text and persist a Topic brief generation."""
-    research_query = accept_query_intake(raw_text)
-    generation = create_topic_brief_generation(session, research_query.text)
+) -> tuple[TopicStatement, TopicBriefGeneration]:
+    """Validate Topic intake text and persist a Topic brief generation."""
+    topic_statement = accept_topic_intake(raw_text)
+    generation = create_topic_brief_generation(session, topic_statement.text)
     session.flush()
-    return research_query, generation
+    return topic_statement, generation

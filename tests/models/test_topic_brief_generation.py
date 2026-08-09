@@ -34,14 +34,16 @@ def session() -> Iterator[Session]:
         engine.dispose()
 
 
-def test_create_topic_brief_generation_stores_query_and_ids(session: Session) -> None:
+def test_create_topic_brief_generation_stores_statement_and_ids(
+    session: Session,
+) -> None:
     generation = create_topic_brief_generation(
         session,
         "GLP-1 agonists in heart failure",
     )
     session.flush()
 
-    assert generation.research_query == "GLP-1 agonists in heart failure"
+    assert generation.topic_statement == "GLP-1 agonists in heart failure"
     assert isinstance(generation.id, int)
     assert generation.id > 0
     assert isinstance(generation.public_id, uuid.UUID)
@@ -57,7 +59,7 @@ def test_get_topic_brief_generation_by_public_id(session: Session) -> None:
     assert found is not None
     assert found.id == created.id
     assert found.public_id == created.public_id
-    assert found.research_query == "mitochondrial dysfunction"
+    assert found.topic_statement == "mitochondrial dysfunction"
 
 
 def test_get_topic_brief_generation_by_public_id_returns_none_when_missing(

@@ -20,7 +20,7 @@ def render_landing() -> None:
     st.title("Paper Reviewer")
     st.write(
         "Explore biomedical and life sciences topics. "
-        "Start from a research query and produce a cited topic brief "
+        "Start from a topic statement and produce a cited topic brief "
         "grounded in scientific papers."
     )
     st.page_link(
