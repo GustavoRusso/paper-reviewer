@@ -1,16 +1,16 @@
-"""Compile generic search strategies into PubMed/Entrez query terms."""
+"""Compile topic facets into PubMed/Entrez query terms."""
 
 from __future__ import annotations
 
 from pydantic import BaseModel
 
-from paper_reviewer.schemas.search import PubMedStrategyOverride, SearchStrategy
+from paper_reviewer.schemas.search import PubMedFacetOverride, TopicFacet
 
 _OPEN_ENDED_PDAT_YEAR = "3000"
 
 
 class CompiledPubmedQuery(BaseModel):
-    """ESearch parameters derived from a strategy (+ optional PubMed override)."""
+    """ESearch parameters derived from a facet (+ optional PubMed override)."""
 
     term: str
     retmax: int | None = None
@@ -18,10 +18,10 @@ class CompiledPubmedQuery(BaseModel):
 
 
 def compile_pubmed_query(
-    strategy: SearchStrategy,
-    override: PubMedStrategyOverride | None = None,
+    facet: TopicFacet,
+    override: PubMedFacetOverride | None = None,
 ) -> CompiledPubmedQuery:
-    """Build an Entrez ``term`` (and retmax/sort) for one strategy.
+    """Build an Entrez ``term`` (and retmax/sort) for one facet.
 
     If ``override.raw_term`` is set, that string is used as-is and structured
     compilation is skipped.
@@ -29,40 +29,40 @@ def compile_pubmed_query(
     if override is not None and override.raw_term is not None:
         return CompiledPubmedQuery(
             term=override.raw_term,
-            retmax=override.retmax if override.retmax is not None else strategy.retmax,
+            retmax=override.retmax if override.retmax is not None else facet.retmax,
             sort=override.sort,
         )
 
-    mesh_terms = _mesh_terms(strategy)
+    mesh_terms = _mesh_terms(facet)
     clauses: list[str] = []
 
-    for index, concept in enumerate(strategy.concepts):
+    for index, concept in enumerate(facet.concepts):
         field = "Mesh" if _casefold_in(concept, mesh_terms) else "Title/Abstract"
         concept_clause = _field_term(concept, field)
-        if index == 0 and strategy.synonyms:
-            synonym_parts = [concept_clause, *(_field_term(s, field) for s in strategy.synonyms)]
+        if index == 0 and facet.synonyms:
+            synonym_parts = [concept_clause, *(_field_term(s, field) for s in facet.synonyms)]
             clauses.append(f"({' OR '.join(synonym_parts)})")
         else:
             clauses.append(concept_clause)
 
     for mesh in mesh_terms:
-        if any(_casefold_eq(mesh, c) for c in strategy.concepts):
+        if any(_casefold_eq(mesh, c) for c in facet.concepts):
             continue
         clauses.append(_field_term(mesh, "Mesh"))
 
-    date_clause = _pdat_clause(strategy.date_from, strategy.date_to)
+    date_clause = _pdat_clause(facet.date_from, facet.date_to)
     if date_clause is not None:
         clauses.append(date_clause)
 
     return CompiledPubmedQuery(
         term=" AND ".join(clauses),
-        retmax=strategy.retmax,
+        retmax=facet.retmax,
         sort=None,
     )
 
 
-def _mesh_terms(strategy: SearchStrategy) -> list[str]:
-    raw = strategy.filters.get("mesh_terms", [])
+def _mesh_terms(facet: TopicFacet) -> list[str]:
+    raw = facet.filters.get("mesh_terms", [])
     if not isinstance(raw, list):
         return []
     return [str(item) for item in raw]

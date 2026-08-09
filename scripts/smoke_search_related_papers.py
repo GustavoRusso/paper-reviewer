@@ -12,22 +12,24 @@ from paper_reviewer.search import search_related_papers
 
 criteria = SearchCriteria.model_validate(
     {
-        "strategies": [
-            {
-                "id": "core-concepts",
-                "label": "Core concepts",
-                "intent": "Narrow topical match",
-                "concepts": ["glioblastoma", "immunotherapy"],
-                "synonyms": ["GBM"],
-                "date_from": "2018-01-01",
-                "date_to": None,
-                "filters": {},
-                "retmax": 5,
-            }
-        ],
+        "topic_analysis": {
+            "facets": [
+                {
+                    "id": "core-concepts",
+                    "label": "Core concepts",
+                    "intent": "Narrow topical match",
+                    "concepts": ["glioblastoma", "immunotherapy"],
+                    "synonyms": ["GBM"],
+                    "date_from": "2018-01-01",
+                    "date_to": None,
+                    "filters": {},
+                    "retmax": 5,
+                }
+            ]
+        },
         "source_overrides": {
             "pubmed": {
-                "strategies": {
+                "facets": {
                     "core-concepts": {
                         "raw_term": (
                             "glioblastoma[mesh] AND immunotherapy[Title/Abstract] "

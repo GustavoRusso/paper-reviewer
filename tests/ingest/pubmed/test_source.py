@@ -1,4 +1,4 @@
-"""PubMed @dlt.source end-to-end for one strategy (faked HTTP)."""
+"""PubMed @dlt.source end-to-end for one facet (faked HTTP)."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import responses
 from paper_reviewer.ingest.pubmed.config import EUTILS_BASE_URL
 from paper_reviewer.ingest.pubmed.source import pubmed
 from paper_reviewer.schemas.candidate import PaperCandidate
-from paper_reviewer.schemas.search import PubMedStrategyOverride, SearchStrategy
+from paper_reviewer.schemas.search import PubMedFacetOverride, TopicFacet
 from tests.ingest.pubmed.test_config import ESEARCH_JSON, ESUMMARY_JSON
 
 EMPTY_ESEARCH_JSON = {
@@ -32,8 +32,8 @@ EMPTY_ESUMMARY_JSON = {
 }
 
 
-def _fixture_strategy() -> SearchStrategy:
-    return SearchStrategy.model_validate(
+def _fixture_facet() -> TopicFacet:
+    return TopicFacet.model_validate(
         {
             "id": "fixture-pubmed",
             "label": "Fixture PubMed",
@@ -43,8 +43,8 @@ def _fixture_strategy() -> SearchStrategy:
     )
 
 
-def _fixture_override() -> PubMedStrategyOverride:
-    return PubMedStrategyOverride.model_validate(
+def _fixture_override() -> PubMedFacetOverride:
+    return PubMedFacetOverride.model_validate(
         {
             "raw_term": "asthma[mesh] AND leukotrienes[mesh] AND 2009[pdat]",
         }
@@ -59,8 +59,8 @@ def _collect_candidates(source) -> list[PaperCandidate]:
     ]
 
 
-def test_pubmed_source_yields_candidates_for_one_strategy() -> None:
-    strategy = _fixture_strategy()
+def test_pubmed_source_yields_candidates_for_one_facet() -> None:
+    facet = _fixture_facet()
     override = _fixture_override()
 
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
@@ -76,12 +76,12 @@ def test_pubmed_source_yields_candidates_for_one_strategy() -> None:
         )
 
         candidates = _collect_candidates(
-            pubmed(strategy, override=override, api_key="TESTKEY")
+            pubmed(facet, override=override, api_key="TESTKEY")
         )
 
         assert [c.source_uid for c in candidates] == ["21256409", "20956156"]
         assert all(c.source_id == "pubmed" for c in candidates)
-        assert all(c.strategy_id == "fixture-pubmed" for c in candidates)
+        assert all(c.facet_id == "fixture-pubmed" for c in candidates)
 
         first = candidates[0]
         assert first.doi == "10.1016/j.pedn.2009.10.006"
@@ -105,8 +105,8 @@ def test_pubmed_source_yields_candidates_for_one_strategy() -> None:
         assert esearch_qs["api_key"] == ["TESTKEY"]
 
 
-def test_pubmed_source_structured_strategy_compiles_term() -> None:
-    strategy = SearchStrategy.model_validate(
+def test_pubmed_source_structured_facet_compiles_term() -> None:
+    facet = TopicFacet.model_validate(
         {
             "id": "core-concepts",
             "label": "Core concepts",
@@ -129,10 +129,10 @@ def test_pubmed_source_structured_strategy_compiles_term() -> None:
             json=ESUMMARY_JSON,
         )
 
-        candidates = _collect_candidates(pubmed(strategy))
+        candidates = _collect_candidates(pubmed(facet))
 
         assert len(candidates) == 2
-        assert candidates[0].strategy_id == "core-concepts"
+        assert candidates[0].facet_id == "core-concepts"
 
         esearch_urls = [
             call.request.url
@@ -150,8 +150,8 @@ def test_pubmed_source_structured_strategy_compiles_term() -> None:
 
 
 def test_pubmed_source_zero_hits_yields_no_candidates() -> None:
-    strategy = _fixture_strategy()
-    override = PubMedStrategyOverride(raw_term="nosuchterm[mesh]")
+    facet = _fixture_facet()
+    override = PubMedFacetOverride(raw_term="nosuchterm[mesh]")
 
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
         rsps.add(
@@ -165,6 +165,6 @@ def test_pubmed_source_zero_hits_yields_no_candidates() -> None:
             json=EMPTY_ESUMMARY_JSON,
         )
 
-        candidates = _collect_candidates(pubmed(strategy, override=override))
+        candidates = _collect_candidates(pubmed(facet, override=override))
 
     assert candidates == []

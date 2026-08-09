@@ -10,7 +10,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 | In scope | Out of scope |
 | --- | --- |
-| Mapping generic `SearchCriteria` strategies to PubMed/Entrez queries | Orchestrating multiple paper sources |
+| Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
 | ESearch + ESummary against `db=pubmed` | EFetch / full abstract payloads for **paper briefs** |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
 | `source_overrides.pubmed` for fixtures | Topic analysis that generates criteria |
@@ -25,9 +25,9 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ## PubMed search criteria
 
-For each generic strategy, the PubMed adapter builds (or accepts) an Entrez **`term`** string.
+For each generic `TopicFacet`, the PubMed adapter builds (or accepts) an Entrez **`term`** string.
 
-### From generic strategy fields
+### From generic facet fields
 
 | Generic field | PubMed / Entrez mapping |
 | --- | --- |
@@ -42,13 +42,13 @@ Boolean operators in compiled queries must be **ALL CAPS** (`AND`, `OR`, `NOT`).
 
 ### Hybrid override
 
-If `source_overrides.pubmed` supplies a `raw_term` for a strategy id, use that Entrez `term` **as-is** and skip structured compilation for that strategy.
+If `source_overrides.pubmed` supplies a `raw_term` for a facet id, use that Entrez `term` **as-is** and skip structured compilation for that facet.
 
 Suggested override shape (opaque to the workflow; defined here):
 
 ```json
 {
-  "strategies": {
+  "facets": {
     "core-concepts": {
       "raw_term": "glioblastoma[mesh] AND immunotherapy[Title/Abstract] AND 2018:3000[pdat]",
       "retmax": 50,
@@ -80,7 +80,7 @@ Base URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`
 | **ESummary** | `esummary.fcgi` | DocSums for candidate summary fields (by ids or History `WebEnv` + `query_key`) |
 | **EFetch** | `efetch.fcgi` | **Not used here** — later paper-brief construction from retained candidates |
 
-Recommended sequence per strategy:
+Recommended sequence per facet:
 
 1. ESearch with `usehistory=y`.
 2. ESummary via History server (`WebEnv`, `query_key`) or batched `id` lists.
@@ -108,7 +108,7 @@ Recommended sequence per strategy:
 | `published_year` / date | DocSum pubdate / epubdate |
 | `url` | `https://pubmed.ncbi.nlm.nih.gov/<pmid>/` |
 | `snippet` | Only if DocSum provides a usable short text; otherwise omit |
-| `strategy_id` | Strategy id from `SearchCriteria` |
+| `facet_id` | Facet id from `SearchCriteria.topic_analysis` |
 
 ### Source fetch handle (later steps)
 
@@ -123,7 +123,7 @@ Related-paper search does not call EFetch.
 
 Future `paper_reviewer.ingest` exposes a PubMed dlt source/resource that:
 
-1. Accepts a strategy (+ optional PubMed override).
+1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
 3. Yields `PaperCandidate`-shaped rows for the workflow merge step.
 
@@ -131,7 +131,7 @@ Future `paper_reviewer.ingest` exposes a PubMed dlt source/resource that:
 
 | Case | Expected |
 | --- | --- |
-| Zero ESearch hits | No candidates for that strategy from PubMed |
+| Zero ESearch hits | No candidates for that facet from PubMed |
 | Missing DOI on DocSum | `doi` null; `source_uid` (PMID) still valid for later EFetch |
 | Rate limit / HTTP error | Surface error to workflow `source_runs`; workflow fail-soft applies |
 
@@ -141,17 +141,19 @@ Generic criteria with PubMed raw override for a deterministic Entrez query:
 
 ```json
 {
-  "strategies": [
-    {
-      "id": "fixture-pubmed",
-      "label": "Fixture PubMed",
-      "concepts": ["asthma", "leukotrienes"],
-      "retmax": 10
-    }
-  ],
+  "topic_analysis": {
+    "facets": [
+      {
+        "id": "fixture-pubmed",
+        "label": "Fixture PubMed",
+        "concepts": ["asthma", "leukotrienes"],
+        "retmax": 10
+      }
+    ]
+  },
   "source_overrides": {
     "pubmed": {
-      "strategies": {
+      "facets": {
         "fixture-pubmed": {
           "raw_term": "asthma[mesh] AND leukotrienes[mesh] AND 2009[pdat]"
         }

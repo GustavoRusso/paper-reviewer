@@ -56,7 +56,7 @@ def test_paper_candidate_parses_required_and_optional_fields() -> None:
             "published_year": 2022,
             "url": "https://pubmed.ncbi.nlm.nih.gov/36328499/",
             "snippet": None,
-            "strategy_id": "core-concepts",
+            "facet_id": "core-concepts",
             "raw_payload_ref": None,
         }
     )
@@ -66,11 +66,11 @@ def test_paper_candidate_parses_required_and_optional_fields() -> None:
     assert candidate.authors == ["Smith J", "Jones M"]
     assert candidate.published_year == 2022
     assert candidate.snippet is None
-    assert candidate.strategy_id == "core-concepts"
+    assert candidate.facet_id == "core-concepts"
 
 
 def test_docsum_with_doi_maps_to_candidate() -> None:
-    candidate = docsum_to_candidate(DOCSUM_WITH_DOI, strategy_id="fixture-pubmed")
+    candidate = docsum_to_candidate(DOCSUM_WITH_DOI, facet_id="fixture-pubmed")
 
     assert candidate.source_id == "pubmed"
     assert candidate.source_uid == "36328499"
@@ -81,21 +81,21 @@ def test_docsum_with_doi_maps_to_candidate() -> None:
     assert candidate.published_year == 2022
     assert candidate.url == "https://pubmed.ncbi.nlm.nih.gov/36328499/"
     assert candidate.snippet is None
-    assert candidate.strategy_id == "fixture-pubmed"
+    assert candidate.facet_id == "fixture-pubmed"
 
 
 def test_docsum_missing_doi_yields_null_doi() -> None:
-    candidate = docsum_to_candidate(DOCSUM_WITHOUT_DOI, strategy_id="core-concepts")
+    candidate = docsum_to_candidate(DOCSUM_WITHOUT_DOI, facet_id="core-concepts")
 
     assert candidate.doi is None
     assert candidate.source_uid == "11850928"
     assert candidate.url == "https://pubmed.ncbi.nlm.nih.gov/11850928/"
-    assert candidate.strategy_id == "core-concepts"
+    assert candidate.facet_id == "core-concepts"
 
 
 def test_docsum_missing_snippet_omits_snippet() -> None:
     """Standard DocSums have no short text field — snippet stays unset."""
-    candidate = docsum_to_candidate(DOCSUM_WITH_DOI, strategy_id="core-concepts")
+    candidate = docsum_to_candidate(DOCSUM_WITH_DOI, facet_id="core-concepts")
 
     assert candidate.snippet is None
 
@@ -106,7 +106,7 @@ def test_docsum_with_usable_snippet_maps_snippet() -> None:
         "snippet": "Short search-hit text already returned by the API.",
     }
 
-    candidate = docsum_to_candidate(docsum, strategy_id="core-concepts")
+    candidate = docsum_to_candidate(docsum, facet_id="core-concepts")
 
     assert candidate.snippet == "Short search-hit text already returned by the API."
 
@@ -121,7 +121,7 @@ def test_journal_falls_back_to_source_when_fulljournalname_absent() -> None:
         "articleids": [{"idtype": "pubmed", "idtypen": 1, "value": "1"}],
     }
 
-    candidate = docsum_to_candidate(docsum, strategy_id="s")
+    candidate = docsum_to_candidate(docsum, facet_id="s")
 
     assert candidate.journal == "Lancet"
     assert candidate.published_year == 2020

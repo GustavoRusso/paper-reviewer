@@ -10,8 +10,8 @@ from pydantic import BaseModel, Field
 from paper_reviewer.schemas.candidate import PaperCandidate
 
 
-class SearchStrategy(BaseModel):
-    """One named search strategy from generic SearchCriteria."""
+class TopicFacet(BaseModel):
+    """One named facet distilled from a topic statement."""
 
     id: str
     label: str
@@ -24,8 +24,14 @@ class SearchStrategy(BaseModel):
     retmax: int | None = None
 
 
-class PubMedStrategyOverride(BaseModel):
-    """PubMed-specific override for a strategy id (source_overrides.pubmed)."""
+class TopicAnalysisResult(BaseModel):
+    """Topic analysis output: facets for one TopicBriefGeneration."""
+
+    facets: list[TopicFacet]
+
+
+class PubMedFacetOverride(BaseModel):
+    """PubMed-specific override for a facet id (source_overrides.pubmed)."""
 
     raw_term: str | None = None
     retmax: int | None = None
@@ -35,13 +41,13 @@ class PubMedStrategyOverride(BaseModel):
 class PubMedSourceOverrides(BaseModel):
     """Opaque PubMed payload under SearchCriteria.source_overrides.pubmed."""
 
-    strategies: dict[str, PubMedStrategyOverride] = Field(default_factory=dict)
+    facets: dict[str, PubMedFacetOverride] = Field(default_factory=dict)
 
 
 class SearchCriteria(BaseModel):
     """Source-agnostic input for related-paper search."""
 
-    strategies: list[SearchStrategy]
+    topic_analysis: TopicAnalysisResult
     source_overrides: dict[str, Any] = Field(default_factory=dict)
 
 
@@ -59,7 +65,7 @@ class SourceRun(BaseModel):
     source_id: str
     status: SourceRunStatus
     hit_count: int = 0
-    strategy_ids: list[str] = Field(default_factory=list)
+    facet_ids: list[str] = Field(default_factory=list)
     error: str | None = None
 
 

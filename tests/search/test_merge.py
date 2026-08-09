@@ -17,7 +17,7 @@ def _candidate(**overrides: object) -> PaperCandidate:
         "published_year": 2022,
         "url": "https://pubmed.ncbi.nlm.nih.gov/1001/",
         "snippet": None,
-        "strategy_id": "core-concepts",
+        "facet_id": "core-concepts",
         "raw_payload_ref": None,
     }
     base.update(overrides)
@@ -40,7 +40,7 @@ def test_dedupe_by_case_normalized_doi_keeps_first() -> None:
         source_uid="36328499",
         doi="10.1038/s41586-022-05543-x",
         title="First hit",
-        strategy_id="core-concepts",
+        facet_id="core-concepts",
         url="https://pubmed.ncbi.nlm.nih.gov/36328499/",
     )
     duplicate = _candidate(
@@ -48,7 +48,7 @@ def test_dedupe_by_case_normalized_doi_keeps_first() -> None:
         source_uid="PMC9876543",
         doi="10.1038/S41586-022-05543-X",
         title="Same paper, other source",
-        strategy_id="broad",
+        facet_id="broad",
         url="https://europepmc.org/article/PMC/9876543",
     )
     other = _candidate(
@@ -68,14 +68,14 @@ def test_dedupe_by_source_id_and_uid_when_doi_missing() -> None:
         source_uid="11850928",
         doi=None,
         title="First without DOI",
-        strategy_id="core-concepts",
+        facet_id="core-concepts",
         url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
     )
     duplicate = _candidate(
         source_uid="11850928",
         doi=None,
         title="Same pubmed uid, later strategy",
-        strategy_id="broad",
+        facet_id="broad",
         url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
     )
     other_source_same_uid = _candidate(

@@ -14,22 +14,24 @@ from tests.ingest.pubmed.test_config import ESEARCH_JSON, ESUMMARY_JSON
 
 
 CRITERIA_FIXTURE = {
-    "strategies": [
-        {
-            "id": "core-concepts",
-            "label": "Core concepts",
-            "intent": "Narrow topical match",
-            "concepts": ["glioblastoma", "immunotherapy"],
-            "synonyms": ["GBM"],
-            "date_from": "2018-01-01",
-            "date_to": None,
-            "filters": {},
-            "retmax": 50,
-        }
-    ],
+    "topic_analysis": {
+        "facets": [
+            {
+                "id": "core-concepts",
+                "label": "Core concepts",
+                "intent": "Narrow topical match",
+                "concepts": ["glioblastoma", "immunotherapy"],
+                "synonyms": ["GBM"],
+                "date_from": "2018-01-01",
+                "date_to": None,
+                "filters": {},
+                "retmax": 50,
+            }
+        ]
+    },
     "source_overrides": {
         "pubmed": {
-            "strategies": {
+            "facets": {
                 "core-concepts": {
                     "raw_term": (
                         "glioblastoma[mesh] AND immunotherapy[Title/Abstract] "
@@ -58,33 +60,35 @@ def _stub_pubmed_http(rsps: responses.RequestsMock) -> None:
 def test_search_criteria_parses_spec_fixture() -> None:
     criteria = SearchCriteria.model_validate(CRITERIA_FIXTURE)
 
-    assert len(criteria.strategies) == 1
-    strategy = criteria.strategies[0]
-    assert strategy.id == "core-concepts"
-    assert strategy.label == "Core concepts"
-    assert strategy.intent == "Narrow topical match"
-    assert strategy.concepts == ["glioblastoma", "immunotherapy"]
-    assert strategy.synonyms == ["GBM"]
-    assert strategy.date_from == "2018-01-01"
-    assert strategy.date_to is None
-    assert strategy.filters == {}
-    assert strategy.retmax == 50
+    assert len(criteria.topic_analysis.facets) == 1
+    facet = criteria.topic_analysis.facets[0]
+    assert facet.id == "core-concepts"
+    assert facet.label == "Core concepts"
+    assert facet.intent == "Narrow topical match"
+    assert facet.concepts == ["glioblastoma", "immunotherapy"]
+    assert facet.synonyms == ["GBM"]
+    assert facet.date_from == "2018-01-01"
+    assert facet.date_to is None
+    assert facet.filters == {}
+    assert facet.retmax == 50
     assert "pubmed" in criteria.source_overrides
     pubmed_override = criteria.source_overrides["pubmed"]
-    assert pubmed_override["strategies"]["core-concepts"]["raw_term"].startswith(
+    assert pubmed_override["facets"]["core-concepts"]["raw_term"].startswith(
         "glioblastoma[mesh]"
     )
 
 
-def test_empty_strategies_yields_empty_candidates_with_note() -> None:
-    criteria = SearchCriteria.model_validate({"strategies": [], "source_overrides": {}})
+def test_empty_facets_yields_empty_candidates_with_note() -> None:
+    criteria = SearchCriteria.model_validate(
+        {"topic_analysis": {"facets": []}, "source_overrides": {}}
+    )
 
     result = search_related_papers(criteria)
 
     assert result.candidates == []
     assert result.source_runs == []
     assert result.notes is not None
-    assert "no strategies" in result.notes.casefold()
+    assert "no facets" in result.notes.casefold()
 
 
 def test_orchestrate_pubmed_with_override_returns_candidates_and_ok_run() -> None:
@@ -109,7 +113,7 @@ def test_orchestrate_pubmed_with_override_returns_candidates_and_ok_run() -> Non
     assert len(result.candidates) == 2
     assert all(isinstance(c, PaperCandidate) for c in result.candidates)
     assert all(c.source_id == "pubmed" for c in result.candidates)
-    assert all(c.strategy_id == "core-concepts" for c in result.candidates)
+    assert all(c.facet_id == "core-concepts" for c in result.candidates)
     assert result.candidates[0].source_uid == "21256409"
 
     assert len(result.source_runs) == 1
@@ -117,24 +121,26 @@ def test_orchestrate_pubmed_with_override_returns_candidates_and_ok_run() -> Non
     assert run.source_id == "pubmed"
     assert run.status == SourceRunStatus.ok
     assert run.hit_count == 2
-    assert run.strategy_ids == ["core-concepts"]
+    assert run.facet_ids == ["core-concepts"]
     assert run.error is None
 
 
 def test_source_zero_hits_records_empty_status() -> None:
     criteria = SearchCriteria.model_validate(
         {
-            "strategies": [
-                {
-                    "id": "fixture-narrow",
-                    "label": "Fixture narrow",
-                    "concepts": ["nosuchterm"],
-                    "retmax": 20,
-                }
-            ],
+            "topic_analysis": {
+                "facets": [
+                    {
+                        "id": "fixture-narrow",
+                        "label": "Fixture narrow",
+                        "concepts": ["nosuchterm"],
+                        "retmax": 20,
+                    }
+                ]
+            },
             "source_overrides": {
                 "pubmed": {
-                    "strategies": {
+                    "facets": {
                         "fixture-narrow": {"raw_term": "nosuchterm[mesh]"}
                     }
                 }
@@ -184,9 +190,11 @@ def test_source_zero_hits_records_empty_status() -> None:
 def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
     criteria = SearchCriteria.model_validate(
         {
-            "strategies": [
-                {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
-            ],
+            "topic_analysis": {
+                "facets": [
+                    {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
+                ]
+            },
             "source_overrides": {},
         }
     )
@@ -205,7 +213,7 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
             "published_year": 2020,
             "url": "https://example.test/99",
             "snippet": None,
-            "strategy_id": "s1",
+            "facet_id": "s1",
             "raw_payload_ref": None,
         }
     )
@@ -233,9 +241,11 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
 def test_orchestrate_dedupes_across_sources() -> None:
     criteria = SearchCriteria.model_validate(
         {
-            "strategies": [
-                {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
-            ],
+            "topic_analysis": {
+                "facets": [
+                    {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
+                ]
+            },
             "source_overrides": {},
         }
     )
@@ -251,7 +261,7 @@ def test_orchestrate_dedupes_across_sources() -> None:
             "published_year": 2022,
             "url": "https://pubmed.ncbi.nlm.nih.gov/1/",
             "snippet": None,
-            "strategy_id": "s1",
+            "facet_id": "s1",
             "raw_payload_ref": None,
         }
     )
@@ -266,7 +276,7 @@ def test_orchestrate_dedupes_across_sources() -> None:
             "published_year": 2022,
             "url": "https://example.test/2",
             "snippet": None,
-            "strategy_id": "s1",
+            "facet_id": "s1",
             "raw_payload_ref": None,
         }
     )

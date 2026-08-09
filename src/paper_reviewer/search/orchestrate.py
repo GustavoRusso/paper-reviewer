@@ -8,8 +8,8 @@ from typing import Any
 from paper_reviewer.ingest.pubmed.source import pubmed
 from paper_reviewer.schemas.candidate import PaperCandidate
 from paper_reviewer.schemas.search import (
+    PubMedFacetOverride,
     PubMedSourceOverrides,
-    PubMedStrategyOverride,
     RelatedPaperSearchResult,
     SearchCriteria,
     SourceRun,
@@ -29,23 +29,23 @@ def _collect_candidates(source: Any) -> list[PaperCandidate]:
 
 
 def _pubmed_override_for(
-    criteria: SearchCriteria, strategy_id: str
-) -> PubMedStrategyOverride | None:
+    criteria: SearchCriteria, facet_id: str
+) -> PubMedFacetOverride | None:
     raw = criteria.source_overrides.get("pubmed")
     if not raw:
         return None
     overrides = PubMedSourceOverrides.model_validate(raw)
-    return overrides.strategies.get(strategy_id)
+    return overrides.facets.get(facet_id)
 
 
 def run_pubmed_source(
     criteria: SearchCriteria, *, api_key: str | None = None
 ) -> list[PaperCandidate]:
-    """Run the PubMed dlt source for every strategy and collect candidates."""
+    """Run the PubMed dlt source for every facet and collect candidates."""
     collected: list[PaperCandidate] = []
-    for strategy in criteria.strategies:
-        override = _pubmed_override_for(criteria, strategy.id)
-        source = pubmed(strategy, override=override, api_key=api_key)
+    for facet in criteria.topic_analysis.facets:
+        override = _pubmed_override_for(criteria, facet.id)
+        source = pubmed(facet, override=override, api_key=api_key)
         collected.extend(_collect_candidates(source))
     return collected
 
@@ -66,15 +66,16 @@ def search_related_papers(
     api_key: str | None = None,
 ) -> RelatedPaperSearchResult:
     """Run registered sources for criteria, merge candidates, fail-soft on errors."""
-    if not criteria.strategies:
+    facets = criteria.topic_analysis.facets
+    if not facets:
         return RelatedPaperSearchResult(
             candidates=[],
             source_runs=[],
-            notes="No strategies provided; nothing to search.",
+            notes="No facets provided; nothing to search.",
         )
 
     runners = dict(registry) if registry is not None else default_registry(api_key=api_key)
-    strategy_ids = [s.id for s in criteria.strategies]
+    facet_ids = [f.id for f in facets]
     all_candidates: list[PaperCandidate] = []
     source_runs: list[SourceRun] = []
 
@@ -87,7 +88,7 @@ def search_related_papers(
                     source_id=source_id,
                     status=SourceRunStatus.error,
                     hit_count=0,
-                    strategy_ids=strategy_ids,
+                    facet_ids=facet_ids,
                     error=str(exc),
                 )
             )
@@ -101,7 +102,7 @@ def search_related_papers(
                 source_id=source_id,
                 status=status,
                 hit_count=hit_count,
-                strategy_ids=strategy_ids,
+                facet_ids=facet_ids,
                 error=None,
             )
         )

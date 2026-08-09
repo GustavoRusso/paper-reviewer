@@ -17,5 +17,5 @@ class PaperCandidate(BaseModel):
     published_year: int | None = None
     url: str
     snippet: str | None = None
-    strategy_id: str
+    facet_id: str
     raw_payload_ref: str | None = None

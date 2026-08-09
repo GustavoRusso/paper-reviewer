@@ -1,13 +1,13 @@
-"""SearchStrategy parsing and PubMed Entrez term compilation."""
+"""TopicFacet parsing and PubMed Entrez term compilation."""
 
 from __future__ import annotations
 
 from paper_reviewer.ingest.pubmed.term import compile_pubmed_query
-from paper_reviewer.schemas.search import PubMedStrategyOverride, SearchStrategy
+from paper_reviewer.schemas.search import PubMedFacetOverride, TopicFacet
 
 
-def test_search_strategy_parses_spec_fixture_fields() -> None:
-    strategy = SearchStrategy.model_validate(
+def test_topic_facet_parses_spec_fixture_fields() -> None:
+    facet = TopicFacet.model_validate(
         {
             "id": "core-concepts",
             "label": "Core concepts",
@@ -20,17 +20,17 @@ def test_search_strategy_parses_spec_fixture_fields() -> None:
             "retmax": 50,
         }
     )
-    assert strategy.id == "core-concepts"
-    assert strategy.label == "Core concepts"
-    assert strategy.concepts == ["glioblastoma", "immunotherapy"]
-    assert strategy.synonyms == ["GBM"]
-    assert strategy.date_from == "2018-01-01"
-    assert strategy.date_to is None
-    assert strategy.retmax == 50
+    assert facet.id == "core-concepts"
+    assert facet.label == "Core concepts"
+    assert facet.concepts == ["glioblastoma", "immunotherapy"]
+    assert facet.synonyms == ["GBM"]
+    assert facet.date_from == "2018-01-01"
+    assert facet.date_to is None
+    assert facet.retmax == 50
 
 
 def test_pubmed_override_parses_raw_term_fixture() -> None:
-    override = PubMedStrategyOverride.model_validate(
+    override = PubMedFacetOverride.model_validate(
         {
             "raw_term": (
                 "glioblastoma[mesh] AND immunotherapy[Title/Abstract] AND 2018:3000[pdat]"
@@ -45,7 +45,7 @@ def test_pubmed_override_parses_raw_term_fixture() -> None:
 
 
 def test_raw_term_override_skips_structured_compilation() -> None:
-    strategy = SearchStrategy.model_validate(
+    facet = TopicFacet.model_validate(
         {
             "id": "core-concepts",
             "label": "Core concepts",
@@ -54,9 +54,9 @@ def test_raw_term_override_skips_structured_compilation() -> None:
         }
     )
     raw = "asthma[mesh] AND leukotrienes[mesh] AND 2009[pdat]"
-    override = PubMedStrategyOverride(raw_term=raw, retmax=20, sort="relevance")
+    override = PubMedFacetOverride(raw_term=raw, retmax=20, sort="relevance")
 
-    compiled = compile_pubmed_query(strategy, override)
+    compiled = compile_pubmed_query(facet, override)
 
     assert compiled.term == raw
     assert compiled.retmax == 20
@@ -64,7 +64,7 @@ def test_raw_term_override_skips_structured_compilation() -> None:
 
 
 def test_concepts_and_synonyms_compile_with_uppercase_operators() -> None:
-    strategy = SearchStrategy.model_validate(
+    facet = TopicFacet.model_validate(
         {
             "id": "core-concepts",
             "label": "Core concepts",
@@ -73,7 +73,7 @@ def test_concepts_and_synonyms_compile_with_uppercase_operators() -> None:
         }
     )
 
-    compiled = compile_pubmed_query(strategy)
+    compiled = compile_pubmed_query(facet)
 
     assert "AND" in compiled.term
     assert "OR" in compiled.term
@@ -87,7 +87,7 @@ def test_concepts_and_synonyms_compile_with_uppercase_operators() -> None:
 
 
 def test_date_from_only_compiles_open_ended_pdat_range() -> None:
-    strategy = SearchStrategy.model_validate(
+    facet = TopicFacet.model_validate(
         {
             "id": "dated",
             "label": "Dated",
@@ -97,14 +97,14 @@ def test_date_from_only_compiles_open_ended_pdat_range() -> None:
         }
     )
 
-    compiled = compile_pubmed_query(strategy)
+    compiled = compile_pubmed_query(facet)
 
     assert compiled.term.endswith("AND 2018:3000[pdat]")
     assert '"CRISPR"[Title/Abstract]' in compiled.term
 
 
 def test_date_from_and_to_compiles_closed_pdat_range() -> None:
-    strategy = SearchStrategy.model_validate(
+    facet = TopicFacet.model_validate(
         {
             "id": "dated",
             "label": "Dated",
@@ -114,15 +114,15 @@ def test_date_from_and_to_compiles_closed_pdat_range() -> None:
         }
     )
 
-    compiled = compile_pubmed_query(strategy)
+    compiled = compile_pubmed_query(facet)
 
     assert "2018:2024[pdat]" in compiled.term
 
 
 def test_mesh_terms_filter_uses_mesh_field_and_ignores_unknown_filters() -> None:
-    strategy = SearchStrategy.model_validate(
+    facet = TopicFacet.model_validate(
         {
-            "id": "mesh-strategy",
+            "id": "mesh-facet",
             "label": "MeSH",
             "concepts": ["glioblastoma", "immunotherapy"],
             "filters": {
@@ -132,7 +132,7 @@ def test_mesh_terms_filter_uses_mesh_field_and_ignores_unknown_filters() -> None
         }
     )
 
-    compiled = compile_pubmed_query(strategy)
+    compiled = compile_pubmed_query(facet)
 
     assert '"glioblastoma"[Mesh]' in compiled.term
     assert '"immunotherapy"[Title/Abstract]' in compiled.term
@@ -140,8 +140,8 @@ def test_mesh_terms_filter_uses_mesh_field_and_ignores_unknown_filters() -> None
     assert "ignore-me" not in compiled.term
 
 
-def test_retmax_comes_from_strategy_when_override_omits_it() -> None:
-    strategy = SearchStrategy.model_validate(
+def test_retmax_comes_from_facet_when_override_omits_it() -> None:
+    facet = TopicFacet.model_validate(
         {
             "id": "fixture-narrow",
             "label": "Fixture narrow",
@@ -150,14 +150,14 @@ def test_retmax_comes_from_strategy_when_override_omits_it() -> None:
         }
     )
 
-    compiled = compile_pubmed_query(strategy)
+    compiled = compile_pubmed_query(facet)
 
     assert compiled.retmax == 20
     assert compiled.sort is None
 
 
 def test_empty_concepts_with_only_mesh_filter_still_compiles() -> None:
-    strategy = SearchStrategy.model_validate(
+    facet = TopicFacet.model_validate(
         {
             "id": "mesh-only",
             "label": "MeSH only",
@@ -168,7 +168,7 @@ def test_empty_concepts_with_only_mesh_filter_still_compiles() -> None:
         }
     )
 
-    compiled = compile_pubmed_query(strategy)
+    compiled = compile_pubmed_query(facet)
 
     assert '"asthma"[Mesh]' in compiled.term
     assert '"leukotrienes"[Mesh]' in compiled.term

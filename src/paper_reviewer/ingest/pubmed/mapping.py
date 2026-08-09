@@ -10,7 +10,7 @@ _PUBMED_SOURCE_ID = "pubmed"
 _PUBMED_URL_TEMPLATE = "https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
 
 
-def docsum_to_candidate(docsum: dict[str, Any], *, strategy_id: str) -> PaperCandidate:
+def docsum_to_candidate(docsum: dict[str, Any], *, facet_id: str) -> PaperCandidate:
     """Map one ESummary DocSum (JSON object) to a PaperCandidate."""
     pmid = str(docsum["uid"])
     return PaperCandidate(
@@ -23,7 +23,7 @@ def docsum_to_candidate(docsum: dict[str, Any], *, strategy_id: str) -> PaperCan
         published_year=_published_year(docsum),
         url=_PUBMED_URL_TEMPLATE.format(pmid=pmid),
         snippet=_usable_snippet(docsum.get("snippet")),
-        strategy_id=strategy_id,
+        facet_id=facet_id,
     )
 
 
