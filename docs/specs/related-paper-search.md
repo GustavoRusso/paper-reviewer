@@ -11,7 +11,7 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt + Pydantic, Pr
 
 | In scope                                                                           | Out of scope                                                                |
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Accept generic `SearchCriteria` (from Query analysis later, or injected for tests) | Generating criteria in Query analysis                                       |
+| Accept generic `SearchCriteria` (strategies from [Topic analysis](topic-analysis.md) wrapped for search, or injected for tests) | Generating strategies in Topic analysis (see that spec)          |
 | Run extract via **dlt** for each registered paper source                           | Implementing ingest/flows/UI code in this doc                               |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Building **paper briefs** or calling full-record fetch (e.g. PubMed EFetch) |
 | Fail-soft when one source errors                                                   | Adding new paper sources beyond registering them here                       |
@@ -61,7 +61,7 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 ## Input: generic `SearchCriteria`
 
-Source-agnostic contract so new providers plug in without changing this workflow’s input shape. Query analysis will produce it later; tests inject it manually.
+Source-agnostic contract so new providers plug in without changing this workflow’s input shape. [Topic analysis](topic-analysis.md) produces the `strategies` list (persistence owned there); this workflow may wrap them in `SearchCriteria`. Tests may still inject full criteria manually.
 
 ```json
 {
@@ -185,7 +185,7 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 
 ## Testability
 
-- Inject a full `SearchCriteria` JSON fixture without running Query analysis.
+- Inject a full `SearchCriteria` JSON fixture without running Topic analysis.
 - Use `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) to force a known Entrez `term` for deterministic PubMed tests.
 - Assert on `PaperCandidate` fields and merge behavior with multi-source fixtures when additional sources exist.
 

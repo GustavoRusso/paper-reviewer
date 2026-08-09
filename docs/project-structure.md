@@ -100,7 +100,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
 | SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes only |
-| Pydantic | `paper_reviewer.schemas` | Shared validated shapes (query, paper, brief, dlt resources) |
+| Pydantic | `paper_reviewer.schemas` | Shared validated shapes (topic statement, paper, brief, dlt resources) |
 | dlt | `paper_reviewer.ingest` | Source → Postgres loads |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
 | Prefect | `paper_reviewer.flows` | Search, ingest, and brief pipelines |

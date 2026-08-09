@@ -13,7 +13,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | Mapping generic `SearchCriteria` strategies to PubMed/Entrez queries | Orchestrating multiple paper sources |
 | ESearch + ESummary against `db=pubmed` | EFetch / full abstract payloads for **paper briefs** |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
-| `source_overrides.pubmed` for fixtures | Query analysis that generates criteria |
+| `source_overrides.pubmed` for fixtures | Topic analysis that generates criteria |
 
 ## Source identity
 
@@ -33,7 +33,7 @@ For each generic strategy, the PubMed adapter builds (or accepts) an Entrez **`t
 | --- | --- |
 | `concepts` | Combined with `AND`; each concept searched in `[Title/Abstract]` unless also listed as MeSH (see below) |
 | `synonyms` | Grouped with the related concept using `OR` inside parentheses |
-| MeSH-oriented concepts | When a concept is known/intended as MeSH, use `[Mesh]` (or `[mh]`) — Query analysis or overrides may mark this; structured default may treat `filters.mesh_terms` as MeSH if present |
+| MeSH-oriented concepts | When a concept is known/intended as MeSH, use `[Mesh]` (or `[mh]`) — Topic analysis or overrides may mark this; structured default may treat `filters.mesh_terms` as MeSH if present |
 | `date_from` / `date_to` | Publication date via `[pdat]` range (e.g. `2018:2024[pdat]`) |
 | `filters` | Only keys documented for PubMed (e.g. `mesh_terms`, `article_types` if added later); ignore unknown keys |
 | `retmax` | Passed to ESearch as `retmax` |
