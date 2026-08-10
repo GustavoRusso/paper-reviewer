@@ -22,7 +22,7 @@ Use a **single** [`pyproject.toml`](../pyproject.toml) at the **repository root*
 | Inside `src/` | **Forbidden.** `src/` holds importable packages only; tooling expects project metadata at the root. |
 | Multiple files (workspace / multi-package) | **Not used.** Domain areas share schemas and ORM models; split only if a piece later becomes a separately versioned product. |
 
-Domain boundaries are Python **subpackages** (`models`, `schemas`, `topic_analysis`, `ingest`, `search`, `ui`, `flows`), not separate installable projects.
+Domain boundaries are Python **subpackages** (`topic_brief_generation`, `models`, `schemas`, `ingest`, `ui`, `flows`, `db`), not separate installable projects.
 
 ## Deploy boundary
 
@@ -62,26 +62,32 @@ Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `test
 ```text
 paper-reviewer/
 ├── src/
-│   └── paper_reviewer/           # installable package (deployed)
+│   └── paper_reviewer/                 # installable package (deployed)
 │       ├── __init__.py
-│       ├── models/               # SQLAlchemy ORM ↔ Postgres (+ TopicBriefGeneration helpers)
-│       │   ├── __init__.py
-│       │   └── base.py           # DeclarativeBase, shared metadata
-│       ├── schemas/              # shared Pydantic models
-│       ├── topic_analysis/       # Topic analysis analyzer + persist helpers
-│       ├── ingest/               # dlt sources / resources (extract)
-│       ├── search/               # related-paper search orchestration / merge
-│       ├── ui/                   # Streamlit app entry + pages
-│       ├── flows/                # Prefect flows and tasks (planned)
-│       └── db/                   # engine, session, URL helpers
-├── alembic/                      # migrations (deployed)
+│       ├── topic_brief_generation/     # Topic brief generation step behavior
+│       │   ├── topic_intake/
+│       │   ├── topic_analysis/
+│       │   ├── related_paper_search/
+│       │   ├── retrieval_triage/
+│       │   ├── paper_briefs/
+│       │   └── topic_brief/
+│       ├── schemas/
+│       │   └── topic_brief_generation/ # Pydantic contracts for that workflow
+│       ├── models/
+│       │   ├── base.py                 # DeclarativeBase (all workflows)
+│       │   └── topic_brief_generation/ # ORM for that workflow
+│       ├── ingest/                     # dlt paper-source extract (shared)
+│       ├── ui/                         # Streamlit
+│       ├── flows/                      # Prefect (planned)
+│       └── db/                         # engine, session, URL helpers
+├── alembic/
 │   └── versions/
 ├── alembic.ini
-├── tests/                        # mirrors package layout (not deployed)
+├── tests/                              # mirrors package layout (not deployed)
+│   ├── topic_brief_generation/
+│   ├── schemas/
 │   ├── models/
-│   ├── topic_analysis/
 │   ├── ingest/
-│   ├── search/
 │   ├── ui/
 │   └── flows/
 ├── docs/
@@ -103,19 +109,34 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes (e.g. `TopicBriefGeneration`, facet rows) plus generation helpers in `topic_brief_generation.py` (intake start; later workflow orchestration as needed) |
-| Pydantic | `paper_reviewer.schemas` | Shared validated shapes: `TopicStatement`; search/analysis types in `schemas.search`; `PaperCandidate` in `schemas.candidate`; future brief shapes. Field contracts: [specs/topic-analysis.md](specs/topic-analysis.md), [specs/related-paper-search.md](specs/related-paper-search.md). |
-| Topic analysis | `paper_reviewer.topic_analysis` | Analyzer and persist helpers. Behavior: [specs/topic-analysis.md](specs/topic-analysis.md). NER library: [technology-stack.md](technology-stack.md). |
+| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, triage, paper briefs, topic brief). Specs: [specs/topic-analysis.md](specs/topic-analysis.md), [specs/related-paper-search.md](specs/related-paper-search.md). |
+| Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_brief_generation.topic_analysis`). |
+| SQLAlchemy ORM | `paper_reviewer.models.<workflow>` | Table mappings mirrored under the workflow name; `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
-| Related-paper search | `paper_reviewer.search` | Orchestration, registry, merge. Behavior: [specs/related-paper-search.md](specs/related-paper-search.md). |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
 | Prefect | `paper_reviewer.flows` | Search, ingest, and brief pipelines (planned) |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
 | Alembic | repo-root `alembic/` | DDL versioning against `models` metadata |
 
+### Workflow packages vs cross-cutting (agent rule)
+
+1. **Each product workflow is a named top-level package** (today: `topic_brief_generation`; later siblings)—not a generic `steps` bag.
+2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
+3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
+4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package.
+5. **`models.base`** is shared across workflows. This workflow’s generation root is `models.topic_brief_generation.generation`.
+6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
+
+### `models` vs `schemas` (agent rule)
+
+- **`schemas`** — portable domain contracts (Pydantic). Workflow steps, tests, and dlt yields use these shapes. Prefer one schema source; do **not** add a parallel pure domain-entity layer.
+- **`models`** — Postgres persistence (SQLAlchemy) plus thin create/get helpers. Map to/from `schemas` at the boundary; do **not** put analysis, search, or merge logic here.
+- **Behavior** — named workflow step packages (and shared `ingest` / later `flows`), not fat ORM classes and not a separate `domain/` package.
+
 ## Naming conventions
 
 - Repo directory: `paper-reviewer` (kebab-case)
 - Import package: `paper_reviewer` (snake_case)
-- Subpackages: short plural nouns for collections (`models`, `schemas`, `flows`)
+- Workflow packages: product term in snake_case (`topic_brief_generation`)
+- Cross-cutting subpackages: short plural nouns (`models`, `schemas`, `flows`)
 - Do not use vague roots such as `src/app`, `src/code`, or nested `src/src`

@@ -7,8 +7,12 @@ from __future__ import annotations
 
 import os
 
-from paper_reviewer.schemas.search import SearchCriteria
-from paper_reviewer.search import search_related_papers
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    SearchCriteria,
+)
+from paper_reviewer.topic_brief_generation.related_paper_search import (
+    search_related_papers,
+)
 
 criteria = SearchCriteria.model_validate(
     {

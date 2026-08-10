@@ -7,9 +7,14 @@ from urllib.parse import parse_qs, urlparse
 import responses
 
 from paper_reviewer.ingest.pubmed.config import EUTILS_BASE_URL
-from paper_reviewer.schemas.candidate import PaperCandidate
-from paper_reviewer.schemas.search import SearchCriteria, SourceRunStatus
-from paper_reviewer.search.orchestrate import search_related_papers
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PaperCandidate,
+    SearchCriteria,
+    SourceRunStatus,
+)
+from paper_reviewer.topic_brief_generation.related_paper_search.orchestrate import (
+    search_related_papers,
+)
 from tests.ingest.pubmed.test_config import ESEARCH_JSON, ESUMMARY_JSON
 
 

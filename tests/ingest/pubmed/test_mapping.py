@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from paper_reviewer.ingest.pubmed.mapping import docsum_to_candidate
-from paper_reviewer.schemas.candidate import PaperCandidate
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PaperCandidate,
+)
 
 # Real-shaped ESummary JSON DocSum (retmode=json), trimmed to fields we map.
 DOCSUM_WITH_DOI = {

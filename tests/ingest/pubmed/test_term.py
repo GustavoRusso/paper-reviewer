@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from paper_reviewer.ingest.pubmed.term import compile_pubmed_query
-from paper_reviewer.schemas.search import PubMedFacetOverride, TopicFacet
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PubMedFacetOverride,
+)
+from paper_reviewer.schemas.topic_brief_generation.topic_analysis import TopicFacet
 
 
 def test_topic_facet_parses_spec_fixture_fields() -> None:

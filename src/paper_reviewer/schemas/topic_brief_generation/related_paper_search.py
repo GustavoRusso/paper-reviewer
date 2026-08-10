@@ -1,4 +1,4 @@
-"""Shared search-criteria shapes used by paper-source adapters."""
+"""Related-paper search criteria, candidates, and run metadata."""
 
 from __future__ import annotations
 
@@ -7,27 +7,25 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from paper_reviewer.schemas.candidate import PaperCandidate
+from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+    TopicAnalysisResult,
+)
 
 
-class TopicFacet(BaseModel):
-    """One named facet distilled from a topic statement."""
+class PaperCandidate(BaseModel):
+    """Normalized hit from a paper source for related-paper search triage."""
 
-    id: str
-    label: str
-    intent: str | None = None
-    concepts: list[str] = Field(default_factory=list)
-    synonyms: list[str] = Field(default_factory=list)
-    date_from: str | None = None
-    date_to: str | None = None
-    filters: dict[str, Any] = Field(default_factory=dict)
-    retmax: int | None = None
-
-
-class TopicAnalysisResult(BaseModel):
-    """Topic analysis output: facets for one TopicBriefGeneration."""
-
-    facets: list[TopicFacet]
+    source_id: str
+    source_uid: str
+    doi: str | None = None
+    title: str
+    authors: list[str] = Field(default_factory=list)
+    journal: str | None = None
+    published_year: int | None = None
+    url: str
+    snippet: str | None = None
+    facet_id: str
+    raw_payload_ref: str | None = None
 
 
 class PubMedFacetOverride(BaseModel):

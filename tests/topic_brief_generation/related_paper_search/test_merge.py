@@ -2,8 +2,12 @@
 
 from __future__ import annotations
 
-from paper_reviewer.schemas.candidate import PaperCandidate
-from paper_reviewer.search.merge import merge_candidates
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PaperCandidate,
+)
+from paper_reviewer.topic_brief_generation.related_paper_search.merge import (
+    merge_candidates,
+)
 
 
 def _candidate(**overrides: object) -> PaperCandidate:

@@ -87,7 +87,7 @@ Do not use an LLM as the primary method. Do not use a custom stopword tokenizer 
 
 ## Output: `TopicAnalysisResult`
 
-The contract is `paper_reviewer.schemas.search.TopicAnalysisResult`, which holds `facets: list[TopicFacet]`. Related-paper search uses the same models.
+The contract is `paper_reviewer.schemas.topic_brief_generation.topic_analysis.TopicAnalysisResult`, which holds `facets: list[TopicFacet]`. Related-paper search uses the same models.
 
 This step makes a **`TopicAnalysisResult`**. Downstream search envelope types are owned by [related-paper-search.md](related-paper-search.md).
 
@@ -160,7 +160,7 @@ If you run Topic analysis again for the same `TopicBriefGeneration`, replace the
 
 ## Orchestration boundary
 
-Package path for analyzer and persist helpers: `paper_reviewer.topic_analysis` — see [project-structure.md](../project-structure.md).
+Package path for analyzer and persist helpers: `paper_reviewer.topic_brief_generation.topic_analysis` — see [project-structure.md](../project-structure.md).
 
 | Responsibility | Owner |
 | --- | --- |

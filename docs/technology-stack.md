@@ -33,7 +33,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 flowchart TB
   ui[Streamlit]
   orch[Prefect flows planned]
-  search[search orchestrate]
+  search[related_paper_search]
   ingest[dlt ingest extract]
   orm[SQLAlchemy queries]
   db[(PostgreSQL)]
@@ -50,13 +50,13 @@ flowchart TB
   mig --> db
 ```
 
-Today, related-paper search calls dlt sources for extract and merges in `paper_reviewer.search`. Prefect and dlt→Postgres load for that path are planned; step-specific rules: [specs/related-paper-search.md](specs/related-paper-search.md).
+Today, related-paper search calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.related_paper_search`. Prefect and dlt→Postgres load for that path are planned; step-specific rules: [specs/related-paper-search.md](specs/related-paper-search.md).
 
 ## Boundaries
 
 - **Pydantic** — Validate and define data shapes shared across UI, pipelines, and ingest. Prefer one schema source over ad-hoc dicts.
 - **dlt** — Paper-source extract (and future Source → Postgres loads). Define resource schemas with Pydantic; do not use dlt for ordinary app CRUD. Candidate load timing for related-paper search: [specs/related-paper-search.md](specs/related-paper-search.md).
-- **scispaCy** — Topic analysis NER only (`en_core_sci_sm`). Do not use it as a general-purpose NLP stack elsewhere without updating [specs/topic-analysis.md](specs/topic-analysis.md). Analyzer and persist helpers live in `paper_reviewer.topic_analysis` — see [project-structure.md](project-structure.md).
+- **scispaCy** — Topic analysis NER only (`en_core_sci_sm`). Do not use it as a general-purpose NLP stack elsewhere without updating [specs/topic-analysis.md](specs/topic-analysis.md). Analyzer and persist helpers live in `paper_reviewer.topic_brief_generation.topic_analysis` — see [project-structure.md](project-structure.md).
 - **SQLAlchemy** — Application reads and writes (Streamlit, and later Prefect tasks that are not bulk ingest).
 - **Alembic** — Owns relational schema versioning. When dlt loads into Postgres, those tables must already match Alembic; do not let dlt freely evolve production DDL against Alembic.
 - **Foreign keys — no `ON DELETE CASCADE`** — Never use `ON DELETE CASCADE` in Alembic or SQLAlchemy (`ForeignKey(..., ondelete="CASCADE")`, or relationship cascades that delete children when the parent is deleted). Keep the database default (`NO ACTION` / `RESTRICT`) so the database rejects deleting a parent that still has children. When a parent must be removed, delete or reassign child rows explicitly in application code first, then delete the parent. Do not restate this ban in feature specs; follow it for all schema work.

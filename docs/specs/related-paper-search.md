@@ -4,7 +4,7 @@ Workflow step 3 from [README.md](../../README.md): search registered **paper sou
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
-Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect planned). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
+Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect planned). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.topic_brief_generation.related_paper_search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
 
 ## Scope
 
@@ -60,7 +60,7 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 ## Input: `TopicAnalysisResult`
 
-Public input for this workflow step (and for `paper_reviewer.search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](topic-analysis.md) (reloaded facet rows for the same `TopicBriefGeneration`, or a test fixture). Facet field rules and persistence stay in that spec.
+Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](topic-analysis.md) (reloaded facet rows for the same `TopicBriefGeneration`, or a test fixture). Facet field rules and persistence stay in that spec.
 
 Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` → `SearchCriteria` as an **internal step** when it needs the search envelope (facets plus optional `source_overrides`). Callers do not have to build `SearchCriteria` first.
 
@@ -75,7 +75,7 @@ Public input shape for the normal path: the `TopicAnalysisResult` emission owned
 
 | Concern | Rule |
 | --- | --- |
-| Owner | This workflow (`paper_reviewer.search`). |
+| Owner | This workflow (`paper_reviewer.topic_brief_generation.related_paper_search`). |
 | When | Internally, before running registered paper-source adapters. |
 | How | Build `SearchCriteria(topic_analysis=…, source_overrides=…)` (default empty overrides). |
 | Keep | `SearchCriteria` remains the envelope used with source runners and for tests that need `source_overrides`. |
@@ -119,7 +119,7 @@ Per [technology-stack.md](../technology-stack.md):
 
 - Each paper source is a **dlt source/resource** under `paper_reviewer.ingest` (e.g. PubMed).
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
-- `paper_reviewer.search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
+- `paper_reviewer.topic_brief_generation.related_paper_search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
 - Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
 - The contract to Retrieval triage is the global `PaperCandidate` list (plus `source_runs` metadata).
 

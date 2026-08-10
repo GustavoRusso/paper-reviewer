@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from paper_reviewer.schemas.candidate import PaperCandidate
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PaperCandidate,
+)
 
 
 def _dedupe_key(candidate: PaperCandidate) -> tuple[str, ...]:

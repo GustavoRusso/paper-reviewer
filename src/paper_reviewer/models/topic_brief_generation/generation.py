@@ -1,4 +1,4 @@
-"""Topic brief generation ORM model and persistence helpers."""
+"""TopicBriefGeneration aggregate root and thin persistence helpers."""
 
 from __future__ import annotations
 
@@ -10,7 +10,6 @@ from sqlalchemy.orm import Mapped, Session, mapped_column
 from sqlalchemy.types import Uuid
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.schemas.topic_intake import TopicStatement, accept_topic_intake
 
 
 class TopicBriefGeneration(Base):
@@ -57,14 +56,3 @@ def get_topic_brief_generation_by_public_id(
             TopicBriefGeneration.public_id == public_id
         )
     )
-
-
-def start_topic_brief_from_topic_intake(
-    session: Session,
-    raw_text: str,
-) -> tuple[TopicStatement, TopicBriefGeneration]:
-    """Validate Topic intake text and persist a Topic brief generation."""
-    topic_statement = accept_topic_intake(raw_text)
-    generation = create_topic_brief_generation(session, topic_statement.text)
-    session.flush()
-    return topic_statement, generation

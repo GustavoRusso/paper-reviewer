@@ -6,8 +6,8 @@ from collections.abc import Callable, Mapping
 from typing import Any
 
 from paper_reviewer.ingest.pubmed.source import pubmed
-from paper_reviewer.schemas.candidate import PaperCandidate
-from paper_reviewer.schemas.search import (
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,
     RelatedPaperSearchResult,
@@ -15,7 +15,9 @@ from paper_reviewer.schemas.search import (
     SourceRun,
     SourceRunStatus,
 )
-from paper_reviewer.search.merge import merge_candidates
+from paper_reviewer.topic_brief_generation.related_paper_search.merge import (
+    merge_candidates,
+)
 
 PaperSourceRunner = Callable[[SearchCriteria], list[PaperCandidate]]
 

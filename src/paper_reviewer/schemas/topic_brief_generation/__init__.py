@@ -1,6 +1,6 @@
-"""Shared Pydantic domain contracts."""
+"""Domain contracts for the Topic brief generation workflow."""
 
-from paper_reviewer.schemas.topic_brief_generation import (
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,
@@ -8,8 +8,12 @@ from paper_reviewer.schemas.topic_brief_generation import (
     SearchCriteria,
     SourceRun,
     SourceRunStatus,
+)
+from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
     TopicFacet,
+)
+from paper_reviewer.schemas.topic_brief_generation.topic_intake import (
     TopicStatement,
     accept_topic_intake,
 )

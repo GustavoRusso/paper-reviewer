@@ -13,7 +13,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
 | ESearch + ESummary against `db=pubmed` | EFetch / full abstract payloads for **paper briefs** |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
-| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by related-paper search / `paper_reviewer.search`) |
+| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by related-paper search / `paper_reviewer.topic_brief_generation.related_paper_search`) |
 
 ## Source identity
 
@@ -129,7 +129,7 @@ Related-paper search does not call EFetch.
 
 1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
-3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.search` (see [related-paper-search.md](../related-paper-search.md)).
+3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.topic_brief_generation.related_paper_search` (see [related-paper-search.md](../related-paper-search.md)).
 
 ## Behavior notes
 

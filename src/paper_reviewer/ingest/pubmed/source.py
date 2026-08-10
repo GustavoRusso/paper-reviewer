@@ -8,7 +8,10 @@ from dlt.sources.rest_api import rest_api_resources
 from paper_reviewer.ingest.pubmed.config import build_pubmed_rest_api_config
 from paper_reviewer.ingest.pubmed.mapping import docsum_to_candidate
 from paper_reviewer.ingest.pubmed.term import compile_pubmed_query
-from paper_reviewer.schemas.search import PubMedFacetOverride, TopicFacet
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PubMedFacetOverride,
+)
+from paper_reviewer.schemas.topic_brief_generation.topic_analysis import TopicFacet
 
 
 @dlt.source(name="pubmed")
