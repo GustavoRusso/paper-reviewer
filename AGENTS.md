@@ -10,18 +10,29 @@ It overrides tool-specific skills that assume a host `uv` install (including dlt
 
 Agent shells run on the **host**, not inside Docker. This project does **not** install `uv`, Python, or app tooling on the host.
 
+**This file is the only place that defines agent CLI policy.** Do **not** search for, invent, or add tool-specific agent files to “enforce” it (for example `.cursor/rules/`, other IDE rule packs, or duplicate CLI checklists). If the policy must change, edit **this** section (and update [docs/local-development.md](docs/local-development.md) only when the human/local workflow description must stay in sync).
+
 **Never** run on the host:
 
 - `uv` / `uvx`
 - `python` / `pytest` / `pip`
 - `dlthub`
-- raw `docker compose` (use `just` recipes instead)
+- raw `docker` / `docker compose` (use `just` recipes instead — including logs, `ps`, `inspect`, and health debugging)
 - any command that needs Python, including pipes like `curl … | python -c "…"` and other one-liners
 - API connectivity or endpoint debugging that parses JSON with Python (PubMed E-utilities probes, smoke checks, etc.)
 
-**Always** use `just` recipes so the command runs inside the Compose `workspace` container. Host tools allowed: `just`, `docker` / `docker compose` only when a recipe wraps them, and `git`.
+**Always** use `just` recipes so the command runs inside the Compose `workspace` container. Host tools allowed: `just`, and `git`. `docker` / `docker compose` only appear **inside** [justfile](justfile) recipes — never as a direct agent shell command.
 
 List recipes and descriptions: `just`. Recipe definitions: [justfile](justfile).
+
+### Awkward or missing recipes
+
+If the needed `just` recipe is missing, awkward, hangs (for example follow-only logs), or cannot express the task safely:
+
+1. **Stop.** Do **not** bypass with raw `docker` / `docker compose` / host `uv` / host `python`.
+2. **Tell the user** what recipe is missing or awkward and propose a concrete [justfile](justfile) change (new recipe or fix to an existing one).
+3. **Wait** for agreement before editing the justfile (unless the user already asked you to add or fix that recipe).
+4. After the recipe exists, use **only** that recipe for the work.
 
 If a skill, toolkit, or third-party doc says `uv run …`, wrap it:
 
