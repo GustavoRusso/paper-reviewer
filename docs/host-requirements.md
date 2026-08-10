@@ -38,5 +38,4 @@ just --version
 
 With Docker Desktop and `just` installed, continue with [local-development.md](local-development.md) for app vs sandbox lifecycle. List recipes with `just`; definitions live in [justfile](../justfile). Do not add further host tooling for this project.
 
-> All commands are defined as `just` recipes that wrap `docker compose`. Never call
-> `docker compose`, uv or python directly — agents and humans use the same `just` recipes.
+Agent CLI policy (never host `uv` / `python` / raw `docker compose`): [AGENTS.md](../AGENTS.md).

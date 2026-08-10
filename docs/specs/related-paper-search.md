@@ -69,25 +69,7 @@ Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` →
 | `TopicAnalysisResult` | Yes | Facets from Topic analysis (or a test fixture). |
 | `source_overrides` | No | Optional map `source_id` → opaque payload defined by that source’s spec. Folded into `SearchCriteria` during the internal convert (fixtures / power paths). v1 default when omitted: `{}`. |
 
-Illustrative public input (Topic analysis v1 shape — that step sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`; see [topic-analysis.md](topic-analysis.md)):
-
-```json
-{
-  "facets": [
-    {
-      "id": "core-concepts",
-      "label": "Core concepts",
-      "intent": "Narrow topical match from biomedical entities",
-      "concepts": ["glioblastoma", "immunotherapy"],
-      "synonyms": [],
-      "date_from": null,
-      "date_to": null,
-      "filters": {},
-      "retmax": null
-    }
-  ]
-}
-```
+Public input shape for the normal path: the `TopicAnalysisResult` emission owned by [topic-analysis.md](topic-analysis.md) (v1 sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`). Do not copy that JSON here.
 
 ### Internal conversion (`TopicAnalysisResult` → `SearchCriteria`)
 
@@ -102,37 +84,25 @@ Illustrative public input (Topic analysis v1 shape — that step sets `synonyms`
 
 After conversion, the workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
 
-Illustrative internal `SearchCriteria` (after conversion, with optional PubMed override for fixtures — not the v1 Topic analysis emission shape):
+Illustrative internal `SearchCriteria` after conversion with empty overrides (fixture-style facets, not Topic analysis v1 emission):
 
 ```json
 {
   "topic_analysis": {
     "facets": [
       {
-        "id": "core-concepts",
-        "label": "Core concepts",
-        "intent": "Narrow topical match from biomedical entities",
-        "concepts": ["glioblastoma", "immunotherapy"],
-        "synonyms": ["GBM"],
-        "date_from": "2018-01-01",
-        "date_to": null,
-        "filters": {},
-        "retmax": 50
+        "id": "fixture-narrow",
+        "label": "Fixture narrow",
+        "concepts": ["CRISPR", "base editing"],
+        "retmax": 20
       }
     ]
   },
-  "source_overrides": {
-    "pubmed": {
-      "facets": {
-        "core-concepts": {
-          "raw_term": "glioblastoma[mesh] AND immunotherapy[Title/Abstract] AND 2018:3000[pdat]"
-        }
-      }
-    }
-  }
+  "source_overrides": {}
 }
 ```
 
+For a PubMed `raw_term` override payload, see [paper-sources/pubmed.md](paper-sources/pubmed.md) (Hybrid override). Do not define Entrez strings in this file.
 ## Paper source registry
 
 

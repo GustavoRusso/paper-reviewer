@@ -8,24 +8,14 @@ In this step, the system extracts key data from a **topic statement**. Later ste
 
 | Term | Meaning |
 | --- | --- |
-| **`TopicFacet`** | One named slice distilled from the topic statement (`id`, `label`, `intent`, `concepts`, …). |
+| **`TopicFacet`** | One named slice distilled from the topic statement (`id`, `label`, `intent`, `concepts`, …). Product meaning: [README.md](../../README.md) Terminology. |
 | **`TopicAnalysisResult`** | Pydantic wrapper with `facets: list[TopicFacet]` for one `TopicBriefGeneration`. |
-| **`SearchCriteria`** | Related-paper search envelope: a `TopicAnalysisResult` plus optional `source_overrides`. Built **inside** related-paper search as an internal step, not here. |
 
 ## Topic brief generation
 
-A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution. It includes all steps in [README.md](../../README.md):
+A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 2 (Topic analysis) for that `TopicBriefGeneration`.
 
-1. Topic intake
-2. Topic analysis
-3. Related-paper search
-4. Retrieval triage
-5. Paper briefs
-6. Topic brief
-
-This document specifies only step 2 (Topic analysis) for that `TopicBriefGeneration`.
-
-Related-paper search takes the `TopicAnalysisResult` and converts it to `SearchCriteria` internally when needed. See [related-paper-search.md](related-paper-search.md).
+`SearchCriteria` conversion and related-paper search orchestration are out of scope here — see [related-paper-search.md](related-paper-search.md).
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md). This step specifies scispaCy (`en_core_sci_sm`) for biomedical NER; the stack document lists that library and points here for behavior.
 
@@ -41,7 +31,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 ### Out of scope
 
 - Validation of Topic intake (step 1 of the same `TopicBriefGeneration` does that work).
-- Build of a full `SearchCriteria` object with `source_overrides`.
+- `SearchCriteria` / `source_overrides` (owned by [related-paper-search.md](related-paper-search.md)).
 - Other workflow steps (related-paper search, triage, paper briefs, topic brief).
 - Analysis with an LLM.
 - Analysis that uses a custom stopword or token heuristic as the primary method.
@@ -67,7 +57,7 @@ flowchart TB
 
 1. **Topic intake** starts a `TopicBriefGeneration` and stores the `topic_statement`.
 2. **Topic analysis** (this specification) operates on that `TopicBriefGeneration`. It reads the `topic_statement`. It extracts concepts. It makes facets. It writes the facets with a foreign key to the same `TopicBriefGeneration`.
-3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step receives a `TopicAnalysisResult` (reloaded facets) and converts it to `SearchCriteria` internally when needed. In tests, you can inject a `TopicAnalysisResult` fixture (or, until the API change lands, a transitional `SearchCriteria`).
+3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step’s public input is a `TopicAnalysisResult` (reloaded facets); see [related-paper-search.md](related-paper-search.md). In tests, you can inject a `TopicAnalysisResult` fixture.
 
 ## Input
 
@@ -99,7 +89,7 @@ Do not use an LLM as the primary method. Do not use a custom stopword tokenizer 
 
 The contract is `paper_reviewer.schemas.search.TopicAnalysisResult`, which holds `facets: list[TopicFacet]`. Related-paper search uses the same models.
 
-This step makes a **`TopicAnalysisResult`**. This step does not make a full `SearchCriteria`.
+This step makes a **`TopicAnalysisResult`**. Downstream search envelope types are owned by [related-paper-search.md](related-paper-search.md).
 
 ### v1 emission rules
 
@@ -177,22 +167,20 @@ Package path for analyzer and persist helpers: `paper_reviewer.topic_analysis` �
 | Change text into a `TopicAnalysisResult` | Analyzer (`analyze_topic_statement` or an equivalent function) |
 | Analyze and write for a `TopicBriefGeneration` | Domain helper (`run_topic_analysis` or an equivalent function). The helper takes a database session and a `TopicBriefGeneration`. |
 | When to start analysis | After a successful Topic intake on that `TopicBriefGeneration`. Use the same session or transaction when it is practical. Keep intake tests and analysis tests separate. |
-| Convert `TopicAnalysisResult` → `SearchCriteria` | Related-paper search (`paper_reviewer.search`), as an internal step. See [related-paper-search.md](related-paper-search.md). |
-
-The build of `SearchCriteria` (`topic_analysis` plus optional `source_overrides`) is not part of Topic analysis. Related-paper search owns that conversion.
+| Related-paper search / `SearchCriteria` | [related-paper-search.md](related-paper-search.md) |
 
 ## Testability
 
 - Inject a fake spaCy `nlp` that returns controlled `ents`. Use this for unit tests that must be deterministic. Those tests do not need a model download.
 - You can add an optional integration check with the real `en_core_sci_sm` model. Make sure that expected entity substrings occur in `concepts`.
 - Write and reload through the foreign key relationship. Make sure that re-analysis replaces rows.
-- Related-paper search accepts a `TopicAnalysisResult` (and converts to `SearchCriteria` internally). Those tests do not need this step’s analyzer.
+- Related-paper search tests inject a `TopicAnalysisResult` and do not need this step’s analyzer — see [related-paper-search.md](related-paper-search.md).
 
 ## Non-goals (v1)
 
 Do not do this work in v1:
 
-- Make PubMed `source_overrides` or MeSH-specific markup.
+- Make PubMed `source_overrides` or MeSH-specific markup (see [paper-sources/pubmed.md](paper-sources/pubmed.md)).
 - Orchestrate analysis with Prefect.
 - Use specialty NER models (for example `en_ner_bc5cdr_md`).
 - Use facet ids other than `core-concepts`.

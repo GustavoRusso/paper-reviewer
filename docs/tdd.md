@@ -38,13 +38,15 @@ flowchart LR
 
 - If no tests exist, **create them first**.
 - Prefer behavior-focused tests; avoid asserting on implementation details.
+- Prefer pytest style (`assert`, fixtures) over `unittest.TestCase`.
 - Test only our app code (`paper_reviewer`).
 - Fake or stub **boundary collaborators** (PubMed HTTP, other remote APIs). Do not make live network calls in unit/spec tests.
+- Keep Streamlit thin and test schemas/domain/flows rather than widget chrome.
 - Do not assert on third-party library internals (dlt, SQLAlchemy, Streamlit widgets, etc.).
 
 ### 3) Validate tests (expect red)
 
-- Run the **narrowest** relevant pytest selection via project recipes (`just test` / sandbox). Never run `pytest` or `uv` on the host—see [host-requirements.md](host-requirements.md).
+- Run the **narrowest** relevant pytest selection via project recipes (`just test` / sandbox). Host CLI policy: [AGENTS.md](../AGENTS.md). How to run: [local-development.md](local-development.md#running-tests).
 - Failure because the feature is not implemented yet is **expected**.
 - If tests fail for unrelated reasons (broken setup, wrong imports, flaky fixtures), fix the tests or test setup first.
 

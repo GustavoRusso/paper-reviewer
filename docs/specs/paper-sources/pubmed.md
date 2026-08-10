@@ -129,9 +129,7 @@ Related-paper search does not call EFetch.
 
 1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
-3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.search`.
-
-This step extracts candidates in memory for the workflow; it does not load them into Postgres.
+3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.search` (see [related-paper-search.md](../related-paper-search.md)).
 
 ## Behavior notes
 

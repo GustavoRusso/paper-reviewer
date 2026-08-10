@@ -1,8 +1,6 @@
 # Local development
 
-All local workflows run through `just` recipes that wrap Docker Compose. Install host tools first: [host-requirements.md](host-requirements.md).
-
-Do **not** run `docker compose`, language runtimes, or package managers on the host. Use `just` recipes instead. List them with `just`; definitions live in [justfile](../justfile).
+All local workflows run through `just` recipes that wrap Docker Compose. Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
 
 ## Current stack
 

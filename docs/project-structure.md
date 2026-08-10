@@ -103,11 +103,11 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes (e.g. `TopicBriefGeneration`, facet rows) plus generation helpers in `topic_brief_generation.py` (intake start; later workflow orchestration as needed — does **not** convert `TopicAnalysisResult` → `SearchCriteria`) |
-| Pydantic | `paper_reviewer.schemas` | Shared validated shapes: `TopicStatement`; `TopicFacet` / `TopicAnalysisResult` / `SearchCriteria` / source overrides / `RelatedPaperSearchResult` in `schemas.search`; `PaperCandidate` in `schemas.candidate`; future brief shapes. Topic analysis types live under `schemas.search` because search consumes them. |
-| Topic analysis | `paper_reviewer.topic_analysis` | Analyzer (`analyze_topic_statement` or equivalent) and persist helper (`run_topic_analysis` or equivalent). Behavior: [specs/topic-analysis.md](specs/topic-analysis.md). NER library: [technology-stack.md](technology-stack.md). Does **not** build `SearchCriteria`. |
+| SQLAlchemy ORM | `paper_reviewer.models` | Table-mapped classes (e.g. `TopicBriefGeneration`, facet rows) plus generation helpers in `topic_brief_generation.py` (intake start; later workflow orchestration as needed) |
+| Pydantic | `paper_reviewer.schemas` | Shared validated shapes: `TopicStatement`; search/analysis types in `schemas.search`; `PaperCandidate` in `schemas.candidate`; future brief shapes. Field contracts: [specs/topic-analysis.md](specs/topic-analysis.md), [specs/related-paper-search.md](specs/related-paper-search.md). |
+| Topic analysis | `paper_reviewer.topic_analysis` | Analyzer and persist helpers. Behavior: [specs/topic-analysis.md](specs/topic-analysis.md). NER library: [technology-stack.md](technology-stack.md). |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
-| Related-paper search | `paper_reviewer.search` | Orchestration, registry, merge of `PaperCandidate` lists. **Accepts** `TopicAnalysisResult`; converts internally to `SearchCriteria` when needed. |
+| Related-paper search | `paper_reviewer.search` | Orchestration, registry, merge. Behavior: [specs/related-paper-search.md](specs/related-paper-search.md). |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
 | Prefect | `paper_reviewer.flows` | Search, ingest, and brief pipelines (planned) |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
