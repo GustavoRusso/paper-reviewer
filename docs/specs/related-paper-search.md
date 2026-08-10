@@ -1,6 +1,6 @@
 # Related-paper search
 
-Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for Retrieval triage.
+Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for Retrieval triage and (in v1) [Paper archiving](paper-archiving.md).
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
@@ -15,7 +15,7 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pyda
 | Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | Implementing ingest/flows/UI code in this doc                               |
 | Run extract via **dlt** for each registered paper source                           | Building **paper briefs** or calling full-record fetch (e.g. PubMed EFetch) |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Adding new paper sources beyond registering them here                       |
-| Fail-soft when one source errors                                                   | Loading candidates into Postgres (not part of this step today)              |
+| Fail-soft when one source errors                                                   | Loading candidates into Postgres as `Paper` rows ([Paper archiving](paper-archiving.md) owns that) |
 
 
 
@@ -30,7 +30,7 @@ Every paper source must map its API hit into a shared `PaperCandidate` with two 
 | ------------ | -------------------------------------------------------------------------- |
 | `source_id`  | Paper source id (e.g. `pubmed`)                                            |
 | `source_uid` | That source’s stable record id (e.g. PMID)                                                  |
-| `doi`        | Nullable; preferred cross-source merge key and paper identity when present |
+| `doi`        | Required on every candidate that reaches triage / archiving. Preferred cross-source merge key. Compared uppercase (ISO 26324 case-insensitive). Raw source maps may still emit a missing DOI; merge **drops** those hits so triage never sees them. |
 
 
 Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid)` (and DOI if needed) are used to fetch fuller records later. This workflow does **not** perform that fetch.
@@ -121,7 +121,7 @@ Per [technology-stack.md](../technology-stack.md):
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
 - `paper_reviewer.topic_brief_generation.related_paper_search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
 - Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
-- The contract to Retrieval triage is the global `PaperCandidate` list (plus `source_runs` metadata).
+- The contract to Retrieval triage (and v1 [Paper archiving](paper-archiving.md)) is the global `PaperCandidate` list (plus `source_runs` metadata).
 
 ```mermaid
 flowchart TB
@@ -147,12 +147,11 @@ flowchart TB
 
 ## Merge and normalize
 
-1. Map every source row to `PaperCandidate` (required fields above).
-2. Dedupe within the global list:
-  - Prefer **DOI** when present (case-normalized).
-  - Else `(source_id, source_uid)`.
-3. When merging duplicates, keep one canonical candidate; retain provenance that multiple facets/sources hit the same paper when useful for triage metadata (implementation detail).
-4. Tag each candidate with `facet_id` and `source_id`.
+1. Map every source row to `PaperCandidate` (fields above).
+2. **Drop** any candidate whose `doi` is missing or blank after strip. Triage and [Paper archiving](paper-archiving.md) never see no-DOI hits.
+3. Dedupe within the remaining global list by **uppercase DOI** (strip then `.upper()`). Do not fall back to `(source_id, source_uid)` for merge identity once DOI is required on kept rows.
+4. When merging duplicates, keep one canonical candidate; retain provenance that multiple facets/sources hit the same paper when useful for triage metadata (implementation detail).
+5. Tag each candidate with `facet_id` and `source_id`.
 
 
 
@@ -165,7 +164,7 @@ flowchart TB
 | `source_runs[]` | Per source: `source_id`, `status` (`ok` / `error` / `empty`), `hit_count`, `facet_ids`, `error` if any |
 
 
-Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports debugging and UI status.
+Primary deliverable for Retrieval triage and (until triage has a contract) for [Paper archiving](paper-archiving.md): `candidates`. `source_runs` supports debugging and UI status.
 
 ## Behavior
 
@@ -174,8 +173,10 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | Empty `facets`                             | Allowed for injected/test analysis: empty `candidates` and a note that there are no facets. The normal path expects Topic analysis output (one or more facets). |
 | Facet yields zero hits from a source       | That facet contributes nothing; other facets/sources continue                                    |
+| Hit without DOI (missing/blank)            | Dropped during merge; not present in `candidates`                                              |
 | Source failure (network, rate limit, auth) | **Fail-soft**: other sources still contribute; `source_runs` records the error                   |
 | `retmax` truncates                         | Candidates limited accordingly                                                                   |
+| All hits lack DOI                          | Empty `candidates` (orchestrator skips [Paper archiving](paper-archiving.md) or gets empty success) |
 
 
 
@@ -187,6 +188,7 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 - For deterministic PubMed tests, pass optional `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) so conversion yields a known Entrez `term`.
 - Until the public API change lands, existing tests may still inject a full `SearchCriteria`; that remains a transitional path only.
 - Assert on `PaperCandidate` fields and merge behavior with multi-source fixtures when additional sources exist.
+- Assert merge drops missing/blank DOI hits and dedupes by uppercase DOI.
 
 
 

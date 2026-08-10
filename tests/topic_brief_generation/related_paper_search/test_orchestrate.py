@@ -240,7 +240,7 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
         {
             "source_id": "stub",
             "source_uid": "99",
-            "doi": None,
+            "doi": "10.1000/stub.99",
             "title": "Stub hit",
             "authors": [],
             "journal": None,

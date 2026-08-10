@@ -7,23 +7,25 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
 )
 
 
-def _dedupe_key(candidate: PaperCandidate) -> tuple[str, ...]:
-    if candidate.doi:
-        return ("doi", candidate.doi.casefold())
-    return ("source", candidate.source_id, candidate.source_uid)
+def _normalized_doi(candidate: PaperCandidate) -> str | None:
+    if candidate.doi is None:
+        return None
+    text = str(candidate.doi).strip()
+    if not text:
+        return None
+    return text.upper()
 
 
 def merge_candidates(candidates: list[PaperCandidate]) -> list[PaperCandidate]:
-    """Dedupe candidates: DOI (case-normalized) when present, else (source_id, source_uid).
-
-    Keeps the first occurrence of each identity key; preserves input order.
-    """
-    seen: set[tuple[str, ...]] = set()
+    """Drop missing/blank DOI hits; dedupe by uppercase DOI; keep first; preserve order."""
+    seen: set[str] = set()
     merged: list[PaperCandidate] = []
     for candidate in candidates:
-        key = _dedupe_key(candidate)
-        if key in seen:
+        doi = _normalized_doi(candidate)
+        if doi is None:
             continue
-        seen.add(key)
+        if doi in seen:
+            continue
+        seen.add(doi)
         merged.append(candidate)
     return merged

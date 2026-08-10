@@ -14,7 +14,7 @@ def _candidate(**overrides: object) -> PaperCandidate:
     base: dict[str, object] = {
         "source_id": "pubmed",
         "source_uid": "1001",
-        "doi": None,
+        "doi": "10.1000/EXAMPLE.1001",
         "title": "Example title",
         "authors": ["Author A"],
         "journal": "Nature",
@@ -33,13 +33,23 @@ def test_empty_input_yields_empty_list() -> None:
 
 
 def test_unique_candidates_preserved_in_order() -> None:
-    a = _candidate(source_uid="1", title="First", url="https://pubmed.ncbi.nlm.nih.gov/1/")
-    b = _candidate(source_uid="2", title="Second", url="https://pubmed.ncbi.nlm.nih.gov/2/")
+    a = _candidate(
+        source_uid="1",
+        doi="10.1000/A",
+        title="First",
+        url="https://pubmed.ncbi.nlm.nih.gov/1/",
+    )
+    b = _candidate(
+        source_uid="2",
+        doi="10.1000/B",
+        title="Second",
+        url="https://pubmed.ncbi.nlm.nih.gov/2/",
+    )
 
     assert merge_candidates([a, b]) == [a, b]
 
 
-def test_dedupe_by_case_normalized_doi_keeps_first() -> None:
+def test_dedupe_by_uppercase_doi_keeps_first() -> None:
     first = _candidate(
         source_uid="36328499",
         doi="10.1038/s41586-022-05543-x",
@@ -67,32 +77,27 @@ def test_dedupe_by_case_normalized_doi_keeps_first() -> None:
     assert merged == [first, other]
 
 
-def test_dedupe_by_source_id_and_uid_when_doi_missing() -> None:
-    first = _candidate(
+def test_missing_doi_hits_are_dropped() -> None:
+    keep = _candidate(
+        source_uid="36328499",
+        doi="10.1038/s41586-022-05543-x",
+        title="Has DOI",
+        url="https://pubmed.ncbi.nlm.nih.gov/36328499/",
+    )
+    drop_none = _candidate(
         source_uid="11850928",
         doi=None,
-        title="First without DOI",
-        facet_id="core-concepts",
+        title="No DOI",
         url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
     )
-    duplicate = _candidate(
-        source_uid="11850928",
-        doi=None,
-        title="Same pubmed uid, later strategy",
-        facet_id="broad",
-        url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
-    )
-    other_source_same_uid = _candidate(
-        source_id="europepmc",
-        source_uid="11850928",
-        doi=None,
-        title="Same uid, different source",
-        url="https://europepmc.org/article/MED/11850928",
+    drop_blank = _candidate(
+        source_uid="2",
+        doi="   ",
+        title="Blank DOI",
+        url="https://pubmed.ncbi.nlm.nih.gov/2/",
     )
 
-    merged = merge_candidates([first, duplicate, other_source_same_uid])
-
-    assert merged == [first, other_source_same_uid]
+    assert merge_candidates([drop_none, keep, drop_blank]) == [keep]
 
 
 def test_doi_identity_preferred_over_source_uid() -> None:
@@ -115,8 +120,8 @@ def test_doi_identity_preferred_over_source_uid() -> None:
     assert merge_candidates([pubmed, other]) == [pubmed]
 
 
-def test_missing_doi_does_not_collapse_unrelated_rows() -> None:
+def test_all_missing_doi_yields_empty_list() -> None:
     a = _candidate(source_uid="1", doi=None, title="A", url="https://pubmed.ncbi.nlm.nih.gov/1/")
     b = _candidate(source_uid="2", doi=None, title="B", url="https://pubmed.ncbi.nlm.nih.gov/2/")
 
-    assert merge_candidates([a, b]) == [a, b]
+    assert merge_candidates([a, b]) == []

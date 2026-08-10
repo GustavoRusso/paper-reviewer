@@ -37,7 +37,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 - Validation of Topic intake (step 1 of the same `TopicBriefGeneration` does that work).
 - `SearchCriteria` / `source_overrides` (owned by [related-paper-search.md](related-paper-search.md)).
-- Other workflow steps (related-paper search, triage, paper briefs, topic brief).
+- Other workflow steps (related-paper search, triage, paper archiving, paper briefs, topic brief).
 - Analysis with an LLM.
 - Analysis that uses a custom stopword or token heuristic as the **primary** method (fallback after empty NER may use non-stopword tokens — see Analyzer).
 - Larger scispaCy models (`md`, `lg`, or specialty NER), unless a later change adopts them.

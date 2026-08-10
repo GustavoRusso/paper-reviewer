@@ -10,13 +10,15 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 
 ## Terminology
 
-- **Paper** — Any scientific article, published or not
+- **Paper** — Any scientific article, published or not. In the app, an archived `Paper` is the durable bibliographic record created or reused during **Paper archiving**. Its public id is the uppercase DOI.
 - **Paper sources** — Predefined online providers used to look up related papers
 - **Topic statement** — Free-form text from the researcher that first defines the topic to brief
 - **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Used to drive related-paper search and later writing.
-- **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can reload paper data and build a **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/related-paper-search.md](docs/specs/related-paper-search.md).
+- **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can archive the paper and build a **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/related-paper-search.md](docs/specs/related-paper-search.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
-- **Paper brief** — Structured summary of a paper related to the topic
+- **Paper archiving** — Workflow step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
+
+- **Paper brief** — Structured summary of a paper related to the topic, built from an archived `Paper` (for PubMed: fuller record via EFetch)
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — One end-to-end run of the workflow below (Topic intake through Topic brief). In the app this is a `TopicBriefGeneration` record that owns artifacts from each step.
 
@@ -30,8 +32,11 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 2. **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus for search and writing.
 3. **Related-paper search** — The assistant searches **paper sources** for related papers.
 4. **Retrieval triage** — Search results are presented; you can discard papers that do not apply, refining the set before deeper analysis.
-5. **Paper briefs** — For each retained paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references). Paper identity for that step follows the candidate contract in [docs/specs/related-paper-search.md](docs/specs/related-paper-search.md).
-6. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
+5. **Paper archiving** — For each candidate with a DOI (search list in v1; retained set when triage is specified), the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
+
+6. **Paper briefs** — For each archived paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references), using fuller source fetch where needed (for PubMed: EFetch). See [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
+
+7. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 
 ## Getting started
 

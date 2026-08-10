@@ -69,6 +69,7 @@ paper-reviewer/
 │       │   ├── topic_analysis/
 │       │   ├── related_paper_search/
 │       │   ├── retrieval_triage/
+│       │   ├── paper_archiving/        # Paper archiving (stub until implemented)
 │       │   ├── paper_briefs/
 │       │   └── topic_brief/
 │       ├── schemas/
@@ -109,7 +110,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, triage, paper briefs, topic brief). Specs: [specs/topic-analysis.md](specs/topic-analysis.md), [specs/related-paper-search.md](specs/related-paper-search.md). |
+| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, triage, paper archiving, paper briefs, topic brief). Specs: [specs/topic-analysis.md](specs/topic-analysis.md), [specs/related-paper-search.md](specs/related-paper-search.md), [specs/paper-archiving.md](specs/paper-archiving.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_brief_generation.topic_analysis`). |
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` | Table mappings mirrored under the workflow name; `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |

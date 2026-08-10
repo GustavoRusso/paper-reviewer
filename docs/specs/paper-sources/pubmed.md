@@ -11,7 +11,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | In scope | Out of scope |
 | --- | --- |
 | Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
-| ESearch + ESummary against `db=pubmed` | EFetch / full abstract payloads for **paper briefs** |
+| ESearch + ESummary against `db=pubmed` | EFetch / full abstract payloads for **paper briefs**; creating durable `Paper` rows ([Paper archiving](../paper-archiving.md)) |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
 | `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by related-paper search / `paper_reviewer.topic_brief_generation.related_paper_search`) |
 
@@ -78,7 +78,7 @@ Base URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`
 | --- | --- | --- |
 | **ESearch** | `esearch.fcgi` | Compiled `term` → PMIDs (`usehistory=y`, `retmax`, optional `sort`) |
 | **ESummary** | `esummary.fcgi` | DocSums for candidate summary fields (by ids or History `WebEnv` + `query_key`) |
-| **EFetch** | `efetch.fcgi` | **Not used here** — later paper-brief construction from retained candidates |
+| **EFetch** | `efetch.fcgi` | **Not used here** — Paper briefs step uses EFetch after [Paper archiving](../paper-archiving.md) |
 
 Recommended sequence per facet:
 
@@ -107,7 +107,7 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-p
 | `source_uid` | PMID |
 | `doi` | DOI from DocSum article ids when present; else null |
 | `title` | DocSum title |
-| `authors` | DocSum author list |
+| `authors` | DocSum `authors[].name` → `list[str]` (ESummary JSON objects with `name`, `authtype`, `clusterid`) |
 | `journal` | DocSum source / full journal name when available |
 | `published_year` | Year parsed from DocSum pubdate / epubdate when available |
 | `url` | `https://pubmed.ncbi.nlm.nih.gov/<pmid>/` |
@@ -116,12 +116,14 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-p
 
 ### Source fetch handle (later steps)
 
-Retained candidates are fetched later (paper briefs) using:
+[Paper archiving](../paper-archiving.md) maps candidate bibliographic fields into a durable `Paper` without calling EFetch.
+
+Archived papers are fetched later (**Paper briefs**) using:
 
 - **Primary:** EFetch with `db=pubmed` and `id=<PMID>` (`source_uid`)
-- **Cross-source identity:** DOI when present
+- **Cross-source identity / Paper public id:** DOI (required for candidates that survive related-paper search merge)
 
-Related-paper search does not call EFetch.
+Related-paper search and Paper archiving do not call EFetch.
 
 ## dlt resource
 
@@ -136,7 +138,7 @@ Related-paper search does not call EFetch.
 | Case | Expected |
 | --- | --- |
 | Zero ESearch hits | No candidates for that facet from PubMed |
-| Missing DOI on DocSum | `doi` null; `source_uid` (PMID) still valid for later EFetch |
+| Missing DOI on DocSum | Mapper may emit `doi` null; [related-paper search](../related-paper-search.md) **drops** that hit at merge so it never reaches triage or [Paper archiving](../paper-archiving.md) |
 | Rate limit / HTTP error | Surface error to workflow `source_runs`; workflow fail-soft applies |
 
 ## Fixture example
