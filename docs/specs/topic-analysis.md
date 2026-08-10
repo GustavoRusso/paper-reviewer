@@ -21,12 +21,17 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ## Scope
 
-### In scope
+### In scope (current v1)
 
-- Analyze the `topic_statement` text of an existing `TopicBriefGeneration`.
+- Analyze topic statement text (from Topic intake or an equivalent caller).
 - Make a `TopicAnalysisResult` with one or more `TopicFacet` objects via scispaCy NER.
+- Return that result in memory (and optionally hold it in UI session state). Do not write facet rows to the database in this slice.
+
+### Deferred (later)
+
 - Write each facet as a database row with a foreign key to that `TopicBriefGeneration`.
 - If you analyze the same `TopicBriefGeneration` again, replace the facet rows for it.
+- Domain helper `run_topic_analysis(session, TopicBriefGeneration)` that analyzes and persists.
 
 ### Out of scope
 
@@ -34,9 +39,9 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - `SearchCriteria` / `source_overrides` (owned by [related-paper-search.md](related-paper-search.md)).
 - Other workflow steps (related-paper search, triage, paper briefs, topic brief).
 - Analysis with an LLM.
-- Analysis that uses a custom stopword or token heuristic as the primary method.
+- Analysis that uses a custom stopword or token heuristic as the **primary** method (fallback after empty NER may use non-stopword tokens — see Analyzer).
 - Larger scispaCy models (`md`, `lg`, or specialty NER), unless a later change adopts them.
-- A separate ORM table for `TopicAnalysisResult` (v1: in-memory/API aggregate of facet rows).
+- A separate ORM table for `TopicAnalysisResult` (when persistence lands: in-memory/API aggregate of facet rows).
 
 ## Position in the workflow
 
@@ -45,26 +50,27 @@ flowchart TB
   subgraph tbg [TopicBriefGeneration]
     intake[1 Topic intake]
     analyze[2 Topic analysis]
-    facets[Persisted TopicFacet rows]
+    result[In-memory TopicAnalysisResult]
     search[3 Related-paper search]
     later[4 and later steps]
     intake --> analyze
-    analyze --> facets
-    facets --> search
+    analyze --> result
+    result --> search
     search --> later
   end
 ```
 
 1. **Topic intake** starts a `TopicBriefGeneration` and stores the `topic_statement`.
-2. **Topic analysis** (this specification) operates on that `TopicBriefGeneration`. It reads the `topic_statement`. It extracts concepts. It makes facets. It writes the facets with a foreign key to the same `TopicBriefGeneration`.
-3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step’s public input is a `TopicAnalysisResult` (reloaded facets); see [related-paper-search.md](related-paper-search.md). In tests, you can inject a `TopicAnalysisResult` fixture.
+2. **Topic analysis** (this specification) reads the `topic_statement` text. It extracts concepts. It makes an in-memory `TopicAnalysisResult`. The UI may call the analyzer after intake and keep the result in session state. Facet DB rows are deferred.
+3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step’s public input is a `TopicAnalysisResult` (from this step or a test fixture); see [related-paper-search.md](related-paper-search.md).
 
 ## Input
 
 | Input | Required | Description |
 | --- | --- | --- |
-| `TopicBriefGeneration` | Yes | The workflow execution that owns this analysis. It must have a `topic_statement` that is not empty. |
-| `topic_statement` | Yes | Free-form text that Topic intake already accepted for that `TopicBriefGeneration`. |
+| `topic_statement` | Yes | Free-form text that Topic intake already accepted (or equivalent non-empty text passed to the analyzer). |
+
+The public analyzer API is `analyze_topic_statement(text, nlp=None) -> TopicAnalysisResult`. It does not take a database session. Callers that already have a `TopicBriefGeneration` pass its `topic_statement` text.
 
 After you normalize the text, empty text or text that has only whitespace is not valid for analysis. Raise a `ValueError`.
 
@@ -76,11 +82,11 @@ Use [scispaCy](https://allenai.github.io/scispacy/) with the **`en_core_sci_sm`*
 
 | Rule | Behavior |
 | --- | --- |
-| Normalize | Remove leading and trailing whitespace. Collapse adjacent whitespace. Do this before NLP. |
-| Model load | Load with `spacy.load("en_core_sci_sm")`. Keep the model in a process-level cache. For tests, you can inject an `nlp` object. |
-| Primary concepts | Get unique entity surface forms from `doc.ents` in first-seen order. |
-| Dedupe | Remove duplicates. Keep a stable order. Do not change case of display text only to remove duplicates. |
-| Fallback | If `doc.ents` is empty, make one or more concepts from noun chunks or from important tokens that are not stopwords. Short statements must still yield a facet. |
+| Normalize | Remove leading and trailing whitespace. Collapse adjacent whitespace (including newlines) to a single space. Do this before NLP. |
+| Model load | Load with `spacy.load("en_core_sci_sm")`. Keep the model in a process-level cache. For tests, inject an `nlp` object. |
+| Primary concepts | Get unique entity surface forms from `doc.ents` in first-seen order (`ent.text`). |
+| Dedupe | Compare with case-insensitive identity (for example case-fold). Keep the first surface form as written. Do not rewrite casing of the kept display string. |
+| Fallback | If `doc.ents` is empty (or yields no concepts after dedupe), take non-stopword alphabetic tokens with `len >= 3`, first-seen, same case-insensitive dedupe. If that list is empty, use the whole normalized statement as the single concept. Short statements must still yield a facet with a non-empty `concepts` list. |
 | Validation | Each facet must validate as a Pydantic `TopicFacet`. The collection must validate as `TopicAnalysisResult`. |
 
 Do not use an LLM as the primary method. Do not use a custom stopword tokenizer as the primary method.
@@ -99,7 +105,7 @@ Always make **one or more** facets. In v1, make exactly one facet with these val
 | --- | --- |
 | `id` | `core-concepts` |
 | `label` | `Core concepts` |
-| `intent` | Narrow topical match from biomedical entities (you can use fixed wording) |
+| `intent` | `Narrow topical match from biomedical entities` |
 | `concepts` | List that is not empty. Get the list from NER. Use the fallback if NER finds no entities. |
 | `synonyms` | `[]` |
 | `filters` | `{}` |
@@ -112,7 +118,7 @@ Do not add other facets (for example `broad-concepts`) until a later revision of
 
 Topic statement: `glioblastoma immunotherapy outcomes`
 
-This is one possible result. The entity strings can change with the model. When you use the real model in tests, make sure that the concepts include the expected biomedical spans:
+This is one possible result. The entity strings can change with the model. In unit tests with an injected fake `nlp`, check for an exact `concepts` list:
 
 ```json
 {
@@ -132,11 +138,13 @@ This is one possible result. The entity strings can change with the model. When 
 }
 ```
 
-In unit tests with an injected fake `nlp`, you can check for an exact `concepts` list. With the real model, make sure that known entity substrings occur in `concepts`. Make sure that the output validates as `TopicAnalysisResult`.
+Make sure that the output validates as `TopicAnalysisResult`.
 
-## Persistence
+## Persistence (deferred)
 
-Write each facet as one row in a child table. The parent is the `TopicBriefGeneration` where Topic analysis operated. `TopicAnalysisResult` is the in-memory/API aggregate of those rows (no separate parent table in v1).
+Current v1 does **not** write facet rows. The analyzer returns an in-memory `TopicAnalysisResult`. The UI may store that object in session state for display and for later steps in the same browser session. Session state is not a durable source of truth.
+
+When persistence is adopted later:
 
 | Concern | Rule |
 | --- | --- |
@@ -145,9 +153,9 @@ Write each facet as one row in a child table. The parent is the `TopicBriefGener
 | Round-trip | Convert between ORM and Pydantic `TopicFacet` with no loss of list or object fields. Reload rows for a `TopicBriefGeneration` into a `TopicAnalysisResult`. |
 | Source of truth | After a successful analysis step, the database is the source of truth. The UI can show the data. The UI must not be the only copy. |
 
-### Re-analysis
+### Re-analysis (deferred)
 
-If you run Topic analysis again for the same `TopicBriefGeneration`, replace the facet rows for it. First remove the old rows. Then write the new rows. Do not add duplicate rows.
+When persistence is adopted: if you run Topic analysis again for the same `TopicBriefGeneration`, replace the facet rows for it. First remove the old rows. Then write the new rows. Do not add duplicate rows.
 
 ## Behavior
 
@@ -155,31 +163,32 @@ If you run Topic analysis again for the same `TopicBriefGeneration`, replace the
 | --- | --- |
 | Valid biomedical statement with entities | A `TopicAnalysisResult` with one or more facets. `concepts` is not empty. Concepts come from `ents`. |
 | Valid statement with no NER hits | A `TopicAnalysisResult` with one or more facets. `concepts` come from the fallback rule. |
-| Empty text or whitespace-only text | Raise an error. Do not write rows. |
-| Second analysis of the same `TopicBriefGeneration` | Replace the previous facet rows. The row count must match the new analysis. |
+| Empty text or whitespace-only text | Raise a `ValueError`. Do not produce a result. |
+| Second analysis of the same text (current v1) | Call the analyzer again; return a new in-memory result. No facet rows to replace. |
 
 ## Orchestration boundary
 
-Package path for analyzer and persist helpers: `paper_reviewer.topic_brief_generation.topic_analysis` — see [project-structure.md](../project-structure.md).
+Package path for the analyzer: `paper_reviewer.topic_brief_generation.topic_analysis` — see [project-structure.md](../project-structure.md).
 
 | Responsibility | Owner |
 | --- | --- |
-| Change text into a `TopicAnalysisResult` | Analyzer (`analyze_topic_statement` or an equivalent function) |
-| Analyze and write for a `TopicBriefGeneration` | Domain helper (`run_topic_analysis` or an equivalent function). The helper takes a database session and a `TopicBriefGeneration`. |
-| When to start analysis | After a successful Topic intake on that `TopicBriefGeneration`. Use the same session or transaction when it is practical. Keep intake tests and analysis tests separate. |
+| Change text into a `TopicAnalysisResult` | Analyzer (`analyze_topic_statement`). Optional `nlp` injection for tests. |
+| Analyze and write for a `TopicBriefGeneration` | Deferred (`run_topic_analysis` or equivalent with a database session). |
+| When to start analysis | After a successful Topic intake. The UI may call the analyzer and hold the result in session state. Keep intake tests and analysis tests separate. |
 | Related-paper search / `SearchCriteria` | [related-paper-search.md](related-paper-search.md) |
 
 ## Testability
 
-- Inject a fake spaCy `nlp` that returns controlled `ents`. Use this for unit tests that must be deterministic. Those tests do not need a model download.
-- You can add an optional integration check with the real `en_core_sci_sm` model. Make sure that expected entity substrings occur in `concepts`.
-- Write and reload through the foreign key relationship. Make sure that re-analysis replaces rows.
+- Inject a fake spaCy `nlp` that returns controlled `ents` and tokens. Use this for unit tests that must be deterministic. Those tests do not need a model download.
+- Do not require a real-model integration test in the normal suite for this slice.
+- Persistence / reload / re-analysis tests are deferred until facet rows exist.
 - Related-paper search tests inject a `TopicAnalysisResult` and do not need this step’s analyzer — see [related-paper-search.md](related-paper-search.md).
 
 ## Non-goals (v1)
 
 Do not do this work in v1:
 
+- Persist facet rows or implement `run_topic_analysis`.
 - Make PubMed `source_overrides` or MeSH-specific markup (see [paper-sources/pubmed.md](paper-sources/pubmed.md)).
 - Orchestrate analysis with Prefect.
 - Use specialty NER models (for example `en_ner_bc5cdr_md`).

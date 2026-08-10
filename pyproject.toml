@@ -6,9 +6,11 @@ requires-python = ">=3.12"
 dependencies = [
     "alembic>=1.19.0",
     "dlt[hub]",
+    "en-core-sci-sm",
     "fastmcp>=3.4.6",
     "psycopg[binary]>=3.3.4",
     "pydantic",
+    "scispacy>=0.6.2",
     "sqlalchemy>=2.0.51",
     "streamlit>=1.61.1",
 ]
@@ -28,3 +30,6 @@ packages = ["src/paper_reviewer"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.uv.sources]
+en-core-sci-sm = { url = "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz" }
