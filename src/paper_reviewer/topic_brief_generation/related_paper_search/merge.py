@@ -17,7 +17,10 @@ def _normalized_doi(candidate: PaperCandidate) -> str | None:
 
 
 def merge_candidates(candidates: list[PaperCandidate]) -> list[PaperCandidate]:
-    """Drop missing/blank DOI hits; dedupe by uppercase DOI; keep first; preserve order."""
+    """Drop missing/blank DOI hits; dedupe by uppercase DOI; keep first; preserve order.
+
+    Kept candidates always have a non-blank uppercase ``doi``.
+    """
     seen: set[str] = set()
     merged: list[PaperCandidate] = []
     for candidate in candidates:
@@ -27,5 +30,5 @@ def merge_candidates(candidates: list[PaperCandidate]) -> list[PaperCandidate]:
         if doi in seen:
             continue
         seen.add(doi)
-        merged.append(candidate)
+        merged.append(candidate.model_copy(update={"doi": doi}))
     return merged

@@ -260,7 +260,10 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
         registry={"pubmed": boom, "stub": stub_ok},
     )
 
-    assert result.candidates == [surviving]
+    assert len(result.candidates) == 1
+    assert result.candidates[0].source_uid == "99"
+    assert result.candidates[0].title == "Stub hit"
+    assert result.candidates[0].doi == "10.1000/STUB.99"
     assert len(result.source_runs) == 2
 
     by_id = {run.source_id: run for run in result.source_runs}
@@ -320,5 +323,8 @@ def test_orchestrate_dedupes_across_sources() -> None:
         },
     )
 
-    assert result.candidates == [a]
+    assert len(result.candidates) == 1
+    assert result.candidates[0].source_uid == "1"
+    assert result.candidates[0].title == "First"
+    assert result.candidates[0].doi == shared_doi.upper()
     assert all(run.status == SourceRunStatus.ok for run in result.source_runs)

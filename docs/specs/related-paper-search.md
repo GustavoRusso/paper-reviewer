@@ -30,7 +30,7 @@ Every paper source must map its API hit into a shared `PaperCandidate` with two 
 | ------------ | -------------------------------------------------------------------------- |
 | `source_id`  | Paper source id (e.g. `pubmed`)                                            |
 | `source_uid` | That source’s stable record id (e.g. PMID)                                                  |
-| `doi`        | Required on every candidate that reaches triage / archiving. Preferred cross-source merge key. Compared uppercase (ISO 26324 case-insensitive). Raw source maps may still emit a missing DOI; merge **drops** those hits so triage never sees them. |
+| `doi`        | Required on every candidate that reaches triage / archiving. Preferred cross-source merge key. ISO 26324 case-insensitive: merge **drops** missing/blank DOIs, then stores and compares the kept value as strip + uppercase. Raw source maps may still emit a missing DOI. |
 
 
 Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid)` (and DOI if needed) are used to fetch fuller records later. This workflow does **not** perform that fetch.
@@ -149,7 +149,7 @@ flowchart TB
 
 1. Map every source row to `PaperCandidate` (fields above).
 2. **Drop** any candidate whose `doi` is missing or blank after strip. Triage and [Paper archiving](paper-archiving.md) never see no-DOI hits.
-3. Dedupe within the remaining global list by **uppercase DOI** (strip then `.upper()`). Do not fall back to `(source_id, source_uid)` for merge identity once DOI is required on kept rows.
+3. Dedupe within the remaining global list by **uppercase DOI** (strip then `.upper()`). Rewrite each kept candidate’s `doi` to that uppercase form. Do not fall back to `(source_id, source_uid)` for merge identity once DOI is required on kept rows.
 4. When merging duplicates, keep one canonical candidate; retain provenance that multiple facets/sources hit the same paper when useful for triage metadata (implementation detail).
 5. Tag each candidate with `facet_id` and `source_id`.
 
@@ -188,7 +188,7 @@ Primary deliverable for Retrieval triage and (until triage has a contract) for [
 - For deterministic PubMed tests, pass optional `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) so conversion yields a known Entrez `term`.
 - Until the public API change lands, existing tests may still inject a full `SearchCriteria`; that remains a transitional path only.
 - Assert on `PaperCandidate` fields and merge behavior with multi-source fixtures when additional sources exist.
-- Assert merge drops missing/blank DOI hits and dedupes by uppercase DOI.
+- Assert merge drops missing/blank DOI hits, rewrites kept `doi` to uppercase, and dedupes by that form.
 
 
 

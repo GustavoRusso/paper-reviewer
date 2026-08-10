@@ -13,7 +13,11 @@ from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
 
 
 class PaperCandidate(BaseModel):
-    """Normalized hit from a paper source for related-paper search triage."""
+    """Normalized hit from a paper source for related-paper search triage.
+
+    Source maps may omit ``doi``. After related-paper search merge, every
+    candidate has a non-blank uppercase ``doi``.
+    """
 
     source_id: str
     source_uid: str

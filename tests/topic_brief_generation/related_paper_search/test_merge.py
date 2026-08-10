@@ -46,7 +46,9 @@ def test_unique_candidates_preserved_in_order() -> None:
         url="https://pubmed.ncbi.nlm.nih.gov/2/",
     )
 
-    assert merge_candidates([a, b]) == [a, b]
+    merged = merge_candidates([a, b])
+    assert [c.source_uid for c in merged] == ["1", "2"]
+    assert [c.title for c in merged] == ["First", "Second"]
 
 
 def test_dedupe_by_uppercase_doi_keeps_first() -> None:
@@ -74,7 +76,8 @@ def test_dedupe_by_uppercase_doi_keeps_first() -> None:
 
     merged = merge_candidates([first, duplicate, other])
 
-    assert merged == [first, other]
+    assert [c.source_uid for c in merged] == ["36328499", "11850928"]
+    assert [c.title for c in merged] == ["First hit", "Different DOI"]
 
 
 def test_missing_doi_hits_are_dropped() -> None:
@@ -97,7 +100,10 @@ def test_missing_doi_hits_are_dropped() -> None:
         url="https://pubmed.ncbi.nlm.nih.gov/2/",
     )
 
-    assert merge_candidates([drop_none, keep, drop_blank]) == [keep]
+    merged = merge_candidates([drop_none, keep, drop_blank])
+    assert len(merged) == 1
+    assert merged[0].source_uid == "36328499"
+    assert merged[0].title == "Has DOI"
 
 
 def test_doi_identity_preferred_over_source_uid() -> None:
@@ -117,7 +123,10 @@ def test_doi_identity_preferred_over_source_uid() -> None:
         url="https://europepmc.org/article/PMC/9876543",
     )
 
-    assert merge_candidates([pubmed, other]) == [pubmed]
+    merged = merge_candidates([pubmed, other])
+    assert len(merged) == 1
+    assert merged[0].source_uid == "36328499"
+    assert merged[0].title == "PubMed copy"
 
 
 def test_all_missing_doi_yields_empty_list() -> None:
@@ -125,3 +134,28 @@ def test_all_missing_doi_yields_empty_list() -> None:
     b = _candidate(source_uid="2", doi=None, title="B", url="https://pubmed.ncbi.nlm.nih.gov/2/")
 
     assert merge_candidates([a, b]) == []
+
+
+def test_kept_candidates_have_non_null_uppercase_doi() -> None:
+    mixed = _candidate(
+        source_uid="36328499",
+        doi="  10.1038/s41586-022-05543-x  ",
+        title="Mixed case",
+        url="https://pubmed.ncbi.nlm.nih.gov/36328499/",
+    )
+    already_upper = _candidate(
+        source_uid="11850928",
+        doi="10.1126/SCIENCE.EXAMPLE",
+        title="Already upper",
+        url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
+    )
+
+    merged = merge_candidates([mixed, already_upper])
+
+    assert len(merged) == 2
+    for candidate in merged:
+        assert candidate.doi is not None
+        assert candidate.doi == candidate.doi.strip().upper()
+        assert candidate.doi == candidate.doi.strip()
+    assert merged[0].doi == "10.1038/S41586-022-05543-X"
+    assert merged[1].doi == "10.1126/SCIENCE.EXAMPLE"
