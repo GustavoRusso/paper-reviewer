@@ -10,7 +10,7 @@ In this step, the system extracts key data from a **topic statement**. Later ste
 | --- | --- |
 | **`TopicFacet`** | One named slice distilled from the topic statement (`id`, `label`, `intent`, `concepts`, …). |
 | **`TopicAnalysisResult`** | Pydantic wrapper with `facets: list[TopicFacet]` for one `TopicBriefGeneration`. |
-| **`SearchCriteria`** | Related-paper search envelope: a `TopicAnalysisResult` plus optional `source_overrides`. Built in step 3, not here. |
+| **`SearchCriteria`** | Related-paper search envelope: a `TopicAnalysisResult` plus optional `source_overrides`. Built **inside** related-paper search as an internal step, not here. |
 
 ## Topic brief generation
 
@@ -25,7 +25,7 @@ A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execu
 
 This document specifies only step 2 (Topic analysis) for that `TopicBriefGeneration`.
 
-Related-paper search wraps the analysis result in `SearchCriteria`. See [related-paper-search.md](related-paper-search.md).
+Related-paper search takes the `TopicAnalysisResult` and converts it to `SearchCriteria` internally when needed. See [related-paper-search.md](related-paper-search.md).
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md). This step specifies scispaCy (`en_core_sci_sm`) for biomedical NER; the stack document lists that library and points here for behavior.
 
@@ -67,7 +67,7 @@ flowchart TB
 
 1. **Topic intake** starts a `TopicBriefGeneration` and stores the `topic_statement`.
 2. **Topic analysis** (this specification) operates on that `TopicBriefGeneration`. It reads the `topic_statement`. It extracts concepts. It makes facets. It writes the facets with a foreign key to the same `TopicBriefGeneration`.
-3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. Those steps use the facets from this step (as a `TopicAnalysisResult`). In tests, you can also inject fixtures.
+3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step receives a `TopicAnalysisResult` (reloaded facets) and converts it to `SearchCriteria` internally when needed. In tests, you can inject a `TopicAnalysisResult` fixture (or, until the API change lands, a transitional `SearchCriteria`).
 
 ## Input
 
@@ -177,15 +177,16 @@ Package path for analyzer and persist helpers: `paper_reviewer.topic_analysis` �
 | Change text into a `TopicAnalysisResult` | Analyzer (`analyze_topic_statement` or an equivalent function) |
 | Analyze and write for a `TopicBriefGeneration` | Domain helper (`run_topic_analysis` or an equivalent function). The helper takes a database session and a `TopicBriefGeneration`. |
 | When to start analysis | After a successful Topic intake on that `TopicBriefGeneration`. Use the same session or transaction when it is practical. Keep intake tests and analysis tests separate. |
+| Convert `TopicAnalysisResult` → `SearchCriteria` | Related-paper search (`paper_reviewer.search`), as an internal step. See [related-paper-search.md](related-paper-search.md). |
 
-The build of `SearchCriteria` (`topic_analysis` plus optional `source_overrides`) for paper-source extract is not part of this step. See [related-paper-search.md](related-paper-search.md).
+The build of `SearchCriteria` (`topic_analysis` plus optional `source_overrides`) is not part of Topic analysis. Related-paper search owns that conversion.
 
 ## Testability
 
 - Inject a fake spaCy `nlp` that returns controlled `ents`. Use this for unit tests that must be deterministic. Those tests do not need a model download.
 - You can add an optional integration check with the real `en_core_sci_sm` model. Make sure that expected entity substrings occur in `concepts`.
 - Write and reload through the foreign key relationship. Make sure that re-analysis replaces rows.
-- Related-paper search must continue to accept injected `SearchCriteria` fixtures. Those tests do not need this step.
+- Related-paper search accepts a `TopicAnalysisResult` (and converts to `SearchCriteria` internally). Those tests do not need this step’s analyzer.
 
 ## Non-goals (v1)
 

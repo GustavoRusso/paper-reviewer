@@ -11,11 +11,11 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pyda
 
 | In scope                                                                           | Out of scope                                                                |
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Accept generic `SearchCriteria` (`TopicAnalysisResult` from [Topic analysis](topic-analysis.md) wrapped for search, or injected for tests) | Generating facets in Topic analysis (see that spec)          |
-| Run extract via **dlt** for each registered paper source                           | Implementing ingest/flows/UI code in this doc                               |
-| Map each source hit to `PaperCandidate` and merge into one global list             | Building **paper briefs** or calling full-record fetch (e.g. PubMed EFetch) |
-| Fail-soft when one source errors                                                   | Adding new paper sources beyond registering them here                       |
-|                                                                                    | Loading candidates into Postgres (not part of this step today)              |
+| Accept `TopicAnalysisResult` from [Topic analysis](topic-analysis.md) (or a test fixture) | Generating facets in Topic analysis (see that spec)          |
+| Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | Implementing ingest/flows/UI code in this doc                               |
+| Run extract via **dlt** for each registered paper source                           | Building **paper briefs** or calling full-record fetch (e.g. PubMed EFetch) |
+| Map each source hit to `PaperCandidate` and merge into one global list             | Adding new paper sources beyond registering them here                       |
+| Fail-soft when one source errors                                                   | Loading candidates into Postgres (not part of this step today)              |
 
 
 
@@ -58,11 +58,51 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 
 
-## Input: generic `SearchCriteria`
+## Input: `TopicAnalysisResult`
 
-Source-agnostic contract so new providers plug in without changing this workflow’s input shape. [Topic analysis](topic-analysis.md) produces a `TopicAnalysisResult` (facet field rules and persistence owned there); this workflow wraps it in `SearchCriteria`. Tests may still inject full criteria manually.
+Public input for this workflow step (and for `paper_reviewer.search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](topic-analysis.md) (reloaded facet rows for the same `TopicBriefGeneration`, or a test fixture). Facet field rules and persistence stay in that spec.
 
-Illustrative `SearchCriteria` for search / fixtures (not the v1 Topic analysis emission shape — that step sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`; see [topic-analysis.md](topic-analysis.md)):
+Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` → `SearchCriteria` as an **internal step** when it needs the search envelope (facets plus optional `source_overrides`). Callers do not have to build `SearchCriteria` first.
+
+| Public input | Required | Description |
+| --- | --- | --- |
+| `TopicAnalysisResult` | Yes | Facets from Topic analysis (or a test fixture). |
+| `source_overrides` | No | Optional map `source_id` → opaque payload defined by that source’s spec. Folded into `SearchCriteria` during the internal convert (fixtures / power paths). v1 default when omitted: `{}`. |
+
+Illustrative public input (Topic analysis v1 shape — that step sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`; see [topic-analysis.md](topic-analysis.md)):
+
+```json
+{
+  "facets": [
+    {
+      "id": "core-concepts",
+      "label": "Core concepts",
+      "intent": "Narrow topical match from biomedical entities",
+      "concepts": ["glioblastoma", "immunotherapy"],
+      "synonyms": [],
+      "date_from": null,
+      "date_to": null,
+      "filters": {},
+      "retmax": null
+    }
+  ]
+}
+```
+
+### Internal conversion (`TopicAnalysisResult` → `SearchCriteria`)
+
+| Concern | Rule |
+| --- | --- |
+| Owner | This workflow (`paper_reviewer.search`). |
+| When | Internally, before running registered paper-source adapters. |
+| How | Build `SearchCriteria(topic_analysis=…, source_overrides=…)` (default empty overrides). |
+| Keep | `SearchCriteria` remains the envelope used with source runners and for tests that need `source_overrides`. |
+| Not owned here | Facet generation / persistence ([topic-analysis.md](topic-analysis.md)); Entrez compilation ([paper-sources/pubmed.md](paper-sources/pubmed.md)). |
+| Not implemented yet | Spec only until code lands; today’s code still accepts injected `SearchCriteria` only. |
+
+After conversion, the workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
+
+Illustrative internal `SearchCriteria` (after conversion, with optional PubMed override for fixtures — not the v1 Topic analysis emission shape):
 
 ```json
 {
@@ -93,15 +133,6 @@ Illustrative `SearchCriteria` for search / fixtures (not the v1 Topic analysis e
 }
 ```
 
-
-| Field                | Required | Description                                                                                         |
-| -------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| `topic_analysis`     | Yes      | `TopicAnalysisResult` from Topic analysis (or a test fixture). Facet semantics: [topic-analysis.md](topic-analysis.md). |
-| `source_overrides`   | No       | Map `source_id` → opaque payload defined by that source’s spec (fixtures / power tests)             |
-
-
-The workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
-
 ## Paper source registry
 
 
@@ -118,22 +149,24 @@ Per [technology-stack.md](../technology-stack.md):
 
 - Each paper source is a **dlt source/resource** under `paper_reviewer.ingest` (e.g. PubMed).
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
-- `paper_reviewer.search` runs registered sources for the given `SearchCriteria` and **merges** results into one global list (see merge rules below).
+- `paper_reviewer.search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
 - Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
 - The contract to Retrieval triage is the global `PaperCandidate` list (plus `source_runs` metadata).
 
 ```mermaid
 flowchart TB
-  criteria[SearchCriteria]
+  analysis[TopicAnalysisResult]
   workflow[Related-paper search]
+  criteria[SearchCriteria internal]
   pubmed[dlt pubmed source]
   other[dlt future sources]
   merge[Normalize and merge]
   out[Global PaperCandidate list]
 
-  criteria --> workflow
-  workflow --> pubmed
-  workflow --> other
+  analysis --> workflow
+  workflow -->|"internal convert"| criteria
+  criteria --> pubmed
+  criteria --> other
   pubmed --> merge
   other --> merge
   merge --> out
@@ -169,7 +202,7 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 
 | Case                                       | Expected                                                                                         |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Empty `topic_analysis.facets`              | Allowed for injected/test criteria: empty `candidates` and a note that there are no facets. The normal path expects Topic analysis output (one or more facets). |
+| Empty `facets`                             | Allowed for injected/test analysis: empty `candidates` and a note that there are no facets. The normal path expects Topic analysis output (one or more facets). |
 | Facet yields zero hits from a source       | That facet contributes nothing; other facets/sources continue                                    |
 | Source failure (network, rate limit, auth) | **Fail-soft**: other sources still contribute; `source_runs` records the error                   |
 | `retmax` truncates                         | Candidates limited accordingly                                                                   |
@@ -179,30 +212,29 @@ Primary deliverable for Retrieval triage: `candidates`. `source_runs` supports d
 
 ## Testability
 
-- Inject a full `SearchCriteria` JSON fixture without running Topic analysis.
-- Use `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) to force a known Entrez `term` for deterministic PubMed tests.
+- Inject a `TopicAnalysisResult` JSON fixture into related-paper search without running Topic analysis.
+- Assert the workflow converts that result to `SearchCriteria` internally (empty `source_overrides` by default) before source runners run.
+- For deterministic PubMed tests, pass optional `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) so conversion yields a known Entrez `term`.
+- Until the public API change lands, existing tests may still inject a full `SearchCriteria`; that remains a transitional path only.
 - Assert on `PaperCandidate` fields and merge behavior with multi-source fixtures when additional sources exist.
 
 
 
 ## Example fixture (manual injection)
 
-Injected search criteria for tests — not produced by Topic analysis v1:
+Injected `TopicAnalysisResult` for tests — not produced by Topic analysis v1:
 
 ```json
 {
-  "topic_analysis": {
-    "facets": [
-      {
-        "id": "fixture-narrow",
-        "label": "Fixture narrow",
-        "concepts": ["CRISPR", "base editing"],
-        "retmax": 20
-      }
-    ]
-  },
-  "source_overrides": {}
+  "facets": [
+    {
+      "id": "fixture-narrow",
+      "label": "Fixture narrow",
+      "concepts": ["CRISPR", "base editing"],
+      "retmax": 20
+    }
+  ]
 }
 ```
 
-With only PubMed registered, this runs the PubMed adapter’s structured compilation for `fixture-narrow` and returns a global candidate list from that source alone.
+With only PubMed registered, the workflow converts this to `SearchCriteria` (empty overrides), runs the PubMed adapter’s structured compilation for `fixture-narrow`, and returns a global candidate list from that source alone.
