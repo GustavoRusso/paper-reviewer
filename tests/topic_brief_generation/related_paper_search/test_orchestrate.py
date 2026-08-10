@@ -1,4 +1,4 @@
-"""Related-paper search: SearchCriteria, orchestration, fail-soft."""
+"""Related-paper search: TopicAnalysisResult entrypoint, orchestration, fail-soft."""
 
 from __future__ import annotations
 
@@ -12,40 +12,47 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     SearchCriteria,
     SourceRunStatus,
 )
+from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+    TopicAnalysisResult,
+)
 from paper_reviewer.topic_brief_generation.related_paper_search.orchestrate import (
     search_related_papers,
 )
 from tests.ingest.pubmed.test_config import ESEARCH_JSON, ESUMMARY_JSON
 
 
-CRITERIA_FIXTURE = {
-    "topic_analysis": {
-        "facets": [
-            {
-                "id": "core-concepts",
-                "label": "Core concepts",
-                "intent": "Narrow topical match",
-                "concepts": ["glioblastoma", "immunotherapy"],
-                "synonyms": ["GBM"],
-                "date_from": "2018-01-01",
-                "date_to": None,
-                "filters": {},
-                "retmax": 50,
-            }
-        ]
-    },
-    "source_overrides": {
-        "pubmed": {
-            "facets": {
-                "core-concepts": {
-                    "raw_term": (
-                        "glioblastoma[mesh] AND immunotherapy[Title/Abstract] "
-                        "AND 2018:3000[pdat]"
-                    )
-                }
+TOPIC_ANALYSIS_FIXTURE = {
+    "facets": [
+        {
+            "id": "core-concepts",
+            "label": "Core concepts",
+            "intent": "Narrow topical match",
+            "concepts": ["glioblastoma", "immunotherapy"],
+            "synonyms": ["GBM"],
+            "date_from": "2018-01-01",
+            "date_to": None,
+            "filters": {},
+            "retmax": 50,
+        }
+    ]
+}
+
+PUBMED_OVERRIDE_FIXTURE = {
+    "pubmed": {
+        "facets": {
+            "core-concepts": {
+                "raw_term": (
+                    "glioblastoma[mesh] AND immunotherapy[Title/Abstract] "
+                    "AND 2018:3000[pdat]"
+                )
             }
         }
-    },
+    }
+}
+
+CRITERIA_FIXTURE = {
+    "topic_analysis": TOPIC_ANALYSIS_FIXTURE,
+    "source_overrides": PUBMED_OVERRIDE_FIXTURE,
 }
 
 
@@ -84,11 +91,9 @@ def test_search_criteria_parses_spec_fixture() -> None:
 
 
 def test_empty_facets_yields_empty_candidates_with_note() -> None:
-    criteria = SearchCriteria.model_validate(
-        {"topic_analysis": {"facets": []}, "source_overrides": {}}
-    )
+    analysis = TopicAnalysisResult.model_validate({"facets": []})
 
-    result = search_related_papers(criteria)
+    result = search_related_papers(analysis)
 
     assert result.candidates == []
     assert result.source_runs == []
@@ -97,11 +102,15 @@ def test_empty_facets_yields_empty_candidates_with_note() -> None:
 
 
 def test_orchestrate_pubmed_with_override_returns_candidates_and_ok_run() -> None:
-    criteria = SearchCriteria.model_validate(CRITERIA_FIXTURE)
+    analysis = TopicAnalysisResult.model_validate(TOPIC_ANALYSIS_FIXTURE)
 
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
         _stub_pubmed_http(rsps)
-        result = search_related_papers(criteria, api_key="TESTKEY")
+        result = search_related_papers(
+            analysis,
+            source_overrides=PUBMED_OVERRIDE_FIXTURE,
+            api_key="TESTKEY",
+        )
 
         esearch_urls = [
             call.request.url
@@ -130,28 +139,51 @@ def test_orchestrate_pubmed_with_override_returns_candidates_and_ok_run() -> Non
     assert run.error is None
 
 
+def test_orchestrate_topic_analysis_without_overrides_uses_structured_term() -> None:
+    analysis = TopicAnalysisResult.model_validate(TOPIC_ANALYSIS_FIXTURE)
+
+    with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
+        _stub_pubmed_http(rsps)
+        result = search_related_papers(analysis)
+
+        esearch_urls = [
+            call.request.url
+            for call in rsps.calls
+            if call.request.url and "esearch.fcgi" in call.request.url
+        ]
+        assert esearch_urls
+        esearch_qs = parse_qs(urlparse(esearch_urls[0]).query)
+        term = esearch_qs["term"][0]
+        assert '"glioblastoma"[Title/Abstract]' in term
+        assert '"GBM"[Title/Abstract]' in term
+        assert '"immunotherapy"[Title/Abstract]' in term
+        assert "2018:3000[pdat]" in term
+        assert "glioblastoma[mesh]" not in term
+
+    assert len(result.candidates) == 2
+    assert result.source_runs[0].status == SourceRunStatus.ok
+
+
 def test_source_zero_hits_records_empty_status() -> None:
-    criteria = SearchCriteria.model_validate(
+    analysis = TopicAnalysisResult.model_validate(
         {
-            "topic_analysis": {
-                "facets": [
-                    {
-                        "id": "fixture-narrow",
-                        "label": "Fixture narrow",
-                        "concepts": ["nosuchterm"],
-                        "retmax": 20,
-                    }
-                ]
-            },
-            "source_overrides": {
-                "pubmed": {
-                    "facets": {
-                        "fixture-narrow": {"raw_term": "nosuchterm[mesh]"}
-                    }
+            "facets": [
+                {
+                    "id": "fixture-narrow",
+                    "label": "Fixture narrow",
+                    "concepts": ["nosuchterm"],
+                    "retmax": 20,
                 }
-            },
+            ]
         }
     )
+    overrides = {
+        "pubmed": {
+            "facets": {
+                "fixture-narrow": {"raw_term": "nosuchterm[mesh]"}
+            }
+        }
+    }
     empty_esearch = {
         "header": {"type": "esearch", "version": "0.3"},
         "esearchresult": {
@@ -181,7 +213,7 @@ def test_source_zero_hits_records_empty_status() -> None:
             f"{EUTILS_BASE_URL}esummary.fcgi",
             json=empty_esummary,
         )
-        result = search_related_papers(criteria)
+        result = search_related_papers(analysis, source_overrides=overrides)
 
     assert result.candidates == []
     assert len(result.source_runs) == 1
@@ -193,14 +225,11 @@ def test_source_zero_hits_records_empty_status() -> None:
 
 
 def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
-    criteria = SearchCriteria.model_validate(
+    analysis = TopicAnalysisResult.model_validate(
         {
-            "topic_analysis": {
-                "facets": [
-                    {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
-                ]
-            },
-            "source_overrides": {},
+            "facets": [
+                {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
+            ]
         }
     )
 
@@ -227,7 +256,7 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
         return [surviving]
 
     result = search_related_papers(
-        criteria,
+        analysis,
         registry={"pubmed": boom, "stub": stub_ok},
     )
 
@@ -244,14 +273,11 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
 
 
 def test_orchestrate_dedupes_across_sources() -> None:
-    criteria = SearchCriteria.model_validate(
+    analysis = TopicAnalysisResult.model_validate(
         {
-            "topic_analysis": {
-                "facets": [
-                    {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
-                ]
-            },
-            "source_overrides": {},
+            "facets": [
+                {"id": "s1", "label": "S1", "concepts": ["x"], "retmax": 5}
+            ]
         }
     )
     shared_doi = "10.1038/s41586-022-05543-x"
@@ -287,7 +313,7 @@ def test_orchestrate_dedupes_across_sources() -> None:
     )
 
     result = search_related_papers(
-        criteria,
+        analysis,
         registry={
             "pubmed": lambda _c: [a],
             "stub": lambda _c: [b],

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import uuid
 
 import streamlit as st
@@ -9,10 +10,19 @@ from pydantic import ValidationError
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    PaperCandidate,
+    RelatedPaperSearchResult,
+    SourceRun,
+    SourceRunStatus,
+)
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
+from paper_reviewer.topic_brief_generation.related_paper_search import (
+    search_related_papers,
+)
 from paper_reviewer.topic_brief_generation.topic_analysis import analyze_topic_statement
 from paper_reviewer.topic_brief_generation.topic_intake import (
     start_topic_brief_from_topic_intake,
@@ -21,12 +31,54 @@ from paper_reviewer.topic_brief_generation.topic_intake import (
 SESSION_KEY = "topic_statement"
 PUBLIC_ID_KEY = "topic_brief_generation_public_id"
 ANALYSIS_KEY = "topic_analysis_result"
+SEARCH_KEY = "related_paper_search_result"
 
 
 @st.cache_resource
 def _session_factory() -> sessionmaker[Session]:
     """Shared SQLAlchemy session factory for the Streamlit process."""
     return create_session_factory(create_db_engine())
+
+
+def _candidates_for_source(
+    candidates: list[PaperCandidate], source_id: str
+) -> list[PaperCandidate]:
+    return [c for c in candidates if c.source_id == source_id]
+
+
+def _render_source_run(
+    run: SourceRun, candidates: list[PaperCandidate]
+) -> None:
+    facet_label = ", ".join(run.facet_ids) if run.facet_ids else "(none)"
+    st.markdown(
+        f"**{run.source_id}** — `{run.status.value}` — "
+        f"{run.hit_count} hits (facets: {facet_label})"
+    )
+    if run.status == SourceRunStatus.error:
+        st.error(run.error or "Paper source search failed.")
+        return
+    if run.status == SourceRunStatus.empty:
+        st.caption("No paper candidates from this source.")
+        return
+
+    source_candidates = _candidates_for_source(candidates, run.source_id)
+    if not source_candidates:
+        st.caption("No paper candidates from this source.")
+        return
+
+    for candidate in source_candidates:
+        authors = ", ".join(candidate.authors) if candidate.authors else "—"
+        journal = candidate.journal or "—"
+        year = (
+            str(candidate.published_year)
+            if candidate.published_year is not None
+            else "—"
+        )
+        st.markdown(f"**[{candidate.title}]({candidate.url})**")
+        st.caption(
+            f"{authors} · {journal} · {year} · "
+            f"`{candidate.source_uid}` · facet `{candidate.facet_id}`"
+        )
 
 
 def render_topic_intake() -> None:
@@ -61,6 +113,7 @@ def render_topic_intake() -> None:
             st.session_state[SESSION_KEY] = topic_statement
             st.session_state[PUBLIC_ID_KEY] = generation.public_id
             st.session_state.pop(ANALYSIS_KEY, None)
+            st.session_state.pop(SEARCH_KEY, None)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)
@@ -68,10 +121,23 @@ def render_topic_intake() -> None:
                 st.error("Topic brief generation started, but topic analysis failed.")
             else:
                 st.session_state[ANALYSIS_KEY] = analysis
+                try:
+                    with st.spinner("Searching paper sources…"):
+                        search_result = search_related_papers(
+                            analysis,
+                            api_key=os.environ.get("NCBI_API_KEY") or None,
+                        )
+                except Exception:
+                    st.error(
+                        "Topic analysis succeeded, but related-paper search failed."
+                    )
+                else:
+                    st.session_state[SEARCH_KEY] = search_result
 
     accepted: TopicStatement | None = st.session_state.get(SESSION_KEY)
     public_id: uuid.UUID | None = st.session_state.get(PUBLIC_ID_KEY)
     analysis: TopicAnalysisResult | None = st.session_state.get(ANALYSIS_KEY)
+    search_result: RelatedPaperSearchResult | None = st.session_state.get(SEARCH_KEY)
     if accepted is not None:
         st.subheader("Accepted topic statement")
         st.write(accepted.text)
@@ -84,3 +150,9 @@ def render_topic_intake() -> None:
             if facet.intent:
                 st.caption(facet.intent)
             st.write(", ".join(facet.concepts))
+    if search_result is not None:
+        st.subheader("Related-paper search")
+        if search_result.notes:
+            st.caption(search_result.notes)
+        for run in search_result.source_runs:
+            _render_source_run(run, search_result.candidates)

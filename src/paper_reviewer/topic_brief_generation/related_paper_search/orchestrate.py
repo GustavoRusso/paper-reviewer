@@ -15,6 +15,9 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     SourceRun,
     SourceRunStatus,
 )
+from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+    TopicAnalysisResult,
+)
 from paper_reviewer.topic_brief_generation.related_paper_search.merge import (
     merge_candidates,
 )
@@ -62,12 +65,17 @@ def default_registry(*, api_key: str | None = None) -> dict[str, PaperSourceRunn
 
 
 def search_related_papers(
-    criteria: SearchCriteria,
+    topic_analysis: TopicAnalysisResult,
     *,
+    source_overrides: Mapping[str, Any] | None = None,
     registry: Mapping[str, PaperSourceRunner] | None = None,
     api_key: str | None = None,
 ) -> RelatedPaperSearchResult:
-    """Run registered sources for criteria, merge candidates, fail-soft on errors."""
+    """Run registered sources for analysis, merge candidates, fail-soft on errors."""
+    criteria = SearchCriteria(
+        topic_analysis=topic_analysis,
+        source_overrides=dict(source_overrides or {}),
+    )
     facets = criteria.topic_analysis.facets
     if not facets:
         return RelatedPaperSearchResult(
