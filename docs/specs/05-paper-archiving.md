@@ -2,7 +2,7 @@
 
 This document is the specification for step 5 of the Topic brief generation workflow in [README.md](../../README.md).
 
-In this step, the system maps each **paper candidate** to a reusable **`Paper`** record in the database. If that paper already exists (same source handle), the step reuses the existing record. Later steps (especially [Paper briefs generation](06-paper-briefs-generation.md)) use these archived papers.
+In this step, the system maps each **paper candidate** to a reusable **`Paper`** record in the database. If that paper already exists (same source handle), the step reuses the existing record. Later steps (especially [Complete papers data](06-complete-papers-data.md) and [Generate paper brief](07-generate-paper-brief.md)) use these archived papers.
 
 ## Glossary
 
@@ -16,7 +16,7 @@ In this step, the system maps each **paper candidate** to a reusable **`Paper`**
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 5 (Paper archiving) for that run.
 
-Paper brief construction (including PubMed EFetch) is out of scope here — see [Paper briefs generation](06-paper-briefs-generation.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of that step, not of Paper archiving.
+Paper brief construction is out of scope here — see [Generate paper brief](07-generate-paper-brief.md). PubMed EFetch / source-inform is owned by [Complete papers data](06-complete-papers-data.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of Generate paper brief, not of Paper archiving.
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -38,7 +38,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 - Retrieval triage UI or confirm gate (step 4; see [Retrieval triage](04-retrieval-triage.md)).
 - Full-record fetch (e.g. PubMed EFetch) or abstract payloads.
-- Building or storing **paper briefs** (result artifacts of [Paper briefs generation](06-paper-briefs-generation.md)).
+- Building or storing **paper briefs** (result artifacts of [Generate paper brief](07-generate-paper-brief.md)).
 - Linking a `Paper` to a `TopicBriefGeneration` (no FK / join table in v1).
 - Updating non-DOI bibliographic fields (title, authors, journal, year, url, `source_id`, `source_uid`) on reuse.
 - Storing triage-only candidate fields (`snippet`, `facet_id`, `raw_payload_ref`) on `Paper`.
@@ -52,19 +52,22 @@ flowchart TB
   search[3 Related-paper search]
   triage[4 Retrieval triage]
   archive[5 Paper archiving]
-  briefs[6 Paper briefs generation]
-  topic[7 Topic brief]
+  complete[6 Complete papers data]
+  briefs[7 Generate paper brief]
+  topic[8 Topic brief]
   search --> triage
   triage --> archive
-  archive --> briefs
+  archive --> complete
+  complete --> briefs
   briefs --> topic
 ```
 
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
 2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [Retrieval triage](04-retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
 3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
-4. **Paper briefs generation** loads fuller source records (for PubMed: EFetch) and builds **paper briefs** (result artifacts) for archived papers — see [Paper briefs generation](06-paper-briefs-generation.md).
-5. **Topic brief** uses those briefs.
+4. **Complete papers data** loads fuller source records (for PubMed: EFetch) onto archived papers — see [Complete papers data](06-complete-papers-data.md).
+5. **Generate paper brief** builds **paper briefs** (result artifacts) for source-informed papers — see [Generate paper brief](07-generate-paper-brief.md).
+6. **Topic brief** uses those briefs.
 
 ## Public API
 
@@ -300,7 +303,8 @@ When all three lists are empty after empty input, show a neutral success caption
 ## Workflow navigation
 
 - **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
-- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Paper briefs generation.
+- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Complete papers data → Generate paper brief.
+- **Exit:** After a successful archive result, link to **Complete papers data** with `paper_archiving_result` and generation id in session.
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
 ## Orchestration boundary
@@ -311,7 +315,8 @@ When all three lists are empty after empty input, show a neutral success caption
 | Drop no-DOI hits before triage; candidate shape and search merge | [related-paper search](03-related-paper-search.md) |
 | User review + confirm; produce `retained` | [Retrieval triage](04-retrieval-triage.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
-| PubMed EFetch / full record / paper brief drafting | [Paper briefs generation](06-paper-briefs-generation.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
+| PubMed EFetch / full record (source-inform) | [Complete papers data](06-complete-papers-data.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
+| Paper brief drafting | [Generate paper brief](07-generate-paper-brief.md) |
 | Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
 | ORM `Paper` + thin create/get | `paper_reviewer.models` |
 

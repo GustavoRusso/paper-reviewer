@@ -16,7 +16,7 @@ In this step, the system presents **paper candidates** from [related-paper searc
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 4 (Retrieval triage) for that run.
 
-Paper archiving, **Paper briefs generation** (and its **paper brief** results), and topic brief drafting are out of scope here — see [Paper archiving](05-paper-archiving.md), [Paper briefs generation](06-paper-briefs-generation.md), and the later steps in the README.
+Paper archiving, **Complete papers data**, **Generate paper brief** (and its **paper brief** results), and topic brief drafting are out of scope here — see [Paper archiving](05-paper-archiving.md), [Complete papers data](06-complete-papers-data.md), [Generate paper brief](07-generate-paper-brief.md), and the later steps in the README.
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -35,7 +35,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - Per-paper manual discard or inclusion toggles (deferred to a later revision).
 - DOI validation or rejection (owned by [related-paper search merge](03-related-paper-search.md); Paper archiving also skips blank DOI as defense-in-depth).
 - Running Paper archiving on this page (owned by the dedicated [Paper archiving](05-paper-archiving.md) page).
-- Paper briefs generation (creating **paper brief** results) or topic brief construction.
+- Creating **paper briefs** ([Generate paper brief](07-generate-paper-brief.md)) or topic brief construction.
 - Persisting triage decisions to Postgres.
 - Re-running related-paper search from the triage page.
 
@@ -46,18 +46,20 @@ flowchart TB
   search[3 Related-paper search]
   triage[4 Retrieval triage]
   archive[5 Paper archiving]
-  briefs[6 Paper briefs generation]
-  topic[7 Topic brief]
+  complete[6 Complete papers data]
+  briefs[7 Generate paper brief]
+  topic[8 Topic brief]
   search --> triage
   triage -->|"user confirms"| archive
-  archive --> briefs
+  archive --> complete
+  complete --> briefs
   briefs --> topic
 ```
 
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec) plus `source_runs` metadata.
 2. **Retrieval triage** (this specification) presents those candidates and waits for an explicit confirm. v1 retains every candidate.
 3. **Paper archiving** receives `RetrievalTriageResult.retained` and creates or reuses `Paper` records.
-4. **Paper briefs generation** and **Topic brief** continue on archived papers — see [Paper briefs generation](06-paper-briefs-generation.md).
+4. **Complete papers data**, **Generate paper brief**, and **Topic brief** continue on archived papers — see [Complete papers data](06-complete-papers-data.md) and [Generate paper brief](07-generate-paper-brief.md).
 
 Today, Topic intake runs analysis and search on one page. This step owns a **dedicated Streamlit page** for review and confirm. Intake remains responsible for starting the generation and running search; after search succeeds it links to triage.
 
