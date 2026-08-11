@@ -11,7 +11,6 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
 from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
-    PaperCandidate,
     RelatedPaperSearchResult,
     SourceRun,
     SourceRunStatus,
@@ -27,11 +26,14 @@ from paper_reviewer.topic_brief_generation.topic_analysis import analyze_topic_s
 from paper_reviewer.topic_brief_generation.topic_intake import (
     start_topic_brief_from_topic_intake,
 )
+from paper_reviewer.ui.navigation import streamlit_page_for
 
 SESSION_KEY = "topic_statement"
 PUBLIC_ID_KEY = "topic_brief_generation_public_id"
 ANALYSIS_KEY = "topic_analysis_result"
 SEARCH_KEY = "related_paper_search_result"
+TRIAGE_RESULT_KEY = "retrieval_triage_result"
+ARCHIVING_RESULT_KEY = "paper_archiving_result"
 
 
 @st.cache_resource
@@ -40,15 +42,7 @@ def _session_factory() -> sessionmaker[Session]:
     return create_session_factory(create_db_engine())
 
 
-def _candidates_for_source(
-    candidates: list[PaperCandidate], source_id: str
-) -> list[PaperCandidate]:
-    return [c for c in candidates if c.source_id == source_id]
-
-
-def _render_source_run(
-    run: SourceRun, candidates: list[PaperCandidate]
-) -> None:
+def _render_source_run_summary(run: SourceRun) -> None:
     facet_label = ", ".join(run.facet_ids) if run.facet_ids else "(none)"
     st.markdown(
         f"**{run.source_id}** — `{run.status.value}` — "
@@ -56,29 +50,8 @@ def _render_source_run(
     )
     if run.status == SourceRunStatus.error:
         st.error(run.error or "Paper source search failed.")
-        return
-    if run.status == SourceRunStatus.empty:
+    elif run.status == SourceRunStatus.empty:
         st.caption("No paper candidates from this source.")
-        return
-
-    source_candidates = _candidates_for_source(candidates, run.source_id)
-    if not source_candidates:
-        st.caption("No paper candidates from this source.")
-        return
-
-    for candidate in source_candidates:
-        authors = ", ".join(candidate.authors) if candidate.authors else "—"
-        journal = candidate.journal or "—"
-        year = (
-            str(candidate.published_year)
-            if candidate.published_year is not None
-            else "—"
-        )
-        st.markdown(f"**[{candidate.title}]({candidate.url})**")
-        st.caption(
-            f"{authors} · {journal} · {year} · "
-            f"`{candidate.source_uid}` · facet `{candidate.facet_id}`"
-        )
 
 
 def render_topic_intake() -> None:
@@ -114,6 +87,8 @@ def render_topic_intake() -> None:
             st.session_state[PUBLIC_ID_KEY] = generation.public_id
             st.session_state.pop(ANALYSIS_KEY, None)
             st.session_state.pop(SEARCH_KEY, None)
+            st.session_state.pop(TRIAGE_RESULT_KEY, None)
+            st.session_state.pop(ARCHIVING_RESULT_KEY, None)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)
@@ -155,4 +130,10 @@ def render_topic_intake() -> None:
         if search_result.notes:
             st.caption(search_result.notes)
         for run in search_result.source_runs:
-            _render_source_run(run, search_result.candidates)
+            _render_source_run_summary(run)
+        count = len(search_result.candidates)
+        st.caption(f"{count} paper candidate(s) ready for triage.")
+        st.page_link(
+            streamlit_page_for("retrieval_triage"),
+            label="Continue to Retrieval triage",
+        )

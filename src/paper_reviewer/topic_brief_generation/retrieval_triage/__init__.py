@@ -1,4 +1,10 @@
 """Retrieval triage step.
 
-Stub: implement when a retrieval-triage spec exists.
+Pass-through confirm gate before Paper archiving.
 """
+
+from paper_reviewer.topic_brief_generation.retrieval_triage.confirm import (
+    confirm_retrieval_triage,
+)
+
+__all__ = ["confirm_retrieval_triage"]
