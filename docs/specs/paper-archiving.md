@@ -208,10 +208,11 @@ Skip/error item shape (when implemented): include enough identity to debug (`sou
 
 | Case | Expected UI |
 | --- | --- |
-| No prerequisite candidates in session | Empty state + link to **New Topic brief** (and to **Retrieval triage** when that page exists). |
+| No `retrieval_triage_result` in session | Empty state + links to **New Topic brief** and **Retrieval triage**. |
 | Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
 | `paper_archiving_result` already in session | Show cached result only; do not re-run. |
-| New topic intake submitted | Clear `paper_archiving_result`; after a new search (and triage confirm when present), the archiving page can run again. |
+| New topic intake submitted | Clear `paper_archiving_result`; after a new search and triage confirm, the archiving page can run again. |
+| Triage confirmed again | Triage clears `paper_archiving_result` so the archiving page re-runs on the latest `retained` set. |
 | Empty input list | Empty success result; caption “No candidates to archive”. |
 | All candidates skipped | Summary shows 0 archived; skipped section populated. |
 | Mix of success / skip / error | Summary counts and all three result sections reflect the lists. |
@@ -235,26 +236,27 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 | Key | Type | Role |
 | --- | --- | --- |
-| `related_paper_search_result` | `RelatedPaperSearchResult` | Transitional prerequisite until [Retrieval triage](retrieval-triage.md) UI stores a confirmed result. Candidates = `search_result.candidates`. |
-| `retrieval_triage_result` | `RetrievalTriageResult` | Preferred prerequisite when triage confirm exists. Candidates = `retained`. |
+| `retrieval_triage_result` | `RetrievalTriageResult` | Required prerequisite. Candidates = `retained`. |
 | `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 | `topic_brief_generation_public_id` | `uuid.UUID` | Optional generation reference id for summary display. |
 
 **Invalidate on new intake:** When Topic intake starts a new generation, clear `paper_archiving_result` (same pattern as clearing search on resubmit).
 
-**Candidate source rule:** Prefer `retrieval_triage_result.retained` when that key is present. Otherwise use `related_paper_search_result.candidates` (transitional path while triage UI is not yet the prior step). Domain input remains a `list[PaperCandidate]` either way.
+**Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` so this page re-runs on the latest `retained` set (triage owns that clear).
+
+**Candidate source rule:** Use `retrieval_triage_result.retained` only. Do not fall back to `related_paper_search_result.candidates`. Domain input remains a `list[PaperCandidate]`.
 
 ### Auto-run behavior (first visit)
 
-1. If neither prerequisite source is present → show empty state: explain that related-paper search (and triage confirm when that step is required) must run first; `st.page_link` back to **New Topic brief** (and to **Retrieval triage** when registered).
-2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display).
+1. If `retrieval_triage_result` is missing → show empty state: explain that Retrieval triage must confirm first; `st.page_link` to **New Topic brief** and **Retrieval triage**.
+2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(retrieval_triage_result.retained)`.
 3. If prerequisites exist and there is no cached result → run inside `session_scope` with a spinner:
-   - `archive_papers(session, candidates)` where `candidates` follows the candidate source rule above
-   - `session.commit()` on success (UI is the caller that owns commit)
+   - `archive_papers(session, retrieval_triage_result.retained)`
+   - `session.commit()` on success (UI is the caller that owns commit; `session_scope` commits on exit)
    - store the result in `paper_archiving_result`
 4. On unexpected failure (session unusable or commit failure) → show an error; do **not** store a partial result.
-5. Empty `candidates` → still treat as success: store/display empty `PaperArchivingResult` (`papers=[]`, `skipped=[]`, `errors=[]`) with an explanatory caption. Prefer calling `archive_papers` (no-op) rather than inventing a parallel empty path.
+5. Empty `retained` → still treat as success: store/display empty `PaperArchivingResult` (`papers=[]`, `skipped=[]`, `errors=[]`) with an explanatory caption. Prefer calling `archive_papers` (no-op) rather than inventing a parallel empty path.
 
 Do **not** add a re-run button in v1.
 
@@ -264,7 +266,7 @@ When a `PaperArchivingResult` is available (cached or just produced), render sec
 
 ### Summary (always when result exists)
 
-- Input candidate count (length of the candidate list used for the run).
+- Input candidate count: `len(retrieval_triage_result.retained)` from session (the same list used for the run).
 - Counts: archived (`len(papers)`), skipped (`len(skipped)`), errors (`len(errors)`).
 - Generation reference id when `topic_brief_generation_public_id` is present.
 
@@ -297,10 +299,9 @@ When all three lists are empty after empty input, show a neutral success caption
 
 ## Workflow navigation
 
-- **Entry (transitional):** After related-paper search succeeds on the **New Topic brief** page, show `st.page_link` to the Paper archiving page when `related_paper_search_result` is present.
-- **Entry (when triage UI exists):** After the user confirms on **Retrieval triage**, link (or navigate) to Paper archiving with `retrieval_triage_result` in session. That path is preferred over linking straight from search.
-- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage (when registered) → Paper archiving.
-- **Later input switch:** When triage is the required prior step, the archiving page must consume `RetrievalTriageResult.retained`, not the raw search list. Until then, the transitional search-candidate path is allowed.
+- **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
+- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving.
+- **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
 ## Orchestration boundary
 

@@ -34,10 +34,10 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 - Per-paper manual discard or inclusion toggles (deferred to a later revision).
 - DOI validation or rejection (owned by [related-paper search merge](related-paper-search.md); Paper archiving also skips blank DOI as defense-in-depth).
-- Paper archiving, paper briefs, or topic brief construction.
+- Running Paper archiving on this page (owned by the dedicated [Paper archiving](paper-archiving.md) page).
+- Paper briefs or topic brief construction.
 - Persisting triage decisions to Postgres.
 - Re-running related-paper search from the triage page.
-- A separate Paper archiving page (v1 may call archiving inline after confirm).
 
 ## Position in the workflow
 
@@ -106,9 +106,11 @@ RetrievalTriageResult
 
 | v1 rule | Behavior |
 | --- | --- |
-| `retained` | Copy of all input `candidates`, preserving order. |
+| `retained` | Copy of all input `candidates`, preserving order (pass-through; same papers as search). |
 | `rejected` | Always `[]`. |
 | Empty input | `retained=[]`; UI still allows confirm (Paper archiving becomes a no-op success). |
+
+Paper archiving still reads only `retained`, not the raw search list.
 
 `TriageRejection` shape (when implemented for a later revision): enough identity to debug (`source_id`, `source_uid`, `doi` when known) plus a reason. Not used in v1.
 
@@ -135,7 +137,7 @@ Register in `paper_reviewer.ui.navigation`:
 4. **Candidate list** — One block per `PaperCandidate`: title (linked via `url`), authors, journal, year, `source_uid`, `facet_id`, and DOI when present.
 5. **Counts** — Show how many papers will continue (e.g. “N papers to archive”).
 6. **Primary button** — Label along the lines of **Continue to paper archiving** (exact copy left to implementation).
-   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (key e.g. `retrieval_triage_result`); then call Paper archiving with `retained` **inline on the same page** and show a short success summary (walking skeleton). A separate archiving page may come later.
+   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` so Paper archiving re-runs on the latest retained set; show a short success message and `st.page_link` to the **Paper archiving** page. Do **not** call `archive_papers` on this page.
 7. **Empty candidates** — Still show source-run diagnostics; keep the confirm button enabled (archiving is a no-op). Caption explains that search returned no retainable papers.
 
 ### Topic intake handoff (when implemented)
@@ -167,7 +169,7 @@ Paper archiving input is **`RetrievalTriageResult.retained`**, not the raw searc
 | Search returned N candidates | Triage retains all N; UI lists all N. |
 | Search returned 0 candidates | `retained=[]`; confirm allowed; Paper archiving empty success. |
 | User opens triage without prior search | Guard message; no confirm button. |
-| User confirms twice | Replace session triage result; archiving uses the latest retained set. |
+| User confirms twice | Replace session triage result; clear `paper_archiving_result` so Paper archiving re-runs on the latest retained set. |
 | Search had source errors (fail-soft) | Show `source_runs` errors; retain whatever candidates search produced. |
 
 ## Testability
@@ -185,5 +187,5 @@ Do not do this work in the Retrieval triage v1 slice:
 - Manual per-paper discard UI.
 - DOI rejection or re-validation in triage.
 - DB persistence of triage outcomes.
-- A separate Paper archiving page (inline call after confirm is enough for the walking skeleton).
+- Calling `archive_papers` or showing full Paper archiving results (owned by [paper-archiving.md](paper-archiving.md)).
 - Re-running related-paper search from the triage page.

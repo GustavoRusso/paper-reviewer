@@ -7,12 +7,7 @@ from typing import Any, Mapping
 from uuid import UUID
 
 import streamlit as st
-from sqlalchemy.orm import Session, sessionmaker
 
-from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
-    PaperArchivingResult,
-)
 from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     PaperCandidate,
     RelatedPaperSearchResult,
@@ -20,7 +15,6 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     SourceRunStatus,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
-from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 from paper_reviewer.topic_brief_generation.retrieval_triage import (
     confirm_retrieval_triage,
 )
@@ -36,23 +30,9 @@ from paper_reviewer.ui.topic_intake import (
 CONFIRM_BUTTON_LABEL = "Continue to paper archiving"
 
 
-@st.cache_resource
-def _session_factory() -> sessionmaker[Session]:
-    """Shared SQLAlchemy session factory for the Streamlit process."""
-    return create_session_factory(create_db_engine())
-
-
 def triage_prerequisites_met(state: Mapping[str, Any]) -> bool:
     """Return True when generation id and search result are in session state."""
     return state.get(PUBLIC_ID_KEY) is not None and state.get(SEARCH_KEY) is not None
-
-
-def format_paper_archiving_summary(result: PaperArchivingResult) -> str:
-    """Short success line for inline paper archiving after triage confirm."""
-    return (
-        f"Paper archiving finished: {len(result.papers)} paper(s), "
-        f"{len(result.skipped)} skipped, {len(result.errors)} error(s)."
-    )
 
 
 def _render_source_run_status(run: SourceRun) -> None:
@@ -131,19 +111,13 @@ def render_retrieval_triage() -> None:
             update={"confirmed_at": datetime.now(UTC)}
         )
         st.session_state[TRIAGE_RESULT_KEY] = triage_result
-        try:
-            with session_scope(_session_factory()) as session:
-                archiving_result = archive_papers(session, triage_result.retained)
-        except Exception:
-            st.error("Triage confirmed, but paper archiving failed. Try again.")
-        else:
-            st.session_state[ARCHIVING_RESULT_KEY] = archiving_result
-            st.success(
-                f"Confirmed {len(triage_result.retained)} paper(s) for archiving. "
-                f"{format_paper_archiving_summary(archiving_result)}"
-            )
+        st.session_state.pop(ARCHIVING_RESULT_KEY, None)
+        st.success(
+            f"Confirmed {len(triage_result.retained)} paper(s) for archiving."
+        )
 
-    archived: PaperArchivingResult | None = st.session_state.get(ARCHIVING_RESULT_KEY)
-    if archived is not None:
-        st.subheader("Paper archiving")
-        st.write(format_paper_archiving_summary(archived))
+    if st.session_state.get(TRIAGE_RESULT_KEY) is not None:
+        st.page_link(
+            streamlit_page_for("paper_archiving"),
+            label="Continue to Paper archiving",
+        )
