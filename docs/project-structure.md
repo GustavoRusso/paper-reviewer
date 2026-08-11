@@ -80,7 +80,7 @@ paper-reviewer/
 │       │   └── topic_brief_generation/ # ORM for that workflow
 │       ├── ingest/                     # dlt paper-source extract (shared)
 │       ├── ui/                         # Streamlit
-│       ├── flows/                      # Prefect (planned)
+│       ├── flows/                      # Prefect flows (source-inform; briefs next)
 │       └── db/                         # engine, session, URL helpers
 ├── alembic/
 │   └── versions/
@@ -116,7 +116,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` | Table mappings mirrored under the workflow name; `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
-| Prefect | `paper_reviewer.flows` | Search, ingest, and brief pipelines (planned) |
+| Prefect | `paper_reviewer.flows` | Source-inform (`inform_paper_from_source`); paper-brief flows next |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
 | Alembic | repo-root `alembic/` | DDL versioning against `models` metadata |
 

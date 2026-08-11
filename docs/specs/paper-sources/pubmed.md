@@ -127,13 +127,15 @@ Related-paper search and Paper archiving do not call EFetch.
 
 Used only by the [Fulfill papers metadata](../06-fulfill-papers-metadata.md) Prefect job `inform_paper_from_source` when `Paper.source_id = pubmed` and `source_informed_at` is null.
 
+Implementation: a **dlt resource** in `paper_reviewer.ingest.pubmed` performs EFetch (one PMID per call in v1), parses XML, and yields a mapped row for the inform job to write onto `Paper`. This is separate from the ESearch/ESummary search resource.
+
 ### Request
 
 | Parameter | Value |
 | --- | --- |
 | Endpoint | `efetch.fcgi` |
 | `db` | `pubmed` |
-| `id` | `Paper.source_uid` (PMID); batch comma-separated ids when the job batches |
+| `id` | `Paper.source_uid` (PMID); **v1: one PMID per EFetch call** (no comma-separated batch lists) |
 | `retmode` | `xml` |
 | `rettype` | omit (default full `PubmedArticle` XML) |
 | `api_key` | Include when configured (same rate-limit rules as search) |
@@ -158,7 +160,7 @@ Which logical groups land on `Paper` is owned by [Fulfill papers metadata](../06
 
 Do **not** map in v1 (deferred; see Fulfill papers metadata): `ArticleIdList` / `OtherID` beyond existing DOI+PMID handle, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
 
-Flat `authors: list[str]` may be refreshed from `AuthorList` display names only when informing; structured author entities are out of scope here.
+Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful inform only; see [Fulfill papers metadata](../06-fulfill-papers-metadata.md)). Structured author entities are out of scope here.
 
 ### Idempotency
 

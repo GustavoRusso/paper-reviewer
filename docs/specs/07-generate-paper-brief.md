@@ -24,7 +24,7 @@ A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execu
 
 Source-inform (EFetch and `Paper` field groups) is owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
-For the application runtime stack (including Prefect as **planned** in Compose), see [technology-stack.md](../technology-stack.md). This specification is the orchestration **contract** even when Prefect is not yet running locally.
+For the application runtime stack (including Prefect as a Compose service), see [technology-stack.md](../technology-stack.md) and [local-development.md](../local-development.md). This specification is the orchestration contract; brief work runs in Prefect, not in Streamlit.
 
 ## Scope
 
@@ -44,7 +44,7 @@ For the application runtime stack (including Prefect as **planned** in Compose),
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
 - Full-text PDF/HTML fetch.
 - Non-idempotent “force rewrite” of briefs (none in v1).
-- Adding Prefect services to Compose (infra; see [local-development.md](../local-development.md)).
+- Prefect Compose service topology — owned by [local-development.md](../local-development.md) / [technology-stack.md](../technology-stack.md) (added with fulfill / shared infra).
 
 ## Position in the workflow
 
@@ -154,7 +154,7 @@ Prefer this durable status on the `PaperBrief` (or an equivalent per-paper work 
 | `limitations` | No | Limitations when stated or clearly implied by the abstract. |
 | `relevance_to_topic` | Yes | Why this paper matters for the current topic statement / facets. |
 
-Grounding: use the source-informed `Paper` fields (especially abstract and indexing) plus generation topic context (`TopicStatement` and available facets). Do not invent citations that are not supported by that material.
+Grounding: use the source-informed `Paper` **abstract-focused** fields (`abstract_text`, title/authors/journal/year) plus generation topic context (`TopicStatement` and available facets). Full metadata lives on `Paper.source_record` for other tasks; v1 brief prompting does not require MeSH/funding/COI. Do not invent citations that are not supported by that material.
 
 ## Prefect job behavior
 
@@ -194,9 +194,11 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `generate_paper_brief_enqueue_result` | `GeneratePaperBriefsEnqueueResult` | Optional cache that enqueue was submitted for this session. |
 | `topic_statement` | `TopicStatement` | Optional context for header / LLM context load. |
 
-**Invalidate on new intake:** Clear `generate_paper_brief_enqueue_result` (and any page-local progress cache) when Topic intake starts a new generation.
+**Invalidate on new intake:** Clear `generate_paper_brief_enqueue_result` (and any page-local progress cache) when Topic intake starts a new generation — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (new generation clears all later-step session state).
 
-**Invalidate when archiving re-runs:** When `paper_archiving_result` is cleared and later replaced, clear `generate_paper_brief_enqueue_result` so this page can enqueue for the new archived set.
+**Invalidate when an upstream step re-runs:** When triage re-confirms, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result` so this page cannot continue with a stale paper set. Rule: re-run step N → clear steps N+1….
+
+Does **not** by itself delete durable global `Paper` rows; per-generation `PaperBrief` rows follow this step’s own idempotency when re-enqueued.
 
 ### Page behavior
 
@@ -274,7 +276,7 @@ Do not do this work in the Generate paper brief v1 slice:
 - Force rewrite of briefs.
 - Run LLM or EFetch inside Streamlit.
 - Draft the Topic brief (step 8).
-- Add Prefect to Compose (document dependency only).
+- Re-define Prefect Compose topology (shared with fulfill; see [local-development.md](../local-development.md)).
 
 ## Future work
 

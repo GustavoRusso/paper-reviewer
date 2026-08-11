@@ -10,12 +10,11 @@ Compose defines:
 - **`db`** — PostgreSQL 16 on port **5432** (Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
 - **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up` after `migrate` succeeds).
-
-There is no Prefect service yet.
+- **`prefect-server`** and **`prefect-worker`** (to add with step 6) — Compose profile `app`, started by **`just up`** with the rest of the app stack. Server exposes the Prefect API/UI (planned host port **4200**). Worker uses the same application image as `ui` / `workspace` and runs flows from `paper_reviewer.flows`. Progress UIs still poll Postgres, not Prefect, for paper status. Exact image tags and env vars land with the Compose change.
 
 Local-dev database defaults (override via host `.env` if needed): user / password / database `paper_reviewer`. From other containers use hostname `db` and `DATABASE_URL=postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer`. From the host: `localhost:5432`.
 
-Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose already sets it on `workspace`, `migrate`, and `ui`. Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets it on `workspace`, `migrate`, `ui`, and Prefect worker service(s). Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
 ### Schema migrations (Alembic)
 
@@ -36,7 +35,7 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` for one service.
+After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect` (or the concrete Prefect service name once added) for one service.
 
 ## Agent shells
 
@@ -58,7 +57,7 @@ just test tests/schemas/topic_brief_generation/test_topic_intake.py -q
 
 `just test` runs `uv run pytest` inside the sandbox `workspace` container. Pass optional path or pytest args after the recipe name. Equivalent ad-hoc form: `just sandbox-run "uv run pytest tests/topic_brief_generation/related_paper_search -q"`. Spec workflow: [tdd.md](tdd.md).
 
-The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect, seeding, and `just reset` will be added later.
+The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect runs with the app profile (`just up`), not the sandbox. Seeding and `just reset` will be added later.
 
 ## Two environments
 

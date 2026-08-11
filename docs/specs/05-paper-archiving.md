@@ -244,9 +244,11 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 | `topic_brief_generation_public_id` | `uuid.UUID` | Optional generation reference id for summary display. |
 
-**Invalidate on new intake:** When Topic intake starts a new generation, clear `paper_archiving_result` (same pattern as clearing search on resubmit).
+**Invalidate on new intake:** When Topic intake starts a new generation, clear `paper_archiving_result` and **all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …). Generations must not reuse another workflow’s session state.
 
-**Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` so this page re-runs on the latest `retained` set (triage owns that clear).
+**Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `retained` set (triage owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
+
+Does **not** delete durable global `Paper` rows.
 
 **Candidate source rule:** Use `retrieval_triage_result.retained` only. Do not fall back to `related_paper_search_result.candidates`. Domain input remains a `list[PaperCandidate]`.
 
