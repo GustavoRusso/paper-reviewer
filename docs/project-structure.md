@@ -69,7 +69,7 @@ paper-reviewer/
 │       │   ├── topic_analysis/
 │       │   ├── related_paper_search/
 │       │   ├── retrieval_triage/
-│       │   ├── paper_archiving/        # Paper archiving (stub until implemented)
+│       │   ├── paper_archiving/        # Paper archiving (create-or-reuse Paper)
 │       │   ├── paper_briefs/
 │       │   └── topic_brief/
 │       ├── schemas/
