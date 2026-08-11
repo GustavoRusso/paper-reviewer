@@ -1,4 +1,6 @@
-"""Paper briefs generation step.
+"""Deprecated stub package name.
 
-Behavior contract: docs/specs/06-paper-briefs-generation.md.
+Use `paper_reviewer.topic_brief_generation.generate_paper_brief` when that step
+is implemented. Behavior contract: docs/specs/07-generate-paper-brief.md.
+Source-inform (step 6) is docs/specs/06-fulfill-papers-metadata.md.
 """

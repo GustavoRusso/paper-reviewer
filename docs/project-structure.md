@@ -80,7 +80,7 @@ paper-reviewer/
 │       │   └── topic_brief_generation/ # ORM for that workflow
 │       ├── ingest/                     # dlt paper-source extract (shared)
 │       ├── ui/                         # Streamlit
-│       ├── flows/                      # Prefect flows (source-inform; briefs next)
+│       ├── flows/                      # Prefect flows (source-inform + briefs when step 6+ land)
 │       └── db/                         # engine, session, URL helpers
 ├── alembic/
 │   └── versions/

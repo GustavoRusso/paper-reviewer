@@ -76,7 +76,7 @@ An empty `candidates` list is valid input.
 
 ## Public API
 
-Package path (when implemented): `paper_reviewer.topic_brief_generation.retrieval_triage` — see [project-structure.md](../project-structure.md). Stub exists until implementation.
+Package path: `paper_reviewer.topic_brief_generation.retrieval_triage` — see [project-structure.md](../project-structure.md).
 
 ```text
 confirm_retrieval_triage(search_result: RelatedPaperSearchResult) -> RetrievalTriageResult
@@ -89,7 +89,7 @@ confirm_retrieval_triage(search_result: RelatedPaperSearchResult) -> RetrievalTr
 | Empty candidates | Return `retained=[]`, `rejected=[]`. Do not raise. |
 | Raise | Raise only on invalid input shape (Pydantic). |
 
-Pydantic types live under `paper_reviewer.schemas.topic_brief_generation.retrieval_triage` (when implemented).
+Pydantic types live under `paper_reviewer.schemas.topic_brief_generation.retrieval_triage`.
 
 ### Output
 
@@ -118,7 +118,7 @@ Paper archiving still reads only `retained`, not the raw search list.
 
 ## Streamlit UI
 
-Dedicated page module (when implemented): `paper_reviewer.ui.retrieval_triage`.
+Dedicated page module: `paper_reviewer.ui.retrieval_triage`.
 
 Register in `paper_reviewer.ui.navigation`:
 
@@ -142,7 +142,7 @@ Register in `paper_reviewer.ui.navigation`:
    - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and `st.page_link` to the **Paper archiving** page. Do **not** call `archive_papers` on this page.
 7. **Empty candidates** — Still show source-run diagnostics; keep the confirm button enabled (archiving is a no-op). Caption explains that search returned no retainable papers.
 
-### Topic intake handoff (when implemented)
+### Topic intake handoff
 
 After related-paper search succeeds on the Topic intake page:
 
@@ -159,8 +159,8 @@ Persistence for v1 is Streamlit session state only (same pattern as topic analys
 | User review + confirm gate; produce `retained` | Retrieval triage (this specification) |
 | Create or reuse `Paper` rows from `retained` | [Paper archiving](05-paper-archiving.md) |
 | `PaperCandidate` field shape | [related-paper search](03-related-paper-search.md) |
-| Pydantic `RetrievalTriageResult` / confirm API | `paper_reviewer.schemas` / `paper_reviewer.topic_brief_generation.retrieval_triage` (when implemented) |
-| Streamlit page and navigation | `paper_reviewer.ui` (when implemented) |
+| Pydantic `RetrievalTriageResult` / confirm API | `paper_reviewer.schemas` / `paper_reviewer.topic_brief_generation.retrieval_triage` |
+| Streamlit page and navigation | `paper_reviewer.ui` |
 
 Paper archiving input is **`RetrievalTriageResult.retained`**, not the raw search list.
 
@@ -175,8 +175,6 @@ Paper archiving input is **`RetrievalTriageResult.retained`**, not the raw searc
 | Search had source errors (fail-soft) | Show `source_runs` errors; retain whatever candidates search produced. |
 
 ## Testability
-
-When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 - `confirm_retrieval_triage` with a fixture `RelatedPaperSearchResult` → `retained` equals input `candidates`, `rejected=[]`.
 - Empty `candidates` → empty `retained`, no raise.

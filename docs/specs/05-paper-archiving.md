@@ -71,7 +71,7 @@ flowchart TB
 
 ## Public API
 
-Package path (when implemented): `paper_reviewer.topic_brief_generation.paper_archiving` — see [project-structure.md](../project-structure.md).
+Package path: `paper_reviewer.topic_brief_generation.paper_archiving` — see [project-structure.md](../project-structure.md).
 
 ```text
 archive_papers(session, candidates) -> PaperArchivingResult
@@ -104,7 +104,7 @@ Pydantic already supplies typed fields. This step only adds strip/blank checks (
 
 ## `Paper` model properties
 
-Durable `Paper` contract for v1 (Pydantic **read** model and ORM columns when implemented). The read model always includes DB-assigned fields after a successful resolve.
+Durable `Paper` contract for v1 (Pydantic **read** model and ORM columns). The read model always includes DB-assigned fields after a successful resolve.
 
 | Field | Required | Description |
 | --- | --- | --- |
@@ -154,7 +154,7 @@ For each candidate (after domain checks), with an in-run map keyed by `(source_i
    - If B is already owned by a **different** `(source_id, source_uid)` → **skip** (`doi_conflict`); do **not** change the stored DOI.
    - If B is free → **update** the stored DOI to B; do not update other fields; append to `papers` on first resolve in this call.
 
-### Uniqueness (when implemented)
+### Uniqueness
 
 | Constraint | Rule |
 | --- | --- |
@@ -180,7 +180,7 @@ PaperArchivingResult
 | `skipped` | Policy skips (expected): identity fields + `reason`. |
 | `errors` | Unexpected failures (e.g. DB error after savepoint rollback): identity fields when known + `reason` / message. |
 
-Skip/error item shape (when implemented): include enough identity to debug (`source_id`, `source_uid`, `doi` when known) plus a `reason` (enum or string). Examples: `missing_doi`, `invalid_required_field`, `doi_conflict`.
+Skip/error item shape: include enough identity to debug (`source_id`, `source_uid`, `doi` when known) plus a `reason` (enum or string). Examples: `missing_doi`, `invalid_required_field`, `doi_conflict`.
 
 ### Order and cardinality
 
@@ -223,7 +223,7 @@ Skip/error item shape (when implemented): include enough identity to debug (`sou
 
 ## Streamlit UI (v1)
 
-Dedicated page module (when implemented): `paper_reviewer.ui.paper_archiving` with `render_paper_archiving()`.
+Dedicated page module: `paper_reviewer.ui.paper_archiving` with `render_paper_archiving()`.
 
 Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 
@@ -305,8 +305,8 @@ When all three lists are empty after empty input, show a neutral success caption
 ## Workflow navigation
 
 - **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
-- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Fulfill papers metadata → Generate paper brief.
-- **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session.
+- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Fulfill papers metadata → Generate paper brief (later step pages register when implemented).
+- **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session (that page lands with step 6).
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
 ## Orchestration boundary
@@ -326,7 +326,7 @@ This document is the **behavior contract** for domain logic and for the Streamli
 
 ## Testability
 
-When implementation starts (TDD per [tdd.md](../tdd.md)):
+TDD per [tdd.md](../tdd.md):
 
 **Domain (`archive_papers`):**
 

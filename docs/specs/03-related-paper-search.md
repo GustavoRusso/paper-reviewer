@@ -60,7 +60,7 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 ## Input: `TopicAnalysisResult`
 
-Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (reloaded facet rows for the same `TopicBriefGeneration`, or a test fixture). Facet field rules and persistence stay in that spec.
+Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (in-memory / session result today, or a test fixture; later, reloaded facet rows when that persistence lands). Facet field rules and persistence stay in that spec.
 
 Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` → `SearchCriteria` as an **internal step** when it needs the search envelope (facets plus optional `source_overrides`). Callers do not have to build `SearchCriteria` first.
 
@@ -80,7 +80,6 @@ Public input shape for the normal path: the `TopicAnalysisResult` emission owned
 | How | Build `SearchCriteria(topic_analysis=…, source_overrides=…)` (default empty overrides). |
 | Keep | `SearchCriteria` remains the envelope used with source runners and for tests that need `source_overrides`. |
 | Not owned here | Facet generation / persistence ([Topic analysis](02-topic-analysis.md)); Entrez compilation ([paper-sources/pubmed.md](paper-sources/pubmed.md)). |
-| Not implemented yet | Spec only until code lands; today’s code still accepts injected `SearchCriteria` only. |
 
 After conversion, the workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
 
@@ -186,7 +185,6 @@ Primary deliverable for [Retrieval triage](04-retrieval-triage.md): `candidates`
 - Inject a `TopicAnalysisResult` JSON fixture into related-paper search without running Topic analysis.
 - Assert the workflow converts that result to `SearchCriteria` internally (empty `source_overrides` by default) before source runners run.
 - For deterministic PubMed tests, pass optional `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) so conversion yields a known Entrez `term`.
-- Until the public API change lands, existing tests may still inject a full `SearchCriteria`; that remains a transitional path only.
 - Assert on `PaperCandidate` fields and merge behavior with multi-source fixtures when additional sources exist.
 - Assert merge drops missing/blank DOI hits, rewrites kept `doi` to uppercase, and dedupes by that form.
 

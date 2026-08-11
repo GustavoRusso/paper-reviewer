@@ -30,8 +30,8 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 ## Topic brief generation workflow
 
 1. **Topic intake** — You provide a topic statement that defines what to investigate.
-2. **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus for search and writing.
-3. **Related-paper search** — The assistant searches **paper sources** for related papers.
+2. **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus for search and writing. Spec: [docs/specs/02-topic-analysis.md](docs/specs/02-topic-analysis.md).
+3. **Related-paper search** — The assistant searches **paper sources** for related papers. Spec: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
 5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
 6. **Fulfill papers metadata** — For each archived paper, the assistant source-informs the `Paper` (for PubMed: EFetch) until it holds the fuller source record. Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
