@@ -9,7 +9,7 @@ app_project := "paper-reviewer"
 sandbox_project := "paper-reviewer-sandbox"
 compose := "docker compose"
 
-# Build/start the persistent app stack (workspace + app profile: migrate + UI + Postgres); wait until healthy
+# Build/start the persistent app stack (workspace + app profile: migrate + UI + Postgres + Prefect); wait until healthy
 up:
     {{compose}} -p {{app_project}} --profile app up -d --build --wait
 
@@ -23,7 +23,7 @@ down:
     {{compose}} -p {{app_project}} down
 
 # Follow logs (optional service name; default: all running services)
-# Examples: just logs | just logs ui | just logs db
+# Examples: just logs | just logs ui | just logs db | just logs prefect-server | just logs prefect-worker
 logs service="":
     {{compose}} -p {{app_project}} logs -f {{service}}
 

@@ -10,11 +10,12 @@ Compose defines:
 - **`db`** — PostgreSQL 16 on port **5432** (Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
 - **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up` after `migrate` succeeds).
-- **`prefect-server`** and **`prefect-worker`** (to add with step 6) — Compose profile `app`, started by **`just up`** with the rest of the app stack. Server exposes the Prefect API/UI (planned host port **4200**). Worker uses the same application image as `ui` / `workspace` and runs flows from `paper_reviewer.flows`. Progress UIs still poll Postgres, not Prefect, for paper status. Exact image tags and env vars land with the Compose change.
+- **`prefect-server`** — Prefect API/UI on host port **4200** (Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `http://localhost:4200/api` via `PREFECT_UI_API_URL`.
+- **`prefect-worker`** — Process worker on work pool **`local-pool`** (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL=http://prefect-server:4200/api` and `DATABASE_URL` (app Postgres). Creates `local-pool` on first start if missing (`--type process`). Runs flows from `paper_reviewer.flows` when those flows are deployed. Progress UIs still poll Postgres, not Prefect, for paper status.
 
 Local-dev database defaults (override via host `.env` if needed): user / password / database `paper_reviewer`. From other containers use hostname `db` and `DATABASE_URL=postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer`. From the host: `localhost:5432`.
 
-Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets it on `workspace`, `migrate`, `ui`, and Prefect worker service(s). Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets `DATABASE_URL` and `PREFECT_API_URL` on `workspace`, `migrate`, `ui`, and `prefect-worker`. Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
 ### Schema migrations (Alembic)
 
@@ -35,7 +36,7 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect` (or the concrete Prefect service name once added) for one service.
+After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501) and the Prefect UI at [http://localhost:4200](http://localhost:4200). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
 
 ## Agent shells
 
