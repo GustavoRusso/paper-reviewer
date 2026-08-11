@@ -30,6 +30,9 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - Look up existence by exact `(source_id, source_uid)` only (not by DOI).
 - Create, reuse, or skip per candidate (fail-soft); return a result with successful papers plus skip/error details.
 - Optionally update the stored DOI when the same source handle brings a new free DOI (rules below).
+- Dedicated Streamlit page for this step that displays `PaperArchivingResult` after a successful run.
+- Auto-run archiving on first page visit when prerequisites exist (no manual “Archive papers” button in v1).
+- Session-state handoff from the prior step; database commit owned by the UI (caller commits per the public API rule).
 
 ### Out of scope
 
@@ -40,6 +43,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - Updating non-DOI bibliographic fields (title, authors, journal, year, url, `source_id`, `source_uid`) on reuse.
 - Storing triage-only candidate fields (`snippet`, `facet_id`, `raw_payload_ref`) on `Paper`.
 - DOI format validation beyond non-blank after strip (any non-blank string is accepted).
+- A re-run / “Archive again” control on the archiving page (deferred; v1 caches the first result in session).
 
 ## Position in the workflow
 
@@ -58,7 +62,7 @@ flowchart TB
 
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
 2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [retrieval-triage.md](retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
-3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`.
+3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
 4. **Paper briefs** loads fuller source records (for PubMed: EFetch) and builds paper briefs for archived papers.
 5. **Topic brief** uses those briefs.
 
@@ -200,22 +204,123 @@ Skip/error item shape (when implemented): include enough identity to debug (`sou
 | Unexpected DB/session error on one candidate | Roll back savepoint; record `errors`; continue. |
 | Duplicate identity later in the same input | Do not duplicate in `papers` / `skipped` / `errors`. |
 
+### UI behavior
+
+| Case | Expected UI |
+| --- | --- |
+| No prerequisite candidates in session | Empty state + link to **New Topic brief** (and to **Retrieval triage** when that page exists). |
+| Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
+| `paper_archiving_result` already in session | Show cached result only; do not re-run. |
+| New topic intake submitted | Clear `paper_archiving_result`; after a new search (and triage confirm when present), the archiving page can run again. |
+| Empty input list | Empty success result; caption “No candidates to archive”. |
+| All candidates skipped | Summary shows 0 archived; skipped section populated. |
+| Mix of success / skip / error | Summary counts and all three result sections reflect the lists. |
+| Session / commit failure | Error message; do not store a partial result in session. |
+
+## Streamlit UI (v1)
+
+Dedicated page module (when implemented): `paper_reviewer.ui.paper_archiving` with `render_paper_archiving()`.
+
+Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
+
+| Property | Value |
+| --- | --- |
+| `key` | `paper_archiving` |
+| `title` | Paper archiving |
+| `url_path` | `paper-archiving` |
+
+Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Domain work stays in `archive_papers`; the page owns session keys, the DB commit, and display.
+
+### Session keys
+
+| Key | Type | Role |
+| --- | --- | --- |
+| `related_paper_search_result` | `RelatedPaperSearchResult` | Transitional prerequisite until [Retrieval triage](retrieval-triage.md) UI stores a confirmed result. Candidates = `search_result.candidates`. |
+| `retrieval_triage_result` | `RetrievalTriageResult` | Preferred prerequisite when triage confirm exists. Candidates = `retained`. |
+| `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
+| `topic_statement` | `TopicStatement` | Optional context for header / caption. |
+| `topic_brief_generation_public_id` | `uuid.UUID` | Optional generation reference id for summary display. |
+
+**Invalidate on new intake:** When Topic intake starts a new generation, clear `paper_archiving_result` (same pattern as clearing search on resubmit).
+
+**Candidate source rule:** Prefer `retrieval_triage_result.retained` when that key is present. Otherwise use `related_paper_search_result.candidates` (transitional path while triage UI is not yet the prior step). Domain input remains a `list[PaperCandidate]` either way.
+
+### Auto-run behavior (first visit)
+
+1. If neither prerequisite source is present → show empty state: explain that related-paper search (and triage confirm when that step is required) must run first; `st.page_link` back to **New Topic brief** (and to **Retrieval triage** when registered).
+2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display).
+3. If prerequisites exist and there is no cached result → run inside `session_scope` with a spinner:
+   - `archive_papers(session, candidates)` where `candidates` follows the candidate source rule above
+   - `session.commit()` on success (UI is the caller that owns commit)
+   - store the result in `paper_archiving_result`
+4. On unexpected failure (session unusable or commit failure) → show an error; do **not** store a partial result.
+5. Empty `candidates` → still treat as success: store/display empty `PaperArchivingResult` (`papers=[]`, `skipped=[]`, `errors=[]`) with an explanatory caption. Prefer calling `archive_papers` (no-op) rather than inventing a parallel empty path.
+
+Do **not** add a re-run button in v1.
+
+## Results display
+
+When a `PaperArchivingResult` is available (cached or just produced), render sections in this order.
+
+### Summary (always when result exists)
+
+- Input candidate count (length of the candidate list used for the run).
+- Counts: archived (`len(papers)`), skipped (`len(skipped)`), errors (`len(errors)`).
+- Generation reference id when `topic_brief_generation_public_id` is present.
+
+### Archived papers (`papers`)
+
+For each `Paper`, reuse the candidate card style from Topic intake:
+
+- Title as a markdown link via `url`.
+- Caption: authors · journal · year · DOI · `source_id` / `source_uid` · `created_at` (ISO or locale-neutral).
+
+v1 does **not** require create vs reuse vs DOI-update labels (`PaperArchivingResult` has no per-paper outcome enum).
+
+### Skipped (`skipped`)
+
+List or table with `source_id`, `source_uid`, `doi` (when known), and a human-readable reason:
+
+| `ArchiveSkipReason` | Display label |
+| --- | --- |
+| `missing_doi` | Missing DOI |
+| `invalid_required_field` | Invalid required field |
+| `doi_conflict` | DOI conflict |
+
+### Errors (`errors`)
+
+Same identity columns as skips plus the `reason` / message string. Use `st.error` styling per row or one error block for the section.
+
+### Empty success
+
+When all three lists are empty after empty input, show a neutral success caption: “No candidates to archive”.
+
+## Workflow navigation
+
+- **Entry (transitional):** After related-paper search succeeds on the **New Topic brief** page, show `st.page_link` to the Paper archiving page when `related_paper_search_result` is present.
+- **Entry (when triage UI exists):** After the user confirms on **Retrieval triage**, link (or navigate) to Paper archiving with `retrieval_triage_result` in session. That path is preferred over linking straight from search.
+- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage (when registered) → Paper archiving.
+- **Later input switch:** When triage is the required prior step, the archiving page must consume `RetrievalTriageResult.retained`, not the raw search list. Until then, the transitional search-candidate path is allowed.
+
 ## Orchestration boundary
 
 | Responsibility | Owner |
 | --- | --- |
-| Map candidates → create-or-reuse / skip `Paper` | Paper archiving step |
+| Map candidates → create-or-reuse / skip `Paper` | `paper_reviewer.topic_brief_generation.paper_archiving` (`archive_papers`) |
 | Drop no-DOI hits before triage; candidate shape and search merge | [related-paper-search.md](related-paper-search.md) |
 | User review + confirm; produce `retained` | [retrieval-triage.md](retrieval-triage.md) |
+| Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
 | PubMed EFetch / full record for briefs | Paper briefs step; [paper-sources/pubmed.md](paper-sources/pubmed.md) |
-| Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` (when implemented) |
-| ORM `Paper` + thin create/get | `paper_reviewer.models` (when implemented) |
+| Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
+| ORM `Paper` + thin create/get | `paper_reviewer.models` |
 
-This document is the **behavior contract**. It does not add the Python package, schema, ORM, or migrations until an implementation task.
+This document is the **behavior contract** for domain logic and for the Streamlit page. Domain package, schemas, ORM, and migrations may already exist; the UI page is a separate implementation task driven by this specification.
 
 ## Testability
 
 When implementation starts (TDD per [tdd.md](../tdd.md)):
+
+**Domain (`archive_papers`):**
 
 - Empty list → empty result.
 - Insert new identities; assert uppercase DOI storage.
@@ -227,13 +332,19 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 - Duplicate input identity → one `papers` entry; first-seen order.
 - Savepoint failure on one candidate → that candidate in `errors`; others still in `papers`.
 
+**UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
+
+- `tests/ui/test_navigation.py`: page registered with key `paper_archiving`, title **Paper archiving**, render callable `render_paper_archiving`, `url_path` `paper-archiving`.
+- Optional pure helpers (e.g. skip reason → display label, paper caption lines) unit-tested without Streamlit if extracted from render.
+
 ## Non-goals (v1)
 
 Do not do this work in the Paper archiving v1 slice:
 
-- Implement code, ORM, Alembic, or UI wiring (until a later implementation task).
 - Call EFetch or any full-record API.
 - Create `PaperBrief` rows or content.
 - Add a generation↔paper association table.
 - Implement Retrieval triage UI or confirm logic (see [retrieval-triage.md](retrieval-triage.md)).
 - Update title, authors, journal, year, or url on reuse (DOI update only, per rules above).
+- Add a re-run / “Archive again” control (first-visit cache only).
+- Show create vs reuse vs DOI-update labels per paper (no outcome enum on the result yet).
