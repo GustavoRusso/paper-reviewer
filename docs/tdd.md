@@ -1,6 +1,6 @@
 # Test-First Spec Implementation (TDD)
 
-Coding agents follow this workflow for every app behavior change. Test runner and stack boundaries: [technology-stack.md](technology-stack.md). Layout of `tests/`: [project-structure.md](project-structure.md). How to run tests (`just test` / sandbox): [local-development.md](local-development.md#running-tests).
+Coding agents follow this workflow for every app behavior change. Test runner and stack boundaries: [technology-stack.md](technology-stack.md). Layout of `tests/`: [project-structure.md](project-structure.md). How to run tests (`just test` / sandbox): [local-development.md](local-development.md#running-tests). How to split plan tasks and implement outside-in (layer order within a task): [dev-practices.md](dev-practices.md).
 
 ## When this applies
 
@@ -15,6 +15,8 @@ Coding agents follow this workflow for every app behavior change. Test runner an
 - Pure formatting or rename-only edits with no behavior change
 
 ## Mandatory order
+
+This file owns the red→green→refactor steps and test-runner expectations. **Plan task boundaries** and outside-in layer order (UI → packages → schemas → models → migrations) live in [dev-practices.md](dev-practices.md). Write tests only for the current task’s depth; do not pre-write tests for later tasks of the same plan.
 
 ```mermaid
 flowchart LR
@@ -40,7 +42,8 @@ flowchart LR
 - Prefer behavior-focused tests; avoid asserting on implementation details.
 - Prefer pytest style (`assert`, fixtures) over `unittest.TestCase`.
 - Test only our app code (`paper_reviewer`).
-- Fake or stub **boundary collaborators** (PubMed HTTP, other remote APIs). Do not make live network calls in unit/spec tests.
+- Prefer **in-memory** objects and focused unit/spec tests over large end-to-end database suites when thinner tests suffice.
+- Fake or stub **only external boundary collaborators** (PubMed HTTP, other remote APIs). Prefer real in-memory collaborators inside the app boundary. Do not make live network calls in unit/spec tests.
 - Keep Streamlit thin and test schemas/domain/flows rather than widget chrome.
 - Do not assert on third-party library internals (dlt, SQLAlchemy, Streamlit widgets, etc.).
 
