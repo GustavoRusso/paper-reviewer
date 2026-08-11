@@ -1,6 +1,6 @@
 # Related-paper search
 
-Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for Retrieval triage and (in v1) [Paper archiving](paper-archiving.md).
+Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for [Retrieval triage](retrieval-triage.md) (and then [Paper archiving](paper-archiving.md)).
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
@@ -121,7 +121,7 @@ Per [technology-stack.md](../technology-stack.md):
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
 - `paper_reviewer.topic_brief_generation.related_paper_search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
 - Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
-- The contract to Retrieval triage (and v1 [Paper archiving](paper-archiving.md)) is the global `PaperCandidate` list (plus `source_runs` metadata).
+- The contract to [Retrieval triage](retrieval-triage.md) is the global `PaperCandidate` list (plus `source_runs` metadata). Triage v1 does not add filters; it retains every candidate after user confirm. Paper archiving consumes triage’s `retained` list.
 
 ```mermaid
 flowchart TB
@@ -164,7 +164,7 @@ flowchart TB
 | `source_runs[]` | Per source: `source_id`, `status` (`ok` / `error` / `empty`), `hit_count`, `facet_ids`, `error` if any |
 
 
-Primary deliverable for Retrieval triage and (until triage has a contract) for [Paper archiving](paper-archiving.md): `candidates`. `source_runs` supports debugging and UI status.
+Primary deliverable for [Retrieval triage](retrieval-triage.md): `candidates`. `source_runs` supports debugging and UI status. Paper archiving receives the retained set from triage, not this list directly.
 
 ## Behavior
 
@@ -176,7 +176,7 @@ Primary deliverable for Retrieval triage and (until triage has a contract) for [
 | Hit without DOI (missing/blank)            | Dropped during merge; not present in `candidates`                                              |
 | Source failure (network, rate limit, auth) | **Fail-soft**: other sources still contribute; `source_runs` records the error                   |
 | `retmax` truncates                         | Candidates limited accordingly                                                                   |
-| All hits lack DOI                          | Empty `candidates` (orchestrator skips [Paper archiving](paper-archiving.md) or gets empty success) |
+| All hits lack DOI                          | Empty `candidates` ([Retrieval triage](retrieval-triage.md) may confirm an empty retained set; Paper archiving is then skipped or gets empty success) |
 
 
 

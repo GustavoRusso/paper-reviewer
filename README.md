@@ -31,8 +31,8 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 1. **Topic intake** — You provide a topic statement that defines what to investigate.
 2. **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus for search and writing.
 3. **Related-paper search** — The assistant searches **paper sources** for related papers.
-4. **Retrieval triage** — Search results are presented; you can discard papers that do not apply, refining the set before deeper analysis.
-5. **Paper archiving** — For each candidate with a DOI (search list in v1; retained set when triage is specified), the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
+4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/retrieval-triage.md](docs/specs/retrieval-triage.md).
+5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
 
 6. **Paper briefs** — For each archived paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references), using fuller source fetch where needed (for PubMed: EFetch). See [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
 
