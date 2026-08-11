@@ -16,7 +16,7 @@ In this step, the system presents **paper candidates** from [related-paper searc
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 4 (Retrieval triage) for that run.
 
-Paper archiving, paper briefs, and topic brief drafting are out of scope here — see [paper-archiving.md](paper-archiving.md) and the later steps in the README.
+Paper archiving, paper briefs, and topic brief drafting are out of scope here — see [paper-archiving.md](paper-archiving.md), [paper-briefs.md](paper-briefs.md), and the later steps in the README.
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -57,7 +57,7 @@ flowchart TB
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec) plus `source_runs` metadata.
 2. **Retrieval triage** (this specification) presents those candidates and waits for an explicit confirm. v1 retains every candidate.
 3. **Paper archiving** receives `RetrievalTriageResult.retained` and creates or reuses `Paper` records.
-4. **Paper briefs** and **Topic brief** continue on archived papers.
+4. **Paper briefs** and **Topic brief** continue on archived papers — see [paper-briefs.md](paper-briefs.md).
 
 Today, Topic intake runs analysis and search on one page. This step owns a **dedicated Streamlit page** for review and confirm. Intake remains responsible for starting the generation and running search; after search succeeds it links to triage.
 

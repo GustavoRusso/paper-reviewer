@@ -2,7 +2,7 @@
 
 This document is the specification for step 5 of the Topic brief generation workflow in [README.md](../../README.md).
 
-In this step, the system maps each **paper candidate** to a reusable **`Paper`** record in the database. If that paper already exists (same source handle), the step reuses the existing record. Later steps (especially [Paper briefs](../../README.md)) use these archived papers.
+In this step, the system maps each **paper candidate** to a reusable **`Paper`** record in the database. If that paper already exists (same source handle), the step reuses the existing record. Later steps (especially [Paper briefs](paper-briefs.md)) use these archived papers.
 
 ## Glossary
 
@@ -16,7 +16,7 @@ In this step, the system maps each **paper candidate** to a reusable **`Paper`**
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 5 (Paper archiving) for that run.
 
-Paper brief construction (including PubMed EFetch) is out of scope here — see the Paper briefs step in the README and [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Paper brief construction (including PubMed EFetch) is out of scope here — see [paper-briefs.md](paper-briefs.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -63,7 +63,7 @@ flowchart TB
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
 2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [retrieval-triage.md](retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
 3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
-4. **Paper briefs** loads fuller source records (for PubMed: EFetch) and builds paper briefs for archived papers.
+4. **Paper briefs** loads fuller source records (for PubMed: EFetch) and builds paper briefs for archived papers — see [paper-briefs.md](paper-briefs.md).
 5. **Topic brief** uses those briefs.
 
 ## Public API
@@ -300,7 +300,7 @@ When all three lists are empty after empty input, show a neutral success caption
 ## Workflow navigation
 
 - **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
-- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving.
+- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Paper briefs.
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
 ## Orchestration boundary
@@ -311,7 +311,7 @@ When all three lists are empty after empty input, show a neutral success caption
 | Drop no-DOI hits before triage; candidate shape and search merge | [related-paper-search.md](related-paper-search.md) |
 | User review + confirm; produce `retained` | [retrieval-triage.md](retrieval-triage.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
-| PubMed EFetch / full record for briefs | Paper briefs step; [paper-sources/pubmed.md](paper-sources/pubmed.md) |
+| PubMed EFetch / full record for briefs | [paper-briefs.md](paper-briefs.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
 | Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
 | ORM `Paper` + thin create/get | `paper_reviewer.models` |
 

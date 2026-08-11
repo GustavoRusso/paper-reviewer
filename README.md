@@ -18,7 +18,7 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
 - **Paper archiving** — Workflow step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
 
-- **Paper brief** — Structured summary of a paper related to the topic, built from an archived `Paper` (for PubMed: fuller record via EFetch)
+- **Paper brief** — Structured summary of a paper related to the topic, built from an archived `Paper` (for PubMed: fuller record via EFetch). Spec: [docs/specs/paper-briefs.md](docs/specs/paper-briefs.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — One end-to-end run of the workflow below (Topic intake through Topic brief). In the app this is a `TopicBriefGeneration` record that owns artifacts from each step.
 
@@ -34,7 +34,7 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/retrieval-triage.md](docs/specs/retrieval-triage.md).
 5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
 
-6. **Paper briefs** — For each archived paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references), using fuller source fetch where needed (for PubMed: EFetch). See [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
+6. **Paper briefs** — For each archived paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references), using fuller source fetch where needed (for PubMed: EFetch). Spec: [docs/specs/paper-briefs.md](docs/specs/paper-briefs.md).
 
 7. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 

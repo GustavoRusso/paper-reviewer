@@ -1,4 +1,4 @@
 """Paper briefs step.
 
-Stub: implement when a paper-briefs spec exists.
+Behavior contract: docs/specs/paper-briefs.md.
 """
