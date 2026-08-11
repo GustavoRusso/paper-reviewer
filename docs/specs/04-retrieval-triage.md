@@ -139,7 +139,7 @@ Register in `paper_reviewer.ui.navigation`:
 4. **Candidate list** — One block per `PaperCandidate`: title (linked via `url`), authors, journal, year, `source_uid`, `facet_id`, and DOI when present.
 5. **Counts** — Show how many papers will continue (e.g. “N papers to archive”).
 6. **Primary button** — Label along the lines of **Continue to paper archiving** (exact copy left to implementation).
-   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` so Paper archiving re-runs on the latest retained set; show a short success message and `st.page_link` to the **Paper archiving** page. Do **not** call `archive_papers` on this page.
+   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and `st.page_link` to the **Paper archiving** page. Do **not** call `archive_papers` on this page.
 7. **Empty candidates** — Still show source-run diagnostics; keep the confirm button enabled (archiving is a no-op). Caption explains that search returned no retainable papers.
 
 ### Topic intake handoff (when implemented)
@@ -171,7 +171,7 @@ Paper archiving input is **`RetrievalTriageResult.retained`**, not the raw searc
 | Search returned N candidates | Triage retains all N; UI lists all N. |
 | Search returned 0 candidates | `retained=[]`; confirm allowed; Paper archiving empty success. |
 | User opens triage without prior search | Guard message; no confirm button. |
-| User confirms twice | Replace session triage result; clear `paper_archiving_result` so Paper archiving re-runs on the latest retained set. |
+| User confirms twice | Replace session triage result; clear `paper_archiving_result` and all later-step session caches so Paper archiving and downstream steps re-run on the latest retained set. |
 | Search had source errors (fail-soft) | Show `source_runs` errors; retain whatever candidates search produced. |
 
 ## Testability

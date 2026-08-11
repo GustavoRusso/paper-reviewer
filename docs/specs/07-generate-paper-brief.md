@@ -183,13 +183,13 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `title` | Generate paper brief |
 | `url_path` | `generate-paper-brief` |
 
-Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues, polls durable status, and displays progress.
+Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues and polls **durable DB status** on `PaperBrief` (and `Paper.source_informed_at` for prerequisites). Do not use Prefect run ids as progress truth.
 
 ### Session keys
 
 | Key | Type | Role |
 | --- | --- |
-| `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Papers = `papers`. |
+| `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list**; reload each `Paper` from the DB for `source_informed_at` and display fields. |
 | `topic_brief_generation_public_id` | `uuid.UUID` | Required generation reference for enqueue and display. |
 | `generate_paper_brief_enqueue_result` | `GeneratePaperBriefsEnqueueResult` | Optional cache that enqueue was submitted for this session. |
 | `topic_statement` | `TopicStatement` | Optional context for header / LLM context load. |

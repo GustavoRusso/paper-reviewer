@@ -53,4 +53,5 @@ After `just up`, these services are available:
 | Service | URL | Description |
 | --- | --- | --- |
 | Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) | Streamlit UI; landing page links to create a new Topic brief (Topic intake) |
+| Prefect (when step 6 Compose lands) | [http://localhost:4200](http://localhost:4200) | Prefect API/UI (`prefect-server`); worker runs source-inform (and later brief) flows. Progress still from Postgres. |
 | PostgreSQL | See [docs/local-development.md](docs/local-development.md) | App relational database (port and local-dev credentials) |

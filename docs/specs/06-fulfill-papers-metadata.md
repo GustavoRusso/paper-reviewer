@@ -28,11 +28,11 @@ For the application runtime stack (including Prefect as a Compose service), see 
 ### In scope (current v1)
 
 - Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation.
-- For each paper that is **not** yet source-informed (`source_informed_at` is null): enqueue `inform_paper_from_source`.
-- Extend `Paper` with durable EFetch-derived fields (groups below) and `source_informed_at`.
-- Optionally store a durable per-paper inform error message on `Paper` when inform fails (cleared on later success).
+- For each paper that is **not** yet source-informed (`source_informed_at` is null) and not already failed to fulfill metadata: enqueue `inform_paper_from_source`.
+- Extend `Paper` with `source_record` (JSONB full mapped photo), typed promote columns (`pub_date`, `abstract_text`, bibliographic refresh), `source_informed_at`, and `source_inform_error_message`.
+- On inform failure, set durable `source_inform_error_message` (failed to fulfill metadata; cleared only on later success — none in v1 auto-retry).
 - Run the inform job as an **idempotent** Prefect flow/task by default (no-op success when already source-informed).
-- Dedicated Streamlit page that enqueues inform work and shows progress.
+- Dedicated Streamlit page that enqueues inform work and shows progress (polls DB columns only).
 
 ### Out of scope (v1)
 
@@ -96,7 +96,7 @@ enqueue_fulfill_papers_metadata(paper_ids) -> FulfillPapersMetadataEnqueueResult
 
 | Entrypoint | Role |
 | --- | --- |
-| `inform_paper_from_source` | Load `Paper` by id; if already source-informed, return no-op success. Else fetch fuller source record **for that one paper** (PubMed: one PMID per call), map fields, set `source_informed_at`, clear any fulfill-metadata failure, commit (flow owns persistence for the job). |
+| `inform_paper_from_source` | Load `Paper` by id; if already source-informed, return no-op success. Else fetch fuller source record **for that one paper** (PubMed: one PMID per call via dlt EFetch resource), write `source_record`, promote typed columns, refresh bibliographic fields when present, set `source_informed_at`, clear any fulfill-metadata failure, commit (flow owns persistence for the job). |
 | `enqueue_fulfill_papers_metadata` | UI/orchestrator helper: apply selection rules and submit Prefect runs for the paper id list. Idempotent with respect to already-informed papers. Does not re-enqueue papers already marked failed to fulfill metadata. |
 
 | Rule | Behavior |
@@ -204,7 +204,7 @@ A paper with `source_informed_at` null and `source_inform_error_message` set is 
 
 On first successful inform:
 
-1. Write the full mapped object into `source_record` (shape in [Illustrative mapped payload](#illustrative-mapped-source_record)).
+1. Write the full mapped object into `source_record` (shape in [Illustrative mapped `source_record`](#illustrative-mapped-source_record)).
 2. Refresh existing bibliographic columns when values are present on the fuller record: `title`, `authors`, `journal`, `published_year`.
 3. Set typed promote columns when they can be parsed (see table). If a value is absent or not safely parseable, leave that typed column null / unchanged as noted.
 

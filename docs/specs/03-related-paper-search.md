@@ -4,7 +4,7 @@ Workflow step 3 from [README.md](../../README.md): search registered **paper sou
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
-Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect planned). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.topic_brief_generation.related_paper_search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
+Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect runs source-inform / brief jobs in Compose — not this search step). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.topic_brief_generation.related_paper_search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
 
 ## Scope
 
@@ -120,7 +120,7 @@ Per [technology-stack.md](../technology-stack.md):
 - Each paper source is a **dlt source/resource** under `paper_reviewer.ingest` (e.g. PubMed).
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
 - `paper_reviewer.topic_brief_generation.related_paper_search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
-- Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
+- Prefect may later schedule these extracts; orchestration ownership stays in this workflow. Prefect Compose services today own source-inform / brief jobs ([06-fulfill-papers-metadata.md](06-fulfill-papers-metadata.md)), not related-paper search.
 - The contract to [Retrieval triage](04-retrieval-triage.md) is the global `PaperCandidate` list (plus `source_runs` metadata). Triage v1 does not add filters; it retains every candidate after user confirm. Paper archiving consumes triage’s `retained` list.
 
 ```mermaid

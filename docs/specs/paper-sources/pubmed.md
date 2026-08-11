@@ -146,7 +146,7 @@ Official XML structure: [PubMed DTD (current year)](https://dtd.nlm.nih.gov/ncbi
 
 ### XML → `Paper` mapping (v1)
 
-Which logical groups land on `Paper` is owned by [Fulfill papers metadata](../06-fulfill-papers-metadata.md). PubMed element sources:
+Which logical groups land on `Paper` (as `source_record` JSONB plus typed promotes such as `pub_date` and `abstract_text`) is owned by [Fulfill papers metadata](../06-fulfill-papers-metadata.md). PubMed element sources:
 
 | Logical group | Primary PubMed XML sources |
 | --- | --- |
@@ -160,7 +160,7 @@ Which logical groups land on `Paper` is owned by [Fulfill papers metadata](../06
 
 Do **not** map in v1 (deferred; see Fulfill papers metadata): `ArticleIdList` / `OtherID` beyond existing DOI+PMID handle, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
 
-Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful inform only; see [Fulfill papers metadata](../06-fulfill-papers-metadata.md)). Structured author entities are out of scope here.
+Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful inform only). Also promote `pub_date` / `abstract_text` and write the full mapped object to `Paper.source_record` per [Fulfill papers metadata](../06-fulfill-papers-metadata.md). Structured author entities are out of scope here.
 
 ### Idempotency
 

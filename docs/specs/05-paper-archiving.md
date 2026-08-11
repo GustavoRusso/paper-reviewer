@@ -214,8 +214,8 @@ Skip/error item shape (when implemented): include enough identity to debug (`sou
 | No `retrieval_triage_result` in session | Empty state + links to **New Topic brief** and **Retrieval triage**. |
 | Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
 | `paper_archiving_result` already in session | Show cached result only; do not re-run. |
-| New topic intake submitted | Clear `paper_archiving_result`; after a new search and triage confirm, the archiving page can run again. |
-| Triage confirmed again | Triage clears `paper_archiving_result` so the archiving page re-runs on the latest `retained` set. |
+| New topic intake submitted | Clear `paper_archiving_result` and all later-step session caches; after a new search and triage confirm, the archiving page can run again. |
+| Triage confirmed again | Triage clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `retained` set. |
 | Empty input list | Empty success result; caption “No candidates to archive”. |
 | All candidates skipped | Summary shows 0 archived; skipped section populated. |
 | Mix of success / skip / error | Summary counts and all three result sections reflect the lists. |
