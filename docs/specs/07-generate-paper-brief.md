@@ -6,14 +6,14 @@ This document is the specification for **step 7** of the Topic brief generation 
 
 In this step, the system builds a **`PaperBrief`** for the current **Topic brief generation** with an LLM, for each source-informed archived paper that still needs a brief. An idempotent Prefect job owns that work. A dedicated Streamlit page shows progress.
 
-**Prerequisite:** [Complete papers data](06-complete-papers-data.md) source-informs each `Paper` (for PubMed: EFetch). Do not call EFetch in this step.
+**Prerequisite:** [Fulfill papers metadata](06-fulfill-papers-metadata.md) source-informs each `Paper` (for PubMed: EFetch). Do not call EFetch in this step.
 
 ## Glossary
 
 | Term | Meaning |
 | --- | --- |
 | **`Paper`** | Durable bibliographic record. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. Created or reused in [Paper archiving](05-paper-archiving.md). Must be **source-informed** before this step drafts a brief. |
-| **Source-informed** | Durable state on a `Paper`: the row holds the fuller source record. Marker: `source_informed_at` (non-null). Owned by [Complete papers data](06-complete-papers-data.md). |
+| **Source-informed** | Durable state on a `Paper`: the row holds the fuller source record. Marker: `source_informed_at` (non-null). Owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). |
 | **Paper brief** / **`PaperBrief`** | **Result** artifact: structured LLM summary of one `Paper` for one `TopicBriefGeneration`. Product meaning: [README.md](../../README.md) Terminology. |
 | **`create_paper_brief`** | Prefect job that drafts a **paper brief** (`PaperBrief`) after the paper is source-informed. |
 | **Generate paper brief** | Workflow **step** (this document) that enqueues and tracks brief jobs for archived papers that still need a **paper brief** for the current generation. |
@@ -22,7 +22,7 @@ In this step, the system builds a **`PaperBrief`** for the current **Topic brief
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 7 (**Generate paper brief**) for that run.
 
-Source-inform (EFetch and `Paper` field groups) is owned by [Complete papers data](06-complete-papers-data.md). PubMed EFetch details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Source-inform (EFetch and `Paper` field groups) is owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
 For the application runtime stack (including Prefect as **planned** in Compose), see [technology-stack.md](../technology-stack.md). This specification is the orchestration **contract** even when Prefect is not yet running locally.
 
@@ -39,7 +39,7 @@ For the application runtime stack (including Prefect as **planned** in Compose),
 ### Out of scope (v1)
 
 - [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
-- Source-inform / EFetch / extending `Paper` with fuller source fields — owned by [Complete papers data](06-complete-papers-data.md).
+- Source-inform / EFetch / extending `Paper` with fuller source fields — owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 - Topic brief drafting (step 8).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
 - Full-text PDF/HTML fetch.
@@ -51,18 +51,18 @@ For the application runtime stack (including Prefect as **planned** in Compose),
 ```mermaid
 flowchart TB
   archive[5 Paper archiving]
-  complete[6 Complete papers data]
+  fulfill[6 Fulfill papers metadata]
   ui[UI Generate paper brief page]
   briefJob[create_paper_brief]
   topic[8 Topic brief]
-  archive --> complete
-  complete --> ui
+  archive --> fulfill
+  fulfill --> ui
   ui --> briefJob
   briefJob --> topic
 ```
 
 1. **Paper archiving** yields `PaperArchivingResult.papers` (create or reuse).
-2. **Complete papers data** ensures each paper is source-informed — see [Complete papers data](06-complete-papers-data.md).
+2. **Fulfill papers metadata** ensures each paper is source-informed — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 3. **Generate paper brief** (this specification) creates `PaperBrief` rows for papers that lack a ready brief for the current generation.
 4. **Topic brief** consumes ready `PaperBrief` rows.
 
@@ -79,7 +79,7 @@ For each `Paper` in that set (first-seen order):
 | --- | --- |
 | `PaperBrief` already exists for `(generation_id, paper_id)` and status is `ready` | Skip (idempotent). Show as done on the UI. |
 | `PaperBrief` exists in a non-terminal failure state | Do not auto-retry in v1 unless the implementation defines a safe re-enqueue; UI shows `failed`. |
-| No ready `PaperBrief`, `source_informed_at` is null | Do not enqueue draft. Show blocked / incomplete; link back to **Complete papers data**. |
+| No ready `PaperBrief`, `source_informed_at` is null | Do not enqueue draft. Show blocked / incomplete; link back to **Fulfill papers metadata**. |
 | No ready `PaperBrief`, `source_informed_at` is set | Enqueue `create_paper_brief`. |
 
 Empty `papers` → no jobs; UI shows an empty success caption.
@@ -127,7 +127,7 @@ Pydantic types live under `paper_reviewer.schemas.topic_brief_generation.generat
 | --- | --- |
 | `(topic_brief_generation_id, paper_id)` | Unique. One brief per paper per generation. |
 
-The same `Paper` may receive a **new** brief in a later generation. Source-informed state on `Paper` is shared across generations (owned by [Complete papers data](06-complete-papers-data.md)).
+The same `Paper` may receive a **new** brief in a later generation. Source-informed state on `Paper` is shared across generations (owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md)).
 
 ### Status (durable progress)
 
@@ -138,7 +138,7 @@ The same `Paper` may receive a **new** brief in a later generation. Source-infor
 | `ready` | Brief content stored; safe for Topic brief. |
 | `failed` | Terminal failure for this generation+paper until a later revision adds retry. |
 
-There is **no** `informing` status on `PaperBrief`. Source-inform progress belongs to [Complete papers data](06-complete-papers-data.md).
+There is **no** `informing` status on `PaperBrief`. Source-inform progress belongs to [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
 Prefer this durable status on the `PaperBrief` (or an equivalent per-paper work row) so the UI can poll the database without Prefect as the only source of truth. Optional Prefect run ids may be stored for ops, but are not required for the progress UI contract.
 
@@ -163,7 +163,7 @@ Grounding: use the source-informed `Paper` fields (especially abstract and index
 | Case | Expected |
 | --- | --- |
 | Ready brief already exists for `(generation, paper)` | No-op success. |
-| `source_informed_at` null | Do not draft; leave or set status so Complete papers data must finish first (orchestrator / UI must not schedule draft before inform succeeds). |
+| `source_informed_at` null | Do not draft; leave or set status so Fulfill papers metadata must finish first (orchestrator / UI must not schedule draft before inform succeeds). |
 | Source-informed, no ready brief | Set `drafting`; call LLM; store `content`; set `ready`. |
 | LLM / validation / DB error | Set `failed` + `error_message`. |
 
@@ -200,9 +200,9 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 ### Page behavior
 
-1. If `paper_archiving_result` or `topic_brief_generation_public_id` is missing → empty state; links to **Paper archiving**, **Complete papers data**, and **New Topic brief**.
+1. If `paper_archiving_result` or `topic_brief_generation_public_id` is missing → empty state; links to **Paper archiving**, **Fulfill papers metadata**, and **New Topic brief**.
 2. If `papers` is empty → caption that there are no archived papers; do not enqueue.
-3. If any paper in the set is not source-informed → show incomplete prerequisite; link to **Complete papers data**; do not enqueue drafts for those papers (selection rules).
+3. If any paper in the set is not source-informed → show incomplete prerequisite; link to **Fulfill papers metadata**; do not enqueue drafts for those papers (selection rules).
 4. On first visit with prerequisites (papers present; enqueue only for source-informed papers needing briefs) and no enqueue cache → call `enqueue_generate_paper_briefs` for eligible paper ids; store enqueue result in session.
 5. While any brief is not terminal (`ready` / `failed`), refresh/poll durable statuses (auto-refresh or explicit refresh control is an implementation detail; progress must be visible).
 6. Primary surface: **progress table/list** — title (link via `url`), DOI, brief `status`, short error when failed.
@@ -215,7 +215,7 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks.
 
 | Durable signal | Display |
 | --- | --- |
-| Not source-informed | Incomplete (complete papers data first) |
+| Not source-informed | Incomplete (fulfill papers metadata first) |
 | No brief row yet / `pending` | Queued |
 | `drafting` | Drafting brief |
 | `ready` | Ready |
@@ -224,8 +224,8 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks.
 
 ## Workflow navigation
 
-- **Entry:** After **Complete papers data** succeeds for the archived set, link to **Generate paper brief** with `paper_archiving_result` and generation id in session.
-- **Sidebar order:** … → Paper archiving → Complete papers data → Generate paper brief → (Topic brief when present).
+- **Entry:** After **Fulfill papers metadata** succeeds for the archived set, link to **Generate paper brief** with `paper_archiving_result` and generation id in session.
+- **Sidebar order:** … → Paper archiving → Fulfill papers metadata → Generate paper brief → (Topic brief when present).
 - **Input:** Consume `PaperArchivingResult.papers` only (not raw triage candidates). Require source-informed papers for draft enqueue.
 
 ## Orchestration boundary
@@ -233,7 +233,7 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks.
 | Responsibility | Owner |
 | --- | --- |
 | Create/reuse bibliographic `Paper` | [Paper archiving](05-paper-archiving.md) |
-| Source-inform / EFetch / `Paper` fuller fields | [Complete papers data](06-complete-papers-data.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) for PubMed |
+| Source-inform / EFetch / `Paper` fuller fields | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) for PubMed |
 | Domain enqueue + status helpers | `paper_reviewer.topic_brief_generation.generate_paper_brief` |
 | Prefect flows/tasks | `paper_reviewer.flows` (`create_paper_brief`) |
 | ORM `PaperBrief` | `paper_reviewer.models` |
@@ -269,7 +269,7 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 Do not do this work in the Generate paper brief v1 slice:
 
-- Source-inform / EFetch ([Complete papers data](06-complete-papers-data.md)).
+- Source-inform / EFetch ([Fulfill papers metadata](06-fulfill-papers-metadata.md)).
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Force rewrite of briefs.
 - Run LLM or EFetch inside Streamlit.

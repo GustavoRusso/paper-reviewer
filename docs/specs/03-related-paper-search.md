@@ -13,7 +13,7 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pyda
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | Accept `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (or a test fixture) | Generating facets in Topic analysis (see that spec)          |
 | Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | Implementing ingest/flows/UI code in this doc                               |
-| Run extract via **dlt** for each registered paper source                           | [Complete papers data](06-complete-papers-data.md) (EFetch / source-inform) or [Generate paper brief](07-generate-paper-brief.md) (creates **paper brief** results) |
+| Run extract via **dlt** for each registered paper source                           | [Fulfill papers metadata](06-fulfill-papers-metadata.md) (EFetch / source-inform) or [Generate paper brief](07-generate-paper-brief.md) (creates **paper brief** results) |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Adding new paper sources beyond registering them here                       |
 | Fail-soft when one source errors                                                   | Loading candidates into Postgres as `Paper` rows ([Paper archiving](05-paper-archiving.md) owns that) |
 

@@ -13,7 +13,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
 | ESearch + ESummary against `db=pubmed` | Creating durable `Paper` rows ([Paper archiving](../05-paper-archiving.md)); LLM `PaperBrief` drafting ([Generate paper brief](../07-generate-paper-brief.md)) |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
-| EFetch request shape and XML → `Paper` field mapping for source-inform (owned with [Complete papers data](../06-complete-papers-data.md)) | Rich author entities; deferred EFetch elements listed in Complete papers data |
+| EFetch request shape and XML → `Paper` field mapping for source-inform (owned with [Fulfill papers metadata](../06-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata |
 | `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by related-paper search / `paper_reviewer.topic_brief_generation.related_paper_search`) |
 
 ## Source identity
@@ -79,7 +79,7 @@ Base URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`
 | --- | --- | --- |
 | **ESearch** | `esearch.fcgi` | Compiled `term` → PMIDs (`usehistory=y`, `retmax`, optional `sort`) |
 | **ESummary** | `esummary.fcgi` | DocSums for candidate summary fields (by ids or History `WebEnv` + `query_key`) |
-| **EFetch** | `efetch.fcgi` | Fuller record for **source-inform** after [Paper archiving](../05-paper-archiving.md); see [EFetch (source-inform)](#efetch-source-inform) and [Complete papers data](../06-complete-papers-data.md) |
+| **EFetch** | `efetch.fcgi` | Fuller record for **source-inform** after [Paper archiving](../05-paper-archiving.md); see [EFetch (source-inform)](#efetch-source-inform) and [Fulfill papers metadata](../06-fulfill-papers-metadata.md) |
 
 Recommended sequence per facet:
 
@@ -119,13 +119,13 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-p
 
 [Paper archiving](../05-paper-archiving.md) maps candidate bibliographic fields into a durable `Paper` without calling EFetch.
 
-Archived papers are source-informed later (**Complete papers data**) using EFetch (below). Cross-source identity / Paper public id remains the DOI (required for candidates that survive related-paper search merge).
+Archived papers are source-informed later (**Fulfill papers metadata**) using EFetch (below). Cross-source identity / Paper public id remains the DOI (required for candidates that survive related-paper search merge).
 
 Related-paper search and Paper archiving do not call EFetch.
 
 ## EFetch (source-inform)
 
-Used only by the [Complete papers data](../06-complete-papers-data.md) Prefect job `inform_paper_from_source` when `Paper.source_id = pubmed` and `source_informed_at` is null.
+Used only by the [Fulfill papers metadata](../06-fulfill-papers-metadata.md) Prefect job `inform_paper_from_source` when `Paper.source_id = pubmed` and `source_informed_at` is null.
 
 ### Request
 
@@ -144,7 +144,7 @@ Official XML structure: [PubMed DTD (current year)](https://dtd.nlm.nih.gov/ncbi
 
 ### XML → `Paper` mapping (v1)
 
-Which logical groups land on `Paper` is owned by [Complete papers data](../06-complete-papers-data.md). PubMed element sources:
+Which logical groups land on `Paper` is owned by [Fulfill papers metadata](../06-fulfill-papers-metadata.md). PubMed element sources:
 
 | Logical group | Primary PubMed XML sources |
 | --- | --- |
@@ -156,13 +156,13 @@ Which logical groups land on `Paper` is owned by [Complete papers data](../06-co
 | Funding | `GrantList`; `DataBankList` |
 | COI / notes | `CoiStatement`; `GeneralNote` |
 
-Do **not** map in v1 (deferred; see Complete papers data): `ArticleIdList` / `OtherID` beyond existing DOI+PMID handle, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
+Do **not** map in v1 (deferred; see Fulfill papers metadata): `ArticleIdList` / `OtherID` beyond existing DOI+PMID handle, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
 
 Flat `authors: list[str]` may be refreshed from `AuthorList` display names only when informing; structured author entities are out of scope here.
 
 ### Idempotency
 
-If `Paper.source_informed_at` is set, do not call EFetch for that paper. Behavior contract: [Complete papers data](../06-complete-papers-data.md).
+If `Paper.source_informed_at` is set, do not call EFetch for that paper. Behavior contract: [Fulfill papers metadata](../06-fulfill-papers-metadata.md).
 
 ## dlt resource
 
@@ -224,5 +224,5 @@ Official docs for implementers and reviewers (prefer these over secondary blogs)
 | NCBI APIs index | https://www.ncbi.nlm.nih.gov/home/develop/api/ | Context vs other NCBI APIs |
 | PubMed | https://pubmed.ncbi.nlm.nih.gov/ | Product UI |
 | PubMed XML DTD (250101) | https://dtd.nlm.nih.gov/ncbi/pubmed/doc/out/250101/index.html | EFetch `PubmedArticle` element reference |
-| Complete papers data (step) | [06-complete-papers-data.md](../06-complete-papers-data.md) | When to call EFetch; which groups store on `Paper` |
+| Fulfill papers metadata (step) | [06-fulfill-papers-metadata.md](../06-fulfill-papers-metadata.md) | When to call EFetch; which groups store on `Paper` |
 | Generate paper brief (step) | [07-generate-paper-brief.md](../07-generate-paper-brief.md) | How **paper brief** results are created from source-informed papers |
