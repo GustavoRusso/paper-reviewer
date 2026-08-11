@@ -1,6 +1,6 @@
 # Related-paper search
 
-Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for [Retrieval triage](retrieval-triage.md) (and then [Paper archiving](paper-archiving.md)).
+Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for [Retrieval triage](04-retrieval-triage.md) (and then [Paper archiving](05-paper-archiving.md)).
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
@@ -11,11 +11,11 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pyda
 
 | In scope                                                                           | Out of scope                                                                |
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Accept `TopicAnalysisResult` from [Topic analysis](topic-analysis.md) (or a test fixture) | Generating facets in Topic analysis (see that spec)          |
+| Accept `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (or a test fixture) | Generating facets in Topic analysis (see that spec)          |
 | Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | Implementing ingest/flows/UI code in this doc                               |
-| Run extract via **dlt** for each registered paper source                           | Building **paper briefs** or calling full-record fetch (e.g. PubMed EFetch) |
+| Run extract via **dlt** for each registered paper source                           | [Paper briefs generation](06-paper-briefs-generation.md) (creates **paper brief** results) or calling full-record fetch (e.g. PubMed EFetch) |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Adding new paper sources beyond registering them here                       |
-| Fail-soft when one source errors                                                   | Loading candidates into Postgres as `Paper` rows ([Paper archiving](paper-archiving.md) owns that) |
+| Fail-soft when one source errors                                                   | Loading candidates into Postgres as `Paper` rows ([Paper archiving](05-paper-archiving.md) owns that) |
 
 
 
@@ -60,7 +60,7 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 ## Input: `TopicAnalysisResult`
 
-Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](topic-analysis.md) (reloaded facet rows for the same `TopicBriefGeneration`, or a test fixture). Facet field rules and persistence stay in that spec.
+Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (reloaded facet rows for the same `TopicBriefGeneration`, or a test fixture). Facet field rules and persistence stay in that spec.
 
 Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` → `SearchCriteria` as an **internal step** when it needs the search envelope (facets plus optional `source_overrides`). Callers do not have to build `SearchCriteria` first.
 
@@ -69,7 +69,7 @@ Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` →
 | `TopicAnalysisResult` | Yes | Facets from Topic analysis (or a test fixture). |
 | `source_overrides` | No | Optional map `source_id` → opaque payload defined by that source’s spec. Folded into `SearchCriteria` during the internal convert (fixtures / power paths). v1 default when omitted: `{}`. |
 
-Public input shape for the normal path: the `TopicAnalysisResult` emission owned by [topic-analysis.md](topic-analysis.md) (v1 sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`). Do not copy that JSON here.
+Public input shape for the normal path: the `TopicAnalysisResult` emission owned by [Topic analysis](02-topic-analysis.md) (v1 sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`). Do not copy that JSON here.
 
 ### Internal conversion (`TopicAnalysisResult` → `SearchCriteria`)
 
@@ -79,7 +79,7 @@ Public input shape for the normal path: the `TopicAnalysisResult` emission owned
 | When | Internally, before running registered paper-source adapters. |
 | How | Build `SearchCriteria(topic_analysis=…, source_overrides=…)` (default empty overrides). |
 | Keep | `SearchCriteria` remains the envelope used with source runners and for tests that need `source_overrides`. |
-| Not owned here | Facet generation / persistence ([topic-analysis.md](topic-analysis.md)); Entrez compilation ([paper-sources/pubmed.md](paper-sources/pubmed.md)). |
+| Not owned here | Facet generation / persistence ([Topic analysis](02-topic-analysis.md)); Entrez compilation ([paper-sources/pubmed.md](paper-sources/pubmed.md)). |
 | Not implemented yet | Spec only until code lands; today’s code still accepts injected `SearchCriteria` only. |
 
 After conversion, the workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
@@ -121,7 +121,7 @@ Per [technology-stack.md](../technology-stack.md):
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
 - `paper_reviewer.topic_brief_generation.related_paper_search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
 - Prefect (planned) may later schedule these extracts; orchestration ownership stays in this workflow.
-- The contract to [Retrieval triage](retrieval-triage.md) is the global `PaperCandidate` list (plus `source_runs` metadata). Triage v1 does not add filters; it retains every candidate after user confirm. Paper archiving consumes triage’s `retained` list.
+- The contract to [Retrieval triage](04-retrieval-triage.md) is the global `PaperCandidate` list (plus `source_runs` metadata). Triage v1 does not add filters; it retains every candidate after user confirm. Paper archiving consumes triage’s `retained` list.
 
 ```mermaid
 flowchart TB
@@ -148,7 +148,7 @@ flowchart TB
 ## Merge and normalize
 
 1. Map every source row to `PaperCandidate` (fields above).
-2. **Drop** any candidate whose `doi` is missing or blank after strip. Triage and [Paper archiving](paper-archiving.md) never see no-DOI hits.
+2. **Drop** any candidate whose `doi` is missing or blank after strip. Triage and [Paper archiving](05-paper-archiving.md) never see no-DOI hits.
 3. Dedupe within the remaining global list by **uppercase DOI** (strip then `.upper()`). Rewrite each kept candidate’s `doi` to that uppercase form. Do not fall back to `(source_id, source_uid)` for merge identity once DOI is required on kept rows.
 4. When merging duplicates, keep one canonical candidate; retain provenance that multiple facets/sources hit the same paper when useful for triage metadata (implementation detail).
 5. Tag each candidate with `facet_id` and `source_id`.
@@ -164,7 +164,7 @@ flowchart TB
 | `source_runs[]` | Per source: `source_id`, `status` (`ok` / `error` / `empty`), `hit_count`, `facet_ids`, `error` if any |
 
 
-Primary deliverable for [Retrieval triage](retrieval-triage.md): `candidates`. `source_runs` supports debugging and UI status. Paper archiving receives the retained set from triage, not this list directly.
+Primary deliverable for [Retrieval triage](04-retrieval-triage.md): `candidates`. `source_runs` supports debugging and UI status. Paper archiving receives the retained set from triage, not this list directly.
 
 ## Behavior
 
@@ -176,7 +176,7 @@ Primary deliverable for [Retrieval triage](retrieval-triage.md): `candidates`. `
 | Hit without DOI (missing/blank)            | Dropped during merge; not present in `candidates`                                              |
 | Source failure (network, rate limit, auth) | **Fail-soft**: other sources still contribute; `source_runs` records the error                   |
 | `retmax` truncates                         | Candidates limited accordingly                                                                   |
-| All hits lack DOI                          | Empty `candidates` ([Retrieval triage](retrieval-triage.md) may confirm an empty retained set; Paper archiving is then skipped or gets empty success) |
+| All hits lack DOI                          | Empty `candidates` ([Retrieval triage](04-retrieval-triage.md) may confirm an empty retained set; Paper archiving is then skipped or gets empty success) |
 
 
 

@@ -2,21 +2,21 @@
 
 This document is the specification for step 5 of the Topic brief generation workflow in [README.md](../../README.md).
 
-In this step, the system maps each **paper candidate** to a reusable **`Paper`** record in the database. If that paper already exists (same source handle), the step reuses the existing record. Later steps (especially [Paper briefs](paper-briefs.md)) use these archived papers.
+In this step, the system maps each **paper candidate** to a reusable **`Paper`** record in the database. If that paper already exists (same source handle), the step reuses the existing record. Later steps (especially [Paper briefs generation](06-paper-briefs-generation.md)) use these archived papers.
 
 ## Glossary
 
 | Term | Meaning |
 | --- | --- |
 | **`Paper`** | Durable bibliographic record of a scientific article in this system. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. |
-| **`PaperCandidate`** | In-memory search hit from [related-paper search](related-paper-search.md). Not stored as a candidate row in this step. |
+| **`PaperCandidate`** | In-memory search hit from [related-paper search](03-related-paper-search.md). Not stored as a candidate row in this step. |
 | **Paper archiving** | Workflow step that creates or reuses `Paper` records from candidates. |
 
 ## Topic brief generation
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 5 (Paper archiving) for that run.
 
-Paper brief construction (including PubMed EFetch) is out of scope here — see [paper-briefs.md](paper-briefs.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Paper brief construction (including PubMed EFetch) is out of scope here — see [Paper briefs generation](06-paper-briefs-generation.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of that step, not of Paper archiving.
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -24,7 +24,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ### In scope (current v1)
 
-- Accept a `list[PaperCandidate]` from [Retrieval triage](retrieval-triage.md) (`RetrievalTriageResult.retained`). An empty list is a no-op success.
+- Accept a `list[PaperCandidate]` from [Retrieval triage](04-retrieval-triage.md) (`RetrievalTriageResult.retained`). An empty list is a no-op success.
 - Map each candidate to `Paper` field values (bibliographic + identity only).
 - Require a non-blank DOI; store and compare DOIs in **uppercase** (ISO 26324: DOIs are case-insensitive).
 - Look up existence by exact `(source_id, source_uid)` only (not by DOI).
@@ -36,9 +36,9 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ### Out of scope
 
-- Retrieval triage UI or confirm gate (step 4; see [retrieval-triage.md](retrieval-triage.md)).
+- Retrieval triage UI or confirm gate (step 4; see [Retrieval triage](04-retrieval-triage.md)).
 - Full-record fetch (e.g. PubMed EFetch) or abstract payloads.
-- Building or storing **paper briefs**.
+- Building or storing **paper briefs** (result artifacts of [Paper briefs generation](06-paper-briefs-generation.md)).
 - Linking a `Paper` to a `TopicBriefGeneration` (no FK / join table in v1).
 - Updating non-DOI bibliographic fields (title, authors, journal, year, url, `source_id`, `source_uid`) on reuse.
 - Storing triage-only candidate fields (`snippet`, `facet_id`, `raw_payload_ref`) on `Paper`.
@@ -52,7 +52,7 @@ flowchart TB
   search[3 Related-paper search]
   triage[4 Retrieval triage]
   archive[5 Paper archiving]
-  briefs[6 Paper briefs]
+  briefs[6 Paper briefs generation]
   topic[7 Topic brief]
   search --> triage
   triage --> archive
@@ -61,9 +61,9 @@ flowchart TB
 ```
 
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
-2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [retrieval-triage.md](retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
+2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [Retrieval triage](04-retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
 3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
-4. **Paper briefs** loads fuller source records (for PubMed: EFetch) and builds paper briefs for archived papers — see [paper-briefs.md](paper-briefs.md).
+4. **Paper briefs generation** loads fuller source records (for PubMed: EFetch) and builds **paper briefs** (result artifacts) for archived papers — see [Paper briefs generation](06-paper-briefs-generation.md).
 5. **Topic brief** uses those briefs.
 
 ## Public API
@@ -77,7 +77,7 @@ archive_papers(session, candidates) -> PaperArchivingResult
 | Argument | Type | Role |
 | --- | --- | --- |
 | `session` | SQLAlchemy `Session` | Persistence. **Caller owns commit.** |
-| `candidates` | `list[PaperCandidate]` | Retained set from [Retrieval triage](retrieval-triage.md) (may be empty). |
+| `candidates` | `list[PaperCandidate]` | Retained set from [Retrieval triage](04-retrieval-triage.md) (may be empty). |
 
 | Rule | Behavior |
 | --- | --- |
@@ -86,7 +86,7 @@ archive_papers(session, candidates) -> PaperArchivingResult
 | Savepoint | Use a savepoint per candidate so one failure rolls back only that candidate and the step continues. |
 | Raise | Do not raise for per-candidate policy skips or recoverable DB conflicts. Raise only if the session is unusable. |
 
-`PaperCandidate` shape is owned by [related-paper-search.md](related-paper-search.md). This step does not redefine it.
+`PaperCandidate` shape is owned by [related-paper search](03-related-paper-search.md). This step does not redefine it.
 
 ### Domain checks (per candidate)
 
@@ -300,7 +300,7 @@ When all three lists are empty after empty input, show a neutral success caption
 ## Workflow navigation
 
 - **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
-- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Paper briefs.
+- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Paper briefs generation.
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
 ## Orchestration boundary
@@ -308,10 +308,10 @@ When all three lists are empty after empty input, show a neutral success caption
 | Responsibility | Owner |
 | --- | --- |
 | Map candidates → create-or-reuse / skip `Paper` | `paper_reviewer.topic_brief_generation.paper_archiving` (`archive_papers`) |
-| Drop no-DOI hits before triage; candidate shape and search merge | [related-paper-search.md](related-paper-search.md) |
-| User review + confirm; produce `retained` | [retrieval-triage.md](retrieval-triage.md) |
+| Drop no-DOI hits before triage; candidate shape and search merge | [related-paper search](03-related-paper-search.md) |
+| User review + confirm; produce `retained` | [Retrieval triage](04-retrieval-triage.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
-| PubMed EFetch / full record for briefs | [paper-briefs.md](paper-briefs.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
+| PubMed EFetch / full record / paper brief drafting | [Paper briefs generation](06-paper-briefs-generation.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
 | Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
 | ORM `Paper` + thin create/get | `paper_reviewer.models` |
 
@@ -345,7 +345,7 @@ Do not do this work in the Paper archiving v1 slice:
 - Call EFetch or any full-record API.
 - Create `PaperBrief` rows or content.
 - Add a generation↔paper association table.
-- Implement Retrieval triage UI or confirm logic (see [retrieval-triage.md](retrieval-triage.md)).
+- Implement Retrieval triage UI or confirm logic (see [Retrieval triage](04-retrieval-triage.md)).
 - Update title, authors, journal, year, or url on reuse (DOI update only, per rules above).
 - Add a re-run / “Archive again” control (first-visit cache only).
 - Show create vs reuse vs DOI-update labels per paper (no outcome enum on the result yet).

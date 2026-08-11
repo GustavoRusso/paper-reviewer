@@ -1,6 +1,8 @@
-# Paper briefs
+# Paper briefs generation
 
-This document is the specification for step 6 of the Topic brief generation workflow in [README.md](../../README.md).
+This document is the specification for **step 6** of the Topic brief generation workflow in [README.md](../../README.md).
+
+**Step vs result:** **Paper briefs generation** is the workflow **step**. A **paper brief** (`PaperBrief`) is the **result** that step produces for one archived `Paper` in one `TopicBriefGeneration`. Do not use “paper briefs” alone to name this step.
 
 In this step, the system fully informs each archived **`Paper`** from its paper source (for PubMed: EFetch), then builds a **`PaperBrief`** for the current **Topic brief generation** with an LLM. Two idempotent Prefect jobs own that work. A dedicated Streamlit page shows progress.
 
@@ -8,18 +10,18 @@ In this step, the system fully informs each archived **`Paper`** from its paper 
 
 | Term | Meaning |
 | --- | --- |
-| **`Paper`** | Durable bibliographic record. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. Created or reused in [Paper archiving](paper-archiving.md). |
+| **`Paper`** | Durable bibliographic record. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. Created or reused in [Paper archiving](05-paper-archiving.md). |
 | **Source-informed** | Durable state on a `Paper`: the row holds the fuller source record for that paper. Marker: `source_informed_at` (non-null). Global to the `Paper`, not per generation. |
-| **`PaperBrief`** | Structured LLM summary of one `Paper` for one `TopicBriefGeneration`. Product meaning: [README.md](../../README.md) Terminology. |
+| **Paper brief** / **`PaperBrief`** | **Result** artifact: structured LLM summary of one `Paper` for one `TopicBriefGeneration`. Product meaning: [README.md](../../README.md) Terminology. |
 | **`inform_paper_from_source`** | Prefect job that fetches the fuller source record and writes it onto `Paper`, then sets `source_informed_at`. |
-| **`create_paper_brief`** | Prefect job that drafts a `PaperBrief` after the paper is source-informed. |
-| **Paper briefs (step)** | Workflow step that enqueues and tracks those jobs for archived papers that still need a brief for the current generation. |
+| **`create_paper_brief`** | Prefect job that drafts a **paper brief** (`PaperBrief`) after the paper is source-informed. |
+| **Paper briefs generation** | Workflow **step** (this document) that enqueues and tracks those jobs for archived papers that still need a **paper brief** for the current generation. |
 
 ## Topic brief generation
 
-A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 6 (Paper briefs) for that run.
+A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 6 (**Paper briefs generation**) for that run.
 
-Paper archiving (create/reuse `Paper` without EFetch) is owned by [paper-archiving.md](paper-archiving.md). PubMed EFetch request parameters and XML field ownership for this step are summarized here and detailed for PubMed in [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Paper archiving (create/reuse `Paper` without EFetch) is owned by [Paper archiving](05-paper-archiving.md). PubMed EFetch request parameters and XML field ownership for this step are summarized here and detailed for PubMed in [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
 For the application runtime stack (including Prefect as **planned** in Compose), see [technology-stack.md](../technology-stack.md). This specification is the orchestration **contract** even when Prefect is not yet running locally.
 
@@ -27,7 +29,7 @@ For the application runtime stack (including Prefect as **planned** in Compose),
 
 ### In scope (current v1)
 
-- Take archived `Paper` records from [Paper archiving](paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation.
+- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation.
 - For each paper that does **not** yet have a `PaperBrief` for this generation:
   1. Ensure the `Paper` is source-informed (`inform_paper_from_source`).
   2. Create the brief (`create_paper_brief`).
@@ -38,7 +40,7 @@ For the application runtime stack (including Prefect as **planned** in Compose),
 
 ### Out of scope (v1)
 
-- [Paper archiving](paper-archiving.md) create/reuse rules or its UI.
+- [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
 - Topic brief drafting (step 7).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
 - Storing EFetch article ID lists beyond the existing DOI + `(source_id, source_uid)` handle, CommentsCorrections, bibliography/references, or deferred “Other” XML elements (see below).
@@ -52,7 +54,7 @@ For the application runtime stack (including Prefect as **planned** in Compose),
 ```mermaid
 flowchart TB
   archive[5 Paper archiving]
-  ui[UI Paper briefs page]
+  ui[UI Paper briefs generation page]
   inform[inform_paper_from_source]
   briefJob[create_paper_brief]
   topic[7 Topic brief]
@@ -63,7 +65,7 @@ flowchart TB
 ```
 
 1. **Paper archiving** yields `PaperArchivingResult.papers` (create or reuse).
-2. **Paper briefs** (this specification) processes papers that lack a `PaperBrief` for the current generation. For each such paper, `inform_paper_from_source` runs first if `source_informed_at` is null; then `create_paper_brief` runs.
+2. **Paper briefs generation** (this specification) processes papers that lack a `PaperBrief` for the current generation. For each such paper, `inform_paper_from_source` runs first if `source_informed_at` is null; then `create_paper_brief` runs.
 3. **Topic brief** consumes ready `PaperBrief` rows.
 
 ## Selection rules
@@ -112,7 +114,7 @@ Pydantic types live under `paper_reviewer.schemas.topic_brief_generation.paper_b
 
 ## Durable `Paper` extensions (source-informed)
 
-Archiving fields remain as in [paper-archiving.md](paper-archiving.md). This step **adds** durable columns (or JSONB groups) populated only by `inform_paper_from_source`.
+Archiving fields remain as in [Paper archiving](05-paper-archiving.md). This step **adds** durable columns (or JSONB groups) populated only by `inform_paper_from_source`.
 
 ### Marker
 
@@ -240,7 +242,7 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | Property | Value |
 | --- | --- |
 | `key` | `paper_briefs` |
-| `title` | Paper briefs |
+| `title` | Paper briefs generation |
 | `url_path` | `paper-briefs` |
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues, polls durable status, and displays progress.
@@ -283,15 +285,15 @@ Do **not** run EFetch or LLM inside Streamlit callbacks.
 
 ## Workflow navigation
 
-- **Entry:** After Paper archiving shows a result, link to **Paper briefs** with `paper_archiving_result` and generation id in session.
-- **Sidebar order:** … → Paper archiving → Paper briefs → (Topic brief when present).
+- **Entry:** After Paper archiving shows a result, link to **Paper briefs generation** with `paper_archiving_result` and generation id in session.
+- **Sidebar order:** … → Paper archiving → Paper briefs generation → (Topic brief when present).
 - **Input:** Consume `PaperArchivingResult.papers` only (not raw triage candidates).
 
 ## Orchestration boundary
 
 | Responsibility | Owner |
 | --- | --- |
-| Create/reuse bibliographic `Paper` | [paper-archiving.md](paper-archiving.md) |
+| Create/reuse bibliographic `Paper` | [Paper archiving](05-paper-archiving.md) |
 | EFetch params + PubMed XML mapping details | [paper-sources/pubmed.md](paper-sources/pubmed.md) (owned for PubMed); this spec owns which groups land on `Paper` |
 | Domain enqueue + status helpers | `paper_reviewer.topic_brief_generation.paper_briefs` |
 | Prefect flows/tasks | `paper_reviewer.flows` (`inform_paper_from_source`, `create_paper_brief`) |
@@ -327,12 +329,12 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 **UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
 
-- `tests/ui/test_navigation.py`: page registered with key `paper_briefs`, title **Paper briefs**, render callable `render_paper_briefs`, `url_path` `paper-briefs`.
+- `tests/ui/test_navigation.py`: page registered with key `paper_briefs`, title **Paper briefs generation**, render callable `render_paper_briefs`, `url_path` `paper-briefs`.
 - Pure helpers for status → display label unit-tested without Streamlit when extracted.
 
 ## Non-goals (v1)
 
-Do not do this work in the Paper briefs v1 slice:
+Do not do this work in the Paper briefs generation v1 slice:
 
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Store deferred EFetch ID lists, CommentsCorrections, references, or “Other” elements listed above.

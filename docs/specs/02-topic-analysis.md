@@ -15,7 +15,7 @@ In this step, the system extracts key data from a **topic statement**. Later ste
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 2 (Topic analysis) for that `TopicBriefGeneration`.
 
-`SearchCriteria` conversion and related-paper search orchestration are out of scope here — see [related-paper-search.md](related-paper-search.md).
+`SearchCriteria` conversion and related-paper search orchestration are out of scope here — see [related-paper search](03-related-paper-search.md).
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md). This step specifies scispaCy (`en_core_sci_sm`) for biomedical NER; the stack document lists that library and points here for behavior.
 
@@ -36,8 +36,8 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 ### Out of scope
 
 - Validation of Topic intake (step 1 of the same `TopicBriefGeneration` does that work).
-- `SearchCriteria` / `source_overrides` (owned by [related-paper-search.md](related-paper-search.md)).
-- Other workflow steps (related-paper search, triage, paper archiving, paper briefs, topic brief).
+- `SearchCriteria` / `source_overrides` (owned by [related-paper search](03-related-paper-search.md)).
+- Other workflow steps (related-paper search, triage, paper archiving, paper briefs generation, topic brief).
 - Analysis with an LLM.
 - Analysis that uses a custom stopword or token heuristic as the **primary** method (fallback after empty NER may use non-stopword tokens — see Analyzer).
 - Larger scispaCy models (`md`, `lg`, or specialty NER), unless a later change adopts them.
@@ -62,7 +62,7 @@ flowchart TB
 
 1. **Topic intake** starts a `TopicBriefGeneration` and stores the `topic_statement`.
 2. **Topic analysis** (this specification) reads the `topic_statement` text. It extracts concepts. It makes an in-memory `TopicAnalysisResult`. The UI may call the analyzer after intake and keep the result in session state. Facet DB rows are deferred.
-3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step’s public input is a `TopicAnalysisResult` (from this step or a test fixture); see [related-paper-search.md](related-paper-search.md).
+3. **Related-paper search** and the later steps continue on the same `TopicBriefGeneration`. That step’s public input is a `TopicAnalysisResult` (from this step or a test fixture); see [related-paper search](03-related-paper-search.md).
 
 ## Input
 
@@ -95,7 +95,7 @@ Do not use an LLM as the primary method. Do not use a custom stopword tokenizer 
 
 The contract is `paper_reviewer.schemas.topic_brief_generation.topic_analysis.TopicAnalysisResult`, which holds `facets: list[TopicFacet]`. Related-paper search uses the same models.
 
-This step makes a **`TopicAnalysisResult`**. Downstream search envelope types are owned by [related-paper-search.md](related-paper-search.md).
+This step makes a **`TopicAnalysisResult`**. Downstream search envelope types are owned by [related-paper search](03-related-paper-search.md).
 
 ### v1 emission rules
 
@@ -175,14 +175,14 @@ Package path for the analyzer: `paper_reviewer.topic_brief_generation.topic_anal
 | Change text into a `TopicAnalysisResult` | Analyzer (`analyze_topic_statement`). Optional `nlp` injection for tests. |
 | Analyze and write for a `TopicBriefGeneration` | Deferred (`run_topic_analysis` or equivalent with a database session). |
 | When to start analysis | After a successful Topic intake. The UI may call the analyzer and hold the result in session state. Keep intake tests and analysis tests separate. |
-| Related-paper search / `SearchCriteria` | [related-paper-search.md](related-paper-search.md) |
+| Related-paper search / `SearchCriteria` | [related-paper search](03-related-paper-search.md) |
 
 ## Testability
 
 - Inject a fake spaCy `nlp` that returns controlled `ents` and tokens. Use this for unit tests that must be deterministic. Those tests do not need a model download.
 - Do not require a real-model integration test in the normal suite for this slice.
 - Persistence / reload / re-analysis tests are deferred until facet rows exist.
-- Related-paper search tests inject a `TopicAnalysisResult` and do not need this step’s analyzer — see [related-paper-search.md](related-paper-search.md).
+- Related-paper search tests inject a `TopicAnalysisResult` and do not need this step’s analyzer — see [related-paper search](03-related-paper-search.md).
 
 ## Non-goals (v1)
 

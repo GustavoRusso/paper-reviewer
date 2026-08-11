@@ -14,11 +14,11 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper sources** — Predefined online providers used to look up related papers
 - **Topic statement** — Free-form text from the researcher that first defines the topic to brief
 - **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Used to drive related-paper search and later writing.
-- **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can archive the paper and build a **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/related-paper-search.md](docs/specs/related-paper-search.md).
+- **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can archive the paper and later build a **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
-- **Paper archiving** — Workflow step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
-
-- **Paper brief** — Structured summary of a paper related to the topic, built from an archived `Paper` (for PubMed: fuller record via EFetch). Spec: [docs/specs/paper-briefs.md](docs/specs/paper-briefs.md).
+- **Paper archiving** — Workflow step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
+- **Paper brief** — The **result** artifact: a structured summary of one paper for the current topic (`PaperBrief`). Produced by **Paper briefs generation**. Distinct from that workflow step.
+- **Paper briefs generation** — Workflow **step** that source-informs archived papers and creates their **paper briefs**. Spec: [docs/specs/06-paper-briefs-generation.md](docs/specs/06-paper-briefs-generation.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — One end-to-end run of the workflow below (Topic intake through Topic brief). In the app this is a `TopicBriefGeneration` record that owns artifacts from each step.
 
@@ -31,10 +31,10 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 1. **Topic intake** — You provide a topic statement that defines what to investigate.
 2. **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus for search and writing.
 3. **Related-paper search** — The assistant searches **paper sources** for related papers.
-4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/retrieval-triage.md](docs/specs/retrieval-triage.md).
-5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/paper-archiving.md](docs/specs/paper-archiving.md).
+4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
+5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
 
-6. **Paper briefs** — For each archived paper, the assistant builds a paper brief from that paper’s abstract and metadata (title, journal, publication dates, authors, and references), using fuller source fetch where needed (for PubMed: EFetch). Spec: [docs/specs/paper-briefs.md](docs/specs/paper-briefs.md).
+6. **Paper briefs generation** — Workflow step that, for each archived paper, source-informs the `Paper` (for PubMed: EFetch) and creates a **paper brief** (the result artifact). Spec: [docs/specs/06-paper-briefs-generation.md](docs/specs/06-paper-briefs-generation.md).
 
 7. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 
