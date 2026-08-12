@@ -43,7 +43,7 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
 2. Copy [`.env.example`](.env.example) to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md#environment-configuration). PubMed key notes: [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
 3. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
-4. Open the services listed below (start on the landing page, then create a **Topic brief**)
+4. Open the services listed below (start on Home to see existing **Topic brief generations**, or create a new one)
 
 ## Services
 
@@ -51,6 +51,6 @@ After `just up`, these services are available:
 
 | Service | URL | Description |
 | --- | --- | --- |
-| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`) | Streamlit UI; landing page links to create a new Topic brief (Topic intake) |
+| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`) | Streamlit UI; Home lists Topic brief generations from the database and links to create a new Topic brief (Topic intake) |
 | Prefect | [http://localhost:4200](http://localhost:4200) (default `PREFECT_PORT`) | Prefect API/UI (`prefect-server`); `prefect-worker` polls work pool `local-pool` for source-inform (and later brief) flows. Progress still from Postgres. |
 | PostgreSQL | See [docs/local-development.md](docs/local-development.md#environment-configuration) | App relational database (port and credentials from `.env`) |

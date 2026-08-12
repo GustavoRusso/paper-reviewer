@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import uuid
+from collections.abc import Sequence
 from datetime import datetime
 
 from sqlalchemy import BigInteger, DateTime, Integer, Text, func, select
@@ -56,3 +57,14 @@ def get_topic_brief_generation_by_public_id(
             TopicBriefGeneration.public_id == public_id
         )
     )
+
+
+def list_topic_brief_generations(
+    session: Session,
+) -> Sequence[TopicBriefGeneration]:
+    """Return all Topic brief generations, newest ``created_at`` first."""
+    return session.scalars(
+        select(TopicBriefGeneration).order_by(
+            TopicBriefGeneration.created_at.desc()
+        )
+    ).all()

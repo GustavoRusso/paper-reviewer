@@ -1,9 +1,10 @@
-"""Topic brief generation: create and look up by public id."""
+"""Topic brief generation: create, look up, and list."""
 
 from __future__ import annotations
 
 import uuid
 from collections.abc import Iterator
+from datetime import UTC, datetime
 
 import pytest
 from sqlalchemy import create_engine
@@ -14,6 +15,7 @@ from paper_reviewer.models.topic_brief_generation import (
     TopicBriefGeneration,
     create_topic_brief_generation,
     get_topic_brief_generation_by_public_id,
+    list_topic_brief_generations,
 )
 
 
@@ -68,3 +70,24 @@ def test_get_topic_brief_generation_by_public_id_returns_none_when_missing(
     found = get_topic_brief_generation_by_public_id(session, uuid.uuid4())
 
     assert found is None
+
+
+def test_list_topic_brief_generations_empty(session: Session) -> None:
+    assert list(list_topic_brief_generations(session)) == []
+
+
+def test_list_topic_brief_generations_newest_first(session: Session) -> None:
+    older = create_topic_brief_generation(session, "older topic")
+    newer = create_topic_brief_generation(session, "newer topic")
+    session.flush()
+    # Pin timestamps so order is deterministic across backends.
+    older.created_at = datetime(2026, 1, 1, tzinfo=UTC)
+    newer.created_at = datetime(2026, 8, 12, tzinfo=UTC)
+    session.flush()
+
+    listed = list(list_topic_brief_generations(session))
+
+    assert [g.topic_statement for g in listed] == ["newer topic", "older topic"]
+    assert listed[0].public_id == newer.public_id
+    assert listed[1].public_id == older.public_id
+    assert all(isinstance(g, TopicBriefGeneration) for g in listed)
