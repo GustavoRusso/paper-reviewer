@@ -186,11 +186,18 @@ def render_fulfill_papers_metadata() -> None:
                     paper_ids,
                     submit_inform=_default_submit_inform,
                 )
-        except Exception:
+        except Exception as exc:
             st.error(
                 "Could not enqueue fulfill papers metadata. "
                 "Check Prefect configuration and try again."
             )
+            st.caption(
+                "The UI container must reach Prefect at "
+                "`PREFECT_API_URL=http://prefect-server:4200/api` and the "
+                "`prefect-worker` service must serve deployment "
+                "`inform_paper_from_source/default`."
+            )
+            st.exception(exc)
             return
         st.session_state[FULFILL_ENQUEUE_RESULT_KEY] = enqueue_result
 
