@@ -6,7 +6,7 @@ This document is the specification for **step 7** of the Topic brief generation 
 
 In this step, the system builds a **`PaperBrief`** for the current **Topic brief generation** with an LLM, for each source-informed archived paper that still needs a brief. An idempotent Prefect job owns that work. A dedicated Streamlit page shows progress.
 
-**Prerequisite:** [Fulfill papers metadata](06-fulfill-papers-metadata.md) source-informs each `Paper` (for PubMed: EFetch). Do not call EFetch in this step.
+**Prerequisite:** [Fulfill papers metadata](06-fulfill-papers-metadata.md) source-informs each `Paper` (for PubMed: EFetch, optionally PMC Cloud `full_text_plain`). Do not call EFetch or PMC Cloud in this step.
 
 ## Glossary
 
@@ -22,7 +22,7 @@ In this step, the system builds a **`PaperBrief`** for the current **Topic brief
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 7 (**Generate paper brief**) for that run.
 
-Source-inform (EFetch and `Paper` field groups) is owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Source-inform (EFetch, optional PMC Cloud enrichment, and `Paper` field groups) is owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch / Cloud details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
 For the application runtime stack (including Prefect as a Compose service), see [technology-stack.md](../technology-stack.md) and [local-development.md](../local-development.md). This specification is the orchestration contract; brief work runs in Prefect, not in Streamlit.
 
@@ -39,10 +39,10 @@ For the application runtime stack (including Prefect as a Compose service), see 
 ### Out of scope (v1)
 
 - [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
-- Source-inform / EFetch / extending `Paper` with fuller source fields — owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+- Source-inform / EFetch / PMC Cloud enrichment / extending `Paper` with fuller source fields — owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 - Topic brief drafting (step 8).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
-- Full-text PDF/HTML fetch.
+- Fetching full text or PDF URLs (consume stored `full_text_plain` / URLs from step 6; do not call Cloud here).
 - Non-idempotent “force rewrite” of briefs (none in v1).
 - Prefect Compose service topology — owned by [local-development.md](../local-development.md) / [technology-stack.md](../technology-stack.md) (added with fulfill / shared infra).
 
@@ -149,12 +149,12 @@ Prefer this durable status on the `PaperBrief` (or an equivalent per-paper work 
 | Section | Required when ready | Description |
 | --- | --- | --- |
 | `summary` | Yes | Short overview of the paper relative to the topic. |
-| `key_findings` | Yes | List of claim-like findings grounded in the abstract/metadata. |
-| `methods` | No | Methods notes when the abstract supports them. |
-| `limitations` | No | Limitations when stated or clearly implied by the abstract. |
+| `key_findings` | Yes | List of claim-like findings grounded in the available paper text (full text when present, else abstract/metadata). |
+| `methods` | No | Methods notes when the available paper text supports them. |
+| `limitations` | No | Limitations when stated or clearly implied by the available paper text. |
 | `relevance_to_topic` | Yes | Why this paper matters for the current topic statement / facets. |
 
-Grounding: use the source-informed `Paper` **abstract-focused** fields (`abstract_text`, title/authors/journal/year) plus generation topic context (`TopicStatement` and available facets). Full metadata lives on `Paper.source_record` for other tasks; v1 brief prompting does not require MeSH/funding/COI. Do not invent citations that are not supported by that material.
+Grounding: prefer source-informed `Paper.full_text_plain` when non-null. Otherwise use **abstract-focused** fields (`abstract_text`, title/authors/journal/year). Always include generation topic context (`TopicStatement` and available facets). Full EFetch metadata lives on `Paper.source_record` for other tasks; v1 brief prompting does not require MeSH/funding/COI. Do not invent citations that are not supported by that material. Do not call EFetch or PMC Cloud from this step.
 
 ## Prefect job behavior
 
@@ -235,7 +235,7 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks.
 | Responsibility | Owner |
 | --- | --- |
 | Create/reuse bibliographic `Paper` | [Paper archiving](05-paper-archiving.md) |
-| Source-inform / EFetch / `Paper` fuller fields | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) for PubMed |
+| Source-inform / EFetch / PMC Cloud / `Paper` fuller fields | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) for PubMed |
 | Domain enqueue + status helpers | `paper_reviewer.topic_brief_generation.generate_paper_brief` |
 | Prefect flows/tasks | `paper_reviewer.flows` (`create_paper_brief`) |
 | ORM `PaperBrief` | `paper_reviewer.models` |
@@ -253,7 +253,8 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 - Ready brief exists → no LLM; success.
 - Not source-informed → does not write ready content.
-- Happy path → `content` has required sections; status `ready`.
+- Happy path with `full_text_plain` → prompt/grounding uses plain full text; `content` has required sections; status `ready`.
+- Happy path without `full_text_plain` → grounding falls back to abstract + bibliographic columns; status `ready`.
 - LLM failure → status `failed` with message.
 
 **Enqueue / selection:**
@@ -271,10 +272,10 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 Do not do this work in the Generate paper brief v1 slice:
 
-- Source-inform / EFetch ([Fulfill papers metadata](06-fulfill-papers-metadata.md)).
+- Source-inform / EFetch / PMC Cloud fetch ([Fulfill papers metadata](06-fulfill-papers-metadata.md)).
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Force rewrite of briefs.
-- Run LLM or EFetch inside Streamlit.
+- Run LLM, EFetch, or PMC Cloud inside Streamlit.
 - Draft the Topic brief (step 8).
 - Re-define Prefect Compose topology (shared with fulfill; see [local-development.md](../local-development.md)).
 

@@ -13,7 +13,8 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
 | ESearch + ESummary against `db=pubmed` | Creating durable `Paper` rows ([Paper archiving](../05-paper-archiving.md)); LLM `PaperBrief` drafting ([Generate paper brief](../07-generate-paper-brief.md)) |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
-| EFetch request shape and XML → `Paper` field mapping for source-inform (owned with [Fulfill papers metadata](../06-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata |
+| EFetch request shape and XML → `Paper` field mapping for source-inform (owned with [Fulfill papers metadata](../06-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata (except PMCID for Cloud enrichment) |
+| PMC Cloud enrichment after EFetch (highest version `.txt`, HTTPS PDF URL, OA flag) | Storing PDF/XML bytes; Unpaywall; legacy PMC FTP / OA Web Service |
 | `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by related-paper search / `paper_reviewer.topic_brief_generation.related_paper_search`) |
 
 ## Source identity
@@ -80,6 +81,7 @@ Base URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`
 | **ESearch** | `esearch.fcgi` | Compiled `term` → PMIDs (`usehistory=y`, `retmax`, optional `sort`) |
 | **ESummary** | `esummary.fcgi` | DocSums for candidate summary fields (by ids or History `WebEnv` + `query_key`) |
 | **EFetch** | `efetch.fcgi` | Fuller record for **source-inform** after [Paper archiving](../05-paper-archiving.md); see [EFetch (source-inform)](#efetch-source-inform) and [Fulfill papers metadata](../06-fulfill-papers-metadata.md) |
+| **PMC Cloud** | AWS Open Data bucket `pmc-oa-opendata` (HTTPS) | Optional full-text enrichment after EFetch; see [PMC Cloud enrichment](#pmc-cloud-enrichment) |
 
 Recommended sequence per facet:
 
@@ -119,7 +121,7 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-p
 
 [Paper archiving](../05-paper-archiving.md) maps candidate bibliographic fields into a durable `Paper` without calling EFetch.
 
-Archived papers are source-informed later (**Fulfill papers metadata**) using EFetch (below). Cross-source identity / Paper public id remains the DOI (required for candidates that survive related-paper search merge).
+Archived papers are source-informed later (**Fulfill papers metadata**) using EFetch and optional PMC Cloud enrichment (below). Cross-source identity / Paper public id remains the DOI (required for candidates that survive related-paper search merge).
 
 Related-paper search and Paper archiving do not call EFetch.
 
@@ -157,14 +159,54 @@ Which logical groups land on `Paper` (as `source_record` JSONB plus typed promot
 | Indexing | `MeshHeadingList`; `KeywordList`; `ChemicalList`; `SupplMeshList`; `CitationSubset` |
 | Funding | `GrantList`; `DataBankList` |
 | COI / notes | `CoiStatement`; `GeneralNote` |
+| PMCID (typed promote) | `PubmedData/ArticleIdList` / article ids with `IdType` / idtype `pmc` → typed `Paper.pmcid` (e.g. `PMC5334499`) for Cloud enrichment |
 
-Do **not** map in v1 (deferred; see Fulfill papers metadata): `ArticleIdList` / `OtherID` beyond existing DOI+PMID handle, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
+Do **not** map in v1 (deferred; see Fulfill papers metadata): other `ArticleIdList` / `OtherID` values beyond DOI+PMID handle and PMCID, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
 
-Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful inform only). Also promote `pub_date` / `abstract_text` and write the full mapped object to `Paper.source_record` per [Fulfill papers metadata](../06-fulfill-papers-metadata.md). Structured author entities are out of scope here.
+Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful inform only). Also promote `pub_date` / `abstract_text` and write the full mapped object to `Paper.source_record` per [Fulfill papers metadata](../06-fulfill-papers-metadata.md). After EFetch success, run [PMC Cloud enrichment](#pmc-cloud-enrichment) when a PMCID is available. Structured author entities are out of scope here.
 
 ### Idempotency
 
-If `Paper.source_informed_at` is set, do not call EFetch for that paper. Behavior contract: [Fulfill papers metadata](../06-fulfill-papers-metadata.md).
+If `Paper.source_informed_at` is set, do not call EFetch or PMC Cloud for that paper. Behavior contract: [Fulfill papers metadata](../06-fulfill-papers-metadata.md).
+
+## PMC Cloud enrichment
+
+Used only by `inform_paper_from_source` after a successful PubMed EFetch, when a PMCID was mapped. Soft-fail contract and column ownership: [Fulfill papers metadata](../06-fulfill-papers-metadata.md).
+
+Implementation: a helper under `paper_reviewer.ingest.pubmed` (not Streamlit) talks to the **updated** PMC Cloud Service on AWS. Do **not** use legacy PMC FTP, the retiring OA Web Service API, or deprecated Cloud prefixes.
+
+Official references:
+
+| Resource | URL |
+| --- | --- |
+| PMC Cloud Service | https://pmc.ncbi.nlm.nih.gov/tools/cloud/ |
+| Accessing PMC Article Datasets on AWS | https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/ |
+| Bucket | `s3://pmc-oa-opendata` (anonymous HTTPS also available) |
+
+### Resolution steps
+
+1. Normalize PMCID from EFetch (ensure `PMC` prefix).
+2. Discover article versions for that PMCID under the Cloud bucket (prefix `PMC{id}.`). Always select the **highest** numeric version (e.g. prefer `PMC11370360.2` over `.1`).
+3. Load that version’s metadata JSON (Cloud metadata object / article JSON). Read at least: `is_pmc_openaccess`, `is_manuscript`, `text_url`, `pdf_url`, `license_code` (license stored only if useful for ops; compliance remains with operators — no v1 filter by license).
+4. Set typed fields:
+   - `pmcid`, `pmcid_version`
+   - `is_open_access` ← `is_pmc_openaccess` (may be false for author manuscripts that still have `.txt`)
+   - `pmc_article_url` ← `https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/`
+5. If `text_url` is present: download the `.txt` body (JATS flatten) → `full_text_plain`. Pull for Open Access Subset **and** Author Manuscript when Cloud returns text.
+6. If `pdf_url` is present: store **HTTPS** form only in `open_access_pdf_url` (do not download bytes). Normalize `s3://pmc-oa-opendata/<key>` → `https://pmc-oa-opendata.s3.amazonaws.com/<key>`. Prefer a stable path suitable for a browser link; strip ephemeral query params such as `md5` unless required for access.
+7. On any miss or error in steps 2–6: leave enrichment columns null (or leave unset fields null); do not fail the inform job.
+
+Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC ids except as ignored articleids today.
+
+### Soft-fail cases
+
+| Case | Expected |
+| --- | --- |
+| No PMCID on EFetch | Skip Cloud; enrichment columns null |
+| PMCID present but no Cloud version | Enrichment columns null |
+| Cloud has `.txt` but no PDF | `full_text_plain` set; `open_access_pdf_url` null |
+| Author manuscript, not OA, `.txt` present | `full_text_plain` set; `is_open_access=false` |
+| Cloud HTTP / parse error | Enrichment columns null; inform still succeeds after EFetch |
 
 ## dlt resource
 
@@ -226,5 +268,7 @@ Official docs for implementers and reviewers (prefer these over secondary blogs)
 | NCBI APIs index | https://www.ncbi.nlm.nih.gov/home/develop/api/ | Context vs other NCBI APIs |
 | PubMed | https://pubmed.ncbi.nlm.nih.gov/ | Product UI |
 | PubMed XML DTD (250101) | https://dtd.nlm.nih.gov/ncbi/pubmed/doc/out/250101/index.html | EFetch `PubmedArticle` element reference |
-| Fulfill papers metadata (step) | [06-fulfill-papers-metadata.md](../06-fulfill-papers-metadata.md) | When to call EFetch; which groups store on `Paper` |
+| PMC Cloud Service | https://pmc.ncbi.nlm.nih.gov/tools/cloud/ | OA / AM dataset files on AWS |
+| PMC Article Datasets on AWS | https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/ | HTTPS/S3 access, version prefixes, metadata JSON |
+| Fulfill papers metadata (step) | [06-fulfill-papers-metadata.md](../06-fulfill-papers-metadata.md) | When to call EFetch / Cloud; which groups and enrichment columns store on `Paper` |
 | Generate paper brief (step) | [07-generate-paper-brief.md](../07-generate-paper-brief.md) | How **paper brief** results are created from source-informed papers |

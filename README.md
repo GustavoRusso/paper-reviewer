@@ -17,9 +17,9 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can archive the paper and later fulfill its metadata and build a **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
 - **Paper archiving** — Workflow step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
-- **Fulfill papers metadata** — Workflow step that source-informs archived papers (for PubMed: EFetch) so each `Paper` holds the fuller source record. Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
+- **Fulfill papers metadata** — Workflow step that source-informs archived papers (for PubMed: EFetch, optionally PMC Cloud plain full text + clickable URLs) so each `Paper` holds the fuller source record. Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
 - **Paper brief** — The **result** artifact: a structured summary of one paper for the current topic (`PaperBrief`). Produced by **Generate paper brief**. Distinct from that workflow step.
-- **Generate paper brief** — Workflow **step** that creates **paper briefs** from source-informed papers. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
+- **Generate paper brief** — Workflow **step** that creates **paper briefs** from source-informed papers (prefers stored full text when present). Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — One end-to-end run of the workflow below (Topic intake through Topic brief). In the app this is a `TopicBriefGeneration` record that owns artifacts from each step.
 
@@ -34,8 +34,8 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 3. **Related-paper search** — The assistant searches **paper sources** for related papers. Spec: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
 5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
-6. **Fulfill papers metadata** — For each archived paper, the assistant source-informs the `Paper` (for PubMed: EFetch) until it holds the fuller source record. Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
-7. **Generate paper brief** — For each source-informed paper, the assistant creates a **paper brief** (the result artifact). Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
+6. **Fulfill papers metadata** — For each archived paper, the assistant source-informs the `Paper` (for PubMed: EFetch, optionally PMC Cloud plain full text + URLs) until it holds the fuller source record. Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
+7. **Generate paper brief** — For each source-informed paper, the assistant creates a **paper brief** (the result artifact), preferring stored full text when present. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
 8. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 
 ## Getting started
