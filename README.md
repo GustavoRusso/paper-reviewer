@@ -41,10 +41,9 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 ## Getting started
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
-2. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
-3. Open the services listed below (start on the landing page, then create a **Topic brief**)
-
-An optional NCBI API key is recommended for PubMed rate limits; see [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
+2. Copy [`.env.example`](.env.example) to `.env` and set `NCBI_API_KEY` if you have one (optional but recommended for PubMed rate limits; see [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md)).
+3. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
+4. Open the services listed below (start on the landing page, then create a **Topic brief**)
 
 ## Services
 

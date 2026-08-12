@@ -17,7 +17,7 @@ Local-dev database defaults (override via host `.env` if needed): user / passwor
 
 Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets `DATABASE_URL` and `PREFECT_API_URL` on `workspace`, `ui`, and `prefect-worker` (`migrate` gets `DATABASE_URL` only). Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
-Optional NCBI key: set host env `NCBI_API_KEY` (or a Compose `.env` next to `compose.yml`). Compose passes it into `ui` and `prefect-worker` for PubMed ESearch/EFetch.
+Optional NCBI key: copy [`.env.example`](../.env.example) to `.env` in the repo root and set `NCBI_API_KEY`. Compose passes it into `ui` and `prefect-worker` for PubMed ESearch/EFetch. Leave empty to run without a key (lower rate limits).
 
 ### Schema migrations (Alembic)
 
