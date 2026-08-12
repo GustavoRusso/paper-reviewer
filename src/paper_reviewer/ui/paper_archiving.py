@@ -23,6 +23,7 @@ from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 from paper_reviewer.ui.navigation import streamlit_page_for
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
+    FULFILL_ENQUEUE_RESULT_KEY,
     PUBLIC_ID_KEY,
     SESSION_KEY,
     TRIAGE_RESULT_KEY,
@@ -112,6 +113,10 @@ def _render_result(
         and not result.errors
     ):
         st.caption("No candidates to archive")
+        st.page_link(
+            streamlit_page_for("fulfill_papers_metadata"),
+            label="Continue to Fulfill papers metadata",
+        )
         return
 
     st.subheader("Archived papers")
@@ -140,6 +145,11 @@ def _render_result(
             )
             doi_part = f" · DOI `{err.doi}`" if err.doi else ""
             st.error(f"{identity}{doi_part} — {err.reason}")
+
+    st.page_link(
+        streamlit_page_for("fulfill_papers_metadata"),
+        label="Continue to Fulfill papers metadata",
+    )
 
 
 def render_paper_archiving() -> None:
@@ -186,6 +196,7 @@ def render_paper_archiving() -> None:
         return
 
     st.session_state[ARCHIVING_RESULT_KEY] = archiving_result
+    st.session_state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
     _render_result(
         archiving_result,
         input_count=len(retained),

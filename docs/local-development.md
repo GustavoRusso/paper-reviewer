@@ -11,11 +11,13 @@ Compose defines:
 - **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up` after `migrate` succeeds).
 - **`prefect-server`** — Prefect API/UI on host port **4200** (Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `http://localhost:4200/api` via `PREFECT_UI_API_URL`.
-- **`prefect-worker`** — Process worker on work pool **`local-pool`** (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL=http://prefect-server:4200/api` and `DATABASE_URL` (app Postgres). Creates `local-pool` on first start if missing (`--type process`). Runs flows from `paper_reviewer.flows` when those flows are deployed. Progress UIs still poll Postgres, not Prefect, for paper status.
+- **`prefect-worker`** — Serves `inform_paper_from_source/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL=http://prefect-server:4200/api`, `DATABASE_URL` (app Postgres), and optional `NCBI_API_KEY`. The Streamlit UI submits inform runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper status.
 
 Local-dev database defaults (override via host `.env` if needed): user / password / database `paper_reviewer`. From other containers use hostname `db` and `DATABASE_URL=postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer`. From the host: `localhost:5432`.
 
-Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets `DATABASE_URL` and `PREFECT_API_URL` on `workspace`, `migrate`, `ui`, and `prefect-worker`. Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets `DATABASE_URL` and `PREFECT_API_URL` on `workspace`, `ui`, and `prefect-worker` (`migrate` gets `DATABASE_URL` only). Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+
+Optional NCBI key: set host env `NCBI_API_KEY` (or a Compose `.env` next to `compose.yml`). Compose passes it into `ui` and `prefect-worker` for PubMed ESearch/EFetch.
 
 ### Schema migrations (Alembic)
 
@@ -36,7 +38,9 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501) and the Prefect UI at [http://localhost:4200](http://localhost:4200). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
+After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501) and the Prefect UI at [http://localhost:4200](http://localhost:4200). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve deployment `inform_paper_from_source/default`. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
+
+Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue succeeds, then watch progress labels move to Fulfilled/Failed while `just logs prefect-worker` shows inform runs. Progress truth is Postgres (`source_informed_at` / `source_inform_error_message`), not the Prefect UI.
 
 ## Agent shells
 

@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import date, datetime
 
 from sqlalchemy import (
     BigInteger,
+    Date,
     DateTime,
     Integer,
     JSON,
@@ -50,6 +51,20 @@ class Paper(Base):
     journal: Mapped[str | None] = mapped_column(Text, nullable=True)
     published_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
     url: Mapped[str] = mapped_column(Text, nullable=False)
+    source_record: Mapped[dict | None] = mapped_column(
+        JSON().with_variant(JSONB(), "postgresql"),
+        nullable=True,
+    )
+    source_informed_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+    source_inform_error_message: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+    pub_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    abstract_text: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 def create_paper(
@@ -77,6 +92,11 @@ def create_paper(
     )
     session.add(paper)
     return paper
+
+
+def get_paper_by_id(session: Session, paper_id: int) -> Paper | None:
+    """Return the Paper with primary key ``paper_id``, or ``None``."""
+    return session.get(Paper, paper_id)
 
 
 def get_paper_by_source_handle(

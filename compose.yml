@@ -1,5 +1,8 @@
-x-app-env: &app-env
+x-db-env: &db-env
   DATABASE_URL: postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer
+
+x-app-env: &app-env
+  <<: *db-env
   PREFECT_API_URL: http://prefect-server:4200/api
 
 services:
@@ -45,7 +48,7 @@ services:
     volumes:
       - .:/workspace
     environment:
-      <<: *app-env
+      <<: *db-env
     depends_on:
       db:
         condition: service_healthy
@@ -62,11 +65,14 @@ services:
       - "8501:8501"
     environment:
       <<: *app-env
+      NCBI_API_KEY: ${NCBI_API_KEY:-}
     depends_on:
       db:
         condition: service_healthy
       migrate:
         condition: service_completed_successfully
+      prefect-server:
+        condition: service_healthy
     command:
       [
         "uv",
@@ -82,13 +88,13 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
       interval: 10s
       timeout: 5s
-      retries: 12
-      start_period: 180s
+      retries: 6
+      start_period: 60s
 
-  # Prefect API + UI (local SQLite under /root/.prefect; not the app Postgres).
   prefect-server:
     profiles: ["app"]
     image: prefecthq/prefect:3.8-python3.12
+    command: ["prefect", "server", "start", "--host", "0.0.0.0"]
     ports:
       - "4200:4200"
     environment:
@@ -96,21 +102,19 @@ services:
       PREFECT_UI_API_URL: http://localhost:4200/api
     volumes:
       - prefect_data:/root/.prefect
-    command: ["prefect", "server", "start", "--host", "0.0.0.0", "--port", "4200"]
     healthcheck:
       test:
         [
           "CMD",
           "python",
           "-c",
-          "import urllib.request as u; u.urlopen('http://localhost:4200/api/health', timeout=1)",
+          "import urllib.request as u; u.urlopen('http://localhost:4200/api/health')",
         ]
       interval: 10s
       timeout: 5s
       retries: 10
       start_period: 40s
 
-  # Process worker: same app image as ui/workspace; polls work pool local-pool.
   prefect-worker:
     profiles: ["app"]
     build: .
@@ -119,6 +123,7 @@ services:
       - .:/workspace
     environment:
       <<: *app-env
+      NCBI_API_KEY: ${NCBI_API_KEY:-}
     depends_on:
       db:
         condition: service_healthy
@@ -130,13 +135,9 @@ services:
       [
         "uv",
         "run",
-        "prefect",
-        "worker",
-        "start",
-        "--pool",
-        "local-pool",
-        "--type",
-        "process",
+        "python",
+        "-m",
+        "paper_reviewer.flows.serve",
       ]
     restart: on-failure
 

@@ -14,6 +14,7 @@ from paper_reviewer.models.topic_brief_generation import (
     Paper,
     create_paper,
     get_paper_by_doi,
+    get_paper_by_id,
     get_paper_by_source_handle,
 )
 
@@ -114,6 +115,49 @@ def test_get_paper_by_doi_returns_none_when_missing(session: Session) -> None:
     found = get_paper_by_doi(session, "10.1000/MISSING")
 
     assert found is None
+
+
+def test_get_paper_by_id(session: Session) -> None:
+    created = create_paper(
+        session,
+        doi="10.1000/BYID",
+        source_id="pubmed",
+        source_uid="55",
+        title="By id",
+        authors=[],
+        url="https://example.com/byid",
+    )
+    session.flush()
+
+    found = get_paper_by_id(session, created.id)
+
+    assert found is not None
+    assert found.id == created.id
+
+
+def test_get_paper_by_id_returns_none_when_missing(session: Session) -> None:
+    found = get_paper_by_id(session, 999_999)
+
+    assert found is None
+
+
+def test_paper_inform_columns_default_null(session: Session) -> None:
+    paper = create_paper(
+        session,
+        doi="10.1000/INFORM",
+        source_id="pubmed",
+        source_uid="44",
+        title="Inform defaults",
+        authors=[],
+        url="https://example.com/inform",
+    )
+    session.flush()
+
+    assert paper.source_record is None
+    assert paper.source_informed_at is None
+    assert paper.source_inform_error_message is None
+    assert paper.pub_date is None
+    assert paper.abstract_text is None
 
 
 def test_source_handle_must_be_unique(session: Session) -> None:

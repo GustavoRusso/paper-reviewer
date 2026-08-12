@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_metadata
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
@@ -43,11 +44,21 @@ def test_paper_archiving_page_is_registered() -> None:
     assert pages["paper_archiving"].render is render_paper_archiving
 
 
+def test_fulfill_papers_metadata_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "fulfill_papers_metadata" in pages
+    assert pages["fulfill_papers_metadata"].title == "Fulfill papers metadata"
+    assert pages["fulfill_papers_metadata"].url_path == "fulfill-papers-metadata"
+    assert pages["fulfill_papers_metadata"].render is render_fulfill_papers_metadata
+
+
 def test_workflow_page_order() -> None:
     keys = [page.key for page in build_app_pages()]
 
     assert keys.index("new_topic_brief") < keys.index("retrieval_triage")
     assert keys.index("retrieval_triage") < keys.index("paper_archiving")
+    assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
 
 
 def test_landing_cta_links_to_new_topic_brief() -> None:
