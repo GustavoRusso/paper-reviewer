@@ -90,14 +90,14 @@ Domain package (when implemented): `paper_reviewer.topic_brief_generation.fulfil
 Prefect flows (names are the contract): `paper_reviewer.flows`
 
 ```text
-inform_paper_from_source(paper_id) -> InformPaperFromSourceResult
+inform_paper_from_source(paper_id, doi) -> InformPaperFromSourceResult
 enqueue_fulfill_papers_metadata(paper_ids) -> FulfillPapersMetadataEnqueueResult
 ```
 
 | Entrypoint | Role |
 | --- | --- |
-| `inform_paper_from_source` | Load `Paper` by id; if already source-informed, return no-op success. Else fetch fuller source record **for that one paper** (PubMed: one PMID per call via dlt EFetch resource), write `source_record`, promote typed columns, refresh bibliographic fields when present, set `source_informed_at`, clear any fulfill-metadata failure, commit (flow owns persistence for the job). |
-| `enqueue_fulfill_papers_metadata` | UI/orchestrator helper: apply selection rules and submit Prefect runs for the paper id list. Idempotent with respect to already-informed papers. Does not re-enqueue papers already marked failed to fulfill metadata. |
+| `inform_paper_from_source` | Load `Paper` by id; if already source-informed, return no-op success. Else fetch fuller source record **for that one paper** (PubMed: one PMID per call via dlt EFetch resource), write `source_record`, promote typed columns, refresh bibliographic fields when present, set `source_informed_at`, clear any fulfill-metadata failure, commit (flow owns persistence for the job). Prefect parameters are `paper_id` and `doi` (DOI is for UI/search and the submit-time flow run name; durable work keys off `paper_id`). |
+| `enqueue_fulfill_papers_metadata` | UI/orchestrator helper: apply selection rules and submit Prefect runs for the paper id list (`submit_inform(paper_id, doi)`). Idempotent with respect to already-informed papers. Does not re-enqueue papers already marked failed to fulfill metadata. |
 
 | Rule | Behavior |
 | --- | --- |
@@ -120,11 +120,11 @@ sequenceDiagram
 
   UI->>Enq: paper_ids from archiving result
   Enq->>Enq: selection rules
-  Enq->>Pref: submit one run per submitted id
+  Enq->>Pref: submit one run per submitted id (run name = DOI)
   Enq-->>UI: FulfillPapersMetadataEnqueueResult
   Note over UI: Cache enqueue result in session; do not EFetch here
   loop each submitted paper
-    Pref->>Inf: paper_id
+    Pref->>Inf: paper_id, doi
     Inf->>DB: read / write Paper
     Inf-->>Pref: InformPaperFromSourceResult
   end

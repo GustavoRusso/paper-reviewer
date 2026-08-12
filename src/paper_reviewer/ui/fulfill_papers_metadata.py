@@ -60,11 +60,11 @@ def inform_status_label(
     return "Fulfilling from source"
 
 
-def _default_submit_inform(paper_id: int) -> None:
+def _default_submit_inform(paper_id: int, doi: str) -> None:
     """Submit one inform job (Prefect wiring lands with Compose services)."""
     from paper_reviewer.flows.submit import submit_inform_paper_from_source
 
-    submit_inform_paper_from_source(paper_id)
+    submit_inform_paper_from_source(paper_id, doi)
 
 
 def _paper_ids(archiving: PaperArchivingResult) -> list[int]:

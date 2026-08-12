@@ -16,12 +16,13 @@ def enqueue_fulfill_papers_metadata(
     session: Session,
     paper_ids: list[int],
     *,
-    submit_inform: Callable[[int], None],
+    submit_inform: Callable[[int, str], None],
 ) -> FulfillPapersMetadataEnqueueResult:
     """Select papers that need inform and submit one job per selected id.
 
     Skips papers that are already source-informed or already failed to fulfill
-    metadata. Calls ``submit_inform`` only for papers that should be enqueued.
+    metadata. Calls ``submit_inform(paper_id, doi)`` only for papers that
+    should be enqueued.
     """
     submitted: list[int] = []
     skipped_informed: list[int] = []
@@ -37,7 +38,7 @@ def enqueue_fulfill_papers_metadata(
         if paper.source_inform_error_message is not None:
             skipped_failed.append(paper_id)
             continue
-        submit_inform(paper_id)
+        submit_inform(paper_id, paper.doi)
         submitted.append(paper_id)
 
     return FulfillPapersMetadataEnqueueResult(

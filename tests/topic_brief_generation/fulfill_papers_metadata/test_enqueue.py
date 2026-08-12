@@ -61,12 +61,12 @@ def _create(
 
 
 def test_enqueue_empty_paper_list(session: Session) -> None:
-    submitted: list[int] = []
+    submitted: list[tuple[int, str]] = []
 
     result = enqueue_fulfill_papers_metadata(
         session,
         [],
-        submit_inform=submitted.append,
+        submit_inform=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == []
@@ -79,30 +79,30 @@ def test_enqueue_skips_informed_and_failed_submits_rest(session: Session) -> Non
     id_pending = _create(session, uid="1", doi="10.1000/A")
     id_informed = _create(session, uid="2", doi="10.1000/B", informed=True)
     id_failed = _create(session, uid="3", doi="10.1000/C", failed=True)
-    submitted: list[int] = []
+    submitted: list[tuple[int, str]] = []
 
     result = enqueue_fulfill_papers_metadata(
         session,
         [id_pending, id_informed, id_failed],
-        submit_inform=submitted.append,
+        submit_inform=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [id_pending]
     assert result.skipped_already_informed == [id_informed]
     assert result.skipped_already_failed == [id_failed]
-    assert submitted == [id_pending]
+    assert submitted == [(id_pending, "10.1000/A")]
 
 
 def test_enqueue_preserves_first_seen_order(session: Session) -> None:
     id_a = _create(session, uid="10", doi="10.1000/X")
     id_b = _create(session, uid="11", doi="10.1000/Y")
-    submitted: list[int] = []
+    submitted: list[tuple[int, str]] = []
 
     result = enqueue_fulfill_papers_metadata(
         session,
         [id_b, id_a],
-        submit_inform=submitted.append,
+        submit_inform=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [id_b, id_a]
-    assert submitted == [id_b, id_a]
+    assert submitted == [(id_b, "10.1000/Y"), (id_a, "10.1000/X")]

@@ -10,11 +10,12 @@ from paper_reviewer.flows.submit import submit_inform_paper_from_source
 
 def test_submit_inform_calls_run_deployment_fire_and_forget() -> None:
     with patch("paper_reviewer.flows.submit.run_deployment") as mock_run:
-        submit_inform_paper_from_source(42)
+        submit_inform_paper_from_source(42, "10.1000/EXAMPLE")
 
     mock_run.assert_called_once_with(
         name=INFORM_DEPLOYMENT_REF,
-        parameters={"paper_id": 42},
+        parameters={"paper_id": 42, "doi": "10.1000/EXAMPLE"},
+        flow_run_name="10.1000/EXAMPLE",
         timeout=0,
     )
 
