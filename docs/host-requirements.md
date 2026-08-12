@@ -36,6 +36,11 @@ just --version
 
 ## Next steps
 
-With Docker Desktop and `just` installed, continue with [local-development.md](local-development.md) for app vs sandbox lifecycle. List recipes with `just`; definitions live in [justfile](../justfile). Do not add further host tooling for this project.
+With Docker Desktop and `just` installed:
+
+1. Copy [`.env.example`](../.env.example) to `.env` and set local values (see [local-development.md — Environment configuration](local-development.md#environment-configuration)).
+2. Continue with [local-development.md](local-development.md) for app vs sandbox lifecycle (`just up`, recipes).
+
+List recipes with `just`; definitions live in [justfile](../justfile). Do not add further host tooling for this project.
 
 Agent CLI policy (never host `uv` / `python` / raw `docker compose`): [AGENTS.md](../AGENTS.md).

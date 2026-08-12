@@ -2,22 +2,47 @@
 
 All local workflows run through `just` recipes that wrap Docker Compose. Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
 
+## Environment configuration
+
+All initial local parametrization lives in a project-root **`.env`** file. Compose reads it automatically for `${VAR}` substitution in [compose.yml](../compose.yml).
+
+1. Copy the template:
+
+   ```bash
+   # Linux/macOS
+   cp .env.example .env
+   # PowerShell
+   Copy-Item .env.example .env
+   ```
+
+2. Edit `.env` before `just up` (ports, Postgres credentials, Prefect URLs, optional NCBI key).
+3. Do not commit `.env` (gitignored). Commit only [`.env.example`](../.env.example).
+
+| Variable | Default | Used by | Notes |
+| --- | --- | --- | --- |
+| `POSTGRES_USER` | `paper_reviewer` | `db` | Must match user in `DATABASE_URL` |
+| `POSTGRES_PASSWORD` | `paper_reviewer` | `db` | Must match password in `DATABASE_URL` |
+| `POSTGRES_DB` | `paper_reviewer` | `db` | Must match database in `DATABASE_URL` |
+| `POSTGRES_PORT` | `5432` | `db` host publish | Host → container `5432` |
+| `DATABASE_URL` | `postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer` | `workspace`, `migrate`, `ui`, `prefect-worker` | In-compose hostname is `db`. From the host: `localhost:${POSTGRES_PORT}` |
+| `UI_PORT` | `8501` | `ui` host publish | Host → container `8501` |
+| `PREFECT_API_URL` | `http://prefect-server:4200/api` | `workspace`, `ui`, `prefect-worker` | In-network Prefect API |
+| `PREFECT_UI_API_URL` | `http://localhost:4200/api` | `prefect-server` | Browser → host API; keep in sync with `PREFECT_PORT` |
+| `PREFECT_PORT` | `4200` | `prefect-server` host publish | Host → container `4200` |
+| `NCBI_API_KEY` | (empty) | `ui`, `prefect-worker` | Optional; higher PubMed rate limits when set |
+
+Compose supplies the same defaults when a variable is unset, so an empty or missing `.env` still boots with the values above. Prefer the standard `postgresql://` scheme in `DATABASE_URL`; `paper_reviewer.db` maps it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
+
 ## Current stack
 
 Compose defines:
 
 - **`workspace`** — Python 3.12 + uv image with the repository bind-mounted at `/workspace` (agents, MCP, `just shell` / `just run`). Unprofiled so it starts with both `just up` and `just sandbox`.
-- **`db`** — PostgreSQL 16 on port **5432** (Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
+- **`db`** — PostgreSQL 16 on host port **`POSTGRES_PORT`** (default **5432**; Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
 - **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
-- **`ui`** — same image, Streamlit **Paper Reviewer** UI on port **8501** (Compose profile `app`; started by `just up` after `migrate` succeeds).
-- **`prefect-server`** — Prefect API/UI on host port **4200** (Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `http://localhost:4200/api` via `PREFECT_UI_API_URL`.
-- **`prefect-worker`** — Serves `inform_paper_from_source/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL=http://prefect-server:4200/api`, `DATABASE_URL` (app Postgres), and optional `NCBI_API_KEY`. The Streamlit UI submits inform runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper status.
-
-Local-dev database defaults (override via host `.env` if needed): user / password / database `paper_reviewer`. From other containers use hostname `db` and `DATABASE_URL=postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer`. From the host: `localhost:5432`.
-
-Application code reads that same `DATABASE_URL` via `paper_reviewer.db` (engine and session helpers). Compose sets `DATABASE_URL` and `PREFECT_API_URL` on `workspace`, `ui`, and `prefect-worker` (`migrate` gets `DATABASE_URL` only). Prefer the standard `postgresql://` scheme in env; the helpers map it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
-
-Optional NCBI key: copy [`.env.example`](../.env.example) to `.env` in the repo root and set `NCBI_API_KEY`. Compose passes it into `ui` and `prefect-worker` for PubMed ESearch/EFetch. Leave empty to run without a key (lower rate limits).
+- **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `migrate` succeeds).
+- **`prefect-server`** — Prefect API/UI on host port **`PREFECT_PORT`** (default **4200**; Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `PREFECT_UI_API_URL`.
+- **`prefect-worker`** — Serves `inform_paper_from_source/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, and optional `NCBI_API_KEY` from `.env`. The Streamlit UI submits inform runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper status.
 
 ### Schema migrations (Alembic)
 
@@ -38,7 +63,7 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at [http://localhost:8501](http://localhost:8501) and the Prefect UI at [http://localhost:4200](http://localhost:4200). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve deployment `inform_paper_from_source/default`. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
+After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve deployment `inform_paper_from_source/default`. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
 
 Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue succeeds, then watch progress labels move to Fulfilled/Failed while `just logs prefect-worker` shows inform runs. Progress truth is Postgres (`source_informed_at` / `source_inform_error_message`), not the Prefect UI.
 
