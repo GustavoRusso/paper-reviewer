@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import time
 from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Any
@@ -17,6 +18,9 @@ from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata impor
 )
 
 FetchSourceRecord = Callable[[str, str], dict[str, Any]]
+
+_FETCH_MAX_ATTEMPTS = 3
+_FETCH_RETRY_DELAY_SECONDS = 0.5
 
 
 def _default_session_factory() -> sessionmaker[Session]:
@@ -108,17 +112,22 @@ def inform_paper_from_source(
                 f"Unsupported paper source for inform: {paper.source_id}",
             )
 
-        try:
-            payload = fetch(paper.source_id, paper.source_uid)
-            apply_source_inform_payload(paper, payload)
-            session.commit()
-            return InformPaperFromSourceResult(
-                paper_id=paper_id,
-                outcome=InformOutcome.fulfilled,
-                error_message=None,
-            )
-        except Exception as exc:
-            session.rollback()
-            return _mark_failed(session, paper_id, str(exc))
+        last_exc: Exception | None = None
+        for attempt in range(1, _FETCH_MAX_ATTEMPTS + 1):
+            try:
+                payload = fetch(paper.source_id, paper.source_uid)
+                apply_source_inform_payload(paper, payload)
+                session.commit()
+                return InformPaperFromSourceResult(
+                    paper_id=paper_id,
+                    outcome=InformOutcome.fulfilled,
+                    error_message=None,
+                )
+            except Exception as exc:
+                last_exc = exc
+                session.rollback()
+                if attempt < _FETCH_MAX_ATTEMPTS:
+                    time.sleep(_FETCH_RETRY_DELAY_SECONDS)
+        return _mark_failed(session, paper_id, str(last_exc))
     finally:
         session.close()

@@ -104,6 +104,7 @@ enqueue_fulfill_papers_metadata(paper_ids) -> FulfillPapersMetadataEnqueueResult
 | Idempotent by default | Same inputs after success do not re-fetch. No force-refresh flag in v1. |
 | One paper per inform call | v1 submits one Prefect run per paper; PubMed EFetch uses a single PMID (no batch id lists). |
 | Fail-soft per paper | One paper failure must not cancel other papers’ runs. |
+| In-run extract retries | On source-extract failure inside one inform run, retry up to 3 attempts with 0.5s delay between attempts; only then mark durable failed. Does not re-enqueue already-failed papers. |
 | Raise | Raise only for unusable infrastructure (DB down, Prefect submit impossible). Per-paper source errors become durable **failed to fulfill metadata** on that `Paper`. |
 
 Pydantic types live under `paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata` (when implemented).
@@ -342,7 +343,7 @@ PubMed call shape for inform: see [paper-sources/pubmed.md](paper-sources/pubmed
 | `source_informed_at` already set | No-op success; do not call EFetch; do not change fields. |
 | Not informed, PubMed `source_id` | EFetch XML for **that paper’s single PMID**; write `source_record`; promote typed columns; refresh bibliographic fields when present; set `source_informed_at`; clear `source_inform_error_message`. |
 | Not informed, unsupported `source_id` | Mark **failed to fulfill metadata** (`source_inform_error_message`); do not set `source_informed_at`. |
-| EFetch / parse / DB error | Mark **failed to fulfill metadata**; leave `source_informed_at` null; set `source_inform_error_message`. |
+| EFetch / parse / DB error | **In-run extract retries:** retry the source extract up to **3 attempts** with a **0.5s** delay between failures. Do not write `source_inform_error_message` until all attempts fail. After the last failure, mark **failed to fulfill metadata**; leave `source_informed_at` null; set `source_inform_error_message`. This is distinct from re-enqueue of already-failed papers (none in v1). |
 
 ### Idempotency policy
 
@@ -435,7 +436,8 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 - Already informed → no EFetch; fields unchanged; success.
 - Not informed → `source_record` set; typed promotes set when parseable; `source_informed_at` set; inform error cleared.
-- Unsupported source / fetch error → `source_informed_at` remains null; paper marked failed to fulfill metadata (`source_inform_error_message` set); later enqueue skips that paper.
+- Unsupported source → `source_informed_at` remains null; paper marked failed to fulfill metadata (`source_inform_error_message` set); later enqueue skips that paper.
+- Fetch / parse error → retry extract up to 3 attempts with 0.5s delay; after exhaustion, same durable failed state; later enqueue skips that paper.
 
 **Enqueue / selection:**
 

@@ -183,11 +183,22 @@ def test_unsupported_source_marks_failed(
         session.close()
 
 
-def test_fetch_error_marks_failed(session_factory: sessionmaker[Session]) -> None:
+def test_fetch_error_marks_failed(
+    session_factory: sessionmaker[Session],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     paper_id = _create(session_factory)
+    calls: list[str] = []
+    sleep_calls: list[float] = []
 
     def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
+        calls.append("fetch")
         raise RuntimeError("HTTP 429 from NCBI EFetch")
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        sleep_calls.append,
+    )
 
     result = inform_paper_from_source(
         paper_id,
@@ -197,6 +208,87 @@ def test_fetch_error_marks_failed(session_factory: sessionmaker[Session]) -> Non
 
     assert result.outcome == InformOutcome.failed
     assert "429" in (result.error_message or "")
+    assert calls == ["fetch", "fetch", "fetch"]
+    assert sleep_calls == [0.5, 0.5]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_informed_at is None
+        assert "429" in (paper.source_inform_error_message or "")
+    finally:
+        session.close()
+
+
+def test_fetch_succeeds_after_transient_failures(
+    session_factory: sessionmaker[Session],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paper_id = _create(session_factory)
+    calls: list[str] = []
+    sleep_calls: list[float] = []
+
+    def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
+        calls.append("fetch")
+        if len(calls) < 3:
+            raise RuntimeError("transient EFetch error")
+        return _mapped_photo()
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        sleep_calls.append,
+    )
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=fetch,
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+    assert result.error_message is None
+    assert calls == ["fetch", "fetch", "fetch"]
+    assert sleep_calls == [0.5, 0.5]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_informed_at is not None
+        assert paper.source_inform_error_message is None
+        assert paper.title == "New title"
+    finally:
+        session.close()
+
+
+def test_fetch_exhausts_retries_then_marks_failed(
+    session_factory: sessionmaker[Session],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paper_id = _create(session_factory)
+    calls: list[str] = []
+    sleep_calls: list[float] = []
+
+    def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
+        calls.append("fetch")
+        raise RuntimeError("HTTP 429 from NCBI EFetch")
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        sleep_calls.append,
+    )
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=fetch,
+    )
+
+    assert result.outcome == InformOutcome.failed
+    assert "429" in (result.error_message or "")
+    assert calls == ["fetch", "fetch", "fetch"]
+    assert sleep_calls == [0.5, 0.5]
 
     session = session_factory()
     try:
