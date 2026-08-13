@@ -107,16 +107,24 @@ def test_already_informed_is_noop(session_factory: sessionmaker[Session]) -> Non
         calls.append("fetch")
         return _mapped_photo()
 
+    cloud_calls: list[str | None] = []
+
+    def enrich(pmcid: str | None) -> dict[str, Any]:
+        cloud_calls.append(pmcid)
+        return {}
+
     result = inform_paper_from_source(
         paper_id,
         session_factory=session_factory,
         fetch_source_record=fetch,
+        enrich_from_pmc_cloud=enrich,
     )
 
     assert result.outcome == InformOutcome.skipped_already_informed
     assert result.paper_id == paper_id
     assert result.error_message is None
     assert calls == []
+    assert cloud_calls == []
 
     session = session_factory()
     try:
@@ -177,6 +185,7 @@ def test_fulfill_sets_pmcid_and_derives_pmc_article_url(
         paper_id,
         session_factory=session_factory,
         fetch_source_record=lambda _sid, _suid: payload,
+        enrich_from_pmc_cloud=lambda _pmcid: {},
     )
 
     assert result.outcome == InformOutcome.fulfilled
@@ -191,6 +200,7 @@ def test_fulfill_sets_pmcid_and_derives_pmc_article_url(
             == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
         )
         assert paper.source_informed_at is not None
+        assert paper.full_text_plain is None
     finally:
         session.close()
 
@@ -217,6 +227,7 @@ def test_fulfill_applies_cloud_enrichment_fields(
         paper_id,
         session_factory=session_factory,
         fetch_source_record=lambda _sid, _suid: payload,
+        enrich_from_pmc_cloud=lambda _pmcid: {},
     )
 
     assert result.outcome == InformOutcome.fulfilled
@@ -266,6 +277,7 @@ def test_already_informed_does_not_overwrite_enrichment(
         paper_id,
         session_factory=session_factory,
         fetch_source_record=lambda _sid, _suid: payload,
+        enrich_from_pmc_cloud=lambda _pmcid: {"full_text_plain": "Should not apply"},
     )
 
     assert result.outcome == InformOutcome.skipped_already_informed
@@ -277,6 +289,204 @@ def test_already_informed_does_not_overwrite_enrichment(
         assert paper.pmcid == "PMC111"
         assert paper.full_text_plain == "Kept text"
         assert paper.title == "Old title"
+    finally:
+        session.close()
+
+
+def _cloud_hit(*, is_open_access: bool = True, pdf: bool = True) -> dict[str, Any]:
+    result: dict[str, Any] = {
+        "pmcid": "PMC5334499",
+        "pmcid_version": 2,
+        "is_open_access": is_open_access,
+        "full_text_plain": "Full article text from Cloud.",
+        "pmc_article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
+    }
+    if pdf:
+        result["open_access_pdf_url"] = (
+            "https://pmc-oa-opendata.s3.amazonaws.com/PMC5334499.2/PMC5334499.2.pdf"
+        )
+    return result
+
+
+def test_fulfill_enriches_from_pmc_cloud_when_pmcid_present(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = _create(session_factory)
+    payload = _mapped_photo()
+    payload["pmcid"] = "PMC5334499"
+    cloud_calls: list[str | None] = []
+
+    def enrich(pmcid: str | None) -> dict[str, Any]:
+        cloud_calls.append(pmcid)
+        return _cloud_hit()
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: payload,
+        enrich_from_pmc_cloud=enrich,
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+    assert result.error_message is None
+    assert cloud_calls == ["PMC5334499"]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.pmcid == "PMC5334499"
+        assert paper.pmcid_version == 2
+        assert paper.is_open_access is True
+        assert paper.full_text_plain == "Full article text from Cloud."
+        assert paper.open_access_pdf_url == (
+            "https://pmc-oa-opendata.s3.amazonaws.com/PMC5334499.2/PMC5334499.2.pdf"
+        )
+        assert (
+            paper.pmc_article_url
+            == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
+        )
+        assert paper.source_informed_at is not None
+        assert paper.source_inform_error_message is None
+    finally:
+        session.close()
+
+
+def test_fulfill_author_manuscript_stores_text_and_not_open_access(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = _create(session_factory)
+    payload = _mapped_photo()
+    payload["pmcid"] = "PMC5334499"
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: payload,
+        enrich_from_pmc_cloud=lambda _pmcid: _cloud_hit(
+            is_open_access=False, pdf=False
+        ),
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_plain == "Full article text from Cloud."
+        assert paper.is_open_access is False
+        assert paper.open_access_pdf_url is None
+        assert paper.source_informed_at is not None
+    finally:
+        session.close()
+
+
+def test_fulfill_skips_cloud_when_no_pmcid(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = _create(session_factory)
+    cloud_calls: list[str | None] = []
+
+    def enrich(pmcid: str | None) -> dict[str, Any]:
+        cloud_calls.append(pmcid)
+        return _cloud_hit()
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: _mapped_photo(),
+        enrich_from_pmc_cloud=enrich,
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+    assert cloud_calls == []
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_informed_at is not None
+        assert paper.pmcid is None
+        assert paper.full_text_plain is None
+        assert paper.pmcid_version is None
+        assert paper.is_open_access is None
+        assert paper.open_access_pdf_url is None
+    finally:
+        session.close()
+
+
+def test_cloud_miss_after_efetch_still_fulfills(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = _create(session_factory)
+    payload = _mapped_photo()
+    payload["pmcid"] = "PMC5334499"
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: payload,
+        enrich_from_pmc_cloud=lambda _pmcid: {},
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+    assert result.error_message is None
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_informed_at is not None
+        assert paper.source_inform_error_message is None
+        assert paper.pmcid == "PMC5334499"
+        assert (
+            paper.pmc_article_url
+            == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
+        )
+        assert paper.pmcid_version is None
+        assert paper.is_open_access is None
+        assert paper.full_text_plain is None
+        assert paper.open_access_pdf_url is None
+    finally:
+        session.close()
+
+
+def test_cloud_error_after_efetch_still_fulfills_without_error_message(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = _create(session_factory)
+    payload = _mapped_photo()
+    payload["pmcid"] = "PMC5334499"
+    fetch_calls: list[str] = []
+
+    def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
+        fetch_calls.append("fetch")
+        return payload
+
+    def enrich(_pmcid: str | None) -> dict[str, Any]:
+        raise RuntimeError("Cloud HTTP 500")
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=fetch,
+        enrich_from_pmc_cloud=enrich,
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+    assert result.error_message is None
+    assert fetch_calls == ["fetch"]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_informed_at is not None
+        assert paper.source_inform_error_message is None
+        assert paper.pmcid == "PMC5334499"
+        assert paper.full_text_plain is None
+        assert paper.pmcid_version is None
     finally:
         session.close()
 

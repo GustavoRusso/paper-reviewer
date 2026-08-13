@@ -18,6 +18,7 @@ from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata impor
 )
 
 FetchSourceRecord = Callable[[str, str], dict[str, Any]]
+EnrichFromPmcCloud = Callable[[str | None], dict[str, Any]]
 
 _FETCH_MAX_ATTEMPTS = 3
 _FETCH_RETRY_DELAY_SECONDS = 0.5
@@ -36,6 +37,28 @@ def _default_fetch_source_record(source_id: str, source_uid: str) -> dict[str, A
         source_uid,
         api_key=os.environ.get("NCBI_API_KEY") or None,
     )
+
+
+def _default_enrich_from_pmc_cloud(pmcid: str | None) -> dict[str, Any]:
+    from paper_reviewer.ingest.pubmed.pmc_cloud import fetch_pmc_cloud_enrichment
+
+    return fetch_pmc_cloud_enrichment(pmcid)
+
+
+def _merge_pmc_cloud_enrichment(
+    payload: dict[str, Any],
+    enrich: EnrichFromPmcCloud,
+) -> None:
+    """Merge Cloud fields into payload. Never raise; Cloud miss is silent."""
+    pmcid = payload.get("pmcid")
+    if not pmcid:
+        return
+    try:
+        enrichment = enrich(pmcid)
+    except Exception:
+        return
+    if enrichment:
+        payload.update(enrichment)
 
 
 def apply_source_inform_payload(paper: Paper, payload: dict[str, Any]) -> None:
@@ -104,10 +127,12 @@ def inform_paper_from_source(
     *,
     session_factory: sessionmaker[Session] | None = None,
     fetch_source_record: FetchSourceRecord | None = None,
+    enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
 ) -> InformPaperFromSourceResult:
     """Load one Paper, fetch fuller source record when needed, persist result."""
     factory = session_factory or _default_session_factory()
     fetch = fetch_source_record or _default_fetch_source_record
+    enrich = enrich_from_pmc_cloud or _default_enrich_from_pmc_cloud
     session = factory()
     try:
         paper = get_paper_by_id(session, paper_id)
@@ -132,21 +157,30 @@ def inform_paper_from_source(
             )
 
         last_exc: Exception | None = None
+        payload: dict[str, Any] | None = None
         for attempt in range(1, _FETCH_MAX_ATTEMPTS + 1):
             try:
                 payload = fetch(paper.source_id, paper.source_uid)
-                apply_source_inform_payload(paper, payload)
-                session.commit()
-                return InformPaperFromSourceResult(
-                    paper_id=paper_id,
-                    outcome=InformOutcome.fulfilled,
-                    error_message=None,
-                )
+                break
             except Exception as exc:
                 last_exc = exc
                 session.rollback()
                 if attempt < _FETCH_MAX_ATTEMPTS:
                     time.sleep(_FETCH_RETRY_DELAY_SECONDS)
-        return _mark_failed(session, paper_id, str(last_exc))
+        if payload is None:
+            return _mark_failed(session, paper_id, str(last_exc))
+
+        try:
+            _merge_pmc_cloud_enrichment(payload, enrich)
+            apply_source_inform_payload(paper, payload)
+            session.commit()
+        except Exception as exc:
+            session.rollback()
+            return _mark_failed(session, paper_id, str(exc))
+        return InformPaperFromSourceResult(
+            paper_id=paper_id,
+            outcome=InformOutcome.fulfilled,
+            error_message=None,
+        )
     finally:
         session.close()
