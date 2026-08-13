@@ -53,6 +53,7 @@ def map_efetch_xml(xml_text: str) -> dict[str, Any]:
     published_year = pub_date_parts.get("year")
     pub_date = _full_date(pub_date_parts)
     abstract_text = _join_abstract_parts(abstract.get("parts") or [])
+    pmcid = _map_pmcid(article)
 
     return {
         "source_record": {
@@ -70,6 +71,7 @@ def map_efetch_xml(xml_text: str) -> dict[str, Any]:
         "published_year": published_year,
         "pub_date": pub_date,
         "abstract_text": abstract_text,
+        "pmcid": pmcid,
     }
 
 
@@ -354,3 +356,28 @@ def _map_author_names(article_el: ET.Element) -> list[str]:
         elif last:
             names.append(last)
     return names
+
+
+def _map_pmcid(article: ET.Element) -> str | None:
+    """Return normalized PMCID from PubmedData/ArticleIdList, or None."""
+    for article_id in article.findall("PubmedData/ArticleIdList/ArticleId"):
+        id_type = (
+            article_id.attrib.get("IdType")
+            or article_id.attrib.get("idtype")
+            or ""
+        ).lower()
+        if id_type != "pmc":
+            continue
+        raw = _text(article_id)
+        if not raw:
+            return None
+        return _normalize_pmcid(raw)
+    return None
+
+
+def _normalize_pmcid(value: str) -> str:
+    stripped = value.strip()
+    if stripped.upper().startswith("PMC"):
+        digits = stripped[3:]
+        return f"PMC{digits}"
+    return f"PMC{stripped}"

@@ -114,6 +114,11 @@
         </PubMedPubDate>
       </History>
       <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">100</ArticleId>
+        <ArticleId IdType="doi">10.1234/example.gaucher</ArticleId>
+        <ArticleId IdType="pmc">PMC5334499</ArticleId>
+      </ArticleIdList>
     </PubmedData>
   </PubmedArticle>
 </PubmedArticleSet>
