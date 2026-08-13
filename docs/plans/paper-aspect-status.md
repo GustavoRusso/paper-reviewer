@@ -53,6 +53,19 @@ Commit when you accept the docs.
 
 **Do not in this step:** new flow names, `regenerate_paper`, `PaperBrief`, page 7.
 
+### Step 1 spec grill (approved)
+
+After Step 1 landed. Specs 06/07 stay the **target**. This plan did not rewrite them to name `inform_paper_from_source`. [local-development.md](../local-development.md) matches the running worker and labels.
+
+The human **approved** these gaps as documented (no spec patch in the Step 1 commit). Later steps own the named follow-ups.
+
+1. **Spec 06 vs running entry.** Spec names `inform_source_record` / `inform_full_text` / `fulfill_paper_metadata` and `skipped_already_terminal`. Code still uses `inform_paper_from_source` and `skipped_already_informed` / `skipped_already_failed`. **Unavailable** papers go in `skipped_already_failed` (wrong name). **Step 2** owns the rename and new entrypoints.
+2. **Page 7 link.** Spec 06 wants `st.page_link` to **Generate paper brief** when both aspects are terminal. The page still has a caption only. Correct until **Step 3**. Do not pretend the link exists.
+3. **`pmc_article_url` owner.** Spec 06 says Cloud writes `pmc_article_url`. Code still sets it from PMCID on source-record success, even when Cloud misses. Useful for the UI, but it is **not** what spec 06 says. Approved to **keep the derive rule**; a spec 06 patch can wait until Step 2 (when Cloud is its own flow) or a later docs pass.
+4. **pubmed.md assumes split flows.** It says Cloud is only for `inform_full_text` and “do not treat a Cloud miss as source-record success.” Outcomes now match (two statuses). The **call path** is still one combined job. Leave pubmed.md as target. **Step 2** makes the call path match.
+5. **No backfill in Step 1.** Spec 06 enqueues when source is `succeeded` and full text is `not_started`. This job still skips any source that is not `not_started`. Migrated “informed, no text” rows become full text `unavailable`, so they are not stuck as `not_started`. **Step 2** adds the backfill path.
+6. **`InformOutcome.unavailable`** exists only for the combined job (unsupported source). Spec 06 aspect results do not use that combined outcome. Fine until **Step 2** deletes this type.
+
 ## Step 2 — Split source-record and full-text flows
 
 **Outside edge:** Same page 6. Enqueue `fulfill_paper_metadata` (one run per paper) instead of the combined inform flow.

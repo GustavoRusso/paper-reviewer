@@ -16,30 +16,32 @@ class PaperAspectStatus(str, Enum):
     unavailable = "unavailable"
 
 
-class InformOutcome(str, Enum):
-    """Outcome of one inform_paper_from_source run."""
-
-    skipped_already_informed = "skipped_already_informed"
-    fulfilled = "fulfilled"
-    failed = "failed"
-    unavailable = "unavailable"
-
-
-class InformPaperFromSourceResult(BaseModel):
-    """Result of informing one Paper from its source."""
+class InformSourceRecordResult(BaseModel):
+    """Result of informing the source-record aspect for one Paper."""
 
     paper_id: int
-    outcome: InformOutcome
+    status: PaperAspectStatus
     error_message: str | None = None
-    source_record_status: PaperAspectStatus = PaperAspectStatus.not_started
-    full_text_status: PaperAspectStatus = PaperAspectStatus.not_started
-    source_record_error_message: str | None = None
-    full_text_error_message: str | None = None
+
+
+class InformFullTextResult(BaseModel):
+    """Result of informing the full-text aspect for one Paper."""
+
+    paper_id: int
+    status: PaperAspectStatus
+    error_message: str | None = None
+
+
+class FulfillPaperMetadataResult(BaseModel):
+    """Result of the page-6 orchestrator for one Paper."""
+
+    paper_id: int
+    source_record: InformSourceRecordResult
+    full_text: InformFullTextResult
 
 
 class FulfillPapersMetadataEnqueueResult(BaseModel):
     """Selection outcome after enqueue_fulfill_papers_metadata."""
 
     submitted_paper_ids: list[int] = Field(default_factory=list)
-    skipped_already_informed: list[int] = Field(default_factory=list)
-    skipped_already_failed: list[int] = Field(default_factory=list)
+    skipped_already_terminal: list[int] = Field(default_factory=list)

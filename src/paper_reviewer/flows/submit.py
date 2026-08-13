@@ -6,14 +6,14 @@ import time
 
 from prefect.deployments import run_deployment
 
-from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF
 
 _SUBMIT_MAX_ATTEMPTS = 3
 _SUBMIT_RETRY_DELAY_SECONDS = 0.5
 
 
-def submit_inform_paper_from_source(paper_id: int, doi: str) -> None:
-    """Enqueue ``inform_paper_from_source`` on the served Prefect deployment.
+def submit_fulfill_paper_metadata(paper_id: int, doi: str) -> None:
+    """Enqueue ``fulfill_paper_metadata`` on the served Prefect deployment.
 
     Fire-and-forget (``timeout=0``): progress is read from durable ``Paper``
     columns, not from the Prefect run handle. Run name is the paper DOI for
@@ -23,7 +23,7 @@ def submit_inform_paper_from_source(paper_id: int, doi: str) -> None:
     for attempt in range(1, _SUBMIT_MAX_ATTEMPTS + 1):
         try:
             run_deployment(
-                name=INFORM_DEPLOYMENT_REF,
+                name=FULFILL_DEPLOYMENT_REF,
                 parameters={"paper_id": paper_id, "doi": doi},
                 flow_run_name=doi,
                 timeout=0,

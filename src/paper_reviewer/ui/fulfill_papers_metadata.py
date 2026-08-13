@@ -1,4 +1,4 @@
-"""Fulfill papers metadata Streamlit page (enqueue inform + progress)."""
+"""Fulfill papers metadata Streamlit page (enqueue fulfill + progress)."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF
 from paper_reviewer.models.topic_brief_generation.paper import get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     FulfillPapersMetadataEnqueueResult,
@@ -22,6 +22,7 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
     enqueue_fulfill_papers_metadata,
+    needs_fulfill_paper_metadata,
 )
 from paper_reviewer.ui.navigation import streamlit_page_for
 from paper_reviewer.ui.topic_intake import (
@@ -92,19 +93,15 @@ def prefect_enqueue_error_hint(
     )
 
 
-def _default_submit_inform(paper_id: int, doi: str) -> None:
-    """Submit one inform job (Prefect wiring lands with Compose services)."""
-    from paper_reviewer.flows.submit import submit_inform_paper_from_source
+def _default_submit_fulfill(paper_id: int, doi: str) -> None:
+    """Submit one fulfill orchestrator job (Prefect wiring in Compose)."""
+    from paper_reviewer.flows.submit import submit_fulfill_paper_metadata
 
-    submit_inform_paper_from_source(paper_id, doi)
+    submit_fulfill_paper_metadata(paper_id, doi)
 
 
 def _paper_ids(archiving: PaperArchivingResult) -> list[int]:
     return [paper.id for paper in archiving.papers]
-
-
-def _is_terminal(status: PaperAspectStatus) -> bool:
-    return status is not PaperAspectStatus.not_started
 
 
 def _aspect_error_text(
@@ -132,8 +129,8 @@ def _render_progress(
     paper_ids: list[int],
     enqueue_result: FulfillPapersMetadataEnqueueResult,
 ) -> None:
-    skipped_informed = set(enqueue_result.skipped_already_informed)
-    any_non_terminal = False
+    skipped_terminal = set(enqueue_result.skipped_already_terminal)
+    any_still_needs_work = False
     all_succeeded = True
 
     with session_scope(_session_factory()) as session:
@@ -147,19 +144,19 @@ def _render_progress(
             source_label = aspect_status_label(
                 status=source_status,
                 skipped_already_succeeded=(
-                    paper_id in skipped_informed
+                    paper_id in skipped_terminal
                     and source_status is PaperAspectStatus.succeeded
                 ),
             )
             full_text_label = aspect_status_label(
                 status=full_text_status,
                 skipped_already_succeeded=(
-                    paper_id in skipped_informed
+                    paper_id in skipped_terminal
                     and full_text_status is PaperAspectStatus.succeeded
                 ),
             )
-            if not _is_terminal(source_status) or not _is_terminal(full_text_status):
-                any_non_terminal = True
+            if needs_fulfill_paper_metadata(source_status, full_text_status):
+                any_still_needs_work = True
             if (
                 source_status is not PaperAspectStatus.succeeded
                 or full_text_status is not PaperAspectStatus.succeeded
@@ -202,7 +199,7 @@ def _render_progress(
         if links:
             st.caption(links)
 
-    all_terminal = not any_non_terminal
+    all_terminal = not any_still_needs_work
     if all_terminal:
         if all_succeeded:
             st.success("Fulfill papers metadata finished for this set.")
@@ -258,7 +255,7 @@ def render_fulfill_papers_metadata() -> None:
                 enqueue_result = enqueue_fulfill_papers_metadata(
                     session,
                     paper_ids,
-                    submit_inform=_default_submit_inform,
+                    submit_fulfill=_default_submit_fulfill,
                 )
         except Exception as exc:
             st.error(
@@ -268,7 +265,7 @@ def render_fulfill_papers_metadata() -> None:
             st.caption(
                 prefect_enqueue_error_hint(
                     os.environ.get("PREFECT_API_URL"),
-                    INFORM_DEPLOYMENT_REF,
+                    FULFILL_DEPLOYMENT_REF,
                 )
             )
             st.exception(exc)

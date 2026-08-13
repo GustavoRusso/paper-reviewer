@@ -1,4 +1,4 @@
-"""Apply source-inform payload to a Paper and run inform_paper_from_source."""
+"""Inform source-record and full-text aspects for one Paper."""
 
 from __future__ import annotations
 
@@ -12,8 +12,9 @@ from sqlalchemy.orm import Session, sessionmaker
 from paper_reviewer.db import create_db_engine, create_session_factory
 from paper_reviewer.models.topic_brief_generation.paper import Paper, get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
-    InformOutcome,
-    InformPaperFromSourceResult,
+    FulfillPaperMetadataResult,
+    InformFullTextResult,
+    InformSourceRecordResult,
     PaperAspectStatus,
 )
 
@@ -22,6 +23,11 @@ EnrichFromPmcCloud = Callable[[str | None], dict[str, Any]]
 
 _FETCH_MAX_ATTEMPTS = 3
 _FETCH_RETRY_DELAY_SECONDS = 0.5
+_TERMINAL_STATUSES = {
+    PaperAspectStatus.succeeded,
+    PaperAspectStatus.failed,
+    PaperAspectStatus.unavailable,
+}
 
 
 def _default_session_factory() -> sessionmaker[Session]:
@@ -90,20 +96,35 @@ def _apply_full_text_enrichment(paper: Paper, enrichment: dict[str, Any]) -> Non
         paper.pmc_article_url = enrichment["pmc_article_url"]
 
 
-def _result_from_paper(
-    paper: Paper,
-    outcome: InformOutcome,
-    *,
-    error_message: str | None = None,
-) -> InformPaperFromSourceResult:
-    return InformPaperFromSourceResult(
+def _source_result(paper: Paper) -> InformSourceRecordResult:
+    return InformSourceRecordResult(
         paper_id=paper.id,
-        outcome=outcome,
-        error_message=error_message,
-        source_record_status=paper.source_record_status,
-        full_text_status=paper.full_text_status,
-        source_record_error_message=paper.source_record_error_message,
-        full_text_error_message=paper.full_text_error_message,
+        status=paper.source_record_status,
+        error_message=paper.source_record_error_message,
+    )
+
+
+def _full_text_result(paper: Paper) -> InformFullTextResult:
+    return InformFullTextResult(
+        paper_id=paper.id,
+        status=paper.full_text_status,
+        error_message=paper.full_text_error_message,
+    )
+
+
+def _missing_source_result(paper_id: int) -> InformSourceRecordResult:
+    return InformSourceRecordResult(
+        paper_id=paper_id,
+        status=PaperAspectStatus.failed,
+        error_message=f"Paper id {paper_id} not found",
+    )
+
+
+def _missing_full_text_result(paper_id: int) -> InformFullTextResult:
+    return InformFullTextResult(
+        paper_id=paper_id,
+        status=PaperAspectStatus.failed,
+        error_message=f"Paper id {paper_id} not found",
     )
 
 
@@ -111,24 +132,17 @@ def _mark_source_failed(
     session: Session,
     paper_id: int,
     message: str,
-) -> InformPaperFromSourceResult:
+) -> InformSourceRecordResult:
     paper = get_paper_by_id(session, paper_id)
     if paper is not None:
         paper.source_record_status = PaperAspectStatus.failed
         paper.source_record_error_message = message
         session.commit()
-        return _result_from_paper(
-            paper,
-            InformOutcome.failed,
-            error_message=message,
-        )
-    return InformPaperFromSourceResult(
+        return _source_result(paper)
+    return InformSourceRecordResult(
         paper_id=paper_id,
-        outcome=InformOutcome.failed,
+        status=PaperAspectStatus.failed,
         error_message=message,
-        source_record_status=PaperAspectStatus.failed,
-        full_text_status=PaperAspectStatus.not_started,
-        source_record_error_message=message,
     )
 
 
@@ -167,37 +181,28 @@ def _enrich_with_retries(
     raise last_exc
 
 
-def inform_paper_from_source(
+def inform_source_record(
     paper_id: int,
     *,
     session_factory: sessionmaker[Session] | None = None,
     fetch_source_record: FetchSourceRecord | None = None,
-    enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
-) -> InformPaperFromSourceResult:
-    """Load one Paper, fetch fuller source record when needed, persist result."""
+) -> InformSourceRecordResult:
+    """Load one Paper and fill the source-record aspect when it is not_started."""
     factory = session_factory or _default_session_factory()
     fetch = fetch_source_record or _default_fetch_source_record
-    enrich = enrich_from_pmc_cloud or _default_enrich_from_pmc_cloud
     session = factory()
     try:
         paper = get_paper_by_id(session, paper_id)
         if paper is None:
-            return InformPaperFromSourceResult(
-                paper_id=paper_id,
-                outcome=InformOutcome.failed,
-                error_message=f"Paper id {paper_id} not found",
-                source_record_status=PaperAspectStatus.failed,
-                full_text_status=PaperAspectStatus.not_started,
-                source_record_error_message=f"Paper id {paper_id} not found",
-            )
-        if paper.source_record_status == PaperAspectStatus.succeeded:
-            return _result_from_paper(paper, InformOutcome.skipped_already_informed)
+            return _missing_source_result(paper_id)
+        if paper.source_record_status in _TERMINAL_STATUSES:
+            return _source_result(paper)
 
         if paper.source_id != "pubmed":
             paper.source_record_status = PaperAspectStatus.unavailable
             paper.source_record_error_message = None
             session.commit()
-            return _result_from_paper(paper, InformOutcome.unavailable)
+            return _source_result(paper)
 
         try:
             payload = _fetch_with_retries(
@@ -208,43 +213,90 @@ def inform_paper_from_source(
 
         paper = get_paper_by_id(session, paper_id)
         if paper is None:
-            return InformPaperFromSourceResult(
-                paper_id=paper_id,
-                outcome=InformOutcome.failed,
-                error_message=f"Paper id {paper_id} not found",
-                source_record_status=PaperAspectStatus.failed,
-                full_text_status=PaperAspectStatus.not_started,
-            )
+            return _missing_source_result(paper_id)
 
         try:
             apply_source_inform_payload(paper, payload)
             paper.source_record_status = PaperAspectStatus.succeeded
             paper.source_record_error_message = None
-
-            pmcid = payload.get("pmcid")
-            if not pmcid:
-                paper.full_text_status = PaperAspectStatus.unavailable
-                paper.full_text_error_message = None
-            else:
-                try:
-                    enrichment = _enrich_with_retries(enrich, str(pmcid))
-                except Exception as exc:
-                    paper.full_text_status = PaperAspectStatus.failed
-                    paper.full_text_error_message = str(exc)
-                else:
-                    if enrichment.get("full_text_plain"):
-                        _apply_full_text_enrichment(paper, enrichment)
-                        paper.full_text_status = PaperAspectStatus.succeeded
-                        paper.full_text_error_message = None
-                    else:
-                        paper.full_text_status = PaperAspectStatus.unavailable
-                        paper.full_text_error_message = None
             session.commit()
         except Exception as exc:
             session.rollback()
             return _mark_source_failed(session, paper_id, str(exc))
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        return _result_from_paper(paper, InformOutcome.fulfilled)
+        return _source_result(paper)
     finally:
         session.close()
+
+
+def inform_full_text(
+    paper_id: int,
+    *,
+    session_factory: sessionmaker[Session] | None = None,
+    enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
+) -> InformFullTextResult:
+    """Load one Paper and fill the full-text aspect when it is not_started."""
+    factory = session_factory or _default_session_factory()
+    enrich = enrich_from_pmc_cloud or _default_enrich_from_pmc_cloud
+    session = factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        if paper is None:
+            return _missing_full_text_result(paper_id)
+        if paper.full_text_status in _TERMINAL_STATUSES:
+            return _full_text_result(paper)
+        if paper.source_record_status is not PaperAspectStatus.succeeded:
+            return _full_text_result(paper)
+
+        pmcid = paper.pmcid
+        if not pmcid:
+            paper.full_text_status = PaperAspectStatus.unavailable
+            paper.full_text_error_message = None
+            session.commit()
+            return _full_text_result(paper)
+
+        try:
+            enrichment = _enrich_with_retries(enrich, str(pmcid))
+        except Exception as exc:
+            paper.full_text_status = PaperAspectStatus.failed
+            paper.full_text_error_message = str(exc)
+            session.commit()
+            return _full_text_result(paper)
+
+        if enrichment.get("full_text_plain"):
+            _apply_full_text_enrichment(paper, enrichment)
+            paper.full_text_status = PaperAspectStatus.succeeded
+            paper.full_text_error_message = None
+        else:
+            paper.full_text_status = PaperAspectStatus.unavailable
+            paper.full_text_error_message = None
+        session.commit()
+        return _full_text_result(paper)
+    finally:
+        session.close()
+
+
+def fulfill_paper_metadata(
+    paper_id: int,
+    *,
+    session_factory: sessionmaker[Session] | None = None,
+    fetch_source_record: FetchSourceRecord | None = None,
+    enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
+) -> FulfillPaperMetadataResult:
+    """Run source record then full text with default skip rules."""
+    source = inform_source_record(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=fetch_source_record,
+    )
+    full_text = inform_full_text(
+        paper_id,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=enrich_from_pmc_cloud,
+    )
+    return FulfillPaperMetadataResult(
+        paper_id=paper_id,
+        source_record=source,
+        full_text=full_text,
+    )

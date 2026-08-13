@@ -2,11 +2,19 @@
 
 from __future__ import annotations
 
-from paper_reviewer.flows.inform_paper_from_source import inform_paper_from_source
-
-INFORM_DEPLOYMENT_NAME = "default"
-INFORM_DEPLOYMENT_REF = f"inform_paper_from_source/{INFORM_DEPLOYMENT_NAME}"
+FULFILL_DEPLOYMENT_NAME = "default"
+FULFILL_DEPLOYMENT_REF = f"fulfill_paper_metadata/{FULFILL_DEPLOYMENT_NAME}"
 
 
 if __name__ == "__main__":
-    inform_paper_from_source.serve(name=INFORM_DEPLOYMENT_NAME)
+    from prefect import serve
+
+    from paper_reviewer.flows.fulfill_paper_metadata import fulfill_paper_metadata
+    from paper_reviewer.flows.inform_full_text import inform_full_text
+    from paper_reviewer.flows.inform_source_record import inform_source_record
+
+    serve(
+        fulfill_paper_metadata.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
+        inform_source_record.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
+        inform_full_text.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
+    )

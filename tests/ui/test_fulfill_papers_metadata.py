@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from uuid import uuid4
 
-from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
@@ -153,17 +153,18 @@ def test_fulfill_enqueue_result_key_constant() -> None:
 
 
 def test_prefect_enqueue_error_hint_unset_url() -> None:
-    hint = prefect_enqueue_error_hint(None, INFORM_DEPLOYMENT_REF)
+    hint = prefect_enqueue_error_hint(None, FULFILL_DEPLOYMENT_REF)
 
     assert "PREFECT_API_URL=(unset)" in hint
-    assert INFORM_DEPLOYMENT_REF in hint
+    assert FULFILL_DEPLOYMENT_REF in hint
+    assert FULFILL_DEPLOYMENT_REF == "fulfill_paper_metadata/default"
     assert "prefect-server" not in hint
 
 
 def test_prefect_enqueue_error_hint_uses_configured_url() -> None:
     url = "http://custom-prefect:9999/api"
-    hint = prefect_enqueue_error_hint(url, INFORM_DEPLOYMENT_REF)
+    hint = prefect_enqueue_error_hint(url, FULFILL_DEPLOYMENT_REF)
 
     assert f"PREFECT_API_URL={url}" in hint
-    assert INFORM_DEPLOYMENT_REF in hint
+    assert FULFILL_DEPLOYMENT_REF in hint
     assert "prefect-server" not in hint

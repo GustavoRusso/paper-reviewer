@@ -42,7 +42,7 @@ Compose defines:
 - **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `migrate` succeeds).
 - **`prefect-server`** — Prefect API/UI on host port **`PREFECT_PORT`** (default **4200**; Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `PREFECT_UI_API_URL`.
-- **`prefect-worker`** — Serves `inform_paper_from_source/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, and optional `NCBI_API_KEY` from `.env`. The Streamlit UI submits inform runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper status.
+- **`prefect-worker`** — Serves `fulfill_paper_metadata/default` plus leaf deployments `inform_source_record/default` and `inform_full_text/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, and optional `NCBI_API_KEY` from `.env`. The Streamlit UI submits `fulfill_paper_metadata` runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper status.
 
 ### Schema migrations (Alembic)
 
@@ -63,9 +63,9 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve deployment `inform_paper_from_source/default`. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
+After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `fulfill_paper_metadata/default` (and the leaf `inform_source_record/default` and `inform_full_text/default` deployments). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
 
-Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue succeeds, then watch the **source record** and **full text** labels move to Succeeded, Unavailable, or Failed while `just logs prefect-worker` shows inform runs. Progress truth is Postgres (`source_record_status` / `full_text_status`), not the Prefect UI.
+Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue of `fulfill_paper_metadata` succeeds, then watch the **source record** and **full text** labels move to Succeeded, Unavailable, or Failed while `just logs prefect-worker` shows fulfill runs. Revisit a paper with source **Succeeded** and full text **Fulfilling**: only Cloud runs. When both aspects are terminal, a later visit does not enqueue a new run. Unsupported `source_id`: source record **Unavailable**; full text stays **not_started**. Progress truth is Postgres (`source_record_status` / `full_text_status`), not the Prefect UI.
 
 ## Agent shells
 
