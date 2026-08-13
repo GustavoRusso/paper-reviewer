@@ -62,6 +62,21 @@ def inform_status_label(
     return "Fulfilling from source"
 
 
+def enrichment_links_caption(
+    pmc_article_url: str | None,
+    open_access_pdf_url: str | None,
+) -> str | None:
+    """Build optional markdown for PMC / PDF links on the progress row."""
+    parts: list[str] = []
+    if pmc_article_url:
+        parts.append(f"[PMC article]({pmc_article_url})")
+    if open_access_pdf_url:
+        parts.append(f"[Open access PDF]({open_access_pdf_url})")
+    if not parts:
+        return None
+    return " · ".join(parts)
+
+
 def prefect_enqueue_error_hint(
     prefect_api_url: str | None,
     deployment_ref: str,
@@ -131,6 +146,8 @@ def _render_progress(
                     "doi": paper.doi,
                     "label": label,
                     "error": error_message,
+                    "pmc_article_url": paper.pmc_article_url,
+                    "open_access_pdf_url": paper.open_access_pdf_url,
                 }
             )
 
@@ -143,6 +160,12 @@ def _render_progress(
         st.markdown(f"**[{row['title']}]({row['url']})**")
         error_part = f" — {row['error']}" if row["error"] else ""
         st.caption(f"DOI `{row['doi']}` · {row['label']}{error_part}")
+        links = enrichment_links_caption(
+            row["pmc_article_url"],
+            row["open_access_pdf_url"],
+        )
+        if links:
+            st.caption(links)
 
     all_terminal = not any_non_terminal
     if all_terminal:

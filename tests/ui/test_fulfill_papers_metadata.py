@@ -10,6 +10,7 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
 )
 from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
 from paper_reviewer.ui.fulfill_papers_metadata import (
+    enrichment_links_caption,
     fulfill_prerequisites_met,
     inform_status_label,
     prefect_enqueue_error_hint,
@@ -85,6 +86,47 @@ def test_inform_status_label_fulfilling() -> None:
             skipped_already_informed=False,
         )
         == "Fulfilling from source"
+    )
+
+
+def test_enrichment_links_caption_empty_when_no_urls() -> None:
+    assert enrichment_links_caption(None, None) is None
+    assert enrichment_links_caption("", "") is None
+
+
+def test_enrichment_links_caption_pmc_only() -> None:
+    caption = enrichment_links_caption(
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
+        None,
+    )
+
+    assert caption == (
+        "[PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/)"
+    )
+
+
+def test_enrichment_links_caption_pdf_only() -> None:
+    caption = enrichment_links_caption(
+        None,
+        "https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf",
+    )
+
+    assert caption == (
+        "[Open access PDF]"
+        "(https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf)"
+    )
+
+
+def test_enrichment_links_caption_both() -> None:
+    caption = enrichment_links_caption(
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
+        "https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf",
+    )
+
+    assert caption == (
+        "[PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/) · "
+        "[Open access PDF]"
+        "(https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf)"
     )
 
 
