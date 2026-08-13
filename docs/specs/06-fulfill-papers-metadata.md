@@ -2,25 +2,34 @@
 
 This document is the specification for **step 6** of the Topic brief generation workflow in [README.md](../../README.md).
 
-In this step, the system fully informs each archived **`Paper`** from its paper source (for PubMed: EFetch). An idempotent Prefect job owns that work. A dedicated Streamlit page shows progress.
+In this step, the system fills two **global** aspects of each archived **`Paper`**: the **source record** (fuller publication details from the paper source) and **full text** (article body when a full-text source can supply it). Each aspect has its own Prefect flow and its own stored status. A page-6 orchestrator runs those two flows in order. A dedicated Streamlit page shows progress.
 
-**Next step:** [Generate paper brief](07-generate-paper-brief.md) creates **paper brief** results from source-informed papers. Do not draft briefs in this step.
+**Next step:** [Generate paper brief](07-generate-paper-brief.md) creates a global **paper brief** only when full text is `succeeded`. Do not draft briefs in this step.
+
+This document owns `PaperAspectStatus` and the two `Paper` status columns. Brief status lives on `PaperBrief` ([Generate paper brief](07-generate-paper-brief.md)) and reuses the same enum.
 
 ## Glossary
 
 | Term | Meaning |
 | --- | --- |
 | **`Paper`** | Durable bibliographic record. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. Created or reused in [Paper archiving](05-paper-archiving.md). |
-| **Source-informed** | Durable state on a `Paper`: the row holds the fuller source record for that paper. Marker: `source_informed_at` (non-null). Global to the `Paper`, not per generation. |
-| **`inform_paper_from_source`** | Prefect job that fetches the fuller source record and writes it onto `Paper`, optionally enriches with PMC Cloud full text when available, then sets `source_informed_at`. |
-| **Fulfill papers metadata** | Workflow **step** (this document) that enqueues and tracks inform jobs for archived papers that are not yet source-informed. |
-| **PMC Cloud enrichment** | Optional soft step after EFetch for PubMed: resolve PMCID, fetch the highest PMC Cloud article version (Open Access Subset **or** Author Manuscript), store `full_text_plain` and clickable URLs. Missing Cloud assets do **not** fail inform. |
+| **`PaperAspectStatus`** | Shared enum: `not_started` \| `succeeded` \| `failed` \| `unavailable`. Stored; not derived from payload columns. No `in_progress` member. |
+| **Source record** | Fuller publication details from the paper source (for PubMed: EFetch). Includes `source_record` JSONB, typed promotes, and bibliographic refresh. Abstract may be empty. Marker: `source_record_status`. |
+| **Full text** | Article body text stored as `full_text_plain` (for PubMed: PMC Cloud). Marker: `full_text_status`. |
+| **`inform_source_record`** | Prefect flow that fills the source-record aspect for one paper. |
+| **`inform_full_text`** | Prefect flow that fills the full-text aspect for one paper. |
+| **`fulfill_paper_metadata`** | Page-6 orchestrator: runs source record then full text for one paper, with **default skip rules** (does not unfreeze). |
+| **`regenerate_paper`** | Full orchestrator (on demand, not a v1 page): may unfreeze `succeeded` and retry `failed` / `unavailable`, then rewrite the paper brief. See [Full regenerate orchestrator](#full-regenerate-orchestrator). |
+| **Fulfill papers metadata** | Workflow **step** (this document) that enqueues `fulfill_paper_metadata` for archived papers and shows progress. |
+| **PMC Cloud enrichment** | PubMed full-text path after a succeeded source record: resolve PMCID, fetch the highest PMC Cloud article version (Open Access Subset **or** Author Manuscript), store `full_text_plain` and clickable URLs. |
 
 ## Topic brief generation
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 6 (**Fulfill papers metadata**) for that run.
 
-Paper archiving (create/reuse `Paper` without EFetch) is owned by [Paper archiving](05-paper-archiving.md). PubMed EFetch request parameters, PMCID extraction, and PMC Cloud full-text enrichment for this step are summarized here and detailed for PubMed in [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Paper archiving (create/reuse `Paper` without EFetch) is owned by [Paper archiving](05-paper-archiving.md). PubMed EFetch request parameters, PMCID extraction, and PMC Cloud full-text details are summarized here and detailed for PubMed in [paper-sources/pubmed.md](paper-sources/pubmed.md).
+
+`Paper` and `PaperBrief` are **global**. They do not belong to a generation. A later generation that archives the same paper reuses source record, full text, and brief as they stand.
 
 For the application runtime stack (including Prefect as a Compose service), see [technology-stack.md](../technology-stack.md) and [local-development.md](../local-development.md). This specification is the orchestration contract; inform work runs in Prefect, not in Streamlit.
 
@@ -28,28 +37,28 @@ For the application runtime stack (including Prefect as a Compose service), see 
 
 ### In scope (current v1)
 
-- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation.
-- For each paper that is **not** yet source-informed (`source_informed_at` is null) and not already failed to fulfill metadata: enqueue `inform_paper_from_source`.
-- Extend `Paper` with `source_record` (JSONB full mapped photo), typed promote columns (`pub_date`, `abstract_text`, bibliographic refresh), `source_informed_at`, and `source_inform_error_message`.
-- After successful EFetch for PubMed: optional **PMC Cloud enrichment** — resolve PMCID from EFetch, take the **highest** Cloud article version, store `full_text_plain` (Cloud `.txt` flatten of JATS) when present for Open Access Subset **or** Author Manuscript, set `is_open_access`, `pmcid`, `pmcid_version`, `pmc_article_url`, and `open_access_pdf_url` when a Cloud PDF URL exists.
-- On inform failure (EFetch / unsupported source / DB), set durable `source_inform_error_message` (failed to fulfill metadata; cleared only on later success — none in v1 auto-retry). PMC Cloud miss or error uses **silent nulls** on enrichment columns and does **not** fail inform.
-- Run the inform job as an **idempotent** Prefect flow/task by default (no-op success when already source-informed; no OA/AM backfill for already-informed papers in v1).
-- Dedicated Streamlit page that enqueues inform work and shows progress (polls DB columns only).
+- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation’s UI set.
+- Store `PaperAspectStatus` on `Paper` as `source_record_status` and `full_text_status` (default `not_started`).
+- For each paper, enqueue `fulfill_paper_metadata` (source record then full text) using **default skip rules**.
+- On source-record success: write `source_record` (JSONB), typed promote columns (`pub_date`, `abstract_text`, bibliographic refresh), and `pmcid` when the source supplies it.
+- On full-text success (PubMed): store `full_text_plain` from Cloud `.txt`, plus `pmcid_version`, `is_open_access`, `pmc_article_url`, and `open_access_pdf_url` when present.
+- Set `failed` or `unavailable` per aspect (tables below). Optional per-aspect error message when `failed`.
+- Dedicated Streamlit page that enqueues the page-6 orchestrator and shows progress for **both** aspects (polls DB enum columns only).
 
 ### Out of scope (v1)
 
 - [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
-- Creating **paper briefs** (`PaperBrief`) or running `create_paper_brief` — owned by [Generate paper brief](07-generate-paper-brief.md).
+- Creating **paper briefs** (`PaperBrief`) or running `create_paper_brief` from this page — owned by [Generate paper brief](07-generate-paper-brief.md). Page 7 enqueues the brief flow only.
+- A v1 UI page for `regenerate_paper` (flow exists for on-demand / ops use).
 - Topic brief drafting (step 8).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
-- Storing EFetch `ArticleIdList` / `OtherID` beyond PMCID (for Cloud enrichment) + existing DOI + `(source_id, source_uid)` handle; CommentsCorrections, bibliography/references, or deferred “Other” XML elements (see below).
+- Storing EFetch `ArticleIdList` / `OtherID` beyond PMCID (for Cloud) + existing DOI + `(source_id, source_uid)` handle; CommentsCorrections, bibliography/references, or deferred “Other” XML elements (see below).
 - Updating bibliographic identity fields that archiving already set (`doi`, `source_id`, `source_uid`, `url`) during inform, except where this spec says to refresh allowed bibliographic columns from the fuller record.
 - Storing PDF bytes, JATS XML, media, or supplementary files.
-- Unpaywall / publisher scrape outside PMC Cloud.
-- Backfill or force re-inform of papers that already have `source_informed_at` (none in v1).
-- Non-idempotent “force refresh” of EFetch (none in v1).
-- Auto-retry of papers that already failed fulfill metadata (none in v1; durable failed state is terminal until a future force-refresh).
-- Prefect Compose service topology details beyond “Prefect runs inform jobs” — owned by [local-development.md](../local-development.md) / [technology-stack.md](../technology-stack.md) when the service is added.
+- Unpaywall / publisher scrape outside PMC Cloud (later: fold extra full-text sources into `inform_full_text`).
+- Auto-retry of `failed` or `unavailable` on page 6 (none; only `regenerate_paper` may retry those).
+- Overwrite of `succeeded` on page 6 (frozen; only `regenerate_paper` may unfreeze).
+- Prefect Compose service topology details beyond “Prefect runs inform jobs” — owned by [local-development.md](../local-development.md) / [technology-stack.md](../technology-stack.md).
 
 ## Position in the workflow
 
@@ -57,163 +66,206 @@ For the application runtime stack (including Prefect as a Compose service), see 
 flowchart TB
   archive[5 Paper archiving]
   ui[UI Fulfill papers metadata page]
-  inform[inform_paper_from_source]
+  orch[fulfill_paper_metadata]
+  srcRec[inform_source_record]
+  fullTxt[inform_full_text]
   briefStep[7 Generate paper brief]
   topic[8 Topic brief]
   archive --> ui
-  ui --> inform
-  inform --> briefStep
+  ui --> orch
+  orch --> srcRec
+  srcRec --> fullTxt
+  fullTxt --> briefStep
   briefStep --> topic
 ```
 
 1. **Paper archiving** yields `PaperArchivingResult.papers` (create or reuse).
-2. **Fulfill papers metadata** (this specification) ensures each archived paper is source-informed via `inform_paper_from_source`.
-3. **Generate paper brief** drafts `PaperBrief` rows from source-informed papers — see [Generate paper brief](07-generate-paper-brief.md).
-4. **Topic brief** consumes ready `PaperBrief` rows.
+2. **Fulfill papers metadata** (this specification) runs `fulfill_paper_metadata` so each paper gets a terminal `source_record_status` and then a terminal `full_text_status` (unless skipped).
+3. **Generate paper brief** drafts a global `PaperBrief` only when `full_text_status` is `succeeded` — see [Generate paper brief](07-generate-paper-brief.md).
+4. **Topic brief** consumes succeeded `PaperBrief` rows and cites papers in prose.
 
-## Selection rules
+## `PaperAspectStatus`
+
+One enum for every paper aspect (source record, full text, and later `PaperBrief.status`).
+
+| Member | Meaning for jobs |
+| --- | --- |
+| `not_started` | No completed attempt. Run this aspect. While a flow runs, leave this value until the flow writes a terminal member. |
+| `succeeded` | Required data for this aspect is stored. Default path: skip (frozen). |
+| `failed` | Attempted; error that may be transient. Default path: skip (no auto-retry). |
+| `unavailable` | This aspect cannot be obtained from the current source data (for example no PMCID, no Cloud `.txt`, unsupported `source_id` for source record). Default path: skip (do not auto-retry). |
+
+Orchestration reads **only** these enums. Payload columns (`source_record`, `abstract_text`, `full_text_plain`, …) are data, not status.
+
+### Default skip rules (page 6 and page 7)
+
+| Current status | Action |
+| --- | --- |
+| `not_started` | Run the aspect. |
+| `succeeded` | Skip. Do not overwrite. |
+| `failed` | Skip. Do not auto-retry. |
+| `unavailable` | Skip. Do not auto-retry. |
+
+**Only** [`regenerate_paper`](#full-regenerate-orchestrator) may unfreeze `succeeded` and retry `failed` / `unavailable`.
+
+## Selection rules (page 6)
 
 | Input | Role |
 | --- | --- |
-| `paper_archiving_result.papers` | Candidate set for this generation’s inform work (session / UI). |
+| `paper_archiving_result.papers` | Candidate set for this generation’s fulfill work (session / UI). |
 
-For each `Paper` in that set (first-seen order):
+For each `Paper` in that set (first-seen order), enqueue **one** `fulfill_paper_metadata` run when **any** aspect still needs work under default skip rules:
 
 | Condition | Action |
 | --- | --- |
-| `source_informed_at` is set | Skip inform (idempotent). Show as done on the UI. |
-| `source_informed_at` is null, durable fulfill-metadata failure set | **Do not enqueue** (no auto-retry in v1). Paper stays marked failed to fulfill metadata. UI shows Failed. |
-| `source_informed_at` is null, no durable fulfill-metadata failure | Enqueue `inform_paper_from_source`. |
+| `source_record_status` is `not_started`, or (`source_record_status` is `succeeded` and `full_text_status` is `not_started`) | Submit `fulfill_paper_metadata`. The orchestrator skips aspects that are already terminal. |
+| Both aspects are `succeeded`, `failed`, or `unavailable` | Do not enqueue. UI shows the stored statuses. |
+| Empty `papers` | No jobs; UI shows an empty success caption. |
 
-Empty `papers` → no jobs; UI shows an empty success caption.
+The orchestrator, not Streamlit, sequences source record before full text. Do not submit `inform_full_text` from the UI while source record is still `not_started`.
 
 ## Public API and Prefect entrypoints
 
-Domain package (when implemented): `paper_reviewer.topic_brief_generation.fulfill_papers_metadata` — see [project-structure.md](../project-structure.md).
+Domain package: `paper_reviewer.topic_brief_generation.fulfill_papers_metadata` — see [project-structure.md](../project-structure.md).
 
 Prefect flows (names are the contract): `paper_reviewer.flows`
 
 ```text
-inform_paper_from_source(paper_id, doi) -> InformPaperFromSourceResult
+inform_source_record(paper_id, doi) -> InformSourceRecordResult
+inform_full_text(paper_id, doi) -> InformFullTextResult
+fulfill_paper_metadata(paper_id, doi) -> FulfillPaperMetadataResult
 enqueue_fulfill_papers_metadata(paper_ids) -> FulfillPapersMetadataEnqueueResult
+regenerate_paper(paper_id, doi) -> RegeneratePaperResult
 ```
+
+DOI on flow parameters is for UI/search and the submit-time run name; durable work keys off `paper_id`.
 
 | Entrypoint | Role |
 | --- | --- |
-| `inform_paper_from_source` | Load `Paper` by id; if already source-informed, return no-op success. Else fetch fuller source record **for that one paper** (PubMed: one PMID per call via dlt EFetch resource), write `source_record`, promote typed columns, refresh bibliographic fields when present, optionally run PMC Cloud enrichment (silent nulls on miss), set `source_informed_at`, clear any fulfill-metadata failure, commit (flow owns persistence for the job). Prefect parameters are `paper_id` and `doi` (DOI is for UI/search and the submit-time flow run name; durable work keys off `paper_id`). |
-| `enqueue_fulfill_papers_metadata` | UI/orchestrator helper: apply selection rules and submit Prefect runs for the paper id list (`submit_inform(paper_id, doi)`). Idempotent with respect to already-informed papers. Does not re-enqueue papers already marked failed to fulfill metadata. |
+| `inform_source_record` | Load `Paper` by id. Apply default skip unless the caller is `regenerate_paper`. Else fetch the fuller source record **for that one paper** (PubMed: one PMID per call via dlt EFetch resource), write payload columns, set `source_record_status`, commit (flow owns persistence). |
+| `inform_full_text` | Require `source_record_status = succeeded` (else do not call Cloud; see job table). Apply default skip unless the caller is `regenerate_paper`. Else fetch full text (PubMed: PMC Cloud), write enrichment columns, set `full_text_status`. |
+| `fulfill_paper_metadata` | Page-6 orchestrator: run `inform_source_record` then `inform_full_text` with **default skip rules**. One Prefect run per paper. |
+| `enqueue_fulfill_papers_metadata` | UI helper: apply [selection rules](#selection-rules-page-6) and submit `fulfill_paper_metadata` for those paper ids. Does not unfreeze. Does not enqueue brief jobs. |
+| `regenerate_paper` | Full orchestrator. See [Full regenerate orchestrator](#full-regenerate-orchestrator). |
 
 | Rule | Behavior |
 | --- | --- |
-| Idempotent by default | Same inputs after success do not re-fetch. No force-refresh flag in v1. |
-| One paper per inform call | v1 submits one Prefect run per paper; PubMed EFetch uses a single PMID (no batch id lists). |
+| Independent aspect flows | Each aspect has its own flow. Orchestrators call them in sequence. |
+| One paper per run | v1 submits one orchestrator run per paper. |
 | Fail-soft per paper | One paper failure must not cancel other papers’ runs. |
-| In-run extract retries | On source-extract failure inside one inform run, retry up to 3 attempts with 0.5s delay between attempts; only then mark durable failed. Does not re-enqueue already-failed papers. |
-| Raise | Raise only for unusable infrastructure (DB down, Prefect submit impossible). Per-paper source errors become durable **failed to fulfill metadata** on that `Paper`. |
+| In-run extract retries | Inside one aspect flow, retry that extract up to 3 attempts with 0.5s delay; only then set `failed`. This is not re-enqueue of already-`failed` papers. |
+| Raise | Raise only for unusable infrastructure (DB down, Prefect submit impossible). Per-paper source errors become `failed` on that aspect. |
 
-Pydantic types live under `paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata` (when implemented).
+Pydantic types live under `paper_reviewer.schemas.topic_brief_generation`.
 
-### How the two result types relate
+### How the result types relate
 
 ```mermaid
 sequenceDiagram
   participant UI as FulfillUI
   participant Enq as enqueue_fulfill_papers_metadata
   participant Pref as Prefect
-  participant Inf as inform_paper_from_source
+  participant Orch as fulfill_paper_metadata
+  participant Src as inform_source_record
+  participant Ft as inform_full_text
   participant DB as PaperRow
 
   UI->>Enq: paper_ids from archiving result
   Enq->>Enq: selection rules
-  Enq->>Pref: submit one run per submitted id (run name = DOI)
+  Enq->>Pref: submit one fulfill_paper_metadata per submitted id
   Enq-->>UI: FulfillPapersMetadataEnqueueResult
-  Note over UI: Cache enqueue result in session; do not EFetch here
+  Note over UI: Cache enqueue result; do not EFetch here
   loop each submitted paper
-    Pref->>Inf: paper_id, doi
-    Inf->>DB: read / write Paper
-    Inf-->>Pref: InformPaperFromSourceResult
+    Pref->>Orch: paper_id, doi
+    Orch->>Src: default skip
+    Src->>DB: read / write source_record_status
+    Orch->>Ft: default skip
+    Ft->>DB: read / write full_text_status
   end
-  UI->>DB: poll columns for progress table
+  UI->>DB: poll enum columns for progress table
 ```
 
 | Type | Who returns it | When | What the caller does with it |
 | --- | --- | --- | --- |
-| `FulfillPapersMetadataEnqueueResult` | `enqueue_fulfill_papers_metadata` | Once per page auto-enqueue (or re-enqueue after cache clear) | UI stores it in `fulfill_papers_metadata_enqueue_result` so it does not submit duplicate Prefect runs on every Streamlit rerun. It is **not** progress truth. |
-| `InformPaperFromSourceResult` | `inform_paper_from_source` | Once per Prefect run (one paper) | Flow/tests assert outcome; durable state is already on `Paper`. UI does **not** need this object for the progress table. |
+| `FulfillPapersMetadataEnqueueResult` | `enqueue_fulfill_papers_metadata` | Once per page auto-enqueue | UI stores it so it does not submit duplicate Prefect runs on every Streamlit rerun. It is **not** progress truth. |
+| `FulfillPaperMetadataResult` / aspect results | Orchestrator / leaf flows | Once per Prefect run | Flow/tests assert outcome; durable state is already on `Paper`. UI polls enums. |
 
-Example after enqueue of papers `[10, 11, 12]` where 11 was already informed and 12 already failed:
+Example after enqueue of papers `[10, 11, 12]` where 11 already has both aspects terminal and 12 has source record `succeeded` but full text `not_started`:
 
 ```text
 FulfillPapersMetadataEnqueueResult(
-  submitted_paper_ids=[10],
-  skipped_already_informed=[11],
-  skipped_already_failed=[12],
+  submitted_paper_ids=[10, 12],
+  skipped_already_terminal=[11],
 )
 ```
 
-Later, when Prefect finishes paper 10 successfully, the DB row has `source_informed_at` set; the UI poll shows Fulfilled for 10 without reading `InformPaperFromSourceResult`.
-
-Example inform outcomes:
-
-```text
-InformPaperFromSourceResult(paper_id=11, outcome="skipped_already_informed", error_message=None)
-InformPaperFromSourceResult(paper_id=10, outcome="fulfilled", error_message=None)
-InformPaperFromSourceResult(paper_id=99, outcome="failed", error_message="HTTP 429 from NCBI EFetch")
-```
+Paper 12’s orchestrator skips source record (`succeeded`) and runs `inform_full_text` only.
 
 ### Result type fields (v1)
 
 ```text
-InformPaperFromSourceResult
+InformSourceRecordResult
   paper_id: int
-  outcome: skipped_already_informed | fulfilled | failed
+  status: PaperAspectStatus
   error_message: str | None
+
+InformFullTextResult
+  paper_id: int
+  status: PaperAspectStatus
+  error_message: str | None
+
+FulfillPaperMetadataResult
+  paper_id: int
+  source_record: InformSourceRecordResult
+  full_text: InformFullTextResult
 
 FulfillPapersMetadataEnqueueResult
   submitted_paper_ids: list[int]
-  skipped_already_informed: list[int]
-  skipped_already_failed: list[int]
+  skipped_already_terminal: list[int]
 ```
 
 Do not store Prefect run ids on these types for UI progress.
 
-## Durable `Paper` extensions (source-informed)
+## Durable `Paper` extensions
 
-Archiving fields remain as in [Paper archiving](05-paper-archiving.md). This step **adds** durable columns populated only by `inform_paper_from_source`.
+Archiving fields remain as in [Paper archiving](05-paper-archiving.md). This step **adds** status columns and payload columns populated only by the inform flows.
 
-### Marker and fulfill-metadata failure
-
-Failed state uses **no separate status enum**. Derive UI/state from columns:
-
-| Signal | Meaning |
-| --- | --- |
-| `source_informed_at` set | Fulfilled (source-informed) |
-| `source_informed_at` null, `source_inform_error_message` set | **Failed to fulfill metadata** |
-| both null | Not yet informed (may be queued / in progress after enqueue) |
+### Status and error columns
 
 | Field | Required | Description |
 | --- | --- | --- |
-| `source_informed_at` | No until informed | Timezone-aware timestamp when inform succeeded. Null = not yet source-informed. |
-| `source_inform_error_message` | No | Human-readable detail when inform fails (e.g. HTTP/parse error). Non-null marks **failed to fulfill metadata**. Cleared when inform succeeds. |
+| `source_record_status` | Yes | `PaperAspectStatus`. Default `not_started`. |
+| `source_record_error_message` | No | Set when source record is `failed`. Cleared on `succeeded`. Null for `unavailable` / `not_started`. |
+| `full_text_status` | Yes | `PaperAspectStatus`. Default `not_started`. |
+| `full_text_error_message` | No | Set when full text is `failed`. Cleared on `succeeded`. Null for `unavailable` / `not_started`. |
 
-Once `source_informed_at` is set, later `inform_paper_from_source` calls are no-op success and must **not** overwrite fields in v1.
+Do **not** use `source_informed_at` or `source_inform_error_message` (replaced by the enums).
 
-A paper with `source_informed_at` null and `source_inform_error_message` set is **failed to fulfill metadata**. That state is terminal in v1 (no auto-retry, no force-refresh).
+### Source-record success contract
+
+`source_record_status = succeeded` means the source extract finished with **no error**. Store the full mapped record. If abstract text was present, store it; if not, leave `abstract_text` empty. Empty abstract is still `succeeded`. MeSH, dates, and `source_record` JSON are part of that payload.
+
+Empty abstract does **not** block full text. Full text is gated by a full-text handle (PubMed: **PMCID**), not by `abstract_text`.
+
+### Full-text success contract
+
+`full_text_status = succeeded` means `full_text_plain` is stored. Author manuscript with `is_open_access=false` and body text is still `succeeded`.
 
 ### Storage layout (locked)
 
 | Storage | Role |
 | --- | --- |
-| **`source_record` (JSONB)** | Full mapped EFetch “photo” of the paper (all logical groups below as one object). |
-| **Typed columns** | Promote values from that map into real schema columns for query and briefs. |
-| **PMC Cloud enrichment columns** | Optional plain text + clickable URLs + OA provenance (see [PMC Cloud enrichment](#pmc-cloud-enrichment)); never PDF/XML bytes. |
+| **`source_record` (JSONB)** | Full mapped source “photo” of the paper (all logical groups below as one object). Written by `inform_source_record`. |
+| **Typed columns** | Promote values from that map into real schema columns for query. |
+| **PMC Cloud enrichment columns** | Optional plain text + clickable URLs + OA provenance; never PDF/XML bytes. Written by `inform_full_text`. |
 
-On first successful inform:
+On first successful source record (default path; `not_started` → `succeeded`):
 
 1. Write the full mapped object into `source_record` (shape in [Illustrative mapped `source_record`](#illustrative-mapped-source_record)).
 2. Refresh existing bibliographic columns when values are present on the fuller record: `title`, `authors`, `journal`, `published_year`.
 3. Set typed promote columns when they can be parsed (see table). If a value is absent or not safely parseable, leave that typed column null / unchanged as noted.
-4. For PubMed: attempt [PMC Cloud enrichment](#pmc-cloud-enrichment). Soft miss/fail leaves enrichment columns null; still set `source_informed_at` after EFetch success.
+4. Set `pmcid` when the source supplies it (PubMed EFetch). Do **not** call PMC Cloud here.
+5. Set `source_record_status = succeeded`. Clear `source_record_error_message`.
 
 Do **not** change `doi`, `source_id`, `source_uid`, or `url` in v1 inform.
 
@@ -224,34 +276,35 @@ Do **not** change `doi`, `source_id`, `source_uid`, or `url` in v1 inform.
 | `journal` | Text (existing) | Journal title / MedlineTA fallback per mapper | Overwrite when present. |
 | `published_year` | int (existing) | `dates.pub_date.year` (or article year) | Overwrite when present. |
 | `pub_date` | `date` (new, nullable) | `dates.pub_date` year+month+day | Set only when year, month, and day are all present; otherwise leave null (year-only stays in `published_year`). |
-| `abstract_text` | Text (new, nullable) | `abstract.parts` | Concatenate part texts in order (preserve labels in the JSONB only; flat abstract for readers that need abstract-only text). Overwrite when any abstract part text is present. |
+| `abstract_text` | Text (new, nullable) | `abstract.parts` | Concatenate part texts in order (preserve labels in the JSONB only). Overwrite when any abstract part text is present. |
+| `pmcid` | Text, nullable | PubMed article ids `pmc` | Set by source record when present; used by `inform_full_text`. |
 
-[Generate paper brief](07-generate-paper-brief.md) prefers `full_text_plain` when present, else `abstract_text` + bibliographic columns. Full EFetch metadata remains on `Paper` in `source_record` for other tasks.
+[Generate paper brief](07-generate-paper-brief.md) requires `full_text_status = succeeded` and grounds the brief on `full_text_plain` only. Full source metadata remains on `Paper` in `source_record` for other tasks.
 
 ### PMC Cloud enrichment
 
-After a successful EFetch for PubMed, the inform job may enrich the same `Paper` from the [PMC Cloud Service on AWS](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/) (updated Cloud layout only; do not depend on legacy FTP / OA Web Service). Details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
+After `source_record_status = succeeded` for PubMed, `inform_full_text` may enrich the same `Paper` from the [PMC Cloud Service on AWS](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/) (updated Cloud layout only; do not depend on legacy FTP / OA Web Service). Details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
 | Rule | Behavior |
 | --- | --- |
-| Eligibility | PMCID present on the EFetch record **and** Cloud has an article version for that PMCID (Open Access Subset **or** Author Manuscript). |
+| Eligibility | PMCID present on the paper **and** Cloud has an article version for that PMCID (Open Access Subset **or** Author Manuscript) **and** Cloud exposes body `.txt`. |
 | Version | Always the **highest** numeric version for that PMCID. |
-| Soft fail | No PMCID, no Cloud object, missing `text_url` / `pdf_url`, or any Cloud HTTP/parse error → leave enrichment columns **null**; do **not** set `source_inform_error_message`; still mark source-informed after EFetch. |
+| No PMCID | Set `full_text_status = unavailable`. Do not call Cloud. |
+| PMCID but no Cloud `.txt` | Set `full_text_status = unavailable`. Leave `full_text_plain` null. |
+| Cloud HTTP/parse error | Set `full_text_status = failed` and `full_text_error_message`. Leave `full_text_plain` null. |
 | License | Store whatever Cloud returns; operators own compliance. |
 | Bytes | Never store PDF, JATS XML, media, or supplements. |
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `pmcid` | Text, nullable | e.g. `PMC5334499` (for re-fetch). |
+| `pmcid` | Text, nullable | e.g. `PMC5334499` (set at source-record time; used for re-fetch). |
 | `pmcid_version` | int, nullable | Highest Cloud version used for this enrichment. |
 | `is_open_access` | bool, nullable | From Cloud `is_pmc_openaccess` when enrichment ran; null if no Cloud hit. Author manuscripts may have `is_open_access=false` and still receive `full_text_plain`. |
-| `full_text_plain` | Text, nullable | Body of Cloud `.txt` (plain text extracted from JATS XML). |
+| `full_text_plain` | Text, nullable | Body of Cloud `.txt` (plain text extracted from JATS XML). Required for `full_text_status = succeeded`. |
 | `open_access_pdf_url` | Text, nullable | Browser-usable **HTTPS** URL of the Cloud PDF object when metadata exposes `pdf_url`. |
-| `pmc_article_url` | Text, nullable | Canonical PMC landing page, e.g. `https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/`, set whenever `pmcid` is resolved (primary clickable “open the paper” link even when there is no PDF). |
+| `pmc_article_url` | Text, nullable | Canonical PMC landing page, e.g. `https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/`, set whenever Cloud enrichment runs with a PMCID (primary clickable “open the paper” link even when there is no PDF). |
 
 Do **not** replace `Paper.url` (PubMed). DOI remains on `Paper.doi` for optional `https://doi.org/...` links in the UI later.
-
-**Fulfilled** means `source_informed_at` is set. It does **not** require `full_text_plain` or any Cloud URL.
 
 ### Logical groups inside `source_record`
 
@@ -364,27 +417,53 @@ For that example, typed promotes would include `pub_date = 2024-03-15`, `publish
 | `PersonalNameSubjectList` | People who are the *subject* of the paper (e.g. Darwin, Hume) |
 | `SpaceFlightMission` | Legacy NASA mission tags (e.g. `Project Gemini 11`); NLM stopped adding these in 2005 |
 
-PubMed call shape for inform: see [paper-sources/pubmed.md](paper-sources/pubmed.md) (EFetch and PMC Cloud sections). EFetch extract is implemented as a **dlt resource** under `paper_reviewer.ingest.pubmed` (custom resource yielding mapped rows from EFetch XML; not the search ESearch/ESummary path). PMC Cloud enrichment is a separate ingest helper in the same package. The Prefect job calls those helpers; it does not parse XML or call Cloud inside Streamlit.
+PubMed call shape: see [paper-sources/pubmed.md](paper-sources/pubmed.md) (EFetch and PMC Cloud sections). EFetch extract is a **dlt resource** under `paper_reviewer.ingest.pubmed`. PMC Cloud enrichment is a separate ingest helper in the same package. Prefect jobs call those helpers; they do not parse XML or call Cloud inside Streamlit.
 
 ## Prefect job behavior
 
-### `inform_paper_from_source`
+### `inform_source_record`
 
 | Case | Expected |
 | --- | --- |
-| `source_informed_at` already set | No-op success; do not call EFetch or Cloud; do not change fields (no OA/AM backfill in v1). |
-| Not informed, PubMed `source_id` | EFetch XML for **that paper’s single PMID**; write `source_record`; promote typed columns; refresh bibliographic fields when present; attempt PMC Cloud enrichment (highest version; silent nulls on miss); set `source_informed_at`; clear `source_inform_error_message`. |
-| Not informed, unsupported `source_id` | Mark **failed to fulfill metadata** (`source_inform_error_message`); do not set `source_informed_at`. |
-| EFetch / parse / DB error | **In-run extract retries:** retry the source extract up to **3 attempts** with a **0.5s** delay between failures. Do not write `source_inform_error_message` until all attempts fail. After the last failure, mark **failed to fulfill metadata**; leave `source_informed_at` null; set `source_inform_error_message`. This is distinct from re-enqueue of already-failed papers (none in v1). |
-| PMC Cloud miss / error after EFetch success | Leave enrichment columns null; still set `source_informed_at`; do **not** set `source_inform_error_message` for Cloud-only problems. |
+| Default path, `source_record_status` is `succeeded`, `failed`, or `unavailable` | No-op; return current status; do not call EFetch; do not change fields. |
+| `not_started`, PubMed `source_id` | EFetch XML for **that paper’s single PMID**; write `source_record`; promote typed columns; refresh bibliographic fields when present; set `pmcid` when present; set `source_record_status = succeeded`; clear error message. |
+| `not_started`, unsupported `source_id` | Set `source_record_status = unavailable`. Do not set `failed`. |
+| EFetch / parse / DB error | In-run extract retries (3 × 0.5s). After exhaustion: `source_record_status = failed`; set `source_record_error_message`; do not write a partial success. |
+
+### `inform_full_text`
+
+| Case | Expected |
+| --- | --- |
+| Default path, `full_text_status` is `succeeded`, `failed`, or `unavailable` | No-op; return current status; do not call Cloud. |
+| `source_record_status` is not `succeeded` | Do not call Cloud. Leave `full_text_status` unchanged (`not_started` if never attempted). |
+| `not_started`, source record `succeeded`, no PMCID | `full_text_status = unavailable`. Do not call Cloud. |
+| `not_started`, PMCID present, Cloud highest version has `.txt` | Store `full_text_plain` and enrichment columns; `full_text_status = succeeded`; clear error message. Author manuscript with `is_open_access=false` is still `succeeded`. |
+| `not_started`, PMCID present, no Cloud object or no `.txt` | `full_text_status = unavailable`. Leave `full_text_plain` null. |
+| Cloud HTTP / parse error | In-run retries (3 × 0.5s). After exhaustion: `full_text_status = failed`; set `full_text_error_message`. |
+
+### `fulfill_paper_metadata`
+
+Run `inform_source_record` then `inform_full_text` with default skip rules. If source record does not end as `succeeded`, skip full text (full text stays `not_started` unless already terminal).
 
 ### Idempotency policy
 
-The Prefect job in this step is **idempotent by default**. Any future non-idempotent override (force re-fetch) must be an explicit, documented exception. v1 has none.
+Leaf flows and `fulfill_paper_metadata` are **idempotent by default** (skip rules above). The documented exception is `regenerate_paper`.
+
+## Full regenerate orchestrator
+
+`regenerate_paper` is the **only** path that may unfreeze `succeeded` and retry `failed` / `unavailable`.
+
+Not a v1 Streamlit page. Invoke on demand (ops / later UI).
+
+Order:
+
+1. `inform_source_record` with force (re-fetch; overwrite payload; set status from the new attempt).
+2. `inform_full_text` with force (re-try Cloud even after previous `unavailable` / `failed` / `succeeded`).
+3. If `full_text_status = succeeded`, call `create_paper_brief` with force rewrite — contract: [Generate paper brief](07-generate-paper-brief.md). If full text is not `succeeded`, do not draft or rewrite a brief.
 
 ## Streamlit UI (v1)
 
-Dedicated page module (when implemented): `paper_reviewer.ui.fulfill_papers_metadata` with `render_fulfill_papers_metadata()`.
+Dedicated page module: `paper_reviewer.ui.fulfill_papers_metadata` with `render_fulfill_papers_metadata()`.
 
 Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 
@@ -394,13 +473,13 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `title` | Fulfill papers metadata |
 | `url_path` | `fulfill-papers-metadata` |
 
-Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues and polls **durable `Paper` DB columns only** for progress (no Prefect run ids required for the UI contract).
+Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues `fulfill_paper_metadata` and polls **durable `Paper` enum columns** for progress (no Prefect run ids required for the UI contract).
 
 ### Session keys
 
 | Key | Type | Role |
 | --- | --- |
-| `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list** only; always reload each `Paper` from the DB for progress fields. |
+| `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list** only; always reload each `Paper` from the DB for status and display fields. |
 | `topic_brief_generation_public_id` | `uuid.UUID` | Required generation reference for display / navigation. |
 | `fulfill_papers_metadata_enqueue_result` | `FulfillPapersMetadataEnqueueResult` | Optional cache that enqueue was submitted for this session (not progress truth). |
 
@@ -414,70 +493,80 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
 
-This cascade applies to **session / UI workflow state**. It does **not** delete durable global `Paper` rows in Postgres (create-or-reuse and `source_informed_at` remain global to the paper). Per-generation artifacts (e.g. `PaperBrief` for a generation) follow their own step specs when those steps re-run.
+This cascade applies to **session / UI workflow state**. It does **not** delete durable global `Paper` or `PaperBrief` rows.
 
-**Progress reads:** For each archived paper id, load current `source_informed_at` / `source_inform_error_message` / typed fields from Postgres. Do not trust stale bibliographic snapshots in `paper_archiving_result.papers` after inform may have run.
+**Progress reads:** For each archived paper id, load current `source_record_status`, `full_text_status`, error messages, and typed fields from Postgres. Do not trust stale bibliographic snapshots in `paper_archiving_result.papers`.
 
 ### Page behavior
 
 1. If `paper_archiving_result` or `topic_brief_generation_public_id` is missing → empty state; links to **Paper archiving** and **New Topic brief**.
 2. If `papers` is empty → caption that there are no archived papers; do not enqueue.
 3. On first visit with prerequisites and no enqueue cache → call `enqueue_fulfill_papers_metadata` for the archived paper ids; store enqueue result in session.
-4. While any paper is not terminal (source-informed or failed to fulfill metadata), refresh/poll durable `Paper` columns (auto-refresh or explicit refresh control is an implementation detail; progress must be visible). Do not use Prefect API state as progress truth.
-5. Primary surface: **progress table/list** — title (link via `url`; when enrichment set `pmc_article_url` / `open_access_pdf_url`, those may be shown as extra links), DOI, inform state, short error when failed.
-6. When all papers are source-informed (or the set is empty), show success summary and link to **Generate paper brief**. Papers failed to fulfill metadata remain visible as Failed; do not block the whole page from linking onward only because some failed (step 7 will skip non-informed papers).
+4. While any paper has `source_record_status` or `full_text_status` equal to `not_started` after enqueue, refresh/poll durable columns. Do not use Prefect API state as progress truth.
+5. Primary surface: **progress table/list** — title (link via `url`; when enrichment set `pmc_article_url` / `open_access_pdf_url`, those may be shown as extra links), DOI, **source-record status**, **full-text status**, short error when an aspect is `failed`.
+6. When every paper has both aspects terminal (`succeeded` / `failed` / `unavailable`), show a summary and link to **Generate paper brief**. Papers with full text `failed` or `unavailable` remain visible; do not block the whole page from linking onward (step 7 will enqueue only papers with full text `succeeded`).
 
-Do **not** run EFetch inside Streamlit callbacks.
+Do **not** run EFetch or Cloud inside Streamlit callbacks. Do **not** expose `regenerate_paper` as a v1 control on this page.
 
 ### Progress display labels
 
+Map each aspect independently:
+
 | Durable signal | Display |
 | --- | --- |
-| Enqueued / in progress, `source_informed_at` null, no error | Fulfilling from source |
-| `source_informed_at` set | Fulfilled |
-| `source_inform_error_message` set, `source_informed_at` null | Failed |
-| Already informed before enqueue | Skipped (already done) |
+| `not_started` after enqueue | Fulfilling |
+| `succeeded` | Succeeded |
+| `failed` | Failed |
+| `unavailable` | Unavailable |
+| Already `succeeded` before this enqueue (skipped) | Skipped (already done) |
 
 ## Workflow navigation
 
 - **Entry:** After Paper archiving shows a result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session.
 - **Sidebar order:** … → Paper archiving → Fulfill papers metadata → Generate paper brief → (Topic brief when present).
 - **Input:** Consume `PaperArchivingResult.papers` only (not raw triage candidates).
-- **Exit:** When inform work is done for the set, link to [Generate paper brief](07-generate-paper-brief.md).
+- **Exit:** When both aspects are terminal for the set, link to [Generate paper brief](07-generate-paper-brief.md).
 
 ## Orchestration boundary
 
 | Responsibility | Owner |
 | --- | --- |
 | Create/reuse bibliographic `Paper` | [Paper archiving](05-paper-archiving.md) |
-| EFetch params + PubMed XML mapping + PMC Cloud enrichment details | [paper-sources/pubmed.md](paper-sources/pubmed.md) (owned for PubMed); this spec owns which groups and enrichment columns land on `Paper` |
-| Domain enqueue + status helpers | `paper_reviewer.topic_brief_generation.fulfill_papers_metadata` |
-| Prefect flows/tasks | `paper_reviewer.flows` (`inform_paper_from_source`) |
-| ORM `Paper` extensions (`source_informed_at`, `source_record`, typed promotes, inform error, PMC enrichment columns) | `paper_reviewer.models` |
+| `PaperAspectStatus` enum; `source_record_status` / `full_text_status`; page-6 orchestrator; `regenerate_paper` steps 1–2 | This document |
+| EFetch params + PubMed XML mapping + PMC Cloud HTTP details | [paper-sources/pubmed.md](paper-sources/pubmed.md) (owned for PubMed); this spec owns which groups and enrichment columns land on `Paper` and which status they set |
+| Domain enqueue + aspect inform helpers | `paper_reviewer.topic_brief_generation.fulfill_papers_metadata` |
+| Prefect flows | `paper_reviewer.flows` (`inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `regenerate_paper`) |
+| ORM `Paper` extensions (enums, `source_record`, typed promotes, PMC enrichment columns) | `paper_reviewer.models` |
 | Pydantic contracts | `paper_reviewer.schemas.topic_brief_generation` |
 | Progress UI | `paper_reviewer.ui.fulfill_papers_metadata` |
-| Paper brief drafting | [Generate paper brief](07-generate-paper-brief.md) |
+| Paper brief drafting / `regenerate_paper` step 3 | [Generate paper brief](07-generate-paper-brief.md) |
 | Topic brief drafting | Later step (not this document) |
 
-This document is the **behavior contract** for domain logic, the inform Prefect job, and the Streamlit progress page. Implementation follows [tdd.md](../tdd.md).
+This document is the **behavior contract** for domain logic, the inform Prefect jobs, and the Streamlit progress page. Implementation follows [tdd.md](../tdd.md).
 
 ## Testability
 
-When implementation starts (TDD per [tdd.md](../tdd.md)):
+TDD per [tdd.md](../tdd.md):
 
-**`inform_paper_from_source`:**
+**`inform_source_record`:**
 
-- Already informed → no EFetch / Cloud; fields unchanged; success.
-- Not informed → `source_record` set; typed promotes set when parseable; `source_informed_at` set; inform error cleared.
-- PubMed with PMCID + Cloud highest version + `.txt` → `full_text_plain`, `pmcid`, `pmcid_version`, `is_open_access`, `pmc_article_url` set; `open_access_pdf_url` set when Cloud exposes PDF.
-- Author manuscript on Cloud with `is_pmc_openaccess=false` but `.txt` present → still store `full_text_plain`; `is_open_access=false`.
-- No PMCID / no Cloud / Cloud error after EFetch success → enrichment columns null; `source_informed_at` still set; no `source_inform_error_message` for Cloud-only problems.
-- Unsupported source → `source_informed_at` remains null; paper marked failed to fulfill metadata (`source_inform_error_message` set); later enqueue skips that paper.
-- Fetch / parse error → retry extract up to 3 attempts with 0.5s delay; after exhaustion, same durable failed state; later enqueue skips that paper.
+- Default skip when status is `succeeded` / `failed` / `unavailable`.
+- `not_started` → `source_record` set; typed promotes set when parseable; `succeeded`; error cleared; empty abstract still `succeeded`.
+- Unsupported source → `unavailable`.
+- Fetch / parse error → retry extract up to 3 attempts with 0.5s delay; then `failed`.
 
-**Enqueue / selection:**
+**`inform_full_text`:**
 
-- Already-informed papers skipped.
+- Default skip when status is terminal.
+- No PMCID → `unavailable`; no Cloud call.
+- PMCID + Cloud highest version + `.txt` → `succeeded`; `full_text_plain` and URLs as specified; author manuscript `is_open_access=false` still `succeeded`.
+- PMCID but no `.txt` → `unavailable`.
+- Cloud HTTP error after retries → `failed`.
+
+**`fulfill_paper_metadata` / enqueue:**
+
+- Source already `succeeded`, full text `not_started` → skip source, run full text.
+- Both terminal → not submitted.
 - Empty paper list → empty enqueue result.
 
 **UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
@@ -489,17 +578,21 @@ When implementation starts (TDD per [tdd.md](../tdd.md)):
 
 Do not do this work in the Fulfill papers metadata v1 slice:
 
-- Create or draft `PaperBrief` rows ([Generate paper brief](07-generate-paper-brief.md)).
+- Create or draft `PaperBrief` rows from page 6 ([Generate paper brief](07-generate-paper-brief.md)).
+- A Streamlit control for `regenerate_paper`.
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Store deferred EFetch ID lists (beyond PMCID), CommentsCorrections, references, or “Other” elements listed above.
 - Store PDF bytes, JATS XML, media, or supplementary files.
-- Unpaywall / non-PMC publisher scrape.
-- Backfill PMC enrichment for papers that already have `source_informed_at`.
-- Force re-inform or auto-retry after failed to fulfill metadata.
+- Unpaywall / non-PMC publisher scrape (later: same `full_text_status` group).
+- Auto-retry `failed` / `unavailable` or unfreeze `succeeded` on page 6.
 - Run EFetch or PMC Cloud calls inside Streamlit.
 - Draft the Topic brief (step 8).
 - Store Prefect run ids for UI progress (DB columns only).
 
 ## Future work
 
-**Rich authors (separate job after brief creation):** Register authors as full entities (structured names, affiliations, ORCID when present) and link related papers. Keep flat `authors: list[str]` on `Paper` until that spec exists. That job is an additional stage after [Generate paper brief](07-generate-paper-brief.md), not part of v1 `inform_paper_from_source`.
+**Rich authors (separate job after brief creation):** Register authors as full entities (structured names, affiliations, ORCID when present) and link related papers. Keep flat `authors: list[str]` on `Paper` until that spec exists. That job is an additional **aspect** (new enum + flow) after [Generate paper brief](07-generate-paper-brief.md), not part of v1 `inform_source_record`.
+
+**Later groups:** Add a new `PaperAspectStatus` column and flow, **or** fold a new provider into an existing group (for example another full-text source inside `inform_full_text`). Do not invent a second status style.
+
+**Force UI:** A later page or button may call `regenerate_paper`; v1 has the flow only.

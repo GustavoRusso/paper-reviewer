@@ -4,7 +4,7 @@ Workflow step 3 from [README.md](../../README.md): search registered **paper sou
 
 Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
 
-Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect runs source-inform / brief jobs in Compose — not this search step). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.topic_brief_generation.related_paper_search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
+Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect runs source-record / full-text / brief jobs in Compose — not this search step). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.topic_brief_generation.related_paper_search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
 
 ## Scope
 
@@ -13,7 +13,7 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pyda
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | Accept `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (or a test fixture) | Generating facets in Topic analysis (see that spec)          |
 | Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | Implementing ingest/flows/UI code in this doc                               |
-| Run extract via **dlt** for each registered paper source                           | [Fulfill papers metadata](06-fulfill-papers-metadata.md) (EFetch / source-inform) or [Generate paper brief](07-generate-paper-brief.md) (creates **paper brief** results) |
+| Run extract via **dlt** for each registered paper source                           | [Fulfill papers metadata](06-fulfill-papers-metadata.md) (EFetch / PMC Cloud) or [Generate paper brief](07-generate-paper-brief.md) (creates **paper brief** results) |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Adding new paper sources beyond registering them here                       |
 | Fail-soft when one source errors                                                   | Loading candidates into Postgres as `Paper` rows ([Paper archiving](05-paper-archiving.md) owns that) |
 
@@ -119,7 +119,7 @@ Per [technology-stack.md](../technology-stack.md):
 - Each paper source is a **dlt source/resource** under `paper_reviewer.ingest` (e.g. PubMed).
 - Resources **yield** `PaperCandidate`-shaped records (Pydantic models in `paper_reviewer.schemas`). This step does **not** load candidates into Postgres.
 - `paper_reviewer.topic_brief_generation.related_paper_search` accepts a `TopicAnalysisResult`, converts internally to `SearchCriteria` when needed, runs registered sources, and **merges** results into one global list (see merge rules below).
-- Prefect may later schedule these extracts; orchestration ownership stays in this workflow. Prefect Compose services today own source-inform / brief jobs ([06-fulfill-papers-metadata.md](06-fulfill-papers-metadata.md)), not related-paper search.
+- Prefect may later schedule these extracts; orchestration ownership stays in this workflow. Prefect Compose services today own source-record / full-text / brief jobs ([06-fulfill-papers-metadata.md](06-fulfill-papers-metadata.md)), not related-paper search.
 - The contract to [Retrieval triage](04-retrieval-triage.md) is the global `PaperCandidate` list (plus `source_runs` metadata). Triage v1 does not add filters; it retains every candidate after user confirm. Paper archiving consumes triage’s `retained` list.
 
 ```mermaid

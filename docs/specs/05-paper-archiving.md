@@ -16,7 +16,7 @@ In this step, the system maps each **paper candidate** to a reusable **`Paper`**
 
 A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 5 (Paper archiving) for that run.
 
-Paper brief construction is out of scope here — see [Generate paper brief](07-generate-paper-brief.md). PubMed EFetch / source-inform is owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of Generate paper brief, not of Paper archiving.
+Paper brief construction is out of scope here — see [Generate paper brief](07-generate-paper-brief.md). PubMed EFetch / PMC Cloud are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of Generate paper brief, not of Paper archiving.
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -65,8 +65,8 @@ flowchart TB
 1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
 2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [Retrieval triage](04-retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
 3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
-4. **Fulfill papers metadata** loads fuller source records (for PubMed: EFetch) onto archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
-5. **Generate paper brief** builds **paper briefs** (result artifacts) for source-informed papers — see [Generate paper brief](07-generate-paper-brief.md).
+4. **Fulfill papers metadata** fills source record then full text on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+5. **Generate paper brief** builds a global **paper brief** for papers with full text `succeeded` — see [Generate paper brief](07-generate-paper-brief.md).
 6. **Topic brief** uses those briefs.
 
 ## Public API
@@ -163,7 +163,7 @@ For each candidate (after domain checks), with an in-run map keyed by `(source_i
 
 ### Generation association
 
-v1 does **not** attach a `Paper` to the current `TopicBriefGeneration`. The step returns resolved papers (and skip/error metadata) only. A join table (or PaperBrief link) may be added in a later revision.
+v1 does **not** attach a `Paper` to the current `TopicBriefGeneration`. The step returns resolved papers (and skip/error metadata) only. A later generation reuses the same `Paper` (and its global `PaperBrief` when present).
 
 ## Output
 
@@ -317,7 +317,7 @@ When all three lists are empty after empty input, show a neutral success caption
 | Drop no-DOI hits before triage; candidate shape and search merge | [related-paper search](03-related-paper-search.md) |
 | User review + confirm; produce `retained` | [Retrieval triage](04-retrieval-triage.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
-| PubMed EFetch / full record (source-inform) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
+| PubMed EFetch / full text (PMC Cloud) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
 | Paper brief drafting | [Generate paper brief](07-generate-paper-brief.md) |
 | Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
 | ORM `Paper` + thin create/get | `paper_reviewer.models` |

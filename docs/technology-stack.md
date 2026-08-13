@@ -24,7 +24,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 | ORM / DB access | SQLAlchemy | Models and application reads/writes |
 | Schema migrations | Alembic | Versioned DDL against SQLAlchemy metadata |
 | Web UI | Streamlit | User-facing research workflows |
-| Job orchestrator | Prefect | Long-running jobs (source-inform and paper briefs when wired). Compose services: [local-development.md](local-development.md); job contracts: [Fulfill papers metadata](specs/06-fulfill-papers-metadata.md), [Generate paper brief](specs/07-generate-paper-brief.md). |
+| Job orchestrator | Prefect | Long-running jobs (source record, full text, paper briefs). Compose services: [local-development.md](local-development.md); job contracts: [Fulfill papers metadata](specs/06-fulfill-papers-metadata.md), [Generate paper brief](specs/07-generate-paper-brief.md). |
 | Tests | pytest | Specs and regression tests for `paper_reviewer` (dev-only; run via `just test` in the sandbox) |
 
 ## Layer sketch
@@ -50,7 +50,7 @@ flowchart TB
   mig --> db
 ```
 
-Today, related-paper search calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.related_paper_search`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-inform (and later brief) jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/03-related-paper-search.md](specs/03-related-paper-search.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md).
+Today, related-paper search calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.related_paper_search`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/03-related-paper-search.md](specs/03-related-paper-search.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md).
 
 ## Boundaries
 
@@ -60,7 +60,7 @@ Today, related-paper search calls dlt sources for extract and merges in `paper_r
 - **SQLAlchemy** — Application reads and writes (Streamlit and Prefect tasks that are not bulk ingest).
 - **Alembic** — Owns relational schema versioning. When dlt loads into Postgres, those tables must already match Alembic; do not let dlt freely evolve production DDL against Alembic.
 - **Foreign keys — no `ON DELETE CASCADE`** — Never use `ON DELETE CASCADE` in Alembic or SQLAlchemy (`ForeignKey(..., ondelete="CASCADE")`, or relationship cascades that delete children when the parent is deleted). Keep the database default (`NO ACTION` / `RESTRICT`) so the database rejects deleting a parent that still has children. When a parent must be removed, delete or reassign child rows explicitly in application code first, then delete the parent. Do not restate this ban in feature specs; follow it for all schema work.
-- **Prefect** — Orchestrator for long-running or multi-step jobs (source-inform first; briefs next). Compose services: [local-development.md](local-development.md). Trigger from the UI via enqueue helpers; keep business steps in flows/tasks, not in Streamlit callbacks. Progress UIs poll durable DB columns, not Prefect run state.
+- **Prefect** — Orchestrator for long-running or multi-step jobs (source record, full text, briefs). Compose services: [local-development.md](local-development.md). Trigger from the UI via enqueue helpers; keep business steps in flows/tasks, not in Streamlit callbacks. Progress UIs poll durable DB columns, not Prefect run state.
 - **Streamlit** — Presentation and user interaction only. Delegate heavy work to domain helpers and Prefect; persist via SQLAlchemy. Control semantics (link vs button, intent colours): [ui-style.md](ui-style.md).
 - **pytest** — Test runner for specs and regressions under `tests/`. Style and Test-First workflow: [tdd.md](tdd.md). How to run: [local-development.md](local-development.md#running-tests).
 
