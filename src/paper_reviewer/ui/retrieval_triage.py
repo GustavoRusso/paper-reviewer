@@ -28,7 +28,7 @@ from paper_reviewer.ui.topic_intake import (
     TRIAGE_RESULT_KEY,
 )
 
-CONFIRM_BUTTON_LABEL = "Continue to paper archiving"
+CONFIRM_BUTTON_LABEL = "Confirm for paper archiving"
 
 
 def triage_prerequisites_met(state: Mapping[str, Any]) -> bool:
@@ -100,7 +100,7 @@ def render_retrieval_triage() -> None:
     if count == 0:
         st.caption(
             "Search returned no retainable papers. "
-            "You can still continue; paper archiving will be a no-op."
+            "You can still confirm; paper archiving will be a no-op."
         )
     else:
         st.caption(f"{count} papers to archive")

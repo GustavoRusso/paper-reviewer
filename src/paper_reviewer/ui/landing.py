@@ -16,7 +16,7 @@ from paper_reviewer.models.topic_brief_generation import (
 )
 from paper_reviewer.ui.navigation import streamlit_page_for
 
-LANDING_CTA_LABEL = "Create a new Topic brief"
+LANDING_CTA_LABEL = "Go to New Topic brief"
 LANDING_CTA_PAGE_KEY = "new_topic_brief"
 EMPTY_GENERATIONS_MESSAGE = "No Topic brief generations yet."
 GENERATIONS_SECTION_TITLE = "Topic brief generations"

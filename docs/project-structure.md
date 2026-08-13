@@ -32,6 +32,7 @@ flowchart TB
     srcPkg["src/paper_reviewer/"]
     alembicDir["alembic/ + alembic.ini"]
     deps["pyproject.toml + uv.lock"]
+    streamlitTheme[".streamlit/config.toml"]
   end
 
   subgraph localOnly [Repo-only / not in prod images]
@@ -47,7 +48,7 @@ flowchart TB
 
 | Category | Paths | Role |
 | --- | --- | --- |
-| **Runtime (deployed)** | `src/paper_reviewer/`, `alembic/`, `alembic.ini`, `pyproject.toml`, `uv.lock` | What production containers need to run the UI, flows, ingest, and migrations |
+| **Runtime (deployed)** | `src/paper_reviewer/`, `alembic/`, `alembic.ini`, `pyproject.toml`, `uv.lock`, `.streamlit/config.toml` | What production containers need to run the UI, flows, ingest, and migrations. Streamlit theme: [ui-style.md](ui-style.md) |
 | **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile` | Image build and local workflows on the host; not application runtime code |
 | **Development-only** | `tests/`, `docs/`, `AGENTS.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, and agent guidance; exclude from production images |
 
@@ -85,6 +86,8 @@ paper-reviewer/
 ├── alembic/
 │   └── versions/
 ├── alembic.ini
+├── .streamlit/
+│   └── config.toml                     # Streamlit theme (cwd; colour tokens in ui-style.md)
 ├── tests/                              # mirrors package layout (not deployed)
 │   ├── topic_brief_generation/
 │   ├── schemas/

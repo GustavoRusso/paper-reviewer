@@ -7,8 +7,15 @@ import uuid
 from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     RelatedPaperSearchResult,
 )
-from paper_reviewer.ui.retrieval_triage import triage_prerequisites_met
+from paper_reviewer.ui.retrieval_triage import (
+    CONFIRM_BUTTON_LABEL,
+    triage_prerequisites_met,
+)
 from paper_reviewer.ui.topic_intake import PUBLIC_ID_KEY, SEARCH_KEY
+
+
+def test_confirm_button_label_names_the_action() -> None:
+    assert CONFIRM_BUTTON_LABEL == "Confirm for paper archiving"
 
 
 def test_prerequisites_met_when_public_id_and_search_present() -> None:

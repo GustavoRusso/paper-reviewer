@@ -70,7 +70,7 @@ def render_topic_intake() -> None:
             height=160,
             placeholder="e.g. GLP-1 agonists in heart failure with preserved ejection fraction",
         )
-        submitted = st.form_submit_button("Submit")
+        submitted = st.form_submit_button("Submit", type="primary")
 
     if submitted:
         try:

@@ -1,0 +1,25 @@
+# Streamlit theme — colour tokens owned by docs/ui-style.md
+# Loaded from process cwd (.streamlit/config.toml). Compose ui working_dir is /workspace.
+
+[theme]
+base = "light"
+
+[theme.light]
+primaryColor = "#1d4ed8"
+linkColor = "#1d4ed8"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f6f8fa"
+textColor = "#1f2328"
+redColor = "#cf222e"
+greenColor = "#1a7f37"
+grayColor = "#656d76"
+
+[theme.dark]
+primaryColor = "#1f6feb"
+linkColor = "#58a6ff"
+backgroundColor = "#0d1117"
+secondaryBackgroundColor = "#161b22"
+textColor = "#e6edf3"
+redColor = "#f85149"
+greenColor = "#3fb950"
+grayColor = "#8b949e"

@@ -18,8 +18,8 @@ def test_empty_generations_message() -> None:
     assert EMPTY_GENERATIONS_MESSAGE == "No Topic brief generations yet."
 
 
-def test_landing_cta_label_unchanged() -> None:
-    assert LANDING_CTA_LABEL == "Create a new Topic brief"
+def test_landing_cta_label_names_destination() -> None:
+    assert LANDING_CTA_LABEL == "Go to New Topic brief"
 
 
 def test_format_generation_created_at_iso_utc() -> None:

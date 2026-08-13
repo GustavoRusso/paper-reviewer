@@ -39,10 +39,10 @@ Same intent → same style everywhere.
 
 | Intent | Meaning | Look (goal) | Streamlit mapping (v1) |
 | --- | --- | --- | --- |
-| **Confirm / primary** | Positive commit: confirm, submit, start the main safe action | Strong filled colour (brand / primary — often blue or green) | `type="primary"` |
+| **Confirm / primary** | Positive commit: confirm, submit, start the main safe action | Strong filled **blue** (`primaryColor`) | `type="primary"` |
 | **Default** | Secondary action that still changes something, or a quiet commit when primary is elsewhere | Standard button fill | `type="secondary"` (Streamlit default) |
 | **Cancel** | Regret / back out: leave without committing | Low emphasis, muted (gray / plain) | `type="tertiary"` |
-| **Danger** | Destructive or hard to undo | Colour that signals risk (red / warning) | No native Streamlit `type`; see below |
+| **Danger** | Destructive or hard to undo | Colour that signals risk (**red**) | No native Streamlit `type`; see below |
 
 ### Danger (destructive)
 
@@ -82,15 +82,36 @@ Illustrative only; step specs remain the behavior contract.
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
 
+## Theme
+
+Colour tokens live in [`.streamlit/config.toml`](../.streamlit/config.toml) (repo root; Streamlit loads `$CWD/.streamlit/config.toml`). Light and Dark are both defined so the user can switch in the app Settings menu. Default mode is Light.
+
+Do **not** copy these values into step specs. Change colours only here and in that TOML file.
+
+| ui-style intent | Streamlit token | Light | Dark |
+| --- | --- | --- | --- |
+| Confirm / primary buttons | `primaryColor` | `#1d4ed8` | `#1f6feb` |
+| Content links (paper titles, PMC, PDF) | `linkColor` | `#1d4ed8` | `#58a6ff` |
+| Page background | `backgroundColor` | `#ffffff` | `#0d1117` |
+| Widget / contrast fill | `secondaryBackgroundColor` | `#f6f8fa` | `#161b22` |
+| Body text | `textColor` | `#1f2328` | `#e6edf3` |
+| Danger / `st.error` | `redColor` | `#cf222e` | `#f85149` |
+| Success / `st.success` | `greenColor` | `#1a7f37` | `#3fb950` |
+| Muted / cancel-adjacent chrome | `grayColor` | `#656d76` | `#8b949e` |
+
+`primaryColor` must stay dark enough for **white** label text on filled primary buttons (Streamlit always uses white there). Do not set `primaryColor` to red — red is reserved for danger and errors.
+
+Tertiary/cancel buttons stay Streamlit `type="tertiary"`. This theme does not add a danger button type.
+
 ## What feature specs may say
 
 Step specs under `docs/specs/` may name the control class (“primary confirm button”, “page link to …”). They must **not** redefine colours or invent a second style system. Link here instead.
 
 ## Out of scope
 
-- Brand palette tokens beyond Streamlit theme defaults (unless a later change adds a theme file and updates this document).
 - Asserting widget chrome in tests ([tdd.md](tdd.md)).
 - Non-Streamlit surfaces.
+- Custom CSS or a shared danger-button helper (still reserved; see [Danger](#danger-destructive)).
 
 ## References (external)
 
@@ -101,3 +122,4 @@ Step specs under `docs/specs/` may name the control class (“primary confirm bu
 | Why link ≠ button | [Nielsen Norman Group — Command links / links vs buttons](https://www.nngroup.com/articles/command-links/) |
 | Accessibility pattern | [WAI ARIA Authoring Practices — Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/) |
 | Streamlit API | [st.button](https://docs.streamlit.io/develop/api-reference/widgets/st.button), [st.page_link](https://docs.streamlit.io/develop/api-reference/widgets/st.page_link), [st.form_submit_button](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form_submit_button) |
+| Streamlit theming | [Theming](https://docs.streamlit.io/develop/concepts/configuration/theming), [Colors and borders](https://docs.streamlit.io/develop/concepts/configuration/theming-customize-colors-and-borders) |
