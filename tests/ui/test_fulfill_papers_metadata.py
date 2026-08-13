@@ -2,17 +2,19 @@
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
 from uuid import uuid4
 
+from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
+)
 from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     PaperArchivingResult,
 )
-from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
 from paper_reviewer.ui.fulfill_papers_metadata import (
+    aspect_status_label,
     enrichment_links_caption,
     fulfill_prerequisites_met,
-    inform_status_label,
     prefect_enqueue_error_hint,
 )
 from paper_reviewer.ui.topic_intake import (
@@ -45,47 +47,63 @@ def test_prerequisites_missing_without_public_id() -> None:
     assert fulfill_prerequisites_met(state) is False
 
 
-def test_inform_status_label_fulfilled() -> None:
+def test_aspect_status_label_succeeded() -> None:
     assert (
-        inform_status_label(
-            source_informed_at=datetime(2026, 8, 12, tzinfo=UTC),
-            source_inform_error_message=None,
-            skipped_already_informed=False,
+        aspect_status_label(
+            status=PaperAspectStatus.succeeded,
+            skipped_already_succeeded=False,
         )
-        == "Fulfilled"
+        == "Succeeded"
     )
 
 
-def test_inform_status_label_skipped_already_done() -> None:
+def test_aspect_status_label_skipped_already_done() -> None:
     assert (
-        inform_status_label(
-            source_informed_at=datetime(2026, 8, 12, tzinfo=UTC),
-            source_inform_error_message=None,
-            skipped_already_informed=True,
+        aspect_status_label(
+            status=PaperAspectStatus.succeeded,
+            skipped_already_succeeded=True,
         )
         == "Skipped (already done)"
     )
 
 
-def test_inform_status_label_failed() -> None:
+def test_aspect_status_label_failed() -> None:
     assert (
-        inform_status_label(
-            source_informed_at=None,
-            source_inform_error_message="HTTP 429",
-            skipped_already_informed=False,
+        aspect_status_label(
+            status=PaperAspectStatus.failed,
+            skipped_already_succeeded=False,
         )
         == "Failed"
     )
 
 
-def test_inform_status_label_fulfilling() -> None:
+def test_aspect_status_label_unavailable() -> None:
     assert (
-        inform_status_label(
-            source_informed_at=None,
-            source_inform_error_message=None,
-            skipped_already_informed=False,
+        aspect_status_label(
+            status=PaperAspectStatus.unavailable,
+            skipped_already_succeeded=False,
         )
-        == "Fulfilling from source"
+        == "Unavailable"
+    )
+
+
+def test_aspect_status_label_unavailable_is_not_skipped() -> None:
+    assert (
+        aspect_status_label(
+            status=PaperAspectStatus.unavailable,
+            skipped_already_succeeded=True,
+        )
+        == "Unavailable"
+    )
+
+
+def test_aspect_status_label_fulfilling() -> None:
+    assert (
+        aspect_status_label(
+            status=PaperAspectStatus.not_started,
+            skipped_already_succeeded=False,
+        )
+        == "Fulfilling"
     )
 
 

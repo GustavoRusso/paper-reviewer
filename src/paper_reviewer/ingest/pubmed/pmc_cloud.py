@@ -44,16 +44,13 @@ def fetch_pmc_cloud_enrichment(
 ) -> dict[str, Any]:
     """Fetch PMC Cloud enrichment fields for one PMCID.
 
-    Returns a dict suitable for merging into an inform payload, or ``{}`` on
-    miss / HTTP / parse error (soft-fail; never raises for Cloud problems).
+    Returns a dict suitable for merging into an inform payload, or ``{}`` when
+    Cloud has no article version / no body text. Raises on HTTP or parse errors.
     """
     get = http_get or requests.get
     if not pmcid or not str(pmcid).strip():
         return {}
-    try:
-        return _fetch_enrichment(normalize_pmcid(str(pmcid)), get)
-    except Exception:
-        return {}
+    return _fetch_enrichment(normalize_pmcid(str(pmcid)), get)
 
 
 def _fetch_enrichment(pmcid: str, get: HttpGet) -> dict[str, Any]:
@@ -62,8 +59,6 @@ def _fetch_enrichment(pmcid: str, get: HttpGet) -> dict[str, Any]:
         return {}
 
     meta = _load_metadata(pmcid, version, get)
-    if meta is None:
-        return {}
 
     result: dict[str, Any] = {
         "pmcid": pmcid,
@@ -85,14 +80,19 @@ def _fetch_enrichment(pmcid: str, get: HttpGet) -> dict[str, Any]:
     return result
 
 
+def _checked_get(get: HttpGet, url: str, **kwargs: Any) -> Any:
+    response = get(url, **kwargs)
+    response.raise_for_status()
+    return response
+
+
 def _highest_version(pmcid: str, get: HttpGet) -> int | None:
-    response = get(
+    response = _checked_get(
+        get,
         PMC_CLOUD_HTTPS_BASE + "/",
         params={"list-type": "2", "prefix": f"{pmcid}.", "delimiter": "/"},
         timeout=60,
     )
-    if response.status_code >= 400:
-        return None
 
     root = ET.fromstring(response.text)
     versions: list[int] = []
@@ -109,21 +109,17 @@ def _highest_version(pmcid: str, get: HttpGet) -> int | None:
     return max(versions)
 
 
-def _load_metadata(pmcid: str, version: int, get: HttpGet) -> dict[str, Any] | None:
+def _load_metadata(pmcid: str, version: int, get: HttpGet) -> dict[str, Any]:
     url = f"{PMC_CLOUD_HTTPS_BASE}/metadata/{pmcid}.{version}.json"
-    response = get(url, timeout=60)
-    if response.status_code >= 400:
-        return None
+    response = _checked_get(get, url, timeout=60)
     data = response.json()
     if not isinstance(data, dict):
-        return None
+        raise ValueError(f"PMC Cloud metadata for {pmcid}.{version} is not an object")
     return data
 
 
 def _download_text(text_url: str, get: HttpGet) -> str | None:
     https_url = s3_url_to_https(text_url)
-    response = get(https_url, timeout=120)
-    if response.status_code >= 400:
-        return None
+    response = _checked_get(get, https_url, timeout=120)
     body = response.text
     return body if body.strip() else None

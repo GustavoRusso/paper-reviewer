@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import json
 
+import pytest
 import responses
+import requests
 
 from paper_reviewer.ingest.pubmed.pmc_cloud import (
     PMC_CLOUD_HTTPS_BASE,
@@ -200,14 +202,15 @@ def test_fetch_no_versions_returns_empty() -> None:
 
 
 @responses.activate
-def test_fetch_list_http_error_returns_empty() -> None:
+def test_fetch_list_http_error_raises() -> None:
     responses.add(responses.GET, _LIST_URL, body="boom", status=500)
 
-    assert fetch_pmc_cloud_enrichment("PMC11370360") == {}
+    with pytest.raises(requests.HTTPError):
+        fetch_pmc_cloud_enrichment("PMC11370360")
 
 
 @responses.activate
-def test_fetch_metadata_http_error_returns_empty() -> None:
+def test_fetch_metadata_http_error_raises() -> None:
     responses.add(
         responses.GET,
         _LIST_URL,
@@ -222,7 +225,8 @@ def test_fetch_metadata_http_error_returns_empty() -> None:
         status=404,
     )
 
-    assert fetch_pmc_cloud_enrichment("PMC11370360") == {}
+    with pytest.raises(requests.HTTPError):
+        fetch_pmc_cloud_enrichment("PMC11370360")
 
 
 def test_fetch_empty_pmcid_returns_empty() -> None:

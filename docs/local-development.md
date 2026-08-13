@@ -65,7 +65,7 @@ Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `j
 
 After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve deployment `inform_paper_from_source/default`. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
 
-Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue succeeds, then watch progress labels move to Fulfilled/Failed while `just logs prefect-worker` shows inform runs. Progress truth is Postgres (`source_informed_at` / `source_inform_error_message`), not the Prefect UI.
+Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue succeeds, then watch the **source record** and **full text** labels move to Succeeded, Unavailable, or Failed while `just logs prefect-worker` shows inform runs. Progress truth is Postgres (`source_record_status` / `full_text_status`), not the Prefect UI.
 
 ## Agent shells
 

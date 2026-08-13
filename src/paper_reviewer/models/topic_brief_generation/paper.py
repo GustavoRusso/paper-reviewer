@@ -9,6 +9,7 @@ from sqlalchemy import (
     Boolean,
     Date,
     DateTime,
+    Enum,
     Integer,
     JSON,
     Text,
@@ -20,6 +21,17 @@ from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, Session, mapped_column
 
 from paper_reviewer.models.base import Base
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
+)
+
+_ASPECT_STATUS = Enum(
+    PaperAspectStatus,
+    name="paper_aspect_status",
+    native_enum=False,
+    length=32,
+    values_callable=lambda cls: [member.value for member in cls],
+)
 
 
 class Paper(Base):
@@ -56,11 +68,23 @@ class Paper(Base):
         JSON().with_variant(JSONB(), "postgresql"),
         nullable=True,
     )
-    source_informed_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True),
+    source_record_status: Mapped[PaperAspectStatus] = mapped_column(
+        _ASPECT_STATUS,
+        nullable=False,
+        default=PaperAspectStatus.not_started,
+        server_default="not_started",
+    )
+    source_record_error_message: Mapped[str | None] = mapped_column(
+        Text,
         nullable=True,
     )
-    source_inform_error_message: Mapped[str | None] = mapped_column(
+    full_text_status: Mapped[PaperAspectStatus] = mapped_column(
+        _ASPECT_STATUS,
+        nullable=False,
+        default=PaperAspectStatus.not_started,
+        server_default="not_started",
+    )
+    full_text_error_message: Mapped[str | None] = mapped_column(
         Text,
         nullable=True,
     )

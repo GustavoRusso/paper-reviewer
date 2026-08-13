@@ -16,6 +16,7 @@ from paper_reviewer.models import Base
 
 # Import mapped modules so their tables are registered on Base.metadata.
 from paper_reviewer.models.topic_brief_generation import generation as _generation  # noqa: F401
+from paper_reviewer.models.topic_brief_generation import paper as _paper  # noqa: F401
 
 config = context.config
 

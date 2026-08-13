@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
-from datetime import UTC, datetime
 
 import pytest
 from sqlalchemy import create_engine
@@ -11,6 +10,9 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.topic_brief_generation import create_paper
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
+)
 from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
     enqueue_fulfill_papers_metadata,
 )
@@ -40,8 +42,8 @@ def _create(
     *,
     uid: str,
     doi: str,
-    informed: bool = False,
-    failed: bool = False,
+    source_record_status: PaperAspectStatus = PaperAspectStatus.not_started,
+    full_text_status: PaperAspectStatus = PaperAspectStatus.not_started,
 ) -> int:
     paper = create_paper(
         session,
@@ -52,10 +54,8 @@ def _create(
         authors=[],
         url=f"https://example.com/{uid}",
     )
-    if informed:
-        paper.source_informed_at = datetime(2026, 8, 1, tzinfo=UTC)
-    if failed:
-        paper.source_inform_error_message = "prior failure"
+    paper.source_record_status = source_record_status
+    paper.full_text_status = full_text_status
     session.flush()
     return paper.id
 
@@ -77,19 +77,36 @@ def test_enqueue_empty_paper_list(session: Session) -> None:
 
 def test_enqueue_skips_informed_and_failed_submits_rest(session: Session) -> None:
     id_pending = _create(session, uid="1", doi="10.1000/A")
-    id_informed = _create(session, uid="2", doi="10.1000/B", informed=True)
-    id_failed = _create(session, uid="3", doi="10.1000/C", failed=True)
+    id_informed = _create(
+        session,
+        uid="2",
+        doi="10.1000/B",
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.unavailable,
+    )
+    id_failed = _create(
+        session,
+        uid="3",
+        doi="10.1000/C",
+        source_record_status=PaperAspectStatus.failed,
+    )
+    id_unavailable = _create(
+        session,
+        uid="4",
+        doi="10.1000/D",
+        source_record_status=PaperAspectStatus.unavailable,
+    )
     submitted: list[tuple[int, str]] = []
 
     result = enqueue_fulfill_papers_metadata(
         session,
-        [id_pending, id_informed, id_failed],
+        [id_pending, id_informed, id_failed, id_unavailable],
         submit_inform=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [id_pending]
     assert result.skipped_already_informed == [id_informed]
-    assert result.skipped_already_failed == [id_failed]
+    assert result.skipped_already_failed == [id_failed, id_unavailable]
     assert submitted == [(id_pending, "10.1000/A")]
 
 

@@ -141,7 +141,7 @@ def test_get_paper_by_id_returns_none_when_missing(session: Session) -> None:
     assert found is None
 
 
-def test_paper_inform_columns_default_null(session: Session) -> None:
+def test_paper_inform_columns_default_not_started(session: Session) -> None:
     paper = create_paper(
         session,
         doi="10.1000/INFORM",
@@ -154,8 +154,10 @@ def test_paper_inform_columns_default_null(session: Session) -> None:
     session.flush()
 
     assert paper.source_record is None
-    assert paper.source_informed_at is None
-    assert paper.source_inform_error_message is None
+    assert paper.source_record_status.value == "not_started"
+    assert paper.full_text_status.value == "not_started"
+    assert paper.source_record_error_message is None
+    assert paper.full_text_error_message is None
     assert paper.pub_date is None
     assert paper.abstract_text is None
     assert paper.pmcid is None

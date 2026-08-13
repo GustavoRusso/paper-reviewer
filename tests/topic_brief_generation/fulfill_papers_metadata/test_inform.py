@@ -1,9 +1,9 @@
-"""inform_paper_from_source: idempotent source-inform for one Paper."""
+"""inform_paper_from_source: writes source-record and full-text statuses."""
 
 from __future__ import annotations
 
 from collections.abc import Iterator
-from datetime import UTC, date, datetime
+from datetime import date
 from typing import Any
 
 import pytest
@@ -14,6 +14,7 @@ from paper_reviewer.models.base import Base
 from paper_reviewer.models.topic_brief_generation import create_paper, get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     InformOutcome,
+    PaperAspectStatus,
 )
 from paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform import (
     inform_paper_from_source,
@@ -38,8 +39,9 @@ def _create(
     *,
     source_id: str = "pubmed",
     uid: str = "100",
-    informed: bool = False,
-    failed: bool = False,
+    source_record_status: PaperAspectStatus = PaperAspectStatus.not_started,
+    full_text_status: PaperAspectStatus = PaperAspectStatus.not_started,
+    source_record_error_message: str | None = None,
 ) -> int:
     session = factory()
     try:
@@ -54,11 +56,11 @@ def _create(
             journal="Old Journal",
             published_year=2020,
         )
-        if informed:
-            paper.source_informed_at = datetime(2026, 1, 1, tzinfo=UTC)
+        paper.source_record_status = source_record_status
+        paper.full_text_status = full_text_status
+        paper.source_record_error_message = source_record_error_message
+        if source_record_status is PaperAspectStatus.succeeded:
             paper.source_record = {"abstract": {"parts": []}}
-        if failed:
-            paper.source_inform_error_message = "prior failure"
         session.commit()
         return paper.id
     finally:
@@ -99,8 +101,27 @@ def _mapped_photo() -> dict[str, Any]:
     }
 
 
-def test_already_informed_is_noop(session_factory: sessionmaker[Session]) -> None:
-    paper_id = _create(session_factory, informed=True)
+def _cloud_hit(*, is_open_access: bool = True, pdf: bool = True) -> dict[str, Any]:
+    result: dict[str, Any] = {
+        "pmcid": "PMC5334499",
+        "pmcid_version": 2,
+        "is_open_access": is_open_access,
+        "full_text_plain": "Full article text from Cloud.",
+        "pmc_article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
+    }
+    if pdf:
+        result["open_access_pdf_url"] = (
+            "https://pmc-oa-opendata.s3.amazonaws.com/PMC5334499.2/PMC5334499.2.pdf"
+        )
+    return result
+
+
+def test_already_succeeded_source_is_noop(session_factory: sessionmaker[Session]) -> None:
+    paper_id = _create(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.unavailable,
+    )
     calls: list[str] = []
 
     def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
@@ -123,6 +144,8 @@ def test_already_informed_is_noop(session_factory: sessionmaker[Session]) -> Non
     assert result.outcome == InformOutcome.skipped_already_informed
     assert result.paper_id == paper_id
     assert result.error_message is None
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.unavailable
     assert calls == []
     assert cloud_calls == []
 
@@ -138,7 +161,11 @@ def test_already_informed_is_noop(session_factory: sessionmaker[Session]) -> Non
 def test_fulfill_writes_source_record_and_promotes(
     session_factory: sessionmaker[Session],
 ) -> None:
-    paper_id = _create(session_factory, failed=True)
+    paper_id = _create(
+        session_factory,
+        source_record_status=PaperAspectStatus.failed,
+        source_record_error_message="prior failure",
+    )
 
     result = inform_paper_from_source(
         paper_id,
@@ -148,13 +175,17 @@ def test_fulfill_writes_source_record_and_promotes(
 
     assert result.outcome == InformOutcome.fulfilled
     assert result.error_message is None
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.unavailable
 
     session = session_factory()
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is not None
-        assert paper.source_inform_error_message is None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.source_record_error_message is None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+        assert paper.full_text_error_message is None
         assert paper.source_record is not None
         assert paper.title == "New title"
         assert paper.authors == ["Ada Lovelace"]
@@ -174,6 +205,35 @@ def test_fulfill_writes_source_record_and_promotes(
         session.close()
 
 
+def test_empty_abstract_still_succeeds_source_record(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = _create(session_factory)
+    payload = _mapped_photo()
+    payload["abstract_text"] = None
+    payload["source_record"]["abstract"]["parts"] = []
+
+    result = inform_paper_from_source(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: payload,
+    )
+
+    assert result.outcome == InformOutcome.fulfilled
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.unavailable
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.abstract_text is None
+        assert paper.source_record is not None
+    finally:
+        session.close()
+
+
 def test_fulfill_sets_pmcid_and_derives_pmc_article_url(
     session_factory: sessionmaker[Session],
 ) -> None:
@@ -189,6 +249,8 @@ def test_fulfill_sets_pmcid_and_derives_pmc_article_url(
     )
 
     assert result.outcome == InformOutcome.fulfilled
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.unavailable
 
     session = session_factory()
     try:
@@ -199,38 +261,36 @@ def test_fulfill_sets_pmcid_and_derives_pmc_article_url(
             paper.pmc_article_url
             == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
         )
-        assert paper.source_informed_at is not None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
         assert paper.full_text_plain is None
     finally:
         session.close()
 
 
-def test_fulfill_applies_cloud_enrichment_fields(
+def test_fulfill_enriches_from_pmc_cloud_when_pmcid_present(
     session_factory: sessionmaker[Session],
 ) -> None:
     paper_id = _create(session_factory)
     payload = _mapped_photo()
-    payload.update(
-        {
-            "pmcid": "PMC5334499",
-            "pmcid_version": 2,
-            "is_open_access": True,
-            "full_text_plain": "Full article text from Cloud.",
-            "open_access_pdf_url": (
-                "https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf"
-            ),
-            "pmc_article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
-        }
-    )
+    payload["pmcid"] = "PMC5334499"
+    cloud_calls: list[str | None] = []
+
+    def enrich(pmcid: str | None) -> dict[str, Any]:
+        cloud_calls.append(pmcid)
+        return _cloud_hit()
 
     result = inform_paper_from_source(
         paper_id,
         session_factory=session_factory,
         fetch_source_record=lambda _sid, _suid: payload,
-        enrich_from_pmc_cloud=lambda _pmcid: {},
+        enrich_from_pmc_cloud=enrich,
     )
 
     assert result.outcome == InformOutcome.fulfilled
+    assert result.error_message is None
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.succeeded
+    assert cloud_calls == ["PMC5334499"]
 
     session = session_factory()
     try:
@@ -241,20 +301,28 @@ def test_fulfill_applies_cloud_enrichment_fields(
         assert paper.is_open_access is True
         assert paper.full_text_plain == "Full article text from Cloud."
         assert paper.open_access_pdf_url == (
-            "https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf"
+            "https://pmc-oa-opendata.s3.amazonaws.com/PMC5334499.2/PMC5334499.2.pdf"
         )
         assert (
             paper.pmc_article_url
             == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
         )
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.source_record_error_message is None
+        assert paper.full_text_status is PaperAspectStatus.succeeded
+        assert paper.full_text_error_message is None
     finally:
         session.close()
 
 
-def test_already_informed_does_not_overwrite_enrichment(
+def test_already_succeeded_does_not_overwrite_enrichment(
     session_factory: sessionmaker[Session],
 ) -> None:
-    paper_id = _create(session_factory, informed=True)
+    paper_id = _create(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.succeeded,
+    )
     session = session_factory()
     try:
         paper = get_paper_by_id(session, paper_id)
@@ -293,65 +361,6 @@ def test_already_informed_does_not_overwrite_enrichment(
         session.close()
 
 
-def _cloud_hit(*, is_open_access: bool = True, pdf: bool = True) -> dict[str, Any]:
-    result: dict[str, Any] = {
-        "pmcid": "PMC5334499",
-        "pmcid_version": 2,
-        "is_open_access": is_open_access,
-        "full_text_plain": "Full article text from Cloud.",
-        "pmc_article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
-    }
-    if pdf:
-        result["open_access_pdf_url"] = (
-            "https://pmc-oa-opendata.s3.amazonaws.com/PMC5334499.2/PMC5334499.2.pdf"
-        )
-    return result
-
-
-def test_fulfill_enriches_from_pmc_cloud_when_pmcid_present(
-    session_factory: sessionmaker[Session],
-) -> None:
-    paper_id = _create(session_factory)
-    payload = _mapped_photo()
-    payload["pmcid"] = "PMC5334499"
-    cloud_calls: list[str | None] = []
-
-    def enrich(pmcid: str | None) -> dict[str, Any]:
-        cloud_calls.append(pmcid)
-        return _cloud_hit()
-
-    result = inform_paper_from_source(
-        paper_id,
-        session_factory=session_factory,
-        fetch_source_record=lambda _sid, _suid: payload,
-        enrich_from_pmc_cloud=enrich,
-    )
-
-    assert result.outcome == InformOutcome.fulfilled
-    assert result.error_message is None
-    assert cloud_calls == ["PMC5334499"]
-
-    session = session_factory()
-    try:
-        paper = get_paper_by_id(session, paper_id)
-        assert paper is not None
-        assert paper.pmcid == "PMC5334499"
-        assert paper.pmcid_version == 2
-        assert paper.is_open_access is True
-        assert paper.full_text_plain == "Full article text from Cloud."
-        assert paper.open_access_pdf_url == (
-            "https://pmc-oa-opendata.s3.amazonaws.com/PMC5334499.2/PMC5334499.2.pdf"
-        )
-        assert (
-            paper.pmc_article_url
-            == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
-        )
-        assert paper.source_informed_at is not None
-        assert paper.source_inform_error_message is None
-    finally:
-        session.close()
-
-
 def test_fulfill_author_manuscript_stores_text_and_not_open_access(
     session_factory: sessionmaker[Session],
 ) -> None:
@@ -369,6 +378,7 @@ def test_fulfill_author_manuscript_stores_text_and_not_open_access(
     )
 
     assert result.outcome == InformOutcome.fulfilled
+    assert result.full_text_status is PaperAspectStatus.succeeded
 
     session = session_factory()
     try:
@@ -377,7 +387,7 @@ def test_fulfill_author_manuscript_stores_text_and_not_open_access(
         assert paper.full_text_plain == "Full article text from Cloud."
         assert paper.is_open_access is False
         assert paper.open_access_pdf_url is None
-        assert paper.source_informed_at is not None
+        assert paper.full_text_status is PaperAspectStatus.succeeded
     finally:
         session.close()
 
@@ -400,23 +410,22 @@ def test_fulfill_skips_cloud_when_no_pmcid(
     )
 
     assert result.outcome == InformOutcome.fulfilled
+    assert result.full_text_status is PaperAspectStatus.unavailable
     assert cloud_calls == []
 
     session = session_factory()
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is not None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
         assert paper.pmcid is None
         assert paper.full_text_plain is None
-        assert paper.pmcid_version is None
-        assert paper.is_open_access is None
-        assert paper.open_access_pdf_url is None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
     finally:
         session.close()
 
 
-def test_cloud_miss_after_efetch_still_fulfills(
+def test_cloud_miss_after_efetch_sets_full_text_unavailable(
     session_factory: sessionmaker[Session],
 ) -> None:
     paper_id = _create(session_factory)
@@ -432,40 +441,47 @@ def test_cloud_miss_after_efetch_still_fulfills(
 
     assert result.outcome == InformOutcome.fulfilled
     assert result.error_message is None
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.unavailable
+    assert result.full_text_error_message is None
 
     session = session_factory()
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is not None
-        assert paper.source_inform_error_message is None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.source_record_error_message is None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+        assert paper.full_text_error_message is None
         assert paper.pmcid == "PMC5334499"
-        assert (
-            paper.pmc_article_url
-            == "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
-        )
-        assert paper.pmcid_version is None
-        assert paper.is_open_access is None
         assert paper.full_text_plain is None
-        assert paper.open_access_pdf_url is None
     finally:
         session.close()
 
 
-def test_cloud_error_after_efetch_still_fulfills_without_error_message(
+def test_cloud_error_after_efetch_sets_full_text_failed(
     session_factory: sessionmaker[Session],
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     paper_id = _create(session_factory)
     payload = _mapped_photo()
     payload["pmcid"] = "PMC5334499"
     fetch_calls: list[str] = []
+    cloud_calls: list[str] = []
+    sleep_calls: list[float] = []
 
     def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
         fetch_calls.append("fetch")
         return payload
 
     def enrich(_pmcid: str | None) -> dict[str, Any]:
+        cloud_calls.append("cloud")
         raise RuntimeError("Cloud HTTP 500")
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        sleep_calls.append,
+    )
 
     result = inform_paper_from_source(
         paper_id,
@@ -475,23 +491,28 @@ def test_cloud_error_after_efetch_still_fulfills_without_error_message(
     )
 
     assert result.outcome == InformOutcome.fulfilled
-    assert result.error_message is None
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.failed
+    assert "500" in (result.full_text_error_message or "")
     assert fetch_calls == ["fetch"]
+    assert cloud_calls == ["cloud", "cloud", "cloud"]
+    assert sleep_calls == [0.5, 0.5]
 
     session = session_factory()
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is not None
-        assert paper.source_inform_error_message is None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.source_record_error_message is None
         assert paper.pmcid == "PMC5334499"
+        assert paper.full_text_status is PaperAspectStatus.failed
+        assert "500" in (paper.full_text_error_message or "")
         assert paper.full_text_plain is None
-        assert paper.pmcid_version is None
     finally:
         session.close()
 
 
-def test_unsupported_source_marks_failed(
+def test_unsupported_source_marks_unavailable(
     session_factory: sessionmaker[Session],
 ) -> None:
     paper_id = _create(session_factory, source_id="other", uid="9")
@@ -502,20 +523,23 @@ def test_unsupported_source_marks_failed(
         fetch_source_record=lambda _sid, _suid: _mapped_photo(),
     )
 
-    assert result.outcome == InformOutcome.failed
-    assert result.error_message is not None
+    assert result.outcome == InformOutcome.unavailable
+    assert result.source_record_status is PaperAspectStatus.unavailable
+    assert result.full_text_status is PaperAspectStatus.not_started
+    assert result.error_message is None
 
     session = session_factory()
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is None
-        assert paper.source_inform_error_message is not None
+        assert paper.source_record_status is PaperAspectStatus.unavailable
+        assert paper.source_record_error_message is None
+        assert paper.full_text_status is PaperAspectStatus.not_started
     finally:
         session.close()
 
 
-def test_fetch_error_marks_failed(
+def test_fetch_error_marks_source_failed(
     session_factory: sessionmaker[Session],
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -540,6 +564,8 @@ def test_fetch_error_marks_failed(
 
     assert result.outcome == InformOutcome.failed
     assert "429" in (result.error_message or "")
+    assert result.source_record_status is PaperAspectStatus.failed
+    assert result.full_text_status is PaperAspectStatus.not_started
     assert calls == ["fetch", "fetch", "fetch"]
     assert sleep_calls == [0.5, 0.5]
 
@@ -547,8 +573,9 @@ def test_fetch_error_marks_failed(
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is None
-        assert "429" in (paper.source_inform_error_message or "")
+        assert paper.source_record_status is PaperAspectStatus.failed
+        assert "429" in (paper.source_record_error_message or "")
+        assert paper.full_text_status is PaperAspectStatus.not_started
     finally:
         session.close()
 
@@ -580,6 +607,8 @@ def test_fetch_succeeds_after_transient_failures(
 
     assert result.outcome == InformOutcome.fulfilled
     assert result.error_message is None
+    assert result.source_record_status is PaperAspectStatus.succeeded
+    assert result.full_text_status is PaperAspectStatus.unavailable
     assert calls == ["fetch", "fetch", "fetch"]
     assert sleep_calls == [0.5, 0.5]
 
@@ -587,14 +616,14 @@ def test_fetch_succeeds_after_transient_failures(
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is not None
-        assert paper.source_inform_error_message is None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.source_record_error_message is None
         assert paper.title == "New title"
     finally:
         session.close()
 
 
-def test_fetch_exhausts_retries_then_marks_failed(
+def test_fetch_exhausts_retries_then_marks_source_failed(
     session_factory: sessionmaker[Session],
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -626,8 +655,9 @@ def test_fetch_exhausts_retries_then_marks_failed(
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.source_informed_at is None
-        assert "429" in (paper.source_inform_error_message or "")
+        assert paper.source_record_status is PaperAspectStatus.failed
+        assert "429" in (paper.source_record_error_message or "")
+        assert paper.full_text_status is PaperAspectStatus.not_started
     finally:
         session.close()
 
@@ -641,3 +671,5 @@ def test_missing_paper_marks_failed(session_factory: sessionmaker[Session]) -> N
 
     assert result.outcome == InformOutcome.failed
     assert result.paper_id == 999_999
+    assert result.source_record_status is PaperAspectStatus.failed
+    assert result.full_text_status is PaperAspectStatus.not_started

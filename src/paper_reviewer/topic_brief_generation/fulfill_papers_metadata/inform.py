@@ -5,7 +5,6 @@ from __future__ import annotations
 import os
 import time
 from collections.abc import Callable
-from datetime import UTC, datetime
 from typing import Any
 
 from sqlalchemy.orm import Session, sessionmaker
@@ -15,6 +14,7 @@ from paper_reviewer.models.topic_brief_generation.paper import Paper, get_paper_
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     InformOutcome,
     InformPaperFromSourceResult,
+    PaperAspectStatus,
 )
 
 FetchSourceRecord = Callable[[str, str], dict[str, Any]]
@@ -43,22 +43,6 @@ def _default_enrich_from_pmc_cloud(pmcid: str | None) -> dict[str, Any]:
     from paper_reviewer.ingest.pubmed.pmc_cloud import fetch_pmc_cloud_enrichment
 
     return fetch_pmc_cloud_enrichment(pmcid)
-
-
-def _merge_pmc_cloud_enrichment(
-    payload: dict[str, Any],
-    enrich: EnrichFromPmcCloud,
-) -> None:
-    """Merge Cloud fields into payload. Never raise; Cloud miss is silent."""
-    pmcid = payload.get("pmcid")
-    if not pmcid:
-        return
-    try:
-        enrichment = enrich(pmcid)
-    except Exception:
-        return
-    if enrichment:
-        payload.update(enrichment)
 
 
 def apply_source_inform_payload(paper: Paper, payload: dict[str, Any]) -> None:
@@ -92,34 +76,95 @@ def apply_source_inform_payload(paper: Paper, payload: dict[str, Any]) -> None:
     elif payload.get("pmc_article_url"):
         paper.pmc_article_url = payload["pmc_article_url"]
 
-    if "pmcid_version" in payload:
-        paper.pmcid_version = payload["pmcid_version"]
-    if "is_open_access" in payload:
-        paper.is_open_access = payload["is_open_access"]
-    if payload.get("full_text_plain"):
-        paper.full_text_plain = payload["full_text_plain"]
-    if payload.get("open_access_pdf_url"):
-        paper.open_access_pdf_url = payload["open_access_pdf_url"]
 
-    paper.source_informed_at = datetime.now(UTC)
-    paper.source_inform_error_message = None
+def _apply_full_text_enrichment(paper: Paper, enrichment: dict[str, Any]) -> None:
+    if "pmcid_version" in enrichment:
+        paper.pmcid_version = enrichment["pmcid_version"]
+    if "is_open_access" in enrichment:
+        paper.is_open_access = enrichment["is_open_access"]
+    if enrichment.get("full_text_plain"):
+        paper.full_text_plain = enrichment["full_text_plain"]
+    if enrichment.get("open_access_pdf_url"):
+        paper.open_access_pdf_url = enrichment["open_access_pdf_url"]
+    if enrichment.get("pmc_article_url"):
+        paper.pmc_article_url = enrichment["pmc_article_url"]
 
 
-def _mark_failed(
+def _result_from_paper(
+    paper: Paper,
+    outcome: InformOutcome,
+    *,
+    error_message: str | None = None,
+) -> InformPaperFromSourceResult:
+    return InformPaperFromSourceResult(
+        paper_id=paper.id,
+        outcome=outcome,
+        error_message=error_message,
+        source_record_status=paper.source_record_status,
+        full_text_status=paper.full_text_status,
+        source_record_error_message=paper.source_record_error_message,
+        full_text_error_message=paper.full_text_error_message,
+    )
+
+
+def _mark_source_failed(
     session: Session,
     paper_id: int,
     message: str,
 ) -> InformPaperFromSourceResult:
     paper = get_paper_by_id(session, paper_id)
     if paper is not None:
-        paper.source_inform_error_message = message
-        paper.source_informed_at = None
+        paper.source_record_status = PaperAspectStatus.failed
+        paper.source_record_error_message = message
         session.commit()
+        return _result_from_paper(
+            paper,
+            InformOutcome.failed,
+            error_message=message,
+        )
     return InformPaperFromSourceResult(
         paper_id=paper_id,
         outcome=InformOutcome.failed,
         error_message=message,
+        source_record_status=PaperAspectStatus.failed,
+        full_text_status=PaperAspectStatus.not_started,
+        source_record_error_message=message,
     )
+
+
+def _fetch_with_retries(
+    fetch: FetchSourceRecord,
+    source_id: str,
+    source_uid: str,
+    session: Session,
+) -> dict[str, Any]:
+    last_exc: Exception | None = None
+    for attempt in range(1, _FETCH_MAX_ATTEMPTS + 1):
+        try:
+            return fetch(source_id, source_uid)
+        except Exception as exc:
+            last_exc = exc
+            session.rollback()
+            if attempt < _FETCH_MAX_ATTEMPTS:
+                time.sleep(_FETCH_RETRY_DELAY_SECONDS)
+    assert last_exc is not None
+    raise last_exc
+
+
+def _enrich_with_retries(
+    enrich: EnrichFromPmcCloud,
+    pmcid: str,
+) -> dict[str, Any]:
+    last_exc: Exception | None = None
+    for attempt in range(1, _FETCH_MAX_ATTEMPTS + 1):
+        try:
+            return enrich(pmcid)
+        except Exception as exc:
+            last_exc = exc
+            if attempt < _FETCH_MAX_ATTEMPTS:
+                time.sleep(_FETCH_RETRY_DELAY_SECONDS)
+    assert last_exc is not None
+    raise last_exc
 
 
 def inform_paper_from_source(
@@ -141,46 +186,65 @@ def inform_paper_from_source(
                 paper_id=paper_id,
                 outcome=InformOutcome.failed,
                 error_message=f"Paper id {paper_id} not found",
+                source_record_status=PaperAspectStatus.failed,
+                full_text_status=PaperAspectStatus.not_started,
+                source_record_error_message=f"Paper id {paper_id} not found",
             )
-        if paper.source_informed_at is not None:
-            return InformPaperFromSourceResult(
-                paper_id=paper_id,
-                outcome=InformOutcome.skipped_already_informed,
-                error_message=None,
-            )
+        if paper.source_record_status == PaperAspectStatus.succeeded:
+            return _result_from_paper(paper, InformOutcome.skipped_already_informed)
 
         if paper.source_id != "pubmed":
-            return _mark_failed(
-                session,
-                paper_id,
-                f"Unsupported paper source for inform: {paper.source_id}",
-            )
-
-        last_exc: Exception | None = None
-        payload: dict[str, Any] | None = None
-        for attempt in range(1, _FETCH_MAX_ATTEMPTS + 1):
-            try:
-                payload = fetch(paper.source_id, paper.source_uid)
-                break
-            except Exception as exc:
-                last_exc = exc
-                session.rollback()
-                if attempt < _FETCH_MAX_ATTEMPTS:
-                    time.sleep(_FETCH_RETRY_DELAY_SECONDS)
-        if payload is None:
-            return _mark_failed(session, paper_id, str(last_exc))
+            paper.source_record_status = PaperAspectStatus.unavailable
+            paper.source_record_error_message = None
+            session.commit()
+            return _result_from_paper(paper, InformOutcome.unavailable)
 
         try:
-            _merge_pmc_cloud_enrichment(payload, enrich)
+            payload = _fetch_with_retries(
+                fetch, paper.source_id, paper.source_uid, session
+            )
+        except Exception as exc:
+            return _mark_source_failed(session, paper_id, str(exc))
+
+        paper = get_paper_by_id(session, paper_id)
+        if paper is None:
+            return InformPaperFromSourceResult(
+                paper_id=paper_id,
+                outcome=InformOutcome.failed,
+                error_message=f"Paper id {paper_id} not found",
+                source_record_status=PaperAspectStatus.failed,
+                full_text_status=PaperAspectStatus.not_started,
+            )
+
+        try:
             apply_source_inform_payload(paper, payload)
+            paper.source_record_status = PaperAspectStatus.succeeded
+            paper.source_record_error_message = None
+
+            pmcid = payload.get("pmcid")
+            if not pmcid:
+                paper.full_text_status = PaperAspectStatus.unavailable
+                paper.full_text_error_message = None
+            else:
+                try:
+                    enrichment = _enrich_with_retries(enrich, str(pmcid))
+                except Exception as exc:
+                    paper.full_text_status = PaperAspectStatus.failed
+                    paper.full_text_error_message = str(exc)
+                else:
+                    if enrichment.get("full_text_plain"):
+                        _apply_full_text_enrichment(paper, enrichment)
+                        paper.full_text_status = PaperAspectStatus.succeeded
+                        paper.full_text_error_message = None
+                    else:
+                        paper.full_text_status = PaperAspectStatus.unavailable
+                        paper.full_text_error_message = None
             session.commit()
         except Exception as exc:
             session.rollback()
-            return _mark_failed(session, paper_id, str(exc))
-        return InformPaperFromSourceResult(
-            paper_id=paper_id,
-            outcome=InformOutcome.fulfilled,
-            error_message=None,
-        )
+            return _mark_source_failed(session, paper_id, str(exc))
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        return _result_from_paper(paper, InformOutcome.fulfilled)
     finally:
         session.close()

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime
 from typing import Any, Mapping
 from uuid import UUID
 
@@ -15,6 +14,7 @@ from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
 from paper_reviewer.models.topic_brief_generation.paper import get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     FulfillPapersMetadataEnqueueResult,
+    PaperAspectStatus,
 )
 from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     PaperArchivingResult,
@@ -46,20 +46,21 @@ def fulfill_prerequisites_met(state: Mapping[str, Any]) -> bool:
     )
 
 
-def inform_status_label(
+def aspect_status_label(
     *,
-    source_informed_at: datetime | None,
-    source_inform_error_message: str | None,
-    skipped_already_informed: bool,
+    status: PaperAspectStatus,
+    skipped_already_succeeded: bool,
 ) -> str:
-    """Map durable Paper inform signals to a progress display label."""
-    if source_informed_at is not None:
-        if skipped_already_informed:
+    """Map one stored aspect status to a progress display label."""
+    if status is PaperAspectStatus.succeeded:
+        if skipped_already_succeeded:
             return "Skipped (already done)"
-        return "Fulfilled"
-    if source_inform_error_message is not None:
+        return "Succeeded"
+    if status is PaperAspectStatus.failed:
         return "Failed"
-    return "Fulfilling from source"
+    if status is PaperAspectStatus.unavailable:
+        return "Unavailable"
+    return "Fulfilling"
 
 
 def enrichment_links_caption(
@@ -102,12 +103,28 @@ def _paper_ids(archiving: PaperArchivingResult) -> list[int]:
     return [paper.id for paper in archiving.papers]
 
 
-def _is_terminal(
+def _is_terminal(status: PaperAspectStatus) -> bool:
+    return status is not PaperAspectStatus.not_started
+
+
+def _aspect_error_text(
     *,
-    source_informed_at: datetime | None,
-    source_inform_error_message: str | None,
-) -> bool:
-    return source_informed_at is not None or source_inform_error_message is not None
+    source_record_status: PaperAspectStatus,
+    source_record_error_message: str | None,
+    full_text_status: PaperAspectStatus,
+    full_text_error_message: str | None,
+) -> str | None:
+    parts: list[str] = []
+    if (
+        source_record_status is PaperAspectStatus.failed
+        and source_record_error_message
+    ):
+        parts.append(source_record_error_message)
+    if full_text_status is PaperAspectStatus.failed and full_text_error_message:
+        parts.append(full_text_error_message)
+    if not parts:
+        return None
+    return "; ".join(parts)
 
 
 @st.fragment(run_every=2)
@@ -117,7 +134,7 @@ def _render_progress(
 ) -> None:
     skipped_informed = set(enqueue_result.skipped_already_informed)
     any_non_terminal = False
-    all_informed = True
+    all_succeeded = True
 
     with session_scope(_session_factory()) as session:
         rows: list[dict[str, Any]] = []
@@ -125,27 +142,42 @@ def _render_progress(
             paper = get_paper_by_id(session, paper_id)
             if paper is None:
                 continue
-            informed_at = paper.source_informed_at
-            error_message = paper.source_inform_error_message
-            label = inform_status_label(
-                source_informed_at=informed_at,
-                source_inform_error_message=error_message,
-                skipped_already_informed=paper_id in skipped_informed,
+            source_status = paper.source_record_status
+            full_text_status = paper.full_text_status
+            source_label = aspect_status_label(
+                status=source_status,
+                skipped_already_succeeded=(
+                    paper_id in skipped_informed
+                    and source_status is PaperAspectStatus.succeeded
+                ),
             )
-            if not _is_terminal(
-                source_informed_at=informed_at,
-                source_inform_error_message=error_message,
-            ):
+            full_text_label = aspect_status_label(
+                status=full_text_status,
+                skipped_already_succeeded=(
+                    paper_id in skipped_informed
+                    and full_text_status is PaperAspectStatus.succeeded
+                ),
+            )
+            if not _is_terminal(source_status) or not _is_terminal(full_text_status):
                 any_non_terminal = True
-            if informed_at is None:
-                all_informed = False
+            if (
+                source_status is not PaperAspectStatus.succeeded
+                or full_text_status is not PaperAspectStatus.succeeded
+            ):
+                all_succeeded = False
             rows.append(
                 {
                     "title": paper.title,
                     "url": paper.url,
                     "doi": paper.doi,
-                    "label": label,
-                    "error": error_message,
+                    "source_label": source_label,
+                    "full_text_label": full_text_label,
+                    "error": _aspect_error_text(
+                        source_record_status=source_status,
+                        source_record_error_message=paper.source_record_error_message,
+                        full_text_status=full_text_status,
+                        full_text_error_message=paper.full_text_error_message,
+                    ),
                     "pmc_article_url": paper.pmc_article_url,
                     "open_access_pdf_url": paper.open_access_pdf_url,
                 }
@@ -159,7 +191,10 @@ def _render_progress(
     for row in rows:
         st.markdown(f"**[{row['title']}]({row['url']})**")
         error_part = f" — {row['error']}" if row["error"] else ""
-        st.caption(f"DOI `{row['doi']}` · {row['label']}{error_part}")
+        st.caption(
+            f"DOI `{row['doi']}` · source record {row['source_label']} · "
+            f"full text {row['full_text_label']}{error_part}"
+        )
         links = enrichment_links_caption(
             row["pmc_article_url"],
             row["open_access_pdf_url"],
@@ -169,12 +204,12 @@ def _render_progress(
 
     all_terminal = not any_non_terminal
     if all_terminal:
-        if all_informed:
+        if all_succeeded:
             st.success("Fulfill papers metadata finished for this set.")
         else:
             st.info(
-                "Fulfill papers metadata finished. Some papers failed; "
-                "later steps skip papers that are not source-informed."
+                "Fulfill papers metadata finished. Some papers failed or are "
+                "unavailable; later steps use papers with full text Succeeded."
             )
         st.caption("Next: Generate paper brief.")
 
