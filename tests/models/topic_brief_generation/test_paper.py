@@ -158,6 +158,12 @@ def test_paper_inform_columns_default_null(session: Session) -> None:
     assert paper.source_inform_error_message is None
     assert paper.pub_date is None
     assert paper.abstract_text is None
+    assert paper.pmcid is None
+    assert paper.pmcid_version is None
+    assert paper.is_open_access is None
+    assert paper.full_text_plain is None
+    assert paper.open_access_pdf_url is None
+    assert paper.pmc_article_url is None
 
 
 def test_source_handle_must_be_unique(session: Session) -> None:

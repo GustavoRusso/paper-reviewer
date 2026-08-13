@@ -59,6 +59,25 @@ def apply_source_inform_payload(paper: Paper, payload: dict[str, Any]) -> None:
     abstract_text = payload.get("abstract_text")
     if abstract_text:
         paper.abstract_text = abstract_text
+
+    pmcid = payload.get("pmcid")
+    if pmcid:
+        paper.pmcid = pmcid
+        paper.pmc_article_url = payload.get("pmc_article_url") or (
+            f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/"
+        )
+    elif payload.get("pmc_article_url"):
+        paper.pmc_article_url = payload["pmc_article_url"]
+
+    if "pmcid_version" in payload:
+        paper.pmcid_version = payload["pmcid_version"]
+    if "is_open_access" in payload:
+        paper.is_open_access = payload["is_open_access"]
+    if payload.get("full_text_plain"):
+        paper.full_text_plain = payload["full_text_plain"]
+    if payload.get("open_access_pdf_url"):
+        paper.open_access_pdf_url = payload["open_access_pdf_url"]
+
     paper.source_informed_at = datetime.now(UTC)
     paper.source_inform_error_message = None
 

@@ -6,6 +6,7 @@ from datetime import date, datetime
 
 from sqlalchemy import (
     BigInteger,
+    Boolean,
     Date,
     DateTime,
     Integer,
@@ -65,6 +66,12 @@ class Paper(Base):
     )
     pub_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     abstract_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    pmcid: Mapped[str | None] = mapped_column(Text, nullable=True)
+    pmcid_version: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    is_open_access: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+    full_text_plain: Mapped[str | None] = mapped_column(Text, nullable=True)
+    open_access_pdf_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+    pmc_article_url: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 def create_paper(
