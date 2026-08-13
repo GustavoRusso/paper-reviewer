@@ -158,14 +158,11 @@ Prefer this durable status so the UI can poll the database without Prefect as th
 
 ### Structured content (LLM output)
 
-`content` is a structured object (not a single free-form blob as the only field). v1 sections are **topic-agnostic**:
+`content` is a structured object (not a single free-form blob as the only field). v1 sections are **topic-agnostic**.
 
-| Section | Required when succeeded | Description |
-| --- | --- | --- |
-| `summary` | Yes | Short overview of the paper (the article, not a topic). |
-| `key_findings` | Yes | List of claim-like findings grounded in `full_text_plain`. |
-| `methods` | No | Methods notes when the paper text supports them. |
-| `limitations` | No | Limitations when stated or clearly implied by the paper text. |
+**Owner of section list and prompt text:** [`paper_brief_template.md`](../../src/paper_reviewer/topic_brief_generation/generate_paper_brief/paper_brief_template.md) in `paper_reviewer.topic_brief_generation.generate_paper_brief`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
+
+`create_paper_brief` loads that file as the system prompt. It sends `full_text_plain` plus archived title / journal / year from `Paper` in the user message (bibliographic facts, not a topic). Parse the model output into `PaperBriefContent` (field ids must match the template front matter). Title, journal, and year are **not** LLM content fields.
 
 Do **not** store `relevance_to_topic` or a topic-relative summary. Step 8 reflects relevance as citations in the topic-brief prose.
 
@@ -267,11 +264,14 @@ This document is the **behavior contract** for domain logic, the brief Prefect j
 
 When implementation starts (TDD per [tdd.md](../tdd.md)):
 
+The LLM is an **external** boundary: inject or stub the content generator. Do not call a live API in tests. Do not name a vendor in this spec; the production client lives in [technology-stack.md](../technology-stack.md).
+
 **`create_paper_brief`:**
 
 - Succeeded brief exists, `force` false → no LLM; success.
 - Full text not `succeeded` → does not write succeeded content.
-- Happy path with `full_text_plain` → prompt/grounding uses plain full text; `content` has required sections; status `succeeded`.
+- Happy path with `full_text_plain` → prompt includes the template file and the plain full text; `content` has required template fields; status `succeeded`.
+- `PaperBriefContent` field names match the template YAML front matter (fail if they drift).
 - `force` true and full text `succeeded` → rewrites content even if a succeeded brief existed.
 - LLM failure → status `failed` with message.
 
