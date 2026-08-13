@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from datetime import datetime
 from typing import Any, Mapping
 from uuid import UUID
@@ -10,6 +11,7 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
+from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
 from paper_reviewer.models.topic_brief_generation.paper import get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     FulfillPapersMetadataEnqueueResult,
@@ -58,6 +60,20 @@ def inform_status_label(
     if source_inform_error_message is not None:
         return "Failed"
     return "Fulfilling from source"
+
+
+def prefect_enqueue_error_hint(
+    prefect_api_url: str | None,
+    deployment_ref: str,
+) -> str:
+    """Build operator hint when Prefect enqueue fails."""
+    url_display = prefect_api_url if prefect_api_url else "(unset)"
+    return (
+        "The UI container must reach Prefect at "
+        f"`PREFECT_API_URL={url_display}` and the "
+        "`prefect-worker` service must serve deployment "
+        f"`{deployment_ref}`."
+    )
 
 
 def _default_submit_inform(paper_id: int, doi: str) -> None:
@@ -192,10 +208,10 @@ def render_fulfill_papers_metadata() -> None:
                 "Check Prefect configuration and try again."
             )
             st.caption(
-                "The UI container must reach Prefect at "
-                "`PREFECT_API_URL=http://prefect-server:4200/api` and the "
-                "`prefect-worker` service must serve deployment "
-                "`inform_paper_from_source/default`."
+                prefect_enqueue_error_hint(
+                    os.environ.get("PREFECT_API_URL"),
+                    INFORM_DEPLOYMENT_REF,
+                )
             )
             st.exception(exc)
             return

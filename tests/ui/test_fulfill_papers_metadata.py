@@ -8,9 +8,11 @@ from uuid import uuid4
 from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     PaperArchivingResult,
 )
+from paper_reviewer.flows.serve import INFORM_DEPLOYMENT_REF
 from paper_reviewer.ui.fulfill_papers_metadata import (
     fulfill_prerequisites_met,
     inform_status_label,
+    prefect_enqueue_error_hint,
 )
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
@@ -88,3 +90,20 @@ def test_inform_status_label_fulfilling() -> None:
 
 def test_fulfill_enqueue_result_key_constant() -> None:
     assert FULFILL_ENQUEUE_RESULT_KEY == "fulfill_papers_metadata_enqueue_result"
+
+
+def test_prefect_enqueue_error_hint_unset_url() -> None:
+    hint = prefect_enqueue_error_hint(None, INFORM_DEPLOYMENT_REF)
+
+    assert "PREFECT_API_URL=(unset)" in hint
+    assert INFORM_DEPLOYMENT_REF in hint
+    assert "prefect-server" not in hint
+
+
+def test_prefect_enqueue_error_hint_uses_configured_url() -> None:
+    url = "http://custom-prefect:9999/api"
+    hint = prefect_enqueue_error_hint(url, INFORM_DEPLOYMENT_REF)
+
+    assert f"PREFECT_API_URL={url}" in hint
+    assert INFORM_DEPLOYMENT_REF in hint
+    assert "prefect-server" not in hint
