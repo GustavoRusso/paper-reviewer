@@ -18,7 +18,7 @@ from sqlalchemy import (
     select,
 )
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy.orm import Mapped, Session, mapped_column
+from sqlalchemy.orm import Mapped, Session, mapped_column, relationship
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
@@ -96,6 +96,11 @@ class Paper(Base):
     full_text_plain: Mapped[str | None] = mapped_column(Text, nullable=True)
     open_access_pdf_url: Mapped[str | None] = mapped_column(Text, nullable=True)
     pmc_article_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+    paper_brief: Mapped["PaperBrief | None"] = relationship(  # noqa: F821
+        "PaperBrief",
+        back_populates="paper",
+        uselist=False,
+    )
 
 
 def create_paper(

@@ -119,6 +119,42 @@ Pydantic types live under `paper_reviewer.schemas.topic_brief_generation`.
 
 DOI on flow parameters is for UI/search and the submit-time run name; durable work keys off `paper_id`.
 
+### Result type fields (v1)
+
+```text
+PaperBriefContent
+  summary: str
+  objective: str
+  study_type: str | None
+  timeline_geography: str | None
+  population_sample: str | None
+  key_methods: str | None
+  key_findings: list[str]
+  discussion: str | None
+  limitations: str | None
+  recommendations: str | None
+
+CreatePaperBriefResult
+  paper_id: int
+  status: PaperAspectStatus
+  error_message: str | None
+
+GeneratePaperBriefsEnqueueResult
+  submitted_paper_ids: list[int]
+  skipped_already_terminal: list[int]
+```
+
+`skipped_already_terminal` is every paper id in the input list that exists and is **not** submitted (full text not `succeeded`, or brief already `succeeded` / `failed` / `unavailable`). Do not store Prefect run ids on these types for UI progress.
+
+Example after enqueue of papers `[10, 11, 12]` where 11 already has a succeeded brief and 12 has full text `unavailable`:
+
+```text
+GeneratePaperBriefsEnqueueResult(
+  submitted_paper_ids=[10],
+  skipped_already_terminal=[11, 12],
+)
+```
+
 ## `PaperBrief` model (v1)
 
 | Field | Required | Description |

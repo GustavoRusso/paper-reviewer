@@ -24,6 +24,7 @@ from paper_reviewer.ui.navigation import streamlit_page_for
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
+    GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
     PUBLIC_ID_KEY,
     SESSION_KEY,
     TRIAGE_RESULT_KEY,
@@ -197,6 +198,7 @@ def render_paper_archiving() -> None:
 
     st.session_state[ARCHIVING_RESULT_KEY] = archiving_result
     st.session_state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
+    st.session_state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
     _render_result(
         archiving_result,
         input_count=len(retained),

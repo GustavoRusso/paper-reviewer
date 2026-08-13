@@ -35,6 +35,7 @@ SEARCH_KEY = "related_paper_search_result"
 TRIAGE_RESULT_KEY = "retrieval_triage_result"
 ARCHIVING_RESULT_KEY = "paper_archiving_result"
 FULFILL_ENQUEUE_RESULT_KEY = "fulfill_papers_metadata_enqueue_result"
+GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY = "generate_paper_brief_enqueue_result"
 
 
 @st.cache_resource
@@ -91,6 +92,7 @@ def render_topic_intake() -> None:
             st.session_state.pop(TRIAGE_RESULT_KEY, None)
             st.session_state.pop(ARCHIVING_RESULT_KEY, None)
             st.session_state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
+            st.session_state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)

@@ -30,6 +30,7 @@ All initial local parametrization lives in a project-root **`.env`** file. Compo
 | `PREFECT_UI_API_URL` | `http://localhost:4200/api` | `prefect-server` | Browser → host API; keep in sync with `PREFECT_PORT` |
 | `PREFECT_PORT` | `4200` | `prefect-server` host publish | Host → container `4200` |
 | `NCBI_API_KEY` | (empty) | `ui`, `prefect-worker` | Optional; higher PubMed rate limits when set |
+| `OPENAI_API_KEY` | (empty) | `prefect-worker` | Required for `create_paper_brief` to draft content. Leave empty in tests; the job records Failed if unset |
 
 Compose supplies the same defaults when a variable is unset, so an empty or missing `.env` still boots with the values above. Prefer the standard `postgresql://` scheme in `DATABASE_URL`; `paper_reviewer.db` maps it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
@@ -42,7 +43,7 @@ Compose defines:
 - **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `migrate` succeeds).
 - **`prefect-server`** — Prefect API/UI on host port **`PREFECT_PORT`** (default **4200**; Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `PREFECT_UI_API_URL`.
-- **`prefect-worker`** — Serves `fulfill_paper_metadata/default` plus leaf deployments `inform_source_record/default` and `inform_full_text/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, and optional `NCBI_API_KEY` from `.env`. The Streamlit UI submits `fulfill_paper_metadata` runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper status.
+- **`prefect-worker`** — Serves `fulfill_paper_metadata/default`, leaf deployments `inform_source_record/default` and `inform_full_text/default`, and `create_paper_brief/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, optional `NCBI_API_KEY`, and optional `OPENAI_API_KEY` from `.env`. The Streamlit UI submits `fulfill_paper_metadata` and `create_paper_brief` runs with `run_deployment` (fire-and-forget). Progress UIs still poll Postgres, not Prefect, for paper and brief status.
 
 ### Schema migrations (Alembic)
 
@@ -63,9 +64,11 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `fulfill_paper_metadata/default` (and the leaf `inform_source_record/default` and `inform_full_text/default` deployments). Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
+After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `fulfill_paper_metadata/default` (leaf `inform_source_record/default` and `inform_full_text/default`) and `create_paper_brief/default`. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
 
 Manual smoke for step 6: archive papers in the UI, open **Fulfill papers metadata**, confirm enqueue of `fulfill_paper_metadata` succeeds, then watch the **source record** and **full text** labels move to Succeeded, Unavailable, or Failed while `just logs prefect-worker` shows fulfill runs. Revisit a paper with source **Succeeded** and full text **Fulfilling**: only Cloud runs. When both aspects are terminal, a later visit does not enqueue a new run. Unsupported `source_id`: source record **Unavailable**; full text stays **not_started**. Progress truth is Postgres (`source_record_status` / `full_text_status`), not the Prefect UI.
+
+Manual smoke for step 7: after fulfill is terminal, open **Generate paper brief**. Papers with full text **Unavailable** or **Failed** show **Blocked (no full text)** and do not enqueue a brief run. A paper with full text **Succeeded** and no brief moves to **Succeeded** (or **Failed** if `OPENAI_API_KEY` is missing or the LLM errors). A later generation that archives the same paper with an existing succeeded brief shows **Skipped (already done)**. Progress truth is Postgres (`paper_briefs.status`), not the Prefect UI.
 
 ## Agent shells
 

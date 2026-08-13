@@ -3,3 +3,17 @@
 Content sections and the LLM prompt live in ``paper_brief_template.md``.
 Behavior contract: docs/specs/07-generate-paper-brief.md.
 """
+
+from paper_reviewer.topic_brief_generation.generate_paper_brief.create import (
+    create_paper_brief,
+)
+from paper_reviewer.topic_brief_generation.generate_paper_brief.enqueue import (
+    enqueue_generate_paper_briefs,
+    needs_create_paper_brief,
+)
+
+__all__ = [
+    "create_paper_brief",
+    "enqueue_generate_paper_briefs",
+    "needs_create_paper_brief",
+]

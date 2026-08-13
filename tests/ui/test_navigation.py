@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_metadata
+from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
@@ -53,12 +54,22 @@ def test_fulfill_papers_metadata_page_is_registered() -> None:
     assert pages["fulfill_papers_metadata"].render is render_fulfill_papers_metadata
 
 
+def test_generate_paper_brief_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "generate_paper_brief" in pages
+    assert pages["generate_paper_brief"].title == "Generate paper brief"
+    assert pages["generate_paper_brief"].url_path == "generate-paper-brief"
+    assert pages["generate_paper_brief"].render is render_generate_paper_brief
+
+
 def test_workflow_page_order() -> None:
     keys = [page.key for page in build_app_pages()]
 
     assert keys.index("new_topic_brief") < keys.index("retrieval_triage")
     assert keys.index("retrieval_triage") < keys.index("paper_archiving")
     assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
+    assert keys.index("fulfill_papers_metadata") < keys.index("generate_paper_brief")
 
 
 def test_landing_cta_links_to_new_topic_brief() -> None:

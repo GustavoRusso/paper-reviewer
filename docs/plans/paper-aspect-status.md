@@ -93,21 +93,15 @@ The human **approved** these gaps as documented (no spec patch in the Step 1 com
 
 **Outside edge:** Generate paper brief page (register in navigation).
 
-**User-visible result:** Page 7 enqueues briefs **only** for papers with `full_text_status = succeeded`. One global `PaperBrief` per `Paper`. A later generation that reuses the archived paper shows **Skipped (already done)** if the brief is already `succeeded`. Blocked rows for no full text. Content is topic-agnostic (no `relevance_to_topic`).
+**Implement:** [07-generate-paper-brief.md](../specs/07-generate-paper-brief.md). Do not copy field lists or selection rules here.
 
-**Includes (same commit):**
+**Same commit also (not owned by spec 07):**
 
-- ORM `PaperBrief` (unique `paper_id`), migration, 1:1 from `Paper`.
-- `create_paper_brief` domain + Prefect flow (`force=false` only from this page).
-- Enqueue helper and progress UI per spec 07.
-- LLM behind a stubbable boundary (no live LLM in tests).
+- Page 6 `st.page_link` to **Generate paper brief** when the archived set is terminal ([spec 06](../specs/06-fulfill-papers-metadata.md); grill item 2).
+- LLM behind a stubbable boundary (no live LLM in tests). Production client and `OPENAI_API_KEY` belong in [technology-stack.md](../technology-stack.md) and [local-development.md](../local-development.md).
+- Worker smoke in [local-development.md](../local-development.md) for `create_paper_brief`.
 
-**Validate:**
-
-- `just test` then `just up`. Navigation shows **Generate paper brief**.
-- Paper with full text **Unavailable**: blocked; no Prefect brief run.
-- Paper with full text **Succeeded** and no brief: status moves to **Succeeded** (or **Failed** on LLM error).
-- Second generation that archives the same paper: brief skipped.
+**Validate:** `just test` then `just up`. Spec 07 user-visible checks (blocked / succeeded or failed / skipped already done).
 
 **Do not in this step:** `regenerate_paper` or a force button.
 

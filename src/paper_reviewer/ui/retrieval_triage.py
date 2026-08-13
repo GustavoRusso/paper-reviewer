@@ -22,6 +22,7 @@ from paper_reviewer.ui.navigation import streamlit_page_for
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
+    GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
     PUBLIC_ID_KEY,
     SEARCH_KEY,
     SESSION_KEY,
@@ -114,6 +115,7 @@ def render_retrieval_triage() -> None:
         st.session_state[TRIAGE_RESULT_KEY] = triage_result
         st.session_state.pop(ARCHIVING_RESULT_KEY, None)
         st.session_state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
+        st.session_state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
         st.success(
             f"Confirmed {len(triage_result.retained)} paper(s) for archiving."
         )

@@ -208,7 +208,10 @@ def _render_progress(
                 "Fulfill papers metadata finished. Some papers failed or are "
                 "unavailable; later steps use papers with full text Succeeded."
             )
-        st.caption("Next: Generate paper brief.")
+        st.page_link(
+            streamlit_page_for("generate_paper_brief"),
+            label="Continue to Generate paper brief",
+        )
 
 
 def render_fulfill_papers_metadata() -> None:
@@ -243,7 +246,10 @@ def render_fulfill_papers_metadata() -> None:
     if not paper_ids:
         st.caption("No archived papers.")
         st.success("Fulfill papers metadata finished for this set.")
-        st.caption("Next: Generate paper brief.")
+        st.page_link(
+            streamlit_page_for("generate_paper_brief"),
+            label="Continue to Generate paper brief",
+        )
         return
 
     enqueue_result: FulfillPapersMetadataEnqueueResult | None = st.session_state.get(
