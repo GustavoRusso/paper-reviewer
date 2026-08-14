@@ -41,7 +41,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 - Store `PaperAspectStatus` on `Paper` as `source_record_status` and `full_text_status` (default `not_started`).
 - For each paper, enqueue `fulfill_paper_metadata` (source record then full text) using **default skip rules**.
 - On source-record success: write `source_record` (JSONB), typed promote columns (`pub_date`, `abstract_text`, bibliographic refresh), and `pmcid` when the source supplies it.
-- On full-text success (PubMed): store usable `full_text_plain` from Cloud `.txt` (original body; `strip()` not empty), plus `pmcid_version`, `is_open_access`, `pmc_article_url`, and `open_access_pdf_url` when present.
+- On full-text success (PubMed): store usable `full_text_plain` from Cloud `.txt` (`strip()` of the body; `strip()` not empty), plus `pmcid_version`, `is_open_access`, `pmc_article_url`, and `open_access_pdf_url` when present.
 - Set `failed` or `unavailable` per aspect (tables below). Optional per-aspect error message when `failed`.
 - Dedicated Streamlit page that enqueues the page-6 orchestrator and shows progress for **both** aspects (polls DB enum columns only). A per-paper **Regenerate** button submits `regenerate_paper` when both aspects are terminal.
 
@@ -255,9 +255,9 @@ Empty abstract does **not** block full text. Full text is gated by a full-text h
 
 ### Full-text success contract
 
-`full_text_status = succeeded` means `full_text_plain` holds **usable** article body text: the Cloud `.txt` body as returned, and `strip()` of that body is not empty. Author manuscript with `is_open_access=false` and usable body text is still `succeeded`.
+`full_text_status = succeeded` means `full_text_plain` holds **usable** article body text: `strip()` of the Cloud `.txt` body, and that stripped value is not empty. Author manuscript with `is_open_access=false` and usable body text is still `succeeded`.
 
-Empty string, spaces-only, or newline-only body is **not** usable. Treat it as no `.txt`: `full_text_status = unavailable`; leave `full_text_plain` null. Do not store `''` or whitespace. When the body is usable, persist the **original** string (do not strip stored article text; real files may start with a newline).
+Empty string, spaces-only, or newline-only body is **not** usable. Treat it as no `.txt`: `full_text_status = unavailable`; leave `full_text_plain` null. Do not store `''` or whitespace. When the body is usable, persist `strip()` of the body (remove leading and trailing whitespace).
 
 ### Storage layout (locked)
 
@@ -309,7 +309,7 @@ After `source_record_status = succeeded` for PubMed, `inform_full_text` may enri
 | `pmcid` | Text, nullable | e.g. `PMC5334499` (set at source-record time; used for re-fetch). |
 | `pmcid_version` | int, nullable | Highest Cloud version used for this enrichment. |
 | `is_open_access` | bool, nullable | From Cloud `is_pmc_openaccess` when enrichment ran; null if no Cloud hit. Author manuscripts may have `is_open_access=false` and still receive `full_text_plain`. |
-| `full_text_plain` | Text, nullable | Body of Cloud `.txt` (plain text extracted from JATS XML). Required for `full_text_status = succeeded`. Must be usable (`strip()` not empty); never store blank or whitespace-only text. |
+| `full_text_plain` | Text, nullable | `strip()` of the Cloud `.txt` body (plain text extracted from JATS XML). Required for `full_text_status = succeeded`. Must be usable (`strip()` not empty); never store blank or whitespace-only text. |
 | `open_access_pdf_url` | Text, nullable | Browser-usable **HTTPS** URL of the Cloud PDF object when metadata exposes `pdf_url`. |
 | `pmc_article_url` | Text, nullable | Canonical PMC landing page, e.g. `https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/`, set whenever Cloud enrichment runs with a PMCID (primary clickable “open the paper” link even when there is no PDF). |
 
@@ -446,7 +446,7 @@ PubMed call shape: see [paper-sources/pubmed.md](paper-sources/pubmed.md) (EFetc
 | Default path, `full_text_status` is `succeeded`, `failed`, or `unavailable` | No-op; return current status; do not call Cloud. |
 | `source_record_status` is not `succeeded` | Do not call Cloud. Leave `full_text_status` unchanged (`not_started` if never attempted). |
 | `not_started`, source record `succeeded`, no PMCID | `full_text_status = unavailable`. Do not call Cloud. |
-| `not_started`, PMCID present, Cloud highest version has usable `.txt` | Store original `full_text_plain` and enrichment columns; `full_text_status = succeeded`; clear error message. Author manuscript with `is_open_access=false` is still `succeeded`. |
+| `not_started`, PMCID present, Cloud highest version has usable `.txt` | Store stripped `full_text_plain` and enrichment columns; `full_text_status = succeeded`; clear error message. Author manuscript with `is_open_access=false` is still `succeeded`. |
 | `not_started`, PMCID present, no Cloud object, no `.txt`, or `.txt` body empty / whitespace-only | `full_text_status = unavailable`. Leave `full_text_plain` null. |
 | Cloud HTTP / parse error | In-run retries (3 × 0.5s). After exhaustion: `full_text_status = failed`; set `full_text_error_message`. Do not set `unavailable` or `succeeded`. |
 
@@ -573,7 +573,7 @@ TDD per [tdd.md](../tdd.md):
 
 - Default skip when status is terminal.
 - No PMCID → `unavailable`; no Cloud call.
-- PMCID + Cloud highest version + usable `.txt` → `succeeded`; original `full_text_plain` and URLs as specified; author manuscript `is_open_access=false` still `succeeded`.
+- PMCID + Cloud highest version + usable `.txt` → `succeeded`; stripped `full_text_plain` and URLs as specified; author manuscript `is_open_access=false` still `succeeded`.
 - PMCID but no `.txt`, or `.txt` body empty / whitespace-only → `unavailable`; `full_text_plain` remains null.
 - Cloud HTTP error after retries → `failed` (not `unavailable`).
 

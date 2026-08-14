@@ -192,7 +192,7 @@ Official references:
    - `pmcid`, `pmcid_version`
    - `is_open_access` ← `is_pmc_openaccess` (may be false for author manuscripts that still have `.txt`)
    - `pmc_article_url` ← `https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/`
-5. If `text_url` is present: download the `.txt` body (JATS flatten) → `full_text_plain` when the body is **usable** (`strip()` is not empty). Persist the original body (do not strip stored text). Empty, spaces-only, or newline-only body is the same as no `.txt`. Pull for Open Access Subset **and** Author Manuscript when Cloud returns usable text.
+5. If `text_url` is present: download the `.txt` body (JATS flatten) → `full_text_plain` when the body is **usable** (`strip()` is not empty). Persist `strip()` of the body. Empty, spaces-only, or newline-only body is the same as no `.txt`. Pull for Open Access Subset **and** Author Manuscript when Cloud returns usable text.
 6. If `pdf_url` is present: store **HTTPS** form only in `open_access_pdf_url` (do not download bytes). Normalize `s3://pmc-oa-opendata/<key>` → `https://pmc-oa-opendata.s3.amazonaws.com/<key>`. Prefer a stable path suitable for a browser link; strip ephemeral query params such as `md5` unless required for access.
 7. On no Cloud object, no `.txt`, or blank / whitespace-only `.txt` in steps 2–6: leave `full_text_plain` null; the full-text flow sets `full_text_status = unavailable`. On HTTP/parse error after in-run retries: leave `full_text_plain` null; the flow sets `failed`. Do **not** treat a Cloud miss or a blank `.txt` as source-record success (source record is already a separate flow). Do **not** convert HTTP/parse errors into `unavailable`.
 
@@ -205,8 +205,8 @@ Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC
 | No PMCID after source record | Do not call Cloud; `full_text_status = unavailable` |
 | PMCID present but no Cloud version / no `.txt` | `full_text_status = unavailable`; `full_text_plain` null |
 | Cloud `.txt` body empty or whitespace-only | Same as no `.txt`: `unavailable`; `full_text_plain` null |
-| Cloud has usable `.txt` but no PDF | `full_text_status = succeeded`; original `full_text_plain` set; `open_access_pdf_url` null |
-| Author manuscript, not OA, usable `.txt` present | `full_text_status = succeeded`; original `full_text_plain` set; `is_open_access=false` |
+| Cloud has usable `.txt` but no PDF | `full_text_status = succeeded`; stripped `full_text_plain` set; `open_access_pdf_url` null |
+| Author manuscript, not OA, usable `.txt` present | `full_text_status = succeeded`; stripped `full_text_plain` set; `is_open_access=false` |
 | Cloud HTTP / parse error after retries | `full_text_status = failed`; `full_text_plain` null |
 
 ## dlt resource

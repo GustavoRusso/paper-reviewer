@@ -24,10 +24,13 @@ def normalize_pmcid(value: str) -> str:
 
 
 def usable_full_text_plain(value: str | None) -> str | None:
-    """Return the original body when ``strip()`` is not empty; else ``None``."""
-    if not isinstance(value, str) or not value.strip():
+    """Return ``strip()`` of the body when that is not empty; else ``None``."""
+    if not isinstance(value, str):
         return None
-    return value
+    stripped = value.strip()
+    if not stripped:
+        return None
+    return stripped
 
 
 def s3_url_to_https(url: str) -> str:

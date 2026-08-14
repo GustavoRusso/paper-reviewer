@@ -76,7 +76,9 @@ def test_normalize_pmcid() -> None:
         ("   ", None),
         ("  \n\t", None),
         ("Full article.", "Full article."),
-        ("\nFull article.", "\nFull article."),
+        ("\nFull article.", "Full article."),
+        ("Full article.\n", "Full article."),
+        ("  Full article.  \n", "Full article."),
     ],
 )
 def test_usable_full_text_plain(value: str | None, expected: str | None) -> None:
@@ -248,13 +250,16 @@ def test_fetch_blank_txt_omits_full_text_plain(txt_body: str) -> None:
 
 
 @responses.activate
-def test_fetch_preserves_leading_newline_in_body() -> None:
-    body = "\nFull article plain text."
-    _stub_article_with_txt(pmcid="PMC1", version=1, txt_body=body)
+def test_fetch_strips_leading_and_trailing_whitespace_in_body() -> None:
+    _stub_article_with_txt(
+        pmcid="PMC1",
+        version=1,
+        txt_body="\nFull article plain text.  \n",
+    )
 
     result = fetch_pmc_cloud_enrichment("PMC1")
 
-    assert result["full_text_plain"] == body
+    assert result["full_text_plain"] == "Full article plain text."
 
 
 @responses.activate

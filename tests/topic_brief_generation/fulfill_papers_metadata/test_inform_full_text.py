@@ -289,7 +289,7 @@ def test_cloud_version_without_usable_text_marks_unavailable(
         session.close()
 
 
-def test_stores_original_body_including_leading_newline(
+def test_stores_stripped_body(
     session_factory: sessionmaker[Session],
 ) -> None:
     paper_id = create_test_paper(
@@ -298,14 +298,13 @@ def test_stores_original_body_including_leading_newline(
         full_text_status=PaperAspectStatus.not_started,
         pmcid="PMC5334499",
     )
-    body = "\nFull article text from Cloud."
 
     result = inform_full_text(
         paper_id,
         session_factory=session_factory,
         enrich_from_pmc_cloud=lambda _pmcid: {
             **cloud_hit(),
-            "full_text_plain": body,
+            "full_text_plain": "\nFull article text from Cloud.  \n",
         },
     )
 
@@ -315,7 +314,7 @@ def test_stores_original_body_including_leading_newline(
     try:
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
-        assert paper.full_text_plain == body
+        assert paper.full_text_plain == "Full article text from Cloud."
     finally:
         session.close()
 
