@@ -198,7 +198,7 @@ Prefer this durable status so the UI can poll the database without Prefect as th
 
 **Owner of section list and prompt text:** [`paper_brief_template.md`](../../src/paper_reviewer/topic_brief_generation/generate_paper_brief/paper_brief_template.md) in `paper_reviewer.topic_brief_generation.generate_paper_brief`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
 
-`create_paper_brief` loads that file as the system prompt. It sends `full_text_plain` plus archived title / journal / year from `Paper` in the user message (bibliographic facts, not a topic). The job sends OpenAI structured `json_schema` and then validates the assistant text as `PaperBriefContent` (field ids must match the template front matter). Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. Title, journal, and year are **not** LLM content fields.
+`create_paper_brief` loads that file as the system prompt. It sends scientific sections from `full_text_plain` plus archived title / journal / year from `Paper` in the user message (bibliographic facts, not a topic). The extract always keeps Abstract, Introduction, Methods, Results, and Discussion (and close aliases such as Conclusions). It drops journal boilerplate, abbreviations, funding, ethics, author contributions, and References. If the article has no section headings, it sends the full text. The job sends OpenAI structured `json_schema` and then validates the assistant text as `PaperBriefContent` (field ids must match the template front matter). Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. When `OPENAI_BASE_URL` is set, the job also clips the extracted text to 8000 characters (trims Introduction and Discussion first so Abstract, Methods, and Results remain) and asks for a JSON object with no preamble, so a small local context window still sees the study. Title, journal, and year are **not** LLM content fields.
 
 Do **not** store `relevance_to_topic` or a topic-relative summary. Step 8 reflects relevance as citations in the topic-brief prose.
 
@@ -306,7 +306,7 @@ The LLM is an **external** boundary: inject or stub the content generator. Do no
 
 - Succeeded brief exists, `force` false → no LLM; success.
 - Full text not `succeeded` → does not write succeeded content.
-- Happy path with `full_text_plain` → prompt includes the template file and the plain full text; `content` has required template fields; status `succeeded`.
+- Happy path with `full_text_plain` → prompt includes the template file and extracted scientific sections; `content` has required template fields; status `succeeded`.
 - `PaperBriefContent` field names match the template YAML front matter (fail if they drift).
 - `force` true and full text `succeeded` → rewrites content even if a succeeded brief existed.
 - LLM failure → status `failed` with message.

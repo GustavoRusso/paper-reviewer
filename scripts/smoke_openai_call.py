@@ -22,8 +22,10 @@ from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
     PaperBriefContent,
 )
 from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
+    _GATEWAY_JSON_ONLY,
     _GATEWAY_MAX_TOKENS,
     build_brief_user_message,
+    clip_full_text_for_gateway,
     load_paper_brief_template,
     parse_paper_brief_content,
     resolve_openai_base_url,
@@ -71,9 +73,13 @@ if not _FULL_TEXT_PATH.is_file():
 full_text_plain = _FULL_TEXT_PATH.read_text(encoding="utf-8").strip()
 if not full_text_plain:
     raise SystemExit(f"Full text file is empty: {_FULL_TEXT_PATH}")
+full_text_plain = clip_full_text_for_gateway(full_text_plain)
 
 messages = [
-    {"role": "system", "content": load_paper_brief_template()},
+    {
+        "role": "system",
+        "content": f"{load_paper_brief_template()}\n\n{_GATEWAY_JSON_ONLY}",
+    },
     {
         "role": "user",
         "content": build_brief_user_message(

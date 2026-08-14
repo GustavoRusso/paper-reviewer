@@ -9,6 +9,8 @@ import pytest
 
 from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
     build_brief_user_message,
+    clip_full_text_for_gateway,
+    extract_scientific_full_text,
     generate_paper_brief_content,
     load_paper_brief_template,
     parse_paper_brief_content,
@@ -296,6 +298,196 @@ def test_generate_paper_brief_content_sets_max_tokens_for_gateway(
     )
 
     assert create_captured["max_tokens"] == 4096
+
+
+def test_clip_full_text_for_gateway_keeps_prefix_and_drops_tail() -> None:
+    body = "HEAD" + ("x" * 20_000) + "TAIL_UNIQUE"
+
+    clipped = clip_full_text_for_gateway(body)
+
+    assert clipped.startswith("HEAD")
+    assert "TAIL_UNIQUE" not in clipped
+    assert len(clipped) < len(body)
+    assert "truncated" in clipped.lower()
+
+
+def test_clip_full_text_for_gateway_keeps_short_text() -> None:
+    assert clip_full_text_for_gateway("short body") == "short body"
+
+
+def test_extract_scientific_full_text_keeps_scientific_sections() -> None:
+    body = (
+        "JOURNAL INFORMATION\n"
+        "==============================\n"
+        "BOILER_MARK affiliations and PMC converter.\n\n"
+        "ABSTRACT\n\n"
+        "ABSTRACT_MARK background and objectives.\n\n"
+        "1 Introduction\n\n"
+        "INTRO_MARK gap in knowledge.\n\n"
+        "2 Materials and Methods\n\n"
+        "METHODS_MARK RT-PCR and N = 12.\n"
+        "2.1 Aim of the Study\n"
+        "SUBMETHOD_MARK stays with methods.\n\n"
+        "3 Results\n\n"
+        "RESULTS_MARK 30 percent attack rate.\n\n"
+        "Discussion\n\n"
+        "DISCUSSION_MARK authors interpret findings.\n\n"
+        "Funding\n\n"
+        "FUNDING_MARK grant numbers.\n\n"
+        "References\n\n"
+        "REF_MARK Agliani et al. 2023.\n"
+        + ("cite. " * 4000)
+    )
+
+    extracted = extract_scientific_full_text(body)
+
+    assert "ABSTRACT_MARK" in extracted
+    assert "INTRO_MARK" in extracted
+    assert "METHODS_MARK" in extracted
+    assert "SUBMETHOD_MARK" in extracted
+    assert "RESULTS_MARK" in extracted
+    assert "DISCUSSION_MARK" in extracted
+    assert "BOILER_MARK" not in extracted
+    assert "FUNDING_MARK" not in extracted
+    assert "REF_MARK" not in extracted
+
+
+def test_extract_scientific_full_text_keeps_long_introduction() -> None:
+    intro = "INTRO_KEEP " + ("i" * 9000)
+    body = (
+        "ABSTRACT\n\nSHORT_ABS\n\n"
+        f"1 Introduction\n\n{intro}\n\n"
+        "3 Results\n\nRESULTS_KEEP\n\n"
+        "References\n\nREF_ONLY\n"
+    )
+
+    extracted = extract_scientific_full_text(body)
+
+    assert "SHORT_ABS" in extracted
+    assert intro in extracted
+    assert "RESULTS_KEEP" in extracted
+    assert "REF_ONLY" not in extracted
+    assert "truncated" not in extracted.lower()
+
+
+def test_extract_scientific_full_text_keeps_unstructured() -> None:
+    assert extract_scientific_full_text("short body") == "short body"
+
+
+def test_clip_full_text_for_gateway_drops_references_even_when_short() -> None:
+    body = (
+        "ABSTRACT\n\nKeep abstract.\n\n"
+        "3 Results\n\nKeep results.\n\n"
+        "References\n\nDrop this citation list.\n"
+    )
+
+    clipped = clip_full_text_for_gateway(body)
+
+    assert "Keep abstract" in clipped
+    assert "Keep results" in clipped
+    assert "Drop this citation" not in clipped
+
+
+def test_clip_full_text_for_gateway_prefers_abstract_methods_results() -> None:
+    intro = "INTRO_PAD " + ("i" * 9000)
+    methods = "METHODS_KEEP " + ("m" * 2000)
+    results = "RESULTS_KEEP " + ("r" * 2000)
+    body = (
+        "ABSTRACT\n\nSHORT_ABS\n\n"
+        f"1 Introduction\n\n{intro}\n\n"
+        f"2 Materials and Methods\n\n{methods}\n\n"
+        f"3 Results\n\n{results}\n\n"
+        "References\n\nREF_ONLY\n"
+    )
+
+    clipped = clip_full_text_for_gateway(body, max_chars=8000)
+
+    assert "SHORT_ABS" in clipped
+    assert "METHODS_KEEP" in clipped
+    assert "RESULTS_KEEP" in clipped
+    assert "REF_ONLY" not in clipped
+    assert len(clipped) <= 8000
+
+
+def test_generate_paper_brief_content_clips_full_text_on_gateway(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "llama3.1-8b")
+    long_text = "START_MARK" + ("y" * 25_000) + "END_MARK"
+
+    generate_paper_brief_content(
+        long_text,
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    user = create_captured["messages"][1]["content"]
+    assert "START_MARK" in user
+    assert "END_MARK" not in user
+    system = create_captured["messages"][0]["content"]
+    assert "first non-whitespace character must be `{`" in system
+
+
+def test_generate_paper_brief_content_keeps_full_text_on_public_api(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
+    long_text = "START_MARK" + ("y" * 25_000) + "END_MARK"
+
+    generate_paper_brief_content(
+        long_text,
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    user = create_captured["messages"][1]["content"]
+    assert "START_MARK" in user
+    assert "END_MARK" in user
+    system = create_captured["messages"][0]["content"]
+    assert "first non-whitespace character must be `{`" not in system
+
+
+def test_generate_paper_brief_content_extracts_sections_on_public_api(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
+    intro = "INTRO_KEEP " + ("i" * 9000)
+    body = (
+        "JOURNAL INFORMATION\nBOILER_MARK\n\n"
+        "ABSTRACT\n\nSHORT_ABS\n\n"
+        f"1 Introduction\n\n{intro}\n\n"
+        "2 Materials and Methods\n\nMETHODS_KEEP\n\n"
+        "3 Results\n\nRESULTS_KEEP\n\n"
+        "References\n\nREF_ONLY\n"
+    )
+
+    generate_paper_brief_content(
+        body,
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    user = create_captured["messages"][1]["content"]
+    assert "SHORT_ABS" in user
+    assert intro in user
+    assert "METHODS_KEEP" in user
+    assert "RESULTS_KEEP" in user
+    assert "BOILER_MARK" not in user
+    assert "REF_ONLY" not in user
+    assert "truncated" not in user.lower()
 
 
 def test_generate_paper_brief_content_parses_gateway_ansi_json(
