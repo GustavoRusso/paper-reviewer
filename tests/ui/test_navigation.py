@@ -6,9 +6,9 @@ from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_meta
 from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import AppPage, build_app_pages
+from paper_reviewer.ui.new_topic_brief import render_new_topic_brief
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
-from paper_reviewer.ui.topic_intake import render_topic_intake
 
 
 def test_landing_is_the_default_page() -> None:
@@ -19,12 +19,13 @@ def test_landing_is_the_default_page() -> None:
     assert defaults[0].key == "landing"
 
 
-def test_new_topic_brief_page_uses_topic_intake() -> None:
+def test_new_topic_brief_page_is_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
     assert "new_topic_brief" in pages
     assert pages["new_topic_brief"].title == "New Topic brief"
-    assert pages["new_topic_brief"].render is render_topic_intake
+    assert pages["new_topic_brief"].url_path == "new-topic-brief"
+    assert pages["new_topic_brief"].render is render_new_topic_brief
 
 
 def test_retrieval_triage_page_is_registered() -> None:

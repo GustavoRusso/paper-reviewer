@@ -80,8 +80,8 @@ Illustrative only; step specs remain the behavior contract.
 | Situation | Intent | Control |
 | --- | --- | --- |
 | Home → New Topic brief | Navigate | `st.page_link` |
-| Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` |
-| Intake → Retrieval triage | Navigate | `st.page_link` |
+| New Topic brief Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` |
+| New Topic brief → Retrieval triage | Navigate | `st.page_link` |
 | Triage confirm retained set | Confirm / primary | `st.button(..., type="primary")` with a **confirm** label |
 | After confirm → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |

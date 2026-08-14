@@ -21,7 +21,7 @@ from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 from paper_reviewer.ui.navigation import streamlit_page_for
-from paper_reviewer.ui.topic_intake import (
+from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,

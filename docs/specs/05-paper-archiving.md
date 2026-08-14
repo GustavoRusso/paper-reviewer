@@ -278,7 +278,7 @@ When a `PaperArchivingResult` is available (cached or just produced), render sec
 
 ### Archived papers (`papers`)
 
-For each `Paper`, reuse the candidate card style from Topic intake:
+For each `Paper`, reuse the candidate card style from **New Topic brief**:
 
 - Title as a markdown link via `url`.
 - Caption: authors · journal · year · DOI · `source_id` / `source_uid` · `created_at` (ISO or locale-neutral).
@@ -305,7 +305,7 @@ When all three lists are empty after empty input, show a neutral success caption
 
 ## Workflow navigation
 
-- **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
+- **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. **New Topic brief** links to Retrieval triage only (not directly to Paper archiving).
 - **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session (that page lands with step 6).
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 

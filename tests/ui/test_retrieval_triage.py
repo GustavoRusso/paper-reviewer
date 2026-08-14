@@ -11,7 +11,7 @@ from paper_reviewer.ui.retrieval_triage import (
     CONFIRM_BUTTON_LABEL,
     triage_prerequisites_met,
 )
-from paper_reviewer.ui.topic_intake import PUBLIC_ID_KEY, SEARCH_KEY
+from paper_reviewer.ui.new_topic_brief import PUBLIC_ID_KEY, SEARCH_KEY
 
 
 def test_confirm_button_label_names_the_action() -> None:

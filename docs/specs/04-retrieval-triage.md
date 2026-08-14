@@ -61,7 +61,7 @@ flowchart TB
 3. **Paper archiving** receives `RetrievalTriageResult.retained` and creates or reuses `Paper` records.
 4. **Fulfill papers metadata**, **Generate paper brief**, and **Topic brief** continue on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [Generate paper brief](07-generate-paper-brief.md).
 
-Today, Topic intake runs analysis and search on one page. This step owns a **dedicated Streamlit page** for review and confirm. Intake remains responsible for starting the generation and running search; after search succeeds it links to triage.
+Today, the **New Topic brief** page (`paper_reviewer.ui.new_topic_brief`) runs Topic intake, analysis, and search on one page. This step owns a **dedicated Streamlit page** for review and confirm. Topic intake remains responsible for starting the generation and running search; after search succeeds the New Topic brief page links to triage.
 
 ## Input
 
@@ -131,21 +131,21 @@ Register in `paper_reviewer.ui.navigation`:
 
 ### Page behavior (v1)
 
-1. **Prerequisites** — Require Streamlit session state from Topic intake:
+1. **Prerequisites** — Require Streamlit session state from **New Topic brief**:
    - `topic_brief_generation_public_id`
    - `related_paper_search_result`
    - If either is missing: show a message and a link to **New Topic brief**; do not render the confirm button.
 2. **Context header** — Show the generation reference id and an optional topic statement snippet from session.
-3. **Source runs** — Show per-source status from `search_result.source_runs` (same pattern as Topic intake’s per-source rendering today). Implementation may later extract a shared display helper.
+3. **Source runs** — Show per-source status from `search_result.source_runs` (same pattern as New Topic brief’s per-source rendering today). Implementation may later extract a shared display helper.
 4. **Candidate list** — One block per `PaperCandidate`: title (linked via `url`), authors, journal, year, `source_uid`, `facet_id`, and DOI when present.
 5. **Counts** — Show how many papers will continue (e.g. “N papers to archive”).
 6. **Confirm button (primary)** — Mutating control per [ui-style.md](../ui-style.md). Label names the confirm action (e.g. **Confirm for paper archiving**), not the next page. Exact copy left to implementation.
    - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and a separate `st.page_link` to the **Paper archiving** page (navigate only). Do **not** call `archive_papers` on this page.
 7. **Empty candidates** — Still show source-run diagnostics; keep the confirm button enabled (archiving is a no-op). Caption explains that search returned no retainable papers.
 
-### Topic intake handoff
+### New Topic brief handoff
 
-After related-paper search succeeds on the Topic intake page:
+After related-paper search succeeds on the **New Topic brief** page (`paper_reviewer.ui.new_topic_brief`):
 
 - Do not keep the full candidate list as the primary triage surface on intake.
 - Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step.

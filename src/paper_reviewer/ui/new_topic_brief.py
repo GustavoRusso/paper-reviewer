@@ -1,4 +1,4 @@
-"""Topic intake Streamlit page (first step of topic brief generation)."""
+"""New Topic brief Streamlit page (starts Topic brief generation)."""
 
 from __future__ import annotations
 
@@ -56,8 +56,8 @@ def _render_source_run_summary(run: SourceRun) -> None:
         st.caption("No paper candidates from this source.")
 
 
-def render_topic_intake() -> None:
-    """Render the Topic intake form and show the accepted topic statement."""
+def render_new_topic_brief() -> None:
+    """Render the New Topic brief form and show the accepted topic statement."""
     st.title("New Topic brief")
     st.write(
         "This form starts Topic brief generation. After you submit a topic statement, "
@@ -65,7 +65,7 @@ def render_topic_intake() -> None:
         "lets you triage which results to keep, builds a paper brief for each retained "
         "paper, and drafts a cited topic brief that explains what is currently known."
     )
-    with st.form("topic_intake_form"):
+    with st.form("new_topic_brief_form"):
         raw_text = st.text_area(
             "Define the topic and research scope",
             height=160,

@@ -33,9 +33,9 @@ def build_app_pages() -> list[AppPage]:
     )
     from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
     from paper_reviewer.ui.landing import render_landing
+    from paper_reviewer.ui.new_topic_brief import render_new_topic_brief
     from paper_reviewer.ui.paper_archiving import render_paper_archiving
     from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
-    from paper_reviewer.ui.topic_intake import render_topic_intake
 
     return [
         AppPage(
@@ -48,7 +48,7 @@ def build_app_pages() -> list[AppPage]:
         AppPage(
             key="new_topic_brief",
             title="New Topic brief",
-            render=render_topic_intake,
+            render=render_new_topic_brief,
             url_path="new-topic-brief",
             in_sidebar=True,
         ),

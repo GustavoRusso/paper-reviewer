@@ -25,7 +25,7 @@ from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
     needs_fulfill_paper_metadata,
 )
 from paper_reviewer.ui.navigation import streamlit_page_for
-from paper_reviewer.ui.topic_intake import (
+from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     PUBLIC_ID_KEY,

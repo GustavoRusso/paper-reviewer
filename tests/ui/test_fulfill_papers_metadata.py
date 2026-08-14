@@ -19,7 +19,7 @@ from paper_reviewer.ui.fulfill_papers_metadata import (
     may_submit_regenerate_paper,
     prefect_enqueue_error_hint,
 )
-from paper_reviewer.ui.topic_intake import (
+from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     PUBLIC_ID_KEY,

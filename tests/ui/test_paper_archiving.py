@@ -20,7 +20,7 @@ from paper_reviewer.ui.paper_archiving import (
     format_archived_paper_caption,
     format_paper_archiving_summary,
 )
-from paper_reviewer.ui.topic_intake import TRIAGE_RESULT_KEY
+from paper_reviewer.ui.new_topic_brief import TRIAGE_RESULT_KEY
 
 
 def test_prerequisites_met_when_triage_result_present() -> None:
