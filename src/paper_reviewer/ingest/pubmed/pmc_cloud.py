@@ -23,6 +23,13 @@ def normalize_pmcid(value: str) -> str:
     return f"PMC{stripped}"
 
 
+def usable_full_text_plain(value: str | None) -> str | None:
+    """Return the original body when ``strip()`` is not empty; else ``None``."""
+    if not isinstance(value, str) or not value.strip():
+        return None
+    return value
+
+
 def s3_url_to_https(url: str) -> str:
     """Convert ``s3://pmc-oa-opendata/...`` to a stable HTTPS object URL.
 
@@ -122,4 +129,4 @@ def _download_text(text_url: str, get: HttpGet) -> str | None:
     https_url = s3_url_to_https(text_url)
     response = _checked_get(get, https_url, timeout=120)
     body = response.text
-    return body if body.strip() else None
+    return usable_full_text_plain(body)

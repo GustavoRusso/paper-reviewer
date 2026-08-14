@@ -217,6 +217,109 @@ def test_author_manuscript_succeeds_when_not_open_access(
         session.close()
 
 
+@pytest.mark.parametrize("full_text_plain", ["", "   ", "\n\t"])
+def test_blank_or_whitespace_full_text_marks_unavailable(
+    session_factory: sessionmaker[Session],
+    full_text_plain: str,
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.not_started,
+        pmcid="PMC5334499",
+    )
+
+    result = inform_full_text(
+        paper_id,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda _pmcid: {
+            **cloud_hit(),
+            "full_text_plain": full_text_plain,
+        },
+    )
+
+    assert result.status is PaperAspectStatus.unavailable
+    assert result.error_message is None
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+        assert paper.full_text_plain is None
+        assert paper.full_text_error_message is None
+    finally:
+        session.close()
+
+
+def test_cloud_version_without_usable_text_marks_unavailable(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.not_started,
+        pmcid="PMC5334499",
+    )
+
+    result = inform_full_text(
+        paper_id,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda _pmcid: {
+            "pmcid": "PMC5334499",
+            "pmcid_version": 2,
+            "is_open_access": True,
+            "pmc_article_url": (
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/"
+            ),
+        },
+    )
+
+    assert result.status is PaperAspectStatus.unavailable
+    assert result.error_message is None
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+        assert paper.full_text_plain is None
+        assert paper.full_text_error_message is None
+    finally:
+        session.close()
+
+
+def test_stores_original_body_including_leading_newline(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.not_started,
+        pmcid="PMC5334499",
+    )
+    body = "\nFull article text from Cloud."
+
+    result = inform_full_text(
+        paper_id,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda _pmcid: {
+            **cloud_hit(),
+            "full_text_plain": body,
+        },
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_plain == body
+    finally:
+        session.close()
+
+
 def test_cloud_miss_marks_unavailable(session_factory: sessionmaker[Session]) -> None:
     paper_id = create_test_paper(
         session_factory,

@@ -13,6 +13,7 @@ from paper_reviewer.ingest.pubmed.pmc_cloud import (
     fetch_pmc_cloud_enrichment,
     normalize_pmcid,
     s3_url_to_https,
+    usable_full_text_plain,
 )
 
 _LIST_URL = PMC_CLOUD_HTTPS_BASE + "/"
@@ -65,6 +66,52 @@ def test_normalize_pmcid() -> None:
     assert normalize_pmcid("11370360") == "PMC11370360"
     assert normalize_pmcid("PMC11370360") == "PMC11370360"
     assert normalize_pmcid(" pmc11370360 ") == "PMC11370360"
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        (None, None),
+        ("", None),
+        ("   ", None),
+        ("  \n\t", None),
+        ("Full article.", "Full article."),
+        ("\nFull article.", "\nFull article."),
+    ],
+)
+def test_usable_full_text_plain(value: str | None, expected: str | None) -> None:
+    assert usable_full_text_plain(value) == expected
+
+
+def _stub_article_with_txt(
+    *,
+    pmcid: str,
+    version: int,
+    txt_body: str = "",
+    txt_status: int = 200,
+    pdf: bool = False,
+) -> None:
+    responses.add(
+        responses.GET,
+        _LIST_URL,
+        body=_list_bucket_xml(f"{pmcid}.{version}/"),
+        status=200,
+        content_type="application/xml",
+    )
+    responses.add(
+        responses.GET,
+        f"{PMC_CLOUD_HTTPS_BASE}/metadata/{pmcid}.{version}.json",
+        body=json.dumps(_meta(pmcid=pmcid, version=version, pdf=pdf)),
+        status=200,
+        content_type="application/json",
+    )
+    responses.add(
+        responses.GET,
+        f"{PMC_CLOUD_HTTPS_BASE}/{pmcid}.{version}/{pmcid}.{version}.txt",
+        body=txt_body,
+        status=txt_status,
+        content_type="text/plain",
+    )
 
 
 def test_s3_url_to_https_strips_md5() -> None:
@@ -186,6 +233,36 @@ def test_fetch_text_without_pdf() -> None:
 
     assert result["full_text_plain"] == "Text only."
     assert "open_access_pdf_url" not in result
+
+
+@responses.activate
+@pytest.mark.parametrize("txt_body", ["", "  \n\t"])
+def test_fetch_blank_txt_omits_full_text_plain(txt_body: str) -> None:
+    _stub_article_with_txt(pmcid="PMC1", version=1, txt_body=txt_body)
+
+    result = fetch_pmc_cloud_enrichment("PMC1")
+
+    assert "full_text_plain" not in result
+    assert result["pmcid"] == "PMC1"
+    assert result["pmcid_version"] == 1
+
+
+@responses.activate
+def test_fetch_preserves_leading_newline_in_body() -> None:
+    body = "\nFull article plain text."
+    _stub_article_with_txt(pmcid="PMC1", version=1, txt_body=body)
+
+    result = fetch_pmc_cloud_enrichment("PMC1")
+
+    assert result["full_text_plain"] == body
+
+
+@responses.activate
+def test_fetch_txt_http_error_raises() -> None:
+    _stub_article_with_txt(pmcid="PMC11370360", version=1, txt_status=404)
+
+    with pytest.raises(requests.HTTPError):
+        fetch_pmc_cloud_enrichment("PMC11370360")
 
 
 @responses.activate

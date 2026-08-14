@@ -10,6 +10,7 @@ from typing import Any
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory
+from paper_reviewer.ingest.pubmed.pmc_cloud import usable_full_text_plain
 from paper_reviewer.models.topic_brief_generation.paper import Paper, get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     FulfillPaperMetadataResult,
@@ -89,8 +90,9 @@ def _apply_full_text_enrichment(paper: Paper, enrichment: dict[str, Any]) -> Non
         paper.pmcid_version = enrichment["pmcid_version"]
     if "is_open_access" in enrichment:
         paper.is_open_access = enrichment["is_open_access"]
-    if enrichment.get("full_text_plain"):
-        paper.full_text_plain = enrichment["full_text_plain"]
+    usable = usable_full_text_plain(enrichment.get("full_text_plain"))
+    if usable is not None:
+        paper.full_text_plain = usable
     if enrichment.get("open_access_pdf_url"):
         paper.open_access_pdf_url = enrichment["open_access_pdf_url"]
     if enrichment.get("pmc_article_url"):
@@ -267,7 +269,8 @@ def inform_full_text(
             session.commit()
             return _full_text_result(paper)
 
-        if enrichment.get("full_text_plain"):
+        usable = usable_full_text_plain(enrichment.get("full_text_plain"))
+        if usable is not None:
             _apply_full_text_enrichment(paper, enrichment)
             paper.full_text_status = PaperAspectStatus.succeeded
             paper.full_text_error_message = None
