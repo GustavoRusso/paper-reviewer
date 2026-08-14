@@ -261,6 +261,43 @@ def test_generate_paper_brief_content_sends_json_schema_response_format(
     assert response_format.get("type") == "json_schema"
 
 
+def test_generate_paper_brief_content_omits_max_tokens_on_public_api(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert "max_tokens" not in create_captured
+
+
+def test_generate_paper_brief_content_sets_max_tokens_for_gateway(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "llama3.1-8b")
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert create_captured["max_tokens"] == 4096
+
+
 def test_generate_paper_brief_content_parses_gateway_ansi_json(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

@@ -22,6 +22,7 @@ from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
     PaperBriefContent,
 )
 from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
+    _GATEWAY_MAX_TOKENS,
     build_brief_user_message,
     load_paper_brief_template,
     parse_paper_brief_content,
@@ -92,6 +93,7 @@ completion = client.chat.completions.create(
     model=model,
     messages=messages,
     response_format=type_to_response_format_param(PaperBriefContent),
+    max_tokens=_GATEWAY_MAX_TOKENS,
 )
 
 message = completion.choices[0].message

@@ -15,6 +15,7 @@ _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_template.md"
 _DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 _LOOPBACK_HOSTS = {"localhost", "127.0.0.1"}
 _PLACEHOLDER_API_KEY = "not-needed"
+_GATEWAY_MAX_TOKENS = 4096
 _ANSI_RE = re.compile(r"\x1b(?:\[[0-?]*[ -/]*[@-~]|\][^\x07]*(?:\x07|\x1b\\)|.)")
 _JSON_FENCE_RE = re.compile(r"```(?:json)?\s*(\{.*\})\s*```", re.DOTALL | re.IGNORECASE)
 
@@ -179,9 +180,9 @@ def generate_paper_brief_content(
         client = OpenAI(api_key=api_key, base_url=base_url)
     else:
         client = OpenAI(api_key=api_key)
-    completion = client.chat.completions.create(
-        model=model,
-        messages=[
+    create_kwargs: dict[str, object] = {
+        "model": model,
+        "messages": [
             {"role": "system", "content": load_paper_brief_template()},
             {
                 "role": "user",
@@ -193,8 +194,11 @@ def generate_paper_brief_content(
                 ),
             },
         ],
-        response_format=type_to_response_format_param(PaperBriefContent),
-    )
+        "response_format": type_to_response_format_param(PaperBriefContent),
+    }
+    if base_url is not None:
+        create_kwargs["max_tokens"] = _GATEWAY_MAX_TOKENS
+    completion = client.chat.completions.create(**create_kwargs)
     content = completion.choices[0].message.content
     if not content:
         raise ValueError("OpenAI returned no parsed paper brief")
