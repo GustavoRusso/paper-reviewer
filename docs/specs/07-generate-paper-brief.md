@@ -198,7 +198,7 @@ Prefer this durable status so the UI can poll the database without Prefect as th
 
 **Owner of section list and prompt text:** [`paper_brief_template.md`](../../src/paper_reviewer/topic_brief_generation/generate_paper_brief/paper_brief_template.md) in `paper_reviewer.topic_brief_generation.generate_paper_brief`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
 
-`create_paper_brief` loads that file as the system prompt. It sends `full_text_plain` plus archived title / journal / year from `Paper` in the user message (bibliographic facts, not a topic). Parse the model output into `PaperBriefContent` (field ids must match the template front matter). Title, journal, and year are **not** LLM content fields.
+`create_paper_brief` loads that file as the system prompt. It sends `full_text_plain` plus archived title / journal / year from `Paper` in the user message (bibliographic facts, not a topic). The job sends OpenAI structured `json_schema` and then validates the assistant text as `PaperBriefContent` (field ids must match the template front matter). Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. Title, journal, and year are **not** LLM content fields.
 
 Do **not** store `relevance_to_topic` or a topic-relative summary. Step 8 reflects relevance as citations in the topic-brief prose.
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
 from urllib.parse import urlparse, urlunparse
 
@@ -14,6 +15,8 @@ _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_template.md"
 _DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 _LOOPBACK_HOSTS = {"localhost", "127.0.0.1"}
 _PLACEHOLDER_API_KEY = "not-needed"
+_ANSI_RE = re.compile(r"\x1b(?:\[[0-?]*[ -/]*[@-~]|\][^\x07]*(?:\x07|\x1b\\)|.)")
+_JSON_FENCE_RE = re.compile(r"```(?:json)?\s*(\{.*\})\s*```", re.DOTALL | re.IGNORECASE)
 
 
 def resolve_openai_base_url(raw: str | None, *, in_container: bool) -> str | None:
@@ -86,6 +89,67 @@ def build_brief_user_message(
     )
 
 
+def parse_paper_brief_content(raw: str) -> PaperBriefContent:
+    """Validate LLM text as PaperBriefContent.
+
+    Public OpenAI structured output is already JSON. Local gateways may wrap
+    JSON in Markdown, add extra keys, or leak ANSI control bytes.
+    """
+    cleaned = _strip_ansi_and_controls(raw)
+    payload = _extract_json_object(cleaned)
+    payload = _repair_unescaped_controls_in_strings(payload)
+    return PaperBriefContent.model_validate_json(payload)
+
+
+def _strip_ansi_and_controls(raw: str) -> str:
+    text = _ANSI_RE.sub("", raw)
+    return "".join(ch if ch in "\n\r\t" or ord(ch) >= 32 else "" for ch in text)
+
+
+def _extract_json_object(text: str) -> str:
+    stripped = text.strip()
+    fenced = _JSON_FENCE_RE.search(stripped)
+    if fenced:
+        return fenced.group(1).strip()
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start >= 0 and end > start:
+        return stripped[start : end + 1]
+    raise ValueError("LLM returned no JSON object")
+
+
+def _repair_unescaped_controls_in_strings(text: str) -> str:
+    """Replace raw newlines inside JSON strings (llama.cpp line wrap)."""
+    out: list[str] = []
+    in_string = False
+    escaped = False
+    for ch in text:
+        if in_string:
+            if escaped:
+                out.append(ch)
+                escaped = False
+                continue
+            if ch == "\\":
+                out.append(ch)
+                escaped = True
+                continue
+            if ch == '"':
+                out.append(ch)
+                in_string = False
+                continue
+            if ch in "\n\r":
+                out.append(" ")
+                continue
+            if ord(ch) < 32:
+                continue
+            out.append(ch)
+            continue
+        if ch == '"':
+            in_string = True
+        out.append(ch)
+    return "".join(out)
+
+
 def generate_paper_brief_content(
     full_text_plain: str,
     *,
@@ -93,8 +157,9 @@ def generate_paper_brief_content(
     journal: str | None,
     published_year: int | None,
 ) -> PaperBriefContent:
-    """Call OpenAI structured parse. Tests must inject a stub instead."""
+    """Call chat completions and parse PaperBriefContent. Tests must inject a stub."""
     from openai import OpenAI
+    from openai.lib._parsing import type_to_response_format_param
 
     api_key = os.environ.get("OPENAI_API_KEY") or None
     base_url = resolve_openai_base_url(
@@ -114,7 +179,7 @@ def generate_paper_brief_content(
         client = OpenAI(api_key=api_key, base_url=base_url)
     else:
         client = OpenAI(api_key=api_key)
-    completion = client.chat.completions.parse(
+    completion = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": load_paper_brief_template()},
@@ -128,9 +193,9 @@ def generate_paper_brief_content(
                 ),
             },
         ],
-        response_format=PaperBriefContent,
+        response_format=type_to_response_format_param(PaperBriefContent),
     )
-    parsed = completion.choices[0].message.parsed
-    if parsed is None:
+    content = completion.choices[0].message.content
+    if not content:
         raise ValueError("OpenAI returned no parsed paper brief")
-    return parsed
+    return parse_paper_brief_content(content)

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from types import SimpleNamespace
 
 import pytest
@@ -10,6 +11,7 @@ from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
     build_brief_user_message,
     generate_paper_brief_content,
     load_paper_brief_template,
+    parse_paper_brief_content,
     resolve_openai_base_url,
     resolve_openai_model,
 )
@@ -77,24 +79,26 @@ def test_resolve_openai_base_url_non_localhost_unchanged() -> None:
 def _stub_openai(
     monkeypatch: pytest.MonkeyPatch,
     captured: dict[str, object],
-    parse_captured: dict[str, object] | None = None,
+    create_captured: dict[str, object] | None = None,
+    *,
+    content: str | None = None,
 ) -> None:
     parsed = sample_brief_content()
-    parse_kwargs = parse_captured if parse_captured is not None else {}
+    raw = content if content is not None else parsed.model_dump_json()
+    create_kwargs = create_captured if create_captured is not None else {}
 
     class FakeClient:
         def __init__(self, **kwargs: object) -> None:
             captured.clear()
             captured.update(kwargs)
-            message = SimpleNamespace(parsed=parsed)
-            completion = SimpleNamespace(choices=[SimpleNamespace(message=message)])
 
-            def parse(**kw: object) -> object:
-                parse_kwargs.clear()
-                parse_kwargs.update(kw)
-                return completion
+            def create(**kw: object) -> object:
+                create_kwargs.clear()
+                create_kwargs.update(kw)
+                message = SimpleNamespace(content=raw)
+                return SimpleNamespace(choices=[SimpleNamespace(message=message)])
 
-            self.chat = SimpleNamespace(completions=SimpleNamespace(parse=parse))
+            self.chat = SimpleNamespace(completions=SimpleNamespace(create=create))
 
     monkeypatch.setenv("OPENAI_API_KEY", "sk-test")
     monkeypatch.setattr("openai.OpenAI", FakeClient)
@@ -188,8 +192,8 @@ def test_generate_paper_brief_content_uses_code_default_model(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     captured: dict[str, object] = {}
-    parse_captured: dict[str, object] = {}
-    _stub_openai(monkeypatch, captured, parse_captured)
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
     monkeypatch.delenv("OPENAI_MODEL", raising=False)
     monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
 
@@ -200,15 +204,15 @@ def test_generate_paper_brief_content_uses_code_default_model(
         published_year=2026,
     )
 
-    assert parse_captured["model"] == "gpt-4o-mini"
+    assert create_captured["model"] == "gpt-4o-mini"
 
 
 def test_generate_paper_brief_content_passes_configured_model(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     captured: dict[str, object] = {}
-    parse_captured: dict[str, object] = {}
-    _stub_openai(monkeypatch, captured, parse_captured)
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
     monkeypatch.setenv("OPENAI_MODEL", "llama3.1-8b")
 
     generate_paper_brief_content(
@@ -218,7 +222,7 @@ def test_generate_paper_brief_content_passes_configured_model(
         published_year=2026,
     )
 
-    assert parse_captured["model"] == "llama3.1-8b"
+    assert create_captured["model"] == "llama3.1-8b"
 
 
 def test_generate_paper_brief_content_requires_model_when_base_url_set(
@@ -236,3 +240,87 @@ def test_generate_paper_brief_content_requires_model_when_base_url_set(
             journal="Journal",
             published_year=2026,
         )
+
+
+def test_generate_paper_brief_content_sends_json_schema_response_format(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    response_format = create_captured["response_format"]
+    assert isinstance(response_format, dict)
+    assert response_format.get("type") == "json_schema"
+
+
+def test_generate_paper_brief_content_parses_gateway_ansi_json(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    payload = sample_brief_content().model_dump_json()
+    dirty = payload.replace("new result", "new result\x1b[K")
+    _stub_openai(monkeypatch, captured, content=f"Sure.\n```json\n{dirty}\n```")
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert "new result" in result.summary
+    assert "\x1b" not in result.summary
+
+
+def test_parse_paper_brief_content_accepts_clean_json() -> None:
+    payload = sample_brief_content().model_dump_json()
+
+    parsed = parse_paper_brief_content(payload)
+
+    assert parsed.summary == sample_brief_content().summary
+    assert parsed.key_findings == sample_brief_content().key_findings
+
+
+def test_parse_paper_brief_content_strips_ansi_and_markdown_fence() -> None:
+    payload = sample_brief_content().model_dump_json()
+    raw = f"Here you go:\n```json\n{payload.replace('gap.', 'gap.\x1b[K')}\n```\n"
+
+    parsed = parse_paper_brief_content(raw)
+
+    assert parsed.objective.endswith("gap.")
+
+
+def test_parse_paper_brief_content_ignores_extra_keys() -> None:
+    payload = sample_brief_content().model_dump(mode="json")
+    payload["title"] = "Dummy Outbreak Report"
+    payload["journal"] = "Test Journal"
+
+    parsed = parse_paper_brief_content(json.dumps(payload))
+
+    assert parsed.summary == sample_brief_content().summary
+    assert parsed.objective == sample_brief_content().objective
+
+
+def test_parse_paper_brief_content_repairs_newlines_inside_strings() -> None:
+    raw = (
+        "Here is the brief:\n```\n"
+        '{\n  "summary": "A study reported a 30% attack rate \n'
+        'during an outbreak in Lyon.",\n'
+        '  "objective": "Investigate the outbreak.",\n'
+        '  "key_findings": ["30% attack rate"]\n'
+        "}\n```\n"
+    )
+
+    parsed = parse_paper_brief_content(raw)
+
+    assert "30%" in parsed.summary
+    assert "Lyon" in parsed.summary
+    assert parsed.objective == "Investigate the outbreak."
