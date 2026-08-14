@@ -246,7 +246,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `topic_brief_generation_public_id` | `uuid.UUID` | Required generation reference for display / navigation. Not a brief identity key. |
 | `generate_paper_brief_enqueue_result` | `GeneratePaperBriefsEnqueueResult` | Optional cache that enqueue was submitted for this session. |
 
-**Invalidate on new intake:** Clear `generate_paper_brief_enqueue_result` (and any page-local progress cache) when Topic intake starts a new generation — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (new generation clears all later-step session state).
+**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new generation identity — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
 **Invalidate when an upstream step re-runs:** When triage re-confirms, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
 

@@ -501,11 +501,11 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
-| New Topic intake (new generation) | Analysis, search, triage, `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, generate-brief enqueue (when present), … all later steps |
+| New Topic brief Submit (new generation) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and `topic_brief_generation_public_id`. Analysis and search keys are set only if those steps succeed. Do not clear on validation or persist failure. |
 | Re-confirm Retrieval triage | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |
 
-Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
+Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. New Topic brief Submit is stronger: it wipes the whole session so no leftover key from a previous run can survive. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
 
 This cascade applies to **session / UI workflow state**. It does **not** delete durable global `Paper` or `PaperBrief` rows.
 

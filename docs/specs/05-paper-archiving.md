@@ -214,7 +214,7 @@ Skip/error item shape: include enough identity to debug (`source_id`, `source_ui
 | No `retrieval_triage_result` in session | Empty state + links to **New Topic brief** and **Retrieval triage**. |
 | Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
 | `paper_archiving_result` already in session | Show cached result only; do not re-run. |
-| New topic intake submitted | Clear `paper_archiving_result` and all later-step session caches; after a new search and triage confirm, the archiving page can run again. |
+| New Topic brief Submit | Wipe the entire UI session, then write the new generation identity ([Fulfill papers metadata](06-fulfill-papers-metadata.md) cascade). After a new search and triage confirm, the archiving page can run again. |
 | Triage confirmed again | Triage clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `retained` set. |
 | Empty input list | Empty success result; caption “No candidates to archive”. |
 | All candidates skipped | Summary shows 0 archived; skipped section populated. |
@@ -245,7 +245,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 | `topic_brief_generation_public_id` | `uuid.UUID` | Optional generation reference id for summary display. |
 
-**Invalidate on new intake:** When Topic intake starts a new generation, clear `paper_archiving_result` and **all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …). Generations must not reuse another workflow’s session state.
+**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new generation identity. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Generations must not reuse another workflow’s session state.
 
 **Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `retained` set (triage owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
 
