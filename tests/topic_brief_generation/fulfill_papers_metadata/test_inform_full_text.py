@@ -299,3 +299,56 @@ def test_missing_paper_marks_failed(session_factory: sessionmaker[Session]) -> N
     assert result.paper_id == 999_999
     assert result.status is PaperAspectStatus.failed
     assert result.error_message is not None
+
+
+def test_force_true_retries_unavailable_full_text(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.unavailable,
+        pmcid="PMC5334499",
+    )
+    cloud_calls: list[str | None] = []
+
+    result = inform_full_text(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda pmcid: cloud_calls.append(pmcid) or cloud_hit(),
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+    assert cloud_calls == ["PMC5334499"]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_plain == "Full article text from Cloud."
+        assert paper.full_text_error_message is None
+    finally:
+        session.close()
+
+
+def test_force_true_does_not_call_cloud_when_source_not_succeeded(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.failed,
+        full_text_status=PaperAspectStatus.unavailable,
+        pmcid="PMC5334499",
+    )
+    cloud_calls: list[str | None] = []
+
+    result = inform_full_text(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda pmcid: cloud_calls.append(pmcid) or cloud_hit(),
+    )
+
+    assert result.status is PaperAspectStatus.unavailable
+    assert cloud_calls == []

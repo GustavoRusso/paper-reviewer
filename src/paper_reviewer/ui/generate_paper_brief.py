@@ -28,7 +28,11 @@ from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStat
 from paper_reviewer.topic_brief_generation.generate_paper_brief import (
     enqueue_generate_paper_briefs,
 )
-from paper_reviewer.ui.fulfill_papers_metadata import prefect_enqueue_error_hint
+from paper_reviewer.ui.fulfill_papers_metadata import (
+    may_submit_regenerate_paper,
+    prefect_enqueue_error_hint,
+    render_regenerate_button,
+)
 from paper_reviewer.ui.navigation import streamlit_page_for
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
@@ -130,9 +134,12 @@ def _render_progress(
                 error = brief.error_message
             rows.append(
                 {
+                    "paper_id": paper_id,
                     "title": paper.title,
                     "url": paper.url,
                     "doi": paper.doi,
+                    "source_status": paper.source_record_status,
+                    "full_text_status": paper.full_text_status,
                     "label": label,
                     "error": error,
                 }
@@ -157,6 +164,15 @@ def _render_progress(
         st.markdown(f"**[{row['title']}]({row['url']})**")
         error_part = f" — {row['error']}" if row["error"] else ""
         st.caption(f"DOI `{row['doi']}` · brief {row['label']}{error_part}")
+        if may_submit_regenerate_paper(
+            row["source_status"],
+            row["full_text_status"],
+        ):
+            render_regenerate_button(
+                row["paper_id"],
+                row["doi"],
+                key_prefix="regenerate-brief",
+            )
 
     eligible_terminal = not any_eligible_in_progress
     if eligible_terminal:

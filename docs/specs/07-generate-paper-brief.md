@@ -47,7 +47,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 - Source-record / full-text flows — owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 - Topic brief drafting (step 8), including any per-topic relevance prose.
 - `relevance_to_topic` or a topic-relative summary on `PaperBrief`.
-- A v1 UI control for `regenerate_paper`.
+- A dedicated Streamlit **page** for `regenerate_paper` (page 7 shows the same per-paper **Regenerate** button as page 6; behavior owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md#full-regenerate-orchestrator)).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
 - Fetching full text or PDF URLs (consume stored `full_text_plain` / URLs from step 6).
 - Auto-retry of `failed` briefs on page 7 (none; only `regenerate_paper` may retry).
@@ -262,7 +262,7 @@ Does **not** by itself delete durable global `Paper` or `PaperBrief` rows.
 7. Do **not** require showing full `content` sections on this page in v1 (optional expand later).
 8. When all **eligible** papers (full text `succeeded`) are `succeeded` or `failed` (or the eligible set is empty), show a summary and link toward Topic brief (page may not exist yet).
 
-Do **not** run LLM (or EFetch) inside Streamlit callbacks. Do **not** expose `regenerate_paper` as a v1 control on this page.
+Do **not** run LLM (or EFetch) inside Streamlit callbacks. On each progress row, when both source-record and full-text statuses are terminal, show a secondary **Regenerate** button. Click submits `regenerate_paper` (owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md#full-regenerate-orchestrator)). Page 7 auto-enqueue still does not pass `force` to `create_paper_brief`.
 
 ### Progress display labels
 
@@ -320,7 +320,7 @@ The LLM is an **external** boundary: inject or stub the content generator. Do no
 **UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
 
 - `tests/ui/test_navigation.py`: page registered with key `generate_paper_brief`, title **Generate paper brief**, render callable `render_generate_paper_brief`, `url_path` `generate-paper-brief`.
-- Pure helpers for status → display label unit-tested without Streamlit when extracted.
+- Pure helpers for status → display label and `may_submit_regenerate_paper` unit-tested without Streamlit when extracted.
 
 ## Non-goals (v1)
 
@@ -328,7 +328,7 @@ Do not do this work in the Generate paper brief v1 slice:
 
 - Source-record / full-text fetch ([Fulfill papers metadata](06-fulfill-papers-metadata.md)).
 - Topic-conditioned brief fields.
-- A Streamlit control for `regenerate_paper`.
+- A dedicated Streamlit **page** for `regenerate_paper` (the per-paper button on this page submits the orchestrator owned by spec 06).
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Auto-retry of `failed` briefs on page 7.
 - Run LLM, EFetch, or PMC Cloud inside Streamlit.

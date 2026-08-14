@@ -81,6 +81,7 @@ Illustrative only; step specs remain the behavior contract.
 | After confirm → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
+| Per-paper Regenerate (Fulfill papers metadata / Generate paper brief) | Default | `st.button("Regenerate", type="secondary")` |
 
 ## Theme
 

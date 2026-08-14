@@ -295,3 +295,56 @@ def test_missing_paper_marks_failed(session_factory: sessionmaker[Session]) -> N
     assert result.paper_id == 999_999
     assert result.status is PaperAspectStatus.failed
     assert result.error_message is not None
+
+
+def test_force_true_refetches_succeeded_source(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.unavailable,
+    )
+    calls: list[str] = []
+
+    result = inform_source_record(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: calls.append("fetch") or mapped_photo(),
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+    assert calls == ["fetch"]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.title == "New title"
+        assert paper.source_record_error_message is None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+    finally:
+        session.close()
+
+
+def test_force_true_unsupported_source_still_unavailable(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_id="other",
+        uid="9",
+        source_record_status=PaperAspectStatus.unavailable,
+    )
+    calls: list[str] = []
+
+    result = inform_source_record(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: calls.append("fetch") or mapped_photo(),
+    )
+
+    assert result.status is PaperAspectStatus.unavailable
+    assert calls == []

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from uuid import uuid4
 
-from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF, REGENERATE_PAPER_DEPLOYMENT_REF
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
@@ -12,9 +12,11 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     PaperArchivingResult,
 )
 from paper_reviewer.ui.fulfill_papers_metadata import (
+    REGENERATE_BUTTON_LABEL,
     aspect_status_label,
     enrichment_links_caption,
     fulfill_prerequisites_met,
+    may_submit_regenerate_paper,
     prefect_enqueue_error_hint,
 )
 from paper_reviewer.ui.topic_intake import (
@@ -168,3 +170,59 @@ def test_prefect_enqueue_error_hint_uses_configured_url() -> None:
     assert f"PREFECT_API_URL={url}" in hint
     assert FULFILL_DEPLOYMENT_REF in hint
     assert "prefect-server" not in hint
+
+
+def test_may_submit_regenerate_when_both_terminal() -> None:
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.unavailable,
+        )
+        is True
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.failed,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.not_started,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+        )
+        is True
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.failed,
+            PaperAspectStatus.failed,
+        )
+        is True
+    )
+
+
+def test_regenerate_button_label() -> None:
+    assert REGENERATE_BUTTON_LABEL == "Regenerate"
+
+
+def test_regenerate_deployment_ref_in_enqueue_hint() -> None:
+    hint = prefect_enqueue_error_hint(None, REGENERATE_PAPER_DEPLOYMENT_REF)
+
+    assert REGENERATE_PAPER_DEPLOYMENT_REF in hint
+    assert REGENERATE_PAPER_DEPLOYMENT_REF == "regenerate_paper/default"

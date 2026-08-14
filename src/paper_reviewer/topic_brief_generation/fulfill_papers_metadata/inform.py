@@ -16,6 +16,7 @@ from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata impor
     InformFullTextResult,
     InformSourceRecordResult,
     PaperAspectStatus,
+    RegeneratePaperResult,
 )
 
 FetchSourceRecord = Callable[[str, str], dict[str, Any]]
@@ -184,6 +185,7 @@ def _enrich_with_retries(
 def inform_source_record(
     paper_id: int,
     *,
+    force: bool = False,
     session_factory: sessionmaker[Session] | None = None,
     fetch_source_record: FetchSourceRecord | None = None,
 ) -> InformSourceRecordResult:
@@ -195,7 +197,7 @@ def inform_source_record(
         paper = get_paper_by_id(session, paper_id)
         if paper is None:
             return _missing_source_result(paper_id)
-        if paper.source_record_status in _TERMINAL_STATUSES:
+        if not force and paper.source_record_status in _TERMINAL_STATUSES:
             return _source_result(paper)
 
         if paper.source_id != "pubmed":
@@ -233,6 +235,7 @@ def inform_source_record(
 def inform_full_text(
     paper_id: int,
     *,
+    force: bool = False,
     session_factory: sessionmaker[Session] | None = None,
     enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
 ) -> InformFullTextResult:
@@ -244,7 +247,7 @@ def inform_full_text(
         paper = get_paper_by_id(session, paper_id)
         if paper is None:
             return _missing_full_text_result(paper_id)
-        if paper.full_text_status in _TERMINAL_STATUSES:
+        if not force and paper.full_text_status in _TERMINAL_STATUSES:
             return _full_text_result(paper)
         if paper.source_record_status is not PaperAspectStatus.succeeded:
             return _full_text_result(paper)
@@ -299,4 +302,46 @@ def fulfill_paper_metadata(
         paper_id=paper_id,
         source_record=source,
         full_text=full_text,
+    )
+
+
+def regenerate_paper(
+    paper_id: int,
+    *,
+    session_factory: sessionmaker[Session] | None = None,
+    fetch_source_record: FetchSourceRecord | None = None,
+    enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
+    generate_content: Callable[..., Any] | None = None,
+) -> RegeneratePaperResult:
+    """Force source record, force full text, then rewrite the brief when succeeded."""
+    from paper_reviewer.topic_brief_generation.generate_paper_brief.create import (
+        create_paper_brief,
+    )
+
+    source = inform_source_record(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        fetch_source_record=fetch_source_record,
+    )
+    full_text = inform_full_text(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=enrich_from_pmc_cloud,
+    )
+    brief = None
+    if full_text.status is PaperAspectStatus.succeeded:
+        kwargs: dict[str, Any] = {
+            "force": True,
+            "session_factory": session_factory,
+        }
+        if generate_content is not None:
+            kwargs["generate_content"] = generate_content
+        brief = create_paper_brief(paper_id, **kwargs)
+    return RegeneratePaperResult(
+        paper_id=paper_id,
+        source_record=source,
+        full_text=full_text,
+        brief=brief,
     )

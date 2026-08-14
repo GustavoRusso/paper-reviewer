@@ -19,7 +19,7 @@ This document owns `PaperAspectStatus` and the two `Paper` status columns. Brief
 | **`inform_source_record`** | Prefect flow that fills the source-record aspect for one paper. |
 | **`inform_full_text`** | Prefect flow that fills the full-text aspect for one paper. |
 | **`fulfill_paper_metadata`** | Page-6 orchestrator: runs source record then full text for one paper, with **default skip rules** (does not unfreeze). |
-| **`regenerate_paper`** | Full orchestrator (on demand, not a v1 page): may unfreeze `succeeded` and retry `failed` / `unavailable`, then rewrite the paper brief. See [Full regenerate orchestrator](#full-regenerate-orchestrator). |
+| **`regenerate_paper`** | Full orchestrator: may unfreeze `succeeded` and retry `failed` / `unavailable`, then rewrite the paper brief. Started from a per-paper **Regenerate** button on page 6 (and the same button on page 7). See [Full regenerate orchestrator](#full-regenerate-orchestrator). |
 | **Fulfill papers metadata** | Workflow **step** (this document) that enqueues `fulfill_paper_metadata` for archived papers and shows progress. |
 | **PMC Cloud enrichment** | PubMed full-text path after a succeeded source record: resolve PMCID, fetch the highest PMC Cloud article version (Open Access Subset **or** Author Manuscript), store `full_text_plain` and clickable URLs. |
 
@@ -43,13 +43,13 @@ For the application runtime stack (including Prefect as a Compose service), see 
 - On source-record success: write `source_record` (JSONB), typed promote columns (`pub_date`, `abstract_text`, bibliographic refresh), and `pmcid` when the source supplies it.
 - On full-text success (PubMed): store `full_text_plain` from Cloud `.txt`, plus `pmcid_version`, `is_open_access`, `pmc_article_url`, and `open_access_pdf_url` when present.
 - Set `failed` or `unavailable` per aspect (tables below). Optional per-aspect error message when `failed`.
-- Dedicated Streamlit page that enqueues the page-6 orchestrator and shows progress for **both** aspects (polls DB enum columns only).
+- Dedicated Streamlit page that enqueues the page-6 orchestrator and shows progress for **both** aspects (polls DB enum columns only). A per-paper **Regenerate** button submits `regenerate_paper` when both aspects are terminal.
 
 ### Out of scope (v1)
 
 - [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
 - Creating **paper briefs** (`PaperBrief`) or running `create_paper_brief` from this page — owned by [Generate paper brief](07-generate-paper-brief.md). Page 7 enqueues the brief flow only.
-- A v1 UI page for `regenerate_paper` (flow exists for on-demand / ops use).
+- A dedicated Streamlit **page** for `regenerate_paper` (the control is a per-paper button on page 6 and page 7, not a new sidebar page).
 - Topic brief drafting (step 8).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
 - Storing EFetch `ArticleIdList` / `OtherID` beyond PMCID (for Cloud) + existing DOI + `(source_id, source_uid)` handle; CommentsCorrections, bibliography/references, or deferred “Other” XML elements (see below).
@@ -146,7 +146,7 @@ DOI on flow parameters is for UI/search and the submit-time run name; durable wo
 | `inform_full_text` | Require `source_record_status = succeeded` (else do not call Cloud; see job table). Apply default skip unless the caller is `regenerate_paper`. Else fetch full text (PubMed: PMC Cloud), write enrichment columns, set `full_text_status`. |
 | `fulfill_paper_metadata` | Page-6 orchestrator: run `inform_source_record` then `inform_full_text` with **default skip rules**. One Prefect run per paper. |
 | `enqueue_fulfill_papers_metadata` | UI helper: apply [selection rules](#selection-rules-page-6) and submit `fulfill_paper_metadata` for those paper ids. Does not unfreeze. Does not enqueue brief jobs. |
-| `regenerate_paper` | Full orchestrator. See [Full regenerate orchestrator](#full-regenerate-orchestrator). |
+| `regenerate_paper` | Full orchestrator. Always forces. See [Full regenerate orchestrator](#full-regenerate-orchestrator). |
 
 | Rule | Behavior |
 | --- | --- |
@@ -222,9 +222,15 @@ FulfillPaperMetadataResult
 FulfillPapersMetadataEnqueueResult
   submitted_paper_ids: list[int]
   skipped_already_terminal: list[int]
+
+RegeneratePaperResult
+  paper_id: int
+  source_record: InformSourceRecordResult
+  full_text: InformFullTextResult
+  brief: CreatePaperBriefResult | None
 ```
 
-Do not store Prefect run ids on these types for UI progress.
+`brief` is `None` when full text is not `succeeded` after the force full-text step. Do not store Prefect run ids on these types for UI progress.
 
 ## Durable `Paper` extensions
 
@@ -453,13 +459,17 @@ Leaf flows and `fulfill_paper_metadata` are **idempotent by default** (skip rule
 
 `regenerate_paper` is the **only** path that may unfreeze `succeeded` and retry `failed` / `unavailable`.
 
-Not a v1 Streamlit page. Invoke on demand (ops / later UI).
+The user starts one run with a per-paper **Regenerate** button on the Fulfill papers metadata page (and the same button on [Generate paper brief](07-generate-paper-brief.md)). The button submits `regenerate_paper` (fire-and-forget). Streamlit does not call EFetch, Cloud, or the LLM.
+
+Show the button only when both `source_record_status` and `full_text_status` are terminal (`succeeded` / `failed` / `unavailable`). Do not show it while either aspect is `not_started` (avoids two writers on one paper). Auto-enqueue of `fulfill_paper_metadata` does not change.
 
 Order:
 
 1. `inform_source_record` with force (re-fetch; overwrite payload; set status from the new attempt).
 2. `inform_full_text` with force (re-try Cloud even after previous `unavailable` / `failed` / `succeeded`).
 3. If `full_text_status = succeeded`, call `create_paper_brief` with force rewrite — contract: [Generate paper brief](07-generate-paper-brief.md). If full text is not `succeeded`, do not draft or rewrite a brief.
+
+Leaf Prefect flows stay `(paper_id, doi)` only. The orchestrator passes `force=True` into domain helpers in-process. Do not add `force` to served `inform_*` deployments.
 
 ## Streamlit UI (v1)
 
@@ -505,8 +515,9 @@ This cascade applies to **session / UI workflow state**. It does **not** delete 
 4. While any paper has `source_record_status` or `full_text_status` equal to `not_started` after enqueue, refresh/poll durable columns. Do not use Prefect API state as progress truth.
 5. Primary surface: **progress table/list** — title (link via `url`; when enrichment set `pmc_article_url` / `open_access_pdf_url`, those may be shown as extra links), DOI, **source-record status**, **full-text status**, short error when an aspect is `failed`.
 6. When every paper has both aspects terminal (`succeeded` / `failed` / `unavailable`), show a summary and link to **Generate paper brief**. Papers with full text `failed` or `unavailable` remain visible; do not block the whole page from linking onward (step 7 will enqueue only papers with full text `succeeded`).
+7. On each progress row, when both aspects are terminal, show a secondary **Regenerate** button ([ui-style.md](../ui-style.md)). Click submits `regenerate_paper` for that paper. Unique Streamlit key per `paper_id`.
 
-Do **not** run EFetch or Cloud inside Streamlit callbacks. Do **not** expose `regenerate_paper` as a v1 control on this page.
+Do **not** run EFetch or Cloud inside Streamlit callbacks. Default auto-enqueue still does not retry `failed` / `unavailable` or overwrite `succeeded`.
 
 ### Progress display labels
 
@@ -569,17 +580,24 @@ TDD per [tdd.md](../tdd.md):
 - Both terminal → not submitted.
 - Empty paper list → empty enqueue result.
 
+**`regenerate_paper`:**
+
+- Default skip still no-ops `succeeded` / `failed` / `unavailable`.
+- Force on succeeded source re-fetches and overwrites payload.
+- Force on unavailable full text retries Cloud; hit → `succeeded` then brief rewrite.
+- Force full text still `unavailable` → `brief` is `None`; existing brief row unchanged.
+
 **UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
 
 - `tests/ui/test_navigation.py`: page registered with key `fulfill_papers_metadata`, title **Fulfill papers metadata**, render callable `render_fulfill_papers_metadata`, `url_path` `fulfill-papers-metadata`.
-- Pure helpers for status → display label unit-tested without Streamlit when extracted.
+- Pure helpers for status → display label and `may_submit_regenerate_paper` unit-tested without Streamlit when extracted.
 
 ## Non-goals (v1)
 
 Do not do this work in the Fulfill papers metadata v1 slice:
 
-- Create or draft `PaperBrief` rows from page 6 ([Generate paper brief](07-generate-paper-brief.md)).
-- A Streamlit control for `regenerate_paper`.
+- Create or draft `PaperBrief` rows from page 6 auto-enqueue ([Generate paper brief](07-generate-paper-brief.md)). The **Regenerate** button submits `regenerate_paper`, which may rewrite a brief.
+- A dedicated Streamlit **page** for `regenerate_paper` (the control is a per-paper button).
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Store deferred EFetch ID lists (beyond PMCID), CommentsCorrections, references, or “Other” elements listed above.
 - Store PDF bytes, JATS XML, media, or supplementary files.
@@ -594,5 +612,3 @@ Do not do this work in the Fulfill papers metadata v1 slice:
 **Rich authors (separate job after brief creation):** Register authors as full entities (structured names, affiliations, ORCID when present) and link related papers. Keep flat `authors: list[str]` on `Paper` until that spec exists. That job is an additional **aspect** (new enum + flow) after [Generate paper brief](07-generate-paper-brief.md), not part of v1 `inform_source_record`.
 
 **Later groups:** Add a new `PaperAspectStatus` column and flow, **or** fold a new provider into an existing group (for example another full-text source inside `inform_full_text`). Do not invent a second status style.
-
-**Force UI:** A later page or button may call `regenerate_paper`; v1 has the flow only.

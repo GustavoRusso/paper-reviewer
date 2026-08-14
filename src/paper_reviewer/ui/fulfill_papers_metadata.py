@@ -10,7 +10,7 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF, REGENERATE_PAPER_DEPLOYMENT_REF
 from paper_reviewer.models.topic_brief_generation.paper import get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     FulfillPapersMetadataEnqueueResult,
@@ -31,6 +31,13 @@ from paper_reviewer.ui.topic_intake import (
     PUBLIC_ID_KEY,
     SESSION_KEY,
 )
+
+REGENERATE_BUTTON_LABEL = "Regenerate"
+_TERMINAL_ASPECT_STATUSES = {
+    PaperAspectStatus.succeeded,
+    PaperAspectStatus.failed,
+    PaperAspectStatus.unavailable,
+}
 
 
 @st.cache_resource
@@ -91,6 +98,47 @@ def prefect_enqueue_error_hint(
         "`prefect-worker` service must serve deployment "
         f"`{deployment_ref}`."
     )
+
+
+def may_submit_regenerate_paper(
+    source_record_status: PaperAspectStatus,
+    full_text_status: PaperAspectStatus,
+) -> bool:
+    """Return True when both aspects are terminal so Regenerate is safe to offer."""
+    return (
+        source_record_status in _TERMINAL_ASPECT_STATUSES
+        and full_text_status in _TERMINAL_ASPECT_STATUSES
+    )
+
+
+def render_regenerate_button(
+    paper_id: int,
+    doi: str,
+    *,
+    key_prefix: str,
+) -> None:
+    """Show a secondary Regenerate button that submits regenerate_paper."""
+    if st.button(
+        REGENERATE_BUTTON_LABEL,
+        key=f"{key_prefix}-{paper_id}",
+        type="secondary",
+    ):
+        try:
+            from paper_reviewer.flows.submit import submit_regenerate_paper
+
+            submit_regenerate_paper(paper_id, doi)
+        except Exception as exc:
+            st.error(
+                "Could not enqueue regenerate paper. "
+                "Check Prefect configuration and try again."
+            )
+            st.caption(
+                prefect_enqueue_error_hint(
+                    os.environ.get("PREFECT_API_URL"),
+                    REGENERATE_PAPER_DEPLOYMENT_REF,
+                )
+            )
+            st.exception(exc)
 
 
 def _default_submit_fulfill(paper_id: int, doi: str) -> None:
@@ -164,9 +212,12 @@ def _render_progress(
                 all_succeeded = False
             rows.append(
                 {
+                    "paper_id": paper_id,
                     "title": paper.title,
                     "url": paper.url,
                     "doi": paper.doi,
+                    "source_status": source_status,
+                    "full_text_status": full_text_status,
                     "source_label": source_label,
                     "full_text_label": full_text_label,
                     "error": _aspect_error_text(
@@ -198,6 +249,15 @@ def _render_progress(
         )
         if links:
             st.caption(links)
+        if may_submit_regenerate_paper(
+            row["source_status"],
+            row["full_text_status"],
+        ):
+            render_regenerate_button(
+                row["paper_id"],
+                row["doi"],
+                key_prefix="regenerate-fulfill",
+            )
 
     all_terminal = not any_still_needs_work
     if all_terminal:

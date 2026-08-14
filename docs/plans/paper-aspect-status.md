@@ -107,21 +107,21 @@ The human **approved** these gaps as documented (no spec patch in the Step 1 com
 
 ## Step 4 — Force regenerate orchestrator
 
-**Outside edge:** Prefect flow `regenerate_paper` (no v1 Streamlit page; agreed in spec 06).
+**Outside edge:** Per-paper **Regenerate** button on page 6 and page 7 (submits `regenerate_paper`). No new sidebar page.
 
 **User-visible result:** On-demand run may unfreeze `succeeded` and retry `failed` / `unavailable`, then rewrite the brief if full text is `succeeded`.
 
 **Includes (same commit):**
 
 - `regenerate_paper` flow: force source record, force full text, then `create_paper_brief(..., force=true)` per spec.
-- A documented way to submit one run (Prefect UI or a `just` recipe if one already fits; do not add a v1 page).
+- Per-paper secondary **Regenerate** button on Fulfill papers metadata and Generate paper brief.
 - Tests for force vs default skip.
 
 **Validate:**
 
 - Default page 6/7 still skip `succeeded` / `failed` / `unavailable`.
-- After `regenerate_paper` on a paper with full text **Unavailable**, statuses may change; if full text becomes **Succeeded**, brief is rewritten.
-- No new Streamlit control.
+- After **Regenerate** on a paper with full text **Unavailable**, statuses may change; if full text becomes **Succeeded**, brief is rewritten.
+- No new navigation page.
 
 ## After step 4
 

@@ -15,6 +15,7 @@ from paper_reviewer.models.base import Base
 def session_factory() -> Iterator[sessionmaker[Session]]:
     engine = create_engine("sqlite+pysqlite:///:memory:")
     import paper_reviewer.models.topic_brief_generation.paper  # noqa: F401
+    import paper_reviewer.models.topic_brief_generation.paper_brief  # noqa: F401
 
     Base.metadata.create_all(engine)
     factory = sessionmaker(bind=engine, autoflush=False, autocommit=False)

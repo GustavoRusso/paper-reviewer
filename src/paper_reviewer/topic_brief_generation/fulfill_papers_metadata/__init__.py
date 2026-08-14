@@ -8,6 +8,7 @@ from paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform import
     fulfill_paper_metadata,
     inform_full_text,
     inform_source_record,
+    regenerate_paper,
 )
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "inform_full_text",
     "inform_source_record",
     "needs_fulfill_paper_metadata",
+    "regenerate_paper",
 ]
