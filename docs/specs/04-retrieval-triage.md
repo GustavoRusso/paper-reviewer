@@ -127,6 +127,7 @@ Register in `paper_reviewer.ui.navigation`:
 | `key` | `retrieval_triage` |
 | `title` | Retrieval triage |
 | `url_path` | `retrieval-triage` |
+| `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
 ### Page behavior (v1)
 

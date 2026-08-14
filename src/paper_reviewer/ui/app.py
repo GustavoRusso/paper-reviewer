@@ -22,6 +22,7 @@ def main() -> None:
         page_kwargs: dict[str, object] = {
             "title": definition.title,
             "default": definition.default,
+            "visibility": "visible" if definition.in_sidebar else "hidden",
         }
         if definition.url_path is not None:
             page_kwargs["url_path"] = definition.url_path

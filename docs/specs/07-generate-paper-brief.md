@@ -234,6 +234,7 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `key` | `generate_paper_brief` |
 | `title` | Generate paper brief |
 | `url_path` | `generate-paper-brief` |
+| `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues and polls **durable DB status** on `PaperBrief` (and `Paper.full_text_status` for the gate). Do not use Prefect run ids as progress truth.
 
@@ -278,7 +279,6 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks. On each progress row,
 ## Workflow navigation
 
 - **Entry:** After **Fulfill papers metadata** has terminal aspect statuses for the archived set, link to **Generate paper brief** with `paper_archiving_result` and generation id in session.
-- **Sidebar order:** … → Paper archiving → Fulfill papers metadata → Generate paper brief → (Topic brief when present).
 - **Input:** Consume `PaperArchivingResult.papers` only. Enqueue drafts only when `full_text_status = succeeded`.
 
 ## Orchestration boundary

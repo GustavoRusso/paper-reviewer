@@ -5,7 +5,7 @@ from __future__ import annotations
 from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_metadata
 from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
-from paper_reviewer.ui.navigation import build_app_pages
+from paper_reviewer.ui.navigation import AppPage, build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
 from paper_reviewer.ui.topic_intake import render_topic_intake
@@ -73,5 +73,25 @@ def test_workflow_page_order() -> None:
 
 
 def test_landing_cta_links_to_new_topic_brief() -> None:
-    assert LANDING_CTA_LABEL == "Go to New Topic brief"
+    assert LANDING_CTA_LABEL == "Add a new Topic brief"
     assert landing_cta_page_key() == "new_topic_brief"
+
+
+def test_app_page_in_sidebar_defaults_to_false() -> None:
+    page = AppPage(key="example", title="Example", render=lambda: None)
+
+    assert page.in_sidebar is False
+
+
+def test_only_home_and_new_topic_brief_are_in_the_sidebar() -> None:
+    pages = build_app_pages()
+    sidebar_keys = [page.key for page in pages if page.in_sidebar]
+    by_key = {page.key: page for page in pages}
+
+    assert sidebar_keys == ["landing", "new_topic_brief"]
+    assert by_key["landing"].in_sidebar is True
+    assert by_key["new_topic_brief"].in_sidebar is True
+    assert by_key["retrieval_triage"].in_sidebar is False
+    assert by_key["paper_archiving"].in_sidebar is False
+    assert by_key["fulfill_papers_metadata"].in_sidebar is False
+    assert by_key["generate_paper_brief"].in_sidebar is False

@@ -485,6 +485,7 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `key` | `fulfill_papers_metadata` |
 | `title` | Fulfill papers metadata |
 | `url_path` | `fulfill-papers-metadata` |
+| `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues `fulfill_paper_metadata` and polls **durable `Paper` enum columns** for progress (no Prefect run ids required for the UI contract).
 
@@ -537,7 +538,6 @@ Map each aspect independently:
 ## Workflow navigation
 
 - **Entry:** After Paper archiving shows a result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session.
-- **Sidebar order:** … → Paper archiving → Fulfill papers metadata → Generate paper brief → (Topic brief when present).
 - **Input:** Consume `PaperArchivingResult.papers` only (not raw triage candidates).
 - **Exit:** When both aspects are terminal for the set, link to [Generate paper brief](07-generate-paper-brief.md).
 

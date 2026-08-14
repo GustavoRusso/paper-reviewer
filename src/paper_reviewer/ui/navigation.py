@@ -9,13 +9,18 @@ from typing import Any
 
 @dataclass(frozen=True)
 class AppPage:
-    """One navigable page in the Streamlit app."""
+    """One navigable page in the Streamlit app.
+
+    ``in_sidebar`` is opt-in. Default ``False`` keeps the page registered and
+    reachable but out of the left navigation chrome.
+    """
 
     key: str
     title: str
     render: Callable[[], None]
     default: bool = False
     url_path: str | None = None
+    in_sidebar: bool = False
 
 
 _STREAMLIT_PAGES: dict[str, Any] = {}
@@ -38,12 +43,14 @@ def build_app_pages() -> list[AppPage]:
             title="Home",
             render=render_landing,
             default=True,
+            in_sidebar=True,
         ),
         AppPage(
             key="new_topic_brief",
             title="New Topic brief",
             render=render_topic_intake,
             url_path="new-topic-brief",
+            in_sidebar=True,
         ),
         AppPage(
             key="retrieval_triage",

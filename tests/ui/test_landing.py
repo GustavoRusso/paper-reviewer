@@ -19,7 +19,7 @@ def test_empty_generations_message() -> None:
 
 
 def test_landing_cta_label_names_destination() -> None:
-    assert LANDING_CTA_LABEL == "Go to New Topic brief"
+    assert LANDING_CTA_LABEL == "Add a new Topic brief"
 
 
 def test_format_generation_created_at_iso_utc() -> None:

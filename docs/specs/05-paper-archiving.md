@@ -232,6 +232,7 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `key` | `paper_archiving` |
 | `title` | Paper archiving |
 | `url_path` | `paper-archiving` |
+| `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Domain work stays in `archive_papers`; the page owns session keys, the DB commit, and display.
 
@@ -305,7 +306,6 @@ When all three lists are empty after empty input, show a neutral success caption
 ## Workflow navigation
 
 - **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. Topic intake links to Retrieval triage only (not directly to Paper archiving).
-- **Sidebar order:** Global `st.navigation` order follows the workflow: Home → New Topic brief → Retrieval triage → Paper archiving → Fulfill papers metadata → Generate paper brief (later step pages register when implemented).
 - **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session (that page lands with step 6).
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
