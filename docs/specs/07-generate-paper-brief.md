@@ -300,7 +300,7 @@ This document is the **behavior contract** for domain logic, the brief Prefect j
 
 When implementation starts (TDD per [tdd.md](../tdd.md)):
 
-The LLM is an **external** boundary: inject or stub the content generator. Do not call a live API in tests. Do not name a vendor in this spec; the production client lives in [technology-stack.md](../technology-stack.md).
+The LLM is an **external** boundary: inject or stub the content generator. Do not call a live API in tests. Do not name a vendor in this spec; the production client lives in [technology-stack.md](../technology-stack.md). The optional API base URL and model name are owned by [local-development.md](../local-development.md).
 
 **`create_paper_brief`:**
 

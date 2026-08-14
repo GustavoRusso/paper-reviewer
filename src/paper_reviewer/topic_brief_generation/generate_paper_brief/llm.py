@@ -4,13 +4,48 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from urllib.parse import urlparse, urlunparse
 
 from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
     PaperBriefContent,
 )
 
 _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_template.md"
-_OPENAI_MODEL = "gpt-4o-mini"
+_DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
+_LOOPBACK_HOSTS = {"localhost", "127.0.0.1"}
+_PLACEHOLDER_API_KEY = "not-needed"
+
+
+def resolve_openai_base_url(raw: str | None, *, in_container: bool) -> str | None:
+    """Return a usable OpenAI-compatible base URL, or None for the public default.
+
+    When the process runs in a container, rewrite loopback hosts to
+    ``host.docker.internal`` so a gateway on the Docker host is reachable.
+    """
+    if raw is None:
+        return None
+    stripped = raw.strip()
+    if not stripped:
+        return None
+    if not in_container:
+        return stripped
+    parsed = urlparse(stripped)
+    if parsed.hostname not in _LOOPBACK_HOSTS:
+        return stripped
+    host = "host.docker.internal"
+    if parsed.port is not None:
+        host = f"{host}:{parsed.port}"
+    return urlunparse(parsed._replace(netloc=host))
+
+
+def resolve_openai_model(raw: str | None) -> str | None:
+    """Return a configured chat model id, or None when unset."""
+    if raw is None:
+        return None
+    stripped = raw.strip()
+    if not stripped:
+        return None
+    return stripped
 
 
 def load_paper_brief_template() -> str:
@@ -62,11 +97,25 @@ def generate_paper_brief_content(
     from openai import OpenAI
 
     api_key = os.environ.get("OPENAI_API_KEY") or None
+    base_url = resolve_openai_base_url(
+        os.environ.get("OPENAI_BASE_URL"),
+        in_container=Path("/.dockerenv").exists(),
+    )
     if not api_key:
-        raise ValueError("OPENAI_API_KEY is not set")
-    client = OpenAI(api_key=api_key)
+        if base_url is None:
+            raise ValueError("OPENAI_API_KEY is not set")
+        api_key = _PLACEHOLDER_API_KEY
+    model = resolve_openai_model(os.environ.get("OPENAI_MODEL"))
+    if model is None:
+        if base_url is not None:
+            raise ValueError("OPENAI_MODEL is not set")
+        model = _DEFAULT_OPENAI_MODEL
+    if base_url is not None:
+        client = OpenAI(api_key=api_key, base_url=base_url)
+    else:
+        client = OpenAI(api_key=api_key)
     completion = client.chat.completions.parse(
-        model=_OPENAI_MODEL,
+        model=model,
         messages=[
             {"role": "system", "content": load_paper_brief_template()},
             {
