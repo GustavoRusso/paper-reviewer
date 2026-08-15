@@ -41,7 +41,7 @@ A mapped attribute named `key` is allowed. The mild clash with SQLAlchemy `Colum
 
 ### URL query and helper signatures
 
-- Query parameter: `{entity}_key` (Topic scope: `topic_scope_key`). ui-style owns how that parameter is read, written, and preserved on `st.page_link`.
+- Query parameter: `{entity}_key` (Topic scope: `topic_scope_key`). ui-style owns how that parameter is read, written, and preserved on `st.page_link` and `st.switch_page`.
 - On the ORM row, the attribute is `key` (`topic_scope.key`).
 - On UI helpers that already take a page slug (`page_key`, `AppPage.key`), name the UUID argument `topic_scope_key` — **not** a bare `key=`. Example: `workflow_page_link(..., topic_scope_key=)`. A bare `key=` collides with the page slug and with Streamlit widget `key=`.
 - Page-local variables that hold that UUID use `topic_scope_key` as well.

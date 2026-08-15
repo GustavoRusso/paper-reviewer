@@ -82,10 +82,10 @@ Workflow pages carry the current `TopicScope` key in a **URL query parameter**, 
 | Query key | `topic_scope_key` (UUID string) |
 | Write | Topic intake Submit sets the param on the **Topic analysis** destination URL after a successful start (see [Topic intake switch to analysis](#topic-intake-switch-to-analysis)) |
 | Read | Each workflow page parses the key from `st.query_params` for captions and prerequisite checks |
-| Navigate | Every in-workflow `st.page_link` must pass `query_params` with that key. If `query_params` is omitted, Streamlit **clears** existing query parameters and the Topic scope key is lost |
+| Navigate | Every in-workflow `st.page_link` and `st.switch_page` must pass `query_params` with that key. If `query_params` is omitted, Streamlit **clears** existing query parameters and the Topic scope key is lost |
 | Out of sidebar | Sidebar Home / Topic intake may clear the query string (Streamlit default). That is acceptable for starting a new Topic scope |
 
-Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_key`. Step specs link here; they must not restate the clear rule.
+Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_key`. Use `workflow_page_link` and `workflow_switch_page` so navigation always passes `query_params`. Step specs link here; they must not restate the clear rule.
 
 Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL key alone does **not** resume a Topic scope after the session is gone.
 
@@ -104,6 +104,7 @@ Illustrative only; step specs remain the behavior contract.
 | Situation | Intent | Control |
 | --- | --- | --- |
 | Home → Topic intake | Navigate | `st.page_link` |
+| Home Topic scope list → Topic scope hub | Navigate | `st.page_link` (label = topic statement; pass `topic_scope_key`) |
 | Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` then `st.switch_page` to Topic analysis |
 | Topic analysis → Topic scope hub | Navigate | `st.page_link` |
 | Topic scope hub → Paper ingestion / Paper search / Topic brief | Navigate | `st.page_link` |

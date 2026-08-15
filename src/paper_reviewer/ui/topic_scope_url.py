@@ -36,9 +36,16 @@ def topic_scope_query_params(topic_scope_key: UUID) -> dict[str, str]:
     return {TOPIC_SCOPE_KEY_QUERY_KEY: str(topic_scope_key)}
 
 
-def set_topic_scope_key_in_url(topic_scope_key: UUID) -> None:
-    """Write the Topic scope key into the current page URL."""
-    st.query_params[TOPIC_SCOPE_KEY_QUERY_KEY] = str(topic_scope_key)
+def workflow_switch_page(page_key: str, *, topic_scope_key: UUID) -> None:
+    """Switch to a workflow page and keep the Topic scope key in the URL.
+
+    Streamlit clears query params when ``query_params`` is omitted. Always pass
+    the key so the destination URL does not lose it.
+    """
+    st.switch_page(
+        streamlit_page_for(page_key),
+        query_params=topic_scope_query_params(topic_scope_key),
+    )
 
 
 def workflow_page_link(

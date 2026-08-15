@@ -14,8 +14,7 @@ from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStat
 from paper_reviewer.topic_brief_generation.topic_intake import (
     start_topic_scope_from_topic_intake,
 )
-from paper_reviewer.ui.navigation import streamlit_page_for
-from paper_reviewer.ui.topic_scope_url import set_topic_scope_key_in_url
+from paper_reviewer.ui.topic_scope_url import workflow_switch_page
 
 SESSION_KEY = "topic_statement"
 ANALYSIS_KEY = "topic_analysis_result"
@@ -70,5 +69,7 @@ def render_topic_intake() -> None:
                 st.session_state,
                 topic_statement=topic_statement,
             )
-            set_topic_scope_key_in_url(topic_scope.key)
-            st.switch_page(streamlit_page_for("topic_analysis"))
+            workflow_switch_page(
+                "topic_analysis",
+                topic_scope_key=topic_scope.key,
+            )
