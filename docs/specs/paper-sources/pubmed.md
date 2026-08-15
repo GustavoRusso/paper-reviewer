@@ -2,7 +2,7 @@
 
 Search criteria and API mapping for the **PubMed** paper source (`source_id = pubmed`).
 
-Used by the [Related-paper search](../03-related-paper-search.md) workflow. This document does **not** define that workflow — only how generic search criteria become PubMed queries and how PubMed hits become `PaperCandidate` records.
+Used by the [Related-paper search](../2.1-related-paper-search.md) workflow. This document does **not** define that workflow — only how generic search criteria become PubMed queries and how PubMed hits become `PaperCandidate` records.
 
 Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
@@ -102,7 +102,7 @@ This document owns PubMed/NCBI operational detail (README links here).
 
 ## DocSum → `PaperCandidate`
 
-Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-paper search](../03-related-paper-search.md). Do not invent extra candidate fields here.
+Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-paper search](../2.1-related-paper-search.md). Do not invent extra candidate fields here.
 
 | `PaperCandidate` field | PubMed source |
 | --- | --- |
@@ -215,14 +215,14 @@ Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC
 
 1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
-3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.topic_brief_generation.related_paper_search` (see [03-related-paper-search.md](../03-related-paper-search.md)).
+3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.topic_brief_generation.related_paper_search` (see [2.1-related-paper-search.md](../2.1-related-paper-search.md)).
 
 ## Behavior notes
 
 | Case | Expected |
 | --- | --- |
 | Zero ESearch hits | No candidates for that facet from PubMed |
-| Missing DOI on DocSum | Mapper may emit `doi` null; [related-paper search](../03-related-paper-search.md) **drops** that hit at merge so it never reaches triage or [Paper archiving](../05-paper-archiving.md) |
+| Missing DOI on DocSum | Mapper may emit `doi` null; [related-paper search](../2.1-related-paper-search.md) **drops** that hit at merge so it never reaches triage or [Paper archiving](../05-paper-archiving.md) |
 | Rate limit / HTTP error | Surface error to workflow `source_runs`; workflow fail-soft applies |
 
 ## Fixture example

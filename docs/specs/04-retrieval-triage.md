@@ -1,14 +1,14 @@
 # Retrieval triage
 
-This document is the specification for step 4 of the Topic brief generation workflow in [README.md](../../README.md).
+This document is the specification for **Retrieval triage** on the Paper ingestion path of the Topic brief generation workflow in [README.md](../../README.md).
 
-In this step, the system presents **paper candidates** from [related-paper search](03-related-paper-search.md) for human review. The user confirms the set that continues to [Paper archiving](05-paper-archiving.md). In v1 every search candidate is retained; the step is a review gate with an explicit confirm action, not a filter.
+In this step, the system presents **paper candidates** from [related-paper search](2.1-related-paper-search.md) for human review. The user confirms the set that continues to [Paper archiving](05-paper-archiving.md). In v1 every search candidate is retained; the step is a review gate with an explicit confirm action, not a filter.
 
 ## Glossary
 
 | Term | Meaning |
 | --- | --- |
-| **`PaperCandidate`** | In-memory search hit from [related-paper search](03-related-paper-search.md). Shape owned by that spec. |
+| **`PaperCandidate`** | In-memory search hit from [related-paper search](2.1-related-paper-search.md). Shape owned by that spec. |
 | **Retrieval triage** | Workflow step that reviews search candidates and produces a retained set for Paper archiving. |
 | **Retained candidates** | The `list[PaperCandidate]` passed to Paper archiving after the user confirms triage. |
 
@@ -33,7 +33,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 ### Out of scope (v1)
 
 - Per-paper manual discard or inclusion toggles (deferred to a later revision).
-- DOI validation or rejection (owned by [related-paper search merge](03-related-paper-search.md); Paper archiving also skips blank DOI as defense-in-depth).
+- DOI validation or rejection (owned by [related-paper search merge](2.1-related-paper-search.md); Paper archiving also skips blank DOI as defense-in-depth).
 - Running Paper archiving on this page (owned by the dedicated [Paper archiving](05-paper-archiving.md) page).
 - Creating **paper briefs** ([Generate paper brief](07-generate-paper-brief.md)) or topic brief construction.
 - Persisting triage decisions to Postgres.
@@ -43,12 +43,12 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ```mermaid
 flowchart TB
-  search[3 Related-paper search]
-  triage[4 Retrieval triage]
-  archive[5 Paper archiving]
-  fulfill[6 Fulfill papers metadata]
-  briefs[7 Generate paper brief]
-  topic[8 Topic brief]
+  search[2.1 Related-paper search]
+  triage[Retrieval triage]
+  archive[Paper archiving]
+  fulfill[Fulfill papers metadata]
+  briefs[Generate paper brief]
+  topic[Topic brief]
   search --> triage
   triage -->|"user confirms"| archive
   archive --> fulfill
@@ -56,7 +56,7 @@ flowchart TB
   briefs --> topic
 ```
 
-1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec) plus `source_runs` metadata.
+1. **Related-paper search (2.1)** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec) plus `source_runs` metadata.
 2. **Retrieval triage** (this specification) presents those candidates and waits for an explicit confirm. v1 retains every candidate.
 3. **Paper archiving** receives `RetrievalTriageResult.retained` and creates or reuses `Paper` records.
 4. **Fulfill papers metadata**, **Generate paper brief**, and **Topic brief** continue on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [Generate paper brief](07-generate-paper-brief.md).
@@ -67,10 +67,10 @@ Related-paper search runs on its own page (`paper_reviewer.ui.related_paper_sear
 
 | Input | Required | Description |
 | --- | --- | --- |
-| `search_result` | Yes | `RelatedPaperSearchResult` from [related-paper search](03-related-paper-search.md): `candidates`, `source_runs`, optional `notes`. |
+| `search_result` | Yes | `RelatedPaperSearchResult` from [related-paper search](2.1-related-paper-search.md): `candidates`, `source_runs`, optional `notes`. |
 | `topic_scope_key` | Yes (UI) | Key of the current `TopicScope` from the **URL query** ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). Not an argument of the pure confirm function. |
 
-`PaperCandidate` shape is owned by [related-paper search](03-related-paper-search.md). This step does not redefine it.
+`PaperCandidate` shape is owned by [related-paper search](2.1-related-paper-search.md). This step does not redefine it.
 
 An empty `candidates` list is valid input.
 
@@ -135,8 +135,8 @@ Show the Paper ingestion phase header (intro + stepper) on this page: [Paper ing
 
 1. **Prerequisites** — Require:
    - `topic_scope_key` in the **URL query** ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url))
-   - `related_paper_search_result` in Streamlit session state from **Related-paper search**
-   - If either is missing: show a message and page_links to **Topic intake**, **Topic scope**, and **Related-paper search**; do not render the confirm button. In-workflow links must preserve the query id when present.
+   - `related_paper_search_result` in Streamlit session state from **Related-paper search**, with `related_paper_search_topic_scope_key` matching that URL key ([Related-paper search](2.1-related-paper-search.md))
+   - If either is missing or the cached key does not match: show a message and page_links to **Related-paper search**, **Topic scope**, and **Topic intake**; do not render the confirm button. In-workflow links must preserve the query id when present. Related-paper search is the step that runs search; Topic intake does not.
 2. **Context header** — Show the Topic scope reference id (from the URL) and an optional topic statement snippet from session.
 3. **Source runs** — Show per-source status from `search_result.source_runs` (same pattern as Related-paper search). Implementation may later extract a shared display helper.
 4. **Candidate list** — One block per `PaperCandidate`: title (linked via `url`), authors, journal, year, `source_uid`, `facet_id`, and DOI when present.
@@ -158,10 +158,10 @@ Persistence for v1 is Streamlit session state for search / triage caches, plus t
 
 | Responsibility | Owner |
 | --- | --- |
-| Search, merge, drop no-DOI hits at merge | [related-paper search](03-related-paper-search.md) |
+| Search, merge, drop no-DOI hits at merge | [related-paper search](2.1-related-paper-search.md) |
 | User review + confirm gate; produce `retained` | Retrieval triage (this specification) |
 | Create or reuse `Paper` rows from `retained` | [Paper archiving](05-paper-archiving.md) |
-| `PaperCandidate` field shape | [related-paper search](03-related-paper-search.md) |
+| `PaperCandidate` field shape | [related-paper search](2.1-related-paper-search.md) |
 | Pydantic `RetrievalTriageResult` / confirm API | `paper_reviewer.schemas` / `paper_reviewer.topic_brief_generation.retrieval_triage` |
 | Streamlit page and navigation | `paper_reviewer.ui` |
 
@@ -173,7 +173,7 @@ Paper archiving input is **`RetrievalTriageResult.retained`**, not the raw searc
 | --- | --- |
 | Search returned N candidates | Triage retains all N; UI lists all N. |
 | Search returned 0 candidates | `retained=[]`; confirm allowed; Paper archiving empty success. |
-| User opens triage without prior search | Guard message; page_links to Topic intake, Topic scope, and Related-paper search; no confirm button. |
+| User opens triage without prior search | Guard message; page_links to Related-paper search, Topic scope, and Topic intake; no confirm button. |
 | User confirms twice | Replace session triage result; clear `paper_archiving_result` and all later-step session caches so Paper archiving and downstream steps re-run on the latest retained set. |
 | Search had source errors (fail-soft) | Show `source_runs` errors; retain whatever candidates search produced. |
 

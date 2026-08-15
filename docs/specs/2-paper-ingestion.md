@@ -58,13 +58,13 @@ Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 2. Show the phase header (intro + stepper).
 3. Primary next: page_link **Continue to Related-paper search** (`related_paper_search`). Do **not** auto-run search here. Do **not** `switch_page`.
 
-Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). First ingest step: [related-paper search](03-related-paper-search.md).
+Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). First ingest step: [related-paper search](2.1-related-paper-search.md) (phase 2 step 1).
 
 ## Step specs (do not copy)
 
 | Step | Spec |
 | --- | --- |
-| Related-paper search | [03-related-paper-search.md](03-related-paper-search.md) |
+| Related-paper search (2.1) | [2.1-related-paper-search.md](2.1-related-paper-search.md) |
 | Retrieval triage | [04-retrieval-triage.md](04-retrieval-triage.md) |
 | Paper archiving | [05-paper-archiving.md](05-paper-archiving.md) |
 | Fulfill papers metadata | [06-fulfill-papers-metadata.md](06-fulfill-papers-metadata.md) |

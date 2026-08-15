@@ -9,7 +9,7 @@ In this step, the system maps each **paper candidate** to a reusable **`Paper`**
 | Term | Meaning |
 | --- | --- |
 | **`Paper`** | Durable bibliographic record of a scientific article in this system. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. |
-| **`PaperCandidate`** | In-memory search hit from [related-paper search](03-related-paper-search.md). Not stored as a candidate row in this step. |
+| **`PaperCandidate`** | In-memory search hit from [related-paper search](2.1-related-paper-search.md). Not stored as a candidate row in this step. |
 | **Paper archiving** | Workflow step that creates or reuses `Paper` records from candidates. |
 
 ## Topic brief generation
@@ -49,12 +49,12 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ```mermaid
 flowchart TB
-  search[3 Related-paper search]
-  triage[4 Retrieval triage]
-  archive[5 Paper archiving]
-  fulfill[6 Fulfill papers metadata]
-  briefs[7 Generate paper brief]
-  topic[8 Topic brief]
+  search[2.1 Related-paper search]
+  triage[Retrieval triage]
+  archive[Paper archiving]
+  fulfill[Fulfill papers metadata]
+  briefs[Generate paper brief]
+  topic[Topic brief]
   search --> triage
   triage --> archive
   archive --> fulfill
@@ -62,7 +62,7 @@ flowchart TB
   briefs --> topic
 ```
 
-1. **Related-paper search** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
+1. **Related-paper search (2.1)** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
 2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [Retrieval triage](04-retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
 3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
 4. **Fulfill papers metadata** fills source record then full text on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
@@ -89,7 +89,7 @@ archive_papers(session, candidates) -> PaperArchivingResult
 | Savepoint | Use a savepoint per candidate so one failure rolls back only that candidate and the step continues. |
 | Raise | Do not raise for per-candidate policy skips or recoverable DB conflicts. Raise only if the session is unusable. |
 
-`PaperCandidate` shape is owned by [related-paper search](03-related-paper-search.md). This step does not redefine it.
+`PaperCandidate` shape is owned by [related-paper search](2.1-related-paper-search.md). This step does not redefine it.
 
 ### Domain checks (per candidate)
 
@@ -317,7 +317,7 @@ When all three lists are empty after empty input, show a neutral success caption
 | Responsibility | Owner |
 | --- | --- |
 | Map candidates → create-or-reuse / skip `Paper` | `paper_reviewer.topic_brief_generation.paper_archiving` (`archive_papers`) |
-| Drop no-DOI hits before triage; candidate shape and search merge | [related-paper search](03-related-paper-search.md) |
+| Drop no-DOI hits before triage; candidate shape and search merge | [related-paper search](2.1-related-paper-search.md) |
 | User review + confirm; produce `retained` | [Retrieval triage](04-retrieval-triage.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
 | PubMed EFetch / full text (PMC Cloud) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
