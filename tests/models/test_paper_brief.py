@@ -10,8 +10,8 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation import create_paper
-from paper_reviewer.models.topic_brief_generation.paper_brief import (
+from paper_reviewer.models.paper import create_paper
+from paper_reviewer.models.paper_brief import (
     PaperBrief,
     create_paper_brief_row,
     get_paper_brief_by_paper_id,
@@ -27,8 +27,8 @@ from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
 @pytest.fixture
 def session() -> Iterator[Session]:
     engine = create_engine("sqlite+pysqlite:///:memory:")
-    import paper_reviewer.models.topic_brief_generation.paper  # noqa: F401
-    import paper_reviewer.models.topic_brief_generation.paper_brief  # noqa: F401
+    import paper_reviewer.models.paper  # noqa: F401
+    import paper_reviewer.models.paper_brief  # noqa: F401
 
     Base.metadata.create_all(engine)
     factory = sessionmaker(bind=engine, autoflush=False, autocommit=False)

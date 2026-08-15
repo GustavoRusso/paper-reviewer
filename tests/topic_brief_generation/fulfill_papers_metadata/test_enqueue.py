@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation import create_paper
+from paper_reviewer.models.paper import create_paper
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
@@ -22,7 +22,7 @@ from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
 @pytest.fixture
 def session() -> Iterator[Session]:
     engine = create_engine("sqlite+pysqlite:///:memory:")
-    import paper_reviewer.models.topic_brief_generation.paper  # noqa: F401
+    import paper_reviewer.models.paper  # noqa: F401
 
     Base.metadata.create_all(engine)
     factory = sessionmaker(bind=engine, autoflush=False, autocommit=False)

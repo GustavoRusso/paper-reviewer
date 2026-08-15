@@ -7,8 +7,8 @@ from collections.abc import Callable
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory
-from paper_reviewer.models.topic_brief_generation.paper import get_paper_by_id
-from paper_reviewer.models.topic_brief_generation.paper_brief import (
+from paper_reviewer.models.paper import get_paper_by_id
+from paper_reviewer.models.paper_brief import (
     PaperBrief,
     create_paper_brief_row,
     get_paper_brief_by_paper_id,

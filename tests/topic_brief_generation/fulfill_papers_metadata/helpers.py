@@ -7,7 +7,7 @@ from typing import Any
 
 from sqlalchemy.orm import Session, sessionmaker
 
-from paper_reviewer.models.topic_brief_generation import create_paper
+from paper_reviewer.models.paper import create_paper
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )

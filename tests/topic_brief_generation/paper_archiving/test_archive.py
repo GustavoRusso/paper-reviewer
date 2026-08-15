@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.paper import (
     create_paper,
     get_paper_by_doi,
     get_paper_by_source_handle,
@@ -27,7 +27,7 @@ from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 @pytest.fixture
 def session() -> Iterator[Session]:
     engine = create_engine("sqlite+pysqlite:///:memory:")
-    import paper_reviewer.models.topic_brief_generation.paper  # noqa: F401
+    import paper_reviewer.models.paper  # noqa: F401
 
     Base.metadata.create_all(engine)
     factory = sessionmaker(bind=engine, autoflush=False, autocommit=False)
@@ -286,7 +286,7 @@ def test_archive_papers_savepoint_failure_records_error_and_continues(
     bad = _candidate(source_uid="200", doi="10.1000/bad")
     after = _candidate(source_uid="300", doi="10.1000/after")
 
-    from paper_reviewer.models.topic_brief_generation import Paper as OrmPaper
+    from paper_reviewer.models.paper import Paper as OrmPaper
 
     original_flush = session.flush
 

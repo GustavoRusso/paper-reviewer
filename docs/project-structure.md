@@ -78,7 +78,9 @@ paper-reviewer/
 │       │   └── topic_brief_generation/ # Pydantic contracts for that workflow
 │       ├── models/
 │       │   ├── base.py                 # DeclarativeBase (all workflows)
-│       │   └── topic_brief_generation/ # ORM for that workflow
+│       │   ├── paper.py                # Global Paper ORM (not owned by a Topic scope)
+│       │   ├── paper_brief.py          # Global PaperBrief ORM (not owned by a Topic scope)
+│       │   └── topic_brief_generation/ # ORM for that workflow (Topic scope root)
 │       ├── ingest/                     # dlt paper-source extract (shared)
 │       ├── ui/                         # Streamlit
 │       ├── flows/                      # Prefect flows (source record, full text, briefs, orchestrators)
@@ -116,7 +118,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 | --- | --- | --- |
 | Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, triage, paper archiving, fulfill papers metadata, generate paper brief, topic brief). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/2-paper-ingestion.md](specs/2-paper-ingestion.md), [specs/3-paper-search.md](specs/3-paper-search.md), [specs/4-topic-brief.md](specs/4-topic-brief.md), [specs/03-related-paper-search.md](specs/03-related-paper-search.md), [specs/04-retrieval-triage.md](specs/04-retrieval-triage.md), [specs/05-paper-archiving.md](specs/05-paper-archiving.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md), [specs/07-generate-paper-brief.md](specs/07-generate-paper-brief.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_brief_generation.topic_analysis`). |
-| SQLAlchemy ORM | `paper_reviewer.models.<workflow>` | Table mappings mirrored under the workflow name; `models.base` is shared. Thin create/get only. |
+| SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
 | Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `regenerate_paper` |
@@ -128,7 +130,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 1. **Each product workflow is a named top-level package** (today: `topic_brief_generation`; later siblings)—not a generic `steps` bag.
 2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
 3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
-4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package.
+4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package. **Exception:** global tables that a workflow does not own (`Paper`, `PaperBrief`) live at `models.paper` and `models.paper_brief`, not under `models/<workflow>/`.
 5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.generation` (`TopicScope`; legacy name `TopicBriefGeneration` until implementation renames it).
 6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
 

@@ -18,7 +18,7 @@ from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, Session, mapped_column, relationship
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation.paper import _ASPECT_STATUS
+from paper_reviewer.models.paper import _ASPECT_STATUS
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )

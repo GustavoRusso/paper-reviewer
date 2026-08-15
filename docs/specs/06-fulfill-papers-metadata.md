@@ -552,7 +552,7 @@ Map each aspect independently:
 | EFetch params + PubMed XML mapping + PMC Cloud HTTP details | [paper-sources/pubmed.md](paper-sources/pubmed.md) (owned for PubMed); this spec owns which groups and enrichment columns land on `Paper` and which status they set |
 | Domain enqueue + aspect inform helpers | `paper_reviewer.topic_brief_generation.fulfill_papers_metadata` |
 | Prefect flows | `paper_reviewer.flows` (`inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `regenerate_paper`) |
-| ORM `Paper` extensions (enums, `source_record`, typed promotes, PMC enrichment columns) | `paper_reviewer.models` |
+| ORM `Paper` extensions (enums, `source_record`, typed promotes, PMC enrichment columns) | `paper_reviewer.models.paper` |
 | Pydantic contracts | `paper_reviewer.schemas.topic_brief_generation` |
 | Progress UI | `paper_reviewer.ui.fulfill_papers_metadata` |
 | Paper brief drafting / `regenerate_paper` step 3 | [Generate paper brief](07-generate-paper-brief.md) |

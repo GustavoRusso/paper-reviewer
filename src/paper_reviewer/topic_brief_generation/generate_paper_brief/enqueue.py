@@ -6,10 +6,8 @@ from collections.abc import Callable
 
 from sqlalchemy.orm import Session
 
-from paper_reviewer.models.topic_brief_generation.paper import get_paper_by_id
-from paper_reviewer.models.topic_brief_generation.paper_brief import (
-    get_paper_brief_by_paper_id,
-)
+from paper_reviewer.models.paper import get_paper_by_id
+from paper_reviewer.models.paper_brief import get_paper_brief_by_paper_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )

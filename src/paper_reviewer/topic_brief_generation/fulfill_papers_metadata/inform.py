@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory
 from paper_reviewer.ingest.pubmed.pmc_cloud import usable_full_text_plain
-from paper_reviewer.models.topic_brief_generation.paper import Paper, get_paper_by_id
+from paper_reviewer.models.paper import Paper, get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     FulfillPaperMetadataResult,
     InformFullTextResult,

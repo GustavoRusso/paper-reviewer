@@ -8,7 +8,7 @@ from typing import Any
 import pytest
 from sqlalchemy.orm import Session, sessionmaker
 
-from paper_reviewer.models.topic_brief_generation import get_paper_by_id
+from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
     PaperAspectStatus,
 )

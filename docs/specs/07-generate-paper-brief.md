@@ -290,7 +290,7 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks. On each progress row,
 | Source record / full text / `PaperAspectStatus` / `regenerate_paper` steps 1–2 | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) for PubMed |
 | Domain enqueue + `create_paper_brief` helper | `paper_reviewer.topic_brief_generation.generate_paper_brief` |
 | Prefect flow | `paper_reviewer.flows` (`create_paper_brief`); `regenerate_paper` calls this flow with `force=true` |
-| ORM `PaperBrief` | `paper_reviewer.models` |
+| ORM `PaperBrief` | `paper_reviewer.models.paper_brief` |
 | Pydantic contracts | `paper_reviewer.schemas.topic_brief_generation` |
 | Progress UI | `paper_reviewer.ui.generate_paper_brief` |
 | Topic brief drafting | Later step (not this document) |

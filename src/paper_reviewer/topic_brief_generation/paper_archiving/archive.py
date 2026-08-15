@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.paper import (
     Paper as OrmPaper,
     create_paper,
     get_paper_by_doi,

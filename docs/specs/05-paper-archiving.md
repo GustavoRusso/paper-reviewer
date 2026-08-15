@@ -321,7 +321,7 @@ When all three lists are empty after empty input, show a neutral success caption
 | PubMed EFetch / full text (PMC Cloud) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
 | Paper brief drafting | [Generate paper brief](07-generate-paper-brief.md) |
 | Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
-| ORM `Paper` + thin create/get | `paper_reviewer.models` |
+| ORM `Paper` + thin create/get | `paper_reviewer.models.paper` |
 
 This document is the **behavior contract** for domain logic and for the Streamlit page. Domain package, schemas, ORM, and migrations may already exist; the UI page is a separate implementation task driven by this specification.
 
