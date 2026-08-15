@@ -6,7 +6,7 @@ from uuid import uuid4
 
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.topic_scope import (
-    CONTINUE_TO_PAPER_INGESTION_LABEL,
+    CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL,
     CONTINUE_TO_PAPER_SEARCH_LABEL,
     CONTINUE_TO_TOPIC_BRIEF_LABEL,
     GO_TO_TOPIC_ANALYSIS_LABEL,
@@ -93,10 +93,12 @@ def test_incomplete_copy_and_analysis_link_label() -> None:
 
 def test_ready_hub_links_to_the_three_phase_landings() -> None:
     assert PHASE_LANDING_PAGE_KEYS == (
-        "paper_ingestion",
+        "external_sources_ingestion",
         "paper_search",
         "topic_brief",
     )
-    assert CONTINUE_TO_PAPER_INGESTION_LABEL == "Continue to Paper ingestion"
+    assert CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL == (
+        "Continue to External sources ingestion"
+    )
     assert CONTINUE_TO_PAPER_SEARCH_LABEL == "Continue to Paper search"
     assert CONTINUE_TO_TOPIC_BRIEF_LABEL == "Continue to Topic brief"

@@ -20,7 +20,9 @@ from paper_reviewer.schemas.topic_brief_generation.search_external_sources impor
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
-from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
+from paper_reviewer.ui.external_sources_ingestion import (
+    render_external_sources_ingestion_header,
+)
 from paper_reviewer.ui.search_external_sources import search_cache_matches
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
@@ -166,7 +168,7 @@ def _render_result(
 def render_paper_archiving() -> None:
     """Render the Paper archiving page."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
-    render_paper_ingestion_header(
+    render_external_sources_ingestion_header(
         current_page_key="paper_archiving",
         topic_scope_key=topic_scope_key,
     )

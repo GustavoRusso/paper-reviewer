@@ -2,7 +2,7 @@
 
 This document is the specification for the **Topic brief** phase landing in [README.md](../../README.md). v1 is a **shell**. Cited topic-brief drafting is not built yet.
 
-**Independent phases:** the user may open this landing without running Paper ingestion or Paper search. Do not add cross-phase gates in v1.
+**Independent phases:** the user may open this landing without running External sources ingestion or Paper search. Do not add cross-phase gates in v1.
 
 ## Glossary
 
@@ -24,7 +24,7 @@ This document is the specification for the **Topic brief** phase landing in [REA
 - LLM drafting of the cited topic brief.
 - Citation scoping to claims.
 - Attaching a topic-brief artifact to `TopicScope`.
-- Generate paper brief (ingest step) — [07-generate-paper-brief.md](07-generate-paper-brief.md).
+- Generate paper brief (ingest step) — [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md).
 
 ## Streamlit UI (v1)
 

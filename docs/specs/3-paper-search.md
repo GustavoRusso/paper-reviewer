@@ -2,7 +2,7 @@
 
 This document is the specification for the **Paper search** phase landing in [README.md](../../README.md). v1 is a **shell**. Local-database search is not built yet.
 
-**Independent phases:** the user may open this landing without running Paper ingestion or Topic brief. Do not add cross-phase gates in v1.
+**Independent phases:** the user may open this landing without running External sources ingestion or Topic brief. Do not add cross-phase gates in v1.
 
 ## Glossary
 

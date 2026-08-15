@@ -1,4 +1,4 @@
-"""Paper ingestion phase landing Streamlit page."""
+"""External sources ingestion phase landing Streamlit page."""
 
 from __future__ import annotations
 
@@ -12,20 +12,20 @@ from paper_reviewer.ui.topic_scope_url import (
     workflow_page_link,
 )
 
-PHASE_TITLE = "Paper ingestion"
+PHASE_TITLE = "External sources ingestion"
 INTRO_TEXT = (
     "This phase searches external sources and ingests papers for this Topic scope."
 )
 MISSING_SCOPE_MESSAGE = (
-    "Open Topic intake to create a Topic scope, then open Paper ingestion from "
-    "the Topic scope hub."
+    "Open Topic intake to create a Topic scope, then open External sources "
+    "ingestion from the Topic scope hub."
 )
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 SEARCH_EXTERNAL_SOURCES_PAGE_KEY = "search_external_sources"
 CONTINUE_TO_SEARCH_EXTERNAL_SOURCES_LABEL = "Continue to Search external sources"
 CURRENT_STEP_BADGE = "Current"
-PAPER_INGESTION_STEPS: tuple[tuple[str, str], ...] = (
+EXTERNAL_SOURCES_INGESTION_STEPS: tuple[tuple[str, str], ...] = (
     ("search_external_sources", "Search external sources"),
     ("paper_archiving", "Paper archiving"),
     ("fulfill_papers_metadata", "Fulfill papers metadata"),
@@ -43,10 +43,10 @@ class PhaseStepperItem:
     is_current: bool
 
 
-def paper_ingestion_stepper_items(
+def external_sources_ingestion_stepper_items(
     current_page_key: str,
 ) -> tuple[PhaseStepperItem, ...]:
-    """Return stepper items for Paper ingestion, marking the current step."""
+    """Return stepper items for External sources ingestion, marking the current step."""
     return tuple(
         PhaseStepperItem(
             page_key=page_key,
@@ -54,11 +54,13 @@ def paper_ingestion_stepper_items(
             step_number=index,
             is_current=page_key == current_page_key,
         )
-        for index, (page_key, label) in enumerate(PAPER_INGESTION_STEPS, start=1)
+        for index, (page_key, label) in enumerate(
+            EXTERNAL_SOURCES_INGESTION_STEPS, start=1
+        )
     )
 
 
-def render_paper_ingestion_header(
+def render_external_sources_ingestion_header(
     *,
     current_page_key: str,
     topic_scope_key: UUID | None,
@@ -68,7 +70,7 @@ def render_paper_ingestion_header(
     if topic_scope_key is not None:
         st.caption(f"Reference id: `{topic_scope_key}`")
     st.write(INTRO_TEXT)
-    items = paper_ingestion_stepper_items(current_page_key)
+    items = external_sources_ingestion_stepper_items(current_page_key)
     columns = st.columns(len(items))
     for column, item in zip(columns, items, strict=True):
         with column:
@@ -99,16 +101,16 @@ def _render_missing_scope() -> None:
     )
 
 
-def render_paper_ingestion() -> None:
-    """Render the Paper ingestion landing for the Topic scope in the URL."""
+def render_external_sources_ingestion() -> None:
+    """Render the External sources ingestion landing for the Topic scope in the URL."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
     if topic_scope_key is None:
         st.title(PHASE_TITLE)
         _render_missing_scope()
         return
 
-    render_paper_ingestion_header(
-        current_page_key="paper_ingestion",
+    render_external_sources_ingestion_header(
+        current_page_key="external_sources_ingestion",
         topic_scope_key=topic_scope_key,
     )
     workflow_page_link(

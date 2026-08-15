@@ -1,7 +1,7 @@
 """Generate paper brief step: global PaperBrief from full text.
 
 Content sections and the LLM prompt live in ``paper_brief_template.md``.
-Behavior contract: docs/specs/07-generate-paper-brief.md.
+Behavior contract: docs/specs/2.2.3-generate-paper-brief.md.
 """
 
 from paper_reviewer.topic_brief_generation.generate_paper_brief.create import (

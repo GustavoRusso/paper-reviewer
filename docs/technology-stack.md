@@ -24,7 +24,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 | ORM / DB access | SQLAlchemy | Models and application reads/writes |
 | Schema migrations | Alembic | Versioned DDL against SQLAlchemy metadata |
 | Web UI | Streamlit | User-facing research workflows |
-| Job orchestrator | Prefect | Long-running jobs (source record, full text, paper briefs). Compose services: [local-development.md](local-development.md); job contracts: [Fulfill papers metadata](specs/06-fulfill-papers-metadata.md), [Generate paper brief](specs/07-generate-paper-brief.md). |
+| Job orchestrator | Prefect | Long-running jobs (source record, full text, paper briefs). Compose services: [local-development.md](local-development.md); job contracts: [Fulfill papers metadata](specs/2.2.2-fulfill-papers-metadata.md), [Generate paper brief](specs/2.2.3-generate-paper-brief.md). |
 | LLM (paper briefs) | OpenAI | Structured `PaperBriefContent` for `create_paper_brief` only. Optional compatible gateway via `OPENAI_BASE_URL`; model via `OPENAI_MODEL` (empty uses `gpt-4o-mini`; required for a local gateway) ([local-development.md](local-development.md)). The client sends `json_schema` then validates assistant JSON (strips ANSI / Markdown fences for gateways that ignore structured output). Prompt: [paper_brief_template.md](../src/paper_reviewer/topic_brief_generation/generate_paper_brief/paper_brief_template.md). Tests stub this boundary; no live API in pytest. |
 | Tests | pytest | Specs and regression tests for `paper_reviewer` (dev-only; run via `just test` in the sandbox) |
 
@@ -51,7 +51,7 @@ flowchart TB
   mig --> db
 ```
 
-Today, search external sources calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.search_external_sources`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md).
+Today, search external sources calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.search_external_sources`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md).
 
 ## Boundaries
 

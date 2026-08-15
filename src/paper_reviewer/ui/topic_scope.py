@@ -28,11 +28,13 @@ INCOMPLETE_MESSAGE = (
 )
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_ANALYSIS_LABEL = "Go to Topic analysis"
-CONTINUE_TO_PAPER_INGESTION_LABEL = "Continue to Paper ingestion"
+CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL = (
+    "Continue to External sources ingestion"
+)
 CONTINUE_TO_PAPER_SEARCH_LABEL = "Continue to Paper search"
 CONTINUE_TO_TOPIC_BRIEF_LABEL = "Continue to Topic brief"
 PHASE_LANDING_PAGE_KEYS = (
-    "paper_ingestion",
+    "external_sources_ingestion",
     "paper_search",
     "topic_brief",
 )
@@ -80,7 +82,7 @@ def _render_incomplete(*, topic_scope_key: UUID) -> None:
 
 def _render_phase_links(*, topic_scope_key: UUID) -> None:
     labels = {
-        "paper_ingestion": CONTINUE_TO_PAPER_INGESTION_LABEL,
+        "external_sources_ingestion": CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL,
         "paper_search": CONTINUE_TO_PAPER_SEARCH_LABEL,
         "topic_brief": CONTINUE_TO_TOPIC_BRIEF_LABEL,
     }

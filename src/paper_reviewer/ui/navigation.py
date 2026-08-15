@@ -34,7 +34,9 @@ def build_app_pages() -> list[AppPage]:
     from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
     from paper_reviewer.ui.landing import render_landing
     from paper_reviewer.ui.paper_archiving import render_paper_archiving
-    from paper_reviewer.ui.paper_ingestion import render_paper_ingestion
+    from paper_reviewer.ui.external_sources_ingestion import (
+        render_external_sources_ingestion,
+    )
     from paper_reviewer.ui.paper_search import render_paper_search
     from paper_reviewer.ui.search_external_sources import render_search_external_sources
     from paper_reviewer.ui.topic_analysis import render_topic_analysis
@@ -70,10 +72,10 @@ def build_app_pages() -> list[AppPage]:
             url_path="topic-scope",
         ),
         AppPage(
-            key="paper_ingestion",
-            title="Paper ingestion",
-            render=render_paper_ingestion,
-            url_path="paper-ingestion",
+            key="external_sources_ingestion",
+            title="External sources ingestion",
+            render=render_external_sources_ingestion,
+            url_path="external-sources-ingestion",
         ),
         AppPage(
             key="paper_search",

@@ -11,10 +11,10 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | In scope | Out of scope |
 | --- | --- |
 | Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple external sources |
-| ESearch + ESummary against `db=pubmed` | Creating durable `Paper` rows ([Paper archiving](../05-paper-archiving.md)) |
+| ESearch + ESummary against `db=pubmed` | Creating durable `Paper` rows ([Paper archiving](../2.2.1-paper-archiving.md)) |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
-| EFetch request shape and XML → `Paper` field mapping for the source-record flow (owned with [Fulfill papers metadata](../06-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata (except PMCID for Cloud enrichment) |
-| PMC Cloud enrichment for the full-text flow (highest version `.txt`, HTTPS PDF URL, OA flag) | Storing PDF/XML bytes; Unpaywall; legacy PMC FTP / OA Web Service; LLM `PaperBrief` drafting ([Generate paper brief](../07-generate-paper-brief.md)) |
+| EFetch request shape and XML → `Paper` field mapping for the source-record flow (owned with [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata (except PMCID for Cloud enrichment) |
+| PMC Cloud enrichment for the full-text flow (highest version `.txt`, HTTPS PDF URL, OA flag) | Storing PDF/XML bytes; Unpaywall; legacy PMC FTP / OA Web Service; LLM `PaperBrief` drafting ([Generate paper brief](../2.2.3-generate-paper-brief.md)) |
 | `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by search external sources / `paper_reviewer.topic_brief_generation.search_external_sources`) |
 
 ## Source identity
@@ -80,7 +80,7 @@ Base URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`
 | --- | --- | --- |
 | **ESearch** | `esearch.fcgi` | Compiled `term` → PMIDs (`usehistory=y`, `retmax`, optional `sort`) |
 | **ESummary** | `esummary.fcgi` | DocSums for candidate summary fields (by ids or History `WebEnv` + `query_key`) |
-| **EFetch** | `efetch.fcgi` | Fuller record for the **source-record** flow after [Paper archiving](../05-paper-archiving.md); see [EFetch (source record)](#efetch-source-record) and [Fulfill papers metadata](../06-fulfill-papers-metadata.md) |
+| **EFetch** | `efetch.fcgi` | Fuller record for the **source-record** flow after [Paper archiving](../2.2.1-paper-archiving.md); see [EFetch (source record)](#efetch-source-record) and [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md) |
 | **PMC Cloud** | AWS Open Data bucket `pmc-oa-opendata` (HTTPS) | Full-text flow after a succeeded source record; see [PMC Cloud enrichment](#pmc-cloud-enrichment) |
 
 Recommended sequence per facet:
@@ -95,7 +95,7 @@ This document owns PubMed/NCBI operational detail (README links here).
 
 - Prefer an NCBI **API key** (higher rate limits); include `api_key` on requests when configured.
 - Without a key, E-utilities allow about 3 requests/sec; with a key, about 10/sec. Respect NCBI usage guidelines.
-- When EFetch returns HTTP 429 / `API rate limit exceeded`, `inform_source_record` soft-retries with a random wait in `(0.5s, 2s)` and does not count that attempt toward the hard-failure budget — see [Fulfill papers metadata](../06-fulfill-papers-metadata.md) (in-run extract retries).
+- When EFetch returns HTTP 429 / `API rate limit exceeded`, `inform_source_record` soft-retries with a random wait in `(0.5s, 2s)` and does not count that attempt toward the hard-failure budget — see [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md) (in-run extract retries).
 - URL-encode `term`; avoid raw spaces (use `+` or encoding).
 - Boolean operators must be uppercase.
 - Prefer History for large result sets instead of huge `id` lists on every call.
@@ -120,7 +120,7 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [search ex
 
 ### Source fetch handle (later steps)
 
-[Paper archiving](../05-paper-archiving.md) maps candidate bibliographic fields into a durable `Paper` without calling EFetch.
+[Paper archiving](../2.2.1-paper-archiving.md) maps candidate bibliographic fields into a durable `Paper` without calling EFetch.
 
 Archived papers receive a source record and then full text later (**Fulfill papers metadata**) using EFetch (`inform_source_record`) and PMC Cloud (`inform_full_text`). Cross-source identity / Paper public id remains the DOI (required for candidates that survive search external sources merge).
 
@@ -128,7 +128,7 @@ Search external sources and Paper archiving do not call EFetch.
 
 ## EFetch (source record)
 
-Used only by the [Fulfill papers metadata](../06-fulfill-papers-metadata.md) Prefect job `inform_source_record` when `Paper.source_id = pubmed` and `source_record_status` is `not_started` (or when `regenerate_paper` forces a re-fetch).
+Used only by the [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md) Prefect job `inform_source_record` when `Paper.source_id = pubmed` and `source_record_status` is `not_started` (or when `regenerate_paper` forces a re-fetch).
 
 Implementation: a **dlt resource** in `paper_reviewer.ingest.pubmed` performs EFetch (one PMID per call in v1), parses XML, and yields a mapped row for the source-record job to write onto `Paper`. This is separate from the ESearch/ESummary search resource. Do not call PMC Cloud from this resource.
 
@@ -149,7 +149,7 @@ Official XML structure: [PubMed DTD (current year)](https://dtd.nlm.nih.gov/ncbi
 
 ### XML → `Paper` mapping (v1)
 
-Which logical groups land on `Paper` (as `source_record` JSONB plus typed promotes such as `pub_date` and `abstract_text`) is owned by [Fulfill papers metadata](../06-fulfill-papers-metadata.md). PubMed element sources:
+Which logical groups land on `Paper` (as `source_record` JSONB plus typed promotes such as `pub_date` and `abstract_text`) is owned by [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md). PubMed element sources:
 
 | Logical group | Primary PubMed XML sources |
 | --- | --- |
@@ -164,15 +164,15 @@ Which logical groups land on `Paper` (as `source_record` JSONB plus typed promot
 
 Do **not** map in v1 (deferred; see Fulfill papers metadata): other `ArticleIdList` / `OtherID` values beyond DOI+PMID handle and PMCID, `CommentsCorrectionsList`, cited references, rich `Author` structure (affiliations, ORCID), `VernacularTitle`, `InvestigatorList`, `GeneSymbolList`, `PersonalNameSubjectList`, `SpaceFlightMission`.
 
-Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful source-record write on the default path). Also promote `pub_date` / `abstract_text`, set `pmcid` when present, and write the full mapped object to `Paper.source_record` per [Fulfill papers metadata](../06-fulfill-papers-metadata.md). Do **not** run PMC Cloud inside the EFetch resource. Structured author entities are out of scope here.
+Flat `authors: list[str]` is **always refreshed** from `AuthorList` display names when those names are present on the EFetch record (first successful source-record write on the default path). Also promote `pub_date` / `abstract_text`, set `pmcid` when present, and write the full mapped object to `Paper.source_record` per [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md). Do **not** run PMC Cloud inside the EFetch resource. Structured author entities are out of scope here.
 
 ### Idempotency
 
-Default path: if `source_record_status` is not `not_started`, do not call EFetch. If `full_text_status` is not `not_started`, do not call PMC Cloud. `regenerate_paper` may force both. Behavior contract: [Fulfill papers metadata](../06-fulfill-papers-metadata.md).
+Default path: if `source_record_status` is not `not_started`, do not call EFetch. If `full_text_status` is not `not_started`, do not call PMC Cloud. `regenerate_paper` may force both. Behavior contract: [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md).
 
 ## PMC Cloud enrichment
 
-Used only by `inform_full_text` after `source_record_status = succeeded` for PubMed, when a PMCID was mapped. Status outcomes (`succeeded` / `unavailable` / `failed`) and column ownership: [Fulfill papers metadata](../06-fulfill-papers-metadata.md).
+Used only by `inform_full_text` after `source_record_status = succeeded` for PubMed, when a PMCID was mapped. Status outcomes (`succeeded` / `unavailable` / `failed`) and column ownership: [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md).
 
 Implementation: a helper under `paper_reviewer.ingest.pubmed` (not Streamlit) talks to the **updated** PMC Cloud Service on AWS. Do **not** use legacy PMC FTP, the retiring OA Web Service API, or deprecated Cloud prefixes.
 
@@ -223,7 +223,7 @@ Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC
 | Case | Expected |
 | --- | --- |
 | Zero ESearch hits | No candidates for that facet from PubMed |
-| Missing DOI on DocSum | Mapper may emit `doi` null; [search external sources](../2.1-search-external-sources.md) **drops** that hit at merge so it never reaches [Paper archiving](../05-paper-archiving.md) |
+| Missing DOI on DocSum | Mapper may emit `doi` null; [search external sources](../2.1-search-external-sources.md) **drops** that hit at merge so it never reaches [Paper archiving](../2.2.1-paper-archiving.md) |
 | Rate limit / HTTP error | Surface error to workflow `source_runs`; workflow fail-soft applies |
 
 ## Fixture example
@@ -272,5 +272,5 @@ Official docs for implementers and reviewers (prefer these over secondary blogs)
 | PubMed XML DTD (250101) | https://dtd.nlm.nih.gov/ncbi/pubmed/doc/out/250101/index.html | EFetch `PubmedArticle` element reference |
 | PMC Cloud Service | https://pmc.ncbi.nlm.nih.gov/tools/cloud/ | OA / AM dataset files on AWS |
 | PMC Article Datasets on AWS | https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/ | HTTPS/S3 access, version prefixes, metadata JSON |
-| Fulfill papers metadata (step) | [06-fulfill-papers-metadata.md](../06-fulfill-papers-metadata.md) | When to call EFetch / Cloud; which groups and enrichment columns store on `Paper` |
-| Generate paper brief (step) | [07-generate-paper-brief.md](../07-generate-paper-brief.md) | How a global **paper brief** is created after full text `succeeded` |
+| Fulfill papers metadata (step) | [2.2.2-fulfill-papers-metadata.md](../2.2.2-fulfill-papers-metadata.md) | When to call EFetch / Cloud; which groups and enrichment columns store on `Paper` |
+| Generate paper brief (step) | [2.2.3-generate-paper-brief.md](../2.2.3-generate-paper-brief.md) | How a global **paper brief** is created after full text `succeeded` |

@@ -81,7 +81,7 @@ Phase landings may show a **shared in-page header** on the landing and on every 
 - Other steps are `st.page_link`s (navigate only; pass `topic_scope_key`). Link labels name the destination (the step title).
 - The **current** step is not a link. Mark it with a **Current** badge (`st.badge`). On the phase landing, no step is current.
 - Step pages keep the step name after the shared header as `st.header` (smaller than the phase `st.title`).
-- Do not invent per-page stepper CSS. First owner: Paper ingestion ([2-paper-ingestion.md](specs/2-paper-ingestion.md)). Later phases may reuse the same pattern with their own step list.
+- Do not invent per-page stepper CSS. First owner: External sources ingestion ([2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md)). Later phases may reuse the same pattern with their own step list.
 
 ## Topic scope key in the URL
 
@@ -117,9 +117,9 @@ Illustrative only; step specs remain the behavior contract.
 | Home Topic scope list → Topic scope hub | Navigate | `st.page_link` (label = topic statement; pass `topic_scope_key`) |
 | Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` then `st.switch_page` to Topic analysis |
 | Topic analysis → Topic scope hub | Navigate | `st.page_link` |
-| Topic scope hub → Paper ingestion / Paper search / Topic brief | Navigate | `st.page_link` |
-| Paper ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
-| Paper ingestion → Search external sources | Navigate | `st.page_link` |
+| Topic scope hub → External sources ingestion / Paper search / Topic brief | Navigate | `st.page_link` |
+| External sources ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
+| External sources ingestion → Search external sources | Navigate | `st.page_link` |
 | Search external sources → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |

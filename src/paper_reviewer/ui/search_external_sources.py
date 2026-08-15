@@ -26,7 +26,9 @@ from paper_reviewer.topic_brief_generation.search_external_sources import (
 from paper_reviewer.topic_brief_generation.topic_analysis import (
     load_topic_analysis_result,
 )
-from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
+from paper_reviewer.ui.external_sources_ingestion import (
+    render_external_sources_ingestion_header,
+)
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
@@ -119,7 +121,7 @@ def _render_result(result: SearchExternalSourcesResult) -> None:
 def render_search_external_sources() -> None:
     """Render Search external sources: load facets from DB and auto-run search."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
-    render_paper_ingestion_header(
+    render_external_sources_ingestion_header(
         current_page_key="search_external_sources",
         topic_scope_key=topic_scope_key,
     )

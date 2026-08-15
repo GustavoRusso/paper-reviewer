@@ -24,7 +24,9 @@ from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
     enqueue_fulfill_papers_metadata,
     needs_fulfill_paper_metadata,
 )
-from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
+from paper_reviewer.ui.external_sources_ingestion import (
+    render_external_sources_ingestion_header,
+)
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -284,7 +286,7 @@ def _render_progress(
 def render_fulfill_papers_metadata() -> None:
     """Render the Fulfill papers metadata progress page."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
-    render_paper_ingestion_header(
+    render_external_sources_ingestion_header(
         current_page_key="fulfill_papers_metadata",
         topic_scope_key=topic_scope_key,
     )
