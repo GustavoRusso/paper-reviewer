@@ -22,7 +22,7 @@ from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
 )
-from paper_reviewer.ui.new_topic_brief import (
+from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
@@ -78,12 +78,12 @@ def render_retrieval_triage() -> None:
     topic_scope_key = parse_topic_scope_key(st.query_params)
     if not triage_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
-            "Run related-paper search from New Topic brief before triage. "
+            "Run related-paper search from Topic intake before triage. "
             "Open that page, submit a topic statement, and wait for search to finish."
         )
         workflow_page_link(
-            "new_topic_brief",
-            label="Go to New Topic brief",
+            "topic_intake",
+            label="Go to Topic intake",
             topic_scope_key=topic_scope_key,
         )
         return

@@ -17,7 +17,7 @@ from paper_reviewer.models.topic_brief_generation import (
 from paper_reviewer.ui.navigation import streamlit_page_for
 
 LANDING_CTA_LABEL = "Add a Topic scope"
-LANDING_CTA_PAGE_KEY = "new_topic_brief"
+LANDING_CTA_PAGE_KEY = "topic_intake"
 EMPTY_TOPIC_SCOPES_MESSAGE = "No Topic scopes yet."
 TOPIC_SCOPES_SECTION_TITLE = "Topic scopes"
 

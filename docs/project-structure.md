@@ -80,7 +80,7 @@ paper-reviewer/
 │       │   ├── base.py                 # DeclarativeBase (all workflows)
 │       │   ├── paper.py                # Global Paper ORM (not owned by a Topic scope)
 │       │   ├── paper_brief.py          # Global PaperBrief ORM (not owned by a Topic scope)
-│       │   └── topic_brief_generation/ # ORM for that workflow (Topic scope root)
+│       │   └── topic_brief_generation/ # ORM for that workflow (TopicScope, topic_facets)
 │       ├── ingest/                     # dlt paper-source extract (shared)
 │       ├── ui/                         # Streamlit
 │       ├── flows/                      # Prefect flows (source record, full text, briefs, orchestrators)
@@ -131,7 +131,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
 3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
 4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package. **Exception:** global tables that a workflow does not own (`Paper`, `PaperBrief`) live at `models.paper` and `models.paper_brief`, not under `models/<workflow>/`.
-5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`).
+5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`). Facet rows are `models.topic_brief_generation.topic_analysis` (`topic_facets`).
 6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
 
 ### `models` vs `schemas` (agent rule)

@@ -7,7 +7,7 @@ from uuid import uuid4
 from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     RelatedPaperSearchResult,
 )
-from paper_reviewer.ui.new_topic_brief import SEARCH_KEY
+from paper_reviewer.ui.topic_intake import SEARCH_KEY
 from paper_reviewer.ui.retrieval_triage import (
     CONFIRM_BUTTON_LABEL,
     triage_prerequisites_met,

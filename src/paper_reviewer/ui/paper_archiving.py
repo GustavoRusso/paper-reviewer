@@ -24,7 +24,7 @@ from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
 )
-from paper_reviewer.ui.new_topic_brief import (
+from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
@@ -165,11 +165,11 @@ def render_paper_archiving() -> None:
     if not archiving_prerequisites_met(st.session_state):
         st.info(
             "Confirm candidates on Retrieval triage before paper archiving. "
-            "Open New Topic brief to start a generation, then confirm triage."
+            "Open Topic intake to start a Topic scope, then confirm triage."
         )
         workflow_page_link(
-            "new_topic_brief",
-            label="Go to New Topic brief",
+            "topic_intake",
+            label="Go to Topic intake",
             topic_scope_key=topic_scope_key,
         )
         workflow_page_link(

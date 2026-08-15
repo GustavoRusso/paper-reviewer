@@ -35,7 +35,7 @@ from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
 )
-from paper_reviewer.ui.new_topic_brief import (
+from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
     SESSION_KEY,
@@ -203,11 +203,11 @@ def render_generate_paper_brief() -> None:
     if not brief_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
             "Archive papers and fulfill metadata before generating paper briefs. "
-            "Open New Topic brief to start a generation, then archive papers."
+            "Open Topic intake to start a Topic scope, then archive papers."
         )
         workflow_page_link(
-            "new_topic_brief",
-            label="Go to New Topic brief",
+            "topic_intake",
+            label="Go to Topic intake",
             topic_scope_key=topic_scope_key,
         )
         workflow_page_link(

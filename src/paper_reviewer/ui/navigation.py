@@ -33,9 +33,11 @@ def build_app_pages() -> list[AppPage]:
     )
     from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
     from paper_reviewer.ui.landing import render_landing
-    from paper_reviewer.ui.new_topic_brief import render_new_topic_brief
     from paper_reviewer.ui.paper_archiving import render_paper_archiving
     from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
+    from paper_reviewer.ui.topic_analysis import render_topic_analysis
+    from paper_reviewer.ui.topic_intake import render_topic_intake
+    from paper_reviewer.ui.topic_scope import render_topic_scope
 
     return [
         AppPage(
@@ -46,11 +48,23 @@ def build_app_pages() -> list[AppPage]:
             in_sidebar=True,
         ),
         AppPage(
-            key="new_topic_brief",
-            title="New Topic brief",
-            render=render_new_topic_brief,
-            url_path="new-topic-brief",
+            key="topic_intake",
+            title="Topic intake",
+            render=render_topic_intake,
+            url_path="topic-intake",
             in_sidebar=True,
+        ),
+        AppPage(
+            key="topic_analysis",
+            title="Topic analysis",
+            render=render_topic_analysis,
+            url_path="topic-analysis",
+        ),
+        AppPage(
+            key="topic_scope",
+            title="Topic scope",
+            render=render_topic_scope,
+            url_path="topic-scope",
         ),
         AppPage(
             key="retrieval_triage",

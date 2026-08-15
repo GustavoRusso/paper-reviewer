@@ -16,7 +16,7 @@ from paper_reviewer.ui.generate_paper_brief import (
     brief_prerequisites_met,
     brief_progress_label,
 )
-from paper_reviewer.ui.new_topic_brief import (
+from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
 )

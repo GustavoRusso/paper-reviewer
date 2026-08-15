@@ -1,4 +1,4 @@
-"""App navigation: landing page and New Topic brief entry."""
+"""App navigation: landing page and Topic intake entry."""
 
 from __future__ import annotations
 
@@ -6,9 +6,11 @@ from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_meta
 from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import AppPage, build_app_pages
-from paper_reviewer.ui.new_topic_brief import render_new_topic_brief
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
+from paper_reviewer.ui.topic_analysis import render_topic_analysis
+from paper_reviewer.ui.topic_intake import render_topic_intake
+from paper_reviewer.ui.topic_scope import render_topic_scope
 
 
 def test_landing_is_the_default_page() -> None:
@@ -19,13 +21,40 @@ def test_landing_is_the_default_page() -> None:
     assert defaults[0].key == "landing"
 
 
-def test_new_topic_brief_page_is_registered() -> None:
+def test_topic_intake_page_is_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "new_topic_brief" in pages
-    assert pages["new_topic_brief"].title == "New Topic brief"
-    assert pages["new_topic_brief"].url_path == "new-topic-brief"
-    assert pages["new_topic_brief"].render is render_new_topic_brief
+    assert "topic_intake" in pages
+    assert pages["topic_intake"].title == "Topic intake"
+    assert pages["topic_intake"].url_path == "topic-intake"
+    assert pages["topic_intake"].render is render_topic_intake
+    assert pages["topic_intake"].in_sidebar is True
+
+
+def test_new_topic_brief_page_is_not_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "new_topic_brief" not in pages
+
+
+def test_topic_analysis_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "topic_analysis" in pages
+    assert pages["topic_analysis"].title == "Topic analysis"
+    assert pages["topic_analysis"].url_path == "topic-analysis"
+    assert pages["topic_analysis"].render is render_topic_analysis
+    assert pages["topic_analysis"].in_sidebar is False
+
+
+def test_topic_scope_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "topic_scope" in pages
+    assert pages["topic_scope"].title == "Topic scope"
+    assert pages["topic_scope"].url_path == "topic-scope"
+    assert pages["topic_scope"].render is render_topic_scope
+    assert pages["topic_scope"].in_sidebar is False
 
 
 def test_retrieval_triage_page_is_registered() -> None:
@@ -67,15 +96,17 @@ def test_generate_paper_brief_page_is_registered() -> None:
 def test_workflow_page_order() -> None:
     keys = [page.key for page in build_app_pages()]
 
-    assert keys.index("new_topic_brief") < keys.index("retrieval_triage")
+    assert keys.index("topic_intake") < keys.index("topic_analysis")
+    assert keys.index("topic_analysis") < keys.index("topic_scope")
+    assert keys.index("topic_scope") < keys.index("retrieval_triage")
     assert keys.index("retrieval_triage") < keys.index("paper_archiving")
     assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
     assert keys.index("fulfill_papers_metadata") < keys.index("generate_paper_brief")
 
 
-def test_landing_cta_links_to_new_topic_brief() -> None:
+def test_landing_cta_links_to_topic_intake() -> None:
     assert LANDING_CTA_LABEL == "Add a Topic scope"
-    assert landing_cta_page_key() == "new_topic_brief"
+    assert landing_cta_page_key() == "topic_intake"
 
 
 def test_app_page_in_sidebar_defaults_to_false() -> None:
@@ -84,14 +115,16 @@ def test_app_page_in_sidebar_defaults_to_false() -> None:
     assert page.in_sidebar is False
 
 
-def test_only_home_and_new_topic_brief_are_in_the_sidebar() -> None:
+def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     pages = build_app_pages()
     sidebar_keys = [page.key for page in pages if page.in_sidebar]
     by_key = {page.key: page for page in pages}
 
-    assert sidebar_keys == ["landing", "new_topic_brief"]
+    assert sidebar_keys == ["landing", "topic_intake"]
     assert by_key["landing"].in_sidebar is True
-    assert by_key["new_topic_brief"].in_sidebar is True
+    assert by_key["topic_intake"].in_sidebar is True
+    assert by_key["topic_analysis"].in_sidebar is False
+    assert by_key["topic_scope"].in_sidebar is False
     assert by_key["retrieval_triage"].in_sidebar is False
     assert by_key["paper_archiving"].in_sidebar is False
     assert by_key["fulfill_papers_metadata"].in_sidebar is False
