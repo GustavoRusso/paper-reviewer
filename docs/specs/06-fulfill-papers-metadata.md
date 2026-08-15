@@ -25,11 +25,11 @@ This document owns `PaperAspectStatus` and the two `Paper` status columns. Brief
 
 ## Topic brief generation
 
-A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 6 (**Fulfill papers metadata**) for that run.
+A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies **Fulfill papers metadata** on the Paper ingestion path for that scope.
 
 Paper archiving (create/reuse `Paper` without EFetch) is owned by [Paper archiving](05-paper-archiving.md). PubMed EFetch request parameters, PMCID extraction, and PMC Cloud full-text details are summarized here and detailed for PubMed in [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
-`Paper` and `PaperBrief` are **global**. They do not belong to a generation. A later generation that archives the same paper reuses source record, full text, and brief as they stand.
+`Paper` and `PaperBrief` are **global**. They do not belong to a Topic scope. A later Topic scope that archives the same paper reuses source record, full text, and brief as they stand.
 
 For the application runtime stack (including Prefect as a Compose service), see [technology-stack.md](../technology-stack.md) and [local-development.md](../local-development.md). This specification is the orchestration contract; inform work runs in Prefect, not in Streamlit.
 
@@ -37,7 +37,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 
 ### In scope (current v1)
 
-- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation’s UI set.
+- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current Topic scope’s UI set.
 - Store `PaperAspectStatus` on `Paper` as `source_record_status` and `full_text_status` (default `not_started`).
 - For each paper, enqueue `fulfill_paper_metadata` (source record then full text) using **default skip rules**.
 - On source-record success: write `source_record` (JSONB), typed promote columns (`pub_date`, `abstract_text`, bibliographic refresh), and `pmcid` when the source supplies it.
@@ -50,7 +50,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 - [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
 - Creating **paper briefs** (`PaperBrief`) or running `create_paper_brief` from this page — owned by [Generate paper brief](07-generate-paper-brief.md). Page 7 enqueues the brief flow only.
 - A dedicated Streamlit **page** for `regenerate_paper` (the control is a per-paper button on page 6 and page 7, not a new sidebar page).
-- Topic brief drafting (step 8).
+- Topic brief drafting (phase 4) — [Topic brief](4-topic-brief.md).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
 - Storing EFetch `ArticleIdList` / `OtherID` beyond PMCID (for Cloud) + existing DOI + `(source_id, source_uid)` handle; CommentsCorrections, bibliography/references, or deferred “Other” XML elements (see below).
 - Updating bibliographic identity fields that archiving already set (`doi`, `source_id`, `source_uid`, `url`) during inform, except where this spec says to refresh allowed bibliographic columns from the fuller record.
@@ -112,7 +112,7 @@ Orchestration reads **only** these enums. Payload columns (`source_record`, `abs
 
 | Input | Role |
 | --- | --- |
-| `paper_archiving_result.papers` | Candidate set for this generation’s fulfill work (session / UI). |
+| `paper_archiving_result.papers` | Candidate set for this Topic scope’s fulfill work (session / UI). |
 
 For each `Paper` in that set (first-seen order), enqueue **one** `fulfill_paper_metadata` run when **any** aspect still needs work under default skip rules:
 
@@ -496,17 +496,18 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list** only; always reload each `Paper` from the DB for status and display fields. |
 | `fulfill_papers_metadata_enqueue_result` | `FulfillPapersMetadataEnqueueResult` | Optional cache that enqueue was submitted for this session (not progress truth). |
 
-**URL query:** Require `topic_brief_generation_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). In-workflow page links must pass that query param.
+**URL query:** Require `topic_scope_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). In-workflow page links must pass that query param.
 
-**Workflow session independence (cascade clear):** Each Topic brief generation workflow is independent in the browser session. Downstream step caches must not leak across generations or across a re-run of an earlier step.
+**Workflow session independence (cascade clear):** Each Topic scope workflow is independent in the browser session. Downstream step caches must not leak across Topic scopes or across a re-run of an earlier step.
 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
-| New Topic brief Submit (new generation) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_brief_generation_public_id` in the **URL query**. Analysis and search keys are set only if those steps succeed. Do not clear on validation or persist failure. |
+| Topic intake Submit (new `TopicScope`) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_scope_public_id` in the **URL query**. Topic intake then **switches** to Topic analysis ([Topic intake](1.1-topic-intake.md)). Do not clear on validation or persist failure. |
+| Re-run Topic analysis (Analyze again) | `related_paper_search_result`, `retrieval_triage_result`, `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, `generate_paper_brief_enqueue_result`, and all later-step caches |
 | Re-confirm Retrieval triage | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |
 
-Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. New Topic brief Submit is stronger: it wipes the whole session so no leftover key from a previous run can survive. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
+Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. Topic intake Submit is stronger: it wipes the whole session so no leftover key from a previous run can survive. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
 
 This cascade applies to **session / UI workflow state**. It does **not** delete durable global `Paper` or `PaperBrief` rows.
 
@@ -514,12 +515,12 @@ This cascade applies to **session / UI workflow state**. It does **not** delete 
 
 ### Page behavior
 
-1. If `paper_archiving_result` or the URL generation id is missing → empty state; links to **Paper archiving** and **New Topic brief** (preserve the query id when present).
+1. If `paper_archiving_result` or the URL Topic scope id is missing → empty state; links to **Paper archiving**, **Topic intake**, and **Topic scope** (preserve the query id when present).
 2. If `papers` is empty → caption that there are no archived papers; do not enqueue.
 3. On first visit with prerequisites and no enqueue cache → call `enqueue_fulfill_papers_metadata` for the archived paper ids; store enqueue result in session.
 4. While any paper has `source_record_status` or `full_text_status` equal to `not_started` after enqueue, refresh/poll durable columns. Do not use Prefect API state as progress truth.
 5. Primary surface: **progress table/list** — title (link via `url`; when enrichment set `pmc_article_url` / `open_access_pdf_url`, those may be shown as extra links), DOI, **source-record status**, **full-text status**, short error when an aspect is `failed`.
-6. When every paper has both aspects terminal (`succeeded` / `failed` / `unavailable`), show a summary and link to **Generate paper brief** (pass the generation id in `query_params`). Papers with full text `failed` or `unavailable` remain visible; do not block the whole page from linking onward (step 7 will enqueue only papers with full text `succeeded`).
+6. When every paper has both aspects terminal (`succeeded` / `failed` / `unavailable`), show a summary and link to **Generate paper brief** (pass the Topic scope id in `query_params`). Papers with full text `failed` or `unavailable` remain visible; do not block the whole page from linking onward (step 7 will enqueue only papers with full text `succeeded`).
 7. On each progress row, when both aspects are terminal, show a secondary **Regenerate** button ([ui-style.md](../ui-style.md)). Click submits `regenerate_paper` for that paper. Unique Streamlit key per `paper_id`.
 
 Do **not** run EFetch or Cloud inside Streamlit callbacks. Default auto-enqueue still does not retry `failed` / `unavailable` or overwrite `succeeded`.
@@ -538,7 +539,7 @@ Map each aspect independently:
 
 ## Workflow navigation
 
-- **Entry:** After Paper archiving shows a result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session.
+- **Entry:** After Paper archiving shows a result, link to **Fulfill papers metadata** with `paper_archiving_result` and Topic scope id in session.
 - **Input:** Consume `PaperArchivingResult.papers` only (not raw triage candidates).
 - **Exit:** When both aspects are terminal for the set, link to [Generate paper brief](07-generate-paper-brief.md).
 
@@ -608,7 +609,7 @@ Do not do this work in the Fulfill papers metadata v1 slice:
 - Unpaywall / non-PMC publisher scrape (later: same `full_text_status` group).
 - Auto-retry `failed` / `unavailable` or unfreeze `succeeded` on page 6.
 - Run EFetch or PMC Cloud calls inside Streamlit.
-- Draft the Topic brief (step 8).
+- Draft the Topic brief (phase 4).
 - Store Prefect run ids for UI progress (DB columns only).
 
 ## Future work

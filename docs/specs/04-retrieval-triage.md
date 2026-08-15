@@ -14,7 +14,7 @@ In this step, the system presents **paper candidates** from [related-paper searc
 
 ## Topic brief generation
 
-A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 4 (Retrieval triage) for that run.
+A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies Retrieval triage on the **Paper ingestion** path for that scope. Local Paper search as a separate phase is a later landing — [Paper search](3-paper-search.md).
 
 Paper archiving, **Fulfill papers metadata**, **Generate paper brief** (and its **paper brief** results), and topic brief drafting are out of scope here — see [Paper archiving](05-paper-archiving.md), [Fulfill papers metadata](06-fulfill-papers-metadata.md), [Generate paper brief](07-generate-paper-brief.md), and the later steps in the README.
 
@@ -24,7 +24,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ### In scope (current v1)
 
-- Accept the output of related-paper search for one `TopicBriefGeneration`.
+- Accept the output of related-paper search for one `TopicScope`.
 - Present candidates for human review (title, authors, journal, year, url, source handle, facet).
 - Require an explicit user action (button) to confirm and produce the retained set.
 - Return a structured result for the orchestrator / next step.
@@ -61,14 +61,14 @@ flowchart TB
 3. **Paper archiving** receives `RetrievalTriageResult.retained` and creates or reuses `Paper` records.
 4. **Fulfill papers metadata**, **Generate paper brief**, and **Topic brief** continue on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [Generate paper brief](07-generate-paper-brief.md).
 
-Today, the **New Topic brief** page (`paper_reviewer.ui.new_topic_brief`) runs Topic intake, analysis, and search on one page. This step owns a **dedicated Streamlit page** for review and confirm. Topic intake remains responsible for starting the generation and running search; after search succeeds the New Topic brief page links to triage.
+Related-paper search runs on its own page (`paper_reviewer.ui.related_paper_search`), reached from [Paper ingestion](2-paper-ingestion.md). This step owns a **dedicated Streamlit page** for review and confirm. After search succeeds, that search page links to triage.
 
 ## Input
 
 | Input | Required | Description |
 | --- | --- | --- |
 | `search_result` | Yes | `RelatedPaperSearchResult` from [related-paper search](03-related-paper-search.md): `candidates`, `source_runs`, optional `notes`. |
-| `generation_public_id` | Yes (UI) | Public id of the current `TopicBriefGeneration` from the **URL query** ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). Not an argument of the pure confirm function. |
+| `topic_scope_public_id` | Yes (UI) | Public id of the current `TopicScope` from the **URL query** ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). Not an argument of the pure confirm function. |
 
 `PaperCandidate` shape is owned by [related-paper search](03-related-paper-search.md). This step does not redefine it.
 
@@ -132,25 +132,25 @@ Register in `paper_reviewer.ui.navigation`:
 ### Page behavior (v1)
 
 1. **Prerequisites** — Require:
-   - `topic_brief_generation_public_id` in the **URL query** ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url))
-   - `related_paper_search_result` in Streamlit session state from **New Topic brief**
-   - If either is missing: show a message and a link to **New Topic brief**; do not render the confirm button. In-workflow links must preserve the query id when present.
-2. **Context header** — Show the generation reference id (from the URL) and an optional topic statement snippet from session.
-3. **Source runs** — Show per-source status from `search_result.source_runs` (same pattern as New Topic brief’s per-source rendering today). Implementation may later extract a shared display helper.
+   - `topic_scope_public_id` in the **URL query** ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url))
+   - `related_paper_search_result` in Streamlit session state from **Related-paper search**
+   - If either is missing: show a message and page_links to **Topic intake**, **Topic scope**, and **Related-paper search**; do not render the confirm button. In-workflow links must preserve the query id when present.
+2. **Context header** — Show the Topic scope reference id (from the URL) and an optional topic statement snippet from session.
+3. **Source runs** — Show per-source status from `search_result.source_runs` (same pattern as Related-paper search). Implementation may later extract a shared display helper.
 4. **Candidate list** — One block per `PaperCandidate`: title (linked via `url`), authors, journal, year, `source_uid`, `facet_id`, and DOI when present.
 5. **Counts** — Show how many papers will continue (e.g. “N papers to archive”).
 6. **Confirm button (primary)** — Mutating control per [ui-style.md](../ui-style.md). Label names the confirm action (e.g. **Confirm for paper archiving**), not the next page. Exact copy left to implementation.
-   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and a separate `st.page_link` to the **Paper archiving** page (navigate only; pass the generation id in `query_params`). Do **not** call `archive_papers` on this page.
+   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and a separate `st.page_link` to the **Paper archiving** page (navigate only; pass the Topic scope id in `query_params`). Do **not** call `archive_papers` on this page.
 7. **Empty candidates** — Still show source-run diagnostics; keep the confirm button enabled (archiving is a no-op). Caption explains that search returned no retainable papers.
 
-### New Topic brief handoff
+### Related-paper search handoff
 
-After related-paper search succeeds on the **New Topic brief** page (`paper_reviewer.ui.new_topic_brief`):
+After related-paper search succeeds on the **Related-paper search** page (`paper_reviewer.ui.related_paper_search`):
 
-- Do not keep the full candidate list as the primary triage surface on intake.
-- Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step (pass the generation id in `query_params`; see [ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)).
+- Do not keep the full candidate list as the primary triage surface on the search page.
+- Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step (pass the Topic scope id in `query_params`; see [ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)).
 
-Persistence for v1 is Streamlit session state for search / triage caches, plus the generation public id in the URL. No triage DB tables.
+Persistence for v1 is Streamlit session state for search / triage caches, plus the Topic scope public id in the URL. No triage DB tables.
 
 ## Orchestration boundary
 
@@ -171,7 +171,7 @@ Paper archiving input is **`RetrievalTriageResult.retained`**, not the raw searc
 | --- | --- |
 | Search returned N candidates | Triage retains all N; UI lists all N. |
 | Search returned 0 candidates | `retained=[]`; confirm allowed; Paper archiving empty success. |
-| User opens triage without prior search | Guard message; no confirm button. |
+| User opens triage without prior search | Guard message; page_links to Topic intake, Topic scope, and Related-paper search; no confirm button. |
 | User confirms twice | Replace session triage result; clear `paper_archiving_result` and all later-step session caches so Paper archiving and downstream steps re-run on the latest retained set. |
 | Search had source errors (fail-soft) | Show `source_runs` errors; retain whatever candidates search produced. |
 

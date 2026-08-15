@@ -22,11 +22,11 @@ In this step, the system builds a **global** **`PaperBrief`** with an LLM for ea
 
 ## Topic brief generation
 
-A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 7 (**Generate paper brief**) for that run.
+A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies **Generate paper brief** on the Paper ingestion path for that scope.
 
 Source record and full text are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch / Cloud details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
 
-`PaperBrief` is **not** scoped to a generation. If a later generation archives a paper that already has a succeeded brief, step 7 skips that paper and step 8 reuses the brief. Topic relevance is **not** stored on the brief; Topic brief (step 8) cites the paper in prose.
+`PaperBrief` is **not** scoped to a Topic scope. If a later Topic scope archives a paper that already has a succeeded brief, step 7 skips that paper and Topic brief (phase 4) reuses the brief. Topic relevance is **not** stored on the brief; Topic brief cites the paper in prose.
 
 For the application runtime stack (including Prefect as a Compose service), see [technology-stack.md](../technology-stack.md) and [local-development.md](../local-development.md). This specification is the orchestration contract; brief work runs in Prefect, not in Streamlit.
 
@@ -34,7 +34,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 
 ### In scope (current v1)
 
-- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current generation’s UI set.
+- Take archived `Paper` records from [Paper archiving](05-paper-archiving.md) (`PaperArchivingResult.papers`) for the current Topic scope’s UI set.
 - For each paper with `full_text_status = succeeded` and `PaperBrief.status` not `succeeded`: enqueue `create_paper_brief`.
 - Persist one `PaperBrief` per `paper_id` with `PaperAspectStatus`.
 - Run the brief job as an **idempotent** Prefect flow by default (no-op when brief is already `succeeded`).
@@ -45,7 +45,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 
 - [Paper archiving](05-paper-archiving.md) create/reuse rules or its UI.
 - Source-record / full-text flows — owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md).
-- Topic brief drafting (step 8), including any per-topic relevance prose.
+- Topic brief drafting (phase 4), including any per-topic relevance prose.
 - `relevance_to_topic` or a topic-relative summary on `PaperBrief`.
 - A dedicated Streamlit **page** for `regenerate_paper` (page 7 shows the same per-paper **Regenerate** button as page 6; behavior owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md#full-regenerate-orchestrator)).
 - Rich author entities, affiliations, ORCID, or author↔paper graphs (future job; see [Future work](#future-work)).
@@ -77,7 +77,7 @@ flowchart TB
 
 | Input | Role |
 | --- | --- |
-| `paper_archiving_result.papers` | Candidate set for this generation’s brief work (session / UI). |
+| `paper_archiving_result.papers` | Candidate set for this Topic scope’s brief work (session / UI). |
 
 For each `Paper` in that set (first-seen order):
 
@@ -169,13 +169,13 @@ GeneratePaperBriefsEnqueueResult(
 
 `Paper` navigates to this row (1:1). Do **not** copy brief status onto `Paper`.
 
-There is **no** `topic_brief_generation_id` on `PaperBrief`.
+There is **no** `topic_scope_id` on `PaperBrief`.
 
 ### Uniqueness
 
 | Constraint | Rule |
 | --- | --- |
-| `paper_id` | Unique. One brief per paper, reused across generations. |
+| `paper_id` | Unique. One brief per paper, reused across Topic scopes. |
 
 ### Status
 
@@ -245,9 +245,9 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list**; reload each `Paper` from the DB for `full_text_status` and display fields. |
 | `generate_paper_brief_enqueue_result` | `GeneratePaperBriefsEnqueueResult` | Optional cache that enqueue was submitted for this session. |
 
-**URL query:** Require `topic_brief_generation_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). Not a brief identity key. In-workflow page links must pass that query param.
+**URL query:** Require `topic_scope_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). Not a brief identity key. In-workflow page links must pass that query param.
 
-**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new `topic_statement` and set the generation id in the URL — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+**Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
 **Invalidate when an upstream step re-runs:** When triage re-confirms, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
 
@@ -255,7 +255,7 @@ Does **not** by itself delete durable global `Paper` or `PaperBrief` rows.
 
 ### Page behavior
 
-1. If `paper_archiving_result` or the URL generation id is missing → empty state; links to **Paper archiving**, **Fulfill papers metadata**, and **New Topic brief** (preserve the query id when present).
+1. If `paper_archiving_result` or the URL Topic scope id is missing → empty state; links to **Paper archiving**, **Fulfill papers metadata**, **Topic intake**, and **Topic scope** (preserve the query id when present).
 2. If `papers` is empty → caption that there are no archived papers; do not enqueue.
 3. If any paper in the set has `full_text_status = not_started` → show incomplete prerequisite; link to **Fulfill papers metadata**; do not enqueue drafts for those papers.
 4. On first visit with prerequisites (enqueue only for papers with full text `succeeded` needing briefs) and no enqueue cache → call `enqueue_generate_paper_briefs` for eligible paper ids; store enqueue result in session.
@@ -279,7 +279,7 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks. On each progress row,
 
 ## Workflow navigation
 
-- **Entry:** After **Fulfill papers metadata** has terminal aspect statuses for the archived set, link to **Generate paper brief** with `paper_archiving_result` and generation id in session.
+- **Entry:** After **Fulfill papers metadata** has terminal aspect statuses for the archived set, link to **Generate paper brief** with `paper_archiving_result` and Topic scope id in session.
 - **Input:** Consume `PaperArchivingResult.papers` only. Enqueue drafts only when `full_text_status = succeeded`.
 
 ## Orchestration boundary
@@ -333,7 +333,7 @@ Do not do this work in the Generate paper brief v1 slice:
 - Rich author entity registration or related-paper author graphs ([Future work](#future-work)).
 - Auto-retry of `failed` briefs on page 7.
 - Run LLM, EFetch, or PMC Cloud inside Streamlit.
-- Draft the Topic brief (step 8).
+- Draft the Topic brief (phase 4).
 - Re-define Prefect Compose topology (shared with fulfill; see [local-development.md](../local-development.md)).
 
 ## Future work

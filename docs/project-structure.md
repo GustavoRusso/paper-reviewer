@@ -114,7 +114,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, triage, paper archiving, fulfill papers metadata, generate paper brief, topic brief). Specs: [specs/02-topic-analysis.md](specs/02-topic-analysis.md), [specs/03-related-paper-search.md](specs/03-related-paper-search.md), [specs/04-retrieval-triage.md](specs/04-retrieval-triage.md), [specs/05-paper-archiving.md](specs/05-paper-archiving.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md), [specs/07-generate-paper-brief.md](specs/07-generate-paper-brief.md). |
+| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, triage, paper archiving, fulfill papers metadata, generate paper brief, topic brief). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/2-paper-ingestion.md](specs/2-paper-ingestion.md), [specs/3-paper-search.md](specs/3-paper-search.md), [specs/4-topic-brief.md](specs/4-topic-brief.md), [specs/03-related-paper-search.md](specs/03-related-paper-search.md), [specs/04-retrieval-triage.md](specs/04-retrieval-triage.md), [specs/05-paper-archiving.md](specs/05-paper-archiving.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md), [specs/07-generate-paper-brief.md](specs/07-generate-paper-brief.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_brief_generation.topic_analysis`). |
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` | Table mappings mirrored under the workflow name; `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
@@ -129,7 +129,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
 3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
 4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package.
-5. **`models.base`** is shared across workflows. This workflow’s generation root is `models.topic_brief_generation.generation`.
+5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.generation` (`TopicScope`; legacy name `TopicBriefGeneration` until implementation renames it).
 6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
 
 ### `models` vs `schemas` (agent rule)

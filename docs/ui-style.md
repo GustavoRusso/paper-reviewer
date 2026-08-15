@@ -11,7 +11,7 @@ Industry practice this follows: links navigate; buttons act; one look per intent
 1. **Link = navigate only.** A control that only moves the user to another in-app page must be a link. It must **not** create, update, delete, or confirm app/session data as its primary effect.
 2. **Button = change data (or commit an action).** A control that starts a mutation, confirmation, submit, cancel of an in-progress edit, or destructive action must be a button.
 3. **One look per intent.** All controls of the same intent use the same Streamlit widget and `type` (see tables below). Do not invent a one-off style for a single page.
-4. **Label matches job.** Button labels name the action (“Confirm…”, “Submit”, “Cancel”). Link labels name the destination (“Continue to Paper archiving”, “Go to New Topic brief”). Do not label a mutating button like a navigation link.
+4. **Label matches job.** Button labels name the action (“Confirm…”, “Submit”, “Cancel”). Link labels name the destination (“Continue to Paper archiving”, “Go to Topic intake”). Do not label a mutating button like a navigation link.
 
 ## Control choice
 
@@ -70,24 +70,30 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 - Streamlit `st.navigation` is the left chrome. Do not build a custom `st.sidebar` page list.
 - **Default off.** Registering a page in `build_app_pages()` is required for routing and `st.page_link`. It does **not** put the page in the sidebar. `AppPage.in_sidebar` defaults to `False` → `st.Page(..., visibility="hidden")`. Hidden pages stay in `st.navigation` so they remain reachable by URL, `st.page_link`, and `st.switch_page` (Streamlit 1.61).
 - **Opt-in.** Only pages with `in_sidebar=True` appear in the sidebar (`visibility="visible"`). A spec must set `in_sidebar: true` on that page’s register table, and `AppPage(in_sidebar=True)` in `paper_reviewer.ui.navigation`.
-- **Current opt-in list (this order):** Home, New Topic brief. Later Topic brief generation steps are registered but hidden; the user moves with in-page `st.page_link`.
+- **Current opt-in list (this order):** Home, Topic intake. Later Topic brief generation pages are registered but hidden; the user moves with in-page `st.page_link` (and Topic intake `st.switch_page` to Topic analysis — see below).
 - In-page CTAs and empty-state “Go to …” targets still use `st.page_link` per this document.
 
-## Topic brief generation public id in the URL
+## Topic scope public id in the URL
 
-Workflow pages carry the current `TopicBriefGeneration` public id in a **URL query parameter**, not in Streamlit session state.
+Workflow pages carry the current `TopicScope` public id in a **URL query parameter**, not in Streamlit session state.
 
 | Rule | Detail |
 | --- | --- |
-| Query key | `topic_brief_generation_public_id` (UUID string) |
-| Write | New Topic brief Submit sets the param on the current page after a successful start |
+| Query key | `topic_scope_public_id` (UUID string) |
+| Write | Topic intake Submit sets the param on the **Topic analysis** destination URL after a successful start (see [Topic intake switch to analysis](#topic-intake-switch-to-analysis)) |
 | Read | Each workflow page parses the id from `st.query_params` for captions and prerequisite checks |
-| Navigate | Every in-workflow `st.page_link` must pass `query_params` with that id. If `query_params` is omitted, Streamlit **clears** existing query parameters and the generation id is lost |
-| Out of sidebar | Sidebar Home / New Topic brief may clear the query string (Streamlit default). That is acceptable for starting a new generation |
+| Navigate | Every in-workflow `st.page_link` must pass `query_params` with that id. If `query_params` is omitted, Streamlit **clears** existing query parameters and the Topic scope id is lost |
+| Out of sidebar | Sidebar Home / Topic intake may clear the query string (Streamlit default). That is acceptable for starting a new Topic scope |
 
-Helpers: `paper_reviewer.ui.generation_url` (`parse_generation_public_id`, `generation_query_params`, `workflow_page_link`). Step specs link here; they must not restate the clear rule.
+Helpers live in `paper_reviewer.ui.generation_url` until implementation renames them. They must read and write `topic_scope_public_id`. Step specs link here; they must not restate the clear rule.
 
-Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL id alone does **not** resume a generation after the session is gone.
+Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL id alone does **not** resume a Topic scope after the session is gone.
+
+### Topic intake switch to analysis
+
+ui-style normally uses a mutating Submit, then a **separate** `st.page_link` to the next page.
+
+**Exception (Topic intake only):** after a successful persist, Topic intake must `st.switch_page` to **Topic analysis** so analysis can auto-run. Set `topic_scope_public_id` on the destination URL (must not drop the query). Do not use `switch_page` after Topic analysis (that page uses a page_link to the Topic scope hub).
 
 ## Mapping to current workflow pages
 
@@ -95,14 +101,18 @@ Illustrative only; step specs remain the behavior contract.
 
 | Situation | Intent | Control |
 | --- | --- | --- |
-| Home → New Topic brief | Navigate | `st.page_link` |
-| New Topic brief Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` |
-| New Topic brief → Retrieval triage | Navigate | `st.page_link` |
+| Home → Topic intake | Navigate | `st.page_link` |
+| Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` then `st.switch_page` to Topic analysis |
+| Topic analysis → Topic scope hub | Navigate | `st.page_link` |
+| Topic scope hub → Paper ingestion / Paper search / Topic brief | Navigate | `st.page_link` |
+| Paper ingestion → Related-paper search | Navigate | `st.page_link` |
+| Related-paper search → Retrieval triage | Navigate | `st.page_link` |
 | Triage confirm retained set | Confirm / primary | `st.button(..., type="primary")` with a **confirm** label |
 | After confirm → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
 | Per-paper Regenerate (Fulfill papers metadata / Generate paper brief) | Default | `st.button("Regenerate", type="secondary")` |
+| Topic analysis Analyze again | Default | `st.button(..., type="secondary")` |
 
 ## Theme
 

@@ -1,8 +1,10 @@
 # Related-paper search
 
-Workflow step 3 from [README.md](../../README.md): search registered **paper sources** for related papers and produce a global list of **paper candidates** for [Retrieval triage](04-retrieval-triage.md) (and then [Paper archiving](05-paper-archiving.md)).
+Ingest step from [README.md](../../README.md) **Paper ingestion**: search registered **paper sources** for related papers and produce a global list of **paper candidates** for [Retrieval triage](04-retrieval-triage.md) (and then [Paper archiving](05-paper-archiving.md)).
 
-Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration only.
+Entry is the [Paper ingestion](2-paper-ingestion.md) landing, not Topic analysis. Facets come from the current `TopicScope` (database) — [Topic analysis](1.2-topic-analysis.md).
+
+Paper-source-specific search criteria and API mapping live under [paper-sources/](paper-sources/). This document owns orchestration and the Related-paper search Streamlit page.
 
 Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pydantic; Prefect runs source-record / full-text / brief jobs in Compose — not this search step). Package paths: `paper_reviewer.ingest` (sources), `paper_reviewer.topic_brief_generation.related_paper_search` (orchestration / merge) — see [project-structure.md](../project-structure.md).
 
@@ -11,8 +13,8 @@ Stack context: [technology-stack.md](../technology-stack.md) (dlt extract + Pyda
 
 | In scope                                                                           | Out of scope                                                                |
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Accept `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (or a test fixture) | Generating facets in Topic analysis (see that spec)          |
-| Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | Implementing ingest/flows/UI code in this doc                               |
+| Accept `TopicAnalysisResult` from [Topic analysis](1.2-topic-analysis.md) (DB facet rows, or a test fixture) | Generating facets in Topic analysis (see that spec)          |
+| Convert internally to `SearchCriteria` when needed (keep the type; optional `source_overrides`) | [Paper archiving](05-paper-archiving.md) and later ingest steps |
 | Run extract via **dlt** for each registered paper source                           | [Fulfill papers metadata](06-fulfill-papers-metadata.md) (EFetch / PMC Cloud) or [Generate paper brief](07-generate-paper-brief.md) (creates **paper brief** results) |
 | Map each source hit to `PaperCandidate` and merge into one global list             | Adding new paper sources beyond registering them here                       |
 | Fail-soft when one source errors                                                   | Loading candidates into Postgres as `Paper` rows ([Paper archiving](05-paper-archiving.md) owns that) |
@@ -60,7 +62,7 @@ Each [paper-sources/](paper-sources/) doc must state how `(source_id, source_uid
 
 ## Input: `TopicAnalysisResult`
 
-Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](02-topic-analysis.md) (in-memory / session result today, or a test fixture; later, reloaded facet rows when that persistence lands). Facet field rules and persistence stay in that spec.
+Public input for this workflow step (and for `paper_reviewer.topic_brief_generation.related_paper_search` on the normal app path): a `TopicAnalysisResult` from [Topic analysis](1.2-topic-analysis.md) (facet rows reloaded for the current `TopicScope`, or a test fixture). Facet field rules and persistence stay in that spec.
 
 Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` → `SearchCriteria` as an **internal step** when it needs the search envelope (facets plus optional `source_overrides`). Callers do not have to build `SearchCriteria` first.
 
@@ -69,7 +71,7 @@ Keep the `SearchCriteria` type. This workflow converts `TopicAnalysisResult` →
 | `TopicAnalysisResult` | Yes | Facets from Topic analysis (or a test fixture). |
 | `source_overrides` | No | Optional map `source_id` → opaque payload defined by that source’s spec. Folded into `SearchCriteria` during the internal convert (fixtures / power paths). v1 default when omitted: `{}`. |
 
-Public input shape for the normal path: the `TopicAnalysisResult` emission owned by [Topic analysis](02-topic-analysis.md) (v1 sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`). Do not copy that JSON here.
+Public input shape for the normal path: the `TopicAnalysisResult` emission owned by [Topic analysis](1.2-topic-analysis.md) (v1 sets `synonyms` to `[]`, dates/`retmax` to null, and empty `filters`). Do not copy that JSON here.
 
 ### Internal conversion (`TopicAnalysisResult` → `SearchCriteria`)
 
@@ -79,7 +81,7 @@ Public input shape for the normal path: the `TopicAnalysisResult` emission owned
 | When | Internally, before running registered paper-source adapters. |
 | How | Build `SearchCriteria(topic_analysis=…, source_overrides=…)` (default empty overrides). |
 | Keep | `SearchCriteria` remains the envelope used with source runners and for tests that need `source_overrides`. |
-| Not owned here | Facet generation / persistence ([Topic analysis](02-topic-analysis.md)); Entrez compilation ([paper-sources/pubmed.md](paper-sources/pubmed.md)). |
+| Not owned here | Facet generation / persistence ([Topic analysis](1.2-topic-analysis.md)); Entrez compilation ([paper-sources/pubmed.md](paper-sources/pubmed.md)). |
 
 After conversion, the workflow passes each facet (plus any matching override) into each registered source adapter. Compilation to a concrete API query is defined only in the source’s paper-sources doc.
 
@@ -180,9 +182,36 @@ Primary deliverable for [Retrieval triage](04-retrieval-triage.md): `candidates`
 
 
 
+## Streamlit UI (v1)
+
+Dedicated page module: `paper_reviewer.ui.related_paper_search` with `render_related_paper_search()`.
+
+Register in `paper_reviewer.ui.navigation`:
+
+| Property | Value |
+| --- | --- |
+| `key` | `related_paper_search` |
+| `title` | Related-paper search |
+| `url_path` | `related-paper-search` |
+| `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
+
+Entry: [Paper ingestion](2-paper-ingestion.md) page_link. Do **not** auto-run this page from Topic analysis.
+
+### Page behavior
+
+1. **Prerequisites** — Require `topic_scope_public_id` in the URL ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). Load facet rows for that `TopicScope` as `TopicAnalysisResult` (database is the source of truth; do not require session analysis).
+2. **Guard** — Missing id, missing scope, or no facet rows: message and page_links to **Topic analysis** and **Topic scope**. Do not run search.
+3. **Auto-run** — When prerequisites exist and `related_paper_search_result` is **not** in session: call `search_related_papers` with a spinner; store the result in session. Fail-soft `source_runs` as in Behavior. Candidates stay **session-only** (no candidate table).
+4. **Cached visit** — If `related_paper_search_result` is already in session, show it; do not search again.
+5. **Display** — Per-source `source_runs` status; candidate count. Do not use this page as the full triage list.
+6. **Exit** — After a result exists: `st.page_link` to **Retrieval triage** (pass `topic_scope_public_id`). Do not confirm triage here.
+
+Invalidate the session search cache when Topic intake Submit wipes the session, or when Topic analysis **Analyze again** clears later-step caches — [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+
 ## Testability
 
 - Inject a `TopicAnalysisResult` JSON fixture into related-paper search without running Topic analysis.
+- UI slice: page registered with key `related_paper_search`, title **Related-paper search**, `url_path` `related-paper-search`, `in_sidebar` false.
 - Assert the workflow converts that result to `SearchCriteria` internally (empty `source_overrides` by default) before source runners run.
 - For deterministic PubMed tests, pass optional `source_overrides.pubmed` (see [paper-sources/pubmed.md](paper-sources/pubmed.md)) so conversion yields a known Entrez `term`.
 - Assert on `PaperCandidate` fields and merge behavior with multi-source fixtures when additional sources exist.

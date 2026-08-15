@@ -13,7 +13,7 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper** — Any scientific article, published or not. In the app, an archived `Paper` is the durable bibliographic record created or reused during **Paper archiving**. Its public id is the uppercase DOI. Source-record and full-text completeness live on the paper as stored statuses (not a single paper-wide status).
 - **Paper sources** — Predefined online providers used to look up related papers for **Paper ingestion**
 - **Topic statement** — Free-form text from the researcher that first defines the topic to brief. Topic intake writes it on the **Topic scope**.
-- **Topic scope** — Durable record of one topic you work on (`TopicScope`). Created by Topic intake with the topic statement. Aggregates phase results: topic facets, ingest activity for this topic, confirmed papers from Paper search, and the topic brief. `Paper` and `PaperBrief` are global and are not owned by the Topic scope. The app today stores this as a `TopicBriefGeneration` row.
+- **Topic scope** — Durable record of one topic you work on (`TopicScope`). Created by Topic intake with the topic statement. Aggregates phase results: topic facets, ingest activity for this topic, confirmed papers from Paper search, and the topic brief. `Paper` and `PaperBrief` are global and are not owned by the Topic scope.
 - **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Stored in the database and related to the **Topic scope**. Used to get key terms for related-paper search and later writing.
 - **Paper candidate** — A related paper found via a paper source during **Related-paper search**. It has a source fetch handle so **Paper ingestion** can archive the paper and fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
@@ -33,16 +33,18 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ## Topic brief generation workflow
 
-The workflow has four phases. Each phase has its own result. You can repeat a phase to refine that result without a full restart.
+The workflow has four phases. Each phase has its own result. You can repeat a phase to refine that result without a full restart. After **Topic definition**, you choose which later phase to run. You can open **Paper ingestion**, **Paper search**, or **Topic brief** without finishing the others.
 
 ### 1. Topic definition
 
-- **Topic intake** — You declare a topic statement; the assistant creates a **Topic scope**.
-- **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus. Spec: [docs/specs/02-topic-analysis.md](docs/specs/02-topic-analysis.md).
+- **Topic intake** — You declare a topic statement; the assistant creates a **Topic scope**. Spec: [docs/specs/1.1-topic-intake.md](docs/specs/1.1-topic-intake.md).
+- **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus. Spec: [docs/specs/1.2-topic-analysis.md](docs/specs/1.2-topic-analysis.md).
 
-**Result:** a list of **topic facets** stored on that **Topic scope**.
+**Result:** a list of **topic facets** stored on that **Topic scope**. The Topic scope page then offers the three later phases.
 
 ### 2. Paper ingestion
+
+Landing: [docs/specs/2-paper-ingestion.md](docs/specs/2-paper-ingestion.md).
 
 - **Related-paper search** — The assistant uses topic facets to get key terms and searches **paper sources** for papers that can be ingested. Spec: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md). This search is source discovery for ingest. It is not the search that feeds the topic brief.
 - For each found paper, the assistant runs this ingest process:
@@ -55,12 +57,16 @@ The workflow has four phases. Each phase has its own result. You can repeat a ph
 
 ### 3. Paper search
 
+Landing: [docs/specs/3-paper-search.md](docs/specs/3-paper-search.md) (local search not built yet).
+
 - The assistant searches only papers already ingested in the local database.
-- **Retrieval triage** — Search results are presented; you confirm which locally found papers continue to **Topic brief**. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
+- **Retrieval triage** — Today this confirm gate still follows related-paper search on the Paper ingestion path. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md). After local Paper search exists, triage belongs with that phase.
 
 **Result:** a confirmed set of local papers for the topic brief, attached to the **Topic scope**.
 
 ### 4. Topic brief
+
+Landing: [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md) (drafting not built yet).
 
 The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 
@@ -71,7 +77,7 @@ The assistant drafts a cited introduction that explains what is currently known 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
 2. Copy [`.env.example`](.env.example) to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md#environment-configuration). PubMed key notes: [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
 3. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
-4. Open the services listed below (start on Home to see existing **Topic brief generations**, or create a new one)
+4. Open the services listed below (start on Home to see existing **Topic scopes**, or start Topic intake)
 
 ## Services
 
@@ -79,6 +85,6 @@ After `just up`, these services are available:
 
 | Service | URL | Description |
 | --- | --- | --- |
-| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`) | Streamlit UI; Home lists Topic brief generations from the database and links to create a new Topic brief |
+| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`) | Streamlit UI; Home lists Topic scopes from the database and links to Topic intake |
 | Prefect | [http://localhost:4200](http://localhost:4200) (default `PREFECT_PORT`) | Prefect API/UI (`prefect-server`); `prefect-worker` polls work pool `local-pool` for source-record, full-text, and later brief flows. Progress still from Postgres. |
 | PostgreSQL | See [docs/local-development.md](docs/local-development.md#environment-configuration) | App relational database (port and credentials from `.env`) |

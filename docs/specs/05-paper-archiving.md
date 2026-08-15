@@ -14,7 +14,7 @@ In this step, the system maps each **paper candidate** to a reusable **`Paper`**
 
 ## Topic brief generation
 
-A **Topic brief generation** (`TopicBriefGeneration`) is one full workflow execution (product steps in [README.md](../../README.md)). This document specifies only step 5 (Paper archiving) for that run.
+A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies Paper archiving on the **Paper ingestion** path for that scope.
 
 Paper brief construction is out of scope here — see [Generate paper brief](07-generate-paper-brief.md). PubMed EFetch / PMC Cloud are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of Generate paper brief, not of Paper archiving.
 
@@ -39,7 +39,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - Retrieval triage UI or confirm gate (step 4; see [Retrieval triage](04-retrieval-triage.md)).
 - Full-record fetch (e.g. PubMed EFetch) or abstract payloads.
 - Building or storing **paper briefs** (result artifacts of [Generate paper brief](07-generate-paper-brief.md)).
-- Linking a `Paper` to a `TopicBriefGeneration` (no FK / join table in v1).
+- Linking a `Paper` to a `TopicScope` (no FK / join table in v1).
 - Updating non-DOI bibliographic fields (title, authors, journal, year, url, `source_id`, `source_uid`) on reuse.
 - Storing triage-only candidate fields (`snippet`, `facet_id`, `raw_payload_ref`) on `Paper`.
 - DOI format validation beyond non-blank after strip (any non-blank string is accepted).
@@ -163,7 +163,7 @@ For each candidate (after domain checks), with an in-run map keyed by `(source_i
 
 ### Generation association
 
-v1 does **not** attach a `Paper` to the current `TopicBriefGeneration`. The step returns resolved papers (and skip/error metadata) only. A later generation reuses the same `Paper` (and its global `PaperBrief` when present).
+v1 does **not** attach a `Paper` to the current `TopicScope`. The step returns resolved papers (and skip/error metadata) only. A later Topic scope reuses the same `Paper` (and its global `PaperBrief` when present).
 
 ## Output
 
@@ -211,10 +211,10 @@ Skip/error item shape: include enough identity to debug (`source_id`, `source_ui
 
 | Case | Expected UI |
 | --- | --- |
-| No `retrieval_triage_result` in session | Empty state + links to **New Topic brief** and **Retrieval triage**. |
+| No `retrieval_triage_result` in session | Empty state + links to **Topic intake**, **Topic scope**, and **Retrieval triage**. |
 | Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
 | `paper_archiving_result` already in session | Show cached result only; do not re-run. |
-| New Topic brief Submit | Wipe the entire UI session, then write the new generation identity ([Fulfill papers metadata](06-fulfill-papers-metadata.md) cascade). After a new search and triage confirm, the archiving page can run again. |
+| Topic intake Submit | Wipe the entire UI session, then write the new Topic scope identity ([Fulfill papers metadata](06-fulfill-papers-metadata.md) cascade). After a new search and triage confirm, the archiving page can run again. |
 | Triage confirmed again | Triage clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `retained` set. |
 | Empty input list | Empty success result; caption “No candidates to archive”. |
 | All candidates skipped | Summary shows 0 archived; skipped section populated. |
@@ -244,9 +244,9 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 
-**URL query:** Show the generation reference id from `topic_brief_generation_public_id` when present ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). In-workflow page links must pass that query param.
+**URL query:** Show the Topic scope reference id from `topic_scope_public_id` when present ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). In-workflow page links must pass that query param.
 
-**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new `topic_statement` and set the generation id in the URL. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Generations must not reuse another workflow’s session state.
+**Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Topic scopes must not reuse another workflow’s session state.
 
 **Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `retained` set (triage owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
 
@@ -256,7 +256,7 @@ Does **not** delete durable global `Paper` rows.
 
 ### Auto-run behavior (first visit)
 
-1. If `retrieval_triage_result` is missing → show empty state: explain that Retrieval triage must confirm first; `st.page_link` to **New Topic brief** and **Retrieval triage** (preserve the generation id in `query_params` when present).
+1. If `retrieval_triage_result` is missing → show empty state: explain that Retrieval triage must confirm first; `st.page_link` to **Topic intake**, **Topic scope**, and **Retrieval triage** (preserve the Topic scope id in `query_params` when present).
 2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(retrieval_triage_result.retained)`.
 3. If prerequisites exist and there is no cached result → run inside `session_scope` with a spinner:
    - `archive_papers(session, retrieval_triage_result.retained)`
@@ -275,11 +275,11 @@ When a `PaperArchivingResult` is available (cached or just produced), render sec
 
 - Input candidate count: `len(retrieval_triage_result.retained)` from session (the same list used for the run).
 - Counts: archived (`len(papers)`), skipped (`len(skipped)`), errors (`len(errors)`).
-- Generation reference id when the URL query id is present.
+- Topic scope reference id when the URL query id is present.
 
 ### Archived papers (`papers`)
 
-For each `Paper`, reuse the candidate card style from **New Topic brief**:
+For each `Paper`, reuse the candidate card style from **Related-paper search**:
 
 - Title as a markdown link via `url`.
 - Caption: authors · journal · year · DOI · `source_id` / `source_uid` · `created_at` (ISO or locale-neutral).
@@ -306,8 +306,8 @@ When all three lists are empty after empty input, show a neutral success caption
 
 ## Workflow navigation
 
-- **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. **New Topic brief** links to Retrieval triage only (not directly to Paper archiving).
-- **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and generation id in session (that page lands with step 6).
+- **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. **Related-paper search** links to Retrieval triage only (not directly to Paper archiving). The [Paper ingestion](2-paper-ingestion.md) landing may also link here; this page still requires a triage result.
+- **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and Topic scope id in session (that page lands with step 6).
 - **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
 
 ## Orchestration boundary
@@ -352,7 +352,7 @@ Do not do this work in the Paper archiving v1 slice:
 
 - Call EFetch or any full-record API.
 - Create `PaperBrief` rows or content.
-- Add a generation↔paper association table.
+- Add a Topic-scope↔paper association table.
 - Implement Retrieval triage UI or confirm logic (see [Retrieval triage](04-retrieval-triage.md)).
 - Update title, authors, journal, year, or url on reuse (DOI update only, per rules above).
 - Add a re-run / “Archive again” control (first-visit cache only).
