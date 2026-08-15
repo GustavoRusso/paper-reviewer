@@ -1,4 +1,4 @@
-"""Landing page: entry point with Topic brief generation history and Create CTA."""
+"""Landing page: entry point with Topic scope history and Create CTA."""
 
 from __future__ import annotations
 
@@ -11,15 +11,15 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
 from paper_reviewer.models.topic_brief_generation import (
-    TopicBriefGeneration,
-    list_topic_brief_generations,
+    TopicScope,
+    list_topic_scopes,
 )
 from paper_reviewer.ui.navigation import streamlit_page_for
 
-LANDING_CTA_LABEL = "Add a new Topic brief"
+LANDING_CTA_LABEL = "Add a Topic scope"
 LANDING_CTA_PAGE_KEY = "new_topic_brief"
-EMPTY_GENERATIONS_MESSAGE = "No Topic brief generations yet."
-GENERATIONS_SECTION_TITLE = "Topic brief generations"
+EMPTY_TOPIC_SCOPES_MESSAGE = "No Topic scopes yet."
+TOPIC_SCOPES_SECTION_TITLE = "Topic scopes"
 
 
 @st.cache_resource
@@ -33,43 +33,43 @@ def landing_cta_page_key() -> str:
     return LANDING_CTA_PAGE_KEY
 
 
-def format_generation_created_at(created_at: datetime) -> str:
+def format_topic_scope_created_at(created_at: datetime) -> str:
     """Return a stable ISO-8601 timestamp string for list display."""
     return created_at.isoformat()
 
 
-def format_generation_reference_caption(topic_scope_key: uuid.UUID) -> str:
+def format_topic_scope_reference_caption(topic_scope_key: uuid.UUID) -> str:
     """Return the reference-id caption used on workflow pages."""
     return f"Reference id: `{topic_scope_key}`"
 
 
-def format_generation_list_caption(
+def format_topic_scope_list_caption(
     topic_statement: str,
     created_at: datetime,
     topic_scope_key: uuid.UUID,
 ) -> str:
-    """Return one list-row caption for a Topic brief generation."""
+    """Return one list-row caption for a Topic scope."""
     return (
-        f"{topic_statement} · {format_generation_created_at(created_at)} · "
-        f"{format_generation_reference_caption(topic_scope_key)}"
+        f"{topic_statement} · {format_topic_scope_created_at(created_at)} · "
+        f"{format_topic_scope_reference_caption(topic_scope_key)}"
     )
 
 
-def _render_generation_list(generations: Sequence[TopicBriefGeneration]) -> None:
-    st.subheader(GENERATIONS_SECTION_TITLE)
-    if not generations:
-        st.caption(EMPTY_GENERATIONS_MESSAGE)
+def _render_topic_scope_list(topic_scopes: Sequence[TopicScope]) -> None:
+    st.subheader(TOPIC_SCOPES_SECTION_TITLE)
+    if not topic_scopes:
+        st.caption(EMPTY_TOPIC_SCOPES_MESSAGE)
         return
-    for generation in generations:
-        st.markdown(f"**{generation.topic_statement}**")
+    for topic_scope in topic_scopes:
+        st.markdown(f"**{topic_scope.topic_statement}**")
         st.caption(
-            f"{format_generation_created_at(generation.created_at)} · "
-            f"{format_generation_reference_caption(generation.key)}"
+            f"{format_topic_scope_created_at(topic_scope.created_at)} · "
+            f"{format_topic_scope_reference_caption(topic_scope.key)}"
         )
 
 
 def render_landing() -> None:
-    """Render the home page with generation history and a Create CTA."""
+    """Render the home page with Topic scope history and a Create CTA."""
     st.title("Paper Reviewer")
     st.write(
         "Explore biomedical and life sciences topics. "
@@ -82,8 +82,8 @@ def render_landing() -> None:
     )
     try:
         with session_scope(_session_factory()) as session:
-            generations = list(list_topic_brief_generations(session))
+            topic_scopes = list(list_topic_scopes(session))
     except Exception:
-        st.error("Could not load Topic brief generations. Try again.")
+        st.error("Could not load Topic scopes. Try again.")
     else:
-        _render_generation_list(generations)
+        _render_topic_scope_list(topic_scopes)

@@ -131,7 +131,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
 3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
 4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package. **Exception:** global tables that a workflow does not own (`Paper`, `PaperBrief`) live at `models.paper` and `models.paper_brief`, not under `models/<workflow>/`.
-5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.generation` (`TopicScope`; legacy name `TopicBriefGeneration` until implementation renames it).
+5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`).
 6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
 
 ### `models` vs `schemas` (agent rule)

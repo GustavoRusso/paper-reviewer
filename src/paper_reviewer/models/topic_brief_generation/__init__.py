@@ -1,15 +1,15 @@
 """ORM mappings for the Topic brief generation workflow."""
 
-from paper_reviewer.models.topic_brief_generation.generation import (
-    TopicBriefGeneration,
-    create_topic_brief_generation,
-    get_topic_brief_generation_by_key,
-    list_topic_brief_generations,
+from paper_reviewer.models.topic_brief_generation.topic_scope import (
+    TopicScope,
+    create_topic_scope,
+    get_topic_scope_by_key,
+    list_topic_scopes,
 )
 
 __all__ = [
-    "TopicBriefGeneration",
-    "create_topic_brief_generation",
-    "get_topic_brief_generation_by_key",
-    "list_topic_brief_generations",
+    "TopicScope",
+    "create_topic_scope",
+    "get_topic_scope_by_key",
+    "list_topic_scopes",
 ]

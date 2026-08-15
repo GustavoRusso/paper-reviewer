@@ -1,4 +1,4 @@
-"""TopicBriefGeneration aggregate root and thin persistence helpers."""
+"""TopicScope aggregate root and thin persistence helpers."""
 
 from __future__ import annotations
 
@@ -13,12 +13,12 @@ from sqlalchemy.types import Uuid
 from paper_reviewer.models.base import Base
 
 
-class TopicBriefGeneration(Base):
-    """One end-to-end Topic brief generation run (intake through topic brief)."""
+class TopicScope(Base):
+    """Durable record of one topic (intake through topic brief)."""
 
-    __tablename__ = "topic_brief_generations"
+    __tablename__ = "topic_scopes"
     __table_args__ = (
-        UniqueConstraint("key", name="uq_topic_brief_generations_key"),
+        UniqueConstraint("key", name="uq_topic_scopes_key"),
     )
 
     id: Mapped[int] = mapped_column(
@@ -39,32 +39,32 @@ class TopicBriefGeneration(Base):
     )
 
 
-def create_topic_brief_generation(
+def create_topic_scope(
     session: Session,
     topic_statement: str,
-) -> TopicBriefGeneration:
-    """Persist a new Topic brief generation for ``topic_statement``."""
-    generation = TopicBriefGeneration(topic_statement=topic_statement)
-    session.add(generation)
-    return generation
+) -> TopicScope:
+    """Persist a new Topic scope for ``topic_statement``."""
+    topic_scope = TopicScope(topic_statement=topic_statement)
+    session.add(topic_scope)
+    return topic_scope
 
 
-def get_topic_brief_generation_by_key(
+def get_topic_scope_by_key(
     session: Session,
     key: uuid.UUID,
-) -> TopicBriefGeneration | None:
-    """Return the generation with ``key``, or ``None`` if missing."""
+) -> TopicScope | None:
+    """Return the Topic scope with ``key``, or ``None`` if missing."""
     return session.scalar(
-        select(TopicBriefGeneration).where(TopicBriefGeneration.key == key)
+        select(TopicScope).where(TopicScope.key == key)
     )
 
 
-def list_topic_brief_generations(
+def list_topic_scopes(
     session: Session,
-) -> Sequence[TopicBriefGeneration]:
-    """Return all Topic brief generations, newest ``created_at`` first."""
+) -> Sequence[TopicScope]:
+    """Return all Topic scopes, newest ``created_at`` first."""
     return session.scalars(
-        select(TopicBriefGeneration).order_by(
-            TopicBriefGeneration.created_at.desc()
+        select(TopicScope).order_by(
+            TopicScope.created_at.desc()
         )
     ).all()

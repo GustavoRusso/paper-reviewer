@@ -74,7 +74,7 @@ def test_workflow_page_order() -> None:
 
 
 def test_landing_cta_links_to_new_topic_brief() -> None:
-    assert LANDING_CTA_LABEL == "Add a new Topic brief"
+    assert LANDING_CTA_LABEL == "Add a Topic scope"
     assert landing_cta_page_key() == "new_topic_brief"
 
 

@@ -25,7 +25,7 @@ from paper_reviewer.topic_brief_generation.related_paper_search import (
 )
 from paper_reviewer.topic_brief_generation.topic_analysis import analyze_topic_statement
 from paper_reviewer.topic_brief_generation.topic_intake import (
-    start_topic_brief_from_topic_intake,
+    start_topic_scope_from_topic_intake,
 )
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
@@ -90,7 +90,7 @@ def render_new_topic_brief() -> None:
     if submitted:
         try:
             with session_scope(_session_factory()) as session:
-                topic_statement, generation = start_topic_brief_from_topic_intake(
+                topic_statement, topic_scope = start_topic_scope_from_topic_intake(
                     session,
                     raw_text,
                 )
@@ -103,7 +103,7 @@ def render_new_topic_brief() -> None:
                 st.session_state,
                 topic_statement=topic_statement,
             )
-            set_topic_scope_key_in_url(generation.key)
+            set_topic_scope_key_in_url(topic_scope.key)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)
