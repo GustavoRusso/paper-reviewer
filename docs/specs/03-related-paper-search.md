@@ -206,7 +206,7 @@ Entry: [Paper ingestion](2-paper-ingestion.md) page_link. Do **not** auto-run th
 5. **Display** — Per-source `source_runs` status; candidate count. Do not use this page as the full triage list.
 6. **Exit** — After a result exists: `st.page_link` to **Retrieval triage** (pass `topic_scope_key`). Do not confirm triage here.
 
-Invalidate the session search cache when Topic intake Submit wipes the session, or when Topic analysis **Analyze again** clears later-step caches — [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+Invalidate the session search cache when Topic intake Submit wipes the session — [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
 ## Testability
 

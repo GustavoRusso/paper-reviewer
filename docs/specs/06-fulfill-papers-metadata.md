@@ -503,7 +503,6 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
 | Topic intake Submit (new `TopicScope`) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_scope_key` in the **URL query**. Topic intake then **switches** to Topic analysis ([Topic intake](1.1-topic-intake.md)). Do not clear on validation or persist failure. |
-| Re-run Topic analysis (Analyze again) | `related_paper_search_result`, `retrieval_triage_result`, `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, `generate_paper_brief_enqueue_result`, and all later-step caches |
 | Re-confirm Retrieval triage | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |
 
