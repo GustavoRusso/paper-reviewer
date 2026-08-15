@@ -19,6 +19,7 @@ from paper_reviewer.ui.topic_scope_url import workflow_switch_page
 SESSION_KEY = "topic_statement"
 ANALYSIS_KEY = "topic_analysis_result"
 SEARCH_KEY = "related_paper_search_result"
+SEARCH_TOPIC_SCOPE_KEY = "related_paper_search_topic_scope_key"
 TRIAGE_RESULT_KEY = "retrieval_triage_result"
 ARCHIVING_RESULT_KEY = "paper_archiving_result"
 FULFILL_ENQUEUE_RESULT_KEY = "fulfill_papers_metadata_enqueue_result"

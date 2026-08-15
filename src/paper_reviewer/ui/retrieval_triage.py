@@ -28,6 +28,7 @@ from paper_reviewer.ui.topic_intake import (
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
     SEARCH_KEY,
+    SEARCH_TOPIC_SCOPE_KEY,
     SESSION_KEY,
     TRIAGE_RESULT_KEY,
 )
@@ -40,8 +41,13 @@ def triage_prerequisites_met(
     *,
     topic_scope_key: UUID | None,
 ) -> bool:
-    """Return True when generation key is in the URL and search result is in session."""
-    return topic_scope_key is not None and state.get(SEARCH_KEY) is not None
+    """Return True when URL key matches the cached search Topic scope key."""
+    if topic_scope_key is None:
+        return False
+    if state.get(SEARCH_KEY) is None:
+        return False
+    cached_key = state.get(SEARCH_TOPIC_SCOPE_KEY)
+    return cached_key is not None and cached_key == str(topic_scope_key)
 
 
 def _render_source_run_status(run: SourceRun) -> None:
@@ -83,8 +89,18 @@ def render_retrieval_triage() -> None:
 
     if not triage_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
-            "Run related-paper search from Topic intake before triage. "
-            "Open that page, submit a topic statement, and wait for search to finish."
+            "Run Related-paper search for this Topic scope before triage. "
+            "Open Related-paper search, then return here to confirm candidates."
+        )
+        workflow_page_link(
+            "related_paper_search",
+            label="Go to Related-paper search",
+            topic_scope_key=topic_scope_key,
+        )
+        workflow_page_link(
+            "topic_scope",
+            label="Go to Topic scope",
+            topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
             "topic_intake",
