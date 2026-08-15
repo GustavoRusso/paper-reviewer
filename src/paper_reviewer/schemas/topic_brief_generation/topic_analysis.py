@@ -1,4 +1,4 @@
-"""Topic analysis: facet shapes for one TopicBriefGeneration."""
+"""Topic analysis: facet shapes for one TopicScope."""
 
 from __future__ import annotations
 
@@ -22,6 +22,6 @@ class TopicFacet(BaseModel):
 
 
 class TopicAnalysisResult(BaseModel):
-    """Topic analysis output: facets for one TopicBriefGeneration."""
+    """Topic analysis output: facets for one TopicScope."""
 
     facets: list[TopicFacet]
