@@ -129,6 +129,8 @@ Register in `paper_reviewer.ui.navigation`:
 | `url_path` | `retrieval-triage` |
 | `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
+Show the Paper ingestion phase header (intro + stepper) on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
+
 ### Page behavior (v1)
 
 1. **Prerequisites** — Require:

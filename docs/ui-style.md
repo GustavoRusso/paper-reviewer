@@ -73,6 +73,15 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 - **Current opt-in list (this order):** Home, Topic intake. Later Topic brief generation pages are registered but hidden; the user moves with in-page `st.page_link` (and Topic intake `st.switch_page` to Topic analysis — see below).
 - In-page CTAs and empty-state “Go to …” targets still use `st.page_link` per this document.
 
+## Phase chrome
+
+Phase landings may show a **shared in-page header** on the landing and on every step of that phase: a short phase description plus a progress stepper.
+
+- The stepper is **not** a second sidebar. Do not put it in `st.sidebar`. Do not use `st.tabs`, `st.pills`, or `st.segmented_control` to change pages.
+- Other steps are `st.page_link`s (navigate only; pass `topic_scope_key`). Link labels name the destination (the step title).
+- The **current** step is not a link. Mark it with a **Current** badge (`st.badge`). On the phase landing, no step is current.
+- Do not invent per-page stepper CSS. First owner: Paper ingestion ([2-paper-ingestion.md](specs/2-paper-ingestion.md)). Later phases may reuse the same pattern with their own step list.
+
 ## Topic scope key in the URL
 
 Workflow pages carry the current `TopicScope` key in a **URL query parameter**, not in Streamlit session state.
@@ -108,6 +117,7 @@ Illustrative only; step specs remain the behavior contract.
 | Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` then `st.switch_page` to Topic analysis |
 | Topic analysis → Topic scope hub | Navigate | `st.page_link` |
 | Topic scope hub → Paper ingestion / Paper search / Topic brief | Navigate | `st.page_link` |
+| Paper ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
 | Paper ingestion → Related-paper search | Navigate | `st.page_link` |
 | Related-paper search → Retrieval triage | Navigate | `st.page_link` |
 | Triage confirm retained set | Confirm / primary | `st.button(..., type="primary")` with a **confirm** label |

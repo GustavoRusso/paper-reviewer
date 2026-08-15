@@ -18,6 +18,7 @@ from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStat
 from paper_reviewer.topic_brief_generation.retrieval_triage import (
     confirm_retrieval_triage,
 )
+from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -73,9 +74,13 @@ def _render_candidate(candidate: PaperCandidate) -> None:
 
 def render_retrieval_triage() -> None:
     """Render the Retrieval triage review and confirm page."""
+    topic_scope_key = parse_topic_scope_key(st.query_params)
+    render_paper_ingestion_header(
+        current_page_key="retrieval_triage",
+        topic_scope_key=topic_scope_key,
+    )
     st.title("Retrieval triage")
 
-    topic_scope_key = parse_topic_scope_key(st.query_params)
     if not triage_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
             "Run related-paper search from Topic intake before triage. "

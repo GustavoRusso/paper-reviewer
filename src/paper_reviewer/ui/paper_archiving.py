@@ -20,6 +20,7 @@ from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
+from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -159,9 +160,13 @@ def _render_result(
 
 def render_paper_archiving() -> None:
     """Render the Paper archiving page."""
+    topic_scope_key = parse_topic_scope_key(st.query_params)
+    render_paper_ingestion_header(
+        current_page_key="paper_archiving",
+        topic_scope_key=topic_scope_key,
+    )
     st.title("Paper archiving")
 
-    topic_scope_key = parse_topic_scope_key(st.query_params)
     if not archiving_prerequisites_met(st.session_state):
         st.info(
             "Confirm candidates on Retrieval triage before paper archiving. "

@@ -31,6 +31,7 @@ from paper_reviewer.ui.fulfill_papers_metadata import (
     prefect_enqueue_error_hint,
     render_regenerate_button,
 )
+from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -197,9 +198,13 @@ def _render_progress(
 
 def render_generate_paper_brief() -> None:
     """Render the Generate paper brief progress page."""
+    topic_scope_key = parse_topic_scope_key(st.query_params)
+    render_paper_ingestion_header(
+        current_page_key="generate_paper_brief",
+        topic_scope_key=topic_scope_key,
+    )
     st.title("Generate paper brief")
 
-    topic_scope_key = parse_topic_scope_key(st.query_params)
     if not brief_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
             "Archive papers and fulfill metadata before generating paper briefs. "

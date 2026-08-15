@@ -197,6 +197,8 @@ Register in `paper_reviewer.ui.navigation`:
 
 Entry: [Paper ingestion](2-paper-ingestion.md) page_link. Do **not** auto-run this page from Topic analysis.
 
+Show the Paper ingestion phase header (intro + stepper) on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
+
 ### Page behavior
 
 1. **Prerequisites** — Require `topic_scope_key` in the URL ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). Load facet rows for that `TopicScope` as `TopicAnalysisResult` (database is the source of truth; do not require session analysis).

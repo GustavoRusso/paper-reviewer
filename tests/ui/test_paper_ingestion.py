@@ -1,24 +1,36 @@
-"""Paper ingestion landing: registration, public render name, and copy."""
+"""Paper ingestion landing: registration, phase header, and stepper."""
 
 from __future__ import annotations
 
+import inspect
+
+from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_metadata
+from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.navigation import build_app_pages
+from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.paper_ingestion import (
-    CONTINUE_TO_FULFILL_PAPERS_METADATA_LABEL,
-    CONTINUE_TO_GENERATE_PAPER_BRIEF_LABEL,
-    CONTINUE_TO_PAPER_ARCHIVING_LABEL,
     CONTINUE_TO_RELATED_PAPER_SEARCH_LABEL,
+    CURRENT_STEP_BADGE,
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
     INTRO_TEXT,
     MISSING_SCOPE_MESSAGE,
+    PAPER_INGESTION_STEPS,
     RELATED_PAPER_SEARCH_PAGE_KEY,
+    paper_ingestion_stepper_items,
     render_paper_ingestion,
+    render_paper_ingestion_header,
 )
+from paper_reviewer.ui.related_paper_search import render_related_paper_search
+from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
 
 
 def test_render_paper_ingestion_is_public() -> None:
     assert callable(render_paper_ingestion)
+
+
+def test_render_paper_ingestion_header_is_public() -> None:
+    assert callable(render_paper_ingestion_header)
 
 
 def test_paper_ingestion_render_is_registered() -> None:
@@ -49,11 +61,55 @@ def test_intro_and_primary_link_target_related_paper_search() -> None:
     )
 
 
-def test_optional_further_ingest_link_labels() -> None:
-    assert CONTINUE_TO_PAPER_ARCHIVING_LABEL == "Continue to Paper archiving"
-    assert CONTINUE_TO_FULFILL_PAPERS_METADATA_LABEL == (
-        "Continue to Fulfill papers metadata"
+def test_paper_ingestion_steps_are_the_ingest_chain() -> None:
+    assert PAPER_INGESTION_STEPS == (
+        ("related_paper_search", "Related-paper search"),
+        ("retrieval_triage", "Retrieval triage"),
+        ("paper_archiving", "Paper archiving"),
+        ("fulfill_papers_metadata", "Fulfill papers metadata"),
+        ("generate_paper_brief", "Generate paper brief"),
     )
-    assert CONTINUE_TO_GENERATE_PAPER_BRIEF_LABEL == (
-        "Continue to Generate paper brief"
+
+
+def test_landing_marks_no_step_current() -> None:
+    items = paper_ingestion_stepper_items("paper_ingestion")
+
+    assert [item.page_key for item in items] == [
+        key for key, _label in PAPER_INGESTION_STEPS
+    ]
+    assert [item.step_number for item in items] == [1, 2, 3, 4, 5]
+    assert all(item.is_current is False for item in items)
+
+
+def test_stepper_marks_only_the_current_step() -> None:
+    items = paper_ingestion_stepper_items("paper_archiving")
+    current = [item for item in items if item.is_current]
+
+    assert len(current) == 1
+    assert current[0].page_key == "paper_archiving"
+    assert current[0].label == "Paper archiving"
+    assert current[0].step_number == 3
+
+
+def test_unknown_page_marks_no_step_current() -> None:
+    items = paper_ingestion_stepper_items("topic_scope")
+
+    assert all(item.is_current is False for item in items)
+
+
+def test_current_step_badge_copy() -> None:
+    assert CURRENT_STEP_BADGE == "Current"
+
+
+def test_ingest_pages_render_the_phase_header() -> None:
+    renders = (
+        render_paper_ingestion,
+        render_related_paper_search,
+        render_retrieval_triage,
+        render_paper_archiving,
+        render_fulfill_papers_metadata,
+        render_generate_paper_brief,
     )
+    for render in renders:
+        source = inspect.getsource(render)
+        assert "render_paper_ingestion_header" in source, render.__name__

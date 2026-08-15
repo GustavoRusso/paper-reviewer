@@ -236,6 +236,8 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `url_path` | `generate-paper-brief` |
 | `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
+Show the Paper ingestion phase header (intro + stepper) on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
+
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues and polls **durable DB status** on `PaperBrief` (and `Paper.full_text_status` for the gate). Do not use Prefect run ids as progress truth.
 
 ### Session keys
