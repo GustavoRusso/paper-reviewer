@@ -123,7 +123,7 @@ def render_related_paper_search() -> None:
         current_page_key="related_paper_search",
         topic_scope_key=topic_scope_key,
     )
-    st.title("Related-paper search")
+    st.header("Related-paper search")
 
     if topic_scope_key is None:
         _render_missing_prerequisites(topic_scope_key=None)

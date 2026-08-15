@@ -170,7 +170,7 @@ def render_paper_archiving() -> None:
         current_page_key="paper_archiving",
         topic_scope_key=topic_scope_key,
     )
-    st.title("Paper archiving")
+    st.header("Paper archiving")
 
     if not archiving_prerequisites_met(
         st.session_state,

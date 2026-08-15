@@ -75,11 +75,12 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 
 ## Phase chrome
 
-Phase landings may show a **shared in-page header** on the landing and on every step of that phase: a short phase description plus a progress stepper.
+Phase landings may show a **shared in-page header** on the landing and on every step of that phase: the phase title (`st.title`), a short phase description, and a progress stepper. When the Topic scope key is present, the header may also show the Reference id caption after the phase title.
 
 - The stepper is **not** a second sidebar. Do not put it in `st.sidebar`. Do not use `st.tabs`, `st.pills`, or `st.segmented_control` to change pages.
 - Other steps are `st.page_link`s (navigate only; pass `topic_scope_key`). Link labels name the destination (the step title).
 - The **current** step is not a link. Mark it with a **Current** badge (`st.badge`). On the phase landing, no step is current.
+- Step pages keep the step name after the shared header as `st.header` (smaller than the phase `st.title`).
 - Do not invent per-page stepper CSS. First owner: Paper ingestion ([2-paper-ingestion.md](specs/2-paper-ingestion.md)). Later phases may reuse the same pattern with their own step list.
 
 ## Topic scope key in the URL

@@ -230,7 +230,7 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `url_path` | `paper-archiving` |
 | `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
-Show the Paper ingestion phase header (intro + stepper) on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
+Show the Paper ingestion phase header on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Domain work stays in `archive_papers`; the page owns session keys, the DB commit, and display.
 

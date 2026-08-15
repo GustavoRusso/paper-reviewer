@@ -16,6 +16,7 @@ from paper_reviewer.ui.paper_ingestion import (
     INTRO_TEXT,
     MISSING_SCOPE_MESSAGE,
     PAPER_INGESTION_STEPS,
+    PHASE_TITLE,
     RELATED_PAPER_SEARCH_PAGE_KEY,
     paper_ingestion_stepper_items,
     render_paper_ingestion,
@@ -39,6 +40,10 @@ def test_paper_ingestion_render_is_registered() -> None:
     assert pages["paper_ingestion"].title == "Paper ingestion"
     assert pages["paper_ingestion"].url_path == "paper-ingestion"
     assert pages["paper_ingestion"].in_sidebar is False
+
+
+def test_phase_title_copy() -> None:
+    assert PHASE_TITLE == "Paper ingestion"
 
 
 def test_missing_key_copy_links_to_intake_and_hub() -> None:
@@ -99,6 +104,19 @@ def test_current_step_badge_copy() -> None:
     assert CURRENT_STEP_BADGE == "Current"
 
 
+def test_phase_header_owns_the_phase_title() -> None:
+    source = inspect.getsource(render_paper_ingestion_header)
+    assert "st.title" in source
+    assert "PHASE_TITLE" in source
+
+
+def test_landing_empty_state_shows_phase_title_without_header() -> None:
+    source = inspect.getsource(render_paper_ingestion)
+    assert "st.title" in source
+    assert "PHASE_TITLE" in source
+    assert "render_paper_ingestion_header" in source
+
+
 def test_ingest_pages_render_the_phase_header() -> None:
     renders = (
         render_paper_ingestion,
@@ -110,3 +128,16 @@ def test_ingest_pages_render_the_phase_header() -> None:
     for render in renders:
         source = inspect.getsource(render)
         assert "render_paper_ingestion_header" in source, render.__name__
+
+
+def test_ingest_step_pages_use_header_not_title_for_step_name() -> None:
+    renders = (
+        render_related_paper_search,
+        render_paper_archiving,
+        render_fulfill_papers_metadata,
+        render_generate_paper_brief,
+    )
+    for render in renders:
+        source = inspect.getsource(render)
+        assert "st.header" in source, render.__name__
+        assert "st.title" not in source, render.__name__

@@ -288,7 +288,7 @@ def render_fulfill_papers_metadata() -> None:
         current_page_key="fulfill_papers_metadata",
         topic_scope_key=topic_scope_key,
     )
-    st.title("Fulfill papers metadata")
+    st.header("Fulfill papers metadata")
 
     if not fulfill_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(

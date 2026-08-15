@@ -487,7 +487,7 @@ Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 | `url_path` | `fulfill-papers-metadata` |
 | `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
-Show the Paper ingestion phase header (intro + stepper) on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
+Show the Paper ingestion phase header on this page: [Paper ingestion](2-paper-ingestion.md#phase-header-landing-and-ingest-steps).
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues `fulfill_paper_metadata` and polls **durable `Paper` enum columns** for progress (no Prefect run ids required for the UI contract).
 

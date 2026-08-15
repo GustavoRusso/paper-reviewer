@@ -16,7 +16,7 @@ This document is the specification for the **Paper ingestion** phase landing in 
 ### In scope (current v1)
 
 - Dedicated landing page for Paper ingestion on the current `TopicScope`.
-- Shared phase header (intro + progress stepper) on the landing and on every ingest step page.
+- Shared phase header (phase title, Reference id caption when the key is present, intro, progress stepper) on the landing and on every ingest step page.
 - Primary `st.page_link` on the landing to **Related-paper search** (first existing ingest step).
 - Pass `topic_scope_key` on every in-workflow link ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)).
 
@@ -39,14 +39,16 @@ Module: `paper_reviewer.ui.paper_ingestion` with `render_paper_ingestion()` (lan
 
 ### Phase header (landing and ingest steps)
 
-Call `render_paper_ingestion_header` on the landing after the page title when a Topic scope key is present, and before the step title on every Paper ingestion step page. Do **not** copy this chrome into other phases.
+Call `render_paper_ingestion_header` on the landing when a Topic scope key is present (the phase title lives in the header), and before the step name on every Paper ingestion step page. Step pages show the step name with `st.header` after the header. Do **not** copy this chrome into other phases.
 
 | Part | Behavior |
 | --- | --- |
+| Phase title | `st.title` **Paper ingestion** (`PHASE_TITLE`). |
+| Reference id | When `topic_scope_key` is present: caption `Reference id: \`{topic_scope_key}\``. |
 | Intro | Short phase description: this phase searches paper sources and ingests papers for this Topic scope. |
 | Stepper | One control per ingest step, in order. Other steps are `st.page_link`s (destination labels; pass `topic_scope_key`). The current step is **not** a link: bold label plus a **Current** badge. |
 | Landing | No step is current. The stepper still lists every ingest step so the user can open a later page without finishing earlier ones. Those pages keep their own prerequisite guards. |
-| Missing key | Landing empty state only. Do not render the header. |
+| Missing key | Landing empty state only. Show the phase title (`st.title`); do **not** render the full header (no intro/stepper). |
 
 v1 stepper steps (Paper indexing later): Related-paper search, Paper archiving, Fulfill papers metadata, Generate paper brief.
 
@@ -54,8 +56,8 @@ Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 
 ### Page behavior
 
-1. Require `topic_scope_key`. Missing key → empty state + page_link to **Topic intake** and **Topic scope**.
-2. Show the phase header (intro + stepper).
+1. Require `topic_scope_key`. Missing key → phase title + empty state + page_link to **Topic intake** and **Topic scope**.
+2. Show the phase header (phase title, Reference id caption, intro, stepper).
 3. Primary next: page_link **Continue to Related-paper search** (`related_paper_search`). Do **not** auto-run search here. Do **not** `switch_page`.
 
 Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). First ingest step: [related-paper search](2.1-related-paper-search.md) (phase 2 step 1).

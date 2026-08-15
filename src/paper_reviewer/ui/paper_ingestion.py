@@ -12,6 +12,7 @@ from paper_reviewer.ui.topic_scope_url import (
     workflow_page_link,
 )
 
+PHASE_TITLE = "Paper ingestion"
 INTRO_TEXT = (
     "This phase searches paper sources and ingests papers for this Topic scope."
 )
@@ -62,7 +63,10 @@ def render_paper_ingestion_header(
     current_page_key: str,
     topic_scope_key: UUID | None,
 ) -> None:
-    """Show the phase description and a stepper of ingest steps."""
+    """Show the phase title, Reference id, intro, and a stepper of ingest steps."""
+    st.title(PHASE_TITLE)
+    if topic_scope_key is not None:
+        st.caption(f"Reference id: `{topic_scope_key}`")
     st.write(INTRO_TEXT)
     items = paper_ingestion_stepper_items(current_page_key)
     columns = st.columns(len(items))
@@ -97,13 +101,12 @@ def _render_missing_scope() -> None:
 
 def render_paper_ingestion() -> None:
     """Render the Paper ingestion landing for the Topic scope in the URL."""
-    st.title("Paper ingestion")
     topic_scope_key = parse_topic_scope_key(st.query_params)
     if topic_scope_key is None:
+        st.title(PHASE_TITLE)
         _render_missing_scope()
         return
 
-    st.caption(f"Reference id: `{topic_scope_key}`")
     render_paper_ingestion_header(
         current_page_key="paper_ingestion",
         topic_scope_key=topic_scope_key,

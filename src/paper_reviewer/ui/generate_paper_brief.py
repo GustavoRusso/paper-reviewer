@@ -203,7 +203,7 @@ def render_generate_paper_brief() -> None:
         current_page_key="generate_paper_brief",
         topic_scope_key=topic_scope_key,
     )
-    st.title("Generate paper brief")
+    st.header("Generate paper brief")
 
     if not brief_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
