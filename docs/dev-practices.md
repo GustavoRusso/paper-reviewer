@@ -15,6 +15,47 @@ git mv src/paper_reviewer/old_name.py src/paper_reviewer/new_name.py
 - Untracked or new files may use a normal filesystem move; then `git add` the new path if they should be tracked.
 - If a tool already created a delete+add pair for a tracked rename, fix it with `git add -A` on both paths (or re-do with `git mv`) before commit so `git status` shows rename when similarity allows.
 
+## Identifier naming (`id` vs `key`)
+
+This section owns how code, database columns, and URLs name identifiers. It does **not** own URL query behavior ([ui-style.md](ui-style.md)) or which fields an entity has (the step spec).
+
+When a persisted entity has a surrogate primary key **and** a value that the user or a URL may see:
+
+| Name | Role | Where it appears |
+| --- | --- | --- |
+| `id` | Private surrogate primary key | ORM attribute, Postgres column, and FKs only. Never in URLs, query parameters, public helpers, or captions. |
+| `key` | Minted user-facing identifier (UUID we assign) | ORM attribute, Postgres column, URL query `{entity}_key`, and lookup helpers `get_<entity>_by_key`. |
+| Domain name (`doi`, `pmid`, `pmcid`, …) | External natural identifier | Keep the domain name. Do **not** rename it to `key`. Example: `Paper.doi`, `get_paper_by_doi`. |
+
+Do **not** use `public_id` for new fields. `public_id` is a legacy name; rename it to `key` when you touch that entity.
+
+### What `key` is not
+
+These other uses of the word `key` stay as they are. They are **not** user-facing entity identifiers:
+
+- Streamlit page registry: `AppPage.key`, `page_by_key`, `streamlit_page_for(key)` (page slug such as `landing`)
+- Streamlit widget `key=`
+- Dict keys and SQLAlchemy `Column.key` (the mapped attribute name)
+
+A mapped attribute named `key` is allowed. The mild clash with SQLAlchemy `Column.key` is acceptable.
+
+### URL query and helper signatures
+
+- Query parameter: `{entity}_key` (Topic scope: `topic_scope_key`). ui-style owns how that parameter is read, written, and preserved on `st.page_link`.
+- On the ORM row, the attribute is `key` (`topic_scope.key`).
+- On UI helpers that already take a page slug (`page_key`, `AppPage.key`), name the UUID argument `topic_scope_key` — **not** a bare `key=`. Example: `workflow_page_link(..., topic_scope_key=)`. A bare `key=` collides with the page slug and with Streamlit widget `key=`.
+- Page-local variables that hold that UUID use `topic_scope_key` as well.
+
+### UI copy vs code names
+
+English captions may say **Reference id:** … That phrase is user-facing copy, not the column name. Do **not** put the private `id` in the caption. Changing that copy is a separate product decision.
+
+### Unique constraints
+
+Name unique constraints explicitly as `uq_{table}_{column}`, same pattern as `uq_papers_doi`.
+
+Do **not** keep the Postgres default `{table}_{column}_key` when the column is `key` (that yields `{table}_key_key`).
+
 ## Plan slicing and outside-in implementation
 
 How to split multi-task plans and how to implement each task. The red→green→refactor cycle and how to run tests: [tdd.md](tdd.md).

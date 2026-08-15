@@ -19,7 +19,7 @@ from paper_reviewer.topic_brief_generation.retrieval_triage import (
     confirm_retrieval_triage,
 )
 from paper_reviewer.ui.topic_scope_url import (
-    parse_topic_scope_public_id,
+    parse_topic_scope_key,
     workflow_page_link,
 )
 from paper_reviewer.ui.new_topic_brief import (
@@ -37,10 +37,10 @@ CONFIRM_BUTTON_LABEL = "Confirm for paper archiving"
 def triage_prerequisites_met(
     state: Mapping[str, Any],
     *,
-    public_id: UUID | None,
+    topic_scope_key: UUID | None,
 ) -> bool:
-    """Return True when generation id is in the URL and search result is in session."""
-    return public_id is not None and state.get(SEARCH_KEY) is not None
+    """Return True when generation key is in the URL and search result is in session."""
+    return topic_scope_key is not None and state.get(SEARCH_KEY) is not None
 
 
 def _render_source_run_status(run: SourceRun) -> None:
@@ -75,8 +75,8 @@ def render_retrieval_triage() -> None:
     """Render the Retrieval triage review and confirm page."""
     st.title("Retrieval triage")
 
-    public_id = parse_topic_scope_public_id(st.query_params)
-    if not triage_prerequisites_met(st.session_state, public_id=public_id):
+    topic_scope_key = parse_topic_scope_key(st.query_params)
+    if not triage_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
             "Run related-paper search from New Topic brief before triage. "
             "Open that page, submit a topic statement, and wait for search to finish."
@@ -84,15 +84,15 @@ def render_retrieval_triage() -> None:
         workflow_page_link(
             "new_topic_brief",
             label="Go to New Topic brief",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         return
 
-    assert public_id is not None
+    assert topic_scope_key is not None
     search_result: RelatedPaperSearchResult = st.session_state[SEARCH_KEY]
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
 
-    st.caption(f"Reference id: `{public_id}`")
+    st.caption(f"Reference id: `{topic_scope_key}`")
     if topic is not None:
         snippet = topic.text if len(topic.text) <= 200 else f"{topic.text[:197]}..."
         st.write(snippet)
@@ -132,5 +132,5 @@ def render_retrieval_triage() -> None:
         workflow_page_link(
             "paper_archiving",
             label="Continue to Paper archiving",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )

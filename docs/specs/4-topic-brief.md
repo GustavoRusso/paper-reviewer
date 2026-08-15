@@ -17,7 +17,7 @@ This document is the specification for the **Topic brief** phase landing in [REA
 
 - Dedicated landing page with title **Topic brief**.
 - Caption that Topic brief drafting is not built yet.
-- Page_link back to **Topic scope** (pass `topic_scope_public_id`).
+- Page_link back to **Topic scope** (pass `topic_scope_key`).
 
 ### Out of scope (v1)
 
@@ -39,7 +39,7 @@ Module: `paper_reviewer.ui.topic_brief` with `render_topic_brief()`.
 
 ### Page behavior
 
-1. Require `topic_scope_public_id`. Missing id → empty state + page_link to **Topic intake** and **Topic scope**.
+1. Require `topic_scope_key`. Missing key → empty state + page_link to **Topic intake** and **Topic scope**.
 2. Show title **Topic brief** and a caption that drafting the cited topic brief is not built yet.
 3. Page_link to **Topic scope**.
 

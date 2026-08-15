@@ -19,7 +19,7 @@ This document is the specification for the **Paper ingestion** phase landing in 
 - Short intro for this phase.
 - Primary `st.page_link` to **Related-paper search** (first existing ingest step).
 - Optional `st.page_link`s to later ingest pages that already exist (Paper archiving, Fulfill papers metadata, Generate paper brief) without requiring the user to have finished earlier ingest steps.
-- Pass `topic_scope_public_id` on every in-workflow link ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)).
+- Pass `topic_scope_key` on every in-workflow link ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)).
 
 ### Out of scope
 
@@ -40,7 +40,7 @@ Module: `paper_reviewer.ui.paper_ingestion` with `render_paper_ingestion()`.
 
 ### Page behavior
 
-1. Require `topic_scope_public_id`. Missing id → empty state + page_link to **Topic intake** and **Topic scope**.
+1. Require `topic_scope_key`. Missing key → empty state + page_link to **Topic intake** and **Topic scope**.
 2. Show a short intro: this phase searches paper sources and ingests papers for this Topic scope.
 3. Primary next: page_link **Continue to Related-paper search** (`related_paper_search`). Do **not** auto-run search here. Do **not** `switch_page`.
 4. Optional further links (same query id): **Paper archiving**, **Fulfill papers metadata**, **Generate paper brief**. Those pages keep their own prerequisite guards.

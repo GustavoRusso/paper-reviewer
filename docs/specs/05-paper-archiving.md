@@ -244,7 +244,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 
-**URL query:** Show the Topic scope reference id from `topic_scope_public_id` when present ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). In-workflow page links must pass that query param.
+**URL query:** Show the Topic scope reference id from `topic_scope_key` when present ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). In-workflow page links must pass that query param.
 
 **Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Topic scopes must not reuse another workflow’s session state.
 

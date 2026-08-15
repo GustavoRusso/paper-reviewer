@@ -17,7 +17,7 @@ This document is the specification for the **Paper search** phase landing in [RE
 
 - Dedicated landing page with title **Paper search**.
 - Caption that local Paper search is not built yet.
-- Page_link back to **Topic scope** (pass `topic_scope_public_id`).
+- Page_link back to **Topic scope** (pass `topic_scope_key`).
 
 ### Out of scope (v1)
 
@@ -38,7 +38,7 @@ Module: `paper_reviewer.ui.paper_search` with `render_paper_search()`.
 
 ### Page behavior
 
-1. Require `topic_scope_public_id`. Missing id → empty state + page_link to **Topic intake** and **Topic scope**.
+1. Require `topic_scope_key`. Missing key → empty state + page_link to **Topic intake** and **Topic scope**.
 2. Show title **Paper search** and a caption that search of locally ingested papers is not built yet.
 3. Page_link to **Topic scope**. Do not link to Retrieval triage from this shell.
 

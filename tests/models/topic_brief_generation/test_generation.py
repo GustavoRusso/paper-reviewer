@@ -14,7 +14,7 @@ from paper_reviewer.models.base import Base
 from paper_reviewer.models.topic_brief_generation import (
     TopicBriefGeneration,
     create_topic_brief_generation,
-    get_topic_brief_generation_by_public_id,
+    get_topic_brief_generation_by_key,
     list_topic_brief_generations,
 )
 
@@ -48,26 +48,26 @@ def test_create_topic_brief_generation_stores_statement_and_ids(
     assert generation.topic_statement == "GLP-1 agonists in heart failure"
     assert isinstance(generation.id, int)
     assert generation.id > 0
-    assert isinstance(generation.public_id, uuid.UUID)
+    assert isinstance(generation.key, uuid.UUID)
     assert isinstance(generation, TopicBriefGeneration)
 
 
-def test_get_topic_brief_generation_by_public_id(session: Session) -> None:
+def test_get_topic_brief_generation_by_key(session: Session) -> None:
     created = create_topic_brief_generation(session, "mitochondrial dysfunction")
     session.flush()
 
-    found = get_topic_brief_generation_by_public_id(session, created.public_id)
+    found = get_topic_brief_generation_by_key(session, created.key)
 
     assert found is not None
     assert found.id == created.id
-    assert found.public_id == created.public_id
+    assert found.key == created.key
     assert found.topic_statement == "mitochondrial dysfunction"
 
 
-def test_get_topic_brief_generation_by_public_id_returns_none_when_missing(
+def test_get_topic_brief_generation_by_key_returns_none_when_missing(
     session: Session,
 ) -> None:
-    found = get_topic_brief_generation_by_public_id(session, uuid.uuid4())
+    found = get_topic_brief_generation_by_key(session, uuid.uuid4())
 
     assert found is None
 
@@ -88,6 +88,6 @@ def test_list_topic_brief_generations_newest_first(session: Session) -> None:
     listed = list(list_topic_brief_generations(session))
 
     assert [g.topic_statement for g in listed] == ["newer topic", "older topic"]
-    assert listed[0].public_id == newer.public_id
-    assert listed[1].public_id == older.public_id
+    assert listed[0].key == newer.key
+    assert listed[1].key == older.key
     assert all(isinstance(g, TopicBriefGeneration) for g in listed)

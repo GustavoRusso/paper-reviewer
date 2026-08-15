@@ -6,7 +6,7 @@ import uuid
 from collections.abc import Sequence
 from datetime import datetime
 
-from sqlalchemy import BigInteger, DateTime, Integer, Text, func, select
+from sqlalchemy import BigInteger, DateTime, Integer, Text, UniqueConstraint, func, select
 from sqlalchemy.orm import Mapped, Session, mapped_column
 from sqlalchemy.types import Uuid
 
@@ -17,15 +17,17 @@ class TopicBriefGeneration(Base):
     """One end-to-end Topic brief generation run (intake through topic brief)."""
 
     __tablename__ = "topic_brief_generations"
+    __table_args__ = (
+        UniqueConstraint("key", name="uq_topic_brief_generations_key"),
+    )
 
     id: Mapped[int] = mapped_column(
         BigInteger().with_variant(Integer, "sqlite"),
         primary_key=True,
         autoincrement=True,
     )
-    public_id: Mapped[uuid.UUID] = mapped_column(
+    key: Mapped[uuid.UUID] = mapped_column(
         Uuid(as_uuid=True),
-        unique=True,
         nullable=False,
         default=uuid.uuid4,
     )
@@ -47,15 +49,13 @@ def create_topic_brief_generation(
     return generation
 
 
-def get_topic_brief_generation_by_public_id(
+def get_topic_brief_generation_by_key(
     session: Session,
-    public_id: uuid.UUID,
+    key: uuid.UUID,
 ) -> TopicBriefGeneration | None:
-    """Return the generation with ``public_id``, or ``None`` if missing."""
+    """Return the generation with ``key``, or ``None`` if missing."""
     return session.scalar(
-        select(TopicBriefGeneration).where(
-            TopicBriefGeneration.public_id == public_id
-        )
+        select(TopicBriefGeneration).where(TopicBriefGeneration.key == key)
     )
 
 

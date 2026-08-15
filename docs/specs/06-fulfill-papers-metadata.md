@@ -496,13 +496,13 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list** only; always reload each `Paper` from the DB for status and display fields. |
 | `fulfill_papers_metadata_enqueue_result` | `FulfillPapersMetadataEnqueueResult` | Optional cache that enqueue was submitted for this session (not progress truth). |
 
-**URL query:** Require `topic_scope_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). In-workflow page links must pass that query param.
+**URL query:** Require `topic_scope_key` for display / navigation ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). In-workflow page links must pass that query param.
 
 **Workflow session independence (cascade clear):** Each Topic scope workflow is independent in the browser session. Downstream step caches must not leak across Topic scopes or across a re-run of an earlier step.
 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
-| Topic intake Submit (new `TopicScope`) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_scope_public_id` in the **URL query**. Topic intake then **switches** to Topic analysis ([Topic intake](1.1-topic-intake.md)). Do not clear on validation or persist failure. |
+| Topic intake Submit (new `TopicScope`) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_scope_key` in the **URL query**. Topic intake then **switches** to Topic analysis ([Topic intake](1.1-topic-intake.md)). Do not clear on validation or persist failure. |
 | Re-run Topic analysis (Analyze again) | `related_paper_search_result`, `retrieval_triage_result`, `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, `generate_paper_brief_enqueue_result`, and all later-step caches |
 | Re-confirm Retrieval triage | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |

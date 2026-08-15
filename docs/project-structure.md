@@ -147,3 +147,4 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 - Workflow packages: product term in snake_case (`topic_brief_generation`)
 - Cross-cutting subpackages: short plural nouns (`models`, `schemas`, `flows`)
 - Do not use vague roots such as `src/app`, `src/code`, or nested `src/src`
+- Entity identifiers (`id` vs minted `key` vs domain names such as `doi`): [dev-practices.md](dev-practices.md#identifier-naming-id-vs-key)

@@ -21,7 +21,7 @@ from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 from paper_reviewer.ui.topic_scope_url import (
-    parse_topic_scope_public_id,
+    parse_topic_scope_key,
     workflow_page_link,
 )
 from paper_reviewer.ui.new_topic_brief import (
@@ -96,11 +96,11 @@ def _render_result(
     result: PaperArchivingResult,
     *,
     input_count: int,
-    public_id: UUID | None,
+    topic_scope_key: UUID | None,
 ) -> None:
     st.subheader("Summary")
-    if public_id is not None:
-        st.caption(f"Reference id: `{public_id}`")
+    if topic_scope_key is not None:
+        st.caption(f"Reference id: `{topic_scope_key}`")
     st.write(
         f"Input candidates: {input_count}. "
         f"Archived: {len(result.papers)}. "
@@ -119,7 +119,7 @@ def _render_result(
         workflow_page_link(
             "fulfill_papers_metadata",
             label="Continue to Fulfill papers metadata",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         return
 
@@ -153,7 +153,7 @@ def _render_result(
     workflow_page_link(
         "fulfill_papers_metadata",
         label="Continue to Fulfill papers metadata",
-        public_id=public_id,
+        topic_scope_key=topic_scope_key,
     )
 
 
@@ -161,7 +161,7 @@ def render_paper_archiving() -> None:
     """Render the Paper archiving page."""
     st.title("Paper archiving")
 
-    public_id = parse_topic_scope_public_id(st.query_params)
+    topic_scope_key = parse_topic_scope_key(st.query_params)
     if not archiving_prerequisites_met(st.session_state):
         st.info(
             "Confirm candidates on Retrieval triage before paper archiving. "
@@ -170,12 +170,12 @@ def render_paper_archiving() -> None:
         workflow_page_link(
             "new_topic_brief",
             label="Go to New Topic brief",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
             "retrieval_triage",
             label="Go to Retrieval triage",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         return
 
@@ -183,15 +183,15 @@ def render_paper_archiving() -> None:
     retained = triage_result.retained
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
 
-    if public_id is not None:
-        st.caption(f"Reference id: `{public_id}`")
+    if topic_scope_key is not None:
+        st.caption(f"Reference id: `{topic_scope_key}`")
     if topic is not None:
         snippet = topic.text if len(topic.text) <= 200 else f"{topic.text[:197]}..."
         st.write(snippet)
 
     cached: PaperArchivingResult | None = st.session_state.get(ARCHIVING_RESULT_KEY)
     if cached is not None:
-        _render_result(cached, input_count=len(retained), public_id=public_id)
+        _render_result(cached, input_count=len(retained), topic_scope_key=topic_scope_key)
         return
 
     try:
@@ -208,5 +208,5 @@ def render_paper_archiving() -> None:
     _render_result(
         archiving_result,
         input_count=len(retained),
-        public_id=public_id,
+        topic_scope_key=topic_scope_key,
     )

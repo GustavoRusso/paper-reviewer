@@ -29,22 +29,22 @@ def test_format_generation_created_at_iso_utc() -> None:
 
 
 def test_format_generation_reference_caption() -> None:
-    public_id = uuid.UUID("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")
+    topic_scope_key = uuid.UUID("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")
 
     assert (
-        format_generation_reference_caption(public_id)
+        format_generation_reference_caption(topic_scope_key)
         == "Reference id: `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee`"
     )
 
 
 def test_format_generation_list_caption() -> None:
-    public_id = uuid.UUID("11111111-2222-3333-4444-555555555555")
+    topic_scope_key = uuid.UUID("11111111-2222-3333-4444-555555555555")
     created = datetime(2026, 8, 11, 12, 0, 0, tzinfo=UTC)
 
     assert format_generation_list_caption(
         "GLP-1 agonists in heart failure",
         created,
-        public_id,
+        topic_scope_key,
     ) == (
         "GLP-1 agonists in heart failure · 2026-08-11T12:00:00+00:00 · "
         "Reference id: `11111111-2222-3333-4444-555555555555`"

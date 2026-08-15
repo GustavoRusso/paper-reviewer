@@ -1,4 +1,4 @@
-"""Topic scope public id in Streamlit URL query parameters."""
+"""Topic scope key in Streamlit URL query parameters."""
 
 from __future__ import annotations
 
@@ -10,12 +10,12 @@ import streamlit as st
 
 from paper_reviewer.ui.navigation import streamlit_page_for
 
-TOPIC_SCOPE_PUBLIC_ID_QUERY_KEY = "topic_scope_public_id"
+TOPIC_SCOPE_KEY_QUERY_KEY = "topic_scope_key"
 
 
-def parse_topic_scope_public_id(query_params: Mapping[str, Any]) -> UUID | None:
-    """Return the Topic scope public id from URL query params, or None."""
-    raw = query_params.get(TOPIC_SCOPE_PUBLIC_ID_QUERY_KEY)
+def parse_topic_scope_key(query_params: Mapping[str, Any]) -> UUID | None:
+    """Return the Topic scope key from URL query params, or None."""
+    raw = query_params.get(TOPIC_SCOPE_KEY_QUERY_KEY)
     if raw is None:
         return None
     if isinstance(raw, (list, tuple)):
@@ -31,30 +31,30 @@ def parse_topic_scope_public_id(query_params: Mapping[str, Any]) -> UUID | None:
         return None
 
 
-def topic_scope_query_params(public_id: UUID) -> dict[str, str]:
-    """Build query params that keep the Topic scope id across page navigation."""
-    return {TOPIC_SCOPE_PUBLIC_ID_QUERY_KEY: str(public_id)}
+def topic_scope_query_params(topic_scope_key: UUID) -> dict[str, str]:
+    """Build query params that keep the Topic scope key across page navigation."""
+    return {TOPIC_SCOPE_KEY_QUERY_KEY: str(topic_scope_key)}
 
 
-def set_topic_scope_public_id_in_url(public_id: UUID) -> None:
-    """Write the Topic scope public id into the current page URL."""
-    st.query_params[TOPIC_SCOPE_PUBLIC_ID_QUERY_KEY] = str(public_id)
+def set_topic_scope_key_in_url(topic_scope_key: UUID) -> None:
+    """Write the Topic scope key into the current page URL."""
+    st.query_params[TOPIC_SCOPE_KEY_QUERY_KEY] = str(topic_scope_key)
 
 
 def workflow_page_link(
     page_key: str,
     *,
     label: str,
-    public_id: UUID | None,
+    topic_scope_key: UUID | None,
 ) -> None:
-    """Link to a workflow page and preserve the Topic scope id when present.
+    """Link to a workflow page and preserve the Topic scope key when present.
 
     Streamlit clears query params when ``query_params`` is omitted. Always pass
-    the id for in-workflow navigation so the URL does not lose it.
+    the key for in-workflow navigation so the URL does not lose it.
     """
     kwargs: dict[str, Any] = {
         "label": label,
     }
-    if public_id is not None:
-        kwargs["query_params"] = topic_scope_query_params(public_id)
+    if topic_scope_key is not None:
+        kwargs["query_params"] = topic_scope_query_params(topic_scope_key)
     st.page_link(streamlit_page_for(page_key), **kwargs)

@@ -24,7 +24,7 @@ def test_begin_new_topic_brief_session_clears_leftover_and_unknown_keys() -> Non
         FULFILL_ENQUEUE_RESULT_KEY: "stale-fulfill",
         GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY: "stale-brief",
         "unknown_leftover_key": "must-go",
-        "topic_scope_public_id": UUID("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"),
+        "leftover_session_key": UUID("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"),
     }
 
     begin_new_topic_brief_session(state, topic_statement=topic)

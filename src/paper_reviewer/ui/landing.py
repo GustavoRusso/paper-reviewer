@@ -38,20 +38,20 @@ def format_generation_created_at(created_at: datetime) -> str:
     return created_at.isoformat()
 
 
-def format_generation_reference_caption(public_id: uuid.UUID) -> str:
+def format_generation_reference_caption(topic_scope_key: uuid.UUID) -> str:
     """Return the reference-id caption used on workflow pages."""
-    return f"Reference id: `{public_id}`"
+    return f"Reference id: `{topic_scope_key}`"
 
 
 def format_generation_list_caption(
     topic_statement: str,
     created_at: datetime,
-    public_id: uuid.UUID,
+    topic_scope_key: uuid.UUID,
 ) -> str:
     """Return one list-row caption for a Topic brief generation."""
     return (
         f"{topic_statement} · {format_generation_created_at(created_at)} · "
-        f"{format_generation_reference_caption(public_id)}"
+        f"{format_generation_reference_caption(topic_scope_key)}"
     )
 
 
@@ -64,7 +64,7 @@ def _render_generation_list(generations: Sequence[TopicBriefGeneration]) -> None
         st.markdown(f"**{generation.topic_statement}**")
         st.caption(
             f"{format_generation_created_at(generation.created_at)} · "
-            f"{format_generation_reference_caption(generation.public_id)}"
+            f"{format_generation_reference_caption(generation.key)}"
         )
 
 

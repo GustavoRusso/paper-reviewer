@@ -73,27 +73,29 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 - **Current opt-in list (this order):** Home, Topic intake. Later Topic brief generation pages are registered but hidden; the user moves with in-page `st.page_link` (and Topic intake `st.switch_page` to Topic analysis — see below).
 - In-page CTAs and empty-state “Go to …” targets still use `st.page_link` per this document.
 
-## Topic scope public id in the URL
+## Topic scope key in the URL
 
-Workflow pages carry the current `TopicScope` public id in a **URL query parameter**, not in Streamlit session state.
+Workflow pages carry the current `TopicScope` key in a **URL query parameter**, not in Streamlit session state.
 
 | Rule | Detail |
 | --- | --- |
-| Query key | `topic_scope_public_id` (UUID string) |
+| Query key | `topic_scope_key` (UUID string) |
 | Write | Topic intake Submit sets the param on the **Topic analysis** destination URL after a successful start (see [Topic intake switch to analysis](#topic-intake-switch-to-analysis)) |
-| Read | Each workflow page parses the id from `st.query_params` for captions and prerequisite checks |
-| Navigate | Every in-workflow `st.page_link` must pass `query_params` with that id. If `query_params` is omitted, Streamlit **clears** existing query parameters and the Topic scope id is lost |
+| Read | Each workflow page parses the key from `st.query_params` for captions and prerequisite checks |
+| Navigate | Every in-workflow `st.page_link` must pass `query_params` with that key. If `query_params` is omitted, Streamlit **clears** existing query parameters and the Topic scope key is lost |
 | Out of sidebar | Sidebar Home / Topic intake may clear the query string (Streamlit default). That is acceptable for starting a new Topic scope |
 
-Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_public_id`. Step specs link here; they must not restate the clear rule.
+Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_key`. Step specs link here; they must not restate the clear rule.
 
-Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL id alone does **not** resume a Topic scope after the session is gone.
+Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL key alone does **not** resume a Topic scope after the session is gone.
+
+Identifier naming (`id` vs `key`): [dev-practices.md](dev-practices.md#identifier-naming-id-vs-key).
 
 ### Topic intake switch to analysis
 
 ui-style normally uses a mutating Submit, then a **separate** `st.page_link` to the next page.
 
-**Exception (Topic intake only):** after a successful persist, Topic intake must `st.switch_page` to **Topic analysis** so analysis can auto-run. Set `topic_scope_public_id` on the destination URL (must not drop the query). Do not use `switch_page` after Topic analysis (that page uses a page_link to the Topic scope hub).
+**Exception (Topic intake only):** after a successful persist, Topic intake must `st.switch_page` to **Topic analysis** so analysis can auto-run. Set `topic_scope_key` on the destination URL (must not drop the query). Do not use `switch_page` after Topic analysis (that page uses a page_link to the Topic scope hub).
 
 ## Mapping to current workflow pages
 

@@ -245,7 +245,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list**; reload each `Paper` from the DB for `full_text_status` and display fields. |
 | `generate_paper_brief_enqueue_result` | `GeneratePaperBriefsEnqueueResult` | Optional cache that enqueue was submitted for this session. |
 
-**URL query:** Require `topic_scope_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). Not a brief identity key. In-workflow page links must pass that query param.
+**URL query:** Require `topic_scope_key` for display / navigation ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). Not a brief identity key. In-workflow page links must pass that query param.
 
 **Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 

@@ -22,24 +22,24 @@ from paper_reviewer.ui.new_topic_brief import (
 )
 
 
-def test_prerequisites_met_when_archiving_result_and_public_id_present() -> None:
+def test_prerequisites_met_when_archiving_result_and_topic_scope_key_present() -> None:
     state = {
         ARCHIVING_RESULT_KEY: PaperArchivingResult(papers=[], skipped=[], errors=[]),
     }
 
-    assert brief_prerequisites_met(state, public_id=uuid4()) is True
+    assert brief_prerequisites_met(state, topic_scope_key=uuid4()) is True
 
 
 def test_prerequisites_missing_without_archiving_result() -> None:
-    assert brief_prerequisites_met({}, public_id=uuid4()) is False
+    assert brief_prerequisites_met({}, topic_scope_key=uuid4()) is False
 
 
-def test_prerequisites_missing_without_public_id() -> None:
+def test_prerequisites_missing_without_topic_scope_key() -> None:
     state = {
         ARCHIVING_RESULT_KEY: PaperArchivingResult(papers=[], skipped=[], errors=[]),
     }
 
-    assert brief_prerequisites_met(state, public_id=None) is False
+    assert brief_prerequisites_met(state, topic_scope_key=None) is False
 
 
 def test_brief_progress_label_incomplete() -> None:

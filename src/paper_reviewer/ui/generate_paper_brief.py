@@ -32,7 +32,7 @@ from paper_reviewer.ui.fulfill_papers_metadata import (
     render_regenerate_button,
 )
 from paper_reviewer.ui.topic_scope_url import (
-    parse_topic_scope_public_id,
+    parse_topic_scope_key,
     workflow_page_link,
 )
 from paper_reviewer.ui.new_topic_brief import (
@@ -51,10 +51,10 @@ def _session_factory() -> sessionmaker[Session]:
 def brief_prerequisites_met(
     state: Mapping[str, Any],
     *,
-    public_id: UUID | None,
+    topic_scope_key: UUID | None,
 ) -> bool:
-    """Return True when archiving result is in session and generation id is in the URL."""
-    return state.get(ARCHIVING_RESULT_KEY) is not None and public_id is not None
+    """Return True when archiving result is in session and generation key is in the URL."""
+    return state.get(ARCHIVING_RESULT_KEY) is not None and topic_scope_key is not None
 
 
 def brief_progress_label(
@@ -96,7 +96,7 @@ def _render_progress(
     paper_ids: list[int],
     enqueue_result: GeneratePaperBriefsEnqueueResult,
     *,
-    public_id: UUID,
+    topic_scope_key: UUID,
 ) -> None:
     skipped_terminal = set(enqueue_result.skipped_already_terminal)
     any_eligible_in_progress = False
@@ -161,7 +161,7 @@ def _render_progress(
         workflow_page_link(
             "fulfill_papers_metadata",
             label="Go to Fulfill papers metadata",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
 
     for row in rows:
@@ -199,8 +199,8 @@ def render_generate_paper_brief() -> None:
     """Render the Generate paper brief progress page."""
     st.title("Generate paper brief")
 
-    public_id = parse_topic_scope_public_id(st.query_params)
-    if not brief_prerequisites_met(st.session_state, public_id=public_id):
+    topic_scope_key = parse_topic_scope_key(st.query_params)
+    if not brief_prerequisites_met(st.session_state, topic_scope_key=topic_scope_key):
         st.info(
             "Archive papers and fulfill metadata before generating paper briefs. "
             "Open New Topic brief to start a generation, then archive papers."
@@ -208,26 +208,26 @@ def render_generate_paper_brief() -> None:
         workflow_page_link(
             "new_topic_brief",
             label="Go to New Topic brief",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
             "paper_archiving",
             label="Go to Paper archiving",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
             "fulfill_papers_metadata",
             label="Go to Fulfill papers metadata",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )
         return
 
-    assert public_id is not None
+    assert topic_scope_key is not None
     archiving: PaperArchivingResult = st.session_state[ARCHIVING_RESULT_KEY]
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
     paper_ids = _paper_ids(archiving)
 
-    st.caption(f"Reference id: `{public_id}`")
+    st.caption(f"Reference id: `{topic_scope_key}`")
     if topic is not None:
         snippet = topic.text if len(topic.text) <= 200 else f"{topic.text[:197]}..."
         st.write(snippet)
@@ -264,4 +264,4 @@ def render_generate_paper_brief() -> None:
             return
         st.session_state[GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY] = enqueue_result
 
-    _render_progress(paper_ids, enqueue_result, public_id=public_id)
+    _render_progress(paper_ids, enqueue_result, topic_scope_key=topic_scope_key)

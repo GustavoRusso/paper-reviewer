@@ -28,8 +28,8 @@ from paper_reviewer.topic_brief_generation.topic_intake import (
     start_topic_brief_from_topic_intake,
 )
 from paper_reviewer.ui.topic_scope_url import (
-    parse_topic_scope_public_id,
-    set_topic_scope_public_id_in_url,
+    parse_topic_scope_key,
+    set_topic_scope_key_in_url,
     workflow_page_link,
 )
 
@@ -103,7 +103,7 @@ def render_new_topic_brief() -> None:
                 st.session_state,
                 topic_statement=topic_statement,
             )
-            set_topic_scope_public_id_in_url(generation.public_id)
+            set_topic_scope_key_in_url(generation.key)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)
@@ -125,14 +125,14 @@ def render_new_topic_brief() -> None:
                     st.session_state[SEARCH_KEY] = search_result
 
     accepted: TopicStatement | None = st.session_state.get(SESSION_KEY)
-    public_id = parse_topic_scope_public_id(st.query_params)
+    topic_scope_key = parse_topic_scope_key(st.query_params)
     analysis: TopicAnalysisResult | None = st.session_state.get(ANALYSIS_KEY)
     search_result: RelatedPaperSearchResult | None = st.session_state.get(SEARCH_KEY)
     if accepted is not None:
         st.subheader("Accepted topic statement")
         st.write(accepted.text)
-        if public_id is not None:
-            st.caption(f"Reference id: `{public_id}`")
+        if topic_scope_key is not None:
+            st.caption(f"Reference id: `{topic_scope_key}`")
     if analysis is not None:
         st.subheader("Topic analysis")
         for facet in analysis.facets:
@@ -151,5 +151,5 @@ def render_new_topic_brief() -> None:
         workflow_page_link(
             "retrieval_triage",
             label="Continue to Retrieval triage",
-            public_id=public_id,
+            topic_scope_key=topic_scope_key,
         )

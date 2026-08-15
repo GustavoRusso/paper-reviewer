@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.topic_brief_generation import (
     TopicBriefGeneration,
-    get_topic_brief_generation_by_public_id,
+    get_topic_brief_generation_by_key,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.topic_intake import (
@@ -41,7 +41,7 @@ def session() -> Iterator[Session]:
         engine.dispose()
 
 
-def test_start_topic_brief_from_topic_intake_persists_and_returns_public_id(
+def test_start_topic_brief_from_topic_intake_persists_and_returns_key(
     session: Session,
 ) -> None:
     topic_statement, generation = start_topic_brief_from_topic_intake(
@@ -52,10 +52,10 @@ def test_start_topic_brief_from_topic_intake_persists_and_returns_public_id(
     assert isinstance(topic_statement, TopicStatement)
     assert topic_statement.text == "GLP-1 agonists in heart failure"
     assert isinstance(generation, TopicBriefGeneration)
-    assert isinstance(generation.public_id, uuid.UUID)
+    assert isinstance(generation.key, uuid.UUID)
     assert generation.topic_statement == topic_statement.text
 
-    found = get_topic_brief_generation_by_public_id(session, generation.public_id)
+    found = get_topic_brief_generation_by_key(session, generation.key)
     assert found is not None
     assert found.id == generation.id
 

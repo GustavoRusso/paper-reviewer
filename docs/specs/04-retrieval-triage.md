@@ -68,7 +68,7 @@ Related-paper search runs on its own page (`paper_reviewer.ui.related_paper_sear
 | Input | Required | Description |
 | --- | --- | --- |
 | `search_result` | Yes | `RelatedPaperSearchResult` from [related-paper search](03-related-paper-search.md): `candidates`, `source_runs`, optional `notes`. |
-| `topic_scope_public_id` | Yes (UI) | Public id of the current `TopicScope` from the **URL query** ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)). Not an argument of the pure confirm function. |
+| `topic_scope_key` | Yes (UI) | Key of the current `TopicScope` from the **URL query** ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). Not an argument of the pure confirm function. |
 
 `PaperCandidate` shape is owned by [related-paper search](03-related-paper-search.md). This step does not redefine it.
 
@@ -132,7 +132,7 @@ Register in `paper_reviewer.ui.navigation`:
 ### Page behavior (v1)
 
 1. **Prerequisites** — Require:
-   - `topic_scope_public_id` in the **URL query** ([ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url))
+   - `topic_scope_key` in the **URL query** ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url))
    - `related_paper_search_result` in Streamlit session state from **Related-paper search**
    - If either is missing: show a message and page_links to **Topic intake**, **Topic scope**, and **Related-paper search**; do not render the confirm button. In-workflow links must preserve the query id when present.
 2. **Context header** — Show the Topic scope reference id (from the URL) and an optional topic statement snippet from session.
@@ -148,9 +148,9 @@ Register in `paper_reviewer.ui.navigation`:
 After related-paper search succeeds on the **Related-paper search** page (`paper_reviewer.ui.related_paper_search`):
 
 - Do not keep the full candidate list as the primary triage surface on the search page.
-- Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step (pass the Topic scope id in `query_params`; see [ui-style.md](../ui-style.md#topic-scope-public-id-in-the-url)).
+- Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step (pass the Topic scope id in `query_params`; see [ui-style.md](../ui-style.md#topic-scope-key-in-the-url)).
 
-Persistence for v1 is Streamlit session state for search / triage caches, plus the Topic scope public id in the URL. No triage DB tables.
+Persistence for v1 is Streamlit session state for search / triage caches, plus the Topic scope key in the URL. No triage DB tables.
 
 ## Orchestration boundary
 
