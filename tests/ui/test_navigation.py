@@ -7,8 +7,12 @@ from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import AppPage, build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
+from paper_reviewer.ui.paper_ingestion import render_paper_ingestion
+from paper_reviewer.ui.paper_search import render_paper_search
+from paper_reviewer.ui.related_paper_search import render_related_paper_search
 from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
 from paper_reviewer.ui.topic_analysis import render_topic_analysis
+from paper_reviewer.ui.topic_brief import render_topic_brief
 from paper_reviewer.ui.topic_intake import render_topic_intake
 from paper_reviewer.ui.topic_scope import render_topic_scope
 
@@ -57,6 +61,46 @@ def test_topic_scope_page_is_registered() -> None:
     assert pages["topic_scope"].in_sidebar is False
 
 
+def test_paper_ingestion_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "paper_ingestion" in pages
+    assert pages["paper_ingestion"].title == "Paper ingestion"
+    assert pages["paper_ingestion"].url_path == "paper-ingestion"
+    assert pages["paper_ingestion"].render is render_paper_ingestion
+    assert pages["paper_ingestion"].in_sidebar is False
+
+
+def test_paper_search_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "paper_search" in pages
+    assert pages["paper_search"].title == "Paper search"
+    assert pages["paper_search"].url_path == "paper-search"
+    assert pages["paper_search"].render is render_paper_search
+    assert pages["paper_search"].in_sidebar is False
+
+
+def test_topic_brief_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "topic_brief" in pages
+    assert pages["topic_brief"].title == "Topic brief"
+    assert pages["topic_brief"].url_path == "topic-brief"
+    assert pages["topic_brief"].render is render_topic_brief
+    assert pages["topic_brief"].in_sidebar is False
+
+
+def test_related_paper_search_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "related_paper_search" in pages
+    assert pages["related_paper_search"].title == "Related-paper search"
+    assert pages["related_paper_search"].url_path == "related-paper-search"
+    assert pages["related_paper_search"].render is render_related_paper_search
+    assert pages["related_paper_search"].in_sidebar is False
+
+
 def test_retrieval_triage_page_is_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
@@ -98,7 +142,11 @@ def test_workflow_page_order() -> None:
 
     assert keys.index("topic_intake") < keys.index("topic_analysis")
     assert keys.index("topic_analysis") < keys.index("topic_scope")
-    assert keys.index("topic_scope") < keys.index("retrieval_triage")
+    assert keys.index("topic_scope") < keys.index("paper_ingestion")
+    assert keys.index("paper_ingestion") < keys.index("paper_search")
+    assert keys.index("paper_search") < keys.index("topic_brief")
+    assert keys.index("paper_ingestion") < keys.index("related_paper_search")
+    assert keys.index("related_paper_search") < keys.index("retrieval_triage")
     assert keys.index("retrieval_triage") < keys.index("paper_archiving")
     assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
     assert keys.index("fulfill_papers_metadata") < keys.index("generate_paper_brief")
@@ -125,6 +173,10 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["topic_intake"].in_sidebar is True
     assert by_key["topic_analysis"].in_sidebar is False
     assert by_key["topic_scope"].in_sidebar is False
+    assert by_key["paper_ingestion"].in_sidebar is False
+    assert by_key["paper_search"].in_sidebar is False
+    assert by_key["topic_brief"].in_sidebar is False
+    assert by_key["related_paper_search"].in_sidebar is False
     assert by_key["retrieval_triage"].in_sidebar is False
     assert by_key["paper_archiving"].in_sidebar is False
     assert by_key["fulfill_papers_metadata"].in_sidebar is False

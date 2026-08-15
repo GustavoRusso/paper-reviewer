@@ -9,12 +9,12 @@ from paper_reviewer.db import create_db_engine, create_session_factory, session_
 from paper_reviewer.models.topic_brief_generation import get_topic_scope_by_key
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
-    TopicFacet,
 )
 from paper_reviewer.topic_brief_generation.topic_analysis import (
     load_topic_analysis_result,
     run_topic_analysis,
 )
+from paper_reviewer.ui.topic_facet_display import render_topic_facet
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -25,13 +25,6 @@ from paper_reviewer.ui.topic_scope_url import (
 def _session_factory() -> sessionmaker[Session]:
     """Shared SQLAlchemy session factory for the Streamlit process."""
     return create_session_factory(create_db_engine())
-
-
-def _render_facet(facet: TopicFacet) -> None:
-    st.write(f"**{facet.label}**")
-    if facet.intent:
-        st.caption(facet.intent)
-    st.write(", ".join(facet.concepts))
 
 
 def _render_missing_scope() -> None:
@@ -71,7 +64,7 @@ def render_topic_analysis() -> None:
 
     st.caption(f"Reference id: `{topic_scope_key}`")
     for facet in analysis.facets:
-        _render_facet(facet)
+        render_topic_facet(facet)
     workflow_page_link(
         "topic_scope",
         label="Continue to Topic scope",
