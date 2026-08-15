@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from uuid import uuid4
 
 from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     ArchiveError,
@@ -11,8 +12,8 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
-    RetrievalTriageResult,
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    RelatedPaperSearchResult,
 )
 from paper_reviewer.ui.paper_archiving import (
     archive_skip_reason_label,
@@ -20,19 +21,30 @@ from paper_reviewer.ui.paper_archiving import (
     format_archived_paper_caption,
     format_paper_archiving_summary,
 )
-from paper_reviewer.ui.topic_intake import TRIAGE_RESULT_KEY
+from paper_reviewer.ui.topic_intake import SEARCH_KEY, SEARCH_TOPIC_SCOPE_KEY
 
 
-def test_prerequisites_met_when_triage_result_present() -> None:
+def test_prerequisites_met_when_search_cache_matches() -> None:
+    topic_scope_key = uuid4()
     state = {
-        TRIAGE_RESULT_KEY: RetrievalTriageResult(retained=[], rejected=[]),
+        SEARCH_KEY: RelatedPaperSearchResult(candidates=[], source_runs=[]),
+        SEARCH_TOPIC_SCOPE_KEY: str(topic_scope_key),
     }
 
-    assert archiving_prerequisites_met(state) is True
+    assert archiving_prerequisites_met(state, topic_scope_key=topic_scope_key) is True
 
 
-def test_prerequisites_missing_without_triage_result() -> None:
-    assert archiving_prerequisites_met({}) is False
+def test_prerequisites_missing_without_search_result() -> None:
+    assert archiving_prerequisites_met({}, topic_scope_key=uuid4()) is False
+
+
+def test_prerequisites_missing_when_topic_scope_key_mismatches() -> None:
+    state = {
+        SEARCH_KEY: RelatedPaperSearchResult(candidates=[], source_runs=[]),
+        SEARCH_TOPIC_SCOPE_KEY: str(uuid4()),
+    }
+
+    assert archiving_prerequisites_met(state, topic_scope_key=uuid4()) is False
 
 
 def test_archive_skip_reason_labels() -> None:

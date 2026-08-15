@@ -10,7 +10,6 @@ from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.paper_ingestion import render_paper_ingestion
 from paper_reviewer.ui.paper_search import render_paper_search
 from paper_reviewer.ui.related_paper_search import render_related_paper_search
-from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
 from paper_reviewer.ui.topic_analysis import render_topic_analysis
 from paper_reviewer.ui.topic_brief import render_topic_brief
 from paper_reviewer.ui.topic_intake import render_topic_intake
@@ -101,13 +100,10 @@ def test_related_paper_search_page_is_registered() -> None:
     assert pages["related_paper_search"].in_sidebar is False
 
 
-def test_retrieval_triage_page_is_registered() -> None:
+def test_retrieval_triage_page_is_not_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "retrieval_triage" in pages
-    assert pages["retrieval_triage"].title == "Retrieval triage"
-    assert pages["retrieval_triage"].url_path == "retrieval-triage"
-    assert pages["retrieval_triage"].render is render_retrieval_triage
+    assert "retrieval_triage" not in pages
 
 
 def test_paper_archiving_page_is_registered() -> None:
@@ -146,8 +142,7 @@ def test_workflow_page_order() -> None:
     assert keys.index("paper_ingestion") < keys.index("paper_search")
     assert keys.index("paper_search") < keys.index("topic_brief")
     assert keys.index("paper_ingestion") < keys.index("related_paper_search")
-    assert keys.index("related_paper_search") < keys.index("retrieval_triage")
-    assert keys.index("retrieval_triage") < keys.index("paper_archiving")
+    assert keys.index("related_paper_search") < keys.index("paper_archiving")
     assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
     assert keys.index("fulfill_papers_metadata") < keys.index("generate_paper_brief")
 
@@ -177,7 +172,6 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["paper_search"].in_sidebar is False
     assert by_key["topic_brief"].in_sidebar is False
     assert by_key["related_paper_search"].in_sidebar is False
-    assert by_key["retrieval_triage"].in_sidebar is False
     assert by_key["paper_archiving"].in_sidebar is False
     assert by_key["fulfill_papers_metadata"].in_sidebar is False
     assert by_key["generate_paper_brief"].in_sidebar is False

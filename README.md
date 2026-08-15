@@ -23,7 +23,7 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Generate paper brief** — Ingest **step** that creates **paper briefs** for papers that have full text. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
 - **Paper indexing** — Planned ingest step that indexes an ingested paper so **Paper search** can find it in the local database. Details later.
 - **Paper search** — Phase that searches only papers already ingested in the local database.
-- **Retrieval triage** — After **Paper search**, you confirm which locally found papers continue to **Topic brief**. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
+- **Retrieval triage** — After **Paper search**, you confirm which locally found papers continue to **Topic brief**. Not built yet; belongs with Paper search.
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
 
@@ -60,7 +60,7 @@ Landing: [docs/specs/2-paper-ingestion.md](docs/specs/2-paper-ingestion.md).
 Landing: [docs/specs/3-paper-search.md](docs/specs/3-paper-search.md) (local search not built yet).
 
 - The assistant searches only papers already ingested in the local database.
-- **Retrieval triage** — Today this confirm gate still follows related-paper search on the Paper ingestion path. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md). After local Paper search exists, triage belongs with that phase.
+- **Retrieval triage** — After local Paper search exists, you confirm which papers continue to **Topic brief**. Not built yet.
 
 **Result:** a confirmed set of local papers for the topic brief, attached to the **Topic scope**.
 

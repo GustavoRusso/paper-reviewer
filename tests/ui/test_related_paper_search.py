@@ -10,7 +10,7 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
 )
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.related_paper_search import (
-    CONTINUE_TO_RETRIEVAL_TRIAGE_LABEL,
+    CONTINUE_TO_PAPER_ARCHIVING_LABEL,
     GO_TO_TOPIC_ANALYSIS_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
     MISSING_PREREQUISITES_MESSAGE,
@@ -25,7 +25,6 @@ from paper_reviewer.ui.topic_intake import (
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
     SEARCH_KEY,
     SEARCH_TOPIC_SCOPE_KEY,
-    TRIAGE_RESULT_KEY,
 )
 
 
@@ -89,7 +88,6 @@ def test_clear_downstream_ingest_caches_pops_later_step_keys() -> None:
     state = {
         SEARCH_KEY: RelatedPaperSearchResult(candidates=[], source_runs=[]),
         SEARCH_TOPIC_SCOPE_KEY: str(uuid4()),
-        TRIAGE_RESULT_KEY: object(),
         ARCHIVING_RESULT_KEY: object(),
         FULFILL_ENQUEUE_RESULT_KEY: object(),
         GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY: object(),
@@ -99,7 +97,6 @@ def test_clear_downstream_ingest_caches_pops_later_step_keys() -> None:
 
     assert SEARCH_KEY in state
     assert SEARCH_TOPIC_SCOPE_KEY in state
-    assert TRIAGE_RESULT_KEY not in state
     assert ARCHIVING_RESULT_KEY not in state
     assert FULFILL_ENQUEUE_RESULT_KEY not in state
     assert GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY not in state
@@ -123,8 +120,9 @@ def test_guard_and_exit_link_targets() -> None:
 
     assert "topic_analysis" in source
     assert "topic_scope" in source
-    assert "retrieval_triage" in source
+    assert "paper_archiving" in source
+    assert "retrieval_triage" not in source
     assert GO_TO_TOPIC_ANALYSIS_LABEL == "Go to Topic analysis"
     assert GO_TO_TOPIC_SCOPE_LABEL == "Go to Topic scope"
-    assert CONTINUE_TO_RETRIEVAL_TRIAGE_LABEL == "Continue to Retrieval triage"
+    assert CONTINUE_TO_PAPER_ARCHIVING_LABEL == "Continue to Paper archiving"
     assert "Topic analysis" in MISSING_PREREQUISITES_MESSAGE

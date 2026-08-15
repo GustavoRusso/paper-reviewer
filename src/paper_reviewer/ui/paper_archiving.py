@@ -1,4 +1,4 @@
-"""Paper archiving Streamlit page (create-or-reuse Paper from triage retained)."""
+"""Paper archiving Streamlit page (create-or-reuse Paper from search candidates)."""
 
 from __future__ import annotations
 
@@ -15,12 +15,13 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
-    RetrievalTriageResult,
+from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+    RelatedPaperSearchResult,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
+from paper_reviewer.ui.related_paper_search import search_cache_matches
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -29,8 +30,8 @@ from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
+    SEARCH_KEY,
     SESSION_KEY,
-    TRIAGE_RESULT_KEY,
 )
 
 _SKIP_REASON_LABELS: dict[ArchiveSkipReason, str] = {
@@ -46,9 +47,13 @@ def _session_factory() -> sessionmaker[Session]:
     return create_session_factory(create_db_engine())
 
 
-def archiving_prerequisites_met(state: Mapping[str, Any]) -> bool:
-    """Return True when a confirmed retrieval triage result is in session state."""
-    return state.get(TRIAGE_RESULT_KEY) is not None
+def archiving_prerequisites_met(
+    state: Mapping[str, Any],
+    *,
+    topic_scope_key: UUID | None,
+) -> bool:
+    """Return True when related-paper search cache matches the URL Topic scope."""
+    return search_cache_matches(state, topic_scope_key=topic_scope_key)
 
 
 def archive_skip_reason_label(reason: ArchiveSkipReason) -> str:
@@ -167,10 +172,13 @@ def render_paper_archiving() -> None:
     )
     st.title("Paper archiving")
 
-    if not archiving_prerequisites_met(st.session_state):
+    if not archiving_prerequisites_met(
+        st.session_state,
+        topic_scope_key=topic_scope_key,
+    ):
         st.info(
-            "Confirm candidates on Retrieval triage before paper archiving. "
-            "Open Topic intake to start a Topic scope, then confirm triage."
+            "Run related-paper search before paper archiving. "
+            "Open Topic intake to start a Topic scope, then search paper sources."
         )
         workflow_page_link(
             "topic_intake",
@@ -178,14 +186,19 @@ def render_paper_archiving() -> None:
             topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
-            "retrieval_triage",
-            label="Go to Retrieval triage",
+            "topic_scope",
+            label="Go to Topic scope",
+            topic_scope_key=topic_scope_key,
+        )
+        workflow_page_link(
+            "related_paper_search",
+            label="Go to Related-paper search",
             topic_scope_key=topic_scope_key,
         )
         return
 
-    triage_result: RetrievalTriageResult = st.session_state[TRIAGE_RESULT_KEY]
-    retained = triage_result.retained
+    search_result: RelatedPaperSearchResult = st.session_state[SEARCH_KEY]
+    candidates = search_result.candidates
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
 
     if topic_scope_key is not None:
@@ -196,15 +209,19 @@ def render_paper_archiving() -> None:
 
     cached: PaperArchivingResult | None = st.session_state.get(ARCHIVING_RESULT_KEY)
     if cached is not None:
-        _render_result(cached, input_count=len(retained), topic_scope_key=topic_scope_key)
+        _render_result(
+            cached,
+            input_count=len(candidates),
+            topic_scope_key=topic_scope_key,
+        )
         return
 
     try:
         with st.spinner("Archiving papers…"):
             with session_scope(_session_factory()) as session:
-                archiving_result = archive_papers(session, retained)
+                archiving_result = archive_papers(session, candidates)
     except Exception:
-        st.error("Paper archiving failed. Try again from Retrieval triage.")
+        st.error("Paper archiving failed. Try again from Related-paper search.")
         return
 
     st.session_state[ARCHIVING_RESULT_KEY] = archiving_result
@@ -212,6 +229,6 @@ def render_paper_archiving() -> None:
     st.session_state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
     _render_result(
         archiving_result,
-        input_count=len(retained),
+        input_count=len(candidates),
         topic_scope_key=topic_scope_key,
     )

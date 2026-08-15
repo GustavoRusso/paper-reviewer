@@ -26,7 +26,6 @@ CONTINUE_TO_RELATED_PAPER_SEARCH_LABEL = "Continue to Related-paper search"
 CURRENT_STEP_BADGE = "Current"
 PAPER_INGESTION_STEPS: tuple[tuple[str, str], ...] = (
     ("related_paper_search", "Related-paper search"),
-    ("retrieval_triage", "Retrieval triage"),
     ("paper_archiving", "Paper archiving"),
     ("fulfill_papers_metadata", "Fulfill papers metadata"),
     ("generate_paper_brief", "Generate paper brief"),

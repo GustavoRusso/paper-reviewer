@@ -48,7 +48,7 @@ Call `render_paper_ingestion_header` on the landing after the page title when a 
 | Landing | No step is current. The stepper still lists every ingest step so the user can open a later page without finishing earlier ones. Those pages keep their own prerequisite guards. |
 | Missing key | Landing empty state only. Do not render the header. |
 
-v1 stepper steps (Paper indexing later): Related-paper search, Retrieval triage, Paper archiving, Fulfill papers metadata, Generate paper brief.
+v1 stepper steps (Paper indexing later): Related-paper search, Paper archiving, Fulfill papers metadata, Generate paper brief.
 
 Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 
@@ -65,10 +65,9 @@ Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). Fir
 | Step | Spec |
 | --- | --- |
 | Related-paper search (2.1) | [2.1-related-paper-search.md](2.1-related-paper-search.md) |
-| Retrieval triage | [04-retrieval-triage.md](04-retrieval-triage.md) |
 | Paper archiving | [05-paper-archiving.md](05-paper-archiving.md) |
 | Fulfill papers metadata | [06-fulfill-papers-metadata.md](06-fulfill-papers-metadata.md) |
 | Generate paper brief | [07-generate-paper-brief.md](07-generate-paper-brief.md) |
 | Paper indexing | Later |
 
-Retrieval triage today still follows related-paper search inside this ingest chain. Local Paper search as a separate phase is [3-paper-search.md](3-paper-search.md).
+Local Paper search as a separate phase is [3-paper-search.md](3-paper-search.md).

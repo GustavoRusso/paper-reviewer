@@ -22,7 +22,7 @@ This document is the specification for the **Paper search** phase landing in [RE
 ### Out of scope (v1)
 
 - Querying the local paper index.
-- Wiring [Retrieval triage](04-retrieval-triage.md) as the Paper search confirm gate (today’s triage still follows related-paper search inside Paper ingestion).
+- A confirm gate for which local papers continue to Topic brief (planned with this phase; not built yet).
 - Confirmed-paper attachment tables on `TopicScope`.
 
 ## Streamlit UI (v1)
@@ -40,6 +40,6 @@ Module: `paper_reviewer.ui.paper_search` with `render_paper_search()`.
 
 1. Require `topic_scope_key`. Missing key → empty state + page_link to **Topic intake** and **Topic scope**.
 2. Show title **Paper search** and a caption that search of locally ingested papers is not built yet.
-3. Page_link to **Topic scope**. Do not link to Retrieval triage from this shell.
+3. Page_link to **Topic scope**.
 
 Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub).

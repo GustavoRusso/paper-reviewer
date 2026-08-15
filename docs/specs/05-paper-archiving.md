@@ -24,7 +24,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ### In scope (current v1)
 
-- Accept a `list[PaperCandidate]` from [Retrieval triage](04-retrieval-triage.md) (`RetrievalTriageResult.retained`). An empty list is a no-op success.
+- Accept a `list[PaperCandidate]` from [related-paper search](2.1-related-paper-search.md) (`RelatedPaperSearchResult.candidates`). An empty list is a no-op success.
 - Map each candidate to `Paper` field values (bibliographic + identity only).
 - Require a non-blank DOI; store and compare DOIs in **uppercase** (ISO 26324: DOIs are case-insensitive).
 - Look up existence by exact `(source_id, source_uid)` only (not by DOI).
@@ -32,16 +32,15 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - Optionally update the stored DOI when the same source handle brings a new free DOI (rules below).
 - Dedicated Streamlit page for this step that displays `PaperArchivingResult` after a successful run.
 - Auto-run archiving on first page visit when prerequisites exist (no manual “Archive papers” button in v1).
-- Session-state handoff from the prior step; database commit owned by the UI (caller commits per the public API rule).
+- Session-state handoff from related-paper search; database commit owned by the UI (caller commits per the public API rule).
 
 ### Out of scope
 
-- Retrieval triage UI or confirm gate (step 4; see [Retrieval triage](04-retrieval-triage.md)).
 - Full-record fetch (e.g. PubMed EFetch) or abstract payloads.
 - Building or storing **paper briefs** (result artifacts of [Generate paper brief](07-generate-paper-brief.md)).
 - Linking a `Paper` to a `TopicScope` (no FK / join table in v1).
 - Updating non-DOI bibliographic fields (title, authors, journal, year, url, `source_id`, `source_uid`) on reuse.
-- Storing triage-only candidate fields (`snippet`, `facet_id`, `raw_payload_ref`) on `Paper`.
+- Storing search-only candidate fields (`snippet`, `facet_id`, `raw_payload_ref`) on `Paper`.
 - DOI format validation beyond non-blank after strip (any non-blank string is accepted).
 - A re-run / “Archive again” control on the archiving page (deferred; v1 caches the first result in session).
 
@@ -50,24 +49,21 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 ```mermaid
 flowchart TB
   search[2.1 Related-paper search]
-  triage[Retrieval triage]
   archive[Paper archiving]
   fulfill[Fulfill papers metadata]
   briefs[Generate paper brief]
   topic[Topic brief]
-  search --> triage
-  triage --> archive
+  search -->|"candidates"| archive
   archive --> fulfill
   fulfill --> briefs
   briefs --> topic
 ```
 
-1. **Related-paper search (2.1)** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec).
-2. **Retrieval triage** presents those candidates and, after user confirm, yields `RetrievalTriageResult.retained` (v1 retains every search candidate; see [Retrieval triage](04-retrieval-triage.md)). If `retained` is empty, the orchestrator **skips** this step (or calls it and receives an empty success result).
-3. **Paper archiving** (this specification) creates or reuses `Paper` records from `retained`. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
-4. **Fulfill papers metadata** fills source record then full text on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
-5. **Generate paper brief** builds a global **paper brief** for papers with full text `succeeded` — see [Generate paper brief](07-generate-paper-brief.md).
-6. **Topic brief** uses those briefs.
+1. **Related-paper search (2.1)** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec). If `candidates` is empty, this step still runs and returns an empty success result.
+2. **Paper archiving** (this specification) creates or reuses `Paper` records from every search candidate. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
+3. **Fulfill papers metadata** fills source record then full text on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+4. **Generate paper brief** builds a global **paper brief** for papers with full text `succeeded` — see [Generate paper brief](07-generate-paper-brief.md).
+5. **Topic brief** uses those briefs.
 
 ## Public API
 
@@ -80,7 +76,7 @@ archive_papers(session, candidates) -> PaperArchivingResult
 | Argument | Type | Role |
 | --- | --- | --- |
 | `session` | SQLAlchemy `Session` | Persistence. **Caller owns commit.** |
-| `candidates` | `list[PaperCandidate]` | Retained set from [Retrieval triage](04-retrieval-triage.md) (may be empty). |
+| `candidates` | `list[PaperCandidate]` | Search candidates from [related-paper search](2.1-related-paper-search.md) (may be empty). |
 
 | Rule | Behavior |
 | --- | --- |
@@ -123,7 +119,7 @@ Durable `Paper` contract for v1 (Pydantic **read** model and ORM columns). The r
 
 | Candidate field | Reason |
 | --- | --- |
-| `snippet` | Triage/search summary only. |
+| `snippet` | Search summary only. |
 | `facet_id` | Search provenance for one generation; not paper identity. |
 | `raw_payload_ref` | Optional audit pointer; not part of the bibliographic record. |
 
@@ -211,11 +207,11 @@ Skip/error item shape: include enough identity to debug (`source_id`, `source_ui
 
 | Case | Expected UI |
 | --- | --- |
-| No `retrieval_triage_result` in session | Empty state + links to **Topic intake**, **Topic scope**, and **Retrieval triage**. |
+| No matching `related_paper_search_result` in session | Empty state + links to **Topic intake**, **Topic scope**, and **Related-paper search**. |
 | Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
 | `paper_archiving_result` already in session | Show cached result only; do not re-run. |
-| Topic intake Submit | Wipe the entire UI session, then write the new Topic scope identity ([Fulfill papers metadata](06-fulfill-papers-metadata.md) cascade). After a new search and triage confirm, the archiving page can run again. |
-| Triage confirmed again | Triage clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `retained` set. |
+| Topic intake Submit | Wipe the entire UI session, then write the new Topic scope identity ([Fulfill papers metadata](06-fulfill-papers-metadata.md) cascade). After a new search, the archiving page can run again. |
+| Related-paper search re-runs | Search clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `candidates` set. |
 | Empty input list | Empty success result; caption “No candidates to archive”. |
 | All candidates skipped | Summary shows 0 archived; skipped section populated. |
 | Mix of success / skip / error | Summary counts and all three result sections reflect the lists. |
@@ -242,7 +238,8 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 | Key | Type | Role |
 | --- | --- | --- |
-| `retrieval_triage_result` | `RetrievalTriageResult` | Required prerequisite. Candidates = `retained`. |
+| `related_paper_search_result` | `RelatedPaperSearchResult` | Required prerequisite (with matching Topic scope key). Candidates = `candidates`. |
+| `related_paper_search_topic_scope_key` | UUID string | Must match the URL `topic_scope_key` before reuse. |
 | `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 
@@ -250,22 +247,22 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 **Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Topic scopes must not reuse another workflow’s session state.
 
-**Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `retained` set (triage owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
+**Invalidate on related-paper search re-run:** When related-paper search runs again (cache miss or Topic scope key mismatch), clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `candidates` set (search owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
 
 Does **not** delete durable global `Paper` rows.
 
-**Candidate source rule:** Use `retrieval_triage_result.retained` only. Do not fall back to `related_paper_search_result.candidates`. Domain input remains a `list[PaperCandidate]`.
+**Candidate source rule:** Use `related_paper_search_result.candidates` only when `related_paper_search_topic_scope_key` matches the URL key. Domain input remains a `list[PaperCandidate]`.
 
 ### Auto-run behavior (first visit)
 
-1. If `retrieval_triage_result` is missing → show empty state: explain that Retrieval triage must confirm first; `st.page_link` to **Topic intake**, **Topic scope**, and **Retrieval triage** (preserve the Topic scope id in `query_params` when present).
-2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(retrieval_triage_result.retained)`.
+1. If the search cache does not match the URL `topic_scope_key` → show empty state: explain that Related-paper search must run first; `st.page_link` to **Topic intake**, **Topic scope**, and **Related-paper search** (preserve the Topic scope id in `query_params` when present).
+2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(related_paper_search_result.candidates)`.
 3. If prerequisites exist and there is no cached result → run inside `session_scope` with a spinner:
-   - `archive_papers(session, retrieval_triage_result.retained)`
+   - `archive_papers(session, related_paper_search_result.candidates)`
    - `session.commit()` on success (UI is the caller that owns commit; `session_scope` commits on exit)
    - store the result in `paper_archiving_result`
 4. On unexpected failure (session unusable or commit failure) → show an error; do **not** store a partial result.
-5. Empty `retained` → still treat as success: store/display empty `PaperArchivingResult` (`papers=[]`, `skipped=[]`, `errors=[]`) with an explanatory caption. Prefer calling `archive_papers` (no-op) rather than inventing a parallel empty path.
+5. Empty `candidates` → still treat as success: store/display empty `PaperArchivingResult` (`papers=[]`, `skipped=[]`, `errors=[]`) with an explanatory caption. Prefer calling `archive_papers` (no-op) rather than inventing a parallel empty path.
 
 Do **not** add a re-run button in v1.
 
@@ -275,7 +272,7 @@ When a `PaperArchivingResult` is available (cached or just produced), render sec
 
 ### Summary (always when result exists)
 
-- Input candidate count: `len(retrieval_triage_result.retained)` from session (the same list used for the run).
+- Input candidate count: `len(related_paper_search_result.candidates)` from session (the same list used for the run).
 - Counts: archived (`len(papers)`), skipped (`len(skipped)`), errors (`len(errors)`).
 - Topic scope reference id when the URL query id is present.
 
@@ -308,17 +305,17 @@ When all three lists are empty after empty input, show a neutral success caption
 
 ## Workflow navigation
 
-- **Entry:** After the user confirms on **Retrieval triage**, link to Paper archiving with `retrieval_triage_result` in session. **Related-paper search** links to Retrieval triage only (not directly to Paper archiving). The [Paper ingestion](2-paper-ingestion.md) landing may also link here; this page still requires a triage result.
-- **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and Topic scope id in session (that page lands with step 6).
-- **Input:** The archiving page consumes `RetrievalTriageResult.retained` only, not the raw search list.
+- **Entry:** After related-paper search succeeds, link to Paper archiving with `related_paper_search_result` in session. The [Paper ingestion](2-paper-ingestion.md) landing may also link here; this page still requires a matching search cache.
+- **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and Topic scope id in session.
+- **Input:** The archiving page consumes `RelatedPaperSearchResult.candidates` only.
 
 ## Orchestration boundary
 
 | Responsibility | Owner |
 | --- | --- |
 | Map candidates → create-or-reuse / skip `Paper` | `paper_reviewer.topic_brief_generation.paper_archiving` (`archive_papers`) |
-| Drop no-DOI hits before triage; candidate shape and search merge | [related-paper search](2.1-related-paper-search.md) |
-| User review + confirm; produce `retained` | [Retrieval triage](04-retrieval-triage.md) |
+| Drop no-DOI hits; candidate shape and search merge | [related-paper search](2.1-related-paper-search.md) |
+| Produce `candidates` for this step | [related-paper search](2.1-related-paper-search.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
 | PubMed EFetch / full text (PMC Cloud) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
 | Paper brief drafting | [Generate paper brief](07-generate-paper-brief.md) |
@@ -355,7 +352,6 @@ Do not do this work in the Paper archiving v1 slice:
 - Call EFetch or any full-record API.
 - Create `PaperBrief` rows or content.
 - Add a Topic-scope↔paper association table.
-- Implement Retrieval triage UI or confirm logic (see [Retrieval triage](04-retrieval-triage.md)).
 - Update title, authors, journal, year, or url on reuse (DOI update only, per rules above).
 - Add a re-run / “Archive again” control (first-visit cache only).
 - Show create vs reuse vs DOI-update labels per paper (no outcome enum on the result yet).

@@ -222,7 +222,7 @@ Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC
 | Case | Expected |
 | --- | --- |
 | Zero ESearch hits | No candidates for that facet from PubMed |
-| Missing DOI on DocSum | Mapper may emit `doi` null; [related-paper search](../2.1-related-paper-search.md) **drops** that hit at merge so it never reaches triage or [Paper archiving](../05-paper-archiving.md) |
+| Missing DOI on DocSum | Mapper may emit `doi` null; [related-paper search](../2.1-related-paper-search.md) **drops** that hit at merge so it never reaches [Paper archiving](../05-paper-archiving.md) |
 | Rate limit / HTTP error | Surface error to workflow `source_runs`; workflow fail-soft applies |
 
 ## Fixture example

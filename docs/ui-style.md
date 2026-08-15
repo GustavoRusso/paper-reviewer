@@ -29,7 +29,7 @@ Industry practice this follows: links navigate; buttons act; one look per intent
 | Do | Do not |
 | --- | --- |
 | Use `st.page_link` for “Continue to …”, “Go to …” | Use `st.button` only to change pages |
-| Use a primary button to confirm triage, submit a form, enqueue work | Use `st.page_link` to confirm, save, or enqueue |
+| Use a primary button to submit a form, enqueue work, or confirm a selection | Use `st.page_link` to confirm, save, or enqueue |
 | Keep one primary commit control per page section | Place two primary buttons side by side for competing commits |
 | After a successful confirm, show a **separate** `st.page_link` to the next page | Combine “confirm + navigate” into one control when confirm must mutate first |
 
@@ -96,7 +96,7 @@ Workflow pages carry the current `TopicScope` key in a **URL query parameter**, 
 
 Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_key`. Use `workflow_page_link` and `workflow_switch_page` so navigation always passes `query_params`. Step specs link here; they must not restate the clear rule.
 
-Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL key alone does **not** resume a Topic scope after the session is gone.
+Session caches (`topic_statement`, search / archiving results, enqueue caches) stay in `st.session_state`. The URL key alone does **not** resume a Topic scope after the session is gone.
 
 Identifier naming (`id` vs `key`): [dev-practices.md](dev-practices.md#identifier-naming-id-vs-key).
 
@@ -119,9 +119,7 @@ Illustrative only; step specs remain the behavior contract.
 | Topic scope hub → Paper ingestion / Paper search / Topic brief | Navigate | `st.page_link` |
 | Paper ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
 | Paper ingestion → Related-paper search | Navigate | `st.page_link` |
-| Related-paper search → Retrieval triage | Navigate | `st.page_link` |
-| Triage confirm retained set | Confirm / primary | `st.button(..., type="primary")` with a **confirm** label |
-| After confirm → Paper archiving | Navigate | `st.page_link` |
+| Related-paper search → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
 | Per-paper Regenerate (Fulfill papers metadata / Generate paper brief) | Default | `st.button("Regenerate", type="secondary")` |

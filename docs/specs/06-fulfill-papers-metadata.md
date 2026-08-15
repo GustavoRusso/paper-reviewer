@@ -505,7 +505,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
 | Topic intake Submit (new `TopicScope`) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_scope_key` in the **URL query**. Topic intake then **switches** to Topic analysis ([Topic intake](1.1-topic-intake.md)). Do not clear on validation or persist failure. |
-| Re-confirm Retrieval triage | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
+| Re-run related-paper search | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |
 
 Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. Topic intake Submit is stronger: it wipes the whole session so no leftover key from a previous run can survive. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
@@ -541,7 +541,7 @@ Map each aspect independently:
 ## Workflow navigation
 
 - **Entry:** After Paper archiving shows a result, link to **Fulfill papers metadata** with `paper_archiving_result` and Topic scope id in session.
-- **Input:** Consume `PaperArchivingResult.papers` only (not raw triage candidates).
+- **Input:** Consume `PaperArchivingResult.papers` only (not raw search candidates).
 - **Exit:** When both aspects are terminal for the set, link to [Generate paper brief](07-generate-paper-brief.md).
 
 ## Orchestration boundary

@@ -22,7 +22,6 @@ from paper_reviewer.ui.paper_ingestion import (
     render_paper_ingestion_header,
 )
 from paper_reviewer.ui.related_paper_search import render_related_paper_search
-from paper_reviewer.ui.retrieval_triage import render_retrieval_triage
 
 
 def test_render_paper_ingestion_is_public() -> None:
@@ -64,7 +63,6 @@ def test_intro_and_primary_link_target_related_paper_search() -> None:
 def test_paper_ingestion_steps_are_the_ingest_chain() -> None:
     assert PAPER_INGESTION_STEPS == (
         ("related_paper_search", "Related-paper search"),
-        ("retrieval_triage", "Retrieval triage"),
         ("paper_archiving", "Paper archiving"),
         ("fulfill_papers_metadata", "Fulfill papers metadata"),
         ("generate_paper_brief", "Generate paper brief"),
@@ -77,7 +75,7 @@ def test_landing_marks_no_step_current() -> None:
     assert [item.page_key for item in items] == [
         key for key, _label in PAPER_INGESTION_STEPS
     ]
-    assert [item.step_number for item in items] == [1, 2, 3, 4, 5]
+    assert [item.step_number for item in items] == [1, 2, 3, 4]
     assert all(item.is_current is False for item in items)
 
 
@@ -88,7 +86,7 @@ def test_stepper_marks_only_the_current_step() -> None:
     assert len(current) == 1
     assert current[0].page_key == "paper_archiving"
     assert current[0].label == "Paper archiving"
-    assert current[0].step_number == 3
+    assert current[0].step_number == 2
 
 
 def test_unknown_page_marks_no_step_current() -> None:
@@ -105,7 +103,6 @@ def test_ingest_pages_render_the_phase_header() -> None:
     renders = (
         render_paper_ingestion,
         render_related_paper_search,
-        render_retrieval_triage,
         render_paper_archiving,
         render_fulfill_papers_metadata,
         render_generate_paper_brief,

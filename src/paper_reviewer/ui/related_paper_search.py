@@ -33,7 +33,6 @@ from paper_reviewer.ui.topic_intake import (
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
     SEARCH_KEY,
     SEARCH_TOPIC_SCOPE_KEY,
-    TRIAGE_RESULT_KEY,
 )
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
@@ -46,7 +45,7 @@ MISSING_PREREQUISITES_MESSAGE = (
 )
 GO_TO_TOPIC_ANALYSIS_LABEL = "Go to Topic analysis"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
-CONTINUE_TO_RETRIEVAL_TRIAGE_LABEL = "Continue to Retrieval triage"
+CONTINUE_TO_PAPER_ARCHIVING_LABEL = "Continue to Paper archiving"
 
 
 @st.cache_resource
@@ -71,7 +70,6 @@ def search_cache_matches(
 
 def clear_downstream_ingest_caches(state: MutableMapping[str, Any]) -> None:
     """Clear session caches for steps after related-paper search."""
-    state.pop(TRIAGE_RESULT_KEY, None)
     state.pop(ARCHIVING_RESULT_KEY, None)
     state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
     state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
@@ -115,7 +113,7 @@ def _render_result(result: RelatedPaperSearchResult) -> None:
 
     count = len(result.candidates)
     st.subheader("Candidates")
-    st.caption(f"{count} paper candidate(s) ready for triage.")
+    st.caption(f"{count} paper candidate(s) ready for paper archiving.")
 
 
 def render_related_paper_search() -> None:
@@ -153,8 +151,8 @@ def render_related_paper_search() -> None:
         result: RelatedPaperSearchResult = st.session_state[SEARCH_KEY]
         _render_result(result)
         workflow_page_link(
-            "retrieval_triage",
-            label=CONTINUE_TO_RETRIEVAL_TRIAGE_LABEL,
+            "paper_archiving",
+            label=CONTINUE_TO_PAPER_ARCHIVING_LABEL,
             topic_scope_key=topic_scope_key,
         )
         return
@@ -174,7 +172,7 @@ def render_related_paper_search() -> None:
     st.session_state[SEARCH_TOPIC_SCOPE_KEY] = str(topic_scope_key)
     _render_result(result)
     workflow_page_link(
-        "retrieval_triage",
-        label=CONTINUE_TO_RETRIEVAL_TRIAGE_LABEL,
+        "paper_archiving",
+        label=CONTINUE_TO_PAPER_ARCHIVING_LABEL,
         topic_scope_key=topic_scope_key,
     )

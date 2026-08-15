@@ -251,7 +251,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 **Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
-**Invalidate when an upstream step re-runs:** When triage re-confirms, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
+**Invalidate when an upstream step re-runs:** When related-paper search re-runs, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
 
 Does **not** by itself delete durable global `Paper` or `PaperBrief` rows.
 
