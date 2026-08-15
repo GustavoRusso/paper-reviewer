@@ -36,7 +36,7 @@ def build_app_pages() -> list[AppPage]:
     from paper_reviewer.ui.paper_archiving import render_paper_archiving
     from paper_reviewer.ui.paper_ingestion import render_paper_ingestion
     from paper_reviewer.ui.paper_search import render_paper_search
-    from paper_reviewer.ui.related_paper_search import render_related_paper_search
+    from paper_reviewer.ui.search_external_sources import render_search_external_sources
     from paper_reviewer.ui.topic_analysis import render_topic_analysis
     from paper_reviewer.ui.topic_brief import render_topic_brief
     from paper_reviewer.ui.topic_intake import render_topic_intake
@@ -88,10 +88,10 @@ def build_app_pages() -> list[AppPage]:
             url_path="topic-brief",
         ),
         AppPage(
-            key="related_paper_search",
-            title="Related-paper search",
-            render=render_related_paper_search,
-            url_path="related-paper-search",
+            key="search_external_sources",
+            title="Search external sources",
+            render=render_search_external_sources,
+            url_path="search-external-sources",
         ),
         AppPage(
             key="paper_archiving",

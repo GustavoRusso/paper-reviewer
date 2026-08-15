@@ -18,7 +18,7 @@ from paper_reviewer.models.paper import (
 from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     ArchiveSkipReason,
 )
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
 )
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers

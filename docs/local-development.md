@@ -88,11 +88,11 @@ Use the sandbox (not host `pytest` / `uv`). Recipes start the sandbox workspace 
 
 ```bash
 just test
-just test tests/topic_brief_generation/related_paper_search -q
+just test tests/topic_brief_generation/search_external_sources -q
 just test tests/schemas/topic_brief_generation/test_topic_intake.py -q
 ```
 
-`just test` runs `uv run pytest` inside the sandbox `workspace` container. Pass optional path or pytest args after the recipe name. Equivalent ad-hoc form: `just sandbox-run "uv run pytest tests/topic_brief_generation/related_paper_search -q"`. Spec workflow: [tdd.md](tdd.md).
+`just test` runs `uv run pytest` inside the sandbox `workspace` container. Pass optional path or pytest args after the recipe name. Equivalent ad-hoc form: `just sandbox-run "uv run pytest tests/topic_brief_generation/search_external_sources -q"`. Spec workflow: [tdd.md](tdd.md).
 
 The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect runs with the app profile (`just up`), not the sandbox. Seeding and `just reset` will be added later.
 

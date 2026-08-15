@@ -1,8 +1,8 @@
-# Paper source: PubMed
+# External source: PubMed
 
-Search criteria and API mapping for the **PubMed** paper source (`source_id = pubmed`).
+Search criteria and API mapping for the **PubMed** external source (`source_id = pubmed`).
 
-Used by the [Related-paper search](../2.1-related-paper-search.md) workflow. This document does **not** define that workflow — only how generic search criteria become PubMed queries and how PubMed hits become `PaperCandidate` records.
+Used by the [Search external sources](../2.1-search-external-sources.md) workflow. This document does **not** define that workflow — only how generic search criteria become PubMed queries and how PubMed hits become `PaperCandidate` records.
 
 Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
@@ -10,12 +10,12 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 | In scope | Out of scope |
 | --- | --- |
-| Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple paper sources |
+| Mapping generic `SearchCriteria` facets to PubMed/Entrez queries | Orchestrating multiple external sources |
 | ESearch + ESummary against `db=pubmed` | Creating durable `Paper` rows ([Paper archiving](../05-paper-archiving.md)) |
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
 | EFetch request shape and XML → `Paper` field mapping for the source-record flow (owned with [Fulfill papers metadata](../06-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata (except PMCID for Cloud enrichment) |
 | PMC Cloud enrichment for the full-text flow (highest version `.txt`, HTTPS PDF URL, OA flag) | Storing PDF/XML bytes; Unpaywall; legacy PMC FTP / OA Web Service; LLM `PaperBrief` drafting ([Generate paper brief](../07-generate-paper-brief.md)) |
-| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by related-paper search / `paper_reviewer.topic_brief_generation.related_paper_search`) |
+| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by search external sources / `paper_reviewer.topic_brief_generation.search_external_sources`) |
 
 ## Source identity
 
@@ -103,7 +103,7 @@ This document owns PubMed/NCBI operational detail (README links here).
 
 ## DocSum → `PaperCandidate`
 
-Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-paper search](../2.1-related-paper-search.md). Do not invent extra candidate fields here.
+Maps DocSum fields onto the shared `PaperCandidate` contract owned by [search external sources](../2.1-search-external-sources.md). Do not invent extra candidate fields here.
 
 | `PaperCandidate` field | PubMed source |
 | --- | --- |
@@ -122,9 +122,9 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [related-p
 
 [Paper archiving](../05-paper-archiving.md) maps candidate bibliographic fields into a durable `Paper` without calling EFetch.
 
-Archived papers receive a source record and then full text later (**Fulfill papers metadata**) using EFetch (`inform_source_record`) and PMC Cloud (`inform_full_text`). Cross-source identity / Paper public id remains the DOI (required for candidates that survive related-paper search merge).
+Archived papers receive a source record and then full text later (**Fulfill papers metadata**) using EFetch (`inform_source_record`) and PMC Cloud (`inform_full_text`). Cross-source identity / Paper public id remains the DOI (required for candidates that survive search external sources merge).
 
-Related-paper search and Paper archiving do not call EFetch.
+Search external sources and Paper archiving do not call EFetch.
 
 ## EFetch (source record)
 
@@ -216,14 +216,14 @@ Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC
 
 1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
-3. Yields `PaperCandidate`-shaped rows for the related-paper search merge step in `paper_reviewer.topic_brief_generation.related_paper_search` (see [2.1-related-paper-search.md](../2.1-related-paper-search.md)).
+3. Yields `PaperCandidate`-shaped rows for the search external sources merge step in `paper_reviewer.topic_brief_generation.search_external_sources` (see [2.1-search-external-sources.md](../2.1-search-external-sources.md)).
 
 ## Behavior notes
 
 | Case | Expected |
 | --- | --- |
 | Zero ESearch hits | No candidates for that facet from PubMed |
-| Missing DOI on DocSum | Mapper may emit `doi` null; [related-paper search](../2.1-related-paper-search.md) **drops** that hit at merge so it never reaches [Paper archiving](../05-paper-archiving.md) |
+| Missing DOI on DocSum | Mapper may emit `doi` null; [search external sources](../2.1-search-external-sources.md) **drops** that hit at merge so it never reaches [Paper archiving](../05-paper-archiving.md) |
 | Rate limit / HTTP error | Surface error to workflow `source_runs`; workflow fail-soft applies |
 
 ## Fixture example

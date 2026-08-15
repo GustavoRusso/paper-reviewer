@@ -1,4 +1,4 @@
-"""Related-paper search criteria, candidates, and run metadata."""
+"""Search external sources criteria, candidates, and run metadata."""
 
 from __future__ import annotations
 
@@ -13,9 +13,9 @@ from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
 
 
 class PaperCandidate(BaseModel):
-    """Normalized hit from a paper source for related-paper search triage.
+    """Normalized hit from an external source for Search external sources.
 
-    Source maps may omit ``doi``. After related-paper search merge, every
+    Source maps may omit ``doi``. After Search external sources merge, every
     candidate has a non-blank uppercase ``doi``.
     """
 
@@ -47,14 +47,14 @@ class PubMedSourceOverrides(BaseModel):
 
 
 class SearchCriteria(BaseModel):
-    """Source-agnostic input for related-paper search."""
+    """Source-agnostic input for Search external sources."""
 
     topic_analysis: TopicAnalysisResult
     source_overrides: dict[str, Any] = Field(default_factory=dict)
 
 
 class SourceRunStatus(str, Enum):
-    """Per-source outcome for related-paper search."""
+    """Per-source outcome for Search external sources."""
 
     ok = "ok"
     error = "error"
@@ -62,7 +62,7 @@ class SourceRunStatus(str, Enum):
 
 
 class SourceRun(BaseModel):
-    """Status and metadata for one registered paper source run."""
+    """Status and metadata for one registered external source run."""
 
     source_id: str
     status: SourceRunStatus
@@ -71,7 +71,7 @@ class SourceRun(BaseModel):
     error: str | None = None
 
 
-class RelatedPaperSearchResult(BaseModel):
+class SearchExternalSourcesResult(BaseModel):
     """Global candidates plus per-source run metadata."""
 
     candidates: list[PaperCandidate] = Field(default_factory=list)

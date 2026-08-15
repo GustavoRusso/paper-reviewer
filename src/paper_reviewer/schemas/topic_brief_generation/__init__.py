@@ -1,10 +1,10 @@
 """Domain contracts for the Topic brief generation workflow."""
 
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,
-    RelatedPaperSearchResult,
+    SearchExternalSourcesResult,
     SearchCriteria,
     SourceRun,
     SourceRunStatus,
@@ -22,7 +22,7 @@ __all__ = [
     "PaperCandidate",
     "PubMedFacetOverride",
     "PubMedSourceOverrides",
-    "RelatedPaperSearchResult",
+    "SearchExternalSourcesResult",
     "SearchCriteria",
     "SourceRun",
     "SourceRunStatus",

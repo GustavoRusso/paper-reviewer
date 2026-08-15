@@ -11,11 +11,11 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 ## Terminology
 
 - **Paper** — Any scientific article, published or not. In the app, an archived `Paper` is the durable bibliographic record created or reused during **Paper archiving**. Its public id is the uppercase DOI. Source-record and full-text completeness live on the paper as stored statuses (not a single paper-wide status).
-- **Paper sources** — Predefined online providers used to look up related papers for **Paper ingestion**
+- **External sources** — Predefined online providers used to look up related papers for **Paper ingestion**
 - **Topic statement** — Free-form text from the researcher that first defines the topic to brief. Topic intake writes it on the **Topic scope**.
 - **Topic scope** — Durable record of one topic you work on (`TopicScope`). Created by Topic intake with the topic statement. Aggregates phase results: topic facets, ingest activity for this topic, confirmed papers from Paper search, and the topic brief. `Paper` and `PaperBrief` are global and are not owned by the Topic scope.
-- **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Stored in the database and related to the **Topic scope**. Used to get key terms for related-paper search and later writing.
-- **Paper candidate** — A related paper found via a paper source during **Related-paper search**. It has a source fetch handle so **Paper ingestion** can archive the paper and fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/2.1-related-paper-search.md](docs/specs/2.1-related-paper-search.md).
+- **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Stored in the database and related to the **Topic scope**. Used to get key terms for **Search external sources** and later writing.
+- **Paper candidate** — A related paper found via an external source during **Search external sources**. It has a source fetch handle so **Paper ingestion** can archive the paper and fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/2.1-search-external-sources.md](docs/specs/2.1-search-external-sources.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
 - **Paper archiving** — Ingest step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
 - **Fulfill papers metadata** — Ingest step that fills two global paper aspects: **source record** (fuller publication details) and **full text** (article body when available). Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
@@ -27,7 +27,7 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
 
-## Paper sources
+## External sources
 
 The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
@@ -46,7 +46,7 @@ The workflow has four phases. Each phase has its own result. You can repeat a ph
 
 Landing: [docs/specs/2-paper-ingestion.md](docs/specs/2-paper-ingestion.md).
 
-- **2.1 Related-paper search** — The assistant uses topic facets to get key terms and searches **paper sources** for papers that can be ingested. Spec: [docs/specs/2.1-related-paper-search.md](docs/specs/2.1-related-paper-search.md). This search is source discovery for ingest. It is not the search that feeds the topic brief.
+- **2.1 Search external sources** — The assistant uses topic facets to get key terms and searches **external sources** for papers that can be ingested. Spec: [docs/specs/2.1-search-external-sources.md](docs/specs/2.1-search-external-sources.md). This search is source discovery for ingest. It is not the search that feeds the topic brief.
 - For each found paper, the assistant runs this ingest process:
   - **Paper archiving** — Creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
   - **Fulfill papers metadata** — Fills the **source record** and then **full text** (for PubMed: EFetch, then PMC Cloud when a body text exists). Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
@@ -75,7 +75,7 @@ The assistant drafts a cited introduction that explains what is currently known 
 ## Getting started
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
-2. Copy [`.env.example`](.env.example) to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md#environment-configuration). PubMed key notes: [docs/specs/paper-sources/pubmed.md](docs/specs/paper-sources/pubmed.md).
+2. Copy [`.env.example`](.env.example) to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md#environment-configuration). PubMed key notes: [docs/specs/external-sources/pubmed.md](docs/specs/external-sources/pubmed.md).
 3. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
 4. Open the services listed below (start on Home to see existing **Topic scopes**, or start Topic intake)
 

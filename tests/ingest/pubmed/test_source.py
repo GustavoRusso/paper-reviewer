@@ -8,7 +8,7 @@ import responses
 
 from paper_reviewer.ingest.pubmed.config import EUTILS_BASE_URL
 from paper_reviewer.ingest.pubmed.source import pubmed
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
     PubMedFacetOverride,
 )

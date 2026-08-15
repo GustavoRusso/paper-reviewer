@@ -1,8 +1,8 @@
-"""Merge and dedupe PaperCandidate lists for related-paper search."""
+"""Merge and dedupe PaperCandidate lists for search external sources."""
 
 from __future__ import annotations
 
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
 )
 

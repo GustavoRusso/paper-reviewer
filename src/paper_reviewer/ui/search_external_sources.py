@@ -1,4 +1,4 @@
-"""Related-paper search Streamlit page (auto-run search from DB facets)."""
+"""Search external sources Streamlit page (auto-run search from DB facets)."""
 
 from __future__ import annotations
 
@@ -12,16 +12,16 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
 from paper_reviewer.models.topic_brief_generation import get_topic_scope_by_key
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
-    RelatedPaperSearchResult,
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+    SearchExternalSourcesResult,
     SourceRun,
     SourceRunStatus,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.related_paper_search import (
-    search_related_papers,
+from paper_reviewer.topic_brief_generation.search_external_sources import (
+    search_external_sources,
 )
 from paper_reviewer.topic_brief_generation.topic_analysis import (
     load_topic_analysis_result,
@@ -41,7 +41,7 @@ from paper_reviewer.ui.topic_scope_url import (
 
 MISSING_PREREQUISITES_MESSAGE = (
     "Open Topic analysis to create topic facets for this Topic scope, "
-    "then return here to search paper sources."
+    "then return here to search external sources."
 )
 GO_TO_TOPIC_ANALYSIS_LABEL = "Go to Topic analysis"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
@@ -69,7 +69,7 @@ def search_cache_matches(
 
 
 def clear_downstream_ingest_caches(state: MutableMapping[str, Any]) -> None:
-    """Clear session caches for steps after related-paper search."""
+    """Clear session caches for steps after Search external sources."""
     state.pop(ARCHIVING_RESULT_KEY, None)
     state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
     state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
@@ -96,17 +96,17 @@ def _render_source_run_status(run: SourceRun) -> None:
         f"{run.hit_count} hits (facets: {facet_label})"
     )
     if run.status == SourceRunStatus.error:
-        st.error(run.error or "Paper source search failed.")
+        st.error(run.error or "External source search failed.")
     elif run.status == SourceRunStatus.empty:
         st.caption("No paper candidates from this source.")
 
 
-def _render_result(result: RelatedPaperSearchResult) -> None:
+def _render_result(result: SearchExternalSourcesResult) -> None:
     st.subheader("Source runs")
     if result.notes:
         st.caption(result.notes)
     if not result.source_runs:
-        st.caption("No paper sources ran.")
+        st.caption("No external sources ran.")
     else:
         for run in result.source_runs:
             _render_source_run_status(run)
@@ -116,14 +116,14 @@ def _render_result(result: RelatedPaperSearchResult) -> None:
     st.caption(f"{count} paper candidate(s) ready for paper archiving.")
 
 
-def render_related_paper_search() -> None:
-    """Render Related-paper search: load facets from DB and auto-run search."""
+def render_search_external_sources() -> None:
+    """Render Search external sources: load facets from DB and auto-run search."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
     render_paper_ingestion_header(
-        current_page_key="related_paper_search",
+        current_page_key="search_external_sources",
         topic_scope_key=topic_scope_key,
     )
-    st.header("Related-paper search")
+    st.header("Search external sources")
 
     if topic_scope_key is None:
         _render_missing_prerequisites(topic_scope_key=None)
@@ -148,7 +148,7 @@ def render_related_paper_search() -> None:
     st.caption(f"Reference id: `{topic_scope_key}`")
 
     if search_cache_matches(st.session_state, topic_scope_key=topic_scope_key):
-        result: RelatedPaperSearchResult = st.session_state[SEARCH_KEY]
+        result: SearchExternalSourcesResult = st.session_state[SEARCH_KEY]
         _render_result(result)
         workflow_page_link(
             "paper_archiving",
@@ -159,13 +159,13 @@ def render_related_paper_search() -> None:
 
     clear_downstream_ingest_caches(st.session_state)
     try:
-        with st.spinner("Searching paper sources…"):
-            result = search_related_papers(
+        with st.spinner("Searching external sources…"):
+            result = search_external_sources(
                 analysis,
                 api_key=os.environ.get("NCBI_API_KEY") or None,
             )
     except Exception:
-        st.error("Related-paper search failed. Try again.")
+        st.error("Search external sources failed. Try again.")
         return
 
     st.session_state[SEARCH_KEY] = result

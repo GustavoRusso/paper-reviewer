@@ -9,14 +9,14 @@ In this step, the system maps each **paper candidate** to a reusable **`Paper`**
 | Term | Meaning |
 | --- | --- |
 | **`Paper`** | Durable bibliographic record of a scientific article in this system. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. |
-| **`PaperCandidate`** | In-memory search hit from [related-paper search](2.1-related-paper-search.md). Not stored as a candidate row in this step. |
+| **`PaperCandidate`** | In-memory search hit from [search external sources](2.1-search-external-sources.md). Not stored as a candidate row in this step. |
 | **Paper archiving** | Workflow step that creates or reuses `Paper` records from candidates. |
 
 ## Topic brief generation
 
 A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies Paper archiving on the **Paper ingestion** path for that scope.
 
-Paper brief construction is out of scope here — see [Generate paper brief](07-generate-paper-brief.md). PubMed EFetch / PMC Cloud are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [paper-sources/pubmed.md](paper-sources/pubmed.md). The **paper brief** is the result artifact of Generate paper brief, not of Paper archiving.
+Paper brief construction is out of scope here — see [Generate paper brief](07-generate-paper-brief.md). PubMed EFetch / PMC Cloud are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md) and [external-sources/pubmed.md](external-sources/pubmed.md). The **paper brief** is the result artifact of Generate paper brief, not of Paper archiving.
 
 For the application runtime stack, see [technology-stack.md](../technology-stack.md).
 
@@ -24,7 +24,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ### In scope (current v1)
 
-- Accept a `list[PaperCandidate]` from [related-paper search](2.1-related-paper-search.md) (`RelatedPaperSearchResult.candidates`). An empty list is a no-op success.
+- Accept a `list[PaperCandidate]` from [search external sources](2.1-search-external-sources.md) (`SearchExternalSourcesResult.candidates`). An empty list is a no-op success.
 - Map each candidate to `Paper` field values (bibliographic + identity only).
 - Require a non-blank DOI; store and compare DOIs in **uppercase** (ISO 26324: DOIs are case-insensitive).
 - Look up existence by exact `(source_id, source_uid)` only (not by DOI).
@@ -32,7 +32,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 - Optionally update the stored DOI when the same source handle brings a new free DOI (rules below).
 - Dedicated Streamlit page for this step that displays `PaperArchivingResult` after a successful run.
 - Auto-run archiving on first page visit when prerequisites exist (no manual “Archive papers” button in v1).
-- Session-state handoff from related-paper search; database commit owned by the UI (caller commits per the public API rule).
+- Session-state handoff from search external sources; database commit owned by the UI (caller commits per the public API rule).
 
 ### Out of scope
 
@@ -48,7 +48,7 @@ For the application runtime stack, see [technology-stack.md](../technology-stack
 
 ```mermaid
 flowchart TB
-  search[2.1 Related-paper search]
+  search[2.1 Search external sources]
   archive[Paper archiving]
   fulfill[Fulfill papers metadata]
   briefs[Generate paper brief]
@@ -59,7 +59,7 @@ flowchart TB
   briefs --> topic
 ```
 
-1. **Related-paper search (2.1)** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec). If `candidates` is empty, this step still runs and returns an empty success result.
+1. **Search external sources (2.1)** produces a global `PaperCandidate` list (hits without DOI are already dropped; see that spec). If `candidates` is empty, this step still runs and returns an empty success result.
 2. **Paper archiving** (this specification) creates or reuses `Paper` records from every search candidate. A dedicated Streamlit page auto-runs this step when prerequisites exist and displays `PaperArchivingResult`.
 3. **Fulfill papers metadata** fills source record then full text on archived papers — see [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 4. **Generate paper brief** builds a global **paper brief** for papers with full text `succeeded` — see [Generate paper brief](07-generate-paper-brief.md).
@@ -76,7 +76,7 @@ archive_papers(session, candidates) -> PaperArchivingResult
 | Argument | Type | Role |
 | --- | --- | --- |
 | `session` | SQLAlchemy `Session` | Persistence. **Caller owns commit.** |
-| `candidates` | `list[PaperCandidate]` | Search candidates from [related-paper search](2.1-related-paper-search.md) (may be empty). |
+| `candidates` | `list[PaperCandidate]` | Search candidates from [search external sources](2.1-search-external-sources.md) (may be empty). |
 
 | Rule | Behavior |
 | --- | --- |
@@ -85,7 +85,7 @@ archive_papers(session, candidates) -> PaperArchivingResult
 | Savepoint | Use a savepoint per candidate so one failure rolls back only that candidate and the step continues. |
 | Raise | Do not raise for per-candidate policy skips or recoverable DB conflicts. Raise only if the session is unusable. |
 
-`PaperCandidate` shape is owned by [related-paper search](2.1-related-paper-search.md). This step does not redefine it.
+`PaperCandidate` shape is owned by [search external sources](2.1-search-external-sources.md). This step does not redefine it.
 
 ### Domain checks (per candidate)
 
@@ -94,7 +94,7 @@ Pydantic already supplies typed fields. This step only adds strip/blank checks (
 | Check | Behavior |
 | --- | --- |
 | Blank = `None` or `str(...).strip()` is empty | Treat as blank. |
-| Blank or missing `doi` | Skip (`missing_doi`). Related-paper search should already have dropped these. |
+| Blank or missing `doi` | Skip (`missing_doi`). Search external sources should already have dropped these. |
 | Blank `source_id`, `source_uid`, `title`, or `url` | Skip (`invalid_required_field`). |
 | DOI normalize | After strip, store and compare as `.upper()`. No other format validation. |
 
@@ -107,7 +107,7 @@ Durable `Paper` contract for v1 (Pydantic **read** model and ORM columns). The r
 | `id` | Yes (DB) | Primary key. Assigned on insert. |
 | `created_at` | Yes (DB) | Server timestamp when the row was created. |
 | `doi` | Yes | Public id. Non-null. Stored uppercase. Unique. |
-| `source_id` | Yes | Paper source id (e.g. `pubmed`). Stored independently of DOI. |
+| `source_id` | Yes | External source id (e.g. `pubmed`). Stored independently of DOI. |
 | `source_uid` | Yes | That source’s stable record id (e.g. PMID). Stored independently of DOI. |
 | `title` | Yes | Title. |
 | `authors` | Yes | List of author names (may be empty). Stored as a **JSONB** array of strings. |
@@ -207,11 +207,11 @@ Skip/error item shape: include enough identity to debug (`source_id`, `source_ui
 
 | Case | Expected UI |
 | --- | --- |
-| No matching `related_paper_search_result` in session | Empty state + links to **Topic intake**, **Topic scope**, and **Related-paper search**. |
+| No matching `search_external_sources_result` in session | Empty state + links to **Topic intake**, **Topic scope**, and **Search external sources**. |
 | Prerequisites present, first visit | Auto-run `archive_papers`, commit, store and show result. |
 | `paper_archiving_result` already in session | Show cached result only; do not re-run. |
 | Topic intake Submit | Wipe the entire UI session, then write the new Topic scope identity ([Fulfill papers metadata](06-fulfill-papers-metadata.md) cascade). After a new search, the archiving page can run again. |
-| Related-paper search re-runs | Search clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `candidates` set. |
+| Search external sources re-runs | Search clears `paper_archiving_result` and all later-step session caches so the archiving page (and fulfill/brief) re-run on the latest `candidates` set. |
 | Empty input list | Empty success result; caption “No candidates to archive”. |
 | All candidates skipped | Summary shows 0 archived; skipped section populated. |
 | Mix of success / skip / error | Summary counts and all three result sections reflect the lists. |
@@ -238,8 +238,8 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 | Key | Type | Role |
 | --- | --- | --- |
-| `related_paper_search_result` | `RelatedPaperSearchResult` | Required prerequisite (with matching Topic scope key). Candidates = `candidates`. |
-| `related_paper_search_topic_scope_key` | UUID string | Must match the URL `topic_scope_key` before reuse. |
+| `search_external_sources_result` | `SearchExternalSourcesResult` | Required prerequisite (with matching Topic scope key). Candidates = `candidates`. |
+| `search_external_sources_topic_scope_key` | UUID string | Must match the URL `topic_scope_key` before reuse. |
 | `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
 
@@ -247,18 +247,18 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 **Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Topic scopes must not reuse another workflow’s session state.
 
-**Invalidate on related-paper search re-run:** When related-paper search runs again (cache miss or Topic scope key mismatch), clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `candidates` set (search owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
+**Invalidate on search external sources re-run:** When search external sources runs again (cache miss or Topic scope key mismatch), clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `candidates` set (search owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
 
 Does **not** delete durable global `Paper` rows.
 
-**Candidate source rule:** Use `related_paper_search_result.candidates` only when `related_paper_search_topic_scope_key` matches the URL key. Domain input remains a `list[PaperCandidate]`.
+**Candidate source rule:** Use `search_external_sources_result.candidates` only when `search_external_sources_topic_scope_key` matches the URL key. Domain input remains a `list[PaperCandidate]`.
 
 ### Auto-run behavior (first visit)
 
-1. If the search cache does not match the URL `topic_scope_key` → show empty state: explain that Related-paper search must run first; `st.page_link` to **Topic intake**, **Topic scope**, and **Related-paper search** (preserve the Topic scope id in `query_params` when present).
-2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(related_paper_search_result.candidates)`.
+1. If the search cache does not match the URL `topic_scope_key` → show empty state: explain that Search external sources must run first; `st.page_link` to **Topic intake**, **Topic scope**, and **Search external sources** (preserve the Topic scope id in `query_params` when present).
+2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(search_external_sources_result.candidates)`.
 3. If prerequisites exist and there is no cached result → run inside `session_scope` with a spinner:
-   - `archive_papers(session, related_paper_search_result.candidates)`
+   - `archive_papers(session, search_external_sources_result.candidates)`
    - `session.commit()` on success (UI is the caller that owns commit; `session_scope` commits on exit)
    - store the result in `paper_archiving_result`
 4. On unexpected failure (session unusable or commit failure) → show an error; do **not** store a partial result.
@@ -272,13 +272,13 @@ When a `PaperArchivingResult` is available (cached or just produced), render sec
 
 ### Summary (always when result exists)
 
-- Input candidate count: `len(related_paper_search_result.candidates)` from session (the same list used for the run).
+- Input candidate count: `len(search_external_sources_result.candidates)` from session (the same list used for the run).
 - Counts: archived (`len(papers)`), skipped (`len(skipped)`), errors (`len(errors)`).
 - Topic scope reference id when the URL query id is present.
 
 ### Archived papers (`papers`)
 
-For each `Paper`, reuse the candidate card style from **Related-paper search**:
+For each `Paper`, reuse the candidate card style from **Search external sources**:
 
 - Title as a markdown link via `url`.
 - Caption: authors · journal · year · DOI · `source_id` / `source_uid` · `created_at` (ISO or locale-neutral).
@@ -305,19 +305,19 @@ When all three lists are empty after empty input, show a neutral success caption
 
 ## Workflow navigation
 
-- **Entry:** After related-paper search succeeds, link to Paper archiving with `related_paper_search_result` in session. The [Paper ingestion](2-paper-ingestion.md) landing may also link here; this page still requires a matching search cache.
+- **Entry:** After search external sources succeeds, link to Paper archiving with `search_external_sources_result` in session. The [Paper ingestion](2-paper-ingestion.md) landing may also link here; this page still requires a matching search cache.
 - **Exit:** After a successful archive result, link to **Fulfill papers metadata** with `paper_archiving_result` and Topic scope id in session.
-- **Input:** The archiving page consumes `RelatedPaperSearchResult.candidates` only.
+- **Input:** The archiving page consumes `SearchExternalSourcesResult.candidates` only.
 
 ## Orchestration boundary
 
 | Responsibility | Owner |
 | --- | --- |
 | Map candidates → create-or-reuse / skip `Paper` | `paper_reviewer.topic_brief_generation.paper_archiving` (`archive_papers`) |
-| Drop no-DOI hits; candidate shape and search merge | [related-paper search](2.1-related-paper-search.md) |
-| Produce `candidates` for this step | [related-paper search](2.1-related-paper-search.md) |
+| Drop no-DOI hits; candidate shape and search merge | [search external sources](2.1-search-external-sources.md) |
+| Produce `candidates` for this step | [search external sources](2.1-search-external-sources.md) |
 | Render page, session keys, auto-run + commit, display result | `paper_reviewer.ui.paper_archiving` |
-| PubMed EFetch / full text (PMC Cloud) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) |
+| PubMed EFetch / full text (PMC Cloud) | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [external-sources/pubmed.md](external-sources/pubmed.md) |
 | Paper brief drafting | [Generate paper brief](07-generate-paper-brief.md) |
 | Pydantic `Paper`, `PaperArchivingResult`, skip/error types | `paper_reviewer.schemas.topic_brief_generation` |
 | ORM `Paper` + thin create/get | `paper_reviewer.models.paper` |

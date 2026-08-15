@@ -1,4 +1,4 @@
-"""Create or reuse Paper records from related-paper search candidates."""
+"""Create or reuse Paper records from search external sources candidates."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
 )
 

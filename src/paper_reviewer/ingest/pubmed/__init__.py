@@ -1,4 +1,4 @@
-"""PubMed paper-source ingest helpers."""
+"""PubMed external-source ingest helpers."""
 
 from paper_reviewer.ingest.pubmed.efetch import (
     fetch_pubmed_efetch_xml,

@@ -14,7 +14,7 @@ from paper_reviewer.ui.topic_scope_url import (
 
 PHASE_TITLE = "Paper ingestion"
 INTRO_TEXT = (
-    "This phase searches paper sources and ingests papers for this Topic scope."
+    "This phase searches external sources and ingests papers for this Topic scope."
 )
 MISSING_SCOPE_MESSAGE = (
     "Open Topic intake to create a Topic scope, then open Paper ingestion from "
@@ -22,11 +22,11 @@ MISSING_SCOPE_MESSAGE = (
 )
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
-RELATED_PAPER_SEARCH_PAGE_KEY = "related_paper_search"
-CONTINUE_TO_RELATED_PAPER_SEARCH_LABEL = "Continue to Related-paper search"
+SEARCH_EXTERNAL_SOURCES_PAGE_KEY = "search_external_sources"
+CONTINUE_TO_SEARCH_EXTERNAL_SOURCES_LABEL = "Continue to Search external sources"
 CURRENT_STEP_BADGE = "Current"
 PAPER_INGESTION_STEPS: tuple[tuple[str, str], ...] = (
-    ("related_paper_search", "Related-paper search"),
+    ("search_external_sources", "Search external sources"),
     ("paper_archiving", "Paper archiving"),
     ("fulfill_papers_metadata", "Fulfill papers metadata"),
     ("generate_paper_brief", "Generate paper brief"),
@@ -112,7 +112,7 @@ def render_paper_ingestion() -> None:
         topic_scope_key=topic_scope_key,
     )
     workflow_page_link(
-        RELATED_PAPER_SEARCH_PAGE_KEY,
-        label=CONTINUE_TO_RELATED_PAPER_SEARCH_LABEL,
+        SEARCH_EXTERNAL_SOURCES_PAGE_KEY,
+        label=CONTINUE_TO_SEARCH_EXTERNAL_SOURCES_LABEL,
         topic_scope_key=topic_scope_key,
     )

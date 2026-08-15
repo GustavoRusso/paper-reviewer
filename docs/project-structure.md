@@ -68,7 +68,7 @@ paper-reviewer/
 │       ├── topic_brief_generation/     # Topic brief generation step behavior
 │       │   ├── topic_intake/
 │       │   ├── topic_analysis/
-│       │   ├── related_paper_search/
+│       │   ├── search_external_sources/
 │       │   ├── paper_archiving/        # Paper archiving (create-or-reuse Paper)
 │       │   ├── fulfill_papers_metadata/   # Fulfill papers metadata (source record + full text)
 │       │   ├── generate_paper_brief/   # Generate paper brief (PaperBrief)
@@ -80,7 +80,7 @@ paper-reviewer/
 │       │   ├── paper.py                # Global Paper ORM (not owned by a Topic scope)
 │       │   ├── paper_brief.py          # Global PaperBrief ORM (not owned by a Topic scope)
 │       │   └── topic_brief_generation/ # ORM for that workflow (TopicScope, topic_facets)
-│       ├── ingest/                     # dlt paper-source extract (shared)
+│       ├── ingest/                     # dlt external-source extract (shared)
 │       ├── ui/                         # Streamlit
 │       ├── flows/                      # Prefect flows (source record, full text, briefs, orchestrators)
 │       └── db/                         # engine, session, URL helpers
@@ -115,10 +115,10 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, related-paper search, paper archiving, fulfill papers metadata, generate paper brief, topic brief). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/2-paper-ingestion.md](specs/2-paper-ingestion.md), [specs/3-paper-search.md](specs/3-paper-search.md), [specs/4-topic-brief.md](specs/4-topic-brief.md), [specs/2.1-related-paper-search.md](specs/2.1-related-paper-search.md), [specs/05-paper-archiving.md](specs/05-paper-archiving.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md), [specs/07-generate-paper-brief.md](specs/07-generate-paper-brief.md). |
+| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, topic brief). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/2-paper-ingestion.md](specs/2-paper-ingestion.md), [specs/3-paper-search.md](specs/3-paper-search.md), [specs/4-topic-brief.md](specs/4-topic-brief.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/05-paper-archiving.md](specs/05-paper-archiving.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md), [specs/07-generate-paper-brief.md](specs/07-generate-paper-brief.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_brief_generation.topic_analysis`). |
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
-| dlt | `paper_reviewer.ingest` | Paper-source dlt sources/resources (extract; Postgres load when adopted) |
+| dlt | `paper_reviewer.ingest` | External-source dlt sources/resources (extract; Postgres load when adopted) |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
 | Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `regenerate_paper` |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |

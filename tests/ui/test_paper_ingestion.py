@@ -9,7 +9,7 @@ from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.paper_ingestion import (
-    CONTINUE_TO_RELATED_PAPER_SEARCH_LABEL,
+    CONTINUE_TO_SEARCH_EXTERNAL_SOURCES_LABEL,
     CURRENT_STEP_BADGE,
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
@@ -17,12 +17,12 @@ from paper_reviewer.ui.paper_ingestion import (
     MISSING_SCOPE_MESSAGE,
     PAPER_INGESTION_STEPS,
     PHASE_TITLE,
-    RELATED_PAPER_SEARCH_PAGE_KEY,
+    SEARCH_EXTERNAL_SOURCES_PAGE_KEY,
     paper_ingestion_stepper_items,
     render_paper_ingestion,
     render_paper_ingestion_header,
 )
-from paper_reviewer.ui.related_paper_search import render_related_paper_search
+from paper_reviewer.ui.search_external_sources import render_search_external_sources
 
 
 def test_render_paper_ingestion_is_public() -> None:
@@ -55,19 +55,19 @@ def test_missing_key_copy_links_to_intake_and_hub() -> None:
     assert GO_TO_TOPIC_SCOPE_LABEL == "Go to Topic scope"
 
 
-def test_intro_and_primary_link_target_related_paper_search() -> None:
+def test_intro_and_primary_link_target_search_external_sources() -> None:
     assert INTRO_TEXT == (
-        "This phase searches paper sources and ingests papers for this Topic scope."
+        "This phase searches external sources and ingests papers for this Topic scope."
     )
-    assert RELATED_PAPER_SEARCH_PAGE_KEY == "related_paper_search"
-    assert CONTINUE_TO_RELATED_PAPER_SEARCH_LABEL == (
-        "Continue to Related-paper search"
+    assert SEARCH_EXTERNAL_SOURCES_PAGE_KEY == "search_external_sources"
+    assert CONTINUE_TO_SEARCH_EXTERNAL_SOURCES_LABEL == (
+        "Continue to Search external sources"
     )
 
 
 def test_paper_ingestion_steps_are_the_ingest_chain() -> None:
     assert PAPER_INGESTION_STEPS == (
-        ("related_paper_search", "Related-paper search"),
+        ("search_external_sources", "Search external sources"),
         ("paper_archiving", "Paper archiving"),
         ("fulfill_papers_metadata", "Fulfill papers metadata"),
         ("generate_paper_brief", "Generate paper brief"),
@@ -120,7 +120,7 @@ def test_landing_empty_state_shows_phase_title_without_header() -> None:
 def test_ingest_pages_render_the_phase_header() -> None:
     renders = (
         render_paper_ingestion,
-        render_related_paper_search,
+        render_search_external_sources,
         render_paper_archiving,
         render_fulfill_papers_metadata,
         render_generate_paper_brief,
@@ -132,7 +132,7 @@ def test_ingest_pages_render_the_phase_header() -> None:
 
 def test_ingest_step_pages_use_header_not_title_for_step_name() -> None:
     renders = (
-        render_related_paper_search,
+        render_search_external_sources,
         render_paper_archiving,
         render_fulfill_papers_metadata,
         render_generate_paper_brief,

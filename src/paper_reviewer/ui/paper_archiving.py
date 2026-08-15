@@ -15,13 +15,13 @@ from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
-    RelatedPaperSearchResult,
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+    SearchExternalSourcesResult,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
 from paper_reviewer.ui.paper_ingestion import render_paper_ingestion_header
-from paper_reviewer.ui.related_paper_search import search_cache_matches
+from paper_reviewer.ui.search_external_sources import search_cache_matches
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -52,7 +52,7 @@ def archiving_prerequisites_met(
     *,
     topic_scope_key: UUID | None,
 ) -> bool:
-    """Return True when related-paper search cache matches the URL Topic scope."""
+    """Return True when search external sources cache matches the URL Topic scope."""
     return search_cache_matches(state, topic_scope_key=topic_scope_key)
 
 
@@ -177,8 +177,8 @@ def render_paper_archiving() -> None:
         topic_scope_key=topic_scope_key,
     ):
         st.info(
-            "Run related-paper search before paper archiving. "
-            "Open Topic intake to start a Topic scope, then search paper sources."
+            "Run search external sources before paper archiving. "
+            "Open Topic intake to start a Topic scope, then search external sources."
         )
         workflow_page_link(
             "topic_intake",
@@ -191,13 +191,13 @@ def render_paper_archiving() -> None:
             topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
-            "related_paper_search",
-            label="Go to Related-paper search",
+            "search_external_sources",
+            label="Go to Search external sources",
             topic_scope_key=topic_scope_key,
         )
         return
 
-    search_result: RelatedPaperSearchResult = st.session_state[SEARCH_KEY]
+    search_result: SearchExternalSourcesResult = st.session_state[SEARCH_KEY]
     candidates = search_result.candidates
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
 
@@ -221,7 +221,7 @@ def render_paper_archiving() -> None:
             with session_scope(_session_factory()) as session:
                 archiving_result = archive_papers(session, candidates)
     except Exception:
-        st.error("Paper archiving failed. Try again from Related-paper search.")
+        st.error("Paper archiving failed. Try again from Search external sources.")
         return
 
     st.session_state[ARCHIVING_RESULT_KEY] = archiving_result

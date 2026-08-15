@@ -19,7 +19,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 | Language / validation | Python + Pydantic | Runtime and shared schemas (inputs, paper models, dlt resources) |
 | Package manager | uv | Dependencies and virtualenvs inside container images |
 | Relational database | PostgreSQL | Papers, briefs, citations, job-related app data |
-| Data ingestion | dlt (dlthub) + Pydantic | Paper-source **extract** today (yield records for app merge); Postgres **load** for bulk ingest when adopted later. Workspace uses `dlt[hub]` and the Cursor rest-api-pipeline toolkit |
+| Data ingestion | dlt (dlthub) + Pydantic | External-source **extract** today (yield records for app merge); Postgres **load** for bulk ingest when adopted later. Workspace uses `dlt[hub]` and the Cursor rest-api-pipeline toolkit |
 | Topic analysis NER | scispaCy (`en_core_sci_sm`) | Biomedical entity extraction for Topic analysis; behavior in [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md) |
 | ORM / DB access | SQLAlchemy | Models and application reads/writes |
 | Schema migrations | Alembic | Versioned DDL against SQLAlchemy metadata |
@@ -34,7 +34,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 flowchart TB
   ui[Streamlit]
   orch[Prefect flows]
-  search[related_paper_search]
+  search[search_external_sources]
   ingest[dlt ingest extract]
   orm[SQLAlchemy queries]
   db[(PostgreSQL)]
@@ -51,12 +51,12 @@ flowchart TB
   mig --> db
 ```
 
-Today, related-paper search calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.related_paper_search`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/2.1-related-paper-search.md](specs/2.1-related-paper-search.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md).
+Today, search external sources calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.search_external_sources`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/06-fulfill-papers-metadata.md](specs/06-fulfill-papers-metadata.md).
 
 ## Boundaries
 
 - **Pydantic** — Validate and define data shapes shared across UI, pipelines, and ingest. Prefer one schema source over ad-hoc dicts.
-- **dlt** — Paper-source extract (and future Source → Postgres loads). Define resource schemas with Pydantic; do not use dlt for ordinary app CRUD. Candidate load timing for related-paper search: [specs/2.1-related-paper-search.md](specs/2.1-related-paper-search.md).
+- **dlt** — External-source extract (and future Source → Postgres loads). Define resource schemas with Pydantic; do not use dlt for ordinary app CRUD. Candidate load timing for search external sources: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md).
 - **scispaCy** — Topic analysis NER only (`en_core_sci_sm`). Do not use it as a general-purpose NLP stack elsewhere without updating [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md). Analyzer and `run_topic_analysis` live in `paper_reviewer.topic_brief_generation.topic_analysis` — see [project-structure.md](project-structure.md).
 - **SQLAlchemy** — Application reads and writes (Streamlit and Prefect tasks that are not bulk ingest).
 - **Alembic** — Owns relational schema versioning. When dlt loads into Postgres, those tables must already match Alembic; do not let dlt freely evolve production DDL against Alembic.

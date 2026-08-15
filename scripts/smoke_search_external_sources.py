@@ -1,7 +1,7 @@
-"""One-off live smoke test for search_related_papers → PubMed. Not a unit test."""
+"""One-off live smoke test for search_external_sources → PubMed. Not a unit test."""
 # Usage:
 #   just sandbox-shell
-#   uv run python scripts/smoke_search_related_papers.py
+#   uv run python scripts/smoke_search_external_sources.py
 
 from __future__ import annotations
 
@@ -10,8 +10,8 @@ import os
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.related_paper_search import (
-    search_related_papers,
+from paper_reviewer.topic_brief_generation.search_external_sources import (
+    search_external_sources,
 )
 
 analysis = TopicAnalysisResult.model_validate(
@@ -48,7 +48,7 @@ source_overrides = {
 
 # Optional: export NCBI_API_KEY=... in the shell; do not hardcode the key in the file
 api_key = os.environ.get("NCBI_API_KEY") or None
-result = search_related_papers(
+result = search_external_sources(
     analysis,
     source_overrides=source_overrides,
     api_key=api_key,

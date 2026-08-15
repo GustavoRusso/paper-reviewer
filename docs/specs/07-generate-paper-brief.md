@@ -24,7 +24,7 @@ In this step, the system builds a **global** **`PaperBrief`** with an LLM for ea
 
 A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies **Generate paper brief** on the Paper ingestion path for that scope.
 
-Source record and full text are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch / Cloud details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Source record and full text are owned by [Fulfill papers metadata](06-fulfill-papers-metadata.md). PubMed EFetch / Cloud details: [external-sources/pubmed.md](external-sources/pubmed.md).
 
 `PaperBrief` is **not** scoped to a Topic scope. If a later Topic scope archives a paper that already has a succeeded brief, step 7 skips that paper and Topic brief (phase 4) reuses the brief. Topic relevance is **not** stored on the brief; Topic brief cites the paper in prose.
 
@@ -251,7 +251,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 
 **Invalidate on new intake:** When Topic intake Submit starts a new `TopicScope`, clear the **entire** UI session, then write the new `topic_statement` and set the Topic scope id in the URL — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
-**Invalidate when an upstream step re-runs:** When related-paper search re-runs, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
+**Invalidate when an upstream step re-runs:** When search external sources re-runs, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
 
 Does **not** by itself delete durable global `Paper` or `PaperBrief` rows.
 
@@ -289,7 +289,7 @@ Do **not** run LLM (or EFetch) inside Streamlit callbacks. On each progress row,
 | Responsibility | Owner |
 | --- | --- |
 | Create/reuse bibliographic `Paper` | [Paper archiving](05-paper-archiving.md) |
-| Source record / full text / `PaperAspectStatus` / `regenerate_paper` steps 1–2 | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [paper-sources/pubmed.md](paper-sources/pubmed.md) for PubMed |
+| Source record / full text / `PaperAspectStatus` / `regenerate_paper` steps 1–2 | [Fulfill papers metadata](06-fulfill-papers-metadata.md); [external-sources/pubmed.md](external-sources/pubmed.md) for PubMed |
 | Domain enqueue + `create_paper_brief` helper | `paper_reviewer.topic_brief_generation.generate_paper_brief` |
 | Prefect flow | `paper_reviewer.flows` (`create_paper_brief`); `regenerate_paper` calls this flow with `force=true` |
 | ORM `PaperBrief` | `paper_reviewer.models.paper_brief` |

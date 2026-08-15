@@ -2,7 +2,7 @@
 
 This document is the specification for **step 6** of the Topic brief generation workflow in [README.md](../../README.md).
 
-In this step, the system fills two **global** aspects of each archived **`Paper`**: the **source record** (fuller publication details from the paper source) and **full text** (article body when a full-text source can supply it). Each aspect has its own Prefect flow and its own stored status. A page-6 orchestrator runs those two flows in order. A dedicated Streamlit page shows progress.
+In this step, the system fills two **global** aspects of each archived **`Paper`**: the **source record** (fuller publication details from the external source) and **full text** (article body when a full-text source can supply it). Each aspect has its own Prefect flow and its own stored status. A page-6 orchestrator runs those two flows in order. A dedicated Streamlit page shows progress.
 
 **Next step:** [Generate paper brief](07-generate-paper-brief.md) creates a global **paper brief** only when full text is `succeeded`. Do not draft briefs in this step.
 
@@ -14,7 +14,7 @@ This document owns `PaperAspectStatus` and the two `Paper` status columns. Brief
 | --- | --- |
 | **`Paper`** | Durable bibliographic record. Product meaning: [README.md](../../README.md) Terminology. Public id is the uppercase DOI. Created or reused in [Paper archiving](05-paper-archiving.md). |
 | **`PaperAspectStatus`** | Shared enum: `not_started` \| `succeeded` \| `failed` \| `unavailable`. Stored; not derived from payload columns. No `in_progress` member. |
-| **Source record** | Fuller publication details from the paper source (for PubMed: EFetch). Includes `source_record` JSONB, typed promotes, and bibliographic refresh. Abstract may be empty. Marker: `source_record_status`. |
+| **Source record** | Fuller publication details from the external source (for PubMed: EFetch). Includes `source_record` JSONB, typed promotes, and bibliographic refresh. Abstract may be empty. Marker: `source_record_status`. |
 | **Full text** | Article body text stored as `full_text_plain` (for PubMed: PMC Cloud). Marker: `full_text_status`. |
 | **`inform_source_record`** | Prefect flow that fills the source-record aspect for one paper. |
 | **`inform_full_text`** | Prefect flow that fills the full-text aspect for one paper. |
@@ -27,7 +27,7 @@ This document owns `PaperAspectStatus` and the two `Paper` status columns. Brief
 
 A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies **Fulfill papers metadata** on the Paper ingestion path for that scope.
 
-Paper archiving (create/reuse `Paper` without EFetch) is owned by [Paper archiving](05-paper-archiving.md). PubMed EFetch request parameters, PMCID extraction, and PMC Cloud full-text details are summarized here and detailed for PubMed in [paper-sources/pubmed.md](paper-sources/pubmed.md).
+Paper archiving (create/reuse `Paper` without EFetch) is owned by [Paper archiving](05-paper-archiving.md). PubMed EFetch request parameters, PMCID extraction, and PMC Cloud full-text details are summarized here and detailed for PubMed in [external-sources/pubmed.md](external-sources/pubmed.md).
 
 `Paper` and `PaperBrief` are **global**. They do not belong to a Topic scope. A later Topic scope that archives the same paper reuses source record, full text, and brief as they stand.
 
@@ -154,7 +154,7 @@ DOI on flow parameters is for UI/search and the submit-time run name; durable wo
 | One paper per run | v1 submits one orchestrator run per paper. |
 | Fail-soft per paper | One paper failure must not cancel other papers’ runs. |
 | In-run extract retries | Inside one aspect flow, retry that extract up to 3 attempts with 0.5s delay; only then set `failed`. This is not re-enqueue of already-`failed` papers. **Exception (source record / EFetch):** NCBI HTTP 429 / `API rate limit exceeded` soft-retries with a random wait in `(0.5s, 2s)` and does **not** count toward the 3-attempt budget. |
-| Raise | Raise only for unusable infrastructure (DB down, Prefect submit impossible). Per-paper source errors become `failed` on that aspect. |
+| Raise | Raise only for unusable infrastructure (DB down, Prefect submit impossible). Per-external source errors become `failed` on that aspect. |
 
 Pydantic types live under `paper_reviewer.schemas.topic_brief_generation`.
 
@@ -291,7 +291,7 @@ Do **not** change `doi`, `source_id`, `source_uid`, or `url` in v1 inform.
 
 ### PMC Cloud enrichment
 
-After `source_record_status = succeeded` for PubMed, `inform_full_text` may enrich the same `Paper` from the [PMC Cloud Service on AWS](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/) (updated Cloud layout only; do not depend on legacy FTP / OA Web Service). Details: [paper-sources/pubmed.md](paper-sources/pubmed.md).
+After `source_record_status = succeeded` for PubMed, `inform_full_text` may enrich the same `Paper` from the [PMC Cloud Service on AWS](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/) (updated Cloud layout only; do not depend on legacy FTP / OA Web Service). Details: [external-sources/pubmed.md](external-sources/pubmed.md).
 
 | Rule | Behavior |
 | --- | --- |
@@ -426,7 +426,7 @@ For that example, typed promotes would include `pub_date = 2024-03-15`, `publish
 | `PersonalNameSubjectList` | People who are the *subject* of the paper (e.g. Darwin, Hume) |
 | `SpaceFlightMission` | Legacy NASA mission tags (e.g. `Project Gemini 11`); NLM stopped adding these in 2005 |
 
-PubMed call shape: see [paper-sources/pubmed.md](paper-sources/pubmed.md) (EFetch and PMC Cloud sections). EFetch extract is a **dlt resource** under `paper_reviewer.ingest.pubmed`. PMC Cloud enrichment is a separate ingest helper in the same package. Prefect jobs call those helpers; they do not parse XML or call Cloud inside Streamlit.
+PubMed call shape: see [external-sources/pubmed.md](external-sources/pubmed.md) (EFetch and PMC Cloud sections). EFetch extract is a **dlt resource** under `paper_reviewer.ingest.pubmed`. PMC Cloud enrichment is a separate ingest helper in the same package. Prefect jobs call those helpers; they do not parse XML or call Cloud inside Streamlit.
 
 ## Prefect job behavior
 
@@ -505,7 +505,7 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
 | Topic intake Submit (new `TopicScope`) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_scope_key` in the **URL query**. Topic intake then **switches** to Topic analysis ([Topic intake](1.1-topic-intake.md)). Do not clear on validation or persist failure. |
-| Re-run related-paper search | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
+| Re-run search external sources | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |
 
 Rule: **re-running step N clears session data for steps N+1, N+2, …** so the user cannot continue with stale downstream results. Topic intake Submit is stronger: it wipes the whole session so no leftover key from a previous run can survive. Ordinary refresh of the fulfill page does **not** clear the enqueue cache.
@@ -550,7 +550,7 @@ Map each aspect independently:
 | --- | --- |
 | Create/reuse bibliographic `Paper` | [Paper archiving](05-paper-archiving.md) |
 | `PaperAspectStatus` enum; `source_record_status` / `full_text_status`; page-6 orchestrator; `regenerate_paper` steps 1–2 | This document |
-| EFetch params + PubMed XML mapping + PMC Cloud HTTP details | [paper-sources/pubmed.md](paper-sources/pubmed.md) (owned for PubMed); this spec owns which groups and enrichment columns land on `Paper` and which status they set |
+| EFetch params + PubMed XML mapping + PMC Cloud HTTP details | [external-sources/pubmed.md](external-sources/pubmed.md) (owned for PubMed); this spec owns which groups and enrichment columns land on `Paper` and which status they set |
 | Domain enqueue + aspect inform helpers | `paper_reviewer.topic_brief_generation.fulfill_papers_metadata` |
 | Prefect flows | `paper_reviewer.flows` (`inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `regenerate_paper`) |
 | ORM `Paper` extensions (enums, `source_record`, typed promotes, PMC enrichment columns) | `paper_reviewer.models.paper` |

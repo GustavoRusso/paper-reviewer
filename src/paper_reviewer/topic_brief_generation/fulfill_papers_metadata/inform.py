@@ -41,7 +41,7 @@ def _default_session_factory() -> sessionmaker[Session]:
 
 def _default_fetch_source_record(source_id: str, source_uid: str) -> dict[str, Any]:
     if source_id != "pubmed":
-        raise ValueError(f"Unsupported paper source for inform: {source_id}")
+        raise ValueError(f"Unsupported external source for inform: {source_id}")
     from paper_reviewer.ingest.pubmed.efetch import fetch_pubmed_source_record
 
     return fetch_pubmed_source_record(

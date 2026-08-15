@@ -9,7 +9,7 @@ from paper_reviewer.ui.navigation import AppPage, build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.paper_ingestion import render_paper_ingestion
 from paper_reviewer.ui.paper_search import render_paper_search
-from paper_reviewer.ui.related_paper_search import render_related_paper_search
+from paper_reviewer.ui.search_external_sources import render_search_external_sources
 from paper_reviewer.ui.topic_analysis import render_topic_analysis
 from paper_reviewer.ui.topic_brief import render_topic_brief
 from paper_reviewer.ui.topic_intake import render_topic_intake
@@ -90,14 +90,14 @@ def test_topic_brief_page_is_registered() -> None:
     assert pages["topic_brief"].in_sidebar is False
 
 
-def test_related_paper_search_page_is_registered() -> None:
+def test_search_external_sources_page_is_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "related_paper_search" in pages
-    assert pages["related_paper_search"].title == "Related-paper search"
-    assert pages["related_paper_search"].url_path == "related-paper-search"
-    assert pages["related_paper_search"].render is render_related_paper_search
-    assert pages["related_paper_search"].in_sidebar is False
+    assert "search_external_sources" in pages
+    assert pages["search_external_sources"].title == "Search external sources"
+    assert pages["search_external_sources"].url_path == "search-external-sources"
+    assert pages["search_external_sources"].render is render_search_external_sources
+    assert pages["search_external_sources"].in_sidebar is False
 
 
 def test_retrieval_triage_page_is_not_registered() -> None:
@@ -141,8 +141,8 @@ def test_workflow_page_order() -> None:
     assert keys.index("topic_scope") < keys.index("paper_ingestion")
     assert keys.index("paper_ingestion") < keys.index("paper_search")
     assert keys.index("paper_search") < keys.index("topic_brief")
-    assert keys.index("paper_ingestion") < keys.index("related_paper_search")
-    assert keys.index("related_paper_search") < keys.index("paper_archiving")
+    assert keys.index("paper_ingestion") < keys.index("search_external_sources")
+    assert keys.index("search_external_sources") < keys.index("paper_archiving")
     assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
     assert keys.index("fulfill_papers_metadata") < keys.index("generate_paper_brief")
 
@@ -171,7 +171,7 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["paper_ingestion"].in_sidebar is False
     assert by_key["paper_search"].in_sidebar is False
     assert by_key["topic_brief"].in_sidebar is False
-    assert by_key["related_paper_search"].in_sidebar is False
+    assert by_key["search_external_sources"].in_sidebar is False
     assert by_key["paper_archiving"].in_sidebar is False
     assert by_key["fulfill_papers_metadata"].in_sidebar is False
     assert by_key["generate_paper_brief"].in_sidebar is False

@@ -1,4 +1,4 @@
-"""Related-paper search orchestration: registry, collect, merge, fail-soft."""
+"""Search external sources orchestration: registry, collect, merge, fail-soft."""
 
 from __future__ import annotations
 
@@ -6,11 +6,11 @@ from collections.abc import Callable, Mapping
 from typing import Any
 
 from paper_reviewer.ingest.pubmed.source import pubmed
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,
-    RelatedPaperSearchResult,
+    SearchExternalSourcesResult,
     SearchCriteria,
     SourceRun,
     SourceRunStatus,
@@ -18,7 +18,7 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.related_paper_search.merge import (
+from paper_reviewer.topic_brief_generation.search_external_sources.merge import (
     merge_candidates,
 )
 
@@ -56,7 +56,7 @@ def run_pubmed_source(
 
 
 def default_registry(*, api_key: str | None = None) -> dict[str, PaperSourceRunner]:
-    """Registered paper sources for related-paper search."""
+    """Registered external sources for search external sources."""
 
     def pubmed_runner(criteria: SearchCriteria) -> list[PaperCandidate]:
         return run_pubmed_source(criteria, api_key=api_key)
@@ -64,13 +64,13 @@ def default_registry(*, api_key: str | None = None) -> dict[str, PaperSourceRunn
     return {"pubmed": pubmed_runner}
 
 
-def search_related_papers(
+def search_external_sources(
     topic_analysis: TopicAnalysisResult,
     *,
     source_overrides: Mapping[str, Any] | None = None,
     registry: Mapping[str, PaperSourceRunner] | None = None,
     api_key: str | None = None,
-) -> RelatedPaperSearchResult:
+) -> SearchExternalSourcesResult:
     """Run registered sources for analysis, merge candidates, fail-soft on errors."""
     criteria = SearchCriteria(
         topic_analysis=topic_analysis,
@@ -78,7 +78,7 @@ def search_related_papers(
     )
     facets = criteria.topic_analysis.facets
     if not facets:
-        return RelatedPaperSearchResult(
+        return SearchExternalSourcesResult(
             candidates=[],
             source_runs=[],
             notes="No facets provided; nothing to search.",
@@ -117,7 +117,7 @@ def search_related_papers(
             )
         )
 
-    return RelatedPaperSearchResult(
+    return SearchExternalSourcesResult(
         candidates=merge_candidates(all_candidates),
         source_runs=source_runs,
         notes=None,

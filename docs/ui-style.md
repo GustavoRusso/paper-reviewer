@@ -18,7 +18,7 @@ Industry practice this follows: links navigate; buttons act; one look per intent
 | User intent | Control | Streamlit API |
 | --- | --- | --- |
 | Go to another **in-app** page | Navigation link | `st.page_link` |
-| Open an **external** URL (paper source, DOI, PMC, PDF) | Content link | Markdown / title link via `url` (or equivalent); not `st.page_link` |
+| Open an **external** URL (external source, DOI, PMC, PDF) | Content link | Markdown / title link via `url` (or equivalent); not `st.page_link` |
 | Commit / confirm / start work that changes data | Button (confirm intent) | `st.button` or `st.form_submit_button`, `type="primary"` |
 | Ordinary non-destructive action (when not the page’s main commit) | Button (default intent) | `st.button` / `st.form_submit_button`, `type="secondary"` (default) |
 | Back out / dismiss / cancel without committing | Button (cancel intent) | `st.button`, `type="tertiary"` |
@@ -119,8 +119,8 @@ Illustrative only; step specs remain the behavior contract.
 | Topic analysis → Topic scope hub | Navigate | `st.page_link` |
 | Topic scope hub → Paper ingestion / Paper search / Topic brief | Navigate | `st.page_link` |
 | Paper ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
-| Paper ingestion → Related-paper search | Navigate | `st.page_link` |
-| Related-paper search → Paper archiving | Navigate | `st.page_link` |
+| Paper ingestion → Search external sources | Navigate | `st.page_link` |
+| Search external sources → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
 | Per-paper Regenerate (Fulfill papers metadata / Generate paper brief) | Default | `st.button("Regenerate", type="secondary")` |

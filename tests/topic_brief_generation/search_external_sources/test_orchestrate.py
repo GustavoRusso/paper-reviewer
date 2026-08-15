@@ -1,4 +1,4 @@
-"""Related-paper search: TopicAnalysisResult entrypoint, orchestration, fail-soft."""
+"""Search external sources: TopicAnalysisResult entrypoint, orchestration, fail-soft."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from urllib.parse import parse_qs, urlparse
 import responses
 
 from paper_reviewer.ingest.pubmed.config import EUTILS_BASE_URL
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PaperCandidate,
     SearchCriteria,
     SourceRunStatus,
@@ -15,8 +15,8 @@ from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.related_paper_search.orchestrate import (
-    search_related_papers,
+from paper_reviewer.topic_brief_generation.search_external_sources.orchestrate import (
+    search_external_sources,
 )
 from tests.ingest.pubmed.test_config import ESEARCH_JSON, ESUMMARY_JSON
 
@@ -93,7 +93,7 @@ def test_search_criteria_parses_spec_fixture() -> None:
 def test_empty_facets_yields_empty_candidates_with_note() -> None:
     analysis = TopicAnalysisResult.model_validate({"facets": []})
 
-    result = search_related_papers(analysis)
+    result = search_external_sources(analysis)
 
     assert result.candidates == []
     assert result.source_runs == []
@@ -106,7 +106,7 @@ def test_orchestrate_pubmed_with_override_returns_candidates_and_ok_run() -> Non
 
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
         _stub_pubmed_http(rsps)
-        result = search_related_papers(
+        result = search_external_sources(
             analysis,
             source_overrides=PUBMED_OVERRIDE_FIXTURE,
             api_key="TESTKEY",
@@ -144,7 +144,7 @@ def test_orchestrate_topic_analysis_without_overrides_uses_structured_term() -> 
 
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
         _stub_pubmed_http(rsps)
-        result = search_related_papers(analysis)
+        result = search_external_sources(analysis)
 
         esearch_urls = [
             call.request.url
@@ -213,7 +213,7 @@ def test_source_zero_hits_records_empty_status() -> None:
             f"{EUTILS_BASE_URL}esummary.fcgi",
             json=empty_esummary,
         )
-        result = search_related_papers(analysis, source_overrides=overrides)
+        result = search_external_sources(analysis, source_overrides=overrides)
 
     assert result.candidates == []
     assert len(result.source_runs) == 1
@@ -255,7 +255,7 @@ def test_fail_soft_keeps_other_sources_when_one_errors() -> None:
     def stub_ok(_criteria: SearchCriteria) -> list[PaperCandidate]:
         return [surviving]
 
-    result = search_related_papers(
+    result = search_external_sources(
         analysis,
         registry={"pubmed": boom, "stub": stub_ok},
     )
@@ -315,7 +315,7 @@ def test_orchestrate_dedupes_across_sources() -> None:
         }
     )
 
-    result = search_related_papers(
+    result = search_external_sources(
         analysis,
         registry={
             "pubmed": lambda _c: [a],

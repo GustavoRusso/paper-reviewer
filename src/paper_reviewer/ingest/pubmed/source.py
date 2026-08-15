@@ -8,7 +8,7 @@ from dlt.sources.rest_api import rest_api_resources
 from paper_reviewer.ingest.pubmed.config import build_pubmed_rest_api_config
 from paper_reviewer.ingest.pubmed.mapping import docsum_to_candidate
 from paper_reviewer.ingest.pubmed.term import compile_pubmed_query
-from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
+from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
     PubMedFacetOverride,
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_analysis import TopicFacet
@@ -23,7 +23,7 @@ def pubmed(
     """Extract PubMed DocSums for one facet and yield PaperCandidate rows.
 
     Composes term compilation → RESTAPIConfig → rest_api_resources → DocSum map.
-    Intended for in-memory collection by related-paper search (no pipeline.run).
+    Intended for in-memory collection by search external sources (no pipeline.run).
     """
     compiled = compile_pubmed_query(facet, override)
     config = build_pubmed_rest_api_config(

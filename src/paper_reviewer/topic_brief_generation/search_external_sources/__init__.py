@@ -1,10 +1,10 @@
-"""Related-paper search: merge and orchestration."""
+"""Search external sources: merge and orchestration."""
 
-from paper_reviewer.topic_brief_generation.related_paper_search.merge import (
+from paper_reviewer.topic_brief_generation.search_external_sources.merge import (
     merge_candidates,
 )
-from paper_reviewer.topic_brief_generation.related_paper_search.orchestrate import (
-    search_related_papers,
+from paper_reviewer.topic_brief_generation.search_external_sources.orchestrate import (
+    search_external_sources,
 )
 
-__all__ = ["merge_candidates", "search_related_papers"]
+__all__ = ["merge_candidates", "search_external_sources"]
