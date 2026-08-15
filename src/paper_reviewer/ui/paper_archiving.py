@@ -20,8 +20,8 @@ from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
-from paper_reviewer.ui.generation_url import (
-    parse_generation_public_id,
+from paper_reviewer.ui.topic_scope_url import (
+    parse_topic_scope_public_id,
     workflow_page_link,
 )
 from paper_reviewer.ui.new_topic_brief import (
@@ -161,7 +161,7 @@ def render_paper_archiving() -> None:
     """Render the Paper archiving page."""
     st.title("Paper archiving")
 
-    public_id = parse_generation_public_id(st.query_params)
+    public_id = parse_topic_scope_public_id(st.query_params)
     if not archiving_prerequisites_met(st.session_state):
         st.info(
             "Confirm candidates on Retrieval triage before paper archiving. "

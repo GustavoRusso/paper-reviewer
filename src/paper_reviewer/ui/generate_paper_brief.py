@@ -31,8 +31,8 @@ from paper_reviewer.ui.fulfill_papers_metadata import (
     prefect_enqueue_error_hint,
     render_regenerate_button,
 )
-from paper_reviewer.ui.generation_url import (
-    parse_generation_public_id,
+from paper_reviewer.ui.topic_scope_url import (
+    parse_topic_scope_public_id,
     workflow_page_link,
 )
 from paper_reviewer.ui.new_topic_brief import (
@@ -199,7 +199,7 @@ def render_generate_paper_brief() -> None:
     """Render the Generate paper brief progress page."""
     st.title("Generate paper brief")
 
-    public_id = parse_generation_public_id(st.query_params)
+    public_id = parse_topic_scope_public_id(st.query_params)
     if not brief_prerequisites_met(st.session_state, public_id=public_id):
         st.info(
             "Archive papers and fulfill metadata before generating paper briefs. "

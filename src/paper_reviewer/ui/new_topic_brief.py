@@ -27,9 +27,9 @@ from paper_reviewer.topic_brief_generation.topic_analysis import analyze_topic_s
 from paper_reviewer.topic_brief_generation.topic_intake import (
     start_topic_brief_from_topic_intake,
 )
-from paper_reviewer.ui.generation_url import (
-    parse_generation_public_id,
-    set_generation_public_id_in_url,
+from paper_reviewer.ui.topic_scope_url import (
+    parse_topic_scope_public_id,
+    set_topic_scope_public_id_in_url,
     workflow_page_link,
 )
 
@@ -103,7 +103,7 @@ def render_new_topic_brief() -> None:
                 st.session_state,
                 topic_statement=topic_statement,
             )
-            set_generation_public_id_in_url(generation.public_id)
+            set_topic_scope_public_id_in_url(generation.public_id)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)
@@ -125,7 +125,7 @@ def render_new_topic_brief() -> None:
                     st.session_state[SEARCH_KEY] = search_result
 
     accepted: TopicStatement | None = st.session_state.get(SESSION_KEY)
-    public_id = parse_generation_public_id(st.query_params)
+    public_id = parse_topic_scope_public_id(st.query_params)
     analysis: TopicAnalysisResult | None = st.session_state.get(ANALYSIS_KEY)
     search_result: RelatedPaperSearchResult | None = st.session_state.get(SEARCH_KEY)
     if accepted is not None:

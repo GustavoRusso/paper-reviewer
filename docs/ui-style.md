@@ -85,7 +85,7 @@ Workflow pages carry the current `TopicScope` public id in a **URL query paramet
 | Navigate | Every in-workflow `st.page_link` must pass `query_params` with that id. If `query_params` is omitted, Streamlit **clears** existing query parameters and the Topic scope id is lost |
 | Out of sidebar | Sidebar Home / Topic intake may clear the query string (Streamlit default). That is acceptable for starting a new Topic scope |
 
-Helpers live in `paper_reviewer.ui.generation_url` until implementation renames them. They must read and write `topic_scope_public_id`. Step specs link here; they must not restate the clear rule.
+Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_public_id`. Step specs link here; they must not restate the clear rule.
 
 Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL id alone does **not** resume a Topic scope after the session is gone.
 
