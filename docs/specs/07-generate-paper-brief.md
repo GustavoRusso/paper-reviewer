@@ -241,12 +241,13 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 ### Session keys
 
 | Key | Type | Role |
-| --- | --- |
+| --- | --- | --- |
 | `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list**; reload each `Paper` from the DB for `full_text_status` and display fields. |
-| `topic_brief_generation_public_id` | `uuid.UUID` | Required generation reference for display / navigation. Not a brief identity key. |
 | `generate_paper_brief_enqueue_result` | `GeneratePaperBriefsEnqueueResult` | Optional cache that enqueue was submitted for this session. |
 
-**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new generation identity — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
+**URL query:** Require `topic_brief_generation_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). Not a brief identity key. In-workflow page links must pass that query param.
+
+**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new `topic_statement` and set the generation id in the URL — same cascade as [Fulfill papers metadata](06-fulfill-papers-metadata.md).
 
 **Invalidate when an upstream step re-runs:** When triage re-confirms, archiving result is cleared/replaced, or fulfill enqueue is cleared for a new archived set, clear `generate_paper_brief_enqueue_result`. Rule: re-run step N → clear steps N+1….
 
@@ -254,7 +255,7 @@ Does **not** by itself delete durable global `Paper` or `PaperBrief` rows.
 
 ### Page behavior
 
-1. If `paper_archiving_result` or `topic_brief_generation_public_id` is missing → empty state; links to **Paper archiving**, **Fulfill papers metadata**, and **New Topic brief**.
+1. If `paper_archiving_result` or the URL generation id is missing → empty state; links to **Paper archiving**, **Fulfill papers metadata**, and **New Topic brief** (preserve the query id when present).
 2. If `papers` is empty → caption that there are no archived papers; do not enqueue.
 3. If any paper in the set has `full_text_status = not_started` → show incomplete prerequisite; link to **Fulfill papers metadata**; do not enqueue drafts for those papers.
 4. On first visit with prerequisites (enqueue only for papers with full text `succeeded` needing briefs) and no enqueue cache → call `enqueue_generate_paper_briefs` for eligible paper ids; store enqueue result in session.

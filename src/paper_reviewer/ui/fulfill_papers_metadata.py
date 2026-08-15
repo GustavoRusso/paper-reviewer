@@ -24,11 +24,13 @@ from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
     enqueue_fulfill_papers_metadata,
     needs_fulfill_paper_metadata,
 )
-from paper_reviewer.ui.navigation import streamlit_page_for
+from paper_reviewer.ui.generation_url import (
+    parse_generation_public_id,
+    workflow_page_link,
+)
 from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
-    PUBLIC_ID_KEY,
     SESSION_KEY,
 )
 
@@ -46,12 +48,13 @@ def _session_factory() -> sessionmaker[Session]:
     return create_session_factory(create_db_engine())
 
 
-def fulfill_prerequisites_met(state: Mapping[str, Any]) -> bool:
-    """Return True when archiving result and generation id are in session."""
-    return (
-        state.get(ARCHIVING_RESULT_KEY) is not None
-        and state.get(PUBLIC_ID_KEY) is not None
-    )
+def fulfill_prerequisites_met(
+    state: Mapping[str, Any],
+    *,
+    public_id: UUID | None,
+) -> bool:
+    """Return True when archiving result is in session and generation id is in the URL."""
+    return state.get(ARCHIVING_RESULT_KEY) is not None and public_id is not None
 
 
 def aspect_status_label(
@@ -176,6 +179,8 @@ def _aspect_error_text(
 def _render_progress(
     paper_ids: list[int],
     enqueue_result: FulfillPapersMetadataEnqueueResult,
+    *,
+    public_id: UUID,
 ) -> None:
     skipped_terminal = set(enqueue_result.skipped_already_terminal)
     any_still_needs_work = False
@@ -268,9 +273,10 @@ def _render_progress(
                 "Fulfill papers metadata finished. Some papers failed or are "
                 "unavailable; later steps use papers with full text Succeeded."
             )
-        st.page_link(
-            streamlit_page_for("generate_paper_brief"),
+        workflow_page_link(
+            "generate_paper_brief",
             label="Continue to Generate paper brief",
+            public_id=public_id,
         )
 
 
@@ -278,23 +284,26 @@ def render_fulfill_papers_metadata() -> None:
     """Render the Fulfill papers metadata progress page."""
     st.title("Fulfill papers metadata")
 
-    if not fulfill_prerequisites_met(st.session_state):
+    public_id = parse_generation_public_id(st.query_params)
+    if not fulfill_prerequisites_met(st.session_state, public_id=public_id):
         st.info(
             "Archive papers on Paper archiving before fulfilling metadata. "
             "Open New Topic brief to start a generation, then archive papers."
         )
-        st.page_link(
-            streamlit_page_for("new_topic_brief"),
+        workflow_page_link(
+            "new_topic_brief",
             label="Go to New Topic brief",
+            public_id=public_id,
         )
-        st.page_link(
-            streamlit_page_for("paper_archiving"),
+        workflow_page_link(
+            "paper_archiving",
             label="Go to Paper archiving",
+            public_id=public_id,
         )
         return
 
+    assert public_id is not None
     archiving: PaperArchivingResult = st.session_state[ARCHIVING_RESULT_KEY]
-    public_id: UUID = st.session_state[PUBLIC_ID_KEY]
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
     paper_ids = _paper_ids(archiving)
 
@@ -306,9 +315,10 @@ def render_fulfill_papers_metadata() -> None:
     if not paper_ids:
         st.caption("No archived papers.")
         st.success("Fulfill papers metadata finished for this set.")
-        st.page_link(
-            streamlit_page_for("generate_paper_brief"),
+        workflow_page_link(
+            "generate_paper_brief",
             label="Continue to Generate paper brief",
+            public_id=public_id,
         )
         return
 
@@ -338,4 +348,4 @@ def render_fulfill_papers_metadata() -> None:
             return
         st.session_state[FULFILL_ENQUEUE_RESULT_KEY] = enqueue_result
 
-    _render_progress(paper_ids, enqueue_result)
+    _render_progress(paper_ids, enqueue_result, public_id=public_id)

@@ -68,7 +68,7 @@ Today, the **New Topic brief** page (`paper_reviewer.ui.new_topic_brief`) runs T
 | Input | Required | Description |
 | --- | --- | --- |
 | `search_result` | Yes | `RelatedPaperSearchResult` from [related-paper search](03-related-paper-search.md): `candidates`, `source_runs`, optional `notes`. |
-| `generation_public_id` | Yes (UI) | Public id of the current `TopicBriefGeneration` (session / orchestrator context). Not an argument of the pure confirm function. |
+| `generation_public_id` | Yes (UI) | Public id of the current `TopicBriefGeneration` from the **URL query** ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). Not an argument of the pure confirm function. |
 
 `PaperCandidate` shape is owned by [related-paper search](03-related-paper-search.md). This step does not redefine it.
 
@@ -131,16 +131,16 @@ Register in `paper_reviewer.ui.navigation`:
 
 ### Page behavior (v1)
 
-1. **Prerequisites** — Require Streamlit session state from **New Topic brief**:
-   - `topic_brief_generation_public_id`
-   - `related_paper_search_result`
-   - If either is missing: show a message and a link to **New Topic brief**; do not render the confirm button.
-2. **Context header** — Show the generation reference id and an optional topic statement snippet from session.
+1. **Prerequisites** — Require:
+   - `topic_brief_generation_public_id` in the **URL query** ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url))
+   - `related_paper_search_result` in Streamlit session state from **New Topic brief**
+   - If either is missing: show a message and a link to **New Topic brief**; do not render the confirm button. In-workflow links must preserve the query id when present.
+2. **Context header** — Show the generation reference id (from the URL) and an optional topic statement snippet from session.
 3. **Source runs** — Show per-source status from `search_result.source_runs` (same pattern as New Topic brief’s per-source rendering today). Implementation may later extract a shared display helper.
 4. **Candidate list** — One block per `PaperCandidate`: title (linked via `url`), authors, journal, year, `source_uid`, `facet_id`, and DOI when present.
 5. **Counts** — Show how many papers will continue (e.g. “N papers to archive”).
 6. **Confirm button (primary)** — Mutating control per [ui-style.md](../ui-style.md). Label names the confirm action (e.g. **Confirm for paper archiving**), not the next page. Exact copy left to implementation.
-   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and a separate `st.page_link` to the **Paper archiving** page (navigate only). Do **not** call `archive_papers` on this page.
+   - On click: call `confirm_retrieval_triage(search_result)`; store `RetrievalTriageResult` in session (`retrieval_triage_result`); clear `paper_archiving_result` **and all later-step session caches** (fulfill enqueue, generate-brief enqueue when present, …) so Paper archiving and downstream steps re-run on the latest retained set — cascade rule in [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…). Show a short success message and a separate `st.page_link` to the **Paper archiving** page (navigate only; pass the generation id in `query_params`). Do **not** call `archive_papers` on this page.
 7. **Empty candidates** — Still show source-run diagnostics; keep the confirm button enabled (archiving is a no-op). Caption explains that search returned no retainable papers.
 
 ### New Topic brief handoff
@@ -148,9 +148,9 @@ Register in `paper_reviewer.ui.navigation`:
 After related-paper search succeeds on the **New Topic brief** page (`paper_reviewer.ui.new_topic_brief`):
 
 - Do not keep the full candidate list as the primary triage surface on intake.
-- Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step.
+- Show a summary and an `st.page_link` to the **Retrieval triage** page as the required next step (pass the generation id in `query_params`; see [ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)).
 
-Persistence for v1 is Streamlit session state only (same pattern as topic analysis and search results today). No triage DB tables.
+Persistence for v1 is Streamlit session state for search / triage caches, plus the generation public id in the URL. No triage DB tables.
 
 ## Orchestration boundary
 

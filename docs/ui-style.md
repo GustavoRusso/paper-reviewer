@@ -73,6 +73,22 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 - **Current opt-in list (this order):** Home, New Topic brief. Later Topic brief generation steps are registered but hidden; the user moves with in-page `st.page_link`.
 - In-page CTAs and empty-state “Go to …” targets still use `st.page_link` per this document.
 
+## Topic brief generation public id in the URL
+
+Workflow pages carry the current `TopicBriefGeneration` public id in a **URL query parameter**, not in Streamlit session state.
+
+| Rule | Detail |
+| --- | --- |
+| Query key | `topic_brief_generation_public_id` (UUID string) |
+| Write | New Topic brief Submit sets the param on the current page after a successful start |
+| Read | Each workflow page parses the id from `st.query_params` for captions and prerequisite checks |
+| Navigate | Every in-workflow `st.page_link` must pass `query_params` with that id. If `query_params` is omitted, Streamlit **clears** existing query parameters and the generation id is lost |
+| Out of sidebar | Sidebar Home / New Topic brief may clear the query string (Streamlit default). That is acceptable for starting a new generation |
+
+Helpers: `paper_reviewer.ui.generation_url` (`parse_generation_public_id`, `generation_query_params`, `workflow_page_link`). Step specs link here; they must not restate the clear rule.
+
+Session caches (`topic_statement`, search / triage / archiving results, enqueue caches) stay in `st.session_state`. The URL id alone does **not** resume a generation after the session is gone.
+
 ## Mapping to current workflow pages
 
 Illustrative only; step specs remain the behavior contract.

@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-import uuid
+from uuid import uuid4
 
 from paper_reviewer.schemas.topic_brief_generation.related_paper_search import (
     RelatedPaperSearchResult,
 )
+from paper_reviewer.ui.new_topic_brief import SEARCH_KEY
 from paper_reviewer.ui.retrieval_triage import (
     CONFIRM_BUTTON_LABEL,
     triage_prerequisites_met,
 )
-from paper_reviewer.ui.new_topic_brief import PUBLIC_ID_KEY, SEARCH_KEY
 
 
 def test_confirm_button_label_names_the_action() -> None:
@@ -20,11 +20,10 @@ def test_confirm_button_label_names_the_action() -> None:
 
 def test_prerequisites_met_when_public_id_and_search_present() -> None:
     state = {
-        PUBLIC_ID_KEY: uuid.uuid4(),
         SEARCH_KEY: RelatedPaperSearchResult(candidates=[], source_runs=[]),
     }
 
-    assert triage_prerequisites_met(state) is True
+    assert triage_prerequisites_met(state, public_id=uuid4()) is True
 
 
 def test_prerequisites_missing_without_public_id() -> None:
@@ -32,10 +31,8 @@ def test_prerequisites_missing_without_public_id() -> None:
         SEARCH_KEY: RelatedPaperSearchResult(candidates=[], source_runs=[]),
     }
 
-    assert triage_prerequisites_met(state) is False
+    assert triage_prerequisites_met(state, public_id=None) is False
 
 
 def test_prerequisites_missing_without_search_result() -> None:
-    state = {PUBLIC_ID_KEY: uuid.uuid4()}
-
-    assert triage_prerequisites_met(state) is False
+    assert triage_prerequisites_met({}, public_id=uuid4()) is False

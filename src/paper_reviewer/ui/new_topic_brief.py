@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import uuid
 from collections.abc import MutableMapping
 from typing import Any
 
@@ -28,10 +27,13 @@ from paper_reviewer.topic_brief_generation.topic_analysis import analyze_topic_s
 from paper_reviewer.topic_brief_generation.topic_intake import (
     start_topic_brief_from_topic_intake,
 )
-from paper_reviewer.ui.navigation import streamlit_page_for
+from paper_reviewer.ui.generation_url import (
+    parse_generation_public_id,
+    set_generation_public_id_in_url,
+    workflow_page_link,
+)
 
 SESSION_KEY = "topic_statement"
-PUBLIC_ID_KEY = "topic_brief_generation_public_id"
 ANALYSIS_KEY = "topic_analysis_result"
 SEARCH_KEY = "related_paper_search_result"
 TRIAGE_RESULT_KEY = "retrieval_triage_result"
@@ -44,12 +46,10 @@ def begin_new_topic_brief_session(
     state: MutableMapping[str, Any],
     *,
     topic_statement: TopicStatement,
-    public_id: uuid.UUID,
 ) -> None:
-    """Drop all session keys, then store the new generation identity."""
+    """Drop all session keys, then store the new topic statement."""
     state.clear()
     state[SESSION_KEY] = topic_statement
-    state[PUBLIC_ID_KEY] = public_id
 
 
 @st.cache_resource
@@ -102,8 +102,8 @@ def render_new_topic_brief() -> None:
             begin_new_topic_brief_session(
                 st.session_state,
                 topic_statement=topic_statement,
-                public_id=generation.public_id,
             )
+            set_generation_public_id_in_url(generation.public_id)
             st.success("Topic brief generation started.")
             try:
                 analysis = analyze_topic_statement(topic_statement.text)
@@ -125,7 +125,7 @@ def render_new_topic_brief() -> None:
                     st.session_state[SEARCH_KEY] = search_result
 
     accepted: TopicStatement | None = st.session_state.get(SESSION_KEY)
-    public_id: uuid.UUID | None = st.session_state.get(PUBLIC_ID_KEY)
+    public_id = parse_generation_public_id(st.query_params)
     analysis: TopicAnalysisResult | None = st.session_state.get(ANALYSIS_KEY)
     search_result: RelatedPaperSearchResult | None = st.session_state.get(SEARCH_KEY)
     if accepted is not None:
@@ -148,7 +148,8 @@ def render_new_topic_brief() -> None:
             _render_source_run_summary(run)
         count = len(search_result.candidates)
         st.caption(f"{count} paper candidate(s) ready for triage.")
-        st.page_link(
-            streamlit_page_for("retrieval_triage"),
+        workflow_page_link(
+            "retrieval_triage",
             label="Continue to Retrieval triage",
+            public_id=public_id,
         )

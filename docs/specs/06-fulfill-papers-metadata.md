@@ -492,16 +492,17 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 ### Session keys
 
 | Key | Type | Role |
-| --- | --- |
+| --- | --- | --- |
 | `paper_archiving_result` | `PaperArchivingResult` | Required prerequisite. Use `papers` as the **id list** only; always reload each `Paper` from the DB for status and display fields. |
-| `topic_brief_generation_public_id` | `uuid.UUID` | Required generation reference for display / navigation. |
 | `fulfill_papers_metadata_enqueue_result` | `FulfillPapersMetadataEnqueueResult` | Optional cache that enqueue was submitted for this session (not progress truth). |
+
+**URL query:** Require `topic_brief_generation_public_id` for display / navigation ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). In-workflow page links must pass that query param.
 
 **Workflow session independence (cascade clear):** Each Topic brief generation workflow is independent in the browser session. Downstream step caches must not leak across generations or across a re-run of an earlier step.
 
 | Event | Clear these session keys (and any later-step caches when added) |
 | --- | --- |
-| New Topic brief Submit (new generation) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and `topic_brief_generation_public_id`. Analysis and search keys are set only if those steps succeed. Do not clear on validation or persist failure. |
+| New Topic brief Submit (new generation) | Clear the **entire** UI session (`session_state.clear()`), then write the new `topic_statement` and set `topic_brief_generation_public_id` in the **URL query**. Analysis and search keys are set only if those steps succeed. Do not clear on validation or persist failure. |
 | Re-confirm Retrieval triage | `paper_archiving_result`, `fulfill_papers_metadata_enqueue_result`, and all later-step caches |
 | Re-run Paper archiving (when/if a re-run clears or replaces `paper_archiving_result`) | `fulfill_papers_metadata_enqueue_result` and all later-step caches |
 
@@ -513,12 +514,12 @@ This cascade applies to **session / UI workflow state**. It does **not** delete 
 
 ### Page behavior
 
-1. If `paper_archiving_result` or `topic_brief_generation_public_id` is missing → empty state; links to **Paper archiving** and **New Topic brief**.
+1. If `paper_archiving_result` or the URL generation id is missing → empty state; links to **Paper archiving** and **New Topic brief** (preserve the query id when present).
 2. If `papers` is empty → caption that there are no archived papers; do not enqueue.
 3. On first visit with prerequisites and no enqueue cache → call `enqueue_fulfill_papers_metadata` for the archived paper ids; store enqueue result in session.
 4. While any paper has `source_record_status` or `full_text_status` equal to `not_started` after enqueue, refresh/poll durable columns. Do not use Prefect API state as progress truth.
 5. Primary surface: **progress table/list** — title (link via `url`; when enrichment set `pmc_article_url` / `open_access_pdf_url`, those may be shown as extra links), DOI, **source-record status**, **full-text status**, short error when an aspect is `failed`.
-6. When every paper has both aspects terminal (`succeeded` / `failed` / `unavailable`), show a summary and link to **Generate paper brief**. Papers with full text `failed` or `unavailable` remain visible; do not block the whole page from linking onward (step 7 will enqueue only papers with full text `succeeded`).
+6. When every paper has both aspects terminal (`succeeded` / `failed` / `unavailable`), show a summary and link to **Generate paper brief** (pass the generation id in `query_params`). Papers with full text `failed` or `unavailable` remain visible; do not block the whole page from linking onward (step 7 will enqueue only papers with full text `succeeded`).
 7. On each progress row, when both aspects are terminal, show a secondary **Regenerate** button ([ui-style.md](../ui-style.md)). Click submits `regenerate_paper` for that paper. Unique Streamlit key per `paper_id`.
 
 Do **not** run EFetch or Cloud inside Streamlit callbacks. Default auto-enqueue still does not retry `failed` / `unavailable` or overwrite `succeeded`.

@@ -243,9 +243,10 @@ Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). 
 | `retrieval_triage_result` | `RetrievalTriageResult` | Required prerequisite. Candidates = `retained`. |
 | `paper_archiving_result` | `PaperArchivingResult` | Cached outcome for this browser session after a successful auto-run. |
 | `topic_statement` | `TopicStatement` | Optional context for header / caption. |
-| `topic_brief_generation_public_id` | `uuid.UUID` | Optional generation reference id for summary display. |
 
-**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new generation identity. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Generations must not reuse another workflow’s session state.
+**URL query:** Show the generation reference id from `topic_brief_generation_public_id` when present ([ui-style.md](../ui-style.md#topic-brief-generation-public-id-in-the-url)). In-workflow page links must pass that query param.
+
+**Invalidate on new intake:** When New Topic brief Submit starts a new generation, clear the **entire** UI session, then write the new `topic_statement` and set the generation id in the URL. See [Fulfill papers metadata](06-fulfill-papers-metadata.md) (cascade rule). Generations must not reuse another workflow’s session state.
 
 **Invalidate on triage re-confirm:** When Retrieval triage confirms again, clear `paper_archiving_result` and **all later-step session caches** so downstream pages re-run on the latest `retained` set (triage owns that clear). Same cascade rule as [Fulfill papers metadata](06-fulfill-papers-metadata.md) (re-run step N → clear steps N+1…).
 
@@ -255,7 +256,7 @@ Does **not** delete durable global `Paper` rows.
 
 ### Auto-run behavior (first visit)
 
-1. If `retrieval_triage_result` is missing → show empty state: explain that Retrieval triage must confirm first; `st.page_link` to **New Topic brief** and **Retrieval triage**.
+1. If `retrieval_triage_result` is missing → show empty state: explain that Retrieval triage must confirm first; `st.page_link` to **New Topic brief** and **Retrieval triage** (preserve the generation id in `query_params` when present).
 2. If `paper_archiving_result` already exists in session → **do not re-run**; render the cached result (idempotent display). Input count for the summary uses `len(retrieval_triage_result.retained)`.
 3. If prerequisites exist and there is no cached result → run inside `session_scope` with a spinner:
    - `archive_papers(session, retrieval_triage_result.retained)`
@@ -274,7 +275,7 @@ When a `PaperArchivingResult` is available (cached or just produced), render sec
 
 - Input candidate count: `len(retrieval_triage_result.retained)` from session (the same list used for the run).
 - Counts: archived (`len(papers)`), skipped (`len(skipped)`), errors (`len(errors)`).
-- Generation reference id when `topic_brief_generation_public_id` is present.
+- Generation reference id when the URL query id is present.
 
 ### Archived papers (`papers`)
 

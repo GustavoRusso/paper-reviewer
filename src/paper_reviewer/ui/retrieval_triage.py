@@ -18,12 +18,14 @@ from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStat
 from paper_reviewer.topic_brief_generation.retrieval_triage import (
     confirm_retrieval_triage,
 )
-from paper_reviewer.ui.navigation import streamlit_page_for
+from paper_reviewer.ui.generation_url import (
+    parse_generation_public_id,
+    workflow_page_link,
+)
 from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
-    PUBLIC_ID_KEY,
     SEARCH_KEY,
     SESSION_KEY,
     TRIAGE_RESULT_KEY,
@@ -32,9 +34,13 @@ from paper_reviewer.ui.new_topic_brief import (
 CONFIRM_BUTTON_LABEL = "Confirm for paper archiving"
 
 
-def triage_prerequisites_met(state: Mapping[str, Any]) -> bool:
-    """Return True when generation id and search result are in session state."""
-    return state.get(PUBLIC_ID_KEY) is not None and state.get(SEARCH_KEY) is not None
+def triage_prerequisites_met(
+    state: Mapping[str, Any],
+    *,
+    public_id: UUID | None,
+) -> bool:
+    """Return True when generation id is in the URL and search result is in session."""
+    return public_id is not None and state.get(SEARCH_KEY) is not None
 
 
 def _render_source_run_status(run: SourceRun) -> None:
@@ -69,18 +75,20 @@ def render_retrieval_triage() -> None:
     """Render the Retrieval triage review and confirm page."""
     st.title("Retrieval triage")
 
-    if not triage_prerequisites_met(st.session_state):
+    public_id = parse_generation_public_id(st.query_params)
+    if not triage_prerequisites_met(st.session_state, public_id=public_id):
         st.info(
             "Run related-paper search from New Topic brief before triage. "
             "Open that page, submit a topic statement, and wait for search to finish."
         )
-        st.page_link(
-            streamlit_page_for("new_topic_brief"),
+        workflow_page_link(
+            "new_topic_brief",
             label="Go to New Topic brief",
+            public_id=public_id,
         )
         return
 
-    public_id: UUID = st.session_state[PUBLIC_ID_KEY]
+    assert public_id is not None
     search_result: RelatedPaperSearchResult = st.session_state[SEARCH_KEY]
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
 
@@ -121,7 +129,8 @@ def render_retrieval_triage() -> None:
         )
 
     if st.session_state.get(TRIAGE_RESULT_KEY) is not None:
-        st.page_link(
-            streamlit_page_for("paper_archiving"),
+        workflow_page_link(
+            "paper_archiving",
             label="Continue to Paper archiving",
+            public_id=public_id,
         )

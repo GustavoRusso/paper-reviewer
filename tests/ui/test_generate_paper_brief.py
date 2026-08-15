@@ -19,23 +19,19 @@ from paper_reviewer.ui.generate_paper_brief import (
 from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
-    PUBLIC_ID_KEY,
 )
 
 
 def test_prerequisites_met_when_archiving_result_and_public_id_present() -> None:
     state = {
         ARCHIVING_RESULT_KEY: PaperArchivingResult(papers=[], skipped=[], errors=[]),
-        PUBLIC_ID_KEY: uuid4(),
     }
 
-    assert brief_prerequisites_met(state) is True
+    assert brief_prerequisites_met(state, public_id=uuid4()) is True
 
 
 def test_prerequisites_missing_without_archiving_result() -> None:
-    state = {PUBLIC_ID_KEY: uuid4()}
-
-    assert brief_prerequisites_met(state) is False
+    assert brief_prerequisites_met({}, public_id=uuid4()) is False
 
 
 def test_prerequisites_missing_without_public_id() -> None:
@@ -43,7 +39,7 @@ def test_prerequisites_missing_without_public_id() -> None:
         ARCHIVING_RESULT_KEY: PaperArchivingResult(papers=[], skipped=[], errors=[]),
     }
 
-    assert brief_prerequisites_met(state) is False
+    assert brief_prerequisites_met(state, public_id=None) is False
 
 
 def test_brief_progress_label_incomplete() -> None:

@@ -20,12 +20,14 @@ from paper_reviewer.schemas.topic_brief_generation.retrieval_triage import (
 )
 from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
 from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
-from paper_reviewer.ui.navigation import streamlit_page_for
+from paper_reviewer.ui.generation_url import (
+    parse_generation_public_id,
+    workflow_page_link,
+)
 from paper_reviewer.ui.new_topic_brief import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,
     GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
-    PUBLIC_ID_KEY,
     SESSION_KEY,
     TRIAGE_RESULT_KEY,
 )
@@ -114,9 +116,10 @@ def _render_result(
         and not result.errors
     ):
         st.caption("No candidates to archive")
-        st.page_link(
-            streamlit_page_for("fulfill_papers_metadata"),
+        workflow_page_link(
+            "fulfill_papers_metadata",
             label="Continue to Fulfill papers metadata",
+            public_id=public_id,
         )
         return
 
@@ -147,9 +150,10 @@ def _render_result(
             doi_part = f" · DOI `{err.doi}`" if err.doi else ""
             st.error(f"{identity}{doi_part} — {err.reason}")
 
-    st.page_link(
-        streamlit_page_for("fulfill_papers_metadata"),
+    workflow_page_link(
+        "fulfill_papers_metadata",
         label="Continue to Fulfill papers metadata",
+        public_id=public_id,
     )
 
 
@@ -157,24 +161,26 @@ def render_paper_archiving() -> None:
     """Render the Paper archiving page."""
     st.title("Paper archiving")
 
+    public_id = parse_generation_public_id(st.query_params)
     if not archiving_prerequisites_met(st.session_state):
         st.info(
             "Confirm candidates on Retrieval triage before paper archiving. "
             "Open New Topic brief to start a generation, then confirm triage."
         )
-        st.page_link(
-            streamlit_page_for("new_topic_brief"),
+        workflow_page_link(
+            "new_topic_brief",
             label="Go to New Topic brief",
+            public_id=public_id,
         )
-        st.page_link(
-            streamlit_page_for("retrieval_triage"),
+        workflow_page_link(
+            "retrieval_triage",
             label="Go to Retrieval triage",
+            public_id=public_id,
         )
         return
 
     triage_result: RetrievalTriageResult = st.session_state[TRIAGE_RESULT_KEY]
     retained = triage_result.retained
-    public_id: UUID | None = st.session_state.get(PUBLIC_ID_KEY)
     topic: TopicStatement | None = st.session_state.get(SESSION_KEY)
 
     if public_id is not None:
