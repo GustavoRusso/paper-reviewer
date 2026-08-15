@@ -11,17 +11,20 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 ## Terminology
 
 - **Paper** — Any scientific article, published or not. In the app, an archived `Paper` is the durable bibliographic record created or reused during **Paper archiving**. Its public id is the uppercase DOI. Source-record and full-text completeness live on the paper as stored statuses (not a single paper-wide status).
-- **Paper sources** — Predefined online providers used to look up related papers
+- **Paper sources** — Predefined online providers used to look up related papers for **Paper ingestion**
 - **Topic statement** — Free-form text from the researcher that first defines the topic to brief
-- **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Used to drive related-paper search and later writing.
-- **Paper candidate** — A related paper found via a paper source during search: triage summary plus a source fetch handle so later steps can archive the paper and later fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
+- **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Stored in the database and related to the topic. Used to get key terms for related-paper search and later writing.
+- **Paper candidate** — A related paper found via a paper source during **Related-paper search**. It has a source fetch handle so **Paper ingestion** can archive the paper and fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
-- **Paper archiving** — Workflow step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
-- **Fulfill papers metadata** — Workflow step that fills two global paper aspects: **source record** (fuller publication details) and **full text** (article body when available). Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
-- **Paper brief** — The **result** artifact: a structured, topic-agnostic summary of one paper (`PaperBrief`). One brief per paper; reused in later topic-brief generations. Produced by **Generate paper brief**. Distinct from that workflow step.
-- **Generate paper brief** — Workflow **step** that creates **paper briefs** for papers that have full text. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
+- **Paper archiving** — Ingest step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
+- **Fulfill papers metadata** — Ingest step that fills two global paper aspects: **source record** (fuller publication details) and **full text** (article body when available). Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
+- **Paper brief** — The **result** artifact: a structured, topic-agnostic summary of one paper (`PaperBrief`). One brief per paper; reused in later topic-brief generations. Produced by **Generate paper brief**. Distinct from that ingest step.
+- **Generate paper brief** — Ingest **step** that creates **paper briefs** for papers that have full text. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
+- **Paper indexing** — Planned ingest step that indexes an ingested paper so **Paper search** can find it in the local database. Details later.
+- **Paper search** — Phase that searches only papers already ingested in the local database.
+- **Retrieval triage** — After **Paper search**, you confirm which locally found papers continue to **Topic brief**. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
-- **Topic brief generation** — One end-to-end run of the workflow below (Topic intake through Topic brief). In the app this is a `TopicBriefGeneration` record that owns artifacts from each step. `Paper` and `PaperBrief` are global and are not owned by that run.
+- **Topic brief generation** — The four-phase workflow below. You can repeat a phase to refine its result. In the app this is a `TopicBriefGeneration` record. `Paper` and `PaperBrief` are global and are not owned by that record.
 
 ## Paper sources
 
@@ -29,14 +32,38 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ## Topic brief generation workflow
 
-1. **Topic intake** — You provide a topic statement that defines what to investigate.
-2. **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus for search and writing. Spec: [docs/specs/02-topic-analysis.md](docs/specs/02-topic-analysis.md).
-3. **Related-paper search** — The assistant searches **paper sources** for related papers. Spec: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
-4. **Retrieval triage** — Search results are presented; you confirm which papers continue before deeper analysis. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
-5. **Paper archiving** — For each retained candidate, the assistant creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
-6. **Fulfill papers metadata** — For each archived paper, the assistant fills the **source record** and then **full text** (for PubMed: EFetch, then PMC Cloud when a body text exists). Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
-7. **Generate paper brief** — For each paper with full text, the assistant creates a **paper brief** (the result artifact), or reuses one that already exists. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
-8. **Topic brief** — The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
+The workflow has four phases. Each phase has its own result. You can repeat a phase to refine that result without a full restart.
+
+### 1. Topic definition
+
+- **Topic intake** — You provide a topic statement that defines what to investigate.
+- **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus. Spec: [docs/specs/02-topic-analysis.md](docs/specs/02-topic-analysis.md).
+
+**Result:** a list of **topic facets** stored in the database and related to the topic.
+
+### 2. Paper ingestion
+
+- **Related-paper search** — The assistant uses topic facets to get key terms and searches **paper sources** for papers that can be ingested. Spec: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md). This search is source discovery for ingest. It is not the search that feeds the topic brief.
+- For each found paper, the assistant runs this ingest process:
+  - **Paper archiving** — Creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
+  - **Fulfill papers metadata** — Fills the **source record** and then **full text** (for PubMed: EFetch, then PMC Cloud when a body text exists). Spec: [docs/specs/06-fulfill-papers-metadata.md](docs/specs/06-fulfill-papers-metadata.md).
+  - **Generate paper brief** — Creates a **paper brief** (the result artifact), or reuses one that already exists. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
+  - **Paper indexing** — Indexes the ingested paper for later **Paper search**. Details later.
+
+**Result:** papers in the local database (archived, metadata filled, paper brief present, indexed when that step exists).
+
+### 3. Paper search
+
+- The assistant searches only papers already ingested in the local database.
+- **Retrieval triage** — Search results are presented; you confirm which locally found papers continue to **Topic brief**. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
+
+**Result:** a confirmed set of local papers for the topic brief.
+
+### 4. Topic brief
+
+The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
+
+**Result:** the cited **topic brief**.
 
 ## Getting started
 
