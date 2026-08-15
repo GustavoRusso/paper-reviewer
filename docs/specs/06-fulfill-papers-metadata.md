@@ -153,7 +153,7 @@ DOI on flow parameters is for UI/search and the submit-time run name; durable wo
 | Independent aspect flows | Each aspect has its own flow. Orchestrators call them in sequence. |
 | One paper per run | v1 submits one orchestrator run per paper. |
 | Fail-soft per paper | One paper failure must not cancel other papers’ runs. |
-| In-run extract retries | Inside one aspect flow, retry that extract up to 3 attempts with 0.5s delay; only then set `failed`. This is not re-enqueue of already-`failed` papers. |
+| In-run extract retries | Inside one aspect flow, retry that extract up to 3 attempts with 0.5s delay; only then set `failed`. This is not re-enqueue of already-`failed` papers. **Exception (source record / EFetch):** NCBI HTTP 429 / `API rate limit exceeded` soft-retries with a random wait in `(0.5s, 2s)` and does **not** count toward the 3-attempt budget. |
 | Raise | Raise only for unusable infrastructure (DB down, Prefect submit impossible). Per-paper source errors become `failed` on that aspect. |
 
 Pydantic types live under `paper_reviewer.schemas.topic_brief_generation`.
@@ -437,7 +437,7 @@ PubMed call shape: see [paper-sources/pubmed.md](paper-sources/pubmed.md) (EFetc
 | Default path, `source_record_status` is `succeeded`, `failed`, or `unavailable` | No-op; return current status; do not call EFetch; do not change fields. |
 | `not_started`, PubMed `source_id` | EFetch XML for **that paper’s single PMID**; write `source_record`; promote typed columns; refresh bibliographic fields when present; set `pmcid` when present; set `source_record_status = succeeded`; clear error message. |
 | `not_started`, unsupported `source_id` | Set `source_record_status = unavailable`. Do not set `failed`. |
-| EFetch / parse / DB error | In-run extract retries (3 × 0.5s). After exhaustion: `source_record_status = failed`; set `source_record_error_message`; do not write a partial success. |
+| EFetch / parse / DB error | In-run extract retries (3 × 0.5s). After exhaustion: `source_record_status = failed`; set `source_record_error_message`; do not write a partial success. NCBI HTTP 429 / `API rate limit exceeded`: soft-retry with a random wait in `(0.5s, 2s)`; do **not** count that attempt toward the 3-attempt budget (keep soft-retrying until success or a non-429 error). |
 
 ### `inform_full_text`
 
@@ -570,7 +570,7 @@ TDD per [tdd.md](../tdd.md):
 - Default skip when status is `succeeded` / `failed` / `unavailable`.
 - `not_started` → `source_record` set; typed promotes set when parseable; `succeeded`; error cleared; empty abstract still `succeeded`.
 - Unsupported source → `unavailable`.
-- Fetch / parse error → retry extract up to 3 attempts with 0.5s delay; then `failed`.
+- Fetch / parse error → retry extract up to 3 attempts with 0.5s delay; then `failed`. HTTP 429 / rate limit soft-retries with random wait in `(0.5s, 2s)` without counting toward that budget.
 
 **`inform_full_text`:**
 

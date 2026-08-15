@@ -216,7 +216,7 @@ def test_fetch_error_marks_source_failed(
 
     def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
         calls.append("fetch")
-        raise RuntimeError("HTTP 429 from NCBI EFetch")
+        raise RuntimeError("HTTP 500 from NCBI EFetch: server error")
 
     monkeypatch.setattr(
         "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
@@ -230,7 +230,7 @@ def test_fetch_error_marks_source_failed(
     )
 
     assert result.status is PaperAspectStatus.failed
-    assert "429" in (result.error_message or "")
+    assert "500" in (result.error_message or "")
     assert calls == ["fetch", "fetch", "fetch"]
     assert sleep_calls == [0.5, 0.5]
 
@@ -239,7 +239,107 @@ def test_fetch_error_marks_source_failed(
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
         assert paper.source_record_status is PaperAspectStatus.failed
-        assert "429" in (paper.source_record_error_message or "")
+        assert "500" in (paper.source_record_error_message or "")
+        assert paper.full_text_status is PaperAspectStatus.not_started
+    finally:
+        session.close()
+
+
+def test_rate_limit_retries_do_not_count_toward_failure_budget(
+    session_factory: sessionmaker[Session],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paper_id = create_test_paper(session_factory)
+    calls: list[str] = []
+    sleep_calls: list[float] = []
+    rate_limit_delays = [0.7, 1.2, 1.8, 0.9]
+
+    def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
+        calls.append("fetch")
+        if len(calls) <= 4:
+            raise RuntimeError(
+                'HTTP 429 from NCBI EFetch: {"error":"API rate limit exceeded"}'
+            )
+        return mapped_photo()
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        sleep_calls.append,
+    )
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform."
+        "_rate_limit_retry_delay_seconds",
+        lambda: rate_limit_delays[len(sleep_calls)],
+    )
+
+    result = inform_source_record(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=fetch,
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+    assert result.error_message is None
+    assert calls == ["fetch", "fetch", "fetch", "fetch", "fetch"]
+    assert sleep_calls == rate_limit_delays
+    assert all(0.5 < delay < 2.0 for delay in sleep_calls)
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_record_status is PaperAspectStatus.succeeded
+        assert paper.title == "New title"
+        assert paper.full_text_status is PaperAspectStatus.not_started
+    finally:
+        session.close()
+
+
+def test_rate_limit_then_hard_errors_still_respect_failure_budget(
+    session_factory: sessionmaker[Session],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paper_id = create_test_paper(session_factory)
+    calls: list[str] = []
+    sleep_calls: list[float] = []
+    rate_limit_delays = [0.8, 1.1]
+
+    def fetch(_source_id: str, _source_uid: str) -> dict[str, Any]:
+        calls.append("fetch")
+        if len(calls) <= 2:
+            raise RuntimeError(
+                'HTTP 429 from NCBI EFetch: {"error":"API rate limit exceeded"}'
+            )
+        raise RuntimeError("HTTP 500 from NCBI EFetch: server error")
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        sleep_calls.append,
+    )
+    monkeypatch.setattr(
+        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform."
+        "_rate_limit_retry_delay_seconds",
+        lambda: rate_limit_delays[len([s for s in sleep_calls if s != 0.5])],
+    )
+
+    result = inform_source_record(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=fetch,
+    )
+
+    assert result.status is PaperAspectStatus.failed
+    assert "500" in (result.error_message or "")
+    # 2 rate-limit soft retries + 3 hard-failure attempts
+    assert calls == ["fetch", "fetch", "fetch", "fetch", "fetch"]
+    assert sleep_calls == [0.8, 1.1, 0.5, 0.5]
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.source_record_status is PaperAspectStatus.failed
+        assert "500" in (paper.source_record_error_message or "")
         assert paper.full_text_status is PaperAspectStatus.not_started
     finally:
         session.close()

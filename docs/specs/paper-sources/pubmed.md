@@ -95,6 +95,7 @@ This document owns PubMed/NCBI operational detail (README links here).
 
 - Prefer an NCBI **API key** (higher rate limits); include `api_key` on requests when configured.
 - Without a key, E-utilities allow about 3 requests/sec; with a key, about 10/sec. Respect NCBI usage guidelines.
+- When EFetch returns HTTP 429 / `API rate limit exceeded`, `inform_source_record` soft-retries with a random wait in `(0.5s, 2s)` and does not count that attempt toward the hard-failure budget — see [Fulfill papers metadata](../06-fulfill-papers-metadata.md) (in-run extract retries).
 - URL-encode `term`; avoid raw spaces (use `+` or encoding).
 - Boolean operators must be uppercase.
 - Prefer History for large result sets instead of huge `id` lists on every call.

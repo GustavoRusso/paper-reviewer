@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import random
 import time
 from collections.abc import Callable
 from typing import Any
@@ -25,6 +26,8 @@ EnrichFromPmcCloud = Callable[[str | None], dict[str, Any]]
 
 _FETCH_MAX_ATTEMPTS = 3
 _FETCH_RETRY_DELAY_SECONDS = 0.5
+_RATE_LIMIT_RETRY_DELAY_MIN_SECONDS = 0.5
+_RATE_LIMIT_RETRY_DELAY_MAX_SECONDS = 2.0
 _TERMINAL_STATUSES = {
     PaperAspectStatus.succeeded,
     PaperAspectStatus.failed,
@@ -149,6 +152,20 @@ def _mark_source_failed(
     )
 
 
+def _is_ncbi_rate_limit_error(exc: BaseException) -> bool:
+    """True when the exception is an NCBI HTTP 429 / API rate limit error."""
+    message = str(exc)
+    return "HTTP 429" in message or "API rate limit exceeded" in message
+
+
+def _rate_limit_retry_delay_seconds() -> float:
+    """Random wait strictly between 0.5s and 2s before retrying a rate limit."""
+    return random.uniform(
+        _RATE_LIMIT_RETRY_DELAY_MIN_SECONDS + 1e-9,
+        _RATE_LIMIT_RETRY_DELAY_MAX_SECONDS - 1e-9,
+    )
+
+
 def _fetch_with_retries(
     fetch: FetchSourceRecord,
     source_id: str,
@@ -156,13 +173,18 @@ def _fetch_with_retries(
     session: Session,
 ) -> dict[str, Any]:
     last_exc: Exception | None = None
-    for attempt in range(1, _FETCH_MAX_ATTEMPTS + 1):
+    hard_attempts = 0
+    while hard_attempts < _FETCH_MAX_ATTEMPTS:
         try:
             return fetch(source_id, source_uid)
         except Exception as exc:
-            last_exc = exc
             session.rollback()
-            if attempt < _FETCH_MAX_ATTEMPTS:
+            if _is_ncbi_rate_limit_error(exc):
+                time.sleep(_rate_limit_retry_delay_seconds())
+                continue
+            last_exc = exc
+            hard_attempts += 1
+            if hard_attempts < _FETCH_MAX_ATTEMPTS:
                 time.sleep(_FETCH_RETRY_DELAY_SECONDS)
     assert last_exc is not None
     raise last_exc
