@@ -15,9 +15,14 @@ from paper_reviewer.models.topic_brief_generation import (
     list_topic_scopes,
 )
 from paper_reviewer.ui.navigation import streamlit_page_for
+from paper_reviewer.ui.topic_scope_url import (
+    topic_scope_query_params,
+    workflow_page_link,
+)
 
 LANDING_CTA_LABEL = "Add a Topic scope"
 LANDING_CTA_PAGE_KEY = "topic_intake"
+LANDING_TOPIC_SCOPE_PAGE_KEY = "topic_scope"
 EMPTY_TOPIC_SCOPES_MESSAGE = "No Topic scopes yet."
 TOPIC_SCOPES_SECTION_TITLE = "Topic scopes"
 
@@ -31,6 +36,23 @@ def _session_factory() -> sessionmaker[Session]:
 def landing_cta_page_key() -> str:
     """Return the navigation key targeted by the landing CTA."""
     return LANDING_CTA_PAGE_KEY
+
+
+def landing_topic_scope_page_key() -> str:
+    """Return the navigation key targeted by each Home Topic scope row."""
+    return LANDING_TOPIC_SCOPE_PAGE_KEY
+
+
+def landing_topic_scope_hub_link(
+    topic_statement: str,
+    topic_scope_key: uuid.UUID,
+) -> tuple[str, str, dict[str, str]]:
+    """Return page key, link label, and query params for a Home list row."""
+    return (
+        landing_topic_scope_page_key(),
+        topic_statement,
+        topic_scope_query_params(topic_scope_key),
+    )
 
 
 def format_topic_scope_created_at(created_at: datetime) -> str:
@@ -61,7 +83,15 @@ def _render_topic_scope_list(topic_scopes: Sequence[TopicScope]) -> None:
         st.caption(EMPTY_TOPIC_SCOPES_MESSAGE)
         return
     for topic_scope in topic_scopes:
-        st.markdown(f"**{topic_scope.topic_statement}**")
+        page_key, label, _ = landing_topic_scope_hub_link(
+            topic_scope.topic_statement,
+            topic_scope.key,
+        )
+        workflow_page_link(
+            page_key,
+            label=label,
+            topic_scope_key=topic_scope.key,
+        )
         st.caption(
             f"{format_topic_scope_created_at(topic_scope.created_at)} · "
             f"{format_topic_scope_reference_caption(topic_scope.key)}"

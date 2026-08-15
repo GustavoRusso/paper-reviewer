@@ -11,7 +11,10 @@ from paper_reviewer.ui.landing import (
     format_topic_scope_created_at,
     format_topic_scope_list_caption,
     format_topic_scope_reference_caption,
+    landing_topic_scope_hub_link,
+    landing_topic_scope_page_key,
 )
+from paper_reviewer.ui.topic_scope_url import topic_scope_query_params
 
 
 def test_empty_topic_scopes_message() -> None:
@@ -20,6 +23,23 @@ def test_empty_topic_scopes_message() -> None:
 
 def test_landing_cta_label_names_destination() -> None:
     assert LANDING_CTA_LABEL == "Add a Topic scope"
+
+
+def test_landing_topic_scope_list_links_to_hub() -> None:
+    assert landing_topic_scope_page_key() == "topic_scope"
+
+
+def test_landing_topic_scope_hub_link_uses_statement_and_key() -> None:
+    topic_scope_key = uuid.UUID("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")
+
+    page_key, label, query_params = landing_topic_scope_hub_link(
+        "GLP-1 agonists in heart failure",
+        topic_scope_key,
+    )
+
+    assert page_key == "topic_scope"
+    assert label == "GLP-1 agonists in heart failure"
+    assert query_params == topic_scope_query_params(topic_scope_key)
 
 
 def test_format_topic_scope_created_at_iso_utc() -> None:
