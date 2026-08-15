@@ -12,8 +12,9 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 
 - **Paper** — Any scientific article, published or not. In the app, an archived `Paper` is the durable bibliographic record created or reused during **Paper archiving**. Its public id is the uppercase DOI. Source-record and full-text completeness live on the paper as stored statuses (not a single paper-wide status).
 - **Paper sources** — Predefined online providers used to look up related papers for **Paper ingestion**
-- **Topic statement** — Free-form text from the researcher that first defines the topic to brief
-- **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Stored in the database and related to the topic. Used to get key terms for related-paper search and later writing.
+- **Topic statement** — Free-form text from the researcher that first defines the topic to brief. Topic intake writes it on the **Topic scope**.
+- **Topic scope** — Durable record of one topic you work on (`TopicScope`). Created by Topic intake with the topic statement. Aggregates phase results: topic facets, ingest activity for this topic, confirmed papers from Paper search, and the topic brief. `Paper` and `PaperBrief` are global and are not owned by the Topic scope. The app today stores this as a `TopicBriefGeneration` row.
+- **Topic facet** — One named slice of concepts distilled from the topic statement during Topic analysis (`TopicFacet`). Stored in the database and related to the **Topic scope**. Used to get key terms for related-paper search and later writing.
 - **Paper candidate** — A related paper found via a paper source during **Related-paper search**. It has a source fetch handle so **Paper ingestion** can archive the paper and fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference. Candidate shape and identity rules: [docs/specs/03-related-paper-search.md](docs/specs/03-related-paper-search.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate.
 - **Paper archiving** — Ingest step that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/05-paper-archiving.md](docs/specs/05-paper-archiving.md).
@@ -24,7 +25,7 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper search** — Phase that searches only papers already ingested in the local database.
 - **Retrieval triage** — After **Paper search**, you confirm which locally found papers continue to **Topic brief**. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
-- **Topic brief generation** — The four-phase workflow below. You can repeat a phase to refine its result. In the app this is a `TopicBriefGeneration` record. `Paper` and `PaperBrief` are global and are not owned by that record.
+- **Topic brief generation** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
 
 ## Paper sources
 
@@ -36,10 +37,10 @@ The workflow has four phases. Each phase has its own result. You can repeat a ph
 
 ### 1. Topic definition
 
-- **Topic intake** — You provide a topic statement that defines what to investigate.
+- **Topic intake** — You declare a topic statement; the assistant creates a **Topic scope**.
 - **Topic analysis** — The assistant extracts key concepts as **topic facets** that clarify the statement’s scope and focus. Spec: [docs/specs/02-topic-analysis.md](docs/specs/02-topic-analysis.md).
 
-**Result:** a list of **topic facets** stored in the database and related to the topic.
+**Result:** a list of **topic facets** stored on that **Topic scope**.
 
 ### 2. Paper ingestion
 
@@ -50,20 +51,20 @@ The workflow has four phases. Each phase has its own result. You can repeat a ph
   - **Generate paper brief** — Creates a **paper brief** (the result artifact), or reuses one that already exists. Spec: [docs/specs/07-generate-paper-brief.md](docs/specs/07-generate-paper-brief.md).
   - **Paper indexing** — Indexes the ingested paper for later **Paper search**. Details later.
 
-**Result:** papers in the local database (archived, metadata filled, paper brief present, indexed when that step exists).
+**Result:** papers in the local database (archived, metadata filled, paper brief present, indexed when that step exists). Ingest activity for this topic is recorded on the **Topic scope**. `Paper` and `PaperBrief` stay global.
 
 ### 3. Paper search
 
 - The assistant searches only papers already ingested in the local database.
 - **Retrieval triage** — Search results are presented; you confirm which locally found papers continue to **Topic brief**. Spec: [docs/specs/04-retrieval-triage.md](docs/specs/04-retrieval-triage.md).
 
-**Result:** a confirmed set of local papers for the topic brief.
+**Result:** a confirmed set of local papers for the topic brief, attached to the **Topic scope**.
 
 ### 4. Topic brief
 
 The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
 
-**Result:** the cited **topic brief**.
+**Result:** the cited **topic brief**, attached to the **Topic scope**.
 
 ## Getting started
 
