@@ -4,7 +4,7 @@ This document owns the shared **Papers search** capability: apply topic facets f
 
 Primary consumer: [Add reference](3.2-add-reference.md) (References selection step 3.2). The search document and GIN index that this query reads: [Paper indexing](2.2.4-paper-indexing.md).
 
-v1 query **behavior is not built yet**. The engine, searchable field, and query rules below are **locked** for implementation.
+v1 query **behavior is built**. The engine, searchable field, and query rules below are **locked**.
 
 For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no extra search service), see [technology-stack.md](../technology-stack.md).
 
@@ -20,11 +20,11 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 
 ### In scope (current v1)
 
-- Accept a `TopicScope` (or its key) and load persisted `TopicFacet` rows as search input.
+- Accept a loaded `TopicScope` and load persisted `TopicFacet` rows as search input.
 - Query only papers already ingested in the local database, using the PostgreSQL full-text index owned by [Paper indexing](2.2.4-paper-indexing.md).
 - Match v1 queries against `Paper.keywords_tsv` only (source: `source_record.indexing.keywords`).
-- Return a list of durable `Paper` hits suitable for display and for attach in Add reference.
-- When a Topic scope is supplied, optionally mark each hit as already a Reference for that scope or not yet.
+- Return up to **20** durable `Paper` hits suitable for display and for attach in Add reference.
+- Always mark each hit as already a Reference for that scope or not yet (`already_referenced`).
 - Fail-soft when there are no facets, no hits, or an empty search document (rules below).
 
 ### Out of scope
@@ -36,8 +36,9 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 - Streamlit page ownership (UI lives on Add reference; this spec owns the search behavior contract).
 - Topic-brief drafting.
 - Matching MeSH headings, title, abstract, or full text in v1.
-- Ranking (`ts_rank` or equivalent) in v1 (result order is unspecified).
+- Ranking (`ts_rank` or equivalent) in v1.
 - Using `TopicFacet.synonyms` as extra query terms in v1.
+- Pagination beyond the v1 cap of 20.
 
 ## Relation to other searches
 
@@ -58,23 +59,40 @@ Column, generated expression, and GIN index: [Paper indexing](2.2.4-paper-indexi
 
 | Rule | Behavior |
 | --- | --- |
-| Input terms | Every non-blank string in `TopicFacet.concepts` for the Topic scope (all facets). Strip surrounding whitespace. Skip blank strings. |
+| Input terms | Every non-blank string in `TopicFacet.concepts` for the Topic scope (all facets). Strip surrounding whitespace. Skip blank strings. Deduplicate: keep the first occurrence of each concept string. |
 | One concept | `plainto_tsquery('simple', concept)`. Do **not** use `to_tsquery` or SQLAlchemy `Column.match()` (those need `tsquery` syntax and break on ordinary phrases). |
-| Combine concepts | OR (`tsquery || tsquery`). A paper matches when `keywords_tsv` matches **any** concept. |
+| Combine concepts | OR (`tsquery \|\| tsquery`). A paper matches when `keywords_tsv` matches **any** concept. |
 | Combine facets | Same OR pool: flatten concepts from every facet; do not AND across facets in v1. |
 | Match operator | `keywords_tsv @@ <tsquery>`. |
 | No usable concepts | Return an empty hit list. Do not scan all papers. |
 | Empty `keywords_tsv` / no source record | That paper does not match. |
-| `already_referenced` | Optional per-hit flag when a Topic scope is in scope; does not change which papers match. |
+| Order | `Paper.id` ascending (stable list order; not ranking). |
+| Cap | Fetch at most **21** rows; return at most **20**; set `truncated=True` when a 21st row exists. |
+| `already_referenced` | Always set per hit for the Topic scope; does not change which papers match. |
 
-Do not write raw SQL that uses `@@` / `plainto_tsquery` in Streamlit or in Add reference. Put the operator behind a SQLAlchemy helper on `Paper` or in the Papers search domain package; callers use `select(Paper).where(...)`.
+Do not write raw SQL that uses `@@` / `plainto_tsquery` in Streamlit or in Add reference. Put the operator behind a SQLAlchemy helper in the Papers search domain package (`keywords_match_any`); callers use `select(Paper).where(...)`.
 
-## Intended inputs and outputs (product)
+## Public API
 
-| Side | Contract |
+Package path: `paper_reviewer.topic_brief_generation.papers_search`.
+
+```text
+search_papers(session, topic_scope) -> PapersSearchResult
+```
+
+| Argument | Type | Role |
+| --- | --- | --- |
+| `session` | SQLAlchemy `Session` | Read. **Caller owns commit.** |
+| `topic_scope` | `TopicScope` | Scope whose facets drive the query and whose References mark `already_referenced`. |
+
+Schemas: `paper_reviewer.schemas.topic_brief_generation.papers_search`.
+
+| Type | Fields |
 | --- | --- |
-| Input | `TopicScope` (facets from the database). Optional flags for consumers that need already-referenced markers. |
-| Output | List of ingested `Paper`s (order unspecified in v1); optional per-hit `already_referenced` (or equivalent) when a Topic scope is in scope. |
+| `PaperSearchHit` | `title`, `url`, `doi`, `authors`, `journal`, `published_year`, `already_referenced`. Identity is `doi`. Do **not** put private `Paper.id` on the hit. |
+| `PapersSearchResult` | `hits: list[PaperSearchHit]`, `truncated: bool` |
+
+Do not reuse `ReferencedPaper` (that type carries `referenced_at`).
 
 ## Tests
 

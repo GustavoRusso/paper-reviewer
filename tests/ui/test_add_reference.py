@@ -1,15 +1,26 @@
-"""Add reference stub page: registration, missing key, and not-built copy."""
+"""Add reference page: registration, Papers search results, attach not built."""
 
 from __future__ import annotations
 
 import inspect
 
+from paper_reviewer.schemas.topic_brief_generation.papers_search import (
+    PaperSearchHit,
+)
+from paper_reviewer.ui import add_reference as add_reference_module
 from paper_reviewer.ui.add_reference import (
+    ALREADY_REFERENCED_BADGE,
+    ATTACH_NOT_BUILT_CAPTION,
+    EMPTY_NO_CONCEPTS_CAPTION,
+    EMPTY_NO_HITS_CAPTION,
     GO_TO_SHOW_REFERENCES_LABEL,
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
+    LOAD_ERROR_MESSAGE,
     MISSING_SCOPE_MESSAGE,
-    NOT_BUILT_CAPTION,
+    NOT_YET_REFERENCED_BADGE,
+    TRUNCATED_CAPTION,
+    format_paper_search_hit_caption,
     render_add_reference,
 )
 from paper_reviewer.ui.navigation import build_app_pages
@@ -37,13 +48,6 @@ def test_missing_key_copy_links_to_intake_and_hub() -> None:
     assert GO_TO_TOPIC_SCOPE_LABEL == "Go to Topic scope"
 
 
-def test_not_built_caption_and_back_link() -> None:
-    assert NOT_BUILT_CAPTION == (
-        "Attaching References from local search results is not built yet."
-    )
-    assert GO_TO_SHOW_REFERENCES_LABEL == "Go to Show references"
-
-
 def test_page_uses_phase_header_then_step_header() -> None:
     source = inspect.getsource(render_add_reference)
     assert "render_references_selection_header" in source
@@ -52,7 +56,98 @@ def test_page_uses_phase_header_then_step_header() -> None:
     assert "st.title" not in source
 
 
-def test_page_links_back_to_show_references() -> None:
+def test_page_does_not_repeat_reference_id_caption() -> None:
     source = inspect.getsource(render_add_reference)
+    assert "Reference id:" not in source
+
+
+def test_page_loads_scope_and_runs_papers_search() -> None:
+    source = inspect.getsource(render_add_reference)
+    assert "get_topic_scope_by_key" in source
+    assert "search_papers" in source
+    assert "session_scope" in source
+
+
+def test_missing_topic_scope_row_uses_the_same_empty_state() -> None:
+    source = inspect.getsource(render_add_reference)
+    assert "_render_missing_scope" in source
+    assert "topic_scope is None" in source
+
+
+def test_empty_and_load_error_copy() -> None:
+    assert EMPTY_NO_CONCEPTS_CAPTION == (
+        "No topic facet concepts to search. Run Topic analysis first."
+    )
+    assert EMPTY_NO_HITS_CAPTION == (
+        "No ingested papers match this Topic scope's concepts."
+    )
+    assert TRUNCATED_CAPTION == "Showing the first 20 matching papers."
+    assert LOAD_ERROR_MESSAGE == (
+        "Could not load Papers search for this Topic scope. Try again."
+    )
+
+
+def test_badge_labels() -> None:
+    assert ALREADY_REFERENCED_BADGE == "Already a Reference"
+    assert NOT_YET_REFERENCED_BADGE == "Not yet a Reference"
+
+
+def test_attach_not_built_caption_and_back_link() -> None:
+    assert ATTACH_NOT_BUILT_CAPTION == (
+        "Attaching References from local search results is not built yet."
+    )
+    assert GO_TO_SHOW_REFERENCES_LABEL == "Go to Show references"
+
+
+def test_page_links_back_to_show_references() -> None:
+    source = inspect.getsource(add_reference_module)
     assert '"show_references"' in source
     assert "GO_TO_SHOW_REFERENCES_LABEL" in source
+
+
+def test_page_does_not_offer_add_or_add_all() -> None:
+    source = inspect.getsource(add_reference_module)
+    assert 'st.button' not in source
+    assert "Add all" not in source
+
+
+def test_page_renders_hit_card_with_badge() -> None:
+    source = inspect.getsource(add_reference_module)
+    assert "format_paper_search_hit_caption" in source
+    assert "st.markdown" in source
+    assert "st.badge" in source
+    assert "ALREADY_REFERENCED_BADGE" in source
+    assert "NOT_YET_REFERENCED_BADGE" in source
+    assert "ATTACH_NOT_BUILT_CAPTION" in source
+
+
+def test_format_paper_search_hit_caption() -> None:
+    hit = PaperSearchHit(
+        title="Example",
+        url="https://example.com/1",
+        doi="10.1000/A",
+        authors=["Ada Lovelace", "Alan Turing"],
+        journal="Nature",
+        published_year=2024,
+        already_referenced=False,
+    )
+
+    assert format_paper_search_hit_caption(hit) == (
+        "Ada Lovelace, Alan Turing · Nature · 2024 · DOI `10.1000/A`"
+    )
+
+
+def test_format_paper_search_hit_caption_missing_optional_fields() -> None:
+    hit = PaperSearchHit(
+        title="Untitled",
+        url="https://example.com/2",
+        doi="10.1000/B",
+        authors=[],
+        journal=None,
+        published_year=None,
+        already_referenced=True,
+    )
+
+    assert format_paper_search_hit_caption(hit) == (
+        "— · — · — · DOI `10.1000/B`"
+    )
