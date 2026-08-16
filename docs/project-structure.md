@@ -75,14 +75,14 @@ paper-reviewer/
 │       │   ├── show_references/        # List References for a Topic scope
 │       │   ├── add_reference/          # Attach search hits as References
 │       │   ├── papers_search/          # Local Papers search (shared; used by Add reference)
-│       │   └── topic_brief/
+│       │   └── topic_brief/            # Topic brief (create_topic_brief + template)
 │       ├── schemas/
 │       │   └── topic_brief_generation/ # Pydantic contracts for that workflow
 │       ├── models/
 │       │   ├── base.py                 # DeclarativeBase (all workflows)
 │       │   ├── paper.py                # Global Paper ORM (not owned by a Topic scope)
 │       │   ├── paper_brief.py          # Global PaperBrief ORM (not owned by a Topic scope)
-│       │   └── topic_brief_generation/ # ORM for that workflow (TopicScope, topic_facets, topic_references)
+│       │   └── topic_brief_generation/ # ORM for that workflow (TopicScope, topic_facets, topic_references, TopicBrief)
 │       ├── ingest/                     # dlt external-source extract (shared)
 │       ├── ui/                         # Streamlit
 │       ├── flows/                      # Prefect flows (source record, full text, briefs, orchestrators)
@@ -123,7 +123,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | External-source dlt sources/resources (extract; Postgres load when adopted) |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only |
-| Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `regenerate_paper` |
+| Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `create_topic_brief`, `regenerate_paper` |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
 | Alembic | repo-root `alembic/` | DDL versioning against `models` metadata |
 
@@ -133,7 +133,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
 3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
 4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package. **Exception:** global tables that a workflow does not own (`Paper`, `PaperBrief`) live at `models.paper` and `models.paper_brief`, not under `models/<workflow>/`.
-5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`). Facet rows are `models.topic_brief_generation.topic_analysis` (`topic_facets`). Reference links are `models.topic_brief_generation.reference` (`topic_references`).
+5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`). Facet rows are `models.topic_brief_generation.topic_analysis` (`topic_facets`). Reference links are `models.topic_brief_generation.reference` (`topic_references`). Topic brief rows are `models.topic_brief_generation.topic_brief` (`TopicBrief`, 1:1 with `TopicScope`).
 6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
 
 ### `models` vs `schemas` (agent rule)

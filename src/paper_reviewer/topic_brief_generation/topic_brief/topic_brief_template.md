@@ -1,8 +1,7 @@
 ---
 # Machine list of TopicBriefContent JSON fields.
-# Coding agents: keep paper_reviewer.schemas TopicBriefContent in sync with this list
-# when that schema exists. A later Prefect topic-brief job: load this whole file as
-# the system prompt.
+# Coding agents: keep paper_reviewer.schemas TopicBriefContent in sync with this list.
+# Prefect create_topic_brief loads this whole file as the system prompt.
 fields:
   - id: title
     required: true
@@ -36,7 +35,7 @@ Imitate the reader-facing layout of a Nature Reviews Perspective: title, unstruc
 The user message supplies:
 
 - The **topic statement** and **topic facets** from the `TopicScope`. Use these to set scope and focus.
-- Selected **References** only: bibliographic facts (title, journal, year, DOI, authors when present) and, when present, a succeeded **paper brief** for that paper. Ground claims in those materials only.
+- **References that already have a succeeded paper brief** only: bibliographic facts (title, journal, year, DOI, authors when present) plus that paper brief. Ground claims in those materials only. References without a succeeded paper brief are not included.
 
 ## Grounding rules
 
@@ -44,7 +43,7 @@ The user message supplies:
 - Do not invent papers, DOIs, findings, sample sizes, or citations.
 - Scope each citation marker `[n]` to the claim it supports. Do not attach a citation to a sentence it does not support.
 - Prefer paper-brief fields (`summary`, `key_findings`, `discussion`, `limitations`) over inventing detail from titles alone.
-- If a Reference has no paper brief, use bibliographic facts only. Do not invent methods or results.
+- Do not invent methods or results that the supplied paper briefs do not support.
 - If the Reference list is empty, still fill `title`, `abstract`, and `introduction` from the topic statement and facets. Write `sections` from the facets without citation markers. Set `citations` to `[]`.
 - A viewpoint is allowed. Represent other opinions that appear in the supplied set. Do not ignore contrary findings in the supplied References.
 - Do not copy a paper brief into the topic brief. Synthesize across References.

@@ -68,9 +68,9 @@ Landing: [docs/specs/3-references-selection.md](docs/specs/3-references-selectio
 
 ### 4. Topic brief
 
-Landing: [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md) (drafting not built yet).
+Landing: [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md).
 
-The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text.
+The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text. The page offers **Generate topic brief** (overwrite-on-click); a Prefect job writes a `TopicBrief` from References that already have a succeeded paper brief.
 
 **Result:** the cited **topic brief**, attached to the **Topic scope**.
 
