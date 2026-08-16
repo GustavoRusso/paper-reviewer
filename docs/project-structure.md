@@ -72,6 +72,7 @@ paper-reviewer/
 │       │   ├── paper_archiving/        # Paper archiving (create-or-reuse Paper)
 │       │   ├── fulfill_papers_metadata/   # Fulfill papers metadata (source record + full text)
 │       │   ├── generate_paper_brief/   # Generate paper brief (PaperBrief)
+│       │   ├── show_references/        # List References for a Topic scope
 │       │   └── topic_brief/
 │       ├── schemas/
 │       │   └── topic_brief_generation/ # Pydantic contracts for that workflow
@@ -79,7 +80,7 @@ paper-reviewer/
 │       │   ├── base.py                 # DeclarativeBase (all workflows)
 │       │   ├── paper.py                # Global Paper ORM (not owned by a Topic scope)
 │       │   ├── paper_brief.py          # Global PaperBrief ORM (not owned by a Topic scope)
-│       │   └── topic_brief_generation/ # ORM for that workflow (TopicScope, topic_facets)
+│       │   └── topic_brief_generation/ # ORM for that workflow (TopicScope, topic_facets, topic_references)
 │       ├── ingest/                     # dlt external-source extract (shared)
 │       ├── ui/                         # Streamlit
 │       ├── flows/                      # Prefect flows (source record, full text, briefs, orchestrators)
@@ -115,7 +116,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, topic brief). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md), [specs/3-references-selection.md](specs/3-references-selection.md), [specs/3.1-show-references.md](specs/3.1-show-references.md), [specs/3.2-add-reference.md](specs/3.2-add-reference.md), [specs/papers-search.md](specs/papers-search.md), [specs/4-topic-brief.md](specs/4-topic-brief.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2-paper-ingestion.md](specs/2.2-paper-ingestion.md), [specs/2.2.1-paper-archiving.md](specs/2.2.1-paper-archiving.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md), [specs/2.2.3-generate-paper-brief.md](specs/2.2.3-generate-paper-brief.md), [specs/2.2.4-paper-indexing.md](specs/2.2.4-paper-indexing.md). |
+| Topic brief generation steps | `paper_reviewer.topic_brief_generation.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, show references, topic brief). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md), [specs/3-references-selection.md](specs/3-references-selection.md), [specs/3.1-show-references.md](specs/3.1-show-references.md), [specs/3.2-add-reference.md](specs/3.2-add-reference.md), [specs/papers-search.md](specs/papers-search.md), [specs/4-topic-brief.md](specs/4-topic-brief.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2-paper-ingestion.md](specs/2.2-paper-ingestion.md), [specs/2.2.1-paper-archiving.md](specs/2.2.1-paper-archiving.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md), [specs/2.2.3-generate-paper-brief.md](specs/2.2.3-generate-paper-brief.md), [specs/2.2.4-paper-indexing.md](specs/2.2.4-paper-indexing.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_brief_generation.topic_analysis`). |
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | External-source dlt sources/resources (extract; Postgres load when adopted) |
@@ -130,7 +131,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 2. **Step behavior** lives only under that workflow package (`topic_brief_generation.<step>`).
 3. **Cross-cutting stays top-level** — `schemas`, `models`, `ingest`, `ui`, `db`, `flows` (never nest these under a workflow behavior package).
 4. **Mirror under** `schemas/<workflow>/` and `models/<workflow>/` — domain types vs ORM mappings; never put Pydantic or ORM inside the behavior package. **Exception:** global tables that a workflow does not own (`Paper`, `PaperBrief`) live at `models.paper` and `models.paper_brief`, not under `models/<workflow>/`.
-5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`). Facet rows are `models.topic_brief_generation.topic_analysis` (`topic_facets`).
+5. **`models.base`** is shared across workflows. This workflow’s Topic scope root is `models.topic_brief_generation.topic_scope` (`TopicScope`). Facet rows are `models.topic_brief_generation.topic_analysis` (`topic_facets`). Reference links are `models.topic_brief_generation.reference` (`topic_references`).
 6. **Stubs OK** for unimplemented steps; do not invent behavior without a spec + TDD ([tdd.md](tdd.md)).
 
 ### `models` vs `schemas` (agent rule)

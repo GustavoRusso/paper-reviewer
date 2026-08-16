@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 import inspect
+from datetime import UTC, datetime
 
+from paper_reviewer.schemas.topic_brief_generation.show_references import (
+    ReferencedPaper,
+)
 from paper_reviewer.ui import show_references as show_references_module
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.show_references import (
@@ -13,6 +17,7 @@ from paper_reviewer.ui.show_references import (
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
     MISSING_SCOPE_MESSAGE,
+    format_referenced_paper_caption,
     render_show_references,
 )
 
@@ -60,9 +65,62 @@ def test_page_does_not_repeat_reference_id_caption() -> None:
     assert "Reference id:" not in source
 
 
+def test_page_loads_scope_and_references_from_the_database() -> None:
+    source = inspect.getsource(render_show_references)
+    assert "get_topic_scope_by_key" in source
+    assert "list_show_references" in source
+    assert "session_scope" in source
+
+
+def test_missing_topic_scope_row_uses_the_same_empty_state() -> None:
+    source = inspect.getsource(render_show_references)
+    assert "_render_missing_scope" in source
+    assert "topic_scope is None" in source
+
+
 def test_page_links_to_add_reference_hub_and_landing() -> None:
     source = inspect.getsource(show_references_module)
     assert '"add_reference"' in source
     assert "CONTINUE_TO_ADD_REFERENCE_LABEL" in source
     assert '"topic_scope"' in source
     assert '"references_selection"' in source
+
+
+def test_format_referenced_paper_caption() -> None:
+    paper = ReferencedPaper(
+        title="Example",
+        url="https://example.com/1",
+        doi="10.1000/A",
+        authors=["Ada Lovelace", "Alan Turing"],
+        journal="Nature",
+        published_year=2024,
+        referenced_at=datetime(2026, 1, 2, tzinfo=UTC),
+    )
+
+    assert format_referenced_paper_caption(paper) == (
+        "Ada Lovelace, Alan Turing · Nature · 2024 · DOI `10.1000/A`"
+    )
+
+
+def test_format_referenced_paper_caption_missing_optional_fields() -> None:
+    paper = ReferencedPaper(
+        title="Untitled",
+        url="https://example.com/2",
+        doi="10.1000/B",
+        authors=[],
+        journal=None,
+        published_year=None,
+        referenced_at=datetime(2026, 1, 2, tzinfo=UTC),
+    )
+
+    assert format_referenced_paper_caption(paper) == (
+        "— · — · — · DOI `10.1000/B`"
+    )
+
+
+def test_page_renders_title_as_content_link() -> None:
+    source = inspect.getsource(show_references_module)
+    assert "format_referenced_paper_caption" in source
+    assert "st.markdown" in source
+    assert "paper.title" in source
+    assert "paper.url" in source
