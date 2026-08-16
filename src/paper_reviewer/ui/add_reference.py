@@ -1,4 +1,4 @@
-"""Add reference Streamlit page (Papers search results and per-paper Add)."""
+"""Add reference Streamlit page (Papers search results, Add, and Add all)."""
 
 from __future__ import annotations
 
@@ -46,6 +46,7 @@ ATTACH_ERROR_MESSAGE = (
     "Could not add References for this Topic scope. Try again."
 )
 ADD_BUTTON_LABEL = "Add"
+ADD_ALL_BUTTON_LABEL = "Add all results"
 ALREADY_REFERENCED_BADGE = "Already a Reference"
 NOT_YET_REFERENCED_BADGE = "Not yet a Reference"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
@@ -94,6 +95,20 @@ def _attach_references(topic_scope_key: UUID, dois: list[str]) -> None:
     st.rerun()
 
 
+def _render_add_all(
+    hits: list[PaperSearchHit], *, topic_scope_key: UUID
+) -> None:
+    dois = [hit.doi for hit in hits if not hit.already_referenced]
+    if not dois:
+        return
+    if st.button(
+        ADD_ALL_BUTTON_LABEL,
+        key="add-all-references",
+        type="secondary",
+    ):
+        _attach_references(topic_scope_key, dois)
+
+
 def _render_hit(hit: PaperSearchHit, *, topic_scope_key: UUID) -> None:
     st.markdown(f"**[{hit.title}]({hit.url})**")
     st.caption(format_paper_search_hit_caption(hit))
@@ -130,7 +145,7 @@ def _has_usable_concepts(session: Session, topic_scope_id: int) -> bool:
 
 
 def render_add_reference() -> None:
-    """Render Add reference: Papers search results and per-paper Add."""
+    """Render Add reference: Papers search results, Add, and Add all."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
     render_references_selection_header(
         current_page_key="add_reference",
@@ -167,6 +182,7 @@ def render_add_reference() -> None:
         else:
             st.caption(EMPTY_NO_HITS_CAPTION)
     else:
+        _render_add_all(hits, topic_scope_key=topic_scope_key)
         for hit in hits:
             _render_hit(hit, topic_scope_key=topic_scope_key)
 

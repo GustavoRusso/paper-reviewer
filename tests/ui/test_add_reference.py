@@ -9,6 +9,7 @@ from paper_reviewer.schemas.topic_brief_generation.papers_search import (
 )
 from paper_reviewer.ui import add_reference as add_reference_module
 from paper_reviewer.ui.add_reference import (
+    ADD_ALL_BUTTON_LABEL,
     ADD_BUTTON_LABEL,
     ALREADY_REFERENCED_BADGE,
     ATTACH_ERROR_MESSAGE,
@@ -95,6 +96,7 @@ def test_badge_labels() -> None:
 
 def test_add_button_copy_and_attach_error() -> None:
     assert ADD_BUTTON_LABEL == "Add"
+    assert ADD_ALL_BUTTON_LABEL == "Add all results"
     assert ATTACH_ERROR_MESSAGE == (
         "Could not add References for this Topic scope. Try again."
     )
@@ -114,7 +116,17 @@ def test_page_offers_add_on_not_yet_hits_only() -> None:
     assert "add_references" in source
     assert "st.rerun" in source
     assert "already_referenced" in source
-    assert "Add all" not in source
+
+
+def test_page_offers_add_all_for_not_yet_hits() -> None:
+    source = inspect.getsource(add_reference_module)
+    assert "ADD_ALL_BUTTON_LABEL" in source
+    render_source = inspect.getsource(render_add_reference)
+    assert "_render_add_all" in render_source
+    add_all_source = inspect.getsource(add_reference_module._render_add_all)
+    assert "already_referenced" in add_all_source
+    assert 'key="add-all-references"' in add_all_source
+    assert 'type="secondary"' in add_all_source
 
 
 def test_page_does_not_show_attach_not_built_caption() -> None:

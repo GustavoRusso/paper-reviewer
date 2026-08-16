@@ -142,3 +142,57 @@ def test_add_references_raises_when_doi_blank(session: Session) -> None:
         add_references(session, topic_scope, ["   "])
 
     assert list_references_for_scope(session, topic_scope.id) == []
+
+
+def test_add_references_attaches_each_new_doi(session: Session) -> None:
+    topic_scope = create_topic_scope(session, "two attach")
+    session.flush()
+    first_id = _add_paper(
+        session, doi="10.1000/A", source_uid="10", title="Paper A"
+    )
+    second_id = _add_paper(
+        session, doi="10.1000/B", source_uid="11", title="Paper B"
+    )
+
+    add_references(session, topic_scope, ["10.1000/A", "10.1000/B"])
+    session.flush()
+
+    assert _reference_paper_ids(session, topic_scope.id) == [first_id, second_id]
+
+
+def test_add_references_skips_already_referenced_in_a_batch(session: Session) -> None:
+    topic_scope = create_topic_scope(session, "mixed batch")
+    session.flush()
+    existing_id = _add_paper(
+        session, doi="10.1000/OLD", source_uid="20", title="Old"
+    )
+    new_id = _add_paper(
+        session, doi="10.1000/NEW", source_uid="21", title="New"
+    )
+    create_reference(session, topic_scope.id, existing_id)
+    session.flush()
+
+    add_references(session, topic_scope, ["10.1000/OLD", "10.1000/NEW"])
+    session.flush()
+
+    assert set(_reference_paper_ids(session, topic_scope.id)) == {
+        existing_id,
+        new_id,
+    }
+
+
+def test_add_references_raises_on_later_missing_doi_and_caller_rollback(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "batch abort")
+    session.flush()
+    _add_paper(session, doi="10.1000/FIRST", source_uid="30", title="First")
+
+    with pytest.raises(AddReferenceError):
+        add_references(
+            session, topic_scope, ["10.1000/FIRST", "10.1000/MISSING"]
+        )
+    session.rollback()
+
+    assert list_references_for_scope(session, topic_scope.id) == []
+
