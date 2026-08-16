@@ -553,3 +553,58 @@ def test_parse_paper_brief_content_repairs_newlines_inside_strings() -> None:
     assert "30%" in parsed.summary
     assert "Lyon" in parsed.summary
     assert parsed.objective == "Investigate the outbreak."
+
+
+@pytest.mark.parametrize(
+    "illegal",
+    [
+        '{summary: "x"}',
+        '["not", "an", "object"]',
+    ],
+)
+def test_generate_paper_brief_content_includes_raw_assistant_on_parse_failure(
+    monkeypatch: pytest.MonkeyPatch,
+    illegal: str,
+) -> None:
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, content=illegal)
+
+    with pytest.raises(ValueError) as exc_info:
+        generate_paper_brief_content(
+            "plain",
+            title="Title",
+            journal="Journal",
+            published_year=2026,
+        )
+
+    message = str(exc_info.value)
+    assert illegal in message
+    assert "Assistant output:" in message
+    lowered = message.lower()
+    assert (
+        "json" in lowered
+        or "validation" in lowered
+        or "json object" in lowered
+    )
+
+
+def test_generate_paper_brief_content_caps_assistant_output_on_parse_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    illegal = "[" + ("x" * 9000) + "]"
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, content=illegal)
+
+    with pytest.raises(ValueError) as exc_info:
+        generate_paper_brief_content(
+            "plain",
+            title="Title",
+            journal="Journal",
+            published_year=2026,
+        )
+
+    message = str(exc_info.value)
+    heading = "Assistant output:"
+    dump = message[message.index(heading) + len(heading) :].lstrip("\n")
+    assert dump == illegal[:8000]
+    assert illegal[8000:] not in message

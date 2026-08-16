@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse, urlunparse
 
+from pydantic import ValidationError
+
 from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
     PaperBriefContent,
 )
@@ -22,6 +24,8 @@ _GATEWAY_JSON_ONLY = (
     "The first non-whitespace character must be `{`."
 )
 _GATEWAY_TRUNCATE_NOTE = "\n\n[truncated for local gateway context]"
+_ASSISTANT_OUTPUT_HEADING = "Assistant output:"
+_ASSISTANT_OUTPUT_MAX_CHARS = 8000
 _ANSI_RE = re.compile(r"\x1b(?:\[[0-?]*[ -/]*[@-~]|\][^\x07]*(?:\x07|\x1b\\)|.)")
 _JSON_FENCE_RE = re.compile(r"```(?:json)?\s*(\{.*\})\s*```", re.DOTALL | re.IGNORECASE)
 _MAJOR_HEADING_RE = re.compile(
@@ -394,4 +398,10 @@ def generate_paper_brief_content(
     content = completion.choices[0].message.content
     if not content:
         raise ValueError("OpenAI returned no parsed paper brief")
-    return parse_paper_brief_content(content)
+    try:
+        return parse_paper_brief_content(content)
+    except (ValueError, ValidationError) as exc:
+        dump = content[:_ASSISTANT_OUTPUT_MAX_CHARS]
+        raise ValueError(
+            f"{str(exc).rstrip()}\n\n{_ASSISTANT_OUTPUT_HEADING}\n{dump}"
+        ) from exc

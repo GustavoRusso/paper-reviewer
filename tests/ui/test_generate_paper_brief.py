@@ -15,6 +15,8 @@ from paper_reviewer.ui.fulfill_papers_metadata import prefect_enqueue_error_hint
 from paper_reviewer.ui.generate_paper_brief import (
     brief_prerequisites_met,
     brief_progress_label,
+    format_brief_progress_caption,
+    split_brief_error_message,
 )
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
@@ -141,3 +143,61 @@ def test_brief_deployment_ref_in_enqueue_hint() -> None:
 
     assert CREATE_PAPER_BRIEF_DEPLOYMENT_REF in hint
     assert CREATE_PAPER_BRIEF_DEPLOYMENT_REF == "create_paper_brief/default"
+
+
+def test_split_brief_error_message_separates_validation_and_assistant() -> None:
+    raw = '{summary: "x"}'
+    stored = (
+        "1 validation error for PaperBriefContent\n"
+        "Invalid JSON: Expecting property name enclosed in double quotes\n\n"
+        "Assistant output:\n"
+        f"{raw}"
+    )
+
+    caption, assistant = split_brief_error_message(stored)
+
+    assert "validation error" in caption.lower()
+    assert "Invalid JSON" in caption
+    assert raw not in caption
+    assert "Assistant output:" not in caption
+    assert assistant == raw
+
+
+def test_split_brief_error_message_without_assistant_dump() -> None:
+    stored = "OPENAI_API_KEY is not set"
+
+    caption, assistant = split_brief_error_message(stored)
+
+    assert caption == stored
+    assert assistant is None
+
+
+def test_format_brief_progress_caption_omits_assistant_dump() -> None:
+    raw = '{summary: "illegal"}'
+    stored = (
+        "Expecting property name enclosed in double quotes\n\n"
+        "Assistant output:\n"
+        f"{raw}"
+    )
+
+    caption = format_brief_progress_caption(
+        doi="10.1/ABC",
+        label="Failed",
+        error_message=stored,
+    )
+
+    assert "DOI `10.1/ABC`" in caption
+    assert "brief Failed" in caption
+    assert "Expecting property name enclosed in double quotes" in caption
+    assert raw not in caption
+    assert "Assistant output:" not in caption
+
+
+def test_format_brief_progress_caption_without_error() -> None:
+    caption = format_brief_progress_caption(
+        doi="10.1/ABC",
+        label="Succeeded",
+        error_message=None,
+    )
+
+    assert caption == "DOI `10.1/ABC` · brief Succeeded"

@@ -60,6 +60,34 @@ def brief_prerequisites_met(
     return state.get(ARCHIVING_RESULT_KEY) is not None and topic_scope_key is not None
 
 
+_ASSISTANT_OUTPUT_HEADING = "Assistant output:"
+
+
+def split_brief_error_message(error_message: str) -> tuple[str, str | None]:
+    """Split a stored brief error into caption text and optional assistant dump."""
+    index = error_message.find(_ASSISTANT_OUTPUT_HEADING)
+    if index < 0:
+        return error_message, None
+    caption = error_message[:index].rstrip()
+    assistant = error_message[index + len(_ASSISTANT_OUTPUT_HEADING) :].lstrip("\n")
+    if not assistant:
+        return caption, None
+    return caption, assistant
+
+
+def format_brief_progress_caption(
+    *,
+    doi: str,
+    label: str,
+    error_message: str | None,
+) -> str:
+    """Build the progress-row caption; omit any stored assistant dump."""
+    if not error_message:
+        return f"DOI `{doi}` · brief {label}"
+    caption_error, _assistant = split_brief_error_message(error_message)
+    return f"DOI `{doi}` · brief {label} — {caption_error}"
+
+
 def brief_progress_label(
     *,
     full_text_status: PaperAspectStatus,
@@ -169,8 +197,18 @@ def _render_progress(
 
     for row in rows:
         st.markdown(f"**[{row['title']}]({row['url']})**")
-        error_part = f" — {row['error']}" if row["error"] else ""
-        st.caption(f"DOI `{row['doi']}` · brief {row['label']}{error_part}")
+        st.caption(
+            format_brief_progress_caption(
+                doi=row["doi"],
+                label=row["label"],
+                error_message=row["error"],
+            )
+        )
+        if row["error"]:
+            _, assistant = split_brief_error_message(row["error"])
+            if assistant:
+                with st.expander("Assistant output"):
+                    st.text(assistant)
         if may_submit_regenerate_paper(
             row["source_status"],
             row["full_text_status"],
