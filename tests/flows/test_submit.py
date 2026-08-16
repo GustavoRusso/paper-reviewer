@@ -6,11 +6,13 @@ from unittest.mock import patch
 
 from paper_reviewer.flows.serve import (
     CREATE_PAPER_BRIEF_DEPLOYMENT_REF,
+    CREATE_TOPIC_BRIEF_DEPLOYMENT_REF,
     FULFILL_DEPLOYMENT_REF,
     REGENERATE_PAPER_DEPLOYMENT_REF,
 )
 from paper_reviewer.flows.submit import (
     submit_create_paper_brief,
+    submit_create_topic_brief,
     submit_fulfill_paper_metadata,
     submit_regenerate_paper,
 )
@@ -40,12 +42,28 @@ def test_submit_create_paper_brief_does_not_pass_force() -> None:
     )
 
 
+def test_submit_create_topic_brief_passes_force_true() -> None:
+    with patch("paper_reviewer.flows.submit.run_deployment") as mock_run:
+        submit_create_topic_brief(7)
+
+    mock_run.assert_called_once_with(
+        name=CREATE_TOPIC_BRIEF_DEPLOYMENT_REF,
+        parameters={"topic_scope_id": 7, "force": True},
+        flow_run_name="topic-scope-7",
+        timeout=0,
+    )
+
+
 def test_fulfill_deployment_ref_matches_serve_name() -> None:
     assert FULFILL_DEPLOYMENT_REF == "fulfill_paper_metadata/default"
 
 
 def test_create_paper_brief_deployment_ref_matches_serve_name() -> None:
     assert CREATE_PAPER_BRIEF_DEPLOYMENT_REF == "create_paper_brief/default"
+
+
+def test_create_topic_brief_deployment_ref_matches_serve_name() -> None:
+    assert CREATE_TOPIC_BRIEF_DEPLOYMENT_REF == "create_topic_brief/default"
 
 
 def test_submit_regenerate_paper_calls_run_deployment_fire_and_forget() -> None:
@@ -63,6 +81,7 @@ def test_submit_regenerate_paper_calls_run_deployment_fire_and_forget() -> None:
     assert "inform_source_record" not in called_name
     assert "inform_full_text" not in called_name
     assert "create_paper_brief" not in called_name
+    assert "create_topic_brief" not in called_name
     assert "fulfill_paper_metadata" not in called_name
 
 

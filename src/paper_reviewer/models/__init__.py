@@ -5,6 +5,7 @@ from paper_reviewer.models.paper import Paper
 from paper_reviewer.models.paper_brief import PaperBrief
 from paper_reviewer.models.topic_scope import (
     Reference,
+    TopicBrief,
     TopicFacet,
     TopicScope,
     create_topic_scope,
@@ -16,6 +17,7 @@ __all__ = [
     "Paper",
     "PaperBrief",
     "Reference",
+    "TopicBrief",
     "TopicFacet",
     "TopicScope",
     "create_topic_scope",

@@ -7,7 +7,7 @@ from collections.abc import Sequence
 from datetime import datetime
 
 from sqlalchemy import BigInteger, DateTime, Integer, Text, UniqueConstraint, func, select
-from sqlalchemy.orm import Mapped, Session, mapped_column
+from sqlalchemy.orm import Mapped, Session, mapped_column, relationship
 from sqlalchemy.types import Uuid
 
 from paper_reviewer.models.base import Base
@@ -36,6 +36,11 @@ class TopicScope(Base):
         DateTime(timezone=True),
         nullable=False,
         server_default=func.now(),
+    )
+    topic_brief: Mapped["TopicBrief | None"] = relationship(  # noqa: F821
+        "TopicBrief",
+        back_populates="topic_scope",
+        uselist=False,
     )
 
 
