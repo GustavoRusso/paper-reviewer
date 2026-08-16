@@ -1,9 +1,17 @@
-"""Topic brief generation phase landing Streamlit page (v1 shell)."""
+"""Topic brief generation phase landing Streamlit page."""
 
 from __future__ import annotations
 
-import streamlit as st
+from uuid import UUID
 
+import streamlit as st
+from sqlalchemy.orm import Session, sessionmaker
+
+from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
+from paper_reviewer.models.topic_scope import get_topic_scope_by_key
+from paper_reviewer.topic_scope.topic_brief_generation import (
+    count_briefed_references,
+)
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -13,23 +21,65 @@ MISSING_SCOPE_MESSAGE = (
     "Open Topic intake to create a Topic scope, then open Topic brief "
     "generation from the Topic scope hub."
 )
-NOT_BUILT_CAPTION = "Drafting the cited topic brief is not built yet."
+ZERO_BRIEFED_CAPTION = (
+    "Generation needs at least one Reference with a succeeded paper brief."
+)
+LOAD_ERROR_MESSAGE = (
+    "Could not load Topic brief generation for this Topic scope. Try again."
+)
+GENERATE_TOPIC_BRIEF_LABEL = "Generate topic brief"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
+GO_TO_SHOW_REFERENCES_LABEL = "Go to Show references"
+GO_TO_GENERATE_PAPER_BRIEF_LABEL = "Go to Generate paper brief"
 
 
-def _render_missing_scope() -> None:
+def generate_button_enabled(*, briefed_count: int) -> bool:
+    """Return True when Generate topic brief may be clicked (idle, Step 1)."""
+    return briefed_count > 0
+
+
+@st.cache_resource
+def _session_factory() -> sessionmaker[Session]:
+    """Shared SQLAlchemy session factory for the Streamlit process."""
+    return create_session_factory(create_db_engine())
+
+
+def _render_missing_scope(*, topic_scope_key: UUID | None) -> None:
     st.info(MISSING_SCOPE_MESSAGE)
     workflow_page_link(
         "topic_intake",
         label=GO_TO_TOPIC_INTAKE_LABEL,
-        topic_scope_key=None,
+        topic_scope_key=topic_scope_key,
     )
     workflow_page_link(
         "topic_scope",
         label=GO_TO_TOPIC_SCOPE_LABEL,
-        topic_scope_key=None,
+        topic_scope_key=topic_scope_key,
     )
+
+
+def _render_navigation(
+    *,
+    topic_scope_key: UUID,
+    show_zero_briefed_links: bool,
+) -> None:
+    workflow_page_link(
+        "topic_scope",
+        label=GO_TO_TOPIC_SCOPE_LABEL,
+        topic_scope_key=topic_scope_key,
+    )
+    if show_zero_briefed_links:
+        workflow_page_link(
+            "show_references",
+            label=GO_TO_SHOW_REFERENCES_LABEL,
+            topic_scope_key=topic_scope_key,
+        )
+        workflow_page_link(
+            "generate_paper_brief",
+            label=GO_TO_GENERATE_PAPER_BRIEF_LABEL,
+            topic_scope_key=topic_scope_key,
+        )
 
 
 def render_topic_brief_generation() -> None:
@@ -37,13 +87,32 @@ def render_topic_brief_generation() -> None:
     st.title("Topic brief generation")
     topic_scope_key = parse_topic_scope_key(st.query_params)
     if topic_scope_key is None:
-        _render_missing_scope()
+        _render_missing_scope(topic_scope_key=None)
         return
 
     st.caption(f"Reference id: `{topic_scope_key}`")
-    st.caption(NOT_BUILT_CAPTION)
-    workflow_page_link(
-        "topic_scope",
-        label=GO_TO_TOPIC_SCOPE_LABEL,
+
+    try:
+        with session_scope(_session_factory()) as session:
+            topic_scope = get_topic_scope_by_key(session, topic_scope_key)
+            if topic_scope is None:
+                _render_missing_scope(topic_scope_key=topic_scope_key)
+                return
+            briefed_count = count_briefed_references(session, topic_scope.id)
+    except Exception:
+        st.error(LOAD_ERROR_MESSAGE)
+        return
+
+    zero_briefed = briefed_count == 0
+    if zero_briefed:
+        st.caption(ZERO_BRIEFED_CAPTION)
+
+    st.button(
+        GENERATE_TOPIC_BRIEF_LABEL,
+        type="primary",
+        disabled=not generate_button_enabled(briefed_count=briefed_count),
+    )
+    _render_navigation(
         topic_scope_key=topic_scope_key,
+        show_zero_briefed_links=zero_briefed,
     )

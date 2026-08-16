@@ -1,4 +1,7 @@
-"""Topic brief step.
+"""Topic brief generation step: briefed Reference gate and later create/enqueue."""
 
-Stub: implement when a topic-brief spec exists.
-"""
+from paper_reviewer.topic_scope.topic_brief_generation.briefed import (
+    count_briefed_references,
+)
+
+__all__ = ["count_briefed_references"]
