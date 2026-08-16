@@ -15,6 +15,7 @@ class PaperSearchHit(BaseModel):
     journal: str | None = None
     published_year: int | None = None
     already_referenced: bool
+    paper_brief_available: bool
 
 
 class PapersSearchResult(BaseModel):

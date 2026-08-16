@@ -25,6 +25,7 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 - Match v1 queries against `Paper.keywords_tsv` only (source: `source_record.indexing.keywords`).
 - Return up to **20** durable `Paper` hits suitable for display and for attach in Add reference.
 - Always mark each hit as already a Reference for that scope or not yet (`already_referenced`).
+- Always mark each hit with whether a succeeded global Paper brief exists (`paper_brief_available`).
 - Fail-soft when there are no facets, no hits, or an empty search document (rules below).
 
 ### Out of scope
@@ -69,6 +70,7 @@ Column, generated expression, and GIN index: [Paper indexing](2.2.4-paper-indexi
 | Order | `Paper.id` ascending (stable list order; not ranking). |
 | Cap | Fetch at most **21** rows; return at most **20**; set `truncated=True` when a 21st row exists. |
 | `already_referenced` | Always set per hit for the Topic scope; does not change which papers match. |
+| `paper_brief_available` | Always set per hit. `true` only when a global `PaperBrief` row exists and `status` is `succeeded`. No row or any other status → `false`. Does not change which papers match. Brief ownership: [Generate paper brief](2.2.3-generate-paper-brief.md). |
 
 Do not write raw SQL that uses `@@` / `plainto_tsquery` in Streamlit or in Add reference. Put the operator behind a SQLAlchemy helper in the Papers search domain package (`keywords_match_any`); callers use `select(Paper).where(...)`.
 
@@ -89,7 +91,7 @@ Schemas: `paper_reviewer.schemas.topic_brief_generation.papers_search`.
 
 | Type | Fields |
 | --- | --- |
-| `PaperSearchHit` | `title`, `url`, `doi`, `authors`, `journal`, `published_year`, `already_referenced`. Identity is `doi`. Do **not** put private `Paper.id` on the hit. |
+| `PaperSearchHit` | `title`, `url`, `doi`, `authors`, `journal`, `published_year`, `already_referenced`, `paper_brief_available`. Identity is `doi`. Do **not** put private `Paper.id` on the hit. |
 | `PapersSearchResult` | `hits: list[PaperSearchHit]`, `truncated: bool` |
 
 Do not reuse `ReferencedPaper` (that type carries `referenced_at`).
@@ -107,5 +109,6 @@ Unit tests use in-memory SQLite and **must not** require a live `tsvector` / GIN
 | Phase landing | [3-references-selection.md](3-references-selection.md) |
 | Search document / GIN | [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md) |
 | `source_record.indexing.keywords` shape | [2.2.2-fulfill-papers-metadata.md](2.2.2-fulfill-papers-metadata.md) |
+| Paper brief | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Facets | [1.2-topic-analysis.md](1.2-topic-analysis.md) |
 | Stack (Postgres FTS, SQLAlchemy) | [technology-stack.md](../technology-stack.md) |

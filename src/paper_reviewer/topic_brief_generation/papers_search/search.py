@@ -5,13 +5,16 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 from sqlalchemy import ColumnElement, func, select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from paper_reviewer.models.paper import Paper
 from paper_reviewer.models.topic_brief_generation import TopicScope
 from paper_reviewer.models.topic_brief_generation.reference import Reference
 from paper_reviewer.models.topic_brief_generation.topic_analysis import (
     list_topic_facets_for_scope,
+)
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
 )
 from paper_reviewer.schemas.topic_brief_generation.papers_search import (
     PaperSearchHit,
@@ -58,7 +61,16 @@ def _referenced_paper_ids(
     return set(rows)
 
 
-def _to_hit(paper: Paper, *, already_referenced: bool) -> PaperSearchHit:
+def _paper_brief_available(paper: Paper) -> bool:
+    brief = paper.paper_brief
+    return brief is not None and brief.status == PaperAspectStatus.succeeded
+
+
+def _to_hit(
+    paper: Paper,
+    *,
+    already_referenced: bool,
+) -> PaperSearchHit:
     return PaperSearchHit(
         title=paper.title,
         url=paper.url,
@@ -67,6 +79,7 @@ def _to_hit(paper: Paper, *, already_referenced: bool) -> PaperSearchHit:
         journal=paper.journal,
         published_year=paper.published_year,
         already_referenced=already_referenced,
+        paper_brief_available=_paper_brief_available(paper),
     )
 
 
@@ -83,6 +96,7 @@ def search_papers(
         session.scalars(
             select(Paper)
             .where(keywords_match_any(concepts))
+            .options(selectinload(Paper.paper_brief))
             .order_by(Paper.id)
             .limit(_FETCH_LIMIT)
         ).all()

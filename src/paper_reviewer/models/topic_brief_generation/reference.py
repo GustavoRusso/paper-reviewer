@@ -14,7 +14,7 @@ from sqlalchemy import (
     func,
     select,
 )
-from sqlalchemy.orm import Mapped, Session, mapped_column
+from sqlalchemy.orm import Mapped, Session, mapped_column, selectinload
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import Paper
@@ -73,6 +73,7 @@ def list_references_for_scope(
     return session.execute(
         select(Reference, Paper)
         .join(Paper, Paper.id == Reference.paper_id)
+        .options(selectinload(Paper.paper_brief))
         .where(Reference.topic_scope_id == topic_scope_id)
         .order_by(Reference.created_at, Reference.id)
     ).tuples().all()

@@ -12,12 +12,16 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import Paper, create_paper
+from paper_reviewer.models.paper_brief import create_paper_brief_row
 from paper_reviewer.models.topic_brief_generation import (
     TopicFacet,
     TopicScope,
     create_topic_scope,
 )
 from paper_reviewer.models.topic_brief_generation.reference import create_reference
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
+)
 from paper_reviewer.schemas.topic_brief_generation.papers_search import (
     PapersSearchResult,
 )
@@ -184,12 +188,45 @@ def test_search_papers_maps_hits_and_already_referenced(
     assert first.journal == "Nature"
     assert first.published_year == 2024
     assert first.already_referenced is True
+    assert first.paper_brief_available is False
     assert second.title == "New paper"
     assert second.authors == []
     assert second.journal is None
     assert second.published_year is None
     assert second.already_referenced is False
+    assert second.paper_brief_available is False
     assert other.id is not None
+
+
+def test_search_papers_maps_paper_brief_available_when_succeeded(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "brief ready")
+    session.flush()
+    _add_facet(session, topic_scope, concepts=["keyword"])
+    with_brief = _add_paper(
+        session, doi="10.1000/BRIEF", source_uid="20", title="With brief"
+    )
+    without = _add_paper(
+        session, doi="10.1000/NONE", source_uid="21", title="No brief"
+    )
+    create_paper_brief_row(
+        session, paper_id=with_brief.id, status=PaperAspectStatus.succeeded
+    )
+    create_paper_brief_row(
+        session, paper_id=without.id, status=PaperAspectStatus.failed
+    )
+    session.flush()
+
+    with patch(
+        "paper_reviewer.topic_brief_generation.papers_search.search.keywords_match_any",
+        return_value=true(),
+    ):
+        result = search_papers(session, topic_scope)
+
+    by_doi = {hit.doi: hit for hit in result.hits}
+    assert by_doi["10.1000/BRIEF"].paper_brief_available is True
+    assert by_doi["10.1000/NONE"].paper_brief_available is False
 
 
 def test_search_papers_caps_at_20_and_sets_truncated(session: Session) -> None:

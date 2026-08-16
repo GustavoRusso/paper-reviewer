@@ -10,10 +10,18 @@ from paper_reviewer.models.topic_brief_generation.reference import (
     Reference,
     list_references_for_scope,
 )
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
+)
 from paper_reviewer.schemas.topic_brief_generation.show_references import (
     ReferencedPaper,
     ShowReferencesResult,
 )
+
+
+def _paper_brief_available(paper: Paper) -> bool:
+    brief = paper.paper_brief
+    return brief is not None and brief.status == PaperAspectStatus.succeeded
 
 
 def _to_referenced_paper(row: Reference, paper: Paper) -> ReferencedPaper:
@@ -25,6 +33,7 @@ def _to_referenced_paper(row: Reference, paper: Paper) -> ReferencedPaper:
         journal=paper.journal,
         published_year=paper.published_year,
         referenced_at=row.created_at,
+        paper_brief_available=_paper_brief_available(paper),
     )
 
 

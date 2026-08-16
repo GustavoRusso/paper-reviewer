@@ -21,6 +21,8 @@ from paper_reviewer.ui.add_reference import (
     LOAD_ERROR_MESSAGE,
     MISSING_SCOPE_MESSAGE,
     NOT_YET_REFERENCED_BADGE,
+    PAPER_BRIEF_AVAILABLE_BADGE,
+    PAPER_BRIEF_NOT_AVAILABLE_BADGE,
     TRUNCATED_CAPTION,
     format_paper_search_hit_caption,
     render_add_reference,
@@ -92,6 +94,8 @@ def test_empty_and_load_error_copy() -> None:
 def test_badge_labels() -> None:
     assert ALREADY_REFERENCED_BADGE == "Already a Reference"
     assert NOT_YET_REFERENCED_BADGE == "Not yet a Reference"
+    assert PAPER_BRIEF_AVAILABLE_BADGE == "Paper brief available"
+    assert PAPER_BRIEF_NOT_AVAILABLE_BADGE == "Paper brief not available"
 
 
 def test_add_button_copy_and_attach_error() -> None:
@@ -142,6 +146,9 @@ def test_page_renders_hit_card_with_badge() -> None:
     assert "st.badge" in source
     assert "ALREADY_REFERENCED_BADGE" in source
     assert "NOT_YET_REFERENCED_BADGE" in source
+    assert "PAPER_BRIEF_AVAILABLE_BADGE" in source
+    assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in source
+    assert "paper_brief_available" in source
 
 
 def test_format_paper_search_hit_caption() -> None:
@@ -153,6 +160,7 @@ def test_format_paper_search_hit_caption() -> None:
         journal="Nature",
         published_year=2024,
         already_referenced=False,
+        paper_brief_available=True,
     )
 
     assert format_paper_search_hit_caption(hit) == (
@@ -169,6 +177,7 @@ def test_format_paper_search_hit_caption_missing_optional_fields() -> None:
         journal=None,
         published_year=None,
         already_referenced=True,
+        paper_brief_available=False,
     )
 
     assert format_paper_search_hit_caption(hit) == (

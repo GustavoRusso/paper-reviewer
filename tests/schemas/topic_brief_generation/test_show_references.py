@@ -22,6 +22,7 @@ def _sample_paper(**overrides: object) -> ReferencedPaper:
         "journal": "Nature",
         "published_year": 2024,
         "referenced_at": datetime(2026, 8, 16, tzinfo=UTC),
+        "paper_brief_available": False,
     }
     data.update(overrides)
     return ReferencedPaper.model_validate(data)
@@ -37,6 +38,13 @@ def test_referenced_paper_construction() -> None:
     assert paper.journal == "Nature"
     assert paper.published_year == 2024
     assert paper.referenced_at == datetime(2026, 8, 16, tzinfo=UTC)
+    assert paper.paper_brief_available is False
+
+
+def test_referenced_paper_paper_brief_available() -> None:
+    paper = _sample_paper(paper_brief_available=True)
+
+    assert paper.paper_brief_available is True
 
 
 def test_referenced_paper_allows_empty_authors_and_optional_fields() -> None:
@@ -47,7 +55,7 @@ def test_referenced_paper_allows_empty_authors_and_optional_fields() -> None:
     assert paper.published_year is None
 
 
-def test_referenced_paper_requires_title_url_doi_and_referenced_at() -> None:
+def test_referenced_paper_requires_title_url_doi_referenced_at_and_brief_flag() -> None:
     with pytest.raises(ValidationError):
         ReferencedPaper.model_validate(
             {
@@ -55,6 +63,17 @@ def test_referenced_paper_requires_title_url_doi_and_referenced_at() -> None:
                 "url": "https://example.com/1",
                 "doi": "10.1000/EXAMPLE",
                 "authors": [],
+            }
+        )
+
+    with pytest.raises(ValidationError):
+        ReferencedPaper.model_validate(
+            {
+                "title": "Example title",
+                "url": "https://example.com/1",
+                "doi": "10.1000/EXAMPLE",
+                "authors": [],
+                "referenced_at": datetime(2026, 8, 16, tzinfo=UTC),
             }
         )
 

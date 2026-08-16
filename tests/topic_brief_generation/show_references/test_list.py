@@ -11,8 +11,12 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import create_paper
+from paper_reviewer.models.paper_brief import create_paper_brief_row
 from paper_reviewer.models.topic_brief_generation import create_topic_scope
 from paper_reviewer.models.topic_brief_generation.reference import create_reference
+from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+    PaperAspectStatus,
+)
 from paper_reviewer.schemas.topic_brief_generation.show_references import (
     ShowReferencesResult,
 )
@@ -103,6 +107,65 @@ def test_list_show_references_maps_bibliographic_fields(
     assert paper.journal == "Cell"
     assert paper.published_year == 2023
     assert paper.referenced_at == attached_at
+    assert paper.paper_brief_available is False
+
+
+def test_list_show_references_paper_brief_available_when_succeeded(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "brief ready")
+    session.flush()
+    paper_id = _add_paper(
+        session, doi="10.1000/BRIEF", source_uid="60", title="With brief"
+    )
+    create_paper_brief_row(
+        session, paper_id=paper_id, status=PaperAspectStatus.succeeded
+    )
+    create_reference(session, topic_scope.id, paper_id)
+    session.flush()
+
+    result = list_show_references(session, topic_scope)
+
+    assert len(result.papers) == 1
+    assert result.papers[0].paper_brief_available is True
+
+
+def test_list_show_references_paper_brief_not_available_when_failed(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "brief failed")
+    session.flush()
+    paper_id = _add_paper(
+        session, doi="10.1000/FAIL", source_uid="61", title="Failed brief"
+    )
+    create_paper_brief_row(
+        session, paper_id=paper_id, status=PaperAspectStatus.failed
+    )
+    create_reference(session, topic_scope.id, paper_id)
+    session.flush()
+
+    result = list_show_references(session, topic_scope)
+
+    assert result.papers[0].paper_brief_available is False
+
+
+def test_list_show_references_paper_brief_not_available_when_not_started(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "brief not started")
+    session.flush()
+    paper_id = _add_paper(
+        session, doi="10.1000/NS", source_uid="62", title="Not started brief"
+    )
+    create_paper_brief_row(
+        session, paper_id=paper_id, status=PaperAspectStatus.not_started
+    )
+    create_reference(session, topic_scope.id, paper_id)
+    session.flush()
+
+    result = list_show_references(session, topic_scope)
+
+    assert result.papers[0].paper_brief_available is False
 
 
 def test_list_show_references_orders_by_referenced_at(

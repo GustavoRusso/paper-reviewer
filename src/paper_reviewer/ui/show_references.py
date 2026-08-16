@@ -29,6 +29,8 @@ MISSING_SCOPE_MESSAGE = (
 )
 EMPTY_REFERENCES_CAPTION = "This Topic scope has no References yet."
 LOAD_ERROR_MESSAGE = "Could not load References for this Topic scope. Try again."
+PAPER_BRIEF_AVAILABLE_BADGE = "Paper brief available"
+PAPER_BRIEF_NOT_AVAILABLE_BADGE = "Paper brief not available"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 CONTINUE_TO_ADD_REFERENCE_LABEL = "Continue to Add reference"
@@ -66,7 +68,12 @@ def _render_missing_scope(*, topic_scope_key: UUID | None) -> None:
 def _render_referenced_paper(paper: ReferencedPaper) -> None:
     st.markdown(f"**[{paper.title}]({paper.url})**")
     st.caption(format_referenced_paper_caption(paper))
-
+    badge = (
+        PAPER_BRIEF_AVAILABLE_BADGE
+        if paper.paper_brief_available
+        else PAPER_BRIEF_NOT_AVAILABLE_BADGE
+    )
+    st.badge(badge)
 
 def _render_navigation(*, topic_scope_key: UUID) -> None:
     workflow_page_link(

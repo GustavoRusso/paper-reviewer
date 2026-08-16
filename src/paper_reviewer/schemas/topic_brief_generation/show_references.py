@@ -17,6 +17,7 @@ class ReferencedPaper(BaseModel):
     journal: str | None = None
     published_year: int | None = None
     referenced_at: datetime
+    paper_brief_available: bool
 
 
 class ShowReferencesResult(BaseModel):

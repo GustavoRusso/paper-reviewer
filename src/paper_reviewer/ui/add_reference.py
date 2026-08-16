@@ -49,6 +49,8 @@ ADD_BUTTON_LABEL = "Add"
 ADD_ALL_BUTTON_LABEL = "Add all results"
 ALREADY_REFERENCED_BADGE = "Already a Reference"
 NOT_YET_REFERENCED_BADGE = "Not yet a Reference"
+PAPER_BRIEF_AVAILABLE_BADGE = "Paper brief available"
+PAPER_BRIEF_NOT_AVAILABLE_BADGE = "Paper brief not available"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 GO_TO_SHOW_REFERENCES_LABEL = "Go to Show references"
@@ -118,6 +120,12 @@ def _render_hit(hit: PaperSearchHit, *, topic_scope_key: UUID) -> None:
         else NOT_YET_REFERENCED_BADGE
     )
     st.badge(badge)
+    brief_badge = (
+        PAPER_BRIEF_AVAILABLE_BADGE
+        if hit.paper_brief_available
+        else PAPER_BRIEF_NOT_AVAILABLE_BADGE
+    )
+    st.badge(brief_badge)
     if hit.already_referenced:
         return
     if st.button(
