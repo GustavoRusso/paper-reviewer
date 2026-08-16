@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from typing import Any
 from uuid import UUID
 
 import streamlit as st
@@ -16,6 +17,9 @@ from paper_reviewer.models.topic_scope.topic_brief import (
 )
 from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
+)
+from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
+    TopicBriefContent,
 )
 from paper_reviewer.topic_scope.topic_brief_generation import (
     count_briefed_references,
@@ -41,13 +45,17 @@ ENQUEUE_ERROR_MESSAGE = (
     "Could not enqueue topic brief generation. "
     "Check Prefect configuration and try again."
 )
+LAST_GOOD_CONTENT_CAPTION = "Showing the last successful topic brief content."
 GENERATING_STATUS_LABEL = "Generating topic brief…"
 SUCCEEDED_STATUS_LABEL = "Topic brief ready"
 GENERATE_TOPIC_BRIEF_LABEL = "Generate topic brief"
+REGENERATE_TOPIC_BRIEF_LABEL = "Regenerate topic brief"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 GO_TO_SHOW_REFERENCES_LABEL = "Go to Show references"
 GO_TO_GENERATE_PAPER_BRIEF_LABEL = "Go to Generate paper brief"
+
+_ASSISTANT_OUTPUT_HEADING = "Assistant output:"
 
 
 def generate_button_enabled(
@@ -55,7 +63,7 @@ def generate_button_enabled(
     briefed_count: int,
     status: PaperAspectStatus | None,
 ) -> bool:
-    """Return True when Generate may be clicked (not zero-briefed, not in flight)."""
+    """Return True when Generate/Regenerate may be clicked."""
     if briefed_count <= 0:
         return False
     if status is PaperAspectStatus.not_started:
@@ -63,9 +71,61 @@ def generate_button_enabled(
     return True
 
 
+def generate_button_label(*, has_content: bool) -> str:
+    """Return Generate or Regenerate based on stored topic brief content."""
+    if has_content:
+        return REGENERATE_TOPIC_BRIEF_LABEL
+    return GENERATE_TOPIC_BRIEF_LABEL
+
+
 def is_in_flight(status: PaperAspectStatus | None) -> bool:
     """Return True when a TopicBrief row is waiting for create_topic_brief."""
     return status is PaperAspectStatus.not_started
+
+
+def should_render_topic_brief_content(
+    *,
+    status: PaperAspectStatus | None,
+    has_content: bool,
+) -> bool:
+    """Return True when stored content should be shown as the primary brief."""
+    if not has_content:
+        return False
+    return status in {
+        PaperAspectStatus.succeeded,
+        PaperAspectStatus.failed,
+    }
+
+
+def split_topic_brief_error_message(
+    error_message: str,
+) -> tuple[str, str | None]:
+    """Split a stored topic-brief error into caption text and optional dump."""
+    index = error_message.find(_ASSISTANT_OUTPUT_HEADING)
+    if index < 0:
+        return error_message, None
+    caption = error_message[:index].rstrip()
+    assistant = error_message[index + len(_ASSISTANT_OUTPUT_HEADING) :].lstrip("\n")
+    if not assistant:
+        return caption, None
+    return caption, assistant
+
+
+def doi_content_url(doi: str) -> str:
+    """Return an external DOI resolver URL for a content link."""
+    return f"https://doi.org/{doi}"
+
+
+def parse_stored_topic_brief_content(
+    content: dict[str, Any] | None,
+) -> TopicBriefContent | None:
+    """Validate stored JSONB content, or return None when missing/invalid."""
+    if content is None:
+        return None
+    try:
+        return TopicBriefContent.model_validate(content)
+    except Exception:
+        return None
 
 
 @st.cache_resource
@@ -117,64 +177,74 @@ def _render_navigation(
         )
 
 
+def _render_topic_brief_content(content: TopicBriefContent) -> None:
+    st.header(content.title)
+    st.write(content.abstract)
+    st.write(content.introduction)
+    for section in content.sections:
+        st.subheader(section.heading)
+        st.write(section.body)
+    st.write(content.concluding_section)
+    if content.key_points:
+        st.subheader("Key points")
+        for point in content.key_points:
+            st.markdown(f"- {point}")
+    if content.citations:
+        st.subheader("Citations")
+        for citation in content.citations:
+            doi = citation.doi.strip()
+            if doi:
+                st.markdown(
+                    f"{citation.n}. [{citation.text}]({doi_content_url(doi)})"
+                )
+            else:
+                st.markdown(f"{citation.n}. {citation.text}")
+
+
+def _render_failed_error(error_message: str | None) -> None:
+    raw = error_message or "Topic brief generation failed."
+    caption, assistant = split_topic_brief_error_message(raw)
+    st.error(caption)
+    if assistant:
+        with st.expander("Assistant output"):
+            st.code(assistant)
+
+
 @st.fragment(run_every=2)
-def _render_progress(*, topic_scope_id: int) -> None:
+def _render_body(
+    *,
+    topic_scope_id: int,
+    topic_scope_key: UUID,
+    briefed_count: int,
+) -> None:
     with session_scope(_session_factory()) as session:
         brief = get_topic_brief_by_topic_scope_id(session, topic_scope_id)
         status = brief.status if brief is not None else None
         error_message = brief.error_message if brief is not None else None
-        has_content = brief is not None and brief.content is not None
+        raw_content = brief.content if brief is not None else None
+
+    has_content = raw_content is not None
+    content = parse_stored_topic_brief_content(raw_content)
 
     if status is PaperAspectStatus.not_started:
         with st.status(GENERATING_STATUS_LABEL, expanded=True, state="running"):
             st.write("Drafting from briefed References…")
-        return
-
-    if status is PaperAspectStatus.succeeded:
+    elif status is PaperAspectStatus.succeeded:
         with st.status(SUCCEEDED_STATUS_LABEL, state="complete"):
             st.write("Topic brief generated.")
-        return
-
-    if status is PaperAspectStatus.failed:
-        st.error(error_message or "Topic brief generation failed.")
+    elif status is PaperAspectStatus.failed:
+        _render_failed_error(error_message)
         if has_content:
-            st.caption("Showing the last successful topic brief content.")
-        return
+            st.caption(LAST_GOOD_CONTENT_CAPTION)
 
-
-def render_topic_brief_generation() -> None:
-    """Render the Topic brief generation landing for the Topic scope in the URL."""
-    st.title("Topic brief generation")
-    topic_scope_key = parse_topic_scope_key(st.query_params)
-    if topic_scope_key is None:
-        _render_missing_scope(topic_scope_key=None)
-        return
-
-    st.caption(f"Reference id: `{topic_scope_key}`")
-
-    try:
-        with session_scope(_session_factory()) as session:
-            topic_scope = get_topic_scope_by_key(session, topic_scope_key)
-            if topic_scope is None:
-                _render_missing_scope(topic_scope_key=topic_scope_key)
-                return
-            topic_scope_id = topic_scope.id
-            briefed_count = count_briefed_references(session, topic_scope_id)
-            brief = get_topic_brief_by_topic_scope_id(session, topic_scope_id)
-            status = brief.status if brief is not None else None
-    except Exception:
-        st.error(LOAD_ERROR_MESSAGE)
-        return
-
-    zero_briefed = briefed_count == 0
-    if zero_briefed:
-        st.caption(ZERO_BRIEFED_CAPTION)
-
-    if status is not None:
-        _render_progress(topic_scope_id=topic_scope_id)
+    if should_render_topic_brief_content(status=status, has_content=has_content):
+        if content is not None:
+            _render_topic_brief_content(content)
+        else:
+            st.warning("Stored topic brief content could not be displayed.")
 
     if st.button(
-        GENERATE_TOPIC_BRIEF_LABEL,
+        generate_button_label(has_content=has_content),
         type="primary",
         disabled=not generate_button_enabled(
             briefed_count=briefed_count,
@@ -202,5 +272,37 @@ def render_topic_brief_generation() -> None:
 
     _render_navigation(
         topic_scope_key=topic_scope_key,
-        show_zero_briefed_links=zero_briefed,
+        show_zero_briefed_links=briefed_count == 0,
+    )
+
+
+def render_topic_brief_generation() -> None:
+    """Render the Topic brief generation landing for the Topic scope in the URL."""
+    st.title("Topic brief generation")
+    topic_scope_key = parse_topic_scope_key(st.query_params)
+    if topic_scope_key is None:
+        _render_missing_scope(topic_scope_key=None)
+        return
+
+    st.caption(f"Reference id: `{topic_scope_key}`")
+
+    try:
+        with session_scope(_session_factory()) as session:
+            topic_scope = get_topic_scope_by_key(session, topic_scope_key)
+            if topic_scope is None:
+                _render_missing_scope(topic_scope_key=topic_scope_key)
+                return
+            topic_scope_id = topic_scope.id
+            briefed_count = count_briefed_references(session, topic_scope_id)
+    except Exception:
+        st.error(LOAD_ERROR_MESSAGE)
+        return
+
+    if briefed_count == 0:
+        st.caption(ZERO_BRIEFED_CAPTION)
+
+    _render_body(
+        topic_scope_id=topic_scope_id,
+        topic_scope_key=topic_scope_key,
+        briefed_count=briefed_count,
     )
