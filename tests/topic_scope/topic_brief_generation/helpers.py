@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.paper import create_paper
@@ -56,6 +58,9 @@ def add_briefed_reference(
     *,
     uid: str = "100",
     doi: str = "10.1000/EXAMPLE",
+    title: str = "Example title",
+    pub_date: date | None = None,
+    brief_content: dict | None = None,
 ) -> int:
     session = factory()
     try:
@@ -64,19 +69,28 @@ def add_briefed_reference(
             doi=doi,
             source_id="pubmed",
             source_uid=uid,
-            title="Example title",
+            title=title,
             authors=["Ada Lovelace"],
             url=f"https://example.com/{uid}",
             journal="Nature",
             published_year=2024,
         )
+        paper.pub_date = pub_date
         session.flush()
         create_reference(session, topic_scope_id, paper.id)
-        create_paper_brief_row(
+        row = create_paper_brief_row(
             session,
             paper_id=paper.id,
             status=PaperAspectStatus.succeeded,
         )
+        if brief_content is not None:
+            row.content = brief_content
+        else:
+            row.content = {
+                "summary": "Why it matters.",
+                "objective": "Close a gap.",
+                "key_findings": ["Finding one"],
+            }
         session.commit()
         return paper.id
     finally:

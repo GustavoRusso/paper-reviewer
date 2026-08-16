@@ -7,6 +7,7 @@ from collections.abc import Callable
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory
+from paper_reviewer.models.topic_scope import list_topic_facets_for_scope
 from paper_reviewer.models.topic_scope.topic_brief import (
     TopicBrief,
     create_topic_brief_row,
@@ -16,12 +17,14 @@ from paper_reviewer.models.topic_scope.topic_scope import TopicScope
 from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
+from paper_reviewer.schemas.topic_scope.topic_analysis import TopicFacet
 from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     CreateTopicBriefResult,
     TopicBriefContent,
 )
 from paper_reviewer.topic_scope.topic_brief_generation.briefed import (
-    count_briefed_references,
+    BriefedReference,
+    list_briefed_references,
 )
 
 GenerateTopicBriefContent = Callable[..., TopicBriefContent]
@@ -35,17 +38,38 @@ def _default_session_factory() -> sessionmaker[Session]:
     return create_session_factory(create_db_engine())
 
 
-def _stub_topic_brief_content(**_kwargs: object) -> TopicBriefContent:
-    """Step 2 walking-skeleton stub; Step 3 replaces with the real LLM client."""
-    return TopicBriefContent(
-        title="Example topic brief title for indexing",
-        abstract="A short abstract without citations.",
-        introduction="Background and why it matters.",
-        sections=[{"heading": "Main theme", "body": "Discussion of evidence."}],
-        concluding_section="Summary of the viewpoint.",
-        key_points=["Key point one"],
-        citations=[],
+def _default_generate_content(
+    *,
+    topic_statement: str,
+    facets: list[TopicFacet],
+    briefed_references: list[BriefedReference],
+) -> TopicBriefContent:
+    from paper_reviewer.topic_scope.topic_brief_generation.llm import (
+        generate_topic_brief_content,
     )
+
+    return generate_topic_brief_content(
+        topic_statement=topic_statement,
+        facets=facets,
+        briefed_references=briefed_references,
+    )
+
+
+def _facets_for_scope(session: Session, topic_scope_id: int) -> list[TopicFacet]:
+    return [
+        TopicFacet(
+            id=row.facet_id,
+            label=row.label,
+            intent=row.intent,
+            concepts=list(row.concepts),
+            synonyms=list(row.synonyms),
+            date_from=row.date_from,
+            date_to=row.date_to,
+            filters=dict(row.filters),
+            retmax=row.retmax,
+        )
+        for row in list_topic_facets_for_scope(session, topic_scope_id)
+    ]
 
 
 def _result(
@@ -91,7 +115,7 @@ def create_topic_brief(
 ) -> CreateTopicBriefResult:
     """Draft a TopicBrief from briefed References (overwrite when force)."""
     factory = session_factory or _default_session_factory()
-    generate = generate_content or _stub_topic_brief_content
+    generate = generate_content or _default_generate_content
     session = factory()
     try:
         topic_scope = _get_topic_scope(session, topic_scope_id)
@@ -102,7 +126,8 @@ def create_topic_brief(
                 error_message=f"Topic scope id {topic_scope_id} not found",
             )
         brief = get_topic_brief_by_topic_scope_id(session, topic_scope_id)
-        if count_briefed_references(session, topic_scope_id) == 0:
+        briefed = list_briefed_references(session, topic_scope_id)
+        if not briefed:
             return _mark_failed(
                 session,
                 topic_scope_id,
@@ -115,8 +140,13 @@ def create_topic_brief(
             and brief.status is PaperAspectStatus.succeeded
         ):
             return _result(topic_scope_id, brief)
+        facets = _facets_for_scope(session, topic_scope_id)
         try:
-            content = generate(topic_statement=topic_scope.topic_statement)
+            content = generate(
+                topic_statement=topic_scope.topic_statement,
+                facets=facets,
+                briefed_references=briefed,
+            )
         except Exception as exc:
             return _mark_failed(session, topic_scope_id, brief, str(exc))
         if brief is None:

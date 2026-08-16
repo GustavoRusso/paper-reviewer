@@ -1,8 +1,9 @@
-"""Briefed Reference selection for Topic brief generation."""
+"""Briefed Reference selection, citation_description, and prompt order."""
 
 from __future__ import annotations
 
 from collections.abc import Iterator
+from datetime import UTC, date, datetime
 
 import pytest
 from sqlalchemy import create_engine
@@ -17,7 +18,9 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
 from paper_reviewer.topic_scope.topic_brief_generation import (
+    citation_description,
     count_briefed_references,
+    list_briefed_references,
 )
 
 
@@ -43,20 +46,35 @@ def session() -> Iterator[Session]:
         engine.dispose()
 
 
-def _add_paper(session: Session, *, doi: str, source_uid: str) -> int:
+def _add_paper(
+    session: Session,
+    *,
+    doi: str,
+    source_uid: str,
+    title: str,
+    pub_date: date | None = None,
+) -> int:
     paper = create_paper(
         session,
         doi=doi,
         source_id="pubmed",
         source_uid=source_uid,
-        title=f"Title {source_uid}",
+        title=title,
         authors=["Ada Lovelace"],
         url=f"https://example.com/{source_uid}",
         journal="Nature",
         published_year=2024,
     )
+    paper.pub_date = pub_date
     session.flush()
     return paper.id
+
+
+def test_citation_description_uppercases_doi() -> None:
+    assert (
+        citation_description(doi="10.1000/abc", title="A title")
+        == "10.1000/ABC — A title"
+    )
 
 
 def test_count_briefed_references_is_zero_when_scope_has_no_references(
@@ -73,10 +91,18 @@ def test_count_briefed_references_excludes_missing_and_non_succeeded_briefs(
 ) -> None:
     topic_scope = create_topic_scope(session, "mixed briefs")
     session.flush()
-    succeeded_id = _add_paper(session, doi="10.1000/OK", source_uid="1")
-    failed_id = _add_paper(session, doi="10.1000/FAIL", source_uid="2")
-    none_id = _add_paper(session, doi="10.1000/NONE", source_uid="3")
-    not_started_id = _add_paper(session, doi="10.1000/NS", source_uid="4")
+    succeeded_id = _add_paper(
+        session, doi="10.1000/OK", source_uid="1", title="Ok"
+    )
+    failed_id = _add_paper(
+        session, doi="10.1000/FAIL", source_uid="2", title="Fail"
+    )
+    none_id = _add_paper(
+        session, doi="10.1000/NONE", source_uid="3", title="None"
+    )
+    not_started_id = _add_paper(
+        session, doi="10.1000/NS", source_uid="4", title="NS"
+    )
     create_reference(session, topic_scope.id, succeeded_id)
     create_reference(session, topic_scope.id, failed_id)
     create_reference(session, topic_scope.id, none_id)
@@ -101,7 +127,9 @@ def test_count_briefed_references_excludes_other_topic_scopes(
     scope_a = create_topic_scope(session, "scope a")
     scope_b = create_topic_scope(session, "scope b")
     session.flush()
-    paper_id = _add_paper(session, doi="10.1000/SHARED", source_uid="10")
+    paper_id = _add_paper(
+        session, doi="10.1000/SHARED", source_uid="10", title="Shared"
+    )
     create_reference(session, scope_b.id, paper_id)
     create_paper_brief_row(
         session, paper_id=paper_id, status=PaperAspectStatus.succeeded
@@ -112,21 +140,78 @@ def test_count_briefed_references_excludes_other_topic_scopes(
     assert count_briefed_references(session, scope_b.id) == 1
 
 
-def test_count_briefed_references_counts_all_succeeded_on_scope(
+def test_list_briefed_references_orders_by_pub_date_desc_nulls_last(
     session: Session,
 ) -> None:
-    topic_scope = create_topic_scope(session, "two briefed")
+    topic_scope = create_topic_scope(session, "order")
     session.flush()
-    first_id = _add_paper(session, doi="10.1000/A", source_uid="20")
-    second_id = _add_paper(session, doi="10.1000/B", source_uid="21")
-    create_reference(session, topic_scope.id, first_id)
-    create_reference(session, topic_scope.id, second_id)
-    create_paper_brief_row(
-        session, paper_id=first_id, status=PaperAspectStatus.succeeded
+    older_id = _add_paper(
+        session,
+        doi="10.1000/old",
+        source_uid="1",
+        title="Older",
+        pub_date=date(2020, 1, 1),
     )
-    create_paper_brief_row(
-        session, paper_id=second_id, status=PaperAspectStatus.succeeded
+    newer_id = _add_paper(
+        session,
+        doi="10.1000/new",
+        source_uid="2",
+        title="Newer",
+        pub_date=date(2024, 1, 1),
     )
+    null_id = _add_paper(
+        session,
+        doi="10.1000/null",
+        source_uid="3",
+        title="Null date",
+        pub_date=None,
+    )
+    later = datetime(2026, 1, 2, tzinfo=UTC)
+    earlier = datetime(2026, 1, 1, tzinfo=UTC)
+    create_reference(session, topic_scope.id, older_id).created_at = later
+    create_reference(session, topic_scope.id, newer_id).created_at = earlier
+    create_reference(session, topic_scope.id, null_id).created_at = later
+    for paper_id in (older_id, newer_id, null_id):
+        create_paper_brief_row(
+            session, paper_id=paper_id, status=PaperAspectStatus.succeeded
+        )
     session.flush()
 
-    assert count_briefed_references(session, topic_scope.id) == 2
+    listed = list_briefed_references(session, topic_scope.id)
+
+    assert [item.title for item in listed] == ["Newer", "Older", "Null date"]
+    assert listed[0].citation_description == "10.1000/NEW — Newer"
+
+
+def test_list_briefed_references_tie_breaks_by_created_at_then_id(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "ties")
+    session.flush()
+    first_id = _add_paper(
+        session,
+        doi="10.1000/a",
+        source_uid="10",
+        title="A",
+        pub_date=date(2024, 1, 1),
+    )
+    second_id = _add_paper(
+        session,
+        doi="10.1000/b",
+        source_uid="11",
+        title="B",
+        pub_date=date(2024, 1, 1),
+    )
+    same_day = datetime(2026, 1, 1, tzinfo=UTC)
+    create_reference(session, topic_scope.id, first_id).created_at = same_day
+    create_reference(session, topic_scope.id, second_id).created_at = same_day
+    for paper_id in (first_id, second_id):
+        create_paper_brief_row(
+            session, paper_id=paper_id, status=PaperAspectStatus.succeeded
+        )
+    session.flush()
+
+    listed = list_briefed_references(session, topic_scope.id)
+
+    assert [item.title for item in listed] == ["A", "B"]
+    assert listed[0].reference_id < listed[1].reference_id

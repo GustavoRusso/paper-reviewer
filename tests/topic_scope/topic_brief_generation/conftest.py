@@ -17,6 +17,7 @@ def session_factory() -> Iterator[sessionmaker[Session]]:
     import paper_reviewer.models.paper  # noqa: F401
     import paper_reviewer.models.paper_brief  # noqa: F401
     import paper_reviewer.models.topic_scope.reference  # noqa: F401
+    import paper_reviewer.models.topic_scope.topic_analysis  # noqa: F401
     import paper_reviewer.models.topic_scope.topic_brief  # noqa: F401
     import paper_reviewer.models.topic_scope.topic_scope  # noqa: F401
 
