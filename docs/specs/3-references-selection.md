@@ -1,6 +1,6 @@
 # References selection (phase landing)
 
-This document is the specification for the **References selection** phase landing in [README.md](../../README.md). It is a short UI shell. Step behavior stays in the step specs. Local **Papers search** and Reference attach are not built yet.
+This document is the specification for the **References selection** phase landing in [README.md](../../README.md). Step behavior stays in the step specs. Local **Papers search** and Reference attach are not built yet.
 
 **Independent phases:** the user may open this landing without running External sources ingestion or Topic brief. Do not add cross-phase gates in v1.
 
@@ -29,7 +29,7 @@ This document is the specification for the **References selection** phase landin
 
 ## Streamlit UI (v1)
 
-Intended module (not built yet): `paper_reviewer.ui.references_selection` with `render_references_selection()` (landing) and `render_references_selection_header()` (shared chrome).
+Module: `paper_reviewer.ui.references_selection` with `render_references_selection()` (landing) and `render_references_selection_header()` (shared chrome).
 
 | Property | Value |
 | --- | --- |

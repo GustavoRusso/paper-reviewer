@@ -59,7 +59,7 @@ Landing: [docs/specs/2-external-sources-ingestion.md](docs/specs/2-external-sour
 
 ### 3. References selection
 
-Landing: [docs/specs/3-references-selection.md](docs/specs/3-references-selection.md) (not built yet).
+Landing: [docs/specs/3-references-selection.md](docs/specs/3-references-selection.md).
 
 - **3.1 Show references** — Lists papers already selected as **References** for this **Topic scope**. Spec: [docs/specs/3.1-show-references.md](docs/specs/3.1-show-references.md). Offers a link to Add reference.
 - **3.2 Add reference** — Runs **Papers search** on the local ingested paper store, shows which hits are already References, and lets you add one paper or all search results as References. Spec: [docs/specs/3.2-add-reference.md](docs/specs/3.2-add-reference.md). Papers search: [docs/specs/papers-search.md](docs/specs/papers-search.md).
