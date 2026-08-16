@@ -100,7 +100,7 @@ When **planning or implementing** app features under `src/paper_reviewer/`:
 | [docs/specs/3.1-show-references.md](docs/specs/3.1-show-references.md) | Show references (3.1): list References for the Topic scope from `topic_references` | When implementing or changing the Show references page or Reference list UX |
 | [docs/specs/3.2-add-reference.md](docs/specs/3.2-add-reference.md) | Add reference (3.2): auto-runs Papers search and shows hits; per-paper Add attaches a Reference; Add all not built | When implementing or changing Add reference search results or attach UX |
 | [docs/specs/papers-search.md](docs/specs/papers-search.md) | Papers search capability: Postgres FTS of topic facet concepts against `Paper.keywords_tsv` (built; cap 20) | When implementing or changing local Papers search used by Add reference |
-| [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md) | Topic brief phase landing (v1 shell: cited topic-brief drafting not built) | When implementing or changing the Topic brief landing |
+| [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md) | Topic brief phase landing (v1 shell: cited topic-brief drafting not built). Section list and LLM prompt: [src/paper_reviewer/topic_brief_generation/topic_brief/topic_brief_template.md](src/paper_reviewer/topic_brief_generation/topic_brief/topic_brief_template.md) | When implementing or changing the Topic brief landing or the topic-brief template |
 | [docs/specs/external-sources/pubmed.md](docs/specs/external-sources/pubmed.md) | PubMed Entrez mapping to `PaperCandidate`, EFetch for source record, PMC Cloud for full text, NCBI API key / rate limits | When implementing or changing PubMed search, Entrez queries, PubMed → candidate mapping, EFetch mapping, or NCBI ops |
 
 
