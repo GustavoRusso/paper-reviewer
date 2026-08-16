@@ -75,11 +75,11 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 
 ## Phase chrome
 
-Phase landings may show a **shared in-page header** on the landing and on every step of that phase: the phase title (`st.title`), a short phase description, and a progress stepper. When the Topic scope key is present, the header may also show the Reference id caption after the phase title.
+Phase landings may show a **shared in-page header** on the landing and on every step of that phase: the phase title (`st.title`), a short phase description, and a progress stepper. When the Topic scope key is present, the header may also show the Reference id caption after the phase title. Some phases have no landing (References selection): the header still appears on every leaf step.
 
 - The stepper is **not** a second sidebar. Do not put it in `st.sidebar`. Do not use `st.tabs`, `st.pills`, or `st.segmented_control` to change pages.
 - Other steps are `st.page_link`s (navigate only; pass `topic_scope_key`). Link labels name the destination (the step title).
-- The **current** step is not a link. Mark it with a **Current** badge (`st.badge`). On the phase landing, no step is current.
+- The **current** step is not a link. Mark it with a **Current** badge (`st.badge`). On a phase landing (when the phase has one), no step is current.
 - Step pages keep the step name after the shared header as `st.header` (smaller than the phase `st.title`).
 - Do not invent per-page stepper CSS. First owner: External sources ingestion ([2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md)). Later phases may reuse the same pattern with their own step list.
 
@@ -117,7 +117,7 @@ Illustrative only; step specs remain the behavior contract.
 | Home Topic scope list → Topic scope hub | Navigate | `st.page_link` (label = topic statement; pass `topic_scope_key`) |
 | Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` then `st.switch_page` to Topic analysis |
 | Topic analysis → Topic scope hub | Navigate | `st.page_link` |
-| Topic scope hub → External sources ingestion / References selection / Topic brief | Navigate | `st.page_link` |
+| Topic scope hub → External sources ingestion / Show references (References selection) / Topic brief | Navigate | `st.page_link` |
 | External sources ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
 | External sources ingestion → Search external sources | Navigate | `st.page_link` |
 | Search external sources → Paper archiving | Navigate | `st.page_link` |

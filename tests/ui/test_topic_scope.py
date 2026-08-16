@@ -91,10 +91,10 @@ def test_incomplete_copy_and_analysis_link_label() -> None:
     assert GO_TO_TOPIC_ANALYSIS_LABEL == "Go to Topic analysis"
 
 
-def test_ready_hub_links_to_the_three_phase_landings() -> None:
+def test_ready_hub_links_to_phase_entries() -> None:
     assert PHASE_LANDING_PAGE_KEYS == (
         "external_sources_ingestion",
-        "references_selection",
+        "show_references",
         "topic_brief_generation",
     )
     assert CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL == (

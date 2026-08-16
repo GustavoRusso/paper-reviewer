@@ -38,7 +38,6 @@ def build_app_pages() -> list[AppPage]:
         render_external_sources_ingestion,
     )
     from paper_reviewer.ui.add_reference import render_add_reference
-    from paper_reviewer.ui.references_selection import render_references_selection
     from paper_reviewer.ui.search_external_sources import render_search_external_sources
     from paper_reviewer.ui.show_references import render_show_references
     from paper_reviewer.ui.topic_analysis import render_topic_analysis
@@ -78,12 +77,6 @@ def build_app_pages() -> list[AppPage]:
             title="External sources ingestion",
             render=render_external_sources_ingestion,
             url_path="external-sources-ingestion",
-        ),
-        AppPage(
-            key="references_selection",
-            title="References selection",
-            render=render_references_selection,
-            url_path="references-selection",
         ),
         AppPage(
             key="show_references",

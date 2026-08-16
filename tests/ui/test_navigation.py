@@ -11,7 +11,6 @@ from paper_reviewer.ui.external_sources_ingestion import (
     render_external_sources_ingestion,
 )
 from paper_reviewer.ui.add_reference import render_add_reference
-from paper_reviewer.ui.references_selection import render_references_selection
 from paper_reviewer.ui.search_external_sources import render_search_external_sources
 from paper_reviewer.ui.show_references import render_show_references
 from paper_reviewer.ui.topic_analysis import render_topic_analysis
@@ -76,14 +75,10 @@ def test_external_sources_ingestion_page_is_registered() -> None:
     assert pages["external_sources_ingestion"].in_sidebar is False
 
 
-def test_references_selection_page_is_registered() -> None:
+def test_references_selection_page_is_not_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "references_selection" in pages
-    assert pages["references_selection"].title == "References selection"
-    assert pages["references_selection"].url_path == "references-selection"
-    assert pages["references_selection"].render is render_references_selection
-    assert pages["references_selection"].in_sidebar is False
+    assert "references_selection" not in pages
 
 
 def test_show_references_page_is_registered() -> None:
@@ -171,10 +166,7 @@ def test_workflow_page_order() -> None:
     assert keys.index("topic_intake") < keys.index("topic_analysis")
     assert keys.index("topic_analysis") < keys.index("topic_scope")
     assert keys.index("topic_scope") < keys.index("external_sources_ingestion")
-    assert keys.index("external_sources_ingestion") < keys.index(
-        "references_selection"
-    )
-    assert keys.index("references_selection") < keys.index("show_references")
+    assert keys.index("external_sources_ingestion") < keys.index("show_references")
     assert keys.index("show_references") < keys.index("add_reference")
     assert keys.index("add_reference") < keys.index("topic_brief_generation")
     assert keys.index("external_sources_ingestion") < keys.index(
@@ -207,7 +199,6 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["topic_analysis"].in_sidebar is False
     assert by_key["topic_scope"].in_sidebar is False
     assert by_key["external_sources_ingestion"].in_sidebar is False
-    assert by_key["references_selection"].in_sidebar is False
     assert by_key["show_references"].in_sidebar is False
     assert by_key["add_reference"].in_sidebar is False
     assert by_key["topic_brief_generation"].in_sidebar is False

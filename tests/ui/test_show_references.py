@@ -13,7 +13,6 @@ from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.show_references import (
     CONTINUE_TO_ADD_REFERENCE_LABEL,
     EMPTY_REFERENCES_CAPTION,
-    GO_TO_REFERENCES_SELECTION_LABEL,
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
     MISSING_SCOPE_MESSAGE,
@@ -40,7 +39,7 @@ def test_show_references_render_is_registered() -> None:
 def test_missing_key_copy_links_to_intake_and_hub() -> None:
     assert MISSING_SCOPE_MESSAGE == (
         "Open Topic intake to create a Topic scope, then open Show references "
-        "from References selection."
+        "from the Topic scope hub."
     )
     assert GO_TO_TOPIC_INTAKE_LABEL == "Go to Topic intake"
     assert GO_TO_TOPIC_SCOPE_LABEL == "Go to Topic scope"
@@ -51,7 +50,6 @@ def test_empty_list_copy_and_navigation_labels() -> None:
         "This Topic scope has no References yet."
     )
     assert CONTINUE_TO_ADD_REFERENCE_LABEL == "Continue to Add reference"
-    assert GO_TO_REFERENCES_SELECTION_LABEL == "Go to References selection"
 
 
 def test_page_uses_phase_header_then_step_header() -> None:
@@ -80,12 +78,12 @@ def test_missing_topic_scope_row_uses_the_same_empty_state() -> None:
     assert "topic_scope is None" in source
 
 
-def test_page_links_to_add_reference_hub_and_landing() -> None:
+def test_page_links_to_add_reference_and_hub() -> None:
     source = inspect.getsource(show_references_module)
     assert '"add_reference"' in source
     assert "CONTINUE_TO_ADD_REFERENCE_LABEL" in source
     assert '"topic_scope"' in source
-    assert '"references_selection"' in source
+    assert '"references_selection"' not in source
 
 
 def test_paper_brief_badge_labels() -> None:

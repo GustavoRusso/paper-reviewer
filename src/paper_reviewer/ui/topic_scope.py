@@ -37,7 +37,7 @@ CONTINUE_TO_REFERENCES_SELECTION_LABEL = (
 CONTINUE_TO_TOPIC_BRIEF_LABEL = "Continue to Topic brief generation"
 PHASE_LANDING_PAGE_KEYS = (
     "external_sources_ingestion",
-    "references_selection",
+    "show_references",
     "topic_brief_generation",
 )
 
@@ -85,7 +85,7 @@ def _render_incomplete(*, topic_scope_key: UUID) -> None:
 def _render_phase_links(*, topic_scope_key: UUID) -> None:
     labels = {
         "external_sources_ingestion": CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL,
-        "references_selection": CONTINUE_TO_REFERENCES_SELECTION_LABEL,
+        "show_references": CONTINUE_TO_REFERENCES_SELECTION_LABEL,
         "topic_brief_generation": CONTINUE_TO_TOPIC_BRIEF_LABEL,
     }
     for page_key in PHASE_LANDING_PAGE_KEYS:

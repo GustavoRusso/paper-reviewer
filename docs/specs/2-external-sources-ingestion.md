@@ -75,4 +75,4 @@ Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). Fir
 | Generate paper brief (2.2.3) | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Paper indexing (2.2.4) | [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md) |
 
-References selection as a separate phase is [3-references-selection.md](3-references-selection.md).
+References selection as a separate phase is [3-references-selection.md](3-references-selection.md) (docs-only overview; hub opens Show references).

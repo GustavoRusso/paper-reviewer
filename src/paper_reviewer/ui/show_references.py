@@ -25,7 +25,7 @@ from paper_reviewer.ui.topic_scope_url import (
 
 MISSING_SCOPE_MESSAGE = (
     "Open Topic intake to create a Topic scope, then open Show references "
-    "from References selection."
+    "from the Topic scope hub."
 )
 EMPTY_REFERENCES_CAPTION = "This Topic scope has no References yet."
 LOAD_ERROR_MESSAGE = "Could not load References for this Topic scope. Try again."
@@ -34,7 +34,6 @@ PAPER_BRIEF_NOT_AVAILABLE_BADGE = "Paper brief not available"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 CONTINUE_TO_ADD_REFERENCE_LABEL = "Continue to Add reference"
-GO_TO_REFERENCES_SELECTION_LABEL = "Go to References selection"
 
 
 @st.cache_resource
@@ -82,11 +81,6 @@ def _render_navigation(*, topic_scope_key: UUID) -> None:
     workflow_page_link(
         "topic_scope",
         label=GO_TO_TOPIC_SCOPE_LABEL,
-        topic_scope_key=topic_scope_key,
-    )
-    workflow_page_link(
-        "references_selection",
-        label=GO_TO_REFERENCES_SELECTION_LABEL,
         topic_scope_key=topic_scope_key,
     )
 

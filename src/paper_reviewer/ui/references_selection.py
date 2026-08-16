@@ -1,4 +1,4 @@
-"""References selection phase landing Streamlit page."""
+"""References selection phase chrome (header and stepper)."""
 
 from __future__ import annotations
 
@@ -7,23 +7,12 @@ from uuid import UUID
 
 import streamlit as st
 
-from paper_reviewer.ui.topic_scope_url import (
-    parse_topic_scope_key,
-    workflow_page_link,
-)
+from paper_reviewer.ui.topic_scope_url import workflow_page_link
 
 PHASE_TITLE = "References selection"
 INTRO_TEXT = (
     "This phase selects ingested papers as References for this Topic scope."
 )
-MISSING_SCOPE_MESSAGE = (
-    "Open Topic intake to create a Topic scope, then open References "
-    "selection from the Topic scope hub."
-)
-GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
-GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
-SHOW_REFERENCES_PAGE_KEY = "show_references"
-CONTINUE_TO_SHOW_REFERENCES_LABEL = "Continue to Show references"
 CURRENT_STEP_BADGE = "Current"
 REFERENCES_SELECTION_STEPS: tuple[tuple[str, str], ...] = (
     ("show_references", "Show references"),
@@ -83,36 +72,3 @@ def render_references_selection_header(
                     topic_scope_key=topic_scope_key,
                 )
     st.divider()
-
-
-def _render_missing_scope() -> None:
-    st.info(MISSING_SCOPE_MESSAGE)
-    workflow_page_link(
-        "topic_intake",
-        label=GO_TO_TOPIC_INTAKE_LABEL,
-        topic_scope_key=None,
-    )
-    workflow_page_link(
-        "topic_scope",
-        label=GO_TO_TOPIC_SCOPE_LABEL,
-        topic_scope_key=None,
-    )
-
-
-def render_references_selection() -> None:
-    """Render the References selection landing for the Topic scope in the URL."""
-    topic_scope_key = parse_topic_scope_key(st.query_params)
-    if topic_scope_key is None:
-        st.title(PHASE_TITLE)
-        _render_missing_scope()
-        return
-
-    render_references_selection_header(
-        current_page_key="references_selection",
-        topic_scope_key=topic_scope_key,
-    )
-    workflow_page_link(
-        SHOW_REFERENCES_PAGE_KEY,
-        label=CONTINUE_TO_SHOW_REFERENCES_LABEL,
-        topic_scope_key=topic_scope_key,
-    )

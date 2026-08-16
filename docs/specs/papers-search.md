@@ -106,7 +106,7 @@ Unit tests use in-memory SQLite and **must not** require a live `tsvector` / GIN
 | --- | --- |
 | Consumer UI / attach | [3.2-add-reference.md](3.2-add-reference.md) |
 | List of current References | [3.1-show-references.md](3.1-show-references.md) |
-| Phase landing | [3-references-selection.md](3-references-selection.md) |
+| Phase overview (chrome) | [3-references-selection.md](3-references-selection.md) |
 | Search document / GIN | [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md) |
 | `source_record.indexing.keywords` shape | [2.2.2-fulfill-papers-metadata.md](2.2.2-fulfill-papers-metadata.md) |
 | Paper brief | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
