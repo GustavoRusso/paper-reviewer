@@ -2,7 +2,7 @@
 
 This document is the specification for the **References selection** phase landing in [README.md](../../README.md). Step behavior stays in the step specs. Local **Papers search** and Reference attach (**Add** / **Add all**) are built.
 
-**Independent phases:** the user may open this landing without running External sources ingestion or Topic brief. Do not add cross-phase gates in v1.
+**Independent phases:** the user may open this landing without running External sources ingestion or Topic brief generation. Do not add cross-phase gates in v1.
 
 ## Glossary
 
@@ -25,7 +25,7 @@ This document is the specification for the **References selection** phase landin
 
 - Listing References or attaching papers on this landing (owned by [3.1](3.1-show-references.md) and [3.2](3.2-add-reference.md)).
 - Running [Papers search](papers-search.md) on this landing.
-- Topic-brief drafting ([4-topic-brief.md](4-topic-brief.md)).
+- Topic brief generation ([4-topic-brief-generation.md](4-topic-brief-generation.md)).
 
 ## Streamlit UI (v1)
 

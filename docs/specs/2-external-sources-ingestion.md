@@ -2,7 +2,7 @@
 
 This document is the specification for the **External sources ingestion** phase landing in [README.md](../../README.md). It is a short UI shell. Step behavior for ingest stays in the existing step specs.
 
-**Independent phases:** the user may open this landing without running References selection or Topic brief. Do not add cross-phase gates in v1.
+**Independent phases:** the user may open this landing without running References selection or Topic brief generation. Do not add cross-phase gates in v1.
 
 ## Glossary
 

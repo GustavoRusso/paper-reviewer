@@ -95,7 +95,7 @@ def test_ready_hub_links_to_the_three_phase_landings() -> None:
     assert PHASE_LANDING_PAGE_KEYS == (
         "external_sources_ingestion",
         "references_selection",
-        "topic_brief",
+        "topic_brief_generation",
     )
     assert CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL == (
         "Continue to External sources ingestion"
@@ -103,4 +103,4 @@ def test_ready_hub_links_to_the_three_phase_landings() -> None:
     assert CONTINUE_TO_REFERENCES_SELECTION_LABEL == (
         "Continue to References selection"
     )
-    assert CONTINUE_TO_TOPIC_BRIEF_LABEL == "Continue to Topic brief"
+    assert CONTINUE_TO_TOPIC_BRIEF_LABEL == "Continue to Topic brief generation"

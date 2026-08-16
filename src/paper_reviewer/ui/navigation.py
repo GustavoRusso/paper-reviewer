@@ -42,7 +42,7 @@ def build_app_pages() -> list[AppPage]:
     from paper_reviewer.ui.search_external_sources import render_search_external_sources
     from paper_reviewer.ui.show_references import render_show_references
     from paper_reviewer.ui.topic_analysis import render_topic_analysis
-    from paper_reviewer.ui.topic_brief import render_topic_brief
+    from paper_reviewer.ui.topic_brief_generation import render_topic_brief_generation
     from paper_reviewer.ui.topic_intake import render_topic_intake
     from paper_reviewer.ui.topic_scope import render_topic_scope
 
@@ -98,10 +98,10 @@ def build_app_pages() -> list[AppPage]:
             url_path="add-reference",
         ),
         AppPage(
-            key="topic_brief",
-            title="Topic brief",
-            render=render_topic_brief,
-            url_path="topic-brief",
+            key="topic_brief_generation",
+            title="Topic brief generation",
+            render=render_topic_brief_generation,
+            url_path="topic-brief-generation",
         ),
         AppPage(
             key="search_external_sources",

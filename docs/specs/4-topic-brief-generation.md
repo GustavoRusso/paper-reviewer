@@ -1,8 +1,8 @@
-# Topic brief
+# Topic brief generation
 
-This document is the specification for the **Topic brief** phase (phase 4) of the Topic scope workflow in [README.md](../../README.md).
+This document is the specification for the **Topic brief generation** phase (phase 4) of the Topic scope workflow in [README.md](../../README.md).
 
-**Phase vs result:** **Topic brief** is the workflow **phase**. A **topic brief** (`TopicBrief`) is the **result** that phase produces for one `TopicScope`. Do not use “topic brief” alone to name the Prefect job.
+**Phase vs result:** **Topic brief generation** is the workflow **phase**. A **topic brief** (`TopicBrief`) is the **result** that phase produces for one `TopicScope`. Do not use “topic brief” alone to name the Prefect job.
 
 In this phase, the user opens a dedicated Streamlit page and clicks **Generate topic brief** (or **Regenerate topic brief**). An overwrite-on-click Prefect job drafts a cited, topic-conditioned brief from the current References that already have a succeeded paper brief. The page shows progress on the same URL.
 
@@ -16,6 +16,7 @@ This phase has a single page (no phase header/stepper).
 
 | Term | Meaning |
 | --- | --- |
+| **Topic brief generation** | Phase 4: draft and store the cited **topic brief** for one `TopicScope`. |
 | **Topic brief** / **`TopicBrief`** | **Result** artifact: structured, **topic-conditioned** cited introduction for one `TopicScope`. One row per Topic scope. Product meaning: [README.md](../../README.md) Terminology. Distinct from a **paper brief**. |
 | **`create_topic_brief`** | Prefect job that drafts or rewrites the **topic brief** for one Topic scope. |
 | **Generate topic brief** | Primary button action on this page that enqueues `create_topic_brief` (creates when missing; overwrites when a row already exists). |
@@ -37,12 +38,12 @@ For the application runtime stack (including Prefect as a Compose service), see 
 
 ### In scope (current v1)
 
-- Dedicated Streamlit page with title **Topic brief** (same register as today’s shell). No phase header/stepper (this phase has one step).
+- Dedicated Streamlit page with title **Topic brief generation** (same register as today’s shell). No phase header/stepper (this phase has one step).
 - Primary button to generate or regenerate the topic brief (overwrite-on-click; not skip-if-succeeded), disabled when there are zero briefed References.
 - Enqueue Prefect `create_topic_brief` for the Topic scope in the URL (refuse when zero briefed References).
 - Persist one `TopicBrief` per `topic_scope_id` with `PaperAspectStatus` and structured `TopicBriefContent`.
-- Progress on the same `topic-brief` URL via `@st.fragment(run_every=2)` and `st.status`, polling durable DB status (not Prefect run ids).
-- LLM section list and system prompt: [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief/topic_brief_template.md).
+- Progress on the same `topic-brief-generation` URL via `@st.fragment(run_every=2)` and `st.status`, polling durable DB status (not Prefect run ids).
+- LLM section list and system prompt: [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief_generation/topic_brief_template.md).
 - User message includes every briefed Reference (paper brief + app `citation_description`), ordered by `Paper.pub_date` newest first.
 
 ### Out of scope (v1)
@@ -61,7 +62,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 ```mermaid
 flowchart TB
   refs[References selection]
-  ui[UI Topic brief page]
+  ui[UI Topic brief generation page]
   job[create_topic_brief]
   store[TopicBrief row]
   refs --> ui
@@ -71,7 +72,7 @@ flowchart TB
 
 1. **References selection** attaches Papers as References for the Topic scope ([Show references](3.1-show-references.md), [Add reference](3.2-add-reference.md)).
 2. **Generate paper brief** (earlier phase) may already have produced global succeeded `PaperBrief` rows for those papers.
-3. **Topic brief** (this specification) loads briefed References, calls the LLM with the topic brief template, and upserts `TopicBrief`.
+3. **Topic brief generation** (this specification) loads briefed References, calls the LLM with the topic brief template, and upserts `TopicBrief`.
 
 ## Selection rules (LLM input set)
 
@@ -107,7 +108,7 @@ The bibliography in the result is the **cited subset** only: not every briefed R
 
 ## Public API and Prefect entrypoints
 
-Domain package: `paper_reviewer.topic_scope.topic_brief` — see [project-structure.md](../project-structure.md).
+Domain package: `paper_reviewer.topic_scope.topic_brief_generation` — see [project-structure.md](../project-structure.md).
 
 Prefect flows (names are the contract): `paper_reviewer.flows`
 
@@ -214,7 +215,7 @@ Prefer this durable status so the UI can poll the database without Prefect as th
 
 `content` is a structured object (not a single free-form blob as the only field). v1 sections are **topic-conditioned** (topic statement, facets, and briefed References).
 
-**Owner of section list and prompt text:** [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief/topic_brief_template.md) in `paper_reviewer.topic_scope.topic_brief`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
+**Owner of section list and prompt text:** [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief_generation/topic_brief_template.md) in `paper_reviewer.topic_scope.topic_brief_generation`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
 
 `create_topic_brief` loads that file as the system prompt. The user message supplies the topic statement, topic facets, and each briefed Reference (succeeded paper-brief content plus app `citation_description`). The job sends OpenAI structured `json_schema` and then validates the assistant text as `TopicBriefContent` (field ids must match the template front matter). Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. When parse still fails, persist the validation or extract error and the raw assistant text (capped at 8000 characters) on `error_message` so the operator can diagnose illegal JSON.
 
@@ -261,26 +262,26 @@ Quality index shape (artifact fields, storage, and UI) is deferred to the implem
 
 ### Overwrite policy
 
-The Topic brief page button is **overwrite-on-click**. Each successful click produces a new draft from the **current** briefed Reference set. Safe to click again after a terminal status. No-submit cases: in-flight guard (`status` already `not_started`), and zero briefed References.
+The Topic brief generation page button is **overwrite-on-click**. Each successful click produces a new draft from the **current** briefed Reference set. Safe to click again after a terminal status. No-submit cases: in-flight guard (`status` already `not_started`), and zero briefed References.
 
 This differs from [Generate paper brief](2.2.3-generate-paper-brief.md), which skips when a paper brief is already `succeeded` unless `regenerate_paper` forces a rewrite.
 
 ## Streamlit UI (v1)
 
-Module: `paper_reviewer.ui.topic_brief` with `render_topic_brief()`.
+Module: `paper_reviewer.ui.topic_brief_generation` with `render_topic_brief_generation()`.
 
 Register in `paper_reviewer.ui.navigation` (`build_app_pages()`):
 
 | Property | Value |
 | --- | --- |
-| `key` | `topic_brief` |
-| `title` | Topic brief |
-| `url_path` | `topic-brief` |
+| `key` | `topic_brief_generation` |
+| `title` | Topic brief generation |
+| `url_path` | `topic-brief-generation` |
 | `in_sidebar` | false ([ui-style.md](../ui-style.md)) |
 
 Streamlit is presentation only ([technology-stack.md](../technology-stack.md)). Heavy work runs in Prefect; the page enqueues and polls **durable DB status** on `TopicBrief`. Do not use Prefect run ids as progress truth.
 
-The page URL stays `topic-brief` with `topic_scope_key` ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). Do **not** encode job id or a generating flag in the query string; in-progress state is shown on that URL from DB status.
+The page URL stays `topic-brief-generation` with `topic_scope_key` ([ui-style.md](../ui-style.md#topic-scope-key-in-the-url)). Do **not** encode job id or a generating flag in the query string; in-progress state is shown on that URL from DB status.
 
 Do **not** show a References selection–style phase header/stepper on this page.
 
@@ -295,7 +296,7 @@ Do **not** show a References selection–style phase header/stepper on this page
 ### Page behavior
 
 1. Require `topic_scope_key`. Missing key, non-UUID value, or no `TopicScope` row → empty state + page_link to **Topic intake** and **Topic scope**.
-2. Show title **Topic brief**. Caption with Reference id (`topic_scope_key`) when present.
+2. Show title **Topic brief generation**. Caption with Reference id (`topic_scope_key`) when present.
 3. Load `TopicBrief` for the scope (if any) and count briefed References. When that count is zero, show a caption that generation needs at least one Reference with a succeeded paper brief; keep **Generate topic brief** / **Regenerate topic brief** **disabled**.
 4. **In flight** (`status` is `not_started` after a row exists): disable the Generate / Regenerate button. Show `@st.fragment(run_every=2)` with `st.status` (“Generating topic brief…”). Poll durable status until terminal.
 5. **Idle, no succeeded content** (no row, or `failed` with no prior content to prefer as primary), and ≥1 briefed Reference: primary button **Generate topic brief**. On click → `enqueue_create_topic_brief`.
@@ -328,7 +329,7 @@ Show stored fields without copying the template outline into UI copy:
 
 ## Workflow navigation
 
-- **Entry:** [Topic scope hub](1.2-topic-analysis.md#topic-scope-hub) → **Topic brief** with `topic_scope_key`.
+- **Entry:** [Topic scope hub](1.2-topic-analysis.md#topic-scope-hub) → **Topic brief generation** with `topic_scope_key`.
 - **Input:** Topic scope (statement + facets) and current References filtered to succeeded paper briefs (≥1 required to generate).
 
 ## Orchestration boundary
@@ -338,11 +339,11 @@ Show stored fields without copying the template outline into UI copy:
 | Topic scope + facets | [Topic intake](1.1-topic-intake.md), [Topic analysis](1.2-topic-analysis.md) |
 | References | [Show references](3.1-show-references.md), [Add reference](3.2-add-reference.md) |
 | Global `PaperBrief` | [Generate paper brief](2.2.3-generate-paper-brief.md) |
-| Domain enqueue + `create_topic_brief` helper | `paper_reviewer.topic_scope.topic_brief` |
+| Domain enqueue + `create_topic_brief` helper | `paper_reviewer.topic_scope.topic_brief_generation` |
 | Prefect flow | `paper_reviewer.flows` (`create_topic_brief`) |
 | ORM `TopicBrief` | `paper_reviewer.models.topic_scope.topic_brief` |
 | Pydantic contracts | `paper_reviewer.schemas.topic_scope` |
-| Progress + content UI | `paper_reviewer.ui.topic_brief` |
+| Progress + content UI | `paper_reviewer.ui.topic_brief_generation` |
 
 This document is the **behavior contract** for domain logic, the topic-brief Prefect job, and the Streamlit page. Implementation follows [tdd.md](../tdd.md).
 
@@ -371,12 +372,12 @@ The LLM is an **external** boundary: inject or stub the content generator. Do no
 
 **UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
 
-- `tests/ui/test_navigation.py`: page registered with key `topic_brief`, title **Topic brief**, render callable `render_topic_brief`, `url_path` `topic-brief`.
+- `tests/ui/test_navigation.py`: page registered with key `topic_brief_generation`, title **Topic brief generation**, render callable `render_topic_brief_generation`, `url_path` `topic-brief-generation`.
 - Pure helpers for status → display mode, zero-briefed → button disabled, and error-message split unit-tested without Streamlit when extracted.
 
 ## Non-goals (v1)
 
-Do not do this work in the Topic brief v1 slice:
+Do not do this work in the Topic brief generation v1 slice:
 
 - Auto-run generation on page load.
 - Change PaperBrief skip-if-succeeded policy.
@@ -393,4 +394,4 @@ Do not do this work in the Topic brief v1 slice:
 | Paper brief ingest | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Show references | [3.1-show-references.md](3.1-show-references.md) |
 | Topic scope hub | [1.2-topic-analysis.md](1.2-topic-analysis.md#topic-scope-hub) |
-| Template / prompt | [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief/topic_brief_template.md) |
+| Template / prompt | [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief_generation/topic_brief_template.md) |

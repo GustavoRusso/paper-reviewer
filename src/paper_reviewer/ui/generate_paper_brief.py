@@ -233,7 +233,7 @@ def _render_progress(
                 "Generate paper brief finished for eligible papers. "
                 "Some briefs failed."
             )
-        st.caption("Next: Topic brief.")
+        st.caption("Next: Topic brief generation.")
 
 
 def render_generate_paper_brief() -> None:
@@ -280,7 +280,7 @@ def render_generate_paper_brief() -> None:
     if not paper_ids:
         st.caption("No archived papers.")
         st.success("Generate paper brief finished for this set.")
-        st.caption("Next: Topic brief.")
+        st.caption("Next: Topic brief generation.")
         return
 
     enqueue_result: GeneratePaperBriefsEnqueueResult | None = st.session_state.get(

@@ -26,7 +26,8 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper indexing** — Paper Ingestion substep that keeps a local full-text search document on each ingested paper (v1: keywords from the source record) so **Papers search** can find it. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md).
 - **Papers search** — Capability that applies topic facets to the local ingested paper store to return `Paper`s. Used by **Add reference**. Spec: [docs/specs/papers-search.md](docs/specs/papers-search.md). Distinct from **Search external sources**.
 - **References selection** — Phase that selects ingested papers as **References** for the **Topic scope**. Spec: [docs/specs/3-references-selection.md](docs/specs/3-references-selection.md).
-- **Topic brief** — Cited summary that explains what is currently known about the topic
+- **Topic brief** — Cited summary that explains what is currently known about the topic (`TopicBrief`). The **result** of phase 4; distinct from that phase’s name.
+- **Topic brief generation** — Phase 4 of the **Topic scope workflow**: draft and store the cited **topic brief**. Spec: [docs/specs/4-topic-brief-generation.md](docs/specs/4-topic-brief-generation.md).
 - **Topic scope workflow** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
 
 ## External sources
@@ -35,7 +36,7 @@ The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ## Topic scope workflow
 
-The workflow has four phases. Each phase has its own result. You can repeat a phase to refine that result without a full restart. After **Topic definition**, you choose which later phase to run. You can open **External sources ingestion**, **References selection**, or **Topic brief** without finishing the others.
+The workflow has four phases. Each phase has its own result. You can repeat a phase to refine that result without a full restart. After **Topic definition**, you choose which later phase to run. You can open **External sources ingestion**, **References selection**, or **Topic brief generation** without finishing the others.
 
 ### 1. Topic definition
 
@@ -66,9 +67,9 @@ Landing: [docs/specs/3-references-selection.md](docs/specs/3-references-selectio
 
 **Result:** the set of **References** on the **Topic scope** (inputs for the topic brief).
 
-### 4. Topic brief
+### 4. Topic brief generation
 
-Landing: [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md).
+Landing: [docs/specs/4-topic-brief-generation.md](docs/specs/4-topic-brief-generation.md).
 
 The assistant drafts a cited introduction that explains what is currently known about the topic, with literal `[n]` markers in the prose and a numbered citation list (`DOI — title`). Generation needs at least one **Reference** with a succeeded **paper brief** (button disabled otherwise). The page offers **Generate topic brief** (overwrite-on-click); a Prefect job writes a `TopicBrief` from those briefed References.
 

@@ -15,7 +15,7 @@ from paper_reviewer.ui.references_selection import render_references_selection
 from paper_reviewer.ui.search_external_sources import render_search_external_sources
 from paper_reviewer.ui.show_references import render_show_references
 from paper_reviewer.ui.topic_analysis import render_topic_analysis
-from paper_reviewer.ui.topic_brief import render_topic_brief
+from paper_reviewer.ui.topic_brief_generation import render_topic_brief_generation
 from paper_reviewer.ui.topic_intake import render_topic_intake
 from paper_reviewer.ui.topic_scope import render_topic_scope
 
@@ -115,11 +115,11 @@ def test_paper_search_page_is_not_registered() -> None:
 def test_topic_brief_page_is_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "topic_brief" in pages
-    assert pages["topic_brief"].title == "Topic brief"
-    assert pages["topic_brief"].url_path == "topic-brief"
-    assert pages["topic_brief"].render is render_topic_brief
-    assert pages["topic_brief"].in_sidebar is False
+    assert "topic_brief_generation" in pages
+    assert pages["topic_brief_generation"].title == "Topic brief generation"
+    assert pages["topic_brief_generation"].url_path == "topic-brief-generation"
+    assert pages["topic_brief_generation"].render is render_topic_brief_generation
+    assert pages["topic_brief_generation"].in_sidebar is False
 
 
 def test_search_external_sources_page_is_registered() -> None:
@@ -176,7 +176,7 @@ def test_workflow_page_order() -> None:
     )
     assert keys.index("references_selection") < keys.index("show_references")
     assert keys.index("show_references") < keys.index("add_reference")
-    assert keys.index("add_reference") < keys.index("topic_brief")
+    assert keys.index("add_reference") < keys.index("topic_brief_generation")
     assert keys.index("external_sources_ingestion") < keys.index(
         "search_external_sources"
     )
@@ -210,7 +210,7 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["references_selection"].in_sidebar is False
     assert by_key["show_references"].in_sidebar is False
     assert by_key["add_reference"].in_sidebar is False
-    assert by_key["topic_brief"].in_sidebar is False
+    assert by_key["topic_brief_generation"].in_sidebar is False
     assert by_key["search_external_sources"].in_sidebar is False
     assert by_key["paper_archiving"].in_sidebar is False
     assert by_key["fulfill_papers_metadata"].in_sidebar is False
