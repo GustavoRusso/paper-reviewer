@@ -70,7 +70,7 @@ Landing: [docs/specs/3-references-selection.md](docs/specs/3-references-selectio
 
 Landing: [docs/specs/4-topic-brief.md](docs/specs/4-topic-brief.md).
 
-The assistant drafts a cited introduction that explains what is currently known about the topic, scoping each citation to the claims made in the text. The page offers **Generate topic brief** (overwrite-on-click); a Prefect job writes a `TopicBrief` from References that already have a succeeded paper brief.
+The assistant drafts a cited introduction that explains what is currently known about the topic, with literal `[n]` markers in the prose and a numbered citation list (`DOI — title`). Generation needs at least one **Reference** with a succeeded **paper brief** (button disabled otherwise). The page offers **Generate topic brief** (overwrite-on-click); a Prefect job writes a `TopicBrief` from those briefed References.
 
 **Result:** the cited **topic brief**, attached to the **Topic scope**.
 

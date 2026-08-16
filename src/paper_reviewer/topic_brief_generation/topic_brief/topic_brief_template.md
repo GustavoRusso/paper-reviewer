@@ -35,18 +35,27 @@ Imitate the reader-facing layout of a Nature Reviews Perspective: title, unstruc
 The user message supplies:
 
 - The **topic statement** and **topic facets** from the `TopicScope`. Use these to set scope and focus.
-- **References that already have a succeeded paper brief** only: bibliographic facts (title, journal, year, DOI, authors when present) plus that paper brief. Ground claims in those materials only. References without a succeeded paper brief are not included.
+- **References that already have a succeeded paper brief** only, newest `pub_date` first. Each block includes that paper brief and an app-built **`citation_description`** in the form `{DOI} — {title}` (uppercase DOI). Ground claims in those materials only. References without a succeeded paper brief are not included.
 
 ## Grounding rules
 
-- Use the supplied topic statement, facets, References, and paper briefs only.
+- Use the supplied topic statement, facets, References, paper briefs, and `citation_description` values only.
 - Do not invent papers, DOIs, findings, sample sizes, or citations.
 - Scope each citation marker `[n]` to the claim it supports. Do not attach a citation to a sentence it does not support.
 - Prefer paper-brief fields (`summary`, `key_findings`, `discussion`, `limitations`) over inventing detail from titles alone.
 - Do not invent methods or results that the supplied paper briefs do not support.
-- If the Reference list is empty, still fill `title`, `abstract`, and `introduction` from the topic statement and facets. Write `sections` from the facets without citation markers. Set `citations` to `[]`.
+- Cite at least one supplied paper when the Reference list is non-empty. You may leave some supplied papers uncited; do not invent extra papers.
 - A viewpoint is allowed. Represent other opinions that appear in the supplied set. Do not ignore contrary findings in the supplied References.
 - Do not copy a paper brief into the topic brief. Synthesize across References.
+
+## Citation markers
+
+- Use literal markers `[n]` (example: `[1]`).
+- Multi-cite only as adjacent markers: `[1][2]` (not `[1,2]` and not ranges).
+- Number citations in the order they first appear in `introduction`, `sections[].body`, and `concluding_section`.
+- Reuse the same `n` when you cite the same paper again.
+- Do not put citation markers in `abstract` or `key_points`.
+- A section body may omit markers when no claim in that section needs a citation.
 
 ## Length and density
 
@@ -72,7 +81,7 @@ No subheadings. Give vital background. Say why the topic matters and why it is t
 A list of 2–5 objects `{heading, body}`. First-level headings only. Do not nest sections.
 
 - `heading`: at most 82 characters including spaces.
-- `body`: prose for that section. Use sequential citation markers `[n]`. You may use short bold lead-ins inside `body` if a split inside the section helps the reader.
+- `body`: prose for that section. Use sequential citation markers `[n]` where claims need support. You may use short bold lead-ins inside `body` if a split inside the section helps the reader.
 
 Order sections so a non-specialist can follow: established knowledge first, then debate or limits, then forward-looking points that the supplied papers support.
 
@@ -82,15 +91,15 @@ No subheadings. Brief summary of the main points. Discuss implications of the ci
 
 ### `key_points` (required)
 
-A list of 4–6 strings. Each item is at most 30 words. These are the main messages of the Perspective.
+A list of 4–6 strings. Each item is at most 30 words. These are the main messages of the Perspective. No citation markers.
 
 ### `citations` (required)
 
-A numbered list of objects `{n, doi, text}`. Include only papers from the supplied References.
+A numbered list of objects `{n, doi, text}`. Include only papers from the supplied References that you actually cite with `[n]`. Do not list uncited supplied papers.
 
 - `n`: integer. Matches `[n]` markers in `introduction`, `sections[].body`, and `concluding_section`. Number citations in the order they first appear.
 - `doi`: uppercase DOI of the supplied `Paper`.
-- `text`: Nature Reviews reference style. Surname, initials, article title, abbreviated journal (italic not required in JSON), volume, pages, year. Example: `Author, A. B. Title of the article. Nat. Struct. Mol. Biol. 7, 101–109 (2003).` If a supplied paper has six or more authors, give the first author followed by `et al.` If bibliographic facts are incomplete, write what is supplied. Do not invent missing authors, volume, or pages.
+- `text`: copy the supplied `citation_description` for that paper exactly (`{DOI} — {title}`). Do not rewrite it into a longer bibliographic style. Do not invent missing parts.
 
 ## What not to output
 
