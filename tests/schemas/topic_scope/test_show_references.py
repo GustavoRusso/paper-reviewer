@@ -7,7 +7,7 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from paper_reviewer.schemas.topic_brief_generation.show_references import (
+from paper_reviewer.schemas.topic_scope.show_references import (
     ReferencedPaper,
     ShowReferencesResult,
 )

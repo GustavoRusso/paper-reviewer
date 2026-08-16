@@ -6,11 +6,11 @@ from dataclasses import dataclass, field
 
 import pytest
 
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
     TopicFacet,
 )
-from paper_reviewer.topic_brief_generation.topic_analysis import analyze_topic_statement
+from paper_reviewer.topic_scope.topic_analysis import analyze_topic_statement
 
 
 @dataclass

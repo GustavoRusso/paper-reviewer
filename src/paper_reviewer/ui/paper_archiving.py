@@ -9,17 +9,17 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     ArchiveSkip,
     ArchiveSkipReason,
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     SearchExternalSourcesResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
-from paper_reviewer.topic_brief_generation.paper_archiving import archive_papers
+from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
+from paper_reviewer.topic_scope.paper_archiving import archive_papers
 from paper_reviewer.ui.external_sources_ingestion import (
     render_external_sources_ingestion_header,
 )

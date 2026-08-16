@@ -13,23 +13,23 @@ from sqlalchemy.orm import Session, sessionmaker
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import Paper, create_paper
 from paper_reviewer.models.paper_brief import create_paper_brief_row
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.topic_scope import (
     TopicFacet,
     TopicScope,
     create_topic_scope,
 )
-from paper_reviewer.models.topic_brief_generation.reference import create_reference
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.models.topic_scope.reference import create_reference
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.papers_search import (
+from paper_reviewer.schemas.topic_scope.papers_search import (
     PapersSearchResult,
 )
-from paper_reviewer.topic_brief_generation.papers_search import (
+from paper_reviewer.topic_scope.papers_search import (
     keywords_match_any,
     search_papers,
 )
-from paper_reviewer.topic_brief_generation.papers_search.search import (
+from paper_reviewer.topic_scope.papers_search.search import (
     HIT_LIMIT,
 )
 
@@ -128,7 +128,7 @@ def test_search_papers_empty_when_no_usable_concepts(session: Session) -> None:
     )
 
     with patch(
-        "paper_reviewer.topic_brief_generation.papers_search.search.keywords_match_any",
+        "paper_reviewer.topic_scope.papers_search.search.keywords_match_any",
     ) as match_mock:
         result = search_papers(session, topic_scope)
 
@@ -173,7 +173,7 @@ def test_search_papers_maps_hits_and_already_referenced(
         return true()
 
     with patch(
-        "paper_reviewer.topic_brief_generation.papers_search.search.keywords_match_any",
+        "paper_reviewer.topic_scope.papers_search.search.keywords_match_any",
         side_effect=_match_all,
     ) as match_mock:
         result = search_papers(session, topic_scope)
@@ -219,7 +219,7 @@ def test_search_papers_maps_paper_brief_available_when_succeeded(
     session.flush()
 
     with patch(
-        "paper_reviewer.topic_brief_generation.papers_search.search.keywords_match_any",
+        "paper_reviewer.topic_scope.papers_search.search.keywords_match_any",
         return_value=true(),
     ):
         result = search_papers(session, topic_scope)
@@ -242,7 +242,7 @@ def test_search_papers_caps_at_20_and_sets_truncated(session: Session) -> None:
         )
 
     with patch(
-        "paper_reviewer.topic_brief_generation.papers_search.search.keywords_match_any",
+        "paper_reviewer.topic_scope.papers_search.search.keywords_match_any",
         return_value=true(),
     ):
         result = search_papers(session, topic_scope)

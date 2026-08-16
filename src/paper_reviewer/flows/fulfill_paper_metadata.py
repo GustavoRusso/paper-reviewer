@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from prefect import flow
 
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     FulfillPaperMetadataResult,
 )
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform import (
+from paper_reviewer.topic_scope.fulfill_papers_metadata.inform import (
     fulfill_paper_metadata as _fulfill_paper_metadata,
 )
 

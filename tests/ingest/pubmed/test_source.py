@@ -8,11 +8,11 @@ import responses
 
 from paper_reviewer.ingest.pubmed.config import EUTILS_BASE_URL
 from paper_reviewer.ingest.pubmed.source import pubmed
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
     PubMedFacetOverride,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import TopicFacet
+from paper_reviewer.schemas.topic_scope.topic_analysis import TopicFacet
 from tests.ingest.pubmed.test_config import ESEARCH_JSON, ESUMMARY_JSON
 
 EMPTY_ESEARCH_JSON = {

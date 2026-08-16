@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.topic_scope import (
     TopicFacet,
     TopicScope,
     create_topic_scope,

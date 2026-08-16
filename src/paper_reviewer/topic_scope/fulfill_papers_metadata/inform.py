@@ -16,7 +16,7 @@ from paper_reviewer.ingest.pubmed.pmc_cloud import (
     usable_full_text_plain,
 )
 from paper_reviewer.models.paper import Paper, get_paper_by_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     FulfillPaperMetadataResult,
     InformFullTextResult,
     InformSourceRecordResult,
@@ -344,7 +344,7 @@ def regenerate_paper(
     generate_content: Callable[..., Any] | None = None,
 ) -> RegeneratePaperResult:
     """Force source record, force full text, then rewrite the brief when succeeded."""
-    from paper_reviewer.topic_brief_generation.generate_paper_brief.create import (
+    from paper_reviewer.topic_scope.generate_paper_brief.create import (
         create_paper_brief,
     )
 

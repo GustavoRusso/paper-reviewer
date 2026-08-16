@@ -8,19 +8,19 @@ from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.models.paper_brief import (
     get_paper_brief_by_paper_id,
 )
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.topic_scope.fulfill_papers_metadata import (
     fulfill_paper_metadata,
     regenerate_paper,
 )
-from tests.topic_brief_generation.fulfill_papers_metadata.helpers import (
+from tests.topic_scope.fulfill_papers_metadata.helpers import (
     cloud_hit,
     create_test_paper,
     mapped_photo,
 )
-from tests.topic_brief_generation.generate_paper_brief.helpers import (
+from tests.topic_scope.generate_paper_brief.helpers import (
     add_brief,
     sample_brief_content,
 )

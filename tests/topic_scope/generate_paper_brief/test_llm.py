@@ -7,7 +7,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
+from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     build_brief_user_message,
     clip_full_text_for_gateway,
     extract_scientific_full_text,
@@ -17,7 +17,7 @@ from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
     resolve_openai_base_url,
     resolve_openai_model,
 )
-from tests.topic_brief_generation.generate_paper_brief.helpers import sample_brief_content
+from tests.topic_scope.generate_paper_brief.helpers import sample_brief_content
 
 
 def test_system_prompt_is_the_template_file() -> None:

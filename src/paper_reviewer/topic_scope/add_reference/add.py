@@ -8,8 +8,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from paper_reviewer.models.paper import get_paper_by_doi
-from paper_reviewer.models.topic_brief_generation import TopicScope
-from paper_reviewer.models.topic_brief_generation.reference import (
+from paper_reviewer.models.topic_scope import TopicScope
+from paper_reviewer.models.topic_scope.reference import (
     Reference,
     create_reference,
 )

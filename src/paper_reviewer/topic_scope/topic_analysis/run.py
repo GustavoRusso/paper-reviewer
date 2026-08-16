@@ -7,17 +7,17 @@ from typing import Any
 
 from sqlalchemy.orm import Session
 
-from paper_reviewer.models.topic_brief_generation import TopicScope
-from paper_reviewer.models.topic_brief_generation.topic_analysis import (
+from paper_reviewer.models.topic_scope import TopicScope
+from paper_reviewer.models.topic_scope.topic_analysis import (
     TopicFacet as TopicFacetRow,
     delete_topic_facets_for_scope,
     list_topic_facets_for_scope,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
     TopicFacet,
 )
-from paper_reviewer.topic_brief_generation.topic_analysis.analyze import (
+from paper_reviewer.topic_scope.topic_analysis.analyze import (
     analyze_topic_statement,
 )
 

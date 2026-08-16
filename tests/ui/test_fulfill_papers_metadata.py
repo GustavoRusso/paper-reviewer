@@ -5,10 +5,10 @@ from __future__ import annotations
 from uuid import uuid4
 
 from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF, REGENERATE_PAPER_DEPLOYMENT_REF
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     PaperArchivingResult,
 )
 from paper_reviewer.ui.fulfill_papers_metadata import (

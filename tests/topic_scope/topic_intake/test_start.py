@@ -11,12 +11,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.topic_scope import (
     TopicScope,
     get_topic_scope_by_key,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
-from paper_reviewer.topic_brief_generation.topic_intake import (
+from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
+from paper_reviewer.topic_scope.topic_intake import (
     start_topic_scope_from_topic_intake,
 )
 
@@ -25,7 +25,7 @@ from paper_reviewer.topic_brief_generation.topic_intake import (
 def session() -> Iterator[Session]:
     engine = create_engine("sqlite+pysqlite:///:memory:")
     # Register mapped tables before create_all.
-    import paper_reviewer.models.topic_brief_generation.topic_scope  # noqa: F401
+    import paper_reviewer.models.topic_scope.topic_scope  # noqa: F401
 
     Base.metadata.create_all(engine)
     factory = sessionmaker(bind=engine, autoflush=False, autocommit=False)

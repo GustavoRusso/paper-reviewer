@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from prefect import flow
 
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
 )
-from paper_reviewer.topic_brief_generation.generate_paper_brief.create import (
+from paper_reviewer.topic_scope.generate_paper_brief.create import (
     create_paper_brief as _create_paper_brief,
 )
 

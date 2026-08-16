@@ -1,9 +1,9 @@
 """Search external sources: merge and orchestration."""
 
-from paper_reviewer.topic_brief_generation.search_external_sources.merge import (
+from paper_reviewer.topic_scope.search_external_sources.merge import (
     merge_candidates,
 )
-from paper_reviewer.topic_brief_generation.search_external_sources.orchestrate import (
+from paper_reviewer.topic_scope.search_external_sources.orchestrate import (
     search_external_sources,
 )
 

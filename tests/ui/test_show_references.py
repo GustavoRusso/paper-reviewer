@@ -5,7 +5,7 @@ from __future__ import annotations
 import inspect
 from datetime import UTC, datetime
 
-from paper_reviewer.schemas.topic_brief_generation.show_references import (
+from paper_reviewer.schemas.topic_scope.show_references import (
     ReferencedPaper,
 )
 from paper_reviewer.ui import show_references as show_references_module

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from paper_reviewer.schemas.topic_brief_generation.papers_search import (
+from paper_reviewer.schemas.topic_scope.papers_search import (
     PaperSearchHit,
     PapersSearchResult,
 )

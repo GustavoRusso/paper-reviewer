@@ -13,17 +13,17 @@ from paper_reviewer.db import create_db_engine, create_session_factory, session_
 from paper_reviewer.flows.serve import CREATE_PAPER_BRIEF_DEPLOYMENT_REF
 from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.models.paper_brief import get_paper_brief_by_paper_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     GeneratePaperBriefsEnqueueResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
-from paper_reviewer.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
+from paper_reviewer.topic_scope.generate_paper_brief import (
     enqueue_generate_paper_briefs,
 )
 from paper_reviewer.ui.fulfill_papers_metadata import (

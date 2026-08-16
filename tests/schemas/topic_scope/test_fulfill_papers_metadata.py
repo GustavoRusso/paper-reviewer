@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     InformFullTextResult,
     InformSourceRecordResult,
     PaperAspectStatus,
     RegeneratePaperResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
 )
 

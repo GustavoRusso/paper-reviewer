@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
 )
 

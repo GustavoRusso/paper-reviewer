@@ -10,10 +10,10 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import create_paper
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.topic_scope.fulfill_papers_metadata import (
     enqueue_fulfill_papers_metadata,
     needs_fulfill_paper_metadata,
 )

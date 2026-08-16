@@ -70,7 +70,7 @@ This section owns **which pages appear in the left Streamlit navigation**. Step 
 - Streamlit `st.navigation` is the left chrome. Do not build a custom `st.sidebar` page list.
 - **Default off.** Registering a page in `build_app_pages()` is required for routing and `st.page_link`. It does **not** put the page in the sidebar. `AppPage.in_sidebar` defaults to `False` → `st.Page(..., visibility="hidden")`. Hidden pages stay in `st.navigation` so they remain reachable by URL, `st.page_link`, and `st.switch_page` (Streamlit 1.61).
 - **Opt-in.** Only pages with `in_sidebar=True` appear in the sidebar (`visibility="visible"`). A spec must set `in_sidebar: true` on that page’s register table, and `AppPage(in_sidebar=True)` in `paper_reviewer.ui.navigation`.
-- **Current opt-in list (this order):** Home, Topic intake. Later Topic brief generation pages are registered but hidden; the user moves with in-page `st.page_link` (and Topic intake `st.switch_page` to Topic analysis — see below).
+- **Current opt-in list (this order):** Home, Topic intake. Later Topic scope workflow pages are registered but hidden; the user moves with in-page `st.page_link` (and Topic intake `st.switch_page` to Topic analysis — see below).
 - In-page CTAs and empty-state “Go to …” targets still use `st.page_link` per this document.
 
 ## Phase chrome

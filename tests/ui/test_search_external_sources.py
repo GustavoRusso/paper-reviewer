@@ -5,7 +5,7 @@ from __future__ import annotations
 import inspect
 from uuid import uuid4
 
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     SearchExternalSourcesResult,
 )
 from paper_reviewer.ui.navigation import build_app_pages

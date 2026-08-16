@@ -27,13 +27,13 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Papers search** — Capability that applies topic facets to the local ingested paper store to return `Paper`s. Used by **Add reference**. Spec: [docs/specs/papers-search.md](docs/specs/papers-search.md). Distinct from **Search external sources**.
 - **References selection** — Phase that selects ingested papers as **References** for the **Topic scope**. Spec: [docs/specs/3-references-selection.md](docs/specs/3-references-selection.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
-- **Topic brief generation** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
+- **Topic scope workflow** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
 
 ## External sources
 
 The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
-## Topic brief generation workflow
+## Topic scope workflow
 
 The workflow has four phases. Each phase has its own result. You can repeat a phase to refine that result without a full restart. After **Topic definition**, you choose which later phase to run. You can open **External sources ingestion**, **References selection**, or **Topic brief** without finishing the others.
 

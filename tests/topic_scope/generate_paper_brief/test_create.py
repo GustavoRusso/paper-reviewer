@@ -7,14 +7,14 @@ from sqlalchemy.orm import Session, sessionmaker
 from paper_reviewer.models.paper_brief import (
     get_paper_brief_by_paper_id,
 )
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
 )
-from paper_reviewer.topic_brief_generation.generate_paper_brief import create_paper_brief
-from tests.topic_brief_generation.generate_paper_brief.helpers import (
+from paper_reviewer.topic_scope.generate_paper_brief import create_paper_brief
+from tests.topic_scope.generate_paper_brief.helpers import (
     add_brief,
     create_test_paper,
     sample_brief_content,

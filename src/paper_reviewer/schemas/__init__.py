@@ -1,6 +1,6 @@
 """Shared Pydantic domain contracts."""
 
-from paper_reviewer.schemas.topic_brief_generation import (
+from paper_reviewer.schemas.topic_scope import (
     PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,

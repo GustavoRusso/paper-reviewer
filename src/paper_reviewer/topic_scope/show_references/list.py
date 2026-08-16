@@ -5,15 +5,15 @@ from __future__ import annotations
 from sqlalchemy.orm import Session
 
 from paper_reviewer.models.paper import Paper
-from paper_reviewer.models.topic_brief_generation import TopicScope
-from paper_reviewer.models.topic_brief_generation.reference import (
+from paper_reviewer.models.topic_scope import TopicScope
+from paper_reviewer.models.topic_scope.reference import (
     Reference,
     list_references_for_scope,
 )
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.show_references import (
+from paper_reviewer.schemas.topic_scope.show_references import (
     ReferencedPaper,
     ShowReferencesResult,
 )

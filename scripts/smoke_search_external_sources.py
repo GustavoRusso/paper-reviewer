@@ -7,10 +7,10 @@ from __future__ import annotations
 
 import os
 
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.search_external_sources import (
+from paper_reviewer.topic_scope.search_external_sources import (
     search_external_sources,
 )
 

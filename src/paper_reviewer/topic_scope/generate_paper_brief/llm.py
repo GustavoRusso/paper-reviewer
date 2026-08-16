@@ -9,7 +9,7 @@ from urllib.parse import urlparse, urlunparse
 
 from pydantic import ValidationError
 
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
 )
 

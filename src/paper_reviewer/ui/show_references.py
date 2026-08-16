@@ -8,11 +8,11 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.models.topic_brief_generation import get_topic_scope_by_key
-from paper_reviewer.schemas.topic_brief_generation.show_references import (
+from paper_reviewer.models.topic_scope import get_topic_scope_by_key
+from paper_reviewer.schemas.topic_scope.show_references import (
     ReferencedPaper,
 )
-from paper_reviewer.topic_brief_generation.show_references import (
+from paper_reviewer.topic_scope.show_references import (
     list_show_references,
 )
 from paper_reviewer.ui.references_selection import (

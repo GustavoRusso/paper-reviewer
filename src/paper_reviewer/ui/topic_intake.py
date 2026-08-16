@@ -10,8 +10,8 @@ from pydantic import ValidationError
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
-from paper_reviewer.topic_brief_generation.topic_intake import (
+from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
+from paper_reviewer.topic_scope.topic_intake import (
     start_topic_scope_from_topic_intake,
 )
 from paper_reviewer.ui.topic_scope_url import workflow_switch_page

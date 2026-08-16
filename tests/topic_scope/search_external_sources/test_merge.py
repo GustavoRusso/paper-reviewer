@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
 )
-from paper_reviewer.topic_brief_generation.search_external_sources.merge import (
+from paper_reviewer.topic_scope.search_external_sources.merge import (
     merge_candidates,
 )
 

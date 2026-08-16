@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import (
+from paper_reviewer.schemas.topic_scope.topic_intake import (
     TopicStatement,
     accept_topic_intake,
 )

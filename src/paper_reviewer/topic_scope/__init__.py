@@ -1,1 +1,1 @@
-"""Topic brief generation workflow: step behavior packages."""
+"""Topic scope workflow: step behavior packages."""

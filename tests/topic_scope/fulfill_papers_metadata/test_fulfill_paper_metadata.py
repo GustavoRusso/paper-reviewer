@@ -8,13 +8,13 @@ import pytest
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.paper import get_paper_by_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.topic_scope.fulfill_papers_metadata import (
     fulfill_paper_metadata,
 )
-from tests.topic_brief_generation.fulfill_papers_metadata.helpers import (
+from tests.topic_scope.fulfill_papers_metadata.helpers import (
     cloud_hit,
     create_test_paper,
     mapped_photo,
@@ -151,7 +151,7 @@ def test_failed_source_does_not_call_cloud(
         raise RuntimeError("EFetch down")
 
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform.time.sleep",
         lambda _seconds: None,
     )
 

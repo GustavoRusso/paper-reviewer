@@ -5,7 +5,7 @@ from __future__ import annotations
 import inspect
 from uuid import UUID
 
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
+from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
     FULFILL_ENQUEUE_RESULT_KEY,

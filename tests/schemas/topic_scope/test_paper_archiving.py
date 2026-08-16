@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 import pytest
 from pydantic import ValidationError
 
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     ArchiveError,
     ArchiveSkip,
     ArchiveSkipReason,

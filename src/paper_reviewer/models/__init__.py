@@ -3,7 +3,7 @@
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import Paper
 from paper_reviewer.models.paper_brief import PaperBrief
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.topic_scope import (
     Reference,
     TopicFacet,
     TopicScope,

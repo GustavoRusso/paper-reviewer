@@ -15,7 +15,7 @@ Product: [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 | Mapping DocSums to `PaperCandidate` (summary + source fetch handle) | Modeling `BibliographicReference` |
 | EFetch request shape and XML → `Paper` field mapping for the source-record flow (owned with [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md)) | Rich author entities; deferred EFetch elements listed in Fulfill papers metadata (except PMCID for Cloud enrichment) |
 | PMC Cloud enrichment for the full-text flow (highest version `.txt`, HTTPS PDF URL, OA flag) | Storing PDF/XML bytes; Unpaywall; legacy PMC FTP / OA Web Service; LLM `PaperBrief` drafting ([Generate paper brief](../2.2.3-generate-paper-brief.md)) |
-| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by search external sources / `paper_reviewer.topic_brief_generation.search_external_sources`) |
+| `source_overrides.pubmed` for fixtures | Topic analysis (`TopicAnalysisResult`); converting that result into `SearchCriteria` (owned by search external sources / `paper_reviewer.topic_scope.search_external_sources`) |
 
 ## Source identity
 
@@ -217,7 +217,7 @@ Do **not** change `Paper.url` (PubMed). Search / ESummary path still ignores PMC
 
 1. Accepts a facet (+ optional PubMed override).
 2. Calls ESearch / ESummary as above.
-3. Yields `PaperCandidate`-shaped rows for the search external sources merge step in `paper_reviewer.topic_brief_generation.search_external_sources` (see [2.1-search-external-sources.md](../2.1-search-external-sources.md)).
+3. Yields `PaperCandidate`-shaped rows for the search external sources merge step in `paper_reviewer.topic_scope.search_external_sources` (see [2.1-search-external-sources.md](../2.1-search-external-sources.md)).
 
 ## Behavior notes
 

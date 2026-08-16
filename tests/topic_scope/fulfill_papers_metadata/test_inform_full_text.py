@@ -8,13 +8,13 @@ import pytest
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.paper import get_paper_by_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.topic_scope.fulfill_papers_metadata import (
     inform_full_text,
 )
-from tests.topic_brief_generation.fulfill_papers_metadata.helpers import (
+from tests.topic_scope.fulfill_papers_metadata.helpers import (
     cloud_hit,
     create_test_paper,
 )
@@ -411,7 +411,7 @@ def test_cloud_error_after_retries_marks_failed(
         raise RuntimeError("Cloud HTTP 500")
 
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform.time.sleep",
         sleep_calls.append,
     )
 

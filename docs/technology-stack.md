@@ -26,7 +26,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 | Schema migrations | Alembic | Versioned DDL against SQLAlchemy metadata |
 | Web UI | Streamlit | User-facing research workflows |
 | Job orchestrator | Prefect | Long-running jobs (source record, full text, paper briefs). Compose services: [local-development.md](local-development.md); job contracts: [Fulfill papers metadata](specs/2.2.2-fulfill-papers-metadata.md), [Generate paper brief](specs/2.2.3-generate-paper-brief.md). |
-| LLM (paper briefs) | OpenAI | Structured `PaperBriefContent` for `create_paper_brief` only. Optional compatible gateway via `OPENAI_BASE_URL`; model via `OPENAI_MODEL` (empty uses `gpt-4o-mini`; required for a local gateway) ([local-development.md](local-development.md)). The client sends `json_schema` then validates assistant JSON (strips ANSI / Markdown fences for gateways that ignore structured output). Prompt: [paper_brief_template.md](../src/paper_reviewer/topic_brief_generation/generate_paper_brief/paper_brief_template.md). Tests stub this boundary; no live API in pytest. |
+| LLM (paper briefs) | OpenAI | Structured `PaperBriefContent` for `create_paper_brief` only. Optional compatible gateway via `OPENAI_BASE_URL`; model via `OPENAI_MODEL` (empty uses `gpt-4o-mini`; required for a local gateway) ([local-development.md](local-development.md)). The client sends `json_schema` then validates assistant JSON (strips ANSI / Markdown fences for gateways that ignore structured output). Prompt: [paper_brief_template.md](../src/paper_reviewer/topic_scope/generate_paper_brief/paper_brief_template.md). Tests stub this boundary; no live API in pytest. |
 | Tests | pytest | Specs and regression tests for `paper_reviewer` (dev-only; run via `just test` in the sandbox) |
 
 ## Layer sketch
@@ -52,13 +52,13 @@ flowchart TB
   mig --> db
 ```
 
-Today, search external sources calls dlt sources for extract and merges in `paper_reviewer.topic_brief_generation.search_external_sources`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md).
+Today, search external sources calls dlt sources for extract and merges in `paper_reviewer.topic_scope.search_external_sources`. Prefect Compose services (`prefect-server`, `prefect-worker`) run with the app profile for source-record, full-text, and brief jobs; dlt→Postgres load for the search path remains planned where noted in step specs. Step-specific rules: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md).
 
 ## Boundaries
 
 - **Pydantic** — Validate and define data shapes shared across UI, pipelines, and ingest. Prefer one schema source over ad-hoc dicts.
 - **dlt** — External-source extract (and future Source → Postgres loads). Define resource schemas with Pydantic; do not use dlt for ordinary app CRUD. Candidate load timing for search external sources: [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md).
-- **scispaCy** — Topic analysis NER only (`en_core_sci_sm`). Do not use it as a general-purpose NLP stack elsewhere without updating [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md). Analyzer and `run_topic_analysis` live in `paper_reviewer.topic_brief_generation.topic_analysis` — see [project-structure.md](project-structure.md).
+- **scispaCy** — Topic analysis NER only (`en_core_sci_sm`). Do not use it as a general-purpose NLP stack elsewhere without updating [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md). Analyzer and `run_topic_analysis` live in `paper_reviewer.topic_scope.topic_analysis` — see [project-structure.md](project-structure.md).
 - **SQLAlchemy** — Application reads and writes (Streamlit and Prefect tasks that are not bulk ingest). Local paper text search uses mapped `Paper` columns; query operators: [Papers search](specs/papers-search.md).
 - **PostgreSQL full-text search** — Local [Papers search](specs/papers-search.md) only. Use built-in `tsvector` / `tsquery` / GIN. Do not add Elasticsearch, OpenSearch, Meilisearch, Typesense, ParadeDB, or `sqlalchemy-searchable`. Text-search config is `simple`. Column, generated expression, and GIN: [Paper indexing](specs/2.2.4-paper-indexing.md). Do not emulate `tsvector` on SQLite.
 - **Alembic** — Owns relational schema versioning. When dlt loads into Postgres, those tables must already match Alembic; do not let dlt freely evolve production DDL against Alembic.

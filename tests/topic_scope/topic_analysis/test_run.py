@@ -10,14 +10,14 @@ from sqlalchemy import create_engine, func, select
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.topic_scope import (
     TopicFacet,
     create_topic_scope,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.topic_analysis import (
+from paper_reviewer.topic_scope.topic_analysis import (
     load_topic_analysis_result,
     run_topic_analysis,
 )

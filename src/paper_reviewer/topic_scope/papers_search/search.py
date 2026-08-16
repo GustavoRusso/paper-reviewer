@@ -8,15 +8,15 @@ from sqlalchemy import ColumnElement, func, select
 from sqlalchemy.orm import Session, selectinload
 
 from paper_reviewer.models.paper import Paper
-from paper_reviewer.models.topic_brief_generation import TopicScope
-from paper_reviewer.models.topic_brief_generation.reference import Reference
-from paper_reviewer.models.topic_brief_generation.topic_analysis import (
+from paper_reviewer.models.topic_scope import TopicScope
+from paper_reviewer.models.topic_scope.reference import Reference
+from paper_reviewer.models.topic_scope.topic_analysis import (
     list_topic_facets_for_scope,
 )
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.papers_search import (
+from paper_reviewer.schemas.topic_scope.papers_search import (
     PaperSearchHit,
     PapersSearchResult,
 )

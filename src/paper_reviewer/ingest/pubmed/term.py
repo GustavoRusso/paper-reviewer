@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PubMedFacetOverride,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import TopicFacet
+from paper_reviewer.schemas.topic_scope.topic_analysis import TopicFacet
 
 _OPEN_ENDED_PDAT_YEAR = "3000"
 

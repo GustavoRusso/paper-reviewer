@@ -10,13 +10,13 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import create_paper
-from paper_reviewer.models.topic_brief_generation import create_topic_scope
-from paper_reviewer.models.topic_brief_generation.reference import (
+from paper_reviewer.models.topic_scope import create_topic_scope
+from paper_reviewer.models.topic_scope.reference import (
     Reference,
     create_reference,
     list_references_for_scope,
 )
-from paper_reviewer.topic_brief_generation.add_reference import (
+from paper_reviewer.topic_scope.add_reference import (
     AddReferenceError,
     add_references,
 )

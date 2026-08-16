@@ -1,6 +1,6 @@
-"""Domain contracts for the Topic brief generation workflow."""
+"""Domain contracts for the Topic scope workflow."""
 
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,
@@ -9,11 +9,11 @@ from paper_reviewer.schemas.topic_brief_generation.search_external_sources impor
     SourceRun,
     SourceRunStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
     TopicFacet,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import (
+from paper_reviewer.schemas.topic_scope.topic_intake import (
     TopicStatement,
     accept_topic_intake,
 )

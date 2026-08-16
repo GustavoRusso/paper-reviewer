@@ -1,4 +1,4 @@
-"""Streamlit app entry — landing page and Topic brief generation."""
+"""Streamlit app entry — landing page and Topic scope workflow."""
 
 from __future__ import annotations
 

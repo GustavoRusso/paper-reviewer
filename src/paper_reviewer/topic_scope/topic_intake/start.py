@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from paper_reviewer.models.topic_brief_generation import (
+from paper_reviewer.models.topic_scope import (
     TopicScope,
     create_topic_scope,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import (
+from paper_reviewer.schemas.topic_scope.topic_intake import (
     TopicStatement,
     accept_topic_intake,
 )

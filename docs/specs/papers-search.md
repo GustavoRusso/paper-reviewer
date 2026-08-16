@@ -76,7 +76,7 @@ Do not write raw SQL that uses `@@` / `plainto_tsquery` in Streamlit or in Add r
 
 ## Public API
 
-Package path: `paper_reviewer.topic_brief_generation.papers_search`.
+Package path: `paper_reviewer.topic_scope.papers_search`.
 
 ```text
 search_papers(session, topic_scope) -> PapersSearchResult
@@ -87,7 +87,7 @@ search_papers(session, topic_scope) -> PapersSearchResult
 | `session` | SQLAlchemy `Session` | Read. **Caller owns commit.** |
 | `topic_scope` | `TopicScope` | Scope whose facets drive the query and whose References mark `already_referenced`. |
 
-Schemas: `paper_reviewer.schemas.topic_brief_generation.papers_search`.
+Schemas: `paper_reviewer.schemas.topic_scope.papers_search`.
 
 | Type | Fields |
 | --- | --- |

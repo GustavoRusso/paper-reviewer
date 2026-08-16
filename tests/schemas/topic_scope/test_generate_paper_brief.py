@@ -5,15 +5,15 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
     GeneratePaperBriefsEnqueueResult,
     PaperBriefContent,
 )
-from paper_reviewer.topic_brief_generation.generate_paper_brief.llm import (
+from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     template_field_ids,
 )
 

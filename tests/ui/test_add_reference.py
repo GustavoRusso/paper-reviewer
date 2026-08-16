@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import inspect
 
-from paper_reviewer.schemas.topic_brief_generation.papers_search import (
+from paper_reviewer.schemas.topic_scope.papers_search import (
     PaperSearchHit,
 )
 from paper_reviewer.ui import add_reference as add_reference_module

@@ -6,7 +6,7 @@ from collections.abc import Callable, Mapping
 from typing import Any
 
 from paper_reviewer.ingest.pubmed.source import pubmed
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
     PubMedFacetOverride,
     PubMedSourceOverrides,
@@ -15,10 +15,10 @@ from paper_reviewer.schemas.topic_brief_generation.search_external_sources impor
     SourceRun,
     SourceRunStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.search_external_sources.merge import (
+from paper_reviewer.topic_scope.search_external_sources.merge import (
     merge_candidates,
 )
 

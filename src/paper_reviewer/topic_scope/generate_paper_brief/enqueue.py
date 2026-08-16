@@ -8,10 +8,10 @@ from sqlalchemy.orm import Session
 
 from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.models.paper_brief import get_paper_brief_by_paper_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     GeneratePaperBriefsEnqueueResult,
 )
 

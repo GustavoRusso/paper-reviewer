@@ -5,14 +5,14 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from uuid import uuid4
 
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     ArchiveError,
     ArchiveSkip,
     ArchiveSkipReason,
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     SearchExternalSourcesResult,
 )
 from paper_reviewer.ui.paper_archiving import (

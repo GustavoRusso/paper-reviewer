@@ -23,7 +23,7 @@ from sqlalchemy.orm import Mapped, Session, mapped_column, relationship
 from sqlalchemy.schema import FetchedValue
 
 from paper_reviewer.models.base import Base
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
 

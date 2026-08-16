@@ -6,11 +6,11 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.models.topic_brief_generation import get_topic_scope_by_key
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.models.topic_scope import get_topic_scope_by_key
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
 )
-from paper_reviewer.topic_brief_generation.topic_analysis import (
+from paper_reviewer.topic_scope.topic_analysis import (
     load_topic_analysis_result,
     run_topic_analysis,
 )

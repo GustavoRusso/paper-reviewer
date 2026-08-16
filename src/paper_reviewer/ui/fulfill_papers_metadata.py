@@ -12,15 +12,15 @@ from sqlalchemy.orm import Session, sessionmaker
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
 from paper_reviewer.flows.serve import FULFILL_DEPLOYMENT_REF, REGENERATE_PAPER_DEPLOYMENT_REF
 from paper_reviewer.models.paper import get_paper_by_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     FulfillPapersMetadataEnqueueResult,
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.topic_intake import TopicStatement
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
+from paper_reviewer.topic_scope.fulfill_papers_metadata import (
     enqueue_fulfill_papers_metadata,
     needs_fulfill_paper_metadata,
 )

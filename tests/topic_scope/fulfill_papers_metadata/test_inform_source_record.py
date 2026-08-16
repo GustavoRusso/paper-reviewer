@@ -9,13 +9,13 @@ import pytest
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.paper import get_paper_by_id
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.topic_scope.fulfill_papers_metadata import (
     inform_source_record,
 )
-from tests.topic_brief_generation.fulfill_papers_metadata.helpers import (
+from tests.topic_scope.fulfill_papers_metadata.helpers import (
     create_test_paper,
     mapped_photo,
 )
@@ -219,7 +219,7 @@ def test_fetch_error_marks_source_failed(
         raise RuntimeError("HTTP 500 from NCBI EFetch: server error")
 
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform.time.sleep",
         sleep_calls.append,
     )
 
@@ -263,11 +263,11 @@ def test_rate_limit_retries_do_not_count_toward_failure_budget(
         return mapped_photo()
 
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform.time.sleep",
         sleep_calls.append,
     )
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform."
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform."
         "_rate_limit_retry_delay_seconds",
         lambda: rate_limit_delays[len(sleep_calls)],
     )
@@ -313,11 +313,11 @@ def test_rate_limit_then_hard_errors_still_respect_failure_budget(
         raise RuntimeError("HTTP 500 from NCBI EFetch: server error")
 
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform.time.sleep",
         sleep_calls.append,
     )
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform."
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform."
         "_rate_limit_retry_delay_seconds",
         lambda: rate_limit_delays[len([s for s in sleep_calls if s != 0.5])],
     )
@@ -360,7 +360,7 @@ def test_fetch_succeeds_after_transient_failures(
         return mapped_photo()
 
     monkeypatch.setattr(
-        "paper_reviewer.topic_brief_generation.fulfill_papers_metadata.inform.time.sleep",
+        "paper_reviewer.topic_scope.fulfill_papers_metadata.inform.time.sleep",
         sleep_calls.append,
     )
 

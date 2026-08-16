@@ -6,7 +6,7 @@ import re
 from collections.abc import Callable, Iterable
 from typing import Any
 
-from paper_reviewer.schemas.topic_brief_generation.topic_analysis import (
+from paper_reviewer.schemas.topic_scope.topic_analysis import (
     TopicAnalysisResult,
     TopicFacet,
 )

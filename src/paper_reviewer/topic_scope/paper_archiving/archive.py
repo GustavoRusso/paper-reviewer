@@ -10,14 +10,14 @@ from paper_reviewer.models.paper import (
     get_paper_by_doi,
     get_paper_by_source_handle,
 )
-from paper_reviewer.schemas.topic_brief_generation.paper_archiving import (
+from paper_reviewer.schemas.topic_scope.paper_archiving import (
     ArchiveError,
     ArchiveSkip,
     ArchiveSkipReason,
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.schemas.topic_brief_generation.search_external_sources import (
+from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
 )
 

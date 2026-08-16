@@ -16,10 +16,10 @@ from paper_reviewer.models.paper_brief import (
     create_paper_brief_row,
     get_paper_brief_by_paper_id,
 )
-from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
+from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
-from paper_reviewer.schemas.topic_brief_generation.generate_paper_brief import (
+from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
 )
 

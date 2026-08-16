@@ -1,6 +1,6 @@
 # Topic brief
 
-This document is the specification for the **Topic brief** phase (phase 4) of the Topic brief generation workflow in [README.md](../../README.md).
+This document is the specification for the **Topic brief** phase (phase 4) of the Topic scope workflow in [README.md](../../README.md).
 
 **Phase vs result:** **Topic brief** is the workflow **phase**. A **topic brief** (`TopicBrief`) is the **result** that phase produces for one `TopicScope`. Do not use “topic brief” alone to name the Prefect job.
 
@@ -25,9 +25,9 @@ This phase has a single page (no phase header/stepper).
 | **Briefed Reference** | A Reference whose global `PaperBrief.status` is `succeeded`. Only these enter the LLM payload. |
 | **`citation_description`** | App-built minimal citation string for one briefed paper: `{doi} — {title}` with uppercase DOI. Sent in the user message; the LLM must echo it as `citations[].text`. |
 
-## Topic brief generation
+## Topic scope workflow
 
-A **Topic brief generation** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies phase 4: draft and store the cited topic brief.
+A **Topic scope workflow** is the four-phase workflow in [README.md](../../README.md), run on one `TopicScope`. This document specifies phase 4: draft and store the cited topic brief.
 
 Inputs come from earlier phases when present: topic statement and facets on the Topic scope; References from [References selection](3-references-selection.md); succeeded global `PaperBrief` rows from [Generate paper brief](2.2.3-generate-paper-brief.md). Phase 4 does not create Papers, paper briefs, or References.
 
@@ -42,7 +42,7 @@ For the application runtime stack (including Prefect as a Compose service), see 
 - Enqueue Prefect `create_topic_brief` for the Topic scope in the URL (refuse when zero briefed References).
 - Persist one `TopicBrief` per `topic_scope_id` with `PaperAspectStatus` and structured `TopicBriefContent`.
 - Progress on the same `topic-brief` URL via `@st.fragment(run_every=2)` and `st.status`, polling durable DB status (not Prefect run ids).
-- LLM section list and system prompt: [`topic_brief_template.md`](../../src/paper_reviewer/topic_brief_generation/topic_brief/topic_brief_template.md).
+- LLM section list and system prompt: [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief/topic_brief_template.md).
 - User message includes every briefed Reference (paper brief + app `citation_description`), ordered by `Paper.pub_date` newest first.
 
 ### Out of scope (v1)
@@ -107,7 +107,7 @@ The bibliography in the result is the **cited subset** only: not every briefed R
 
 ## Public API and Prefect entrypoints
 
-Domain package: `paper_reviewer.topic_brief_generation.topic_brief` — see [project-structure.md](../project-structure.md).
+Domain package: `paper_reviewer.topic_scope.topic_brief` — see [project-structure.md](../project-structure.md).
 
 Prefect flows (names are the contract): `paper_reviewer.flows`
 
@@ -128,7 +128,7 @@ enqueue_create_topic_brief(topic_scope_id) -> CreateTopicBriefEnqueueResult
 | Zero-briefed guard | UI, enqueue, and job all refuse generation when there are no briefed References. |
 | Fail-soft | LLM / parse / DB errors become `failed` + `error_message`. Raise only for unusable infrastructure (DB down, Prefect submit impossible). Citation quality checks are **not** a v1 failure path — see [Citation / content quality validation](#citation--content-quality-validation-not-in-v1). |
 
-Pydantic types live under `paper_reviewer.schemas.topic_brief_generation`.
+Pydantic types live under `paper_reviewer.schemas.topic_scope`.
 
 ### Result type fields (v1)
 
@@ -187,7 +187,7 @@ CreateTopicBriefEnqueueResult(submitted=False, skipped_in_flight=False, skipped_
 
 `TopicScope` navigates to this row (1:1). Do **not** copy brief status onto `TopicScope` columns.
 
-ORM: `paper_reviewer.models.topic_brief_generation.topic_brief`. Follow the stack rule: **no** `ON DELETE CASCADE` ([technology-stack.md](../technology-stack.md)).
+ORM: `paper_reviewer.models.topic_scope.topic_brief`. Follow the stack rule: **no** `ON DELETE CASCADE` ([technology-stack.md](../technology-stack.md)).
 
 ### Uniqueness
 
@@ -214,7 +214,7 @@ Prefer this durable status so the UI can poll the database without Prefect as th
 
 `content` is a structured object (not a single free-form blob as the only field). v1 sections are **topic-conditioned** (topic statement, facets, and briefed References).
 
-**Owner of section list and prompt text:** [`topic_brief_template.md`](../../src/paper_reviewer/topic_brief_generation/topic_brief/topic_brief_template.md) in `paper_reviewer.topic_brief_generation.topic_brief`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
+**Owner of section list and prompt text:** [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief/topic_brief_template.md) in `paper_reviewer.topic_scope.topic_brief`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
 
 `create_topic_brief` loads that file as the system prompt. The user message supplies the topic statement, topic facets, and each briefed Reference (succeeded paper-brief content plus app `citation_description`). The job sends OpenAI structured `json_schema` and then validates the assistant text as `TopicBriefContent` (field ids must match the template front matter). Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. When parse still fails, persist the validation or extract error and the raw assistant text (capped at 8000 characters) on `error_message` so the operator can diagnose illegal JSON.
 
@@ -338,10 +338,10 @@ Show stored fields without copying the template outline into UI copy:
 | Topic scope + facets | [Topic intake](1.1-topic-intake.md), [Topic analysis](1.2-topic-analysis.md) |
 | References | [Show references](3.1-show-references.md), [Add reference](3.2-add-reference.md) |
 | Global `PaperBrief` | [Generate paper brief](2.2.3-generate-paper-brief.md) |
-| Domain enqueue + `create_topic_brief` helper | `paper_reviewer.topic_brief_generation.topic_brief` |
+| Domain enqueue + `create_topic_brief` helper | `paper_reviewer.topic_scope.topic_brief` |
 | Prefect flow | `paper_reviewer.flows` (`create_topic_brief`) |
-| ORM `TopicBrief` | `paper_reviewer.models.topic_brief_generation.topic_brief` |
-| Pydantic contracts | `paper_reviewer.schemas.topic_brief_generation` |
+| ORM `TopicBrief` | `paper_reviewer.models.topic_scope.topic_brief` |
+| Pydantic contracts | `paper_reviewer.schemas.topic_scope` |
 | Progress + content UI | `paper_reviewer.ui.topic_brief` |
 
 This document is the **behavior contract** for domain logic, the topic-brief Prefect job, and the Streamlit page. Implementation follows [tdd.md](../tdd.md).
@@ -393,4 +393,4 @@ Do not do this work in the Topic brief v1 slice:
 | Paper brief ingest | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Show references | [3.1-show-references.md](3.1-show-references.md) |
 | Topic scope hub | [1.2-topic-analysis.md](1.2-topic-analysis.md#topic-scope-hub) |
-| Template / prompt | [`topic_brief_template.md`](../../src/paper_reviewer/topic_brief_generation/topic_brief/topic_brief_template.md) |
+| Template / prompt | [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief/topic_brief_template.md) |
