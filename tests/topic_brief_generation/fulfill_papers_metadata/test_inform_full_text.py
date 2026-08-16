@@ -217,8 +217,18 @@ def test_author_manuscript_succeeds_when_not_open_access(
         session.close()
 
 
+_LICENSE_STUB_BODY = (
+    "Abstract\n\n"
+    "Orthoflaviviruses depend on host metabolic resources.\n\n"
+    "Full Text Availability\n\n"
+    "The license terms selected by the author(s) for this preprint version "
+    "do not permit archiving in PMC. The full text is available from the "
+    "preprint server.\n"
+)
+
+
 @pytest.mark.parametrize("full_text_plain", ["", "   ", "\n\t"])
-def test_blank_or_whitespace_full_text_marks_unavailable(
+def test_blank_full_text_marks_unavailable_and_clears_body(
     session_factory: sessionmaker[Session],
     full_text_plain: str,
 ) -> None:
@@ -247,6 +257,42 @@ def test_blank_or_whitespace_full_text_marks_unavailable(
         assert paper is not None
         assert paper.full_text_status is PaperAspectStatus.unavailable
         assert paper.full_text_plain is None
+        assert paper.full_text_error_message is None
+    finally:
+        session.close()
+
+
+def test_license_stub_marks_unavailable_and_stores_stripped_body(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.not_started,
+        pmcid="PMC5334499",
+    )
+    hit = cloud_hit()
+    hit["full_text_plain"] = f"\n{_LICENSE_STUB_BODY}  \n"
+
+    result = inform_full_text(
+        paper_id,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda _pmcid: hit,
+    )
+
+    assert result.status is PaperAspectStatus.unavailable
+    assert result.error_message is None
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+        assert paper.full_text_plain == _LICENSE_STUB_BODY.strip()
+        assert paper.pmcid_version == hit["pmcid_version"]
+        assert paper.is_open_access is hit["is_open_access"]
+        assert paper.pmc_article_url == hit["pmc_article_url"]
+        assert paper.open_access_pdf_url == hit["open_access_pdf_url"]
         assert paper.full_text_error_message is None
     finally:
         session.close()
@@ -429,6 +475,48 @@ def test_force_true_retries_unavailable_full_text(
         paper = get_paper_by_id(session, paper_id)
         assert paper is not None
         assert paper.full_text_plain == "Full article text from Cloud."
+        assert paper.full_text_error_message is None
+    finally:
+        session.close()
+
+
+def test_force_true_keeps_stored_license_stub_body(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.succeeded,
+        pmcid="PMC5334499",
+    )
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        paper.full_text_plain = "Old article body."
+        session.commit()
+    finally:
+        session.close()
+
+    result = inform_full_text(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        enrich_from_pmc_cloud=lambda _pmcid: {
+            **cloud_hit(),
+            "full_text_plain": _LICENSE_STUB_BODY,
+        },
+    )
+
+    assert result.status is PaperAspectStatus.unavailable
+    assert result.error_message is None
+
+    session = session_factory()
+    try:
+        paper = get_paper_by_id(session, paper_id)
+        assert paper is not None
+        assert paper.full_text_status is PaperAspectStatus.unavailable
+        assert paper.full_text_plain == _LICENSE_STUB_BODY.strip()
         assert paper.full_text_error_message is None
     finally:
         session.close()

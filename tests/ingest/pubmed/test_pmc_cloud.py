@@ -13,6 +13,7 @@ from paper_reviewer.ingest.pubmed.pmc_cloud import (
     fetch_pmc_cloud_enrichment,
     normalize_pmcid,
     s3_url_to_https,
+    stripped_full_text_plain,
     usable_full_text_plain,
 )
 
@@ -68,6 +69,19 @@ def test_normalize_pmcid() -> None:
     assert normalize_pmcid(" pmc11370360 ") == "PMC11370360"
 
 
+_LICENSE_STUB_BODY = (
+    "Abstract\n\n"
+    "Orthoflaviviruses depend on host metabolic resources.\n\n"
+    "Full Text Availability\n\n"
+    "The license terms selected by the author(s) for this preprint version "
+    "do not permit archiving in PMC. The full text is available from the "
+    "preprint server.\n"
+)
+_ARTICLE_MENTIONING_PMC = (
+    "Methods\n\nWe retrieved records from PMC for comparison.\n"
+)
+
+
 @pytest.mark.parametrize(
     ("value", "expected"),
     [
@@ -79,10 +93,32 @@ def test_normalize_pmcid() -> None:
         ("\nFull article.", "Full article."),
         ("Full article.\n", "Full article."),
         ("  Full article.  \n", "Full article."),
+        (_LICENSE_STUB_BODY, None),
+        (_LICENSE_STUB_BODY.upper(), None),
+        (_ARTICLE_MENTIONING_PMC, _ARTICLE_MENTIONING_PMC.strip()),
     ],
 )
 def test_usable_full_text_plain(value: str | None, expected: str | None) -> None:
     assert usable_full_text_plain(value) == expected
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        (None, None),
+        ("", None),
+        ("   ", None),
+        ("  \n\t", None),
+        ("Full article.", "Full article."),
+        ("\nFull article.", "Full article."),
+        ("  Full article.  \n", "Full article."),
+        (_LICENSE_STUB_BODY, _LICENSE_STUB_BODY.strip()),
+        (_LICENSE_STUB_BODY.upper(), _LICENSE_STUB_BODY.upper().strip()),
+        (_ARTICLE_MENTIONING_PMC, _ARTICLE_MENTIONING_PMC.strip()),
+    ],
+)
+def test_stripped_full_text_plain(value: str | None, expected: str | None) -> None:
+    assert stripped_full_text_plain(value) == expected
 
 
 def _stub_article_with_txt(
@@ -245,6 +281,17 @@ def test_fetch_blank_txt_omits_full_text_plain(txt_body: str) -> None:
     result = fetch_pmc_cloud_enrichment("PMC1")
 
     assert "full_text_plain" not in result
+    assert result["pmcid"] == "PMC1"
+    assert result["pmcid_version"] == 1
+
+
+@responses.activate
+def test_fetch_license_stub_txt_includes_stripped_body() -> None:
+    _stub_article_with_txt(pmcid="PMC1", version=1, txt_body=_LICENSE_STUB_BODY)
+
+    result = fetch_pmc_cloud_enrichment("PMC1")
+
+    assert result["full_text_plain"] == _LICENSE_STUB_BODY.strip()
     assert result["pmcid"] == "PMC1"
     assert result["pmcid_version"] == 1
 

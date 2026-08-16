@@ -23,12 +23,32 @@ def normalize_pmcid(value: str) -> str:
     return f"PMC{stripped}"
 
 
-def usable_full_text_plain(value: str | None) -> str | None:
-    """Return ``strip()`` of the body when that is not empty; else ``None``."""
+_LICENSE_BLOCK_MARKER = "do not permit archiving in pmc"
+
+
+def stripped_full_text_plain(value: str | None) -> str | None:
+    """Return ``strip()`` of non-empty text; else ``None``.
+
+    Includes PMC Cloud license-block stubs. Empty or whitespace-only is None.
+    """
     if not isinstance(value, str):
         return None
     stripped = value.strip()
     if not stripped:
+        return None
+    return stripped
+
+
+def usable_full_text_plain(value: str | None) -> str | None:
+    """Return stripped usable article body; else ``None``.
+
+    Empty or whitespace-only text is not usable. A PMC Cloud license-block
+    stub (body contains ``do not permit archiving in PMC``) is not usable.
+    """
+    stripped = stripped_full_text_plain(value)
+    if stripped is None:
+        return None
+    if _LICENSE_BLOCK_MARKER in stripped.lower():
         return None
     return stripped
 
@@ -132,4 +152,4 @@ def _download_text(text_url: str, get: HttpGet) -> str | None:
     https_url = s3_url_to_https(text_url)
     response = _checked_get(get, https_url, timeout=120)
     body = response.text
-    return usable_full_text_plain(body)
+    return stripped_full_text_plain(body)

@@ -199,6 +199,44 @@ def test_force_true_rewrites_succeeded_brief(
         session.close()
 
 
+def test_license_stub_full_text_does_not_call_llm(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        full_text_status=PaperAspectStatus.succeeded,
+        full_text_plain=(
+            "Abstract\n\n"
+            "Orthoflaviviruses depend on host metabolic resources.\n\n"
+            "Full Text Availability\n\n"
+            "The license terms selected by the author(s) for this preprint "
+            "version do not permit archiving in PMC. The full text is "
+            "available from the preprint server.\n"
+        ),
+    )
+    calls: list[str] = []
+
+    result = create_paper_brief(
+        paper_id,
+        session_factory=session_factory,
+        generate_content=lambda *_a, **_k: calls.append("llm") or sample_brief_content(),
+    )
+
+    assert result.status is PaperAspectStatus.failed
+    assert result.error_message == "full_text_plain is not usable article body"
+    assert calls == []
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.status is PaperAspectStatus.failed
+        assert brief.content is None
+        assert brief.error_message == "full_text_plain is not usable article body"
+    finally:
+        session.close()
+
+
 def test_llm_failure_sets_failed_with_message(
     session_factory: sessionmaker[Session],
 ) -> None:

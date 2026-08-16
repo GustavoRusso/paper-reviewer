@@ -7,6 +7,7 @@ from collections.abc import Callable
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory
+from paper_reviewer.ingest.pubmed.pmc_cloud import usable_full_text_plain
 from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.models.paper_brief import (
     PaperBrief,
@@ -109,12 +110,12 @@ def create_paper_brief(
             and brief.status in _TERMINAL_BRIEF_STATUSES
         ):
             return _result(paper_id, brief)
-        if not paper.full_text_plain:
+        if usable_full_text_plain(paper.full_text_plain) is None:
             return _mark_failed(
                 session,
                 paper_id,
                 brief,
-                "full_text_plain is missing",
+                "full_text_plain is not usable article body",
             )
         try:
             content = generate(
