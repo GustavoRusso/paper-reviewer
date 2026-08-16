@@ -18,13 +18,13 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Paper candidate** — A related paper found via an external source during **Search external sources**. It has a source fetch handle so **Paper Ingestion** can archive the paper and fill its source record, full text, and **paper brief**. Not a paper brief; not a bibliographic reference; not a **Reference**. Candidate shape and identity rules: [docs/specs/2.1-search-external-sources.md](docs/specs/2.1-search-external-sources.md).
 - **Bibliographic reference** — A link from one paper’s bibliography to another paper. Distinct from a paper candidate and from a **Reference**.
 - **Reference** — A durable link from one **Topic scope** to one ingested `Paper` selected for the topic brief. One Topic scope has many References; one Paper may be a Reference for many Topic scopes. Specs: [docs/specs/3.1-show-references.md](docs/specs/3.1-show-references.md), [docs/specs/3.2-add-reference.md](docs/specs/3.2-add-reference.md). Distinct from a **bibliographic reference** and from the UI caption **Reference id** (the Topic scope key).
-- **Paper Ingestion** — Step group under **External sources ingestion** that archives candidates, fulfills metadata, generates paper briefs, and (later) indexes papers. Index: [docs/specs/2.2-paper-ingestion.md](docs/specs/2.2-paper-ingestion.md).
+- **Paper Ingestion** — Step group under **External sources ingestion** that archives candidates, fulfills metadata, generates paper briefs, and indexes papers for **Papers search**. Index: [docs/specs/2.2-paper-ingestion.md](docs/specs/2.2-paper-ingestion.md).
 - **Paper archiving** — Paper Ingestion substep that creates a `Paper` in this system from each candidate, or reuses an existing `Paper` when that article is already stored. Spec: [docs/specs/2.2.1-paper-archiving.md](docs/specs/2.2.1-paper-archiving.md).
 - **Fulfill papers metadata** — Paper Ingestion substep that fills two global paper aspects: **source record** (fuller publication details) and **full text** (article body when available). Spec: [docs/specs/2.2.2-fulfill-papers-metadata.md](docs/specs/2.2.2-fulfill-papers-metadata.md).
 - **Paper brief** — The **result** artifact: a structured, topic-agnostic summary of one paper (`PaperBrief`). One brief per paper; reused in later topic-brief generations. Produced by **Generate paper brief**. Distinct from that ingest step.
 - **Generate paper brief** — Paper Ingestion **substep** that creates **paper briefs** for papers that have full text. Spec: [docs/specs/2.2.3-generate-paper-brief.md](docs/specs/2.2.3-generate-paper-brief.md).
-- **Paper indexing** — Planned Paper Ingestion substep that indexes an ingested paper so **Papers search** can find it in the local database. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md).
-- **Papers search** — Capability that applies topic facets to the local ingested paper store (and later its index) to return `Paper`s. Used by **Add reference**. Spec: [docs/specs/papers-search.md](docs/specs/papers-search.md). Distinct from **Search external sources**.
+- **Paper indexing** — Paper Ingestion substep that keeps a local full-text search document on each ingested paper (v1: keywords from the source record) so **Papers search** can find it. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md).
+- **Papers search** — Capability that applies topic facets to the local ingested paper store to return `Paper`s. Used by **Add reference**. Spec: [docs/specs/papers-search.md](docs/specs/papers-search.md). Distinct from **Search external sources**.
 - **References selection** — Phase that selects ingested papers as **References** for the **Topic scope**. Spec: [docs/specs/3-references-selection.md](docs/specs/3-references-selection.md).
 - **Topic brief** — Cited summary that explains what is currently known about the topic
 - **Topic brief generation** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
@@ -53,9 +53,9 @@ Landing: [docs/specs/2-external-sources-ingestion.md](docs/specs/2-external-sour
   - **2.2.1 Paper archiving** — Creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/2.2.1-paper-archiving.md](docs/specs/2.2.1-paper-archiving.md).
   - **2.2.2 Fulfill papers metadata** — Fills the **source record** and then **full text** (for PubMed: EFetch, then PMC Cloud when a body text exists). Spec: [docs/specs/2.2.2-fulfill-papers-metadata.md](docs/specs/2.2.2-fulfill-papers-metadata.md).
   - **2.2.3 Generate paper brief** — Creates a **paper brief** (the result artifact), or reuses one that already exists. Spec: [docs/specs/2.2.3-generate-paper-brief.md](docs/specs/2.2.3-generate-paper-brief.md).
-  - **2.2.4 Paper indexing** — Indexes the ingested paper for later **Papers search**. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md) (not built yet).
+  - **2.2.4 Paper indexing** — Keeps a local full-text search document on the ingested paper for **Papers search**. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md) (schema not applied yet; no page).
 
-**Result:** papers in the local database (archived, metadata filled, paper brief present, indexed when that step exists). Ingest activity for this topic is recorded on the **Topic scope**. `Paper` and `PaperBrief` stay global.
+**Result:** papers in the local database (archived, metadata filled, paper brief present, searchable by **Papers search** when the keyword index exists). Ingest activity for this topic is recorded on the **Topic scope**. `Paper` and `PaperBrief` stay global.
 
 ### 3. References selection
 

@@ -8,7 +8,7 @@ This document is the specification for the **External sources ingestion** phase 
 
 | Term | Meaning |
 | --- | --- |
-| **External sources ingestion** | Phase 2: search external sources, then run **Paper Ingestion** (archive, fulfill metadata, generate paper briefs, and later index). |
+| **External sources ingestion** | Phase 2: search external sources, then run **Paper Ingestion** (archive, fulfill metadata, generate paper briefs, and index). |
 | **Paper Ingestion** | Docs-only step group 2.2 under this phase. Index: [2.2-external-sources-ingestion.md](2.2-external-sources-ingestion.md). |
 | **Phase landing** | Hidden Streamlit page reached from the [Topic scope hub](1.2-topic-analysis.md#topic-scope-hub). |
 
