@@ -53,7 +53,7 @@ Landing: [docs/specs/2-external-sources-ingestion.md](docs/specs/2-external-sour
   - **2.2.1 Paper archiving** — Creates a `Paper` or reuses one with the same source handle. Spec: [docs/specs/2.2.1-paper-archiving.md](docs/specs/2.2.1-paper-archiving.md).
   - **2.2.2 Fulfill papers metadata** — Fills the **source record** and then **full text** (for PubMed: EFetch, then PMC Cloud when a body text exists). Spec: [docs/specs/2.2.2-fulfill-papers-metadata.md](docs/specs/2.2.2-fulfill-papers-metadata.md).
   - **2.2.3 Generate paper brief** — Creates a **paper brief** (the result artifact), or reuses one that already exists. Spec: [docs/specs/2.2.3-generate-paper-brief.md](docs/specs/2.2.3-generate-paper-brief.md).
-  - **2.2.4 Paper indexing** — Keeps a local full-text search document on the ingested paper for **Papers search**. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md) (schema not applied yet; no page).
+  - **2.2.4 Paper indexing** — Keeps a local full-text search document on the ingested paper for **Papers search**. Spec: [docs/specs/2.2.4-paper-indexing.md](docs/specs/2.2.4-paper-indexing.md) (no page).
 
 **Result:** papers in the local database (archived, metadata filled, paper brief present, searchable by **Papers search** when the keyword index exists). Ingest activity for this topic is recorded on the **Topic scope**. `Paper` and `PaperBrief` stay global.
 

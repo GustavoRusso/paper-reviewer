@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
+from pathlib import Path
 
 import pytest
-from sqlalchemy import create_engine
+from sqlalchemy import Computed, create_engine, insert
+from sqlalchemy.dialects import postgresql
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.schema import CreateTable
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.models.paper import (
@@ -16,6 +19,18 @@ from paper_reviewer.models.paper import (
     get_paper_by_doi,
     get_paper_by_id,
     get_paper_by_source_handle,
+)
+
+_KEYWORDS_TSV_GENERATOR_PARTS = (
+    "jsonb_to_tsvector('simple'",
+    "coalesce(source_record->'indexing'->'keywords', '[]'::jsonb)",
+    r'[\"string\"]',
+)
+_ALEMBIC_KEYWORDS_TSV = (
+    Path(__file__).resolve().parents[2]
+    / "alembic"
+    / "versions"
+    / "20260816_0012_paper_keywords_tsv.py"
 )
 
 
@@ -218,3 +233,63 @@ def test_doi_must_be_unique(session: Session) -> None:
     with pytest.raises(IntegrityError):
         session.flush()
     session.rollback()
+
+
+def test_keywords_tsv_is_mapped_nullable_without_computed(
+    session: Session,
+) -> None:
+    paper = create_paper(
+        session,
+        doi="10.1000/KEYWORDS",
+        source_id="pubmed",
+        source_uid="33",
+        title="Keywords mapping",
+        authors=[],
+        url="https://example.com/keywords",
+    )
+    session.flush()
+
+    column = Paper.__table__.c.keywords_tsv
+    assert column.nullable is True
+    assert not isinstance(column.server_default, Computed)
+    assert paper.keywords_tsv is None
+
+
+def test_keywords_tsv_orm_create_table_has_no_jsonb_to_tsvector() -> None:
+    ddl = str(CreateTable(Paper.__table__).compile(dialect=postgresql.dialect()))
+
+    assert "keywords_tsv" in ddl
+    assert "jsonb_to_tsvector" not in ddl
+    assert "GENERATED" not in ddl.upper()
+
+
+def test_keywords_tsv_gin_index_is_declared() -> None:
+    indexes = {index.name: index for index in Paper.__table__.indexes}
+    gin = indexes["ix_papers_keywords_tsv"]
+
+    assert list(gin.columns.keys()) == ["keywords_tsv"]
+    assert gin.dialect_options["postgresql"]["using"] == "gin"
+
+
+def test_paper_insert_omits_keywords_tsv() -> None:
+    stmt = insert(Paper).values(
+        doi="10.1000/INSERT",
+        source_id="pubmed",
+        source_uid="22",
+        title="Insert omit",
+        authors=[],
+        url="https://example.com/insert",
+    )
+    compiled = str(stmt.compile(dialect=postgresql.dialect()))
+
+    assert "keywords_tsv" not in compiled
+
+
+def test_alembic_keywords_tsv_migration_owns_generator_and_gin() -> None:
+    source = _ALEMBIC_KEYWORDS_TSV.read_text(encoding="utf-8")
+
+    for part in _KEYWORDS_TSV_GENERATOR_PARTS:
+        assert part in source
+    assert "ix_papers_keywords_tsv" in source
+    assert "postgresql_using=\"gin\"" in source or "postgresql_using='gin'" in source
+    assert "persisted=True" in source or "STORED" in source.upper()

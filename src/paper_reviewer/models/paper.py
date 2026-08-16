@@ -10,6 +10,7 @@ from sqlalchemy import (
     Date,
     DateTime,
     Enum,
+    Index,
     Integer,
     JSON,
     Text,
@@ -17,8 +18,9 @@ from sqlalchemy import (
     func,
     select,
 )
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import JSONB, TSVECTOR
 from sqlalchemy.orm import Mapped, Session, mapped_column, relationship
+from sqlalchemy.schema import FetchedValue
 
 from paper_reviewer.models.base import Base
 from paper_reviewer.schemas.topic_brief_generation.fulfill_papers_metadata import (
@@ -41,6 +43,7 @@ class Paper(Base):
     __table_args__ = (
         UniqueConstraint("source_id", "source_uid", name="uq_papers_source_handle"),
         UniqueConstraint("doi", name="uq_papers_doi"),
+        Index("ix_papers_keywords_tsv", "keywords_tsv", postgresql_using="gin"),
     )
 
     id: Mapped[int] = mapped_column(
@@ -96,6 +99,12 @@ class Paper(Base):
     full_text_plain: Mapped[str | None] = mapped_column(Text, nullable=True)
     open_access_pdf_url: Mapped[str | None] = mapped_column(Text, nullable=True)
     pmc_article_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+    keywords_tsv: Mapped[str | None] = mapped_column(
+        TSVECTOR().with_variant(Text, "sqlite"),
+        nullable=True,
+        server_default=FetchedValue(),
+        server_onupdate=FetchedValue(),
+    )
     paper_brief: Mapped["PaperBrief | None"] = relationship(  # noqa: F821
         "PaperBrief",
         back_populates="paper",
