@@ -2,7 +2,7 @@
 
 This document is the specification for the **Topic brief** phase landing in [README.md](../../README.md). v1 is a **shell**. Cited topic-brief drafting is not built yet.
 
-**Independent phases:** the user may open this landing without running External sources ingestion or Paper search. Do not add cross-phase gates in v1.
+**Independent phases:** the user may open this landing without running External sources ingestion or References selection. Do not add cross-phase gates in v1.
 
 ## Glossary
 

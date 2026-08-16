@@ -2,7 +2,7 @@
 
 This document is the specification for the **External sources ingestion** phase landing in [README.md](../../README.md). It is a short UI shell. Step behavior for ingest stays in the existing step specs.
 
-**Independent phases:** the user may open this landing without running Paper search or Topic brief. Do not add cross-phase gates in v1.
+**Independent phases:** the user may open this landing without running References selection or Topic brief. Do not add cross-phase gates in v1.
 
 ## Glossary
 
@@ -26,7 +26,7 @@ This document is the specification for the **External sources ingestion** phase 
 - Running search external sources, archiving, EFetch, or brief jobs on this landing.
 - A Streamlit page for the 2.2 Paper Ingestion group ([2.2-external-sources-ingestion.md](2.2-external-sources-ingestion.md)).
 - Paper indexing page (still later — [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md)).
-- Local Paper search or topic-brief drafting.
+- References selection or topic-brief drafting.
 
 ## Streamlit UI (v1)
 
@@ -75,4 +75,4 @@ Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). Fir
 | Generate paper brief (2.2.3) | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Paper indexing (2.2.4) | [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md) |
 
-Local Paper search as a separate phase is [3-paper-search.md](3-paper-search.md).
+References selection as a separate phase is [3-references-selection.md](3-references-selection.md).
