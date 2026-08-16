@@ -1,4 +1,4 @@
-"""Add reference Streamlit page (Papers search results; attach not built)."""
+"""Add reference Streamlit page (Papers search results and per-paper Add)."""
 
 from __future__ import annotations
 
@@ -14,6 +14,10 @@ from paper_reviewer.models.topic_brief_generation import (
 )
 from paper_reviewer.schemas.topic_brief_generation.papers_search import (
     PaperSearchHit,
+)
+from paper_reviewer.topic_brief_generation.add_reference import (
+    AddReferenceError,
+    add_references,
 )
 from paper_reviewer.topic_brief_generation.papers_search import search_papers
 from paper_reviewer.ui.references_selection import (
@@ -38,9 +42,10 @@ TRUNCATED_CAPTION = "Showing the first 20 matching papers."
 LOAD_ERROR_MESSAGE = (
     "Could not load Papers search for this Topic scope. Try again."
 )
-ATTACH_NOT_BUILT_CAPTION = (
-    "Attaching References from local search results is not built yet."
+ATTACH_ERROR_MESSAGE = (
+    "Could not add References for this Topic scope. Try again."
 )
+ADD_BUTTON_LABEL = "Add"
 ALREADY_REFERENCED_BADGE = "Already a Reference"
 NOT_YET_REFERENCED_BADGE = "Not yet a Reference"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
@@ -76,7 +81,20 @@ def _render_missing_scope(*, topic_scope_key: UUID | None) -> None:
     )
 
 
-def _render_hit(hit: PaperSearchHit) -> None:
+def _attach_references(topic_scope_key: UUID, dois: list[str]) -> None:
+    try:
+        with session_scope(_session_factory()) as session:
+            topic_scope = get_topic_scope_by_key(session, topic_scope_key)
+            if topic_scope is None:
+                raise AddReferenceError("Topic scope not found.")
+            add_references(session, topic_scope, dois)
+    except Exception:
+        st.error(ATTACH_ERROR_MESSAGE)
+        return
+    st.rerun()
+
+
+def _render_hit(hit: PaperSearchHit, *, topic_scope_key: UUID) -> None:
     st.markdown(f"**[{hit.title}]({hit.url})**")
     st.caption(format_paper_search_hit_caption(hit))
     badge = (
@@ -85,6 +103,14 @@ def _render_hit(hit: PaperSearchHit) -> None:
         else NOT_YET_REFERENCED_BADGE
     )
     st.badge(badge)
+    if hit.already_referenced:
+        return
+    if st.button(
+        ADD_BUTTON_LABEL,
+        key=f"add-reference-{hit.doi}",
+        type="secondary",
+    ):
+        _attach_references(topic_scope_key, [hit.doi])
 
 
 def _render_navigation(*, topic_scope_key: UUID) -> None:
@@ -104,7 +130,7 @@ def _has_usable_concepts(session: Session, topic_scope_id: int) -> bool:
 
 
 def render_add_reference() -> None:
-    """Render Add reference: Papers search results for the Topic scope."""
+    """Render Add reference: Papers search results and per-paper Add."""
     topic_scope_key = parse_topic_scope_key(st.query_params)
     render_references_selection_header(
         current_page_key="add_reference",
@@ -142,7 +168,6 @@ def render_add_reference() -> None:
             st.caption(EMPTY_NO_HITS_CAPTION)
     else:
         for hit in hits:
-            _render_hit(hit)
+            _render_hit(hit, topic_scope_key=topic_scope_key)
 
-    st.caption(ATTACH_NOT_BUILT_CAPTION)
     _render_navigation(topic_scope_key=topic_scope_key)

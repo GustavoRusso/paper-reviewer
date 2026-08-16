@@ -1,4 +1,4 @@
-"""Add reference page: registration, Papers search results, attach not built."""
+"""Add reference page: registration, Papers search results, per-paper Add."""
 
 from __future__ import annotations
 
@@ -9,8 +9,9 @@ from paper_reviewer.schemas.topic_brief_generation.papers_search import (
 )
 from paper_reviewer.ui import add_reference as add_reference_module
 from paper_reviewer.ui.add_reference import (
+    ADD_BUTTON_LABEL,
     ALREADY_REFERENCED_BADGE,
-    ATTACH_NOT_BUILT_CAPTION,
+    ATTACH_ERROR_MESSAGE,
     EMPTY_NO_CONCEPTS_CAPTION,
     EMPTY_NO_HITS_CAPTION,
     GO_TO_SHOW_REFERENCES_LABEL,
@@ -92,9 +93,10 @@ def test_badge_labels() -> None:
     assert NOT_YET_REFERENCED_BADGE == "Not yet a Reference"
 
 
-def test_attach_not_built_caption_and_back_link() -> None:
-    assert ATTACH_NOT_BUILT_CAPTION == (
-        "Attaching References from local search results is not built yet."
+def test_add_button_copy_and_attach_error() -> None:
+    assert ADD_BUTTON_LABEL == "Add"
+    assert ATTACH_ERROR_MESSAGE == (
+        "Could not add References for this Topic scope. Try again."
     )
     assert GO_TO_SHOW_REFERENCES_LABEL == "Go to Show references"
 
@@ -105,10 +107,20 @@ def test_page_links_back_to_show_references() -> None:
     assert "GO_TO_SHOW_REFERENCES_LABEL" in source
 
 
-def test_page_does_not_offer_add_or_add_all() -> None:
+def test_page_offers_add_on_not_yet_hits_only() -> None:
     source = inspect.getsource(add_reference_module)
-    assert 'st.button' not in source
+    assert "ADD_BUTTON_LABEL" in source
+    assert 'type="secondary"' in source
+    assert "add_references" in source
+    assert "st.rerun" in source
+    assert "already_referenced" in source
     assert "Add all" not in source
+
+
+def test_page_does_not_show_attach_not_built_caption() -> None:
+    source = inspect.getsource(add_reference_module)
+    assert "ATTACH_NOT_BUILT_CAPTION" not in source
+    assert "not built yet" not in source
 
 
 def test_page_renders_hit_card_with_badge() -> None:
@@ -118,7 +130,6 @@ def test_page_renders_hit_card_with_badge() -> None:
     assert "st.badge" in source
     assert "ALREADY_REFERENCED_BADGE" in source
     assert "NOT_YET_REFERENCED_BADGE" in source
-    assert "ATTACH_NOT_BUILT_CAPTION" in source
 
 
 def test_format_paper_search_hit_caption() -> None:
