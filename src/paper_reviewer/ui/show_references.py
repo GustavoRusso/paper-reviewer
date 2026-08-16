@@ -68,12 +68,10 @@ def _render_missing_scope(*, topic_scope_key: UUID | None) -> None:
 def _render_referenced_paper(paper: ReferencedPaper) -> None:
     st.markdown(f"**[{paper.title}]({paper.url})**")
     st.caption(format_referenced_paper_caption(paper))
-    badge = (
-        PAPER_BRIEF_AVAILABLE_BADGE
-        if paper.paper_brief_available
-        else PAPER_BRIEF_NOT_AVAILABLE_BADGE
-    )
-    st.badge(badge)
+    if paper.paper_brief_available:
+        st.badge(PAPER_BRIEF_AVAILABLE_BADGE)
+    else:
+        st.badge(PAPER_BRIEF_NOT_AVAILABLE_BADGE, color="orange")
 
 def _render_navigation(*, topic_scope_key: UUID) -> None:
     workflow_page_link(

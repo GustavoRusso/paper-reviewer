@@ -149,6 +149,9 @@ def test_page_renders_hit_card_with_badge() -> None:
     assert "PAPER_BRIEF_AVAILABLE_BADGE" in source
     assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in source
     assert "paper_brief_available" in source
+    hit_source = inspect.getsource(add_reference_module._render_hit)
+    assert 'color="orange"' in hit_source
+    assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in hit_source
 
 
 def test_format_paper_search_hit_caption() -> None:

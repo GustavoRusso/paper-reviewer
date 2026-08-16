@@ -120,12 +120,10 @@ def _render_hit(hit: PaperSearchHit, *, topic_scope_key: UUID) -> None:
         else NOT_YET_REFERENCED_BADGE
     )
     st.badge(badge)
-    brief_badge = (
-        PAPER_BRIEF_AVAILABLE_BADGE
-        if hit.paper_brief_available
-        else PAPER_BRIEF_NOT_AVAILABLE_BADGE
-    )
-    st.badge(brief_badge)
+    if hit.paper_brief_available:
+        st.badge(PAPER_BRIEF_AVAILABLE_BADGE)
+    else:
+        st.badge(PAPER_BRIEF_NOT_AVAILABLE_BADGE, color="orange")
     if hit.already_referenced:
         return
     if st.button(

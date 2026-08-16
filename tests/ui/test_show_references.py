@@ -141,3 +141,6 @@ def test_page_renders_paper_brief_badge() -> None:
     assert "PAPER_BRIEF_AVAILABLE_BADGE" in source
     assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in source
     assert "paper_brief_available" in source
+    render_source = inspect.getsource(show_references_module._render_referenced_paper)
+    assert 'color="orange"' in render_source
+    assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in render_source
