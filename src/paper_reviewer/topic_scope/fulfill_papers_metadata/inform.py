@@ -17,7 +17,6 @@ from paper_reviewer.ingest.pubmed.pmc_cloud import (
 )
 from paper_reviewer.models.paper import Paper, get_paper_by_id
 from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
-    FulfillPaperMetadataResult,
     InformFullTextResult,
     InformSourceRecordResult,
     PaperAspectStatus,
@@ -307,28 +306,3 @@ def inform_full_text(
         return _full_text_result(paper)
     finally:
         session.close()
-
-
-def fulfill_paper_metadata(
-    paper_id: int,
-    *,
-    session_factory: sessionmaker[Session] | None = None,
-    fetch_source_record: FetchSourceRecord | None = None,
-    enrich_from_pmc_cloud: EnrichFromPmcCloud | None = None,
-) -> FulfillPaperMetadataResult:
-    """Run source record then full text with default skip rules."""
-    source = inform_source_record(
-        paper_id,
-        session_factory=session_factory,
-        fetch_source_record=fetch_source_record,
-    )
-    full_text = inform_full_text(
-        paper_id,
-        session_factory=session_factory,
-        enrich_from_pmc_cloud=enrich_from_pmc_cloud,
-    )
-    return FulfillPaperMetadataResult(
-        paper_id=paper_id,
-        source_record=source,
-        full_text=full_text,
-    )

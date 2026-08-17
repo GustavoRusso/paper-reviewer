@@ -1,4 +1,4 @@
-"""Prefect submit helpers for fulfill papers metadata and briefs."""
+"""Prefect submit helpers for paper ingest and briefs."""
 
 from __future__ import annotations
 
@@ -10,7 +10,6 @@ from paper_reviewer.flows.serve import (
     CREATE_PAPER_BRIEF_DEPLOYMENT_REF,
     CREATE_TOPIC_BRIEF_DEPLOYMENT_REF,
     EVALUATE_PAPER_BRIEF_DEPLOYMENT_REF,
-    FULFILL_DEPLOYMENT_REF,
     INGEST_PAPER_DEPLOYMENT_REF,
 )
 
@@ -35,16 +34,6 @@ def _run_paper_deployment(name: str, paper_id: int, doi: str) -> None:
                 time.sleep(_SUBMIT_RETRY_DELAY_SECONDS)
     assert last_exc is not None
     raise last_exc
-
-
-def submit_fulfill_paper_metadata(paper_id: int, doi: str) -> None:
-    """Enqueue ``fulfill_paper_metadata`` on the served Prefect deployment.
-
-    Fire-and-forget (``timeout=0``): progress is read from durable ``Paper``
-    columns, not from the Prefect run handle. Run name is the paper DOI for
-    console searchability.
-    """
-    _run_paper_deployment(FULFILL_DEPLOYMENT_REF, paper_id, doi)
 
 
 def submit_create_paper_brief(paper_id: int, doi: str) -> None:

@@ -8,7 +8,6 @@ from paper_reviewer.flows.serve import (
 )
 
 _OTHER_FLOW_NAMES = (
-    "fulfill_paper_metadata",
     "inform_source_record",
     "inform_full_text",
     "create_paper_brief",
@@ -31,3 +30,7 @@ def test_other_served_deployments_have_no_concurrency_cap() -> None:
     by_flow = _by_flow_name()
     for flow_name in _OTHER_FLOW_NAMES:
         assert by_flow[flow_name].concurrency_limit is None
+
+
+def test_fulfill_paper_metadata_is_not_served() -> None:
+    assert "fulfill_paper_metadata" not in _by_flow_name()

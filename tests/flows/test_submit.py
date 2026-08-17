@@ -1,4 +1,4 @@
-"""Production submit wiring for fulfill_paper_metadata."""
+"""Production submit wiring for paper and topic-brief deployments."""
 
 from __future__ import annotations
 
@@ -8,28 +8,14 @@ from paper_reviewer.flows.serve import (
     CREATE_PAPER_BRIEF_DEPLOYMENT_REF,
     CREATE_TOPIC_BRIEF_DEPLOYMENT_REF,
     EVALUATE_PAPER_BRIEF_DEPLOYMENT_REF,
-    FULFILL_DEPLOYMENT_REF,
     INGEST_PAPER_DEPLOYMENT_REF,
 )
 from paper_reviewer.flows.submit import (
     submit_create_paper_brief,
     submit_create_topic_brief,
     submit_evaluate_paper_brief,
-    submit_fulfill_paper_metadata,
     submit_ingest_paper,
 )
-
-
-def test_submit_fulfill_calls_run_deployment_fire_and_forget() -> None:
-    with patch("paper_reviewer.flows.submit.run_deployment") as mock_run:
-        submit_fulfill_paper_metadata(42, "10.1000/EXAMPLE")
-
-    mock_run.assert_called_once_with(
-        name=FULFILL_DEPLOYMENT_REF,
-        parameters={"paper_id": 42, "doi": "10.1000/EXAMPLE"},
-        flow_run_name="10.1000/EXAMPLE",
-        timeout=0,
-    )
 
 
 def test_submit_evaluate_paper_brief_does_not_pass_force() -> None:
@@ -66,10 +52,6 @@ def test_submit_create_topic_brief_passes_force_true() -> None:
         flow_run_name="topic-scope-7",
         timeout=0,
     )
-
-
-def test_fulfill_deployment_ref_matches_serve_name() -> None:
-    assert FULFILL_DEPLOYMENT_REF == "fulfill_paper_metadata/default"
 
 
 def test_create_paper_brief_deployment_ref_matches_serve_name() -> None:
