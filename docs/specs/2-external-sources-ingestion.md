@@ -26,7 +26,7 @@ This document is the specification for the **External sources ingestion** phase 
 - Running search external sources, archiving, EFetch, or brief jobs on this landing.
 - A Streamlit page for the 2.2 Paper Ingestion group ([2.2-external-sources-ingestion.md](2.2-external-sources-ingestion.md)).
 - Paper indexing page (still later — [2.2.5-paper-indexing.md](2.2.5-paper-indexing.md)).
-- Paper brief evaluation page (none until implementation — [2.2.4-paper-brief-evaluation.md](2.2.4-paper-brief-evaluation.md)).
+- Paper brief evaluation page (none in v1; overall score on Paper archiving and the Paper brief reader — [2.2.4-paper-brief-evaluation.md](2.2.4-paper-brief-evaluation.md)).
 - References selection or topic-brief drafting.
 
 ## Streamlit UI (v1)

@@ -72,6 +72,7 @@ paper-reviewer/
 │       │   ├── paper_archiving/        # Paper archiving (create-or-reuse Paper)
 │       │   ├── fulfill_papers_metadata/   # Fulfill papers metadata (source record + full text)
 │       │   ├── generate_paper_brief/   # Generate paper brief (PaperBrief)
+│       │   ├── paper_brief_evaluation/ # Paper brief evaluation (G-Eval judge)
 │       │   ├── paper_brief/            # Read succeeded PaperBrief by DOI
 │       │   ├── show_references/        # List References for a Topic scope
 │       │   ├── add_reference/          # Attach search hits as References
@@ -86,7 +87,7 @@ paper-reviewer/
 │       │   └── topic_scope/ # ORM for that workflow (TopicScope, topic_facets, topic_references, TopicBrief)
 │       ├── ingest/                     # dlt external-source extract (shared)
 │       ├── ui/                         # Streamlit
-│       ├── flows/                      # Prefect flows (source record, full text, briefs, orchestrators)
+│       ├── flows/                      # Prefect flows (source record, full text, briefs, evaluation, orchestrators)
 │       └── db/                         # engine, session, URL helpers
 ├── alembic/
 │   └── versions/
@@ -119,12 +120,12 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| Topic scope workflow steps | `paper_reviewer.topic_scope.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, show references, add reference, papers search, paper brief reader, topic brief generation). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/topic-scope-hub.md](specs/topic-scope-hub.md), [specs/2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md), [specs/3-references-selection.md](specs/3-references-selection.md), [specs/3.1-show-references.md](specs/3.1-show-references.md), [specs/3.2-add-reference.md](specs/3.2-add-reference.md), [specs/papers-search.md](specs/papers-search.md), [specs/paper-brief.md](specs/paper-brief.md), [specs/4-topic-brief-generation.md](specs/4-topic-brief-generation.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2-paper-ingestion.md](specs/2.2-paper-ingestion.md), [specs/2.2.1-paper-archiving.md](specs/2.2.1-paper-archiving.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md), [specs/2.2.3-generate-paper-brief.md](specs/2.2.3-generate-paper-brief.md), [specs/2.2.4-paper-brief-evaluation.md](specs/2.2.4-paper-brief-evaluation.md), [specs/2.2.5-paper-indexing.md](specs/2.2.5-paper-indexing.md). |
+| Topic scope workflow steps | `paper_reviewer.topic_scope.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, paper brief evaluation, show references, add reference, papers search, paper brief reader, topic brief generation). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/topic-scope-hub.md](specs/topic-scope-hub.md), [specs/2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md), [specs/3-references-selection.md](specs/3-references-selection.md), [specs/3.1-show-references.md](specs/3.1-show-references.md), [specs/3.2-add-reference.md](specs/3.2-add-reference.md), [specs/papers-search.md](specs/papers-search.md), [specs/paper-brief.md](specs/paper-brief.md), [specs/4-topic-brief-generation.md](specs/4-topic-brief-generation.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2-paper-ingestion.md](specs/2.2-paper-ingestion.md), [specs/2.2.1-paper-archiving.md](specs/2.2.1-paper-archiving.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md), [specs/2.2.3-generate-paper-brief.md](specs/2.2.3-generate-paper-brief.md), [specs/2.2.4-paper-brief-evaluation.md](specs/2.2.4-paper-brief-evaluation.md), [specs/2.2.5-paper-indexing.md](specs/2.2.5-paper-indexing.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_scope.topic_analysis`). |
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | External-source dlt sources/resources (extract; Postgres load when adopted) |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only. Phase 3 chrome lives in `ui.references_selection` (header/stepper); there is no registered References selection landing page (hub opens `show_references`). |
-| Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `create_topic_brief`, `ingest_paper` |
+| Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `evaluate_paper_brief`, `create_topic_brief`, `ingest_paper` |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
 | Alembic | repo-root `alembic/` | DDL versioning against `models` metadata |
 
