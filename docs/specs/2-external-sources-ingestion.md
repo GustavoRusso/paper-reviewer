@@ -8,7 +8,7 @@ This document is the specification for the **External sources ingestion** phase 
 
 | Term | Meaning |
 | --- | --- |
-| **External sources ingestion** | Phase 2: search external sources, then run **Paper Ingestion** (archive, fulfill metadata, generate paper briefs, and index). |
+| **External sources ingestion** | Phase 2: search external sources, then run **Paper Ingestion** (archive, fulfill metadata, generate paper briefs, evaluate paper briefs, and index). |
 | **Paper Ingestion** | Docs-only step group 2.2 under this phase. Index: [2.2-external-sources-ingestion.md](2.2-external-sources-ingestion.md). |
 | **Phase landing** | Hidden Streamlit page reached from the [Topic scope hub](topic-scope-hub.md). |
 
@@ -25,7 +25,8 @@ This document is the specification for the **External sources ingestion** phase 
 
 - Running search external sources, archiving, EFetch, or brief jobs on this landing.
 - A Streamlit page for the 2.2 Paper Ingestion group ([2.2-external-sources-ingestion.md](2.2-external-sources-ingestion.md)).
-- Paper indexing page (still later — [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md)).
+- Paper indexing page (still later — [2.2.5-paper-indexing.md](2.2.5-paper-indexing.md)).
+- Paper brief evaluation page (none until implementation — [2.2.4-paper-brief-evaluation.md](2.2.4-paper-brief-evaluation.md)).
 - References selection or topic-brief drafting.
 
 ## Streamlit UI (v1)
@@ -52,7 +53,7 @@ Call `render_external_sources_ingestion_header` on the landing when a Topic scop
 | Landing | No step is current. The stepper still lists every leaf ingest step so the user can open a later page without finishing earlier ones. Those pages keep their own prerequisite guards. |
 | Missing key | Landing empty state only. Show the phase title (`st.title`); do **not** render the full header (no intro/stepper). |
 
-v1 stepper steps (Paper indexing later): Search external sources, Paper archiving, Fulfill papers metadata, Generate paper brief.
+v1 stepper steps (Paper brief evaluation and Paper indexing later): Search external sources, Paper archiving, Fulfill papers metadata, Generate paper brief.
 
 Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 
@@ -73,6 +74,7 @@ Entry from the hub: [Topic scope hub](topic-scope-hub.md). First ingest step: [s
 | Paper archiving (2.2.1) | [2.2.1-paper-archiving.md](2.2.1-paper-archiving.md) |
 | Fulfill papers metadata (2.2.2) | [2.2.2-fulfill-papers-metadata.md](2.2.2-fulfill-papers-metadata.md) |
 | Generate paper brief (2.2.3) | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
-| Paper indexing (2.2.4) | [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md) |
+| Paper brief evaluation (2.2.4) | [2.2.4-paper-brief-evaluation.md](2.2.4-paper-brief-evaluation.md) |
+| Paper indexing (2.2.5) | [2.2.5-paper-indexing.md](2.2.5-paper-indexing.md) |
 
 References selection as a separate phase is [3-references-selection.md](3-references-selection.md) (docs-only overview; hub opens Show references).

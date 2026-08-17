@@ -90,6 +90,7 @@ Do not reuse `ReferencedPaper` (that type carries `referenced_at` and `paper_bri
 | --- | --- |
 | List of current References | [3.1-show-references.md](3.1-show-references.md) |
 | Paper brief creation | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
+| Paper brief evaluation | [2.2.4-paper-brief-evaluation.md](2.2.4-paper-brief-evaluation.md) |
 | Content fields / LLM prompt | [`paper_brief_template.md`](../../src/paper_reviewer/topic_scope/generate_paper_brief/paper_brief_template.md) |
 | URL query (`topic_scope_key`, extra `doi`) | [ui-style.md](../ui-style.md#topic-scope-key-in-the-url) |
 | Identifier naming | [dev-practices.md](../dev-practices.md#identifier-naming-id-vs-key) |

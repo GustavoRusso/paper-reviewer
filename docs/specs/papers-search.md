@@ -2,7 +2,7 @@
 
 This document owns the shared **Papers search** capability: apply topic facets for a `TopicScope` to the **local ingested paper store** and return a list of `Paper`s. It is not a workflow phase step number.
 
-Primary consumer: [Add reference](3.2-add-reference.md) (References selection step 3.2). The search document and GIN index that this query reads: [Paper indexing](2.2.4-paper-indexing.md).
+Primary consumer: [Add reference](3.2-add-reference.md) (References selection step 3.2). The search document and GIN index that this query reads: [Paper indexing](2.2.5-paper-indexing.md).
 
 v1 query **behavior is built**. The engine, searchable field, and query rules below are **locked**.
 
@@ -21,7 +21,7 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 ### In scope (current v1)
 
 - Accept a loaded `TopicScope` and load persisted `TopicFacet` rows as search input.
-- Query only papers already ingested in the local database, using the PostgreSQL full-text index owned by [Paper indexing](2.2.4-paper-indexing.md).
+- Query only papers already ingested in the local database, using the PostgreSQL full-text index owned by [Paper indexing](2.2.5-paper-indexing.md).
 - Match v1 queries against `Paper.keywords_tsv` only (source: `source_record.indexing.keywords`).
 - Return up to **20** durable `Paper` hits suitable for display and for attach in Add reference.
 - Always mark each hit as already a Reference for that scope or not yet (`already_referenced`).
@@ -31,7 +31,7 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 ### Out of scope
 
 - Creating, updating, or deleting **References** (owned by [Add reference](3.2-add-reference.md)).
-- Building or updating `keywords_tsv` / the GIN index (owned by [Paper indexing](2.2.4-paper-indexing.md)).
+- Building or updating `keywords_tsv` / the GIN index (owned by [Paper indexing](2.2.5-paper-indexing.md)).
 - Calling external sources / dlt extract ([Search external sources](2.1-search-external-sources.md)).
 - Producing `PaperCandidate` rows or running Paper archiving.
 - Streamlit page ownership (UI lives on Add reference; this spec owns the search behavior contract).
@@ -54,7 +54,7 @@ Do not merge these two search paths in one module contract.
 
 Use **PostgreSQL full-text search** (`tsvector` / `tsquery`, GIN). Config: **`simple`** (lowercase and tokenize; do not stem). Do not add Elasticsearch, OpenSearch, Meilisearch, Typesense, ParadeDB, or `sqlalchemy-searchable`.
 
-Column, generated expression, and GIN index: [Paper indexing](2.2.4-paper-indexing.md). This document owns how facet text becomes a query against that column.
+Column, generated expression, and GIN index: [Paper indexing](2.2.5-paper-indexing.md). This document owns how facet text becomes a query against that column.
 
 ## Query rules (v1)
 
@@ -107,7 +107,7 @@ Unit tests use in-memory SQLite and **must not** require a live `tsvector` / GIN
 | Consumer UI / attach | [3.2-add-reference.md](3.2-add-reference.md) |
 | List of current References | [3.1-show-references.md](3.1-show-references.md) |
 | Phase overview (chrome) | [3-references-selection.md](3-references-selection.md) |
-| Search document / GIN | [2.2.4-paper-indexing.md](2.2.4-paper-indexing.md) |
+| Search document / GIN | [2.2.5-paper-indexing.md](2.2.5-paper-indexing.md) |
 | `source_record.indexing.keywords` shape | [2.2.2-fulfill-papers-metadata.md](2.2.2-fulfill-papers-metadata.md) |
 | Paper brief | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Facets | [1.2-topic-analysis.md](1.2-topic-analysis.md) |
