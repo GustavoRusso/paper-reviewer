@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from decimal import Decimal
 from typing import Any, Mapping
 from uuid import UUID
 
@@ -59,6 +60,10 @@ _TERMINAL_ASPECT_STATUSES = {
     PaperAspectStatus.succeeded,
     PaperAspectStatus.failed,
     PaperAspectStatus.unavailable,
+}
+_TERMINAL_EVALUATION_STATUSES = {
+    PaperAspectStatus.succeeded,
+    PaperAspectStatus.failed,
 }
 
 
@@ -183,6 +188,29 @@ def format_brief_progress_caption(
     return f"brief {label} — {caption_error}"
 
 
+def format_evaluation_progress_caption(
+    *,
+    brief_status: PaperAspectStatus | None,
+    evaluation_status: PaperAspectStatus | None,
+    evaluation_score: Decimal | None = None,
+    error_message: str | None = None,
+) -> str | None:
+    """Build the evaluation fragment after a succeeded brief; omit assistant dump."""
+    if brief_status is not PaperAspectStatus.succeeded:
+        return None
+    if (
+        evaluation_status is PaperAspectStatus.succeeded
+        and evaluation_score is not None
+    ):
+        return f"evaluation {evaluation_score:.2f}"
+    if evaluation_status is PaperAspectStatus.failed:
+        if not error_message:
+            return "evaluation Failed"
+        caption_error, _assistant = split_brief_error_message(error_message)
+        return f"evaluation Failed — {caption_error}"
+    return "evaluation Fulfilling"
+
+
 def brief_progress_label(
     *,
     full_text_status: PaperAspectStatus,
@@ -208,6 +236,7 @@ def paper_ingest_row_is_terminal(
     source_record_status: PaperAspectStatus,
     full_text_status: PaperAspectStatus,
     brief_status: PaperAspectStatus | None,
+    evaluation_status: PaperAspectStatus | None = None,
 ) -> bool:
     """Return True when this paper needs no more auto-ingest wait."""
     if (
@@ -217,7 +246,9 @@ def paper_ingest_row_is_terminal(
         return False
     if full_text_status is not PaperAspectStatus.succeeded:
         return True
-    return brief_status in _TERMINAL_ASPECT_STATUSES
+    if brief_status is not PaperAspectStatus.succeeded:
+        return brief_status in _TERMINAL_ASPECT_STATUSES
+    return evaluation_status in _TERMINAL_EVALUATION_STATUSES
 
 
 def render_regenerate_button(
@@ -370,6 +401,12 @@ def _render_progress(
                 continue
             brief = get_paper_brief_by_paper_id(session, paper_id)
             brief_status = brief.status if brief is not None else None
+            evaluation_status = (
+                brief.evaluation_status if brief is not None else None
+            )
+            evaluation_score = (
+                brief.evaluation_score if brief is not None else None
+            )
             source_status = paper.source_record_status
             full_text_status = paper.full_text_status
             skipped = paper_id in skipped_existed
@@ -396,6 +433,7 @@ def _render_progress(
                 source_status,
                 full_text_status,
                 brief_status,
+                evaluation_status,
             ):
                 all_terminal = False
             brief_error = None
@@ -405,6 +443,13 @@ def _render_progress(
                 and brief.error_message
             ):
                 brief_error = brief.error_message
+            evaluation_error = None
+            if (
+                brief is not None
+                and brief.evaluation_status is PaperAspectStatus.failed
+                and brief.evaluation_error_message
+            ):
+                evaluation_error = brief.evaluation_error_message
             aspect_error = _aspect_error_text(
                 source_record_status=source_status,
                 source_record_error_message=paper.source_record_error_message,
@@ -423,6 +468,10 @@ def _render_progress(
                     "full_text_label": full_text_label,
                     "brief_label": brief_label,
                     "brief_error": brief_error,
+                    "brief_status": brief_status,
+                    "evaluation_status": evaluation_status,
+                    "evaluation_score": evaluation_score,
+                    "evaluation_error": evaluation_error,
                     "aspect_error": aspect_error,
                     "pmc_article_url": paper.pmc_article_url,
                     "open_access_pdf_url": paper.open_access_pdf_url,
@@ -446,9 +495,17 @@ def _render_progress(
             label=row["brief_label"],
             error_message=row["brief_error"],
         )
+        evaluation_part = format_evaluation_progress_caption(
+            brief_status=row["brief_status"],
+            evaluation_status=row["evaluation_status"],
+            evaluation_score=row["evaluation_score"],
+            error_message=row["evaluation_error"],
+        )
+        evaluation_suffix = f" · {evaluation_part}" if evaluation_part else ""
         st.caption(
             f"DOI `{row['doi']}` · source record {row['source_label']} · "
-            f"full text {row['full_text_label']} · {brief_part}{aspect_part}"
+            f"full text {row['full_text_label']} · {brief_part}"
+            f"{evaluation_suffix}{aspect_part}"
         )
         links = enrichment_links_caption(
             row["pmc_article_url"],

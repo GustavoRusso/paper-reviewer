@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from decimal import Decimal
 from uuid import uuid4
 
 from paper_reviewer.flows.serve import INGEST_PAPER_DEPLOYMENT_REF
@@ -29,6 +30,7 @@ from paper_reviewer.ui.paper_archiving import (
     enrichment_links_caption,
     format_archived_paper_caption,
     format_brief_progress_caption,
+    format_evaluation_progress_caption,
     format_paper_archiving_summary,
     may_submit_ingest_paper,
     paper_ingest_row_is_terminal,
@@ -495,6 +497,15 @@ def test_paper_ingest_row_is_terminal_when_full_text_blocked() -> None:
         )
         is True
     )
+    assert (
+        paper_ingest_row_is_terminal(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.failed,
+            None,
+            PaperAspectStatus.not_started,
+        )
+        is True
+    )
 
 
 def test_paper_ingest_row_is_terminal_waits_for_brief() -> None:
@@ -510,7 +521,145 @@ def test_paper_ingest_row_is_terminal_waits_for_brief() -> None:
         paper_ingest_row_is_terminal(
             PaperAspectStatus.succeeded,
             PaperAspectStatus.succeeded,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+
+
+def test_paper_ingest_row_is_terminal_when_brief_failed_does_not_wait_for_evaluation() -> (
+    None
+):
+    assert (
+        paper_ingest_row_is_terminal(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.failed,
+            PaperAspectStatus.not_started,
+        )
+        is True
+    )
+
+
+def test_paper_ingest_row_is_terminal_waits_for_evaluation_when_brief_succeeded() -> (
+    None
+):
+    assert (
+        paper_ingest_row_is_terminal(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+    assert (
+        paper_ingest_row_is_terminal(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            None,
+        )
+        is False
+    )
+    assert (
+        paper_ingest_row_is_terminal(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
             PaperAspectStatus.succeeded,
         )
         is True
     )
+    assert (
+        paper_ingest_row_is_terminal(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.failed,
+        )
+        is True
+    )
+
+
+def test_format_evaluation_progress_caption_omitted_when_brief_not_succeeded() -> None:
+    assert (
+        format_evaluation_progress_caption(
+            brief_status=PaperAspectStatus.failed,
+            evaluation_status=PaperAspectStatus.not_started,
+        )
+        is None
+    )
+    assert (
+        format_evaluation_progress_caption(
+            brief_status=None,
+            evaluation_status=None,
+        )
+        is None
+    )
+    assert (
+        format_evaluation_progress_caption(
+            brief_status=PaperAspectStatus.not_started,
+            evaluation_status=PaperAspectStatus.not_started,
+        )
+        is None
+    )
+
+
+def test_format_evaluation_progress_caption_shows_two_decimal_score_on_success() -> (
+    None
+):
+    caption = format_evaluation_progress_caption(
+        brief_status=PaperAspectStatus.succeeded,
+        evaluation_status=PaperAspectStatus.succeeded,
+        evaluation_score=Decimal("4.25"),
+    )
+
+    assert caption == "evaluation 4.25"
+    assert "faithfulness" not in caption
+    assert "completeness" not in caption
+
+
+def test_format_evaluation_progress_caption_fulfilling_has_no_number() -> None:
+    caption = format_evaluation_progress_caption(
+        brief_status=PaperAspectStatus.succeeded,
+        evaluation_status=PaperAspectStatus.not_started,
+        evaluation_score=None,
+    )
+
+    assert caption == "evaluation Fulfilling"
+    assert "4.25" not in caption
+
+
+def test_format_evaluation_progress_caption_failed_has_no_number() -> None:
+    caption = format_evaluation_progress_caption(
+        brief_status=PaperAspectStatus.succeeded,
+        evaluation_status=PaperAspectStatus.failed,
+        evaluation_score=None,
+        error_message="judge timed out",
+    )
+
+    assert caption == "evaluation Failed — judge timed out"
+    assert not any(ch.isdigit() for ch in caption if ch != " ")
+
+
+def test_format_evaluation_progress_caption_failed_omits_assistant_dump() -> None:
+    raw = '{faithfulness: "x"}'
+    stored = (
+        "1 validation error for PaperBriefEvaluation\n"
+        "Invalid JSON: Expecting property name enclosed in double quotes\n\n"
+        "Assistant output:\n"
+        f"{raw}"
+    )
+
+    caption = format_evaluation_progress_caption(
+        brief_status=PaperAspectStatus.succeeded,
+        evaluation_status=PaperAspectStatus.failed,
+        error_message=stored,
+    )
+
+    assert caption is not None
+    assert caption.startswith("evaluation Failed")
+    assert "validation error" in caption.lower()
+    assert raw not in caption
+    assert "Assistant output:" not in caption
