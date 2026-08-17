@@ -372,16 +372,16 @@ def _format_usage_log(usage: object | None) -> str:
         return "OpenAI usage: absent"
     usage_json = _to_jsonable_openai_part(usage)
     assert isinstance(usage_json, dict)
-    input_tokens = usage_json.get("input_tokens", usage_json.get("prompt_tokens"))
-    output_tokens = usage_json.get(
-        "output_tokens", usage_json.get("completion_tokens")
-    )
-    total_tokens = usage_json.get("total_tokens")
+    labeled_lines: list[str] = []
+    for key, value in usage_json.items():
+        if isinstance(value, (dict, list)):
+            labeled_lines.append(f"{key}:\n{_serialize_openai_part(value)}")
+        else:
+            labeled_lines.append(f"{key}: {value}")
+    labeled = "\n".join(labeled_lines)
     return (
         "OpenAI usage:\n"
-        f"input_tokens: {input_tokens}\n"
-        f"output_tokens: {output_tokens}\n"
-        f"total_tokens: {total_tokens}\n\n"
+        f"{labeled}\n\n"
         "OpenAI usage (raw JSON):\n"
         f"{_serialize_openai_part(usage_json)}"
     )

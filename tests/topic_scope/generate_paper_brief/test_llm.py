@@ -235,7 +235,7 @@ def test_serialize_openai_part_returns_raw_json() -> None:
     }
 
 
-def test_format_usage_log_maps_prompt_and_completion_tokens() -> None:
+def test_format_usage_log_uses_prompt_and_completion_token_names() -> None:
     usage = SimpleNamespace(
         model_dump=lambda mode="json": {
             "prompt_tokens": 11,
@@ -246,11 +246,16 @@ def test_format_usage_log_maps_prompt_and_completion_tokens() -> None:
     )
 
     formatted = _format_usage_log(usage)
+    labeled, _, raw = formatted.partition("OpenAI usage (raw JSON):")
 
-    assert "input_tokens: 11" in formatted
-    assert "output_tokens: 7" in formatted
-    assert "total_tokens: 18" in formatted
-    assert '"cached_tokens": 5' in formatted
+    assert "prompt_tokens: 11" in labeled
+    assert "completion_tokens: 7" in labeled
+    assert "total_tokens: 18" in labeled
+    assert "prompt_tokens_details:" in labeled
+    assert '"cached_tokens": 5' in labeled
+    assert "input_tokens:" not in labeled
+    assert "output_tokens:" not in labeled
+    assert '"cached_tokens": 5' in raw
 
 
 def test_format_usage_log_accepts_input_and_output_names() -> None:
@@ -324,10 +329,15 @@ def test_generate_paper_brief_content_logs_request_response_and_usage(
     assert emitted[1].startswith("OpenAI response message:\n")
     assert '"role": "assistant"' in emitted[1]
     assert emitted[2].startswith("OpenAI usage:\n")
-    assert "input_tokens: 21" in emitted[2]
-    assert "output_tokens: 8" in emitted[2]
-    assert "total_tokens: 29" in emitted[2]
-    assert '"reasoning_tokens": 3' in emitted[2]
+    labeled, _, raw = emitted[2].partition("OpenAI usage (raw JSON):")
+    assert "prompt_tokens: 21" in labeled
+    assert "completion_tokens: 8" in labeled
+    assert "total_tokens: 29" in labeled
+    assert "completion_tokens_details:" in labeled
+    assert '"reasoning_tokens": 3' in labeled
+    assert "input_tokens:" not in labeled
+    assert "output_tokens:" not in labeled
+    assert '"reasoning_tokens": 3' in raw
 
 
 def test_generate_paper_brief_content_requires_model_when_base_url_set(
