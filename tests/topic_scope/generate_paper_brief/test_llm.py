@@ -340,6 +340,77 @@ def test_generate_paper_brief_content_logs_request_response_and_usage(
     assert '"reasoning_tokens": 3' in raw
 
 
+def test_generate_paper_brief_content_returns_usage_integers(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "prompt_tokens": 21,
+            "completion_tokens": 8,
+            "total_tokens": 29,
+            "completion_tokens_details": {"reasoning_tokens": 3},
+        }
+    )
+    _stub_openai(monkeypatch, captured, usage=usage)
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert result.content.summary == sample_brief_content().summary
+    assert result.prompt_tokens == 21
+    assert result.completion_tokens == 8
+    assert result.total_tokens == 29
+
+
+def test_generate_paper_brief_content_returns_null_usage_when_absent(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, usage=None)
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert result.content.summary == sample_brief_content().summary
+    assert result.prompt_tokens is None
+    assert result.completion_tokens is None
+    assert result.total_tokens is None
+
+
+def test_generate_paper_brief_content_does_not_map_input_output_keys(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "input_tokens": 13,
+            "output_tokens": 9,
+            "total_tokens": 22,
+        }
+    )
+    _stub_openai(monkeypatch, captured, usage=usage)
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert result.prompt_tokens is None
+    assert result.completion_tokens is None
+    assert result.total_tokens == 22
+
+
 def test_generate_paper_brief_content_requires_model_when_base_url_set(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -618,8 +689,8 @@ def test_generate_paper_brief_content_parses_gateway_ansi_json(
         published_year=2026,
     )
 
-    assert "new result" in result.summary
-    assert "\x1b" not in result.summary
+    assert "new result" in result.content.summary
+    assert "\x1b" not in result.content.summary
 
 
 def test_parse_paper_brief_content_accepts_clean_json() -> None:

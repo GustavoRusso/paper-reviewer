@@ -11,6 +11,7 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 )
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
+    PaperBriefLlmResult,
 )
 
 
@@ -56,6 +57,21 @@ def create_test_paper(
         session.close()
 
 
+def sample_llm_result(
+    content: PaperBriefContent | None = None,
+    *,
+    prompt_tokens: int | None = None,
+    completion_tokens: int | None = None,
+    total_tokens: int | None = None,
+) -> PaperBriefLlmResult:
+    return PaperBriefLlmResult(
+        content=content if content is not None else sample_brief_content(),
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+        total_tokens=total_tokens,
+    )
+
+
 def add_brief(
     factory: sessionmaker[Session],
     paper_id: int,
@@ -63,6 +79,9 @@ def add_brief(
     status: PaperAspectStatus,
     content: PaperBriefContent | None = None,
     error_message: str | None = None,
+    prompt_tokens: int | None = None,
+    completion_tokens: int | None = None,
+    total_tokens: int | None = None,
 ) -> None:
     session = factory()
     try:
@@ -74,6 +93,9 @@ def add_brief(
         )
         if content is not None:
             row.content = content.model_dump(mode="json")
+        row.prompt_tokens = prompt_tokens
+        row.completion_tokens = completion_tokens
+        row.total_tokens = total_tokens
         session.commit()
     finally:
         session.close()

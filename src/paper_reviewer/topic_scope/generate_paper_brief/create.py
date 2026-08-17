@@ -20,9 +20,10 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
     PaperBriefContent,
+    PaperBriefLlmResult,
 )
 
-GeneratePaperBriefContent = Callable[..., PaperBriefContent]
+GeneratePaperBriefContent = Callable[..., PaperBriefContent | PaperBriefLlmResult]
 
 _TERMINAL_BRIEF_STATUSES = {
     PaperAspectStatus.succeeded,
@@ -41,7 +42,7 @@ def _default_generate_content(
     title: str,
     journal: str | None,
     published_year: int | None,
-) -> PaperBriefContent:
+) -> PaperBriefLlmResult:
     from paper_reviewer.topic_scope.generate_paper_brief.llm import (
         generate_paper_brief_content,
     )
@@ -78,6 +79,9 @@ def _mark_failed(
     brief.status = PaperAspectStatus.failed
     brief.error_message = message
     brief.content = None
+    brief.prompt_tokens = None
+    brief.completion_tokens = None
+    brief.total_tokens = None
     session.commit()
     return _result(paper_id, brief)
 
@@ -118,7 +122,7 @@ def create_paper_brief(
                 "full_text_plain is not usable article body",
             )
         try:
-            content = generate(
+            generated = generate(
                 paper.full_text_plain,
                 title=paper.title,
                 journal=paper.journal,
@@ -126,9 +130,22 @@ def create_paper_brief(
             )
         except Exception as exc:
             return _mark_failed(session, paper_id, brief, str(exc))
+        if isinstance(generated, PaperBriefLlmResult):
+            content = generated.content
+            prompt_tokens = generated.prompt_tokens
+            completion_tokens = generated.completion_tokens
+            total_tokens = generated.total_tokens
+        else:
+            content = generated
+            prompt_tokens = None
+            completion_tokens = None
+            total_tokens = None
         if brief is None:
             brief = create_paper_brief_row(session, paper_id=paper_id)
         brief.content = content.model_dump(mode="json")
+        brief.prompt_tokens = prompt_tokens
+        brief.completion_tokens = completion_tokens
+        brief.total_tokens = total_tokens
         brief.status = PaperAspectStatus.succeeded
         brief.error_message = None
         session.commit()

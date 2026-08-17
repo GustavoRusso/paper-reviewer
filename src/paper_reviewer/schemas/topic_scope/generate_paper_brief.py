@@ -24,6 +24,15 @@ class PaperBriefContent(BaseModel):
     recommendations: str | None = None
 
 
+class PaperBriefLlmResult(BaseModel):
+    """Parsed brief plus last OpenAI usage integers (not LLM content)."""
+
+    content: PaperBriefContent
+    prompt_tokens: int | None = None
+    completion_tokens: int | None = None
+    total_tokens: int | None = None
+
+
 class CreatePaperBriefResult(BaseModel):
     """Result of creating or skipping a paper brief for one Paper."""
 

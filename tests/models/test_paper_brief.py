@@ -68,6 +68,9 @@ def test_create_paper_brief_defaults_not_started(session: Session) -> None:
     assert brief.status is PaperAspectStatus.not_started
     assert brief.error_message is None
     assert brief.content is None
+    assert brief.prompt_tokens is None
+    assert brief.completion_tokens is None
+    assert brief.total_tokens is None
     assert brief.created_at is not None
 
 
@@ -112,3 +115,18 @@ def test_content_round_trip(session: Session) -> None:
     assert loaded.summary == "Takeaway."
     assert loaded.limitations == "Small sample."
     assert "relevance_to_topic" not in found.content
+
+
+def test_usage_integers_round_trip(session: Session) -> None:
+    paper_id = _paper(session, uid="2", doi="10.1000/B")
+    brief = create_paper_brief_row(session, paper_id=paper_id)
+    brief.prompt_tokens = 21
+    brief.completion_tokens = 8
+    brief.total_tokens = 29
+    session.flush()
+
+    found = get_paper_brief_by_paper_id(session, paper_id)
+    assert found is not None
+    assert found.prompt_tokens == 21
+    assert found.completion_tokens == 8
+    assert found.total_tokens == 29

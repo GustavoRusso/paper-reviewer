@@ -13,6 +13,7 @@ from pydantic import ValidationError
 
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
+    PaperBriefLlmResult,
 )
 
 _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_template.md"
@@ -396,13 +397,35 @@ def _emit_openai_log(message: str) -> None:
         logging.getLogger(__name__).info(message)
 
 
+def _usage_int(usage_json: dict[str, object], key: str) -> int | None:
+    value = usage_json.get(key)
+    if isinstance(value, bool) or not isinstance(value, int):
+        return None
+    return value
+
+
+def _usage_integers(
+    usage: object | None,
+) -> tuple[int | None, int | None, int | None]:
+    if usage is None:
+        return None, None, None
+    usage_json = _to_jsonable_openai_part(usage)
+    if not isinstance(usage_json, dict):
+        return None, None, None
+    return (
+        _usage_int(usage_json, "prompt_tokens"),
+        _usage_int(usage_json, "completion_tokens"),
+        _usage_int(usage_json, "total_tokens"),
+    )
+
+
 def generate_paper_brief_content(
     full_text_plain: str,
     *,
     title: str,
     journal: str | None,
     published_year: int | None,
-) -> PaperBriefContent:
+) -> PaperBriefLlmResult:
     """Call chat completions and parse PaperBriefContent. Tests must inject a stub."""
     from openai import OpenAI
     from openai.lib._parsing import type_to_response_format_param
@@ -453,14 +476,22 @@ def generate_paper_brief_content(
         "OpenAI response message:\n"
         f"{_serialize_openai_part(completion.choices[0].message)}"
     )
-    _emit_openai_log(_format_usage_log(getattr(completion, "usage", None)))
+    usage = getattr(completion, "usage", None)
+    _emit_openai_log(_format_usage_log(usage))
     content = completion.choices[0].message.content
     if not content:
         raise ValueError("OpenAI returned no parsed paper brief")
     try:
-        return parse_paper_brief_content(content)
+        parsed = parse_paper_brief_content(content)
     except (ValueError, ValidationError) as exc:
         dump = content[:_ASSISTANT_OUTPUT_MAX_CHARS]
         raise ValueError(
             f"{str(exc).rstrip()}\n\n{_ASSISTANT_OUTPUT_HEADING}\n{dump}"
         ) from exc
+    prompt_tokens, completion_tokens, total_tokens = _usage_integers(usage)
+    return PaperBriefLlmResult(
+        content=parsed,
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+        total_tokens=total_tokens,
+    )

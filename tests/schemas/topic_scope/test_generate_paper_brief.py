@@ -12,6 +12,7 @@ from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
     GeneratePaperBriefsEnqueueResult,
     PaperBriefContent,
+    PaperBriefLlmResult,
 )
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     template_field_ids,
@@ -39,6 +40,35 @@ def test_paper_brief_content_rejects_missing_required() -> None:
 
 def test_paper_brief_content_has_no_relevance_to_topic() -> None:
     assert "relevance_to_topic" not in PaperBriefContent.model_fields
+
+
+def test_paper_brief_content_has_no_usage_fields() -> None:
+    for name in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        assert name not in PaperBriefContent.model_fields
+
+
+def test_create_paper_brief_result_has_no_usage_fields() -> None:
+    for name in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        assert name not in CreatePaperBriefResult.model_fields
+
+
+def test_paper_brief_llm_result_carries_content_and_usage() -> None:
+    content = PaperBriefContent(
+        summary="Why it matters.",
+        objective="Close a knowledge gap.",
+        key_findings=["Finding one"],
+    )
+    result = PaperBriefLlmResult(
+        content=content,
+        prompt_tokens=21,
+        completion_tokens=8,
+        total_tokens=29,
+    )
+
+    assert result.content is content
+    assert result.prompt_tokens == 21
+    assert result.completion_tokens == 8
+    assert result.total_tokens == 29
 
 
 def test_paper_brief_content_fields_match_template_front_matter() -> None:

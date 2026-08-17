@@ -62,6 +62,9 @@ class PaperBrief(Base):
         JSON().with_variant(JSONB(), "postgresql"),
         nullable=True,
     )
+    prompt_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    completion_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    total_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
     paper: Mapped["Paper"] = relationship(  # noqa: F821
         "Paper",
         back_populates="paper_brief",

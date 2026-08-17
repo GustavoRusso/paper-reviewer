@@ -12,12 +12,14 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 )
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
+    PaperBriefLlmResult,
 )
 from paper_reviewer.topic_scope.generate_paper_brief import create_paper_brief
 from tests.topic_scope.generate_paper_brief.helpers import (
     add_brief,
     create_test_paper,
     sample_brief_content,
+    sample_llm_result,
 )
 
 
@@ -31,6 +33,9 @@ def test_skips_llm_when_brief_succeeded_and_force_false(
         paper_id,
         status=PaperAspectStatus.succeeded,
         content=original,
+        prompt_tokens=11,
+        completion_tokens=7,
+        total_tokens=18,
     )
     calls: list[str] = []
 
@@ -60,6 +65,9 @@ def test_skips_llm_when_brief_succeeded_and_force_false(
         assert brief is not None
         assert brief.content is not None
         assert brief.content["summary"] == "Already done."
+        assert brief.prompt_tokens == 11
+        assert brief.completion_tokens == 7
+        assert brief.total_tokens == 18
     finally:
         session.close()
 
@@ -132,14 +140,19 @@ def test_happy_path_stores_content_and_passes_full_text(
         title: str,
         journal: str | None,
         published_year: int | None,
-    ) -> PaperBriefContent:
+    ) -> PaperBriefLlmResult:
         seen["full_text"] = full_text_plain
         seen["title"] = title
         seen["journal"] = journal
         seen["year"] = published_year
-        return sample_brief_content(
-            summary="Grounded takeaway.",
-            key_findings=["N = 450 confirmed cases"],
+        return sample_llm_result(
+            sample_brief_content(
+                summary="Grounded takeaway.",
+                key_findings=["N = 450 confirmed cases"],
+            ),
+            prompt_tokens=21,
+            completion_tokens=8,
+            total_tokens=29,
         )
 
     result = create_paper_brief(
@@ -165,6 +178,9 @@ def test_happy_path_stores_content_and_passes_full_text(
         assert brief.content["summary"] == "Grounded takeaway."
         assert brief.content["key_findings"] == ["N = 450 confirmed cases"]
         assert "relevance_to_topic" not in brief.content
+        assert brief.prompt_tokens == 21
+        assert brief.completion_tokens == 8
+        assert brief.total_tokens == 29
     finally:
         session.close()
 
@@ -178,13 +194,21 @@ def test_force_true_rewrites_succeeded_brief(
         paper_id,
         status=PaperAspectStatus.succeeded,
         content=sample_brief_content(summary="Old summary."),
+        prompt_tokens=11,
+        completion_tokens=7,
+        total_tokens=18,
     )
 
     result = create_paper_brief(
         paper_id,
         force=True,
         session_factory=session_factory,
-        generate_content=lambda *_a, **_k: sample_brief_content(summary="New summary."),
+        generate_content=lambda *_a, **_k: sample_llm_result(
+            sample_brief_content(summary="New summary."),
+            prompt_tokens=40,
+            completion_tokens=12,
+            total_tokens=52,
+        ),
     )
 
     assert result.status is PaperAspectStatus.succeeded
@@ -195,6 +219,9 @@ def test_force_true_rewrites_succeeded_brief(
         assert brief is not None
         assert brief.content is not None
         assert brief.content["summary"] == "New summary."
+        assert brief.prompt_tokens == 40
+        assert brief.completion_tokens == 12
+        assert brief.total_tokens == 52
     finally:
         session.close()
 
@@ -233,6 +260,9 @@ def test_license_stub_full_text_does_not_call_llm(
         assert brief.status is PaperAspectStatus.failed
         assert brief.content is None
         assert brief.error_message == "full_text_plain is not usable article body"
+        assert brief.prompt_tokens is None
+        assert brief.completion_tokens is None
+        assert brief.total_tokens is None
     finally:
         session.close()
 
@@ -267,5 +297,82 @@ def test_llm_failure_sets_failed_with_message(
         assert brief is not None
         assert brief.status is PaperAspectStatus.failed
         assert brief.content is None
+        assert brief.prompt_tokens is None
+        assert brief.completion_tokens is None
+        assert brief.total_tokens is None
+    finally:
+        session.close()
+
+
+def test_llm_failure_clears_prior_usage_on_force(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(session_factory)
+    add_brief(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        content=sample_brief_content(summary="Old summary."),
+        prompt_tokens=11,
+        completion_tokens=7,
+        total_tokens=18,
+    )
+
+    def generate(
+        full_text_plain: str,
+        *,
+        title: str,
+        journal: str | None,
+        published_year: int | None,
+    ) -> PaperBriefContent:
+        raise RuntimeError("LLM timeout")
+
+    result = create_paper_brief(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        generate_content=generate,
+    )
+
+    assert result.status is PaperAspectStatus.failed
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.status is PaperAspectStatus.failed
+        assert brief.content is None
+        assert brief.prompt_tokens is None
+        assert brief.completion_tokens is None
+        assert brief.total_tokens is None
+    finally:
+        session.close()
+
+
+def test_missing_usage_stores_null_and_succeeds(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(session_factory)
+
+    result = create_paper_brief(
+        paper_id,
+        session_factory=session_factory,
+        generate_content=lambda *_a, **_k: sample_llm_result(
+            sample_brief_content(summary="No usage."),
+        ),
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.status is PaperAspectStatus.succeeded
+        assert brief.content is not None
+        assert brief.content["summary"] == "No usage."
+        assert brief.prompt_tokens is None
+        assert brief.completion_tokens is None
+        assert brief.total_tokens is None
     finally:
         session.close()
