@@ -28,10 +28,6 @@ _STREAMLIT_PAGES: dict[str, Any] = {}
 
 def build_app_pages() -> list[AppPage]:
     """Return ordered app pages (landing first as the default entry)."""
-    from paper_reviewer.ui.fulfill_papers_metadata import (
-        render_fulfill_papers_metadata,
-    )
-    from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
     from paper_reviewer.ui.landing import render_landing
     from paper_reviewer.ui.paper_archiving import render_paper_archiving
     from paper_reviewer.ui.paper_brief import render_paper_brief
@@ -114,18 +110,6 @@ def build_app_pages() -> list[AppPage]:
             title="Paper archiving",
             render=render_paper_archiving,
             url_path="paper-archiving",
-        ),
-        AppPage(
-            key="fulfill_papers_metadata",
-            title="Fulfill papers metadata",
-            render=render_fulfill_papers_metadata,
-            url_path="fulfill-papers-metadata",
-        ),
-        AppPage(
-            key="generate_paper_brief",
-            title="Generate paper brief",
-            render=render_generate_paper_brief,
-            url_path="generate-paper-brief",
         ),
     ]
 

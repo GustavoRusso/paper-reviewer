@@ -21,8 +21,7 @@ ANALYSIS_KEY = "topic_analysis_result"
 SEARCH_KEY = "search_external_sources_result"
 SEARCH_TOPIC_SCOPE_KEY = "search_external_sources_topic_scope_key"
 ARCHIVING_RESULT_KEY = "paper_archiving_result"
-FULFILL_ENQUEUE_RESULT_KEY = "fulfill_papers_metadata_enqueue_result"
-GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY = "generate_paper_brief_enqueue_result"
+PAPER_INGEST_ENQUEUE_RESULT_KEY = "paper_ingest_enqueue_result"
 
 
 def begin_topic_intake_session(

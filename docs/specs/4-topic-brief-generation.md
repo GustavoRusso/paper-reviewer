@@ -307,7 +307,7 @@ Do **not** show a References selection–style phase header/stepper on this page
 4. **In flight** (`status` is `not_started` after a row exists): disable the Generate / Regenerate button. Show `@st.fragment(run_every=2)` with `st.status` (“Generating topic brief…”). Poll durable status until terminal.
 5. **Idle, no succeeded content** (no row, or `failed` with no prior content to prefer as primary), and ≥1 briefed Reference: primary button **Generate topic brief**. On click → `enqueue_create_topic_brief`.
 6. **Idle, succeeded** (or `failed` with retained previous `content`), and ≥1 briefed Reference: render structured content; primary button **Regenerate topic brief** (same enqueue path). On `failed`, also show the error caption (and Assistant-output expander when the dump marker is present).
-7. Page_link to **Topic scope**. Optional page_links to **Show references** / **Generate paper brief** when helpful (especially when the button is disabled for zero briefed References).
+7. Page_link to **Topic scope**. Optional page_links to **Show references** / **Paper archiving** when helpful (especially when the button is disabled for zero briefed References).
 
 Do **not** run the LLM inside Streamlit callbacks. Do **not** auto-enqueue on first visit.
 

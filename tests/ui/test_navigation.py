@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_metadata
-from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import AppPage, build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
@@ -143,13 +141,10 @@ def test_paper_archiving_page_is_registered() -> None:
     assert pages["paper_archiving"].render is render_paper_archiving
 
 
-def test_fulfill_papers_metadata_page_is_registered() -> None:
+def test_fulfill_papers_metadata_page_is_not_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "fulfill_papers_metadata" in pages
-    assert pages["fulfill_papers_metadata"].title == "Fulfill papers metadata"
-    assert pages["fulfill_papers_metadata"].url_path == "fulfill-papers-metadata"
-    assert pages["fulfill_papers_metadata"].render is render_fulfill_papers_metadata
+    assert "fulfill_papers_metadata" not in pages
 
 
 def test_paper_brief_page_is_registered() -> None:
@@ -162,13 +157,10 @@ def test_paper_brief_page_is_registered() -> None:
     assert pages["paper_brief"].in_sidebar is False
 
 
-def test_generate_paper_brief_page_is_registered() -> None:
+def test_generate_paper_brief_page_is_not_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
-    assert "generate_paper_brief" in pages
-    assert pages["generate_paper_brief"].title == "Generate paper brief"
-    assert pages["generate_paper_brief"].url_path == "generate-paper-brief"
-    assert pages["generate_paper_brief"].render is render_generate_paper_brief
+    assert "generate_paper_brief" not in pages
 
 
 def test_workflow_page_order() -> None:
@@ -186,8 +178,6 @@ def test_workflow_page_order() -> None:
         "search_external_sources"
     )
     assert keys.index("search_external_sources") < keys.index("paper_archiving")
-    assert keys.index("paper_archiving") < keys.index("fulfill_papers_metadata")
-    assert keys.index("fulfill_papers_metadata") < keys.index("generate_paper_brief")
 
 
 def test_landing_cta_links_to_topic_intake() -> None:
@@ -218,5 +208,3 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["topic_brief_generation"].in_sidebar is False
     assert by_key["search_external_sources"].in_sidebar is False
     assert by_key["paper_archiving"].in_sidebar is False
-    assert by_key["fulfill_papers_metadata"].in_sidebar is False
-    assert by_key["generate_paper_brief"].in_sidebar is False

@@ -67,6 +67,7 @@ def test_archive_papers_empty_list_returns_empty_success(session: Session) -> No
     assert result.papers == []
     assert result.skipped == []
     assert result.errors == []
+    assert result.created_paper_ids == []
 
 
 def test_archive_papers_inserts_new_identity_with_uppercase_doi(
@@ -90,6 +91,7 @@ def test_archive_papers_inserts_new_identity_with_uppercase_doi(
     stored = get_paper_by_source_handle(session, "pubmed", "100")
     assert stored is not None
     assert stored.doi == "10.1000/MIXEDCASE"
+    assert result.created_paper_ids == [paper.id]
 
 
 def test_archive_papers_reuses_existing_source_handle_without_field_updates(
@@ -130,6 +132,7 @@ def test_archive_papers_reuses_existing_source_handle_without_field_updates(
     assert paper.journal == "Original Journal"
     assert paper.published_year == 2020
     assert paper.doi == "10.1000/SAME"
+    assert result.created_paper_ids == []
 
 
 def test_archive_papers_updates_doi_when_new_doi_is_free(session: Session) -> None:
@@ -152,6 +155,7 @@ def test_archive_papers_updates_doi_when_new_doi_is_free(session: Session) -> No
     assert stored is not None
     assert stored.doi == "10.1000/B"
     assert get_paper_by_doi(session, "10.1000/A") is None
+    assert result.created_paper_ids == []
 
 
 def test_archive_papers_skips_doi_update_when_new_doi_owned_elsewhere(
@@ -230,6 +234,7 @@ def test_archive_papers_skips_blank_doi(session: Session) -> None:
     assert result.papers[0].source_uid == "3"
     assert len(result.skipped) == 2
     assert all(s.reason == ArchiveSkipReason.missing_doi for s in result.skipped)
+    assert result.created_paper_ids == [result.papers[0].id]
 
 
 def test_archive_papers_skips_blank_required_fields(session: Session) -> None:
@@ -263,6 +268,7 @@ def test_archive_papers_dedupes_duplicate_input_identity(session: Session) -> No
     assert result.papers[0].title == "First"
     assert result.skipped == []
     assert result.errors == []
+    assert result.created_paper_ids == [result.papers[0].id, result.papers[1].id]
 
 
 def test_archive_papers_records_duplicate_skip_once(session: Session) -> None:
@@ -304,3 +310,4 @@ def test_archive_papers_savepoint_failure_records_error_and_continues(
     assert result.errors[0].source_uid == "200"
     assert "simulated flush failure" in result.errors[0].reason
     assert get_paper_by_source_handle(session, "pubmed", "200") is None
+    assert result.created_paper_ids == [result.papers[0].id, result.papers[1].id]

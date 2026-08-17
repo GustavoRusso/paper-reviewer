@@ -53,7 +53,7 @@ Call `render_external_sources_ingestion_header` on the landing when a Topic scop
 | Landing | No step is current. The stepper still lists every leaf ingest step so the user can open a later page without finishing earlier ones. Those pages keep their own prerequisite guards. |
 | Missing key | Landing empty state only. Show the phase title (`st.title`); do **not** render the full header (no intro/stepper). |
 
-v1 stepper steps (Paper brief evaluation and Paper indexing later): Search external sources, Paper archiving, Fulfill papers metadata, Generate paper brief.
+v1 stepper steps (Paper brief evaluation and Paper indexing later): Search external sources, Paper archiving.
 
 Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 

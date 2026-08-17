@@ -13,6 +13,7 @@ from paper_reviewer.schemas.topic_scope.paper_archiving import (
     ArchiveSkipReason,
     Paper,
     PaperArchivingResult,
+    PaperIngestEnqueueResult,
 )
 
 
@@ -77,6 +78,7 @@ def test_paper_archiving_result_defaults_to_empty_lists() -> None:
     assert result.papers == []
     assert result.skipped == []
     assert result.errors == []
+    assert result.created_paper_ids == []
 
 
 def test_paper_archiving_result_holds_papers_skips_and_errors() -> None:
@@ -103,3 +105,11 @@ def test_paper_archiving_result_holds_papers_skips_and_errors() -> None:
     assert result.papers == [paper]
     assert result.skipped == [skipped]
     assert result.errors == [error]
+    assert result.created_paper_ids == []
+
+
+def test_paper_ingest_enqueue_result_defaults_to_empty_lists() -> None:
+    result = PaperIngestEnqueueResult()
+
+    assert result.submitted_paper_ids == []
+    assert result.skipped_already_existed == []

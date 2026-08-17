@@ -21,8 +21,7 @@ from paper_reviewer.ui.search_external_sources import (
 from paper_reviewer.ui.topic_intake import (
     ANALYSIS_KEY,
     ARCHIVING_RESULT_KEY,
-    FULFILL_ENQUEUE_RESULT_KEY,
-    GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
+    PAPER_INGEST_ENQUEUE_RESULT_KEY,
     SEARCH_KEY,
     SEARCH_TOPIC_SCOPE_KEY,
 )
@@ -89,8 +88,7 @@ def test_clear_downstream_ingest_caches_pops_later_step_keys() -> None:
         SEARCH_KEY: SearchExternalSourcesResult(candidates=[], source_runs=[]),
         SEARCH_TOPIC_SCOPE_KEY: str(uuid4()),
         ARCHIVING_RESULT_KEY: object(),
-        FULFILL_ENQUEUE_RESULT_KEY: object(),
-        GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY: object(),
+        PAPER_INGEST_ENQUEUE_RESULT_KEY: object(),
     }
 
     clear_downstream_ingest_caches(state)
@@ -98,8 +96,7 @@ def test_clear_downstream_ingest_caches_pops_later_step_keys() -> None:
     assert SEARCH_KEY in state
     assert SEARCH_TOPIC_SCOPE_KEY in state
     assert ARCHIVING_RESULT_KEY not in state
-    assert FULFILL_ENQUEUE_RESULT_KEY not in state
-    assert GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY not in state
+    assert PAPER_INGEST_ENQUEUE_RESULT_KEY not in state
 
 
 def test_render_loads_facets_from_db_and_runs_search() -> None:

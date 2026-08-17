@@ -11,7 +11,7 @@ For the application runtime stack (Streamlit presentation, SQLAlchemy persistenc
 | Term | Meaning |
 | --- | --- |
 | **Paper brief** / **`PaperBrief`** | Global, topic-agnostic structured summary of one `Paper`. One row per paper. Product meaning: [README.md](../../README.md) Terminology. |
-| **Paper brief page** | Hidden Streamlit page that shows one succeeded paper brief. Distinct from **Generate paper brief**, which enqueues work and shows progress. |
+| **Paper brief page** | Hidden Streamlit page that shows one succeeded paper brief. Distinct from **Paper archiving**, which enqueues ingest and shows progress. |
 | **DOI** | Public identity of the ingested `Paper`. Domain identifier, not a minted `key` ([dev-practices.md](../dev-practices.md#identifier-naming-id-vs-key)). |
 
 ## Scope

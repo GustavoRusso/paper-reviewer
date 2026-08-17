@@ -59,6 +59,7 @@ def archive_papers(
     papers: list[Paper] = []
     skipped: list[ArchiveSkip] = []
     errors: list[ArchiveError] = []
+    created_paper_ids: list[int] = []
 
     resolved: dict[tuple[str, str], Paper] = {}
     seen_skip: set[tuple[str, str]] = set()
@@ -169,6 +170,7 @@ def archive_papers(
                     )
                     session.flush()
                     read = _to_read_model(row)
+                    created_paper_ids.append(read.id)
                 elif existing.doi == doi:
                     read = _to_read_model(existing)
                 else:
@@ -195,4 +197,9 @@ def archive_papers(
                 doi=doi,
             )
 
-    return PaperArchivingResult(papers=papers, skipped=skipped, errors=errors)
+    return PaperArchivingResult(
+        papers=papers,
+        skipped=skipped,
+        errors=errors,
+        created_paper_ids=created_paper_ids,
+    )

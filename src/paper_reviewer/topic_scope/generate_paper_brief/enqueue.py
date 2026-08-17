@@ -20,7 +20,7 @@ def needs_create_paper_brief(
     full_text_status: PaperAspectStatus,
     brief_status: PaperAspectStatus | None,
 ) -> bool:
-    """Return True when page 7 should enqueue a brief for these statuses."""
+    """Return True when a default-path brief job should run for these statuses."""
     if full_text_status is not PaperAspectStatus.succeeded:
         return False
     return brief_status is None or brief_status is PaperAspectStatus.not_started

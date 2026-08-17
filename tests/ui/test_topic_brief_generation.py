@@ -12,7 +12,7 @@ from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.topic_brief_generation import (
     GENERATE_TOPIC_BRIEF_LABEL,
     GENERATING_STATUS_LABEL,
-    GO_TO_GENERATE_PAPER_BRIEF_LABEL,
+    GO_TO_PAPER_ARCHIVING_LABEL,
     GO_TO_SHOW_REFERENCES_LABEL,
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
@@ -61,7 +61,7 @@ def test_zero_briefed_caption_and_helpful_links() -> None:
         "Generation needs at least one Reference with a succeeded paper brief."
     )
     assert GO_TO_SHOW_REFERENCES_LABEL == "Go to Show references"
-    assert GO_TO_GENERATE_PAPER_BRIEF_LABEL == "Go to Generate paper brief"
+    assert GO_TO_PAPER_ARCHIVING_LABEL == "Go to Paper archiving"
 
 
 def test_button_and_status_labels() -> None:

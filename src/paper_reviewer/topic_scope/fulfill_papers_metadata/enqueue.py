@@ -17,7 +17,7 @@ def needs_fulfill_paper_metadata(
     source_record_status: PaperAspectStatus,
     full_text_status: PaperAspectStatus,
 ) -> bool:
-    """Return True when page 6 should still run fulfill for these statuses."""
+    """Return True when fulfill still needs to run for these statuses."""
     if source_record_status is PaperAspectStatus.not_started:
         return True
     return (

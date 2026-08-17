@@ -25,7 +25,7 @@ from paper_reviewer.topic_scope.topic_brief_generation import (
     count_briefed_references,
     enqueue_create_topic_brief,
 )
-from paper_reviewer.ui.fulfill_papers_metadata import prefect_enqueue_error_hint
+from paper_reviewer.ui.paper_archiving import prefect_enqueue_error_hint
 from paper_reviewer.ui.topic_scope_url import (
     parse_topic_scope_key,
     workflow_page_link,
@@ -53,7 +53,7 @@ REGENERATE_TOPIC_BRIEF_LABEL = "Regenerate topic brief"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 GO_TO_SHOW_REFERENCES_LABEL = "Go to Show references"
-GO_TO_GENERATE_PAPER_BRIEF_LABEL = "Go to Generate paper brief"
+GO_TO_PAPER_ARCHIVING_LABEL = "Go to Paper archiving"
 
 _ASSISTANT_OUTPUT_HEADING = "Assistant output:"
 
@@ -171,8 +171,8 @@ def _render_navigation(
             topic_scope_key=topic_scope_key,
         )
         workflow_page_link(
-            "generate_paper_brief",
-            label=GO_TO_GENERATE_PAPER_BRIEF_LABEL,
+            "paper_archiving",
+            label=GO_TO_PAPER_ARCHIVING_LABEL,
             topic_scope_key=topic_scope_key,
         )
 

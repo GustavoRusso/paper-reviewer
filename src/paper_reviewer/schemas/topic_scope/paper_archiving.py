@@ -55,3 +55,11 @@ class PaperArchivingResult(BaseModel):
     papers: list[Paper] = Field(default_factory=list)
     skipped: list[ArchiveSkip] = Field(default_factory=list)
     errors: list[ArchiveError] = Field(default_factory=list)
+    created_paper_ids: list[int] = Field(default_factory=list)
+
+
+class PaperIngestEnqueueResult(BaseModel):
+    """Selection outcome after enqueue_regenerate_papers."""
+
+    submitted_paper_ids: list[int] = Field(default_factory=list)
+    skipped_already_existed: list[int] = Field(default_factory=list)

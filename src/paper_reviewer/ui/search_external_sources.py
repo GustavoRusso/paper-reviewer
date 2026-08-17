@@ -31,8 +31,7 @@ from paper_reviewer.ui.external_sources_ingestion import (
 )
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
-    FULFILL_ENQUEUE_RESULT_KEY,
-    GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
+    PAPER_INGEST_ENQUEUE_RESULT_KEY,
     SEARCH_KEY,
     SEARCH_TOPIC_SCOPE_KEY,
 )
@@ -73,8 +72,7 @@ def search_cache_matches(
 def clear_downstream_ingest_caches(state: MutableMapping[str, Any]) -> None:
     """Clear session caches for steps after Search external sources."""
     state.pop(ARCHIVING_RESULT_KEY, None)
-    state.pop(FULFILL_ENQUEUE_RESULT_KEY, None)
-    state.pop(GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY, None)
+    state.pop(PAPER_INGEST_ENQUEUE_RESULT_KEY, None)
 
 
 def _render_missing_prerequisites(*, topic_scope_key: UUID | None) -> None:

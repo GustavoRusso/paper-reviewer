@@ -28,8 +28,6 @@ CURRENT_STEP_BADGE = "Current"
 EXTERNAL_SOURCES_INGESTION_STEPS: tuple[tuple[str, str], ...] = (
     ("search_external_sources", "Search external sources"),
     ("paper_archiving", "Paper archiving"),
-    ("fulfill_papers_metadata", "Fulfill papers metadata"),
-    ("generate_paper_brief", "Generate paper brief"),
 )
 
 

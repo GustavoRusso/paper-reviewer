@@ -33,7 +33,7 @@ class InformFullTextResult(BaseModel):
 
 
 class FulfillPaperMetadataResult(BaseModel):
-    """Result of the page-6 orchestrator for one Paper."""
+    """Result of the default-skip fulfill orchestrator for one Paper."""
 
     paper_id: int
     source_record: InformSourceRecordResult

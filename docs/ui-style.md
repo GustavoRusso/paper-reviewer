@@ -128,7 +128,7 @@ Illustrative only; step specs remain the behavior contract. Topic scope hub page
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
 | Show references → Paper brief | Navigate | `st.page_link` (label **Read paper brief**; pass `doi` and `topic_scope_key`) |
-| Per-paper Regenerate (Fulfill papers metadata / Generate paper brief) | Default | `st.button("Regenerate", type="secondary")` |
+| Per-paper Regenerate (Paper archiving ingest progress) | Default | `st.button("Regenerate", type="secondary")` |
 
 ## Theme
 

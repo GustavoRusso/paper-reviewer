@@ -8,8 +8,7 @@ from uuid import UUID
 from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
 from paper_reviewer.ui.topic_intake import (
     ARCHIVING_RESULT_KEY,
-    FULFILL_ENQUEUE_RESULT_KEY,
-    GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY,
+    PAPER_INGEST_ENQUEUE_RESULT_KEY,
     SEARCH_KEY,
     SESSION_KEY,
     begin_topic_intake_session,
@@ -23,8 +22,7 @@ def test_begin_topic_intake_session_clears_leftover_and_unknown_keys() -> None:
         SESSION_KEY: TopicStatement(text="previous topic"),
         SEARCH_KEY: "stale-search",
         ARCHIVING_RESULT_KEY: "stale-archiving",
-        FULFILL_ENQUEUE_RESULT_KEY: "stale-fulfill",
-        GENERATE_PAPER_BRIEF_ENQUEUE_RESULT_KEY: "stale-brief",
+        PAPER_INGEST_ENQUEUE_RESULT_KEY: "stale-ingest",
         "unknown_leftover_key": "must-go",
         "leftover_session_key": UUID("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"),
     }

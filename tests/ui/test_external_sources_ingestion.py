@@ -18,8 +18,6 @@ from paper_reviewer.ui.external_sources_ingestion import (
     render_external_sources_ingestion,
     render_external_sources_ingestion_header,
 )
-from paper_reviewer.ui.fulfill_papers_metadata import render_fulfill_papers_metadata
-from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
 from paper_reviewer.ui.search_external_sources import render_search_external_sources
@@ -75,8 +73,6 @@ def test_external_sources_ingestion_steps_are_the_ingest_chain() -> None:
     assert EXTERNAL_SOURCES_INGESTION_STEPS == (
         ("search_external_sources", "Search external sources"),
         ("paper_archiving", "Paper archiving"),
-        ("fulfill_papers_metadata", "Fulfill papers metadata"),
-        ("generate_paper_brief", "Generate paper brief"),
     )
 
 
@@ -86,7 +82,7 @@ def test_landing_marks_no_step_current() -> None:
     assert [item.page_key for item in items] == [
         key for key, _label in EXTERNAL_SOURCES_INGESTION_STEPS
     ]
-    assert [item.step_number for item in items] == [1, 2, 3, 4]
+    assert [item.step_number for item in items] == [1, 2]
     assert all(item.is_current is False for item in items)
 
 
@@ -128,8 +124,6 @@ def test_ingest_pages_render_the_phase_header() -> None:
         render_external_sources_ingestion,
         render_search_external_sources,
         render_paper_archiving,
-        render_fulfill_papers_metadata,
-        render_generate_paper_brief,
     )
     for render in renders:
         source = inspect.getsource(render)
@@ -140,8 +134,6 @@ def test_ingest_step_pages_use_header_not_title_for_step_name() -> None:
     renders = (
         render_search_external_sources,
         render_paper_archiving,
-        render_fulfill_papers_metadata,
-        render_generate_paper_brief,
     )
     for render in renders:
         source = inspect.getsource(render)
