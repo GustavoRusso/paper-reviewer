@@ -33,6 +33,7 @@ For the application runtime stack (Streamlit presentation, SQLAlchemy persistenc
 - Add reference cards (those keep status badges; [3.2](3.2-add-reference.md)).
 - Phase header/stepper (this page is not a workflow step).
 - Topic-brief drafting ([Topic brief generation](4-topic-brief-generation.md)).
+- Showing paper-brief evaluation scores ([Paper brief evaluation](2.2.4-paper-brief-evaluation.md); reader v1 does not show them).
 
 ## Streamlit UI (v1)
 
