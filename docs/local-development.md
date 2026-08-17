@@ -32,7 +32,8 @@ All initial local parametrization lives in a project-root **`.env`** file. Compo
 | `NCBI_API_KEY` | (empty) | `ui`, `prefect-worker` | Optional; higher PubMed rate limits when set |
 | `OPENAI_API_KEY` | (empty) | `prefect-worker` | Required for the public OpenAI API. Optional when `OPENAI_BASE_URL` is set (local compatible gateway). Leave both empty in tests; the job records Failed if the public API is used with no key |
 | `OPENAI_BASE_URL` | (empty) | `prefect-worker` | Optional OpenAI-compatible API base. Empty uses the public OpenAI API. From Compose, `localhost` / `127.0.0.1` is rewritten to `host.docker.internal` so a gateway on the host is reachable. Local gateways may ignore structured `json_schema`; the job still extracts and validates `PaperBriefContent`. When this URL is set, the job sends `max_tokens=4096` and clips extracted scientific sections to 8000 characters (public OpenAI uses the extracted sections with no character budget) |
-| `OPENAI_MODEL` | (empty) | `prefect-worker` | Chat model id for `create_paper_brief`. Empty uses the public API default (`gpt-4o-mini`). Required when `OPENAI_BASE_URL` is set (local example in `.env.example`: `llama3.1-8b`) |
+| `OPENAI_MODEL` | (empty) | `prefect-worker` | Chat model id for `create_paper_brief`. Empty uses the public API default (`gpt-4o-mini`). Required when `OPENAI_BASE_URL` is set (local example in `.env.example`: `llama3.1-8b`). Offline eval notebooks will use the same variables (app workspace; [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract); not implemented) |
+| `JUPYTER_PORT` | (later) | app `workspace` (future `just notebooks`) | Host port for Jupyter in the container. Not in Compose yet. Do **not** publish Jupyter on the sandbox. |
 
 Compose supplies the same defaults when a variable is unset, so an empty or missing `.env` still boots with the values above. Prefer the standard `postgresql://` scheme in `DATABASE_URL`; `paper_reviewer.db` maps it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
@@ -93,6 +94,16 @@ just test tests/schemas/topic_scope/test_topic_intake.py -q
 `just test` runs `uv run pytest` inside the sandbox `workspace` container. Pass optional path or pytest args after the recipe name. Equivalent ad-hoc form: `just sandbox-run "uv run pytest tests/topic_scope/search_external_sources -q"`. Spec workflow: [tdd.md](tdd.md).
 
 The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect runs with the app profile (`just up`), not the sandbox. Seeding and `just reset` will be added later.
+
+### Offline paper-brief evaluation notebooks (contract; not implemented)
+
+Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just sandbox` for this procedure (no app Postgres).
+
+Locked contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract). Later slice:
+
+- Recipe **`just notebooks`**: requires `just up`; starts Jupyter in the **app** `workspace` with `uv run`; host browser at `http://localhost:${JUPYTER_PORT}`.
+- Env: `JUPYTER_PORT` (host publish, same pattern as `UI_PORT`). The notebook process needs `DATABASE_URL`, `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL`, and `NCBI_API_KEY` (step 1 fetch). Today `OPENAI_*` is on `prefect-worker` only; that slice must also pass them into the notebook container.
+- Do not add this recipe until Jupyter is a workspace dependency and the port is in [compose.yml](../compose.yml) / [`.env.example`](../.env.example).
 
 ## Two environments
 

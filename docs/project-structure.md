@@ -38,6 +38,8 @@ flowchart TB
   subgraph localOnly [Repo-only / not in prod images]
     testsDir["tests/"]
     docsDir["docs/"]
+    notebooksDir["notebooks/"]
+    dataDir["data/"]
     hostTools["justfile, AGENTS.md, README.md"]
     composeFiles["compose.yml, .env examples"]
   end
@@ -50,9 +52,9 @@ flowchart TB
 | --- | --- | --- |
 | **Runtime (deployed)** | `src/paper_reviewer/`, `alembic/`, `alembic.ini`, `pyproject.toml`, `uv.lock`, `.streamlit/config.toml` | What production containers need to run the UI, flows, ingest, and migrations. Streamlit theme: [ui-style.md](ui-style.md) |
 | **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile` | Image build and local workflows on the host; not application runtime code |
-| **Development-only** | `tests/`, `docs/`, `AGENTS.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, and agent guidance; exclude from production images |
+| **Development-only** | `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, agent guidance, and local eval notebooks/output; exclude from production images. Notebooks import the installed `paper_reviewer` package (Compose bind-mount). `data/` is local eval corpus and scores ([specs/paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md)); do not add an eval package under `src/`. |
 
-Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `AGENTS.md`, `.git/`, and similar paths.
+Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `.git/`, and similar paths.
 
 **Target:** one application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
 
@@ -101,6 +103,8 @@ paper-reviewer/
 │   ├── ingest/
 │   ├── ui/
 │   └── flows/
+├── notebooks/                          # local-only procedures (not deployed)
+├── data/                               # local eval corpus/results (not deployed; gitignore later)
 ├── docs/
 ├── Dockerfile
 ├── .dockerignore
@@ -120,7 +124,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 
 | Stack piece | Package path | Owns |
 | --- | --- | --- |
-| Topic scope workflow steps | `paper_reviewer.topic_scope.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, paper brief evaluation, show references, add reference, papers search, paper brief reader, topic brief generation). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/topic-scope-hub.md](specs/topic-scope-hub.md), [specs/2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md), [specs/3-references-selection.md](specs/3-references-selection.md), [specs/3.1-show-references.md](specs/3.1-show-references.md), [specs/3.2-add-reference.md](specs/3.2-add-reference.md), [specs/papers-search.md](specs/papers-search.md), [specs/paper-brief.md](specs/paper-brief.md), [specs/4-topic-brief-generation.md](specs/4-topic-brief-generation.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2-paper-ingestion.md](specs/2.2-paper-ingestion.md), [specs/2.2.1-paper-archiving.md](specs/2.2.1-paper-archiving.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md), [specs/2.2.3-generate-paper-brief.md](specs/2.2.3-generate-paper-brief.md), [specs/2.2.4-paper-brief-evaluation.md](specs/2.2.4-paper-brief-evaluation.md), [specs/2.2.5-paper-indexing.md](specs/2.2.5-paper-indexing.md). |
+| Topic scope workflow steps | `paper_reviewer.topic_scope.<step>` | Step behavior for the README workflow (intake, analysis, search external sources, paper archiving, fulfill papers metadata, generate paper brief, paper brief evaluation, show references, add reference, papers search, paper brief reader, topic brief generation). Specs: [specs/1.1-topic-intake.md](specs/1.1-topic-intake.md), [specs/1.2-topic-analysis.md](specs/1.2-topic-analysis.md), [specs/topic-scope-hub.md](specs/topic-scope-hub.md), [specs/2-external-sources-ingestion.md](specs/2-external-sources-ingestion.md), [specs/3-references-selection.md](specs/3-references-selection.md), [specs/3.1-show-references.md](specs/3.1-show-references.md), [specs/3.2-add-reference.md](specs/3.2-add-reference.md), [specs/papers-search.md](specs/papers-search.md), [specs/paper-brief.md](specs/paper-brief.md), [specs/paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md), [specs/4-topic-brief-generation.md](specs/4-topic-brief-generation.md), [specs/2.1-search-external-sources.md](specs/2.1-search-external-sources.md), [specs/2.2-paper-ingestion.md](specs/2.2-paper-ingestion.md), [specs/2.2.1-paper-archiving.md](specs/2.2.1-paper-archiving.md), [specs/2.2.2-fulfill-papers-metadata.md](specs/2.2.2-fulfill-papers-metadata.md), [specs/2.2.3-generate-paper-brief.md](specs/2.2.3-generate-paper-brief.md), [specs/2.2.4-paper-brief-evaluation.md](specs/2.2.4-paper-brief-evaluation.md), [specs/2.2.5-paper-indexing.md](specs/2.2.5-paper-indexing.md). |
 | Pydantic | `paper_reviewer.schemas.<workflow>` | Domain contracts mirrored under the workflow name (e.g. `schemas.topic_scope.topic_analysis`). |
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | External-source dlt sources/resources (extract; Postgres load when adopted) |
