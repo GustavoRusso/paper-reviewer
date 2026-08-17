@@ -37,7 +37,7 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 - A frozen **corpus**: `full_text_plain` files plus a bibliographic **manifest** (step 1).
 - Fetch full text when an existing Paper has no usable body: same domain functions as the app (`inform_source_record` / `inform_full_text`), not Prefect.
 - Always **generate new briefs** with `generate_paper_brief_content` (step 2). Do not dump `PaperBrief` from the database.
-- Steps 2–3 read **only files** (corpus + manifest + run JSONL).
+- Steps 2–3 read **only files**. Step 2: `corpus/manifest.jsonl` and `corpus/{filename}`. Step 3: `{run_id}/02-briefs.jsonl` and matching `corpus/{DOI_FILE}.txt` (same filename rule as step 1; not the manifest). Postgres is not used.
 - One **run folder** next to the corpus for brief + template (step 2) and scores (step 3).
 - Fail-soft per DOI (one paper failure does not stop the notebook).
 
@@ -163,9 +163,9 @@ Domain functions: `paper_reviewer.topic_scope.generate_paper_brief.llm`.
 
 Notebook: `03-evaluate-briefs.ipynb`.
 
-- Input: one `{run_id}/` that already has `02-briefs.jsonl`, plus sibling `corpus/` (`.txt` files; Postgres is not required).
+- Input: one `{run_id}/` that already has `02-briefs.jsonl`, plus sibling `corpus/` (`.txt` files; Postgres is not required). Set `RUN_ID` in a notebook cell (`YYYYMMDDThhmmssZ`). Leave it empty to use the latest sibling folder that already has `02-briefs.jsonl` (lexicographic order is time order).
 - For each success line in `02-briefs.jsonl`:
-  - Load `full_text_plain` from the matching corpus file.
+  - Load `full_text_plain` from `corpus/{DOI_FILE}.txt` (uppercase DOI, `/` → `_`; same rule as step 1). Do not read the manifest.
   - Validate `brief` as `PaperBriefContent`.
   - Call `judge_paper_brief_evaluation(full_text_plain, content=...)`.
   - Compute `evaluation_score` with `mean_evaluation_score` (app mean; the LLM must not supply it). Same JSON and rounding as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md).
