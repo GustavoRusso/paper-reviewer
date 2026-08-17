@@ -31,6 +31,10 @@ htmlcov/
 .dlt/data/
 .dlt/state/
 
+# Offline eval corpus and run results under data/paper_brief_evaluation/
+# are tracked so they can be committed. Production images still exclude
+# data/ via .dockerignore.
+
 # Jupyter
 .ipynb_checkpoints/
 

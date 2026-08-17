@@ -82,10 +82,10 @@ Notebooks must **use** app features (load usable full text, generate a brief, ru
 
 Keep both trees **outside** `src/paper_reviewer/`. [project-structure.md](../project-structure.md) deploys only the installable package, Alembic, `pyproject.toml`, `uv.lock`, and the Streamlit theme.
 
-| Kind | Path | Git (later implementation) | Production image |
+| Kind | Path | Git | Production image |
 | --- | --- | --- | --- |
 | Notebooks (procedure) | `notebooks/paper_brief_evaluation/` | Track | No — same class as `tests/` and `docs/` |
-| Corpus + run results | `data/paper_brief_evaluation/` | Ignore | No — experiment artifacts; full text must not be copied |
+| Corpus + run results | `data/paper_brief_evaluation/` | Track | No — experiment artifacts; do not copy into the production image |
 
 How notebooks still call app code: Compose bind-mounts the repo at `/workspace`. The notebooks import the **editable** `paper_reviewer` install. They do **not** need an eval subpackage inside `src/`.
 
@@ -97,7 +97,7 @@ Do **not**:
 
 ## Layout and naming
 
-**Notebooks** (tracked later; named now):
+**Notebooks** (tracked):
 
 ```text
 notebooks/paper_brief_evaluation/
@@ -106,7 +106,7 @@ notebooks/paper_brief_evaluation/
   03-evaluate-briefs.ipynb
 ```
 
-**Data** (local only; gitignore later):
+**Data** (tracked in git; not copied into the production image):
 
 ```text
 data/paper_brief_evaluation/
@@ -206,7 +206,7 @@ The repo bind-mount at `/workspace` is the notebook cwd. Imports use the editabl
 | Piece | Future contract |
 | --- | --- |
 | Notebooks | The three `.ipynb` files under `notebooks/paper_brief_evaluation/` |
-| Data dirs | `data/paper_brief_evaluation/` (gitignore). Do not commit full text. |
+| Data dirs | `data/paper_brief_evaluation/` (tracked). Still exclude from production images. |
 | Jupyter | Dev dependency (`jupyter` / `ipykernel`) in the workspace image |
 | `just notebooks` | App workspace only. Publish `JUPYTER_PORT`. Pass `OPENAI_*` and `NCBI_API_KEY`. |
 | Compose | `workspace` (or a dedicated notebooks service on the **app** profile) publishes the Jupyter port. Do **not** add Jupyter to the sandbox. |
