@@ -46,4 +46,4 @@ def test_papers_search_result_defaults() -> None:
     result = PapersSearchResult()
 
     assert result.hits == []
-    assert result.truncated is False
+    assert "truncated" not in PapersSearchResult.model_fields

@@ -38,7 +38,6 @@ EMPTY_NO_CONCEPTS_CAPTION = (
 EMPTY_NO_HITS_CAPTION = (
     "No ingested papers match this Topic scope's concepts."
 )
-TRUNCATED_CAPTION = "Showing the first 20 matching papers."
 LOAD_ERROR_MESSAGE = (
     "Could not load Papers search for this Topic scope. Try again."
 )
@@ -171,16 +170,12 @@ def render_add_reference() -> None:
                 return
             result = search_papers(session, topic_scope)
             hits = list(result.hits)
-            truncated = result.truncated
-            no_concepts = not hits and not truncated and not _has_usable_concepts(
+            no_concepts = not hits and not _has_usable_concepts(
                 session, topic_scope.id
             )
     except Exception:
         st.error(LOAD_ERROR_MESSAGE)
         return
-
-    if truncated:
-        st.caption(TRUNCATED_CAPTION)
 
     if not hits:
         if no_concepts:

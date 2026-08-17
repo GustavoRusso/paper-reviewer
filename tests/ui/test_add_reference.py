@@ -23,7 +23,6 @@ from paper_reviewer.ui.add_reference import (
     NOT_YET_REFERENCED_BADGE,
     PAPER_BRIEF_AVAILABLE_BADGE,
     PAPER_BRIEF_NOT_AVAILABLE_BADGE,
-    TRUNCATED_CAPTION,
     format_paper_search_hit_caption,
     render_add_reference,
 )
@@ -72,6 +71,17 @@ def test_page_loads_scope_and_runs_papers_search() -> None:
     assert "session_scope" in source
 
 
+def test_page_shows_all_hits_without_truncation() -> None:
+    source = inspect.getsource(add_reference_module)
+    assert "TRUNCATED_CAPTION" not in source
+    render_source = inspect.getsource(render_add_reference)
+    assert "truncated" not in render_source
+    assert "for hit in hits:" in render_source
+    add_all_source = inspect.getsource(add_reference_module._render_add_all)
+    assert "already_referenced" in add_all_source
+    assert "for hit in hits" in add_all_source
+
+
 def test_missing_topic_scope_row_uses_the_same_empty_state() -> None:
     source = inspect.getsource(render_add_reference)
     assert "_render_missing_scope" in source
@@ -85,7 +95,6 @@ def test_empty_and_load_error_copy() -> None:
     assert EMPTY_NO_HITS_CAPTION == (
         "No ingested papers match this Topic scope's concepts."
     )
-    assert TRUNCATED_CAPTION == "Showing the first 20 matching papers."
     assert LOAD_ERROR_MESSAGE == (
         "Could not load Papers search for this Topic scope. Try again."
     )

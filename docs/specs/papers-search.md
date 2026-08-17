@@ -23,7 +23,7 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 - Accept a loaded `TopicScope` and load persisted `TopicFacet` rows as search input.
 - Query only papers already ingested in the local database, using the PostgreSQL full-text index owned by [Paper indexing](2.2.5-paper-indexing.md).
 - Match v1 queries against `Paper.keywords_tsv` only (source: `source_record.indexing.keywords`).
-- Return up to **20** durable `Paper` hits suitable for display and for attach in Add reference.
+- Return all matching durable `Paper` hits suitable for display and for attach in Add reference.
 - Always mark each hit as already a Reference for that scope or not yet (`already_referenced`).
 - Always mark each hit with whether a succeeded global Paper brief exists (`paper_brief_available`).
 - Fail-soft when there are no facets, no hits, or an empty search document (rules below).
@@ -39,7 +39,7 @@ For the application runtime stack (PostgreSQL full-text search, SQLAlchemy, no e
 - Matching MeSH headings, title, abstract, or full text in v1.
 - Ranking (`ts_rank` or equivalent) in v1.
 - Using `TopicFacet.synonyms` as extra query terms in v1.
-- Pagination beyond the v1 cap of 20.
+- Pagination of search hits.
 
 ## Relation to other searches
 
@@ -68,7 +68,7 @@ Column, generated expression, and GIN index: [Paper indexing](2.2.5-paper-indexi
 | No usable concepts | Return an empty hit list. Do not scan all papers. |
 | Empty `keywords_tsv` / no source record | That paper does not match. |
 | Order | `Paper.id` ascending (stable list order; not ranking). |
-| Cap | Fetch at most **21** rows; return at most **20**; set `truncated=True` when a 21st row exists. |
+| Cap | None. Return every matching paper. |
 | `already_referenced` | Always set per hit for the Topic scope; does not change which papers match. |
 | `paper_brief_available` | Always set per hit. `true` only when a global `PaperBrief` row exists and `status` is `succeeded`. No row or any other status → `false`. Does not change which papers match. Brief ownership: [Generate paper brief](2.2.3-generate-paper-brief.md). |
 
@@ -92,7 +92,7 @@ Schemas: `paper_reviewer.schemas.topic_scope.papers_search`.
 | Type | Fields |
 | --- | --- |
 | `PaperSearchHit` | `title`, `url`, `doi`, `authors`, `journal`, `published_year`, `already_referenced`, `paper_brief_available`. Identity is `doi`. Do **not** put private `Paper.id` on the hit. |
-| `PapersSearchResult` | `hits: list[PaperSearchHit]`, `truncated: bool` |
+| `PapersSearchResult` | `hits: list[PaperSearchHit]` |
 
 Do not reuse `ReferencedPaper` (that type carries `referenced_at`).
 

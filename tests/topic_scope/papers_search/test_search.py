@@ -29,9 +29,6 @@ from paper_reviewer.topic_scope.papers_search import (
     keywords_match_any,
     search_papers,
 )
-from paper_reviewer.topic_scope.papers_search.search import (
-    HIT_LIMIT,
-)
 
 
 @pytest.fixture
@@ -134,7 +131,6 @@ def test_search_papers_empty_when_no_usable_concepts(session: Session) -> None:
 
     assert isinstance(result, PapersSearchResult)
     assert result.hits == []
-    assert result.truncated is False
     match_mock.assert_not_called()
 
 
@@ -179,7 +175,6 @@ def test_search_papers_maps_hits_and_already_referenced(
         result = search_papers(session, topic_scope)
 
     match_mock.assert_called_once_with(["glioblastoma", "immunotherapy"])
-    assert result.truncated is False
     assert [hit.doi for hit in result.hits] == ["10.1000/REF", "10.1000/NEW"]
     first, second = result.hits
     assert first.title == "Referenced paper"
@@ -229,11 +224,12 @@ def test_search_papers_maps_paper_brief_available_when_succeeded(
     assert by_doi["10.1000/NONE"].paper_brief_available is False
 
 
-def test_search_papers_caps_at_20_and_sets_truncated(session: Session) -> None:
+def test_search_papers_returns_all_matching_papers(session: Session) -> None:
     topic_scope = create_topic_scope(session, "many papers")
     session.flush()
     _add_facet(session, topic_scope, concepts=["keyword"])
-    for index in range(HIT_LIMIT + 1):
+    match_count = 21
+    for index in range(match_count):
         _add_paper(
             session,
             doi=f"10.1000/{index}",
@@ -247,8 +243,8 @@ def test_search_papers_caps_at_20_and_sets_truncated(session: Session) -> None:
     ):
         result = search_papers(session, topic_scope)
 
-    assert result.truncated is True
-    assert len(result.hits) == HIT_LIMIT
+    assert len(result.hits) == match_count
     assert [hit.doi for hit in result.hits] == [
-        f"10.1000/{index}" for index in range(HIT_LIMIT)
+        f"10.1000/{index}" for index in range(match_count)
     ]
+    assert "truncated" not in PapersSearchResult.model_fields

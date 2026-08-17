@@ -21,10 +21,6 @@ from paper_reviewer.schemas.topic_scope.papers_search import (
     PapersSearchResult,
 )
 
-HIT_LIMIT = 20
-_FETCH_LIMIT = HIT_LIMIT + 1
-
-
 def keywords_match_any(concepts: Sequence[str]) -> ColumnElement[bool]:
     """Return ``Paper.keywords_tsv @@ (q1 || q2 || …)`` for ``simple`` config."""
     queries = [
@@ -90,7 +86,7 @@ def search_papers(
     """Return Papers that match any facet concept for ``topic_scope``."""
     concepts = _usable_concepts(session, topic_scope)
     if not concepts:
-        return PapersSearchResult(hits=[], truncated=False)
+        return PapersSearchResult(hits=[])
 
     papers = list(
         session.scalars(
@@ -98,16 +94,12 @@ def search_papers(
             .where(keywords_match_any(concepts))
             .options(selectinload(Paper.paper_brief))
             .order_by(Paper.id)
-            .limit(_FETCH_LIMIT)
         ).all()
     )
-    truncated = len(papers) > HIT_LIMIT
-    papers = papers[:HIT_LIMIT]
     referenced_ids = _referenced_paper_ids(session, topic_scope.id)
     return PapersSearchResult(
         hits=[
             _to_hit(paper, already_referenced=paper.id in referenced_ids)
             for paper in papers
         ],
-        truncated=truncated,
     )

@@ -22,4 +22,3 @@ class PapersSearchResult(BaseModel):
     """Hits from Papers search for one Topic scope."""
 
     hits: list[PaperSearchHit] = Field(default_factory=list)
-    truncated: bool = False
