@@ -1,6 +1,6 @@
 # References selection (phase overview)
 
-This document is the specification for the **References selection** phase in [README.md](../../README.md). It is **docs-only** in v1: there is no dedicated Streamlit landing page. The Topic scope hub opens the first leaf step, [Show references](3.1-show-references.md).
+This document is the specification for the **References selection** phase in [README.md](../../README.md). It is **docs-only** in v1: there is no dedicated Streamlit landing page. The [Topic scope hub](topic-scope-hub.md) opens the first leaf step, [Show references](3.1-show-references.md).
 
 Step behavior stays in the step specs. Local **Papers search** and Reference attach (**Add** / **Add all**) are built.
 
@@ -42,7 +42,7 @@ Call `render_references_selection_header` before the step name on every Referenc
 
 Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 
-Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub) → **Show references** (pass `topic_scope_key`). First step: [Show references](3.1-show-references.md).
+Entry from the hub: [Topic scope hub](topic-scope-hub.md) → **Show references** (pass `topic_scope_key`). First step: [Show references](3.1-show-references.md).
 
 ## Step specs (do not copy)
 

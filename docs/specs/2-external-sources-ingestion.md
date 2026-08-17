@@ -10,7 +10,7 @@ This document is the specification for the **External sources ingestion** phase 
 | --- | --- |
 | **External sources ingestion** | Phase 2: search external sources, then run **Paper Ingestion** (archive, fulfill metadata, generate paper briefs, and index). |
 | **Paper Ingestion** | Docs-only step group 2.2 under this phase. Index: [2.2-external-sources-ingestion.md](2.2-external-sources-ingestion.md). |
-| **Phase landing** | Hidden Streamlit page reached from the [Topic scope hub](1.2-topic-analysis.md#topic-scope-hub). |
+| **Phase landing** | Hidden Streamlit page reached from the [Topic scope hub](topic-scope-hub.md). |
 
 ## Scope
 
@@ -62,7 +62,7 @@ Control mapping: [ui-style.md](../ui-style.md#phase-chrome).
 2. Show the phase header (phase title, Reference id caption, intro, stepper).
 3. Primary next: page_link **Continue to Search external sources** (`search_external_sources`). Do **not** auto-run search here. Do **not** `switch_page`.
 
-Entry from the hub: [Topic analysis](1.2-topic-analysis.md#topic-scope-hub). First ingest step: [search external sources](2.1-search-external-sources.md) (phase 2 step 1).
+Entry from the hub: [Topic scope hub](topic-scope-hub.md). First ingest step: [search external sources](2.1-search-external-sources.md) (phase 2 step 1).
 
 ## Step specs (do not copy)
 

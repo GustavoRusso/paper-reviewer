@@ -20,7 +20,7 @@ This phase has a single page (no phase header/stepper).
 | **Topic brief** / **`TopicBrief`** | **Result** artifact: structured, **topic-conditioned** cited introduction for one `TopicScope`. One row per Topic scope. Product meaning: [README.md](../../README.md) Terminology. Distinct from a **paper brief**. |
 | **`create_topic_brief`** | Prefect job that drafts or rewrites the **topic brief** for one Topic scope. |
 | **Generate topic brief** | Primary button action on this page that enqueues `create_topic_brief` (creates when missing; overwrites when a row already exists). |
-| **Phase landing** | Streamlit page reached from the [Topic scope hub](1.2-topic-analysis.md#topic-scope-hub). |
+| **Phase landing** | Streamlit page reached from the [Topic scope hub](topic-scope-hub.md). |
 | **Reference** | Durable link from the Topic scope to an ingested `Paper`. Owned by [Show references](3.1-show-references.md). |
 | **Paper brief** / **`PaperBrief`** | Global, topic-agnostic summary of one `Paper`. Owned by [Generate paper brief](2.2.3-generate-paper-brief.md). |
 | **Briefed Reference** | A Reference whose global `PaperBrief.status` is `succeeded`. Only these enter the LLM payload. |
@@ -337,7 +337,7 @@ Do **not** show `prompt_tokens`, `completion_tokens`, or `total_tokens`.
 
 ## Workflow navigation
 
-- **Entry:** [Topic scope hub](1.2-topic-analysis.md#topic-scope-hub) → **Topic brief generation** with `topic_scope_key`.
+- **Entry:** [Topic scope hub](topic-scope-hub.md) → **Topic brief generation** with `topic_scope_key`.
 - **Input:** Topic scope (statement + facets) and current References filtered to succeeded paper briefs (≥1 required to generate).
 
 ## Orchestration boundary
@@ -403,5 +403,5 @@ Do not do this work in the Topic brief generation v1 slice:
 | --- | --- |
 | Paper brief ingest | [2.2.3-generate-paper-brief.md](2.2.3-generate-paper-brief.md) |
 | Show references | [3.1-show-references.md](3.1-show-references.md) |
-| Topic scope hub | [1.2-topic-analysis.md](1.2-topic-analysis.md#topic-scope-hub) |
+| Topic scope hub | [topic-scope-hub.md](topic-scope-hub.md) |
 | Template / prompt | [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief_generation/topic_brief_template.md) |

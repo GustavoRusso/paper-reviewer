@@ -111,7 +111,7 @@ ui-style normally uses a mutating Submit, then a **separate** `st.page_link` to 
 
 ## Mapping to current workflow pages
 
-Illustrative only; step specs remain the behavior contract.
+Illustrative only; step specs remain the behavior contract. Topic scope hub page: [topic-scope-hub.md](specs/topic-scope-hub.md).
 
 | Situation | Intent | Control |
 | --- | --- | --- |
