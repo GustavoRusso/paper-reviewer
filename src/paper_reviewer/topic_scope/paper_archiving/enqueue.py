@@ -1,4 +1,4 @@
-"""Select papers that need first ingest and submit regenerate_paper."""
+"""Select papers that need first ingest and submit ingest_paper."""
 
 from __future__ import annotations
 
@@ -16,13 +16,13 @@ from paper_reviewer.schemas.topic_scope.paper_archiving import (
 )
 
 
-def enqueue_regenerate_papers(
+def enqueue_ingest_papers(
     session: Session,
     archiving_result: PaperArchivingResult,
     *,
-    submit_regenerate: Callable[[int, str], None],
+    submit_ingest: Callable[[int, str], None],
 ) -> PaperIngestEnqueueResult:
-    """Submit ``regenerate_paper`` for inserted and never-ingested papers.
+    """Submit ``ingest_paper`` for inserted and never-ingested papers.
 
     Submits when the paper id is in ``created_paper_ids``, or when a reused
     row still has ``source_record_status`` ``not_started``. Other papers in
@@ -37,7 +37,7 @@ def enqueue_regenerate_papers(
         if row is None:
             continue
         if paper.id in created or row.source_record_status is PaperAspectStatus.not_started:
-            submit_regenerate(paper.id, row.doi)
+            submit_ingest(paper.id, row.doi)
             submitted.append(paper.id)
             continue
         skipped_existed.append(paper.id)

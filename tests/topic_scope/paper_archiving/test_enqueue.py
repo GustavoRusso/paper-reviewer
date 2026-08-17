@@ -1,4 +1,4 @@
-"""Enqueue selection for regenerate_paper after paper archiving."""
+"""Enqueue selection for ingest_paper after paper archiving."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ from paper_reviewer.schemas.topic_scope.paper_archiving import (
     Paper,
     PaperArchivingResult,
 )
-from paper_reviewer.topic_scope.paper_archiving import enqueue_regenerate_papers
+from paper_reviewer.topic_scope.paper_archiving import enqueue_ingest_papers
 
 
 @pytest.fixture
@@ -77,10 +77,10 @@ def _read_paper(
 def test_enqueue_empty_papers(session: Session) -> None:
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == []
@@ -92,10 +92,10 @@ def test_enqueue_submits_created_ids(session: Session) -> None:
     created = _read_paper(session, uid="1", doi="10.1000/A")
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(papers=[created], created_paper_ids=[created.id]),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [created.id]
@@ -113,10 +113,10 @@ def test_enqueue_skips_reused_terminal_paper(session: Session) -> None:
     )
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(papers=[reused], created_paper_ids=[]),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == []
@@ -128,10 +128,10 @@ def test_enqueue_submits_reused_not_started(session: Session) -> None:
     reused = _read_paper(session, uid="1", doi="10.1000/A")
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(papers=[reused], created_paper_ids=[]),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [reused.id]
@@ -151,13 +151,13 @@ def test_enqueue_mixed_created_reused_and_not_started(session: Session) -> None:
     reused_stuck = _read_paper(session, uid="3", doi="10.1000/C")
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(
             papers=[created, reused_done, reused_stuck],
             created_paper_ids=[created.id],
         ),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [created.id, reused_stuck.id]
@@ -178,13 +178,13 @@ def test_enqueue_drops_missing_paper_ids(session: Session) -> None:
     )
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(
             papers=[created, missing],
             created_paper_ids=[created.id, missing.id],
         ),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == [created.id]
@@ -202,10 +202,10 @@ def test_enqueue_does_not_submit_reused_failed_source(session: Session) -> None:
     )
     submitted: list[tuple[int, str]] = []
 
-    result = enqueue_regenerate_papers(
+    result = enqueue_ingest_papers(
         session,
         PaperArchivingResult(papers=[reused], created_paper_ids=[]),
-        submit_regenerate=lambda paper_id, doi: submitted.append((paper_id, doi)),
+        submit_ingest=lambda paper_id, doi: submitted.append((paper_id, doi)),
     )
 
     assert result.submitted_paper_ids == []

@@ -130,7 +130,7 @@ Search external sources and Paper archiving do not call EFetch.
 
 ## EFetch (source record)
 
-Used only by the [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md) Prefect job `inform_source_record` when `Paper.source_id = pubmed` and `source_record_status` is `not_started` (or when `regenerate_paper` forces a re-fetch).
+Used only by the [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md) Prefect job `inform_source_record` when `Paper.source_id = pubmed` and `source_record_status` is `not_started` (or when `ingest_paper` forces a re-fetch).
 
 Implementation: a **dlt resource** in `paper_reviewer.ingest.pubmed` performs EFetch (one PMID per call in v1), parses XML, and yields a mapped row for the source-record job to write onto `Paper`. This is separate from the ESearch/ESummary search resource. Do not call PMC Cloud from this resource.
 
@@ -170,7 +170,7 @@ Flat `authors: list[str]` is **always refreshed** from `AuthorList` display name
 
 ### Idempotency
 
-Default path: if `source_record_status` is not `not_started`, do not call EFetch. If `full_text_status` is not `not_started`, do not call PMC Cloud. `regenerate_paper` may force both. Behavior contract: [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md).
+Default path: if `source_record_status` is not `not_started`, do not call EFetch. If `full_text_status` is not `not_started`, do not call PMC Cloud. `ingest_paper` may force both. Behavior contract: [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md).
 
 ## PMC Cloud enrichment
 

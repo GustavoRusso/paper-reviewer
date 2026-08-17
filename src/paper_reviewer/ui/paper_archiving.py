@@ -10,7 +10,7 @@ import streamlit as st
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.db import create_db_engine, create_session_factory, session_scope
-from paper_reviewer.flows.serve import REGENERATE_PAPER_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import INGEST_PAPER_DEPLOYMENT_REF
 from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.models.paper_brief import get_paper_brief_by_paper_id
 from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
@@ -29,7 +29,7 @@ from paper_reviewer.schemas.topic_scope.search_external_sources import (
 from paper_reviewer.schemas.topic_scope.topic_intake import TopicStatement
 from paper_reviewer.topic_scope.paper_archiving import (
     archive_papers,
-    enqueue_regenerate_papers,
+    enqueue_ingest_papers,
 )
 from paper_reviewer.ui.external_sources_ingestion import (
     render_external_sources_ingestion_header,
@@ -148,7 +148,7 @@ def prefect_enqueue_error_hint(
     )
 
 
-def may_submit_regenerate_paper(
+def may_submit_ingest_paper(
     source_record_status: PaperAspectStatus,
     full_text_status: PaperAspectStatus,
 ) -> bool:
@@ -226,35 +226,35 @@ def render_regenerate_button(
     *,
     key_prefix: str,
 ) -> None:
-    """Show a secondary Regenerate button that submits regenerate_paper."""
+    """Show a secondary Regenerate button that submits ingest_paper."""
     if st.button(
         REGENERATE_BUTTON_LABEL,
         key=f"{key_prefix}-{paper_id}",
         type="secondary",
     ):
         try:
-            from paper_reviewer.flows.submit import submit_regenerate_paper
+            from paper_reviewer.flows.submit import submit_ingest_paper
 
-            submit_regenerate_paper(paper_id, doi)
+            submit_ingest_paper(paper_id, doi)
         except Exception as exc:
             st.error(
-                "Could not enqueue regenerate paper. "
+                "Could not enqueue ingest paper. "
                 "Check Prefect configuration and try again."
             )
             st.caption(
                 prefect_enqueue_error_hint(
                     os.environ.get("PREFECT_API_URL"),
-                    REGENERATE_PAPER_DEPLOYMENT_REF,
+                    INGEST_PAPER_DEPLOYMENT_REF,
                 )
             )
             st.exception(exc)
 
 
-def _default_submit_regenerate(paper_id: int, doi: str) -> None:
-    """Submit one regenerate_paper job (Prefect wiring in Compose)."""
-    from paper_reviewer.flows.submit import submit_regenerate_paper
+def _default_submit_ingest(paper_id: int, doi: str) -> None:
+    """Submit one ingest_paper job (Prefect wiring in Compose)."""
+    from paper_reviewer.flows.submit import submit_ingest_paper
 
-    submit_regenerate_paper(paper_id, doi)
+    submit_ingest_paper(paper_id, doi)
 
 
 def _paper_ids(archiving: PaperArchivingResult) -> list[int]:
@@ -461,7 +461,7 @@ def _render_progress(
             if assistant:
                 with st.expander("Assistant output"):
                     st.text(assistant)
-        if may_submit_regenerate_paper(
+        if may_submit_ingest_paper(
             row["source_status"],
             row["full_text_status"],
         ):
@@ -482,10 +482,10 @@ def _render_progress(
 
 def _enqueue_ingest(archiving: PaperArchivingResult) -> PaperIngestEnqueueResult:
     with session_scope(_session_factory()) as session:
-        return enqueue_regenerate_papers(
+        return enqueue_ingest_papers(
             session,
             archiving,
-            submit_regenerate=_default_submit_regenerate,
+            submit_ingest=_default_submit_ingest,
         )
 
 
@@ -569,7 +569,7 @@ def render_paper_archiving() -> None:
             st.caption(
                 prefect_enqueue_error_hint(
                     os.environ.get("PREFECT_API_URL"),
-                    REGENERATE_PAPER_DEPLOYMENT_REF,
+                    INGEST_PAPER_DEPLOYMENT_REF,
                 )
             )
             st.exception(exc)

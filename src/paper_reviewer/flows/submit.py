@@ -10,7 +10,7 @@ from paper_reviewer.flows.serve import (
     CREATE_PAPER_BRIEF_DEPLOYMENT_REF,
     CREATE_TOPIC_BRIEF_DEPLOYMENT_REF,
     FULFILL_DEPLOYMENT_REF,
-    REGENERATE_PAPER_DEPLOYMENT_REF,
+    INGEST_PAPER_DEPLOYMENT_REF,
 )
 
 _SUBMIT_MAX_ATTEMPTS = 3
@@ -55,13 +55,13 @@ def submit_create_paper_brief(paper_id: int, doi: str) -> None:
     _run_paper_deployment(CREATE_PAPER_BRIEF_DEPLOYMENT_REF, paper_id, doi)
 
 
-def submit_regenerate_paper(paper_id: int, doi: str) -> None:
-    """Enqueue ``regenerate_paper`` on the served Prefect deployment.
+def submit_ingest_paper(paper_id: int, doi: str) -> None:
+    """Enqueue ``ingest_paper`` on the served Prefect deployment.
 
     The orchestrator always forces. Progress is read from durable ``Paper``
     and ``PaperBrief`` columns, not from the Prefect run handle.
     """
-    _run_paper_deployment(REGENERATE_PAPER_DEPLOYMENT_REF, paper_id, doi)
+    _run_paper_deployment(INGEST_PAPER_DEPLOYMENT_REF, paper_id, doi)
 
 
 def submit_create_topic_brief(topic_scope_id: int) -> None:

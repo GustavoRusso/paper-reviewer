@@ -6,15 +6,15 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     InformFullTextResult,
     InformSourceRecordResult,
     PaperAspectStatus,
-    RegeneratePaperResult,
+    IngestPaperResult,
 )
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
 )
 
 
-def test_regenerate_paper_result_brief_none_when_full_text_not_succeeded() -> None:
-    result = RegeneratePaperResult(
+def test_ingest_paper_result_brief_none_when_full_text_not_succeeded() -> None:
+    result = IngestPaperResult(
         paper_id=10,
         source_record=InformSourceRecordResult(
             paper_id=10,
@@ -33,8 +33,8 @@ def test_regenerate_paper_result_brief_none_when_full_text_not_succeeded() -> No
     assert result.brief is None
 
 
-def test_regenerate_paper_result_includes_brief_when_present() -> None:
-    result = RegeneratePaperResult(
+def test_ingest_paper_result_includes_brief_when_present() -> None:
+    result = IngestPaperResult(
         paper_id=10,
         source_record=InformSourceRecordResult(
             paper_id=10,

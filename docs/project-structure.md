@@ -124,7 +124,7 @@ Aligned with [technology-stack.md](technology-stack.md) boundaries:
 | SQLAlchemy ORM | `paper_reviewer.models.<workflow>` plus global `models.paper` / `models.paper_brief` | Workflow table mappings under the workflow name; global `Paper` / `PaperBrief` at top-level `models`. `models.base` is shared. Thin create/get only. |
 | dlt | `paper_reviewer.ingest` | External-source dlt sources/resources (extract; Postgres load when adopted) |
 | Streamlit | `paper_reviewer.ui` | Presentation and user interaction only. Phase 3 chrome lives in `ui.references_selection` (header/stepper); there is no registered References selection landing page (hub opens `show_references`). |
-| Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `create_topic_brief`, `regenerate_paper` |
+| Prefect | `paper_reviewer.flows` | `inform_source_record`, `inform_full_text`, `fulfill_paper_metadata`, `create_paper_brief`, `create_topic_brief`, `ingest_paper` |
 | DB plumbing | `paper_reviewer.db` | Engine/session helpers; not ORM entities |
 | Alembic | repo-root `alembic/` | DDL versioning against `models` metadata |
 

@@ -22,7 +22,7 @@ def inform_source_record(
 
     ``doi`` is a Prefect parameter for UI/search and the flow run name
     (including subflows); durable work keys off ``paper_id``. ``force`` is for
-    subflow calls from ``regenerate_paper``; served deployments keep the
+    subflow calls from ``ingest_paper``; served deployments keep the
     default skip.
     """
     return _inform_source_record(paper_id, force=force)

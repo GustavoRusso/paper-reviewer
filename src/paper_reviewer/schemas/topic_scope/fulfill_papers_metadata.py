@@ -47,8 +47,8 @@ class FulfillPapersMetadataEnqueueResult(BaseModel):
     skipped_already_terminal: list[int] = Field(default_factory=list)
 
 
-class RegeneratePaperResult(BaseModel):
-    """Result of the force regenerate orchestrator for one Paper.
+class IngestPaperResult(BaseModel):
+    """Result of the ingest_paper orchestrator for one Paper.
 
     ``brief`` is a ``CreatePaperBriefResult`` or ``None``. The nested type lives
     in generate_paper_brief schemas; this field stays untyped here so the two

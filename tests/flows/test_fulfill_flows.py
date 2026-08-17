@@ -7,7 +7,7 @@ import inspect
 from paper_reviewer.flows.fulfill_paper_metadata import fulfill_paper_metadata
 from paper_reviewer.flows.inform_full_text import inform_full_text
 from paper_reviewer.flows.inform_source_record import inform_source_record
-from paper_reviewer.flows.regenerate_paper import regenerate_paper
+from paper_reviewer.flows.ingest_paper import ingest_paper
 
 
 def test_inform_source_record_flow_is_named_for_contract() -> None:
@@ -33,8 +33,8 @@ def test_fulfill_paper_metadata_flow_is_named_for_contract() -> None:
     assert list(params) == ["paper_id", "doi"]
 
 
-def test_regenerate_paper_flow_is_named_for_contract() -> None:
-    assert regenerate_paper.name == "regenerate_paper"
-    assert regenerate_paper.flow_run_name == "{doi}"
-    params = inspect.signature(regenerate_paper).parameters
+def test_ingest_paper_flow_is_named_for_contract() -> None:
+    assert ingest_paper.name == "ingest_paper"
+    assert ingest_paper.flow_run_name == "{doi}"
+    params = inspect.signature(ingest_paper).parameters
     assert list(params) == ["paper_id", "doi"]

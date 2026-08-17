@@ -6,7 +6,7 @@ FULFILL_DEPLOYMENT_NAME = "default"
 FULFILL_DEPLOYMENT_REF = f"fulfill_paper_metadata/{FULFILL_DEPLOYMENT_NAME}"
 CREATE_PAPER_BRIEF_DEPLOYMENT_REF = f"create_paper_brief/{FULFILL_DEPLOYMENT_NAME}"
 CREATE_TOPIC_BRIEF_DEPLOYMENT_REF = f"create_topic_brief/{FULFILL_DEPLOYMENT_NAME}"
-REGENERATE_PAPER_DEPLOYMENT_REF = f"regenerate_paper/{FULFILL_DEPLOYMENT_NAME}"
+INGEST_PAPER_DEPLOYMENT_REF = f"ingest_paper/{FULFILL_DEPLOYMENT_NAME}"
 
 
 if __name__ == "__main__":
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     from paper_reviewer.flows.fulfill_paper_metadata import fulfill_paper_metadata
     from paper_reviewer.flows.inform_full_text import inform_full_text
     from paper_reviewer.flows.inform_source_record import inform_source_record
-    from paper_reviewer.flows.regenerate_paper import regenerate_paper
+    from paper_reviewer.flows.ingest_paper import ingest_paper
 
     serve(
         fulfill_paper_metadata.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
@@ -25,5 +25,5 @@ if __name__ == "__main__":
         inform_full_text.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
         create_paper_brief.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
         create_topic_brief.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
-        regenerate_paper.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
+        ingest_paper.to_deployment(name=FULFILL_DEPLOYMENT_NAME),
     )

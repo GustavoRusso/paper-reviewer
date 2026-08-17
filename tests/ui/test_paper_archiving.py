@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from uuid import uuid4
 
-from paper_reviewer.flows.serve import REGENERATE_PAPER_DEPLOYMENT_REF
+from paper_reviewer.flows.serve import INGEST_PAPER_DEPLOYMENT_REF
 from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
@@ -30,7 +30,7 @@ from paper_reviewer.ui.paper_archiving import (
     format_archived_paper_caption,
     format_brief_progress_caption,
     format_paper_archiving_summary,
-    may_submit_regenerate_paper,
+    may_submit_ingest_paper,
     paper_ingest_row_is_terminal,
     prefect_enqueue_error_hint,
     split_brief_error_message,
@@ -272,44 +272,44 @@ def test_enrichment_links_caption_both() -> None:
     )
 
 
-def test_may_submit_regenerate_when_both_terminal() -> None:
+def test_may_submit_ingest_when_both_terminal() -> None:
     assert (
-        may_submit_regenerate_paper(
+        may_submit_ingest_paper(
             PaperAspectStatus.succeeded,
             PaperAspectStatus.unavailable,
         )
         is True
     )
     assert (
-        may_submit_regenerate_paper(
+        may_submit_ingest_paper(
             PaperAspectStatus.failed,
             PaperAspectStatus.not_started,
         )
         is False
     )
     assert (
-        may_submit_regenerate_paper(
+        may_submit_ingest_paper(
             PaperAspectStatus.succeeded,
             PaperAspectStatus.not_started,
         )
         is False
     )
     assert (
-        may_submit_regenerate_paper(
+        may_submit_ingest_paper(
             PaperAspectStatus.not_started,
             PaperAspectStatus.not_started,
         )
         is False
     )
     assert (
-        may_submit_regenerate_paper(
+        may_submit_ingest_paper(
             PaperAspectStatus.succeeded,
             PaperAspectStatus.succeeded,
         )
         is True
     )
     assert (
-        may_submit_regenerate_paper(
+        may_submit_ingest_paper(
             PaperAspectStatus.failed,
             PaperAspectStatus.failed,
         )
@@ -321,27 +321,27 @@ def test_regenerate_button_label() -> None:
     assert REGENERATE_BUTTON_LABEL == "Regenerate"
 
 
-def test_regenerate_deployment_ref_in_enqueue_hint() -> None:
-    hint = prefect_enqueue_error_hint(None, REGENERATE_PAPER_DEPLOYMENT_REF)
+def test_ingest_deployment_ref_in_enqueue_hint() -> None:
+    hint = prefect_enqueue_error_hint(None, INGEST_PAPER_DEPLOYMENT_REF)
 
-    assert REGENERATE_PAPER_DEPLOYMENT_REF in hint
-    assert REGENERATE_PAPER_DEPLOYMENT_REF == "regenerate_paper/default"
+    assert INGEST_PAPER_DEPLOYMENT_REF in hint
+    assert INGEST_PAPER_DEPLOYMENT_REF == "ingest_paper/default"
 
 
 def test_prefect_enqueue_error_hint_unset_url() -> None:
-    hint = prefect_enqueue_error_hint(None, REGENERATE_PAPER_DEPLOYMENT_REF)
+    hint = prefect_enqueue_error_hint(None, INGEST_PAPER_DEPLOYMENT_REF)
 
     assert "PREFECT_API_URL=(unset)" in hint
-    assert REGENERATE_PAPER_DEPLOYMENT_REF in hint
+    assert INGEST_PAPER_DEPLOYMENT_REF in hint
     assert "prefect-server" not in hint
 
 
 def test_prefect_enqueue_error_hint_uses_configured_url() -> None:
     url = "http://custom-prefect:9999/api"
-    hint = prefect_enqueue_error_hint(url, REGENERATE_PAPER_DEPLOYMENT_REF)
+    hint = prefect_enqueue_error_hint(url, INGEST_PAPER_DEPLOYMENT_REF)
 
     assert f"PREFECT_API_URL={url}" in hint
-    assert REGENERATE_PAPER_DEPLOYMENT_REF in hint
+    assert INGEST_PAPER_DEPLOYMENT_REF in hint
     assert "prefect-server" not in hint
 
 

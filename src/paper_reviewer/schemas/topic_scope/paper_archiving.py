@@ -59,7 +59,7 @@ class PaperArchivingResult(BaseModel):
 
 
 class PaperIngestEnqueueResult(BaseModel):
-    """Selection outcome after enqueue_regenerate_papers."""
+    """Selection outcome after enqueue_ingest_papers."""
 
     submitted_paper_ids: list[int] = Field(default_factory=list)
     skipped_already_existed: list[int] = Field(default_factory=list)

@@ -270,7 +270,7 @@ Quality index shape (artifact fields, storage, and UI) is deferred to the implem
 
 The Topic brief generation page button is **overwrite-on-click**. Each successful click produces a new draft from the **current** briefed Reference set. Safe to click again after a terminal status. No-submit cases: in-flight guard (`status` already `not_started`), and zero briefed References.
 
-This differs from [Generate paper brief](2.2.3-generate-paper-brief.md), which skips when a paper brief is already `succeeded` unless `regenerate_paper` forces a rewrite.
+This differs from [Generate paper brief](2.2.3-generate-paper-brief.md), which skips when a paper brief is already `succeeded` unless `ingest_paper` forces a rewrite.
 
 ## Streamlit UI (v1)
 

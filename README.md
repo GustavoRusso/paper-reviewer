@@ -54,7 +54,7 @@ Landing: [docs/specs/2-external-sources-ingestion.md](docs/specs/2-external-sour
 - **2.2 Paper Ingestion** — For each found paper, the assistant runs this ingest process (group index: [docs/specs/2.2-paper-ingestion.md](docs/specs/2.2-paper-ingestion.md)):
   - **2.2.1 Paper archiving** — Creates a `Paper` or reuses one with the same source handle, then enqueues ingest for new papers and shows progress. Spec: [docs/specs/2.2.1-paper-archiving.md](docs/specs/2.2.1-paper-archiving.md).
   - **2.2.2 Fulfill papers metadata** — Fills the **source record** and then **full text** (for PubMed: EFetch, then PMC Cloud when a body text exists). No dedicated page. Spec: [docs/specs/2.2.2-fulfill-papers-metadata.md](docs/specs/2.2.2-fulfill-papers-metadata.md).
-  - **2.2.3 Generate paper brief** — Creates a **paper brief** (the result artifact), or rewrites one when `regenerate_paper` runs. No dedicated page. Spec: [docs/specs/2.2.3-generate-paper-brief.md](docs/specs/2.2.3-generate-paper-brief.md).
+  - **2.2.3 Generate paper brief** — Creates a **paper brief** (the result artifact), or rewrites one when `ingest_paper` runs. No dedicated page. Spec: [docs/specs/2.2.3-generate-paper-brief.md](docs/specs/2.2.3-generate-paper-brief.md).
   - **2.2.4 Paper brief evaluation** — Scores a succeeded paper brief with an LLM-as-judge. Spec: [docs/specs/2.2.4-paper-brief-evaluation.md](docs/specs/2.2.4-paper-brief-evaluation.md) (docs-only; not implemented).
   - **2.2.5 Paper indexing** — Keeps a local full-text search document on the ingested paper for **Papers search**. Spec: [docs/specs/2.2.5-paper-indexing.md](docs/specs/2.2.5-paper-indexing.md) (no page).
 
