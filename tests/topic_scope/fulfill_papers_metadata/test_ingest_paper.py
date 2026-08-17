@@ -1,4 +1,4 @@
-"""regenerate_paper flow: force source, force full text, then brief when succeeded."""
+"""ingest_paper flow: force source, force full text, then brief when succeeded."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from paper_reviewer.flows.create_paper_brief import create_paper_brief
 from paper_reviewer.flows.inform_full_text import inform_full_text
 from paper_reviewer.flows.inform_source_record import inform_source_record
-from paper_reviewer.flows.regenerate_paper import regenerate_paper
+from paper_reviewer.flows.ingest_paper import ingest_paper
 from paper_reviewer.models.paper import get_paper_by_id
 from paper_reviewer.models.paper_brief import (
     get_paper_brief_by_paper_id,
@@ -31,7 +31,7 @@ from tests.topic_scope.generate_paper_brief.helpers import (
 )
 
 _DOI = "10.1000/EXAMPLE"
-_REGENERATE_MOD = importlib.import_module("paper_reviewer.flows.regenerate_paper")
+_INGEST_MOD = importlib.import_module("paper_reviewer.flows.ingest_paper")
 
 
 def _patch_domain_defaults(
@@ -68,17 +68,17 @@ def _patch_domain_defaults(
         generate_content,
     )
     monkeypatch.setattr(
-        _REGENERATE_MOD,
+        _INGEST_MOD,
         "inform_source_record",
         inform_source_record.fn,
     )
     monkeypatch.setattr(
-        _REGENERATE_MOD,
+        _INGEST_MOD,
         "inform_full_text",
         inform_full_text.fn,
     )
     monkeypatch.setattr(
-        _REGENERATE_MOD,
+        _INGEST_MOD,
         "create_paper_brief",
         create_paper_brief.fn,
     )
@@ -114,7 +114,7 @@ def test_force_unavailable_full_text_hit_rewrites_brief(
         generate_content=lambda *_a, **_k: sample_brief_content(summary="New summary."),
     )
 
-    result = regenerate_paper.fn(paper_id, _DOI)
+    result = ingest_paper.fn(paper_id, _DOI)
 
     assert result.paper_id == paper_id
     assert result.source_record.status is PaperAspectStatus.succeeded
@@ -165,7 +165,7 @@ def test_force_full_text_still_unavailable_skips_brief(
         or sample_brief_content(),
     )
 
-    result = regenerate_paper.fn(paper_id, _DOI)
+    result = ingest_paper.fn(paper_id, _DOI)
 
     assert result.full_text.status is PaperAspectStatus.unavailable
     assert result.brief is None
