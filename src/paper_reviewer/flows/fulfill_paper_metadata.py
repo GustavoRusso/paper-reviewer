@@ -1,4 +1,4 @@
-"""Prefect flow: page-6 orchestrator for one Paper."""
+"""Prefect flow: default-skip orchestrator for one Paper."""
 
 from __future__ import annotations
 

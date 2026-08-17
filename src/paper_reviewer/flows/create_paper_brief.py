@@ -21,6 +21,6 @@ def create_paper_brief(
     """Idempotent Prefect entrypoint: draft one PaperBrief.
 
     ``doi`` is a Prefect parameter for UI/search (and submit-time run names);
-    durable work keys off ``paper_id``. Page 7 does not pass ``force``.
+    durable work keys off ``paper_id``. Standalone runs do not pass ``force``.
     """
     return _create_paper_brief(paper_id, force=force)

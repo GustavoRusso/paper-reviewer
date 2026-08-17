@@ -211,6 +211,16 @@ def test_aspect_status_label_unavailable() -> None:
     )
 
 
+def test_aspect_status_label_unavailable_is_not_skipped() -> None:
+    assert (
+        aspect_status_label(
+            status=PaperAspectStatus.unavailable,
+            skipped_already_succeeded=True,
+        )
+        == "Unavailable"
+    )
+
+
 def test_aspect_status_label_fulfilling() -> None:
     assert (
         aspect_status_label(
@@ -237,6 +247,31 @@ def test_enrichment_links_caption_pmc_only() -> None:
     )
 
 
+def test_enrichment_links_caption_pdf_only() -> None:
+    caption = enrichment_links_caption(
+        None,
+        "https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf",
+    )
+
+    assert caption == (
+        "[Open access PDF]"
+        "(https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf)"
+    )
+
+
+def test_enrichment_links_caption_both() -> None:
+    caption = enrichment_links_caption(
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/",
+        "https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf",
+    )
+
+    assert caption == (
+        "[PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC5334499/) · "
+        "[Open access PDF]"
+        "(https://pmc-oa-opendata.s3.amazonaws.com/oa_pdf/PMC5334499.2.pdf)"
+    )
+
+
 def test_may_submit_regenerate_when_both_terminal() -> None:
     assert (
         may_submit_regenerate_paper(
@@ -252,6 +287,34 @@ def test_may_submit_regenerate_when_both_terminal() -> None:
         )
         is False
     )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.not_started,
+            PaperAspectStatus.not_started,
+        )
+        is False
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.succeeded,
+            PaperAspectStatus.succeeded,
+        )
+        is True
+    )
+    assert (
+        may_submit_regenerate_paper(
+            PaperAspectStatus.failed,
+            PaperAspectStatus.failed,
+        )
+        is True
+    )
 
 
 def test_regenerate_button_label() -> None:
@@ -265,6 +328,23 @@ def test_regenerate_deployment_ref_in_enqueue_hint() -> None:
     assert REGENERATE_PAPER_DEPLOYMENT_REF == "regenerate_paper/default"
 
 
+def test_prefect_enqueue_error_hint_unset_url() -> None:
+    hint = prefect_enqueue_error_hint(None, REGENERATE_PAPER_DEPLOYMENT_REF)
+
+    assert "PREFECT_API_URL=(unset)" in hint
+    assert REGENERATE_PAPER_DEPLOYMENT_REF in hint
+    assert "prefect-server" not in hint
+
+
+def test_prefect_enqueue_error_hint_uses_configured_url() -> None:
+    url = "http://custom-prefect:9999/api"
+    hint = prefect_enqueue_error_hint(url, REGENERATE_PAPER_DEPLOYMENT_REF)
+
+    assert f"PREFECT_API_URL={url}" in hint
+    assert REGENERATE_PAPER_DEPLOYMENT_REF in hint
+    assert "prefect-server" not in hint
+
+
 def test_brief_progress_label_blocked_unavailable() -> None:
     assert (
         brief_progress_label(
@@ -276,6 +356,28 @@ def test_brief_progress_label_blocked_unavailable() -> None:
     )
 
 
+def test_brief_progress_label_blocked_failed() -> None:
+    assert (
+        brief_progress_label(
+            full_text_status=PaperAspectStatus.failed,
+            brief_status=None,
+            skipped_already_succeeded=False,
+        )
+        == "Blocked (no full text)"
+    )
+
+
+def test_brief_progress_label_fulfilling_when_full_text_not_started() -> None:
+    assert (
+        brief_progress_label(
+            full_text_status=PaperAspectStatus.not_started,
+            brief_status=None,
+            skipped_already_succeeded=False,
+        )
+        == "Fulfilling"
+    )
+
+
 def test_brief_progress_label_fulfilling_no_row() -> None:
     assert (
         brief_progress_label(
@@ -284,6 +386,39 @@ def test_brief_progress_label_fulfilling_no_row() -> None:
             skipped_already_succeeded=False,
         )
         == "Fulfilling"
+    )
+
+
+def test_brief_progress_label_fulfilling_not_started() -> None:
+    assert (
+        brief_progress_label(
+            full_text_status=PaperAspectStatus.succeeded,
+            brief_status=PaperAspectStatus.not_started,
+            skipped_already_succeeded=False,
+        )
+        == "Fulfilling"
+    )
+
+
+def test_brief_progress_label_succeeded() -> None:
+    assert (
+        brief_progress_label(
+            full_text_status=PaperAspectStatus.succeeded,
+            brief_status=PaperAspectStatus.succeeded,
+            skipped_already_succeeded=False,
+        )
+        == "Succeeded"
+    )
+
+
+def test_brief_progress_label_failed() -> None:
+    assert (
+        brief_progress_label(
+            full_text_status=PaperAspectStatus.succeeded,
+            brief_status=PaperAspectStatus.failed,
+            skipped_already_succeeded=False,
+        )
+        == "Failed"
     )
 
 
@@ -312,6 +447,15 @@ def test_split_brief_error_message_separates_validation_and_assistant() -> None:
     assert "validation error" in caption.lower()
     assert raw not in caption
     assert assistant == raw
+
+
+def test_split_brief_error_message_without_assistant_dump() -> None:
+    stored = "OPENAI_API_KEY is not set"
+
+    caption, assistant = split_brief_error_message(stored)
+
+    assert caption == stored
+    assert assistant is None
 
 
 def test_format_brief_progress_caption_omits_assistant_dump() -> None:
