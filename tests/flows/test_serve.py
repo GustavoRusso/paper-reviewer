@@ -13,6 +13,7 @@ _OTHER_FLOW_NAMES = (
     "inform_full_text",
     "create_paper_brief",
     "create_topic_brief",
+    "evaluate_paper_brief",
 )
 
 

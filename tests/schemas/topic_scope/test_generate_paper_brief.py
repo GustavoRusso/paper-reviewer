@@ -15,6 +15,7 @@ from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefLlmResult,
 )
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    template_field_contract,
     template_field_ids,
 )
 
@@ -73,6 +74,15 @@ def test_paper_brief_llm_result_carries_content_and_usage() -> None:
 
 def test_paper_brief_content_fields_match_template_front_matter() -> None:
     assert list(PaperBriefContent.model_fields) == template_field_ids()
+
+
+def test_paper_brief_content_required_flags_match_template_front_matter() -> None:
+    contract = template_field_contract()
+    assert [field_id for field_id, _required in contract] == list(
+        PaperBriefContent.model_fields
+    )
+    for field_id, required in contract:
+        assert PaperBriefContent.model_fields[field_id].is_required() is required
 
 
 def test_create_paper_brief_result() -> None:

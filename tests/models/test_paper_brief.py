@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
+from decimal import Decimal
 
 import pytest
 from sqlalchemy import create_engine
@@ -21,6 +22,9 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 )
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
+)
+from paper_reviewer.schemas.topic_scope.paper_brief_evaluation import (
+    PaperBriefEvaluation,
 )
 
 
@@ -71,6 +75,10 @@ def test_create_paper_brief_defaults_not_started(session: Session) -> None:
     assert brief.prompt_tokens is None
     assert brief.completion_tokens is None
     assert brief.total_tokens is None
+    assert brief.evaluation_status is PaperAspectStatus.not_started
+    assert brief.evaluation is None
+    assert brief.evaluation_score is None
+    assert brief.evaluation_error_message is None
     assert brief.created_at is not None
 
 
@@ -115,6 +123,33 @@ def test_content_round_trip(session: Session) -> None:
     assert loaded.summary == "Takeaway."
     assert loaded.limitations == "Small sample."
     assert "relevance_to_topic" not in found.content
+
+
+def test_evaluation_columns_round_trip(session: Session) -> None:
+    paper_id = _paper(session, uid="3", doi="10.1000/C")
+    brief = create_paper_brief_row(session, paper_id=paper_id)
+    payload = PaperBriefEvaluation.model_validate(
+        {
+            "faithfulness": {"reasoning": "Supported.", "score": 5},
+            "completeness": {"reasoning": "Required fields filled.", "score": 4},
+            "conciseness": {"reasoning": "Short.", "score": 4},
+            "topic_agnostic": {"reasoning": "About the article.", "score": 4},
+        }
+    )
+    brief.evaluation = payload.model_dump(mode="json")
+    brief.evaluation_score = Decimal("4.25")
+    brief.evaluation_status = PaperAspectStatus.succeeded
+    session.flush()
+
+    found = get_paper_brief_by_paper_id(session, paper_id)
+    assert found is not None
+    assert found.evaluation_status is PaperAspectStatus.succeeded
+    assert found.evaluation is not None
+    loaded = PaperBriefEvaluation.model_validate(found.evaluation)
+    assert loaded.faithfulness.score == 5
+    assert "evaluation_score" not in found.evaluation
+    assert found.evaluation_score == Decimal("4.25")
+    assert found.evaluation_error_message is None
 
 
 def test_usage_integers_round_trip(session: Session) -> None:

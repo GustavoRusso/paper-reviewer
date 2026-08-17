@@ -163,6 +163,12 @@ def test_generate_paper_brief_page_is_not_registered() -> None:
     assert "generate_paper_brief" not in pages
 
 
+def test_paper_brief_evaluation_page_is_not_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "paper_brief_evaluation" not in pages
+
+
 def test_workflow_page_order() -> None:
     keys = [page.key for page in build_app_pages()]
 

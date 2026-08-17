@@ -9,6 +9,7 @@ from prefect.deployments import run_deployment
 from paper_reviewer.flows.serve import (
     CREATE_PAPER_BRIEF_DEPLOYMENT_REF,
     CREATE_TOPIC_BRIEF_DEPLOYMENT_REF,
+    EVALUATE_PAPER_BRIEF_DEPLOYMENT_REF,
     FULFILL_DEPLOYMENT_REF,
     INGEST_PAPER_DEPLOYMENT_REF,
 )
@@ -53,6 +54,15 @@ def submit_create_paper_brief(paper_id: int, doi: str) -> None:
     columns, not from the Prefect run handle.
     """
     _run_paper_deployment(CREATE_PAPER_BRIEF_DEPLOYMENT_REF, paper_id, doi)
+
+
+def submit_evaluate_paper_brief(paper_id: int, doi: str) -> None:
+    """Enqueue ``evaluate_paper_brief`` on the served Prefect deployment.
+
+    Does not pass ``force``. Progress is read from durable ``PaperBrief``
+    evaluation columns, not from the Prefect run handle.
+    """
+    _run_paper_deployment(EVALUATE_PAPER_BRIEF_DEPLOYMENT_REF, paper_id, doi)
 
 
 def submit_ingest_paper(paper_id: int, doi: str) -> None:

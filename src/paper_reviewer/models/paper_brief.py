@@ -4,12 +4,15 @@ from __future__ import annotations
 
 from datetime import datetime
 
+from decimal import Decimal
+
 from sqlalchemy import (
     BigInteger,
     DateTime,
     ForeignKey,
     Integer,
     JSON,
+    Numeric,
     Text,
     func,
     select,
@@ -65,6 +68,21 @@ class PaperBrief(Base):
     prompt_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
     completion_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
     total_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    evaluation_status: Mapped[PaperAspectStatus] = mapped_column(
+        _ASPECT_STATUS,
+        nullable=False,
+        default=PaperAspectStatus.not_started,
+        server_default="not_started",
+    )
+    evaluation: Mapped[dict | None] = mapped_column(
+        JSON().with_variant(JSONB(), "postgresql"),
+        nullable=True,
+    )
+    evaluation_score: Mapped[Decimal | None] = mapped_column(
+        Numeric(3, 2),
+        nullable=True,
+    )
+    evaluation_error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
     paper: Mapped["Paper"] = relationship(  # noqa: F821
         "Paper",
         back_populates="paper_brief",

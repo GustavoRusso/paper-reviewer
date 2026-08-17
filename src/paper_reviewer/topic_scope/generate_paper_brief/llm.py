@@ -140,20 +140,30 @@ def load_paper_brief_template() -> str:
     return _TEMPLATE_PATH.read_text(encoding="utf-8")
 
 
-def template_field_ids() -> list[str]:
-    """Return JSON field ids from the template YAML front matter, in order."""
+def template_field_contract() -> list[tuple[str, bool]]:
+    """Return (id, required) pairs from the template YAML front matter, in order."""
     template = load_paper_brief_template()
     if not template.startswith("---"):
         raise ValueError("paper_brief_template.md is missing YAML front matter")
     end = template.find("\n---", 3)
     if end < 0:
         raise ValueError("paper_brief_template.md front matter is not closed")
-    ids: list[str] = []
+    fields: list[tuple[str, bool]] = []
+    current_id: str | None = None
     for line in template[3:end].splitlines():
         stripped = line.strip()
         if stripped.startswith("- id:"):
-            ids.append(stripped.split(":", 1)[1].strip())
-    return ids
+            current_id = stripped.split(":", 1)[1].strip()
+        elif stripped.startswith("required:") and current_id is not None:
+            required = stripped.split(":", 1)[1].strip() == "true"
+            fields.append((current_id, required))
+            current_id = None
+    return fields
+
+
+def template_field_ids() -> list[str]:
+    """Return JSON field ids from the template YAML front matter, in order."""
+    return [field_id for field_id, _required in template_field_contract()]
 
 
 def build_brief_user_message(
