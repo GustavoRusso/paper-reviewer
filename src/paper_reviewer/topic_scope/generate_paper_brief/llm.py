@@ -404,7 +404,7 @@ def _usage_int(usage_json: dict[str, object], key: str) -> int | None:
     return value
 
 
-def _usage_integers(
+def usage_integers(
     usage: object | None,
 ) -> tuple[int | None, int | None, int | None]:
     if usage is None:
@@ -488,7 +488,7 @@ def generate_paper_brief_content(
         raise ValueError(
             f"{str(exc).rstrip()}\n\n{_ASSISTANT_OUTPUT_HEADING}\n{dump}"
         ) from exc
-    prompt_tokens, completion_tokens, total_tokens = _usage_integers(usage)
+    prompt_tokens, completion_tokens, total_tokens = usage_integers(usage)
     return PaperBriefLlmResult(
         content=parsed,
         prompt_tokens=prompt_tokens,

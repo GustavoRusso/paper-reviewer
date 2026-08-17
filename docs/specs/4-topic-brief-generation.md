@@ -119,8 +119,8 @@ enqueue_create_topic_brief(topic_scope_id) -> CreateTopicBriefEnqueueResult
 
 | Entrypoint | Role |
 | --- | --- |
-| `create_topic_brief` | Load Topic scope, facets, and briefed References. If none, do not call the LLM; set `failed` + error. Otherwise call LLM with the topic brief template. On successful `TopicBriefContent` parse, always store `content` and set `succeeded` (v1 does not gate on citation quality). The Streamlit page always submits with overwrite semantics (`force=true`): rewrite even when a succeeded brief already exists. |
-| `enqueue_create_topic_brief` | UI helper: if zero briefed References, do **not** submit (`skipped_no_briefed=true`). If a `TopicBrief` row exists and `status` is already `not_started` (job in flight), do **not** submit a second Prefect run. Otherwise create or reset the row to `not_started`, clear `error_message`, keep previous `content` until a new draft succeeds, and submit `create_topic_brief`. |
+| `create_topic_brief` | Load Topic scope, facets, and briefed References. If none, do not call the LLM; set `failed` + error. Otherwise call LLM with the topic brief template. On successful `TopicBriefContent` parse, always store `content` and the three last-run usage integers from that call, then set `succeeded` (v1 does not gate on citation quality). The Streamlit page always submits with overwrite semantics (`force=true`): rewrite even when a succeeded brief already exists. |
+| `enqueue_create_topic_brief` | UI helper: if zero briefed References, do **not** submit (`skipped_no_briefed=true`). If a `TopicBrief` row exists and `status` is already `not_started` (job in flight), do **not** submit a second Prefect run. Otherwise create or reset the row to `not_started`, clear `error_message`, keep previous `content` and the three usage columns until a new draft succeeds, and submit `create_topic_brief`. |
 
 | Rule | Behavior |
 | --- | --- |
@@ -185,6 +185,11 @@ CreateTopicBriefEnqueueResult(submitted=False, skipped_in_flight=False, skipped_
 | `status` | Yes | `PaperAspectStatus`. Default `not_started`. |
 | `error_message` | No | Set when `status=failed`. Cleared on enqueue and on `succeeded`. On `TopicBriefContent` parse failure, include the validation or extract error plus the raw assistant text (capped at 8000 characters) after an `Assistant output:` marker. |
 | `content` | No until succeeded | Structured brief payload (JSONB / typed sections). On regenerate enqueue, keep previous `content` until the new draft succeeds. On failed rewrite, leave last good `content` for display. After a successful parse, always store the new `content` (v1). |
+| `prompt_tokens` | No | Last OpenAI `usage.prompt_tokens`. Null when usage is absent or the key is missing. |
+| `completion_tokens` | No | Last OpenAI `usage.completion_tokens`. Null when usage is absent or the key is missing. |
+| `total_tokens` | No | Last OpenAI `usage.total_tokens`. Null when usage is absent or the key is missing. |
+
+These three usage columns are **not** LLM content fields. They are not on `TopicBriefContent` and not on `CreateTopicBriefResult`. Nested usage objects (`prompt_tokens_details`, `completion_tokens_details`) stay out of the model. Do **not** map alternate keys (`input_tokens`, `output_tokens`). A missing `usage` object or a missing key stores `null` for that column and does not fail the job. A later regenerate **overwrites** the three columns with the new successful run; do not accumulate. On enqueue, zero-briefed, and failed rewrite, keep previous usage (same as `content`). A no-op `force=false` skip does not change the three columns. Do **not** show them on Topic brief generation.
 
 `TopicScope` navigates to this row (1:1). Do **not** copy brief status onto `TopicScope` columns.
 
@@ -217,9 +222,9 @@ Prefer this durable status so the UI can poll the database without Prefect as th
 
 **Owner of section list and prompt text:** [`topic_brief_template.md`](../../src/paper_reviewer/topic_scope/topic_brief_generation/topic_brief_template.md) in `paper_reviewer.topic_scope.topic_brief_generation`. YAML front matter lists JSON field ids and required flags. The Markdown body is the LLM system prompt. Do not copy that outline into this spec, AGENTS.md, or a skill.
 
-`create_topic_brief` loads that file as the system prompt. The user message supplies the topic statement, topic facets, and each briefed Reference (succeeded paper-brief content plus app `citation_description`). The job sends OpenAI structured `json_schema` and then validates the assistant text as `TopicBriefContent` (field ids must match the template front matter). Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. When parse still fails, persist the validation or extract error and the raw assistant text (capped at 8000 characters) on `error_message` so the operator can diagnose illegal JSON.
+`create_topic_brief` loads that file as the system prompt. The user message supplies the topic statement, topic facets, and each briefed Reference (succeeded paper-brief content plus app `citation_description`). The job sends OpenAI structured `json_schema` and then validates the assistant text as `TopicBriefContent` (field ids must match the template front matter). When the job writes a **succeeded** brief, it also copies `prompt_tokens`, `completion_tokens`, and `total_tokens` from that OpenAI `usage` object onto the `TopicBrief` row. Nested usage objects stay out of the model. Do **not** map `input_tokens` or `output_tokens`. A missing `usage` object or a missing key stores `null` for that column and does not fail the job. Local compatible gateways may ignore the schema, wrap JSON in Markdown, leak ANSI, or insert line-wrap newlines inside strings; the client strips those, extracts a JSON object, and ignores extra keys. When parse still fails, persist the validation or extract error and the raw assistant text (capped at 8000 characters) on `error_message` so the operator can diagnose illegal JSON.
 
-On successful parse, **always store** `content` and set `succeeded`. v1 does **not** run citation-quality checks before that write.
+On successful parse, **always store** `content` and the three usage integers from that call, then set `succeeded`. v1 does **not** run citation-quality checks before that write.
 
 Do **not** store a topic-agnostic paper summary here. Paper briefs stay on `PaperBrief` ([Generate paper brief](2.2.3-generate-paper-brief.md)).
 
@@ -255,10 +260,11 @@ Quality index shape (artifact fields, storage, and UI) is deferred to the implem
 
 | Case | Expected |
 | --- | --- |
-| Zero briefed References | Do not call the LLM. Set `failed` + error that generation needs at least one briefed Reference. Keep prior `content` when present. |
-| Row missing and ≥1 briefed Reference | Create row; run LLM; on parse success store `content`; set `succeeded`; clear error. |
-| `force` is true (page always) and row exists, ≥1 briefed Reference | Rewrite: run LLM even if status was `succeeded` or `failed`; then `succeeded` or `failed` from this attempt. Keep prior `content` until a successful write. |
-| LLM / parse / DB error | Set `failed` + `error_message`. On `TopicBriefContent` parse failure, `error_message` includes the validation or extract error and the capped assistant text. Other failures (timeout, missing key) do not dump assistant text. |
+| Zero briefed References | Do not call the LLM. Set `failed` + error that generation needs at least one briefed Reference. Keep prior `content` and the three usage columns when present. |
+| Row missing and ≥1 briefed Reference | Create row; run LLM; on parse success store `content` and the three usage integers from that call; set `succeeded`; clear error. |
+| `force` is true (page always) and row exists, ≥1 briefed Reference | Rewrite: run LLM even if status was `succeeded` or `failed`; then `succeeded` or `failed` from this attempt. Keep prior `content` and the three usage columns until a successful write. A successful write **overwrites** the three usage columns with that run. |
+| `force` is false and `TopicBrief.status` is `succeeded` | No-op success. Do not change `content` or the three usage columns. |
+| LLM / parse / DB error | Set `failed` + `error_message`. Keep prior `content` and the three usage columns when present. On `TopicBriefContent` parse failure, `error_message` includes the validation or extract error and the capped assistant text. Other failures (timeout, missing key) do not dump assistant text. |
 
 ### Overwrite policy
 
@@ -317,6 +323,8 @@ Show stored fields without copying the template outline into UI copy:
 - `key_points` as a list
 - `citations` as a numbered list (`n`, `text`; DOI as a content link when useful) — this is the clear list of papers cited in the brief
 
+Do **not** show `prompt_tokens`, `completion_tokens`, or `total_tokens`.
+
 ### Progress display
 
 | Durable signal | Display |
@@ -355,20 +363,22 @@ The LLM is an **external** boundary: inject or stub the content generator. Do no
 
 **`create_topic_brief`:**
 
-- No row, ≥1 briefed Reference → LLM called; `content` has required template fields; status `succeeded`.
-- Succeeded row exists, page enqueue (force), ≥1 briefed → rewrites content from current briefed References.
+- No row, ≥1 briefed Reference → LLM called; `content` has required template fields; status `succeeded`; `prompt_tokens`, `completion_tokens`, and `total_tokens` stored from that call.
+- Succeeded row exists, page enqueue (force), ≥1 briefed → rewrites content and **overwrites** the three usage columns from the new run.
 - Only briefed References appear in the user message; ordered by `pub_date` desc (nulls last); each includes `citation_description`.
-- Zero briefed References → no LLM; status `failed` with message; prior `content` retained when present.
+- Zero briefed References → no LLM; status `failed` with message; prior `content` and usage columns retained when present.
 - `TopicBriefContent` field names match the template YAML front matter (fail if they drift).
-- LLM failure → status `failed` with message; prior `content` retained when present.
+- LLM failure → status `failed` with message; prior `content` and usage columns retained when present.
 - `TopicBriefContent` parse failure → `error_message` includes the pydantic/JSON error and the raw assistant text (capped). Other LLM failures do not dump assistant text.
+- Missing OpenAI `usage` on an otherwise successful call → does not fail; the three usage columns are `null`.
+- `force` false and succeeded row → no LLM; success; usage columns unchanged.
 - Do **not** require citation-quality index behavior in v1 tests.
 
 **Enqueue:**
 
 - Zero briefed → `submitted=false`, `skipped_no_briefed=true`.
 - `status` already `not_started` → `submitted=false`, `skipped_in_flight=true`.
-- Terminal or missing row, ≥1 briefed → submit; set `not_started`; clear error; keep prior content.
+- Terminal or missing row, ≥1 briefed → submit; set `not_started`; clear error; keep prior content and usage columns.
 
 **UI slice** (no Streamlit widget assertions per [tdd.md](../tdd.md)):
 

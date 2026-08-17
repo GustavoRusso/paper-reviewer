@@ -55,6 +55,9 @@ def test_create_topic_brief_defaults_not_started(session: Session) -> None:
     assert brief.status is PaperAspectStatus.not_started
     assert brief.error_message is None
     assert brief.content is None
+    assert brief.prompt_tokens is None
+    assert brief.completion_tokens is None
+    assert brief.total_tokens is None
     assert brief.created_at is not None
 
 
@@ -104,3 +107,19 @@ def test_content_round_trip(session: Session) -> None:
     loaded = TopicBriefContent.model_validate(found.content)
     assert loaded.title.startswith("Example")
     assert loaded.citations[0].doi == "10.1000/A"
+
+
+def test_usage_integers_round_trip(session: Session) -> None:
+    topic_scope = create_topic_scope(session, "statement")
+    session.flush()
+    brief = create_topic_brief_row(session, topic_scope_id=topic_scope.id)
+    brief.prompt_tokens = 21
+    brief.completion_tokens = 8
+    brief.total_tokens = 29
+    session.flush()
+
+    found = get_topic_brief_by_topic_scope_id(session, topic_scope.id)
+    assert found is not None
+    assert found.prompt_tokens == 21
+    assert found.completion_tokens == 8
+    assert found.total_tokens == 29

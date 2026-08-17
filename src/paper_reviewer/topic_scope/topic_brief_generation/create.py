@@ -21,13 +21,14 @@ from paper_reviewer.schemas.topic_scope.topic_analysis import TopicFacet
 from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     CreateTopicBriefResult,
     TopicBriefContent,
+    TopicBriefLlmResult,
 )
 from paper_reviewer.topic_scope.topic_brief_generation.briefed import (
     BriefedReference,
     list_briefed_references,
 )
 
-GenerateTopicBriefContent = Callable[..., TopicBriefContent]
+GenerateTopicBriefContent = Callable[..., TopicBriefContent | TopicBriefLlmResult]
 
 ZERO_BRIEFED_ERROR = (
     "Generation needs at least one Reference with a succeeded paper brief."
@@ -43,7 +44,7 @@ def _default_generate_content(
     topic_statement: str,
     facets: list[TopicFacet],
     briefed_references: list[BriefedReference],
-) -> TopicBriefContent:
+) -> TopicBriefLlmResult:
     from paper_reviewer.topic_scope.topic_brief_generation.llm import (
         generate_topic_brief_content,
     )
@@ -142,16 +143,29 @@ def create_topic_brief(
             return _result(topic_scope_id, brief)
         facets = _facets_for_scope(session, topic_scope_id)
         try:
-            content = generate(
+            generated = generate(
                 topic_statement=topic_scope.topic_statement,
                 facets=facets,
                 briefed_references=briefed,
             )
         except Exception as exc:
             return _mark_failed(session, topic_scope_id, brief, str(exc))
+        if isinstance(generated, TopicBriefLlmResult):
+            content = generated.content
+            prompt_tokens = generated.prompt_tokens
+            completion_tokens = generated.completion_tokens
+            total_tokens = generated.total_tokens
+        else:
+            content = generated
+            prompt_tokens = None
+            completion_tokens = None
+            total_tokens = None
         if brief is None:
             brief = create_topic_brief_row(session, topic_scope_id=topic_scope_id)
         brief.content = content.model_dump(mode="json")
+        brief.prompt_tokens = prompt_tokens
+        brief.completion_tokens = completion_tokens
+        brief.total_tokens = total_tokens
         brief.status = PaperAspectStatus.succeeded
         brief.error_message = None
         session.commit()

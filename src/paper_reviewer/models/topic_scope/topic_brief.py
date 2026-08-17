@@ -68,6 +68,9 @@ class TopicBrief(Base):
         JSON().with_variant(JSONB(), "postgresql"),
         nullable=True,
     )
+    prompt_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    completion_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    total_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
     topic_scope: Mapped["TopicScope"] = relationship(  # noqa: F821
         "TopicScope",
         back_populates="topic_brief",

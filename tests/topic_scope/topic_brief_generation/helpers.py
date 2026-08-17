@@ -15,6 +15,7 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 )
 from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     TopicBriefContent,
+    TopicBriefLlmResult,
 )
 
 
@@ -36,6 +37,21 @@ def sample_topic_brief_content(**overrides: object) -> TopicBriefContent:
     }
     data.update(overrides)
     return TopicBriefContent.model_validate(data)
+
+
+def sample_llm_result(
+    content: TopicBriefContent | None = None,
+    *,
+    prompt_tokens: int | None = None,
+    completion_tokens: int | None = None,
+    total_tokens: int | None = None,
+) -> TopicBriefLlmResult:
+    return TopicBriefLlmResult(
+        content=content if content is not None else sample_topic_brief_content(),
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+        total_tokens=total_tokens,
+    )
 
 
 def create_test_scope(

@@ -89,6 +89,9 @@ def test_enqueue_submits_and_resets_row_keeping_content(
         row.content = sample_topic_brief_content(title="Keep me").model_dump(
             mode="json"
         )
+        row.prompt_tokens = 11
+        row.completion_tokens = 7
+        row.total_tokens = 18
         session.commit()
     finally:
         session.close()
@@ -117,6 +120,9 @@ def test_enqueue_submits_and_resets_row_keeping_content(
         assert brief.error_message is None
         assert brief.content is not None
         assert brief.content["title"] == "Keep me"
+        assert brief.prompt_tokens == 11
+        assert brief.completion_tokens == 7
+        assert brief.total_tokens == 18
     finally:
         session.close()
 

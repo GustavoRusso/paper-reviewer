@@ -17,6 +17,7 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 from paper_reviewer.schemas.topic_scope.topic_analysis import TopicFacet as TopicFacetSchema
 from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     TopicBriefContent,
+    TopicBriefLlmResult,
 )
 from paper_reviewer.topic_scope.topic_brief_generation import create_topic_brief
 from paper_reviewer.topic_scope.topic_brief_generation.briefed import (
@@ -28,6 +29,7 @@ from paper_reviewer.topic_scope.topic_brief_generation.create import (
 from tests.topic_scope.topic_brief_generation.helpers import (
     add_briefed_reference,
     create_test_scope,
+    sample_llm_result,
     sample_topic_brief_content,
 )
 
@@ -44,9 +46,14 @@ def test_creates_succeeded_when_briefed_and_no_row(
         topic_statement: str,
         facets: object,
         briefed_references: object,
-    ) -> TopicBriefContent:
+    ) -> TopicBriefLlmResult:
         calls.append(topic_statement)
-        return sample_topic_brief_content(title="Drafted title for this topic")
+        return sample_llm_result(
+            sample_topic_brief_content(title="Drafted title for this topic"),
+            prompt_tokens=21,
+            completion_tokens=8,
+            total_tokens=29,
+        )
 
     result = create_topic_brief(
         topic_scope_id,
@@ -64,6 +71,9 @@ def test_creates_succeeded_when_briefed_and_no_row(
         assert brief is not None
         assert brief.content is not None
         assert brief.content["title"] == "Drafted title for this topic"
+        assert brief.prompt_tokens == 21
+        assert brief.completion_tokens == 8
+        assert brief.total_tokens == 29
     finally:
         session.close()
 
@@ -80,6 +90,9 @@ def test_force_rewrites_succeeded_content(
         row.content = sample_topic_brief_content(title="Old title").model_dump(
             mode="json"
         )
+        row.prompt_tokens = 11
+        row.completion_tokens = 7
+        row.total_tokens = 18
         session.commit()
     finally:
         session.close()
@@ -88,8 +101,11 @@ def test_force_rewrites_succeeded_content(
         topic_scope_id,
         force=True,
         session_factory=session_factory,
-        generate_content=lambda **_k: sample_topic_brief_content(
-            title="New title after rewrite"
+        generate_content=lambda **_k: sample_llm_result(
+            sample_topic_brief_content(title="New title after rewrite"),
+            prompt_tokens=40,
+            completion_tokens=12,
+            total_tokens=52,
         ),
     )
 
@@ -100,6 +116,9 @@ def test_force_rewrites_succeeded_content(
         assert brief is not None
         assert brief.content is not None
         assert brief.content["title"] == "New title after rewrite"
+        assert brief.prompt_tokens == 40
+        assert brief.completion_tokens == 12
+        assert brief.total_tokens == 52
     finally:
         session.close()
 
@@ -116,6 +135,9 @@ def test_force_false_skips_when_succeeded(
         row.content = sample_topic_brief_content(title="Keep me").model_dump(
             mode="json"
         )
+        row.prompt_tokens = 11
+        row.completion_tokens = 7
+        row.total_tokens = 18
         session.commit()
     finally:
         session.close()
@@ -132,6 +154,18 @@ def test_force_false_skips_when_succeeded(
     assert result.status is PaperAspectStatus.succeeded
     assert calls == []
 
+    session = session_factory()
+    try:
+        brief = get_topic_brief_by_topic_scope_id(session, topic_scope_id)
+        assert brief is not None
+        assert brief.content is not None
+        assert brief.content["title"] == "Keep me"
+        assert brief.prompt_tokens == 11
+        assert brief.completion_tokens == 7
+        assert brief.total_tokens == 18
+    finally:
+        session.close()
+
 
 def test_zero_briefed_fails_without_llm_and_keeps_prior_content(
     session_factory: sessionmaker[Session],
@@ -144,6 +178,9 @@ def test_zero_briefed_fails_without_llm_and_keeps_prior_content(
         row.content = sample_topic_brief_content(title="Prior good").model_dump(
             mode="json"
         )
+        row.prompt_tokens = 11
+        row.completion_tokens = 7
+        row.total_tokens = 18
         session.commit()
     finally:
         session.close()
@@ -166,6 +203,9 @@ def test_zero_briefed_fails_without_llm_and_keeps_prior_content(
         assert brief is not None
         assert brief.content is not None
         assert brief.content["title"] == "Prior good"
+        assert brief.prompt_tokens == 11
+        assert brief.completion_tokens == 7
+        assert brief.total_tokens == 18
     finally:
         session.close()
 
@@ -182,6 +222,9 @@ def test_llm_failure_keeps_prior_content(
         row.content = sample_topic_brief_content(title="Prior good").model_dump(
             mode="json"
         )
+        row.prompt_tokens = 11
+        row.completion_tokens = 7
+        row.total_tokens = 18
         session.commit()
     finally:
         session.close()
@@ -204,6 +247,9 @@ def test_llm_failure_keeps_prior_content(
         assert brief is not None
         assert brief.content is not None
         assert brief.content["title"] == "Prior good"
+        assert brief.prompt_tokens == 11
+        assert brief.completion_tokens == 7
+        assert brief.total_tokens == 18
     finally:
         session.close()
 
@@ -330,3 +376,31 @@ def test_parse_failure_message_is_persisted_with_assistant_dump(
     assert result.error_message is not None
     assert "Assistant output:" in result.error_message
     assert "{not-json}" in result.error_message
+
+
+def test_missing_usage_stores_null_and_succeeds(
+    session_factory: sessionmaker[Session],
+) -> None:
+    topic_scope_id = create_test_scope(session_factory)
+    add_briefed_reference(session_factory, topic_scope_id)
+
+    result = create_topic_brief(
+        topic_scope_id,
+        session_factory=session_factory,
+        generate_content=lambda **_k: sample_llm_result(
+            sample_topic_brief_content(title="No usage."),
+        ),
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+    session = session_factory()
+    try:
+        brief = get_topic_brief_by_topic_scope_id(session, topic_scope_id)
+        assert brief is not None
+        assert brief.content is not None
+        assert brief.content["title"] == "No usage."
+        assert brief.prompt_tokens is None
+        assert brief.completion_tokens is None
+        assert brief.total_tokens is None
+    finally:
+        session.close()

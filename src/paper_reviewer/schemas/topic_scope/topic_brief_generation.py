@@ -36,6 +36,15 @@ class TopicBriefContent(BaseModel):
     citations: list[TopicBriefCitation]
 
 
+class TopicBriefLlmResult(BaseModel):
+    """Parsed brief plus last OpenAI usage integers (not LLM content)."""
+
+    content: TopicBriefContent
+    prompt_tokens: int | None = None
+    completion_tokens: int | None = None
+    total_tokens: int | None = None
+
+
 class CreateTopicBriefResult(BaseModel):
     """Result of creating or failing a topic brief for one Topic scope."""
 

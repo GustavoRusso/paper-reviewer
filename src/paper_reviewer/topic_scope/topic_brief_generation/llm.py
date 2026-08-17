@@ -13,10 +13,12 @@ from pydantic import ValidationError
 from paper_reviewer.schemas.topic_scope.topic_analysis import TopicFacet
 from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     TopicBriefContent,
+    TopicBriefLlmResult,
 )
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     resolve_openai_base_url,
     resolve_openai_model,
+    usage_integers,
 )
 from paper_reviewer.topic_scope.topic_brief_generation.briefed import (
     BriefedReference,
@@ -158,7 +160,7 @@ def generate_topic_brief_content(
     topic_statement: str,
     facets: Sequence[TopicFacet],
     briefed_references: Sequence[BriefedReference],
-) -> TopicBriefContent:
+) -> TopicBriefLlmResult:
     """Call chat completions and parse TopicBriefContent. Tests must inject a stub."""
     from openai import OpenAI
     from openai.lib._parsing import type_to_response_format_param
@@ -203,9 +205,18 @@ def generate_topic_brief_content(
     if not content:
         raise ValueError("OpenAI returned no parsed topic brief")
     try:
-        return parse_topic_brief_content(content)
+        parsed = parse_topic_brief_content(content)
     except (ValueError, ValidationError) as exc:
         dump = content[:_ASSISTANT_OUTPUT_MAX_CHARS]
         raise ValueError(
             f"{str(exc).rstrip()}\n\n{_ASSISTANT_OUTPUT_HEADING}\n{dump}"
         ) from exc
+    prompt_tokens, completion_tokens, total_tokens = usage_integers(
+        getattr(completion, "usage", None)
+    )
+    return TopicBriefLlmResult(
+        content=parsed,
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+        total_tokens=total_tokens,
+    )

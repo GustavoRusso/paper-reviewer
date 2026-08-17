@@ -84,6 +84,7 @@ def _stub_openai(
     create_captured: dict[str, object] | None = None,
     *,
     content: str | None = None,
+    usage: object | None = None,
 ) -> None:
     parsed = sample_topic_brief_content()
     raw = content if content is not None else parsed.model_dump_json()
@@ -98,7 +99,10 @@ def _stub_openai(
                 create_kwargs.clear()
                 create_kwargs.update(kw)
                 message = SimpleNamespace(content=raw)
-                return SimpleNamespace(choices=[SimpleNamespace(message=message)])
+                return SimpleNamespace(
+                    choices=[SimpleNamespace(message=message)],
+                    usage=usage,
+                )
 
             self.chat = SimpleNamespace(completions=SimpleNamespace(create=create))
 
@@ -235,3 +239,71 @@ def test_generate_caps_assistant_output_on_parse_failure(
     dump = message[message.index(heading) + len(heading) :].lstrip("\n")
     assert dump == illegal[:8000]
     assert illegal[8000:] not in message
+
+
+def test_generate_topic_brief_content_returns_usage_integers(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "prompt_tokens": 21,
+            "completion_tokens": 8,
+            "total_tokens": 29,
+            "completion_tokens_details": {"reasoning_tokens": 3},
+        }
+    )
+    _stub_openai(monkeypatch, captured, usage=usage)
+
+    result = generate_topic_brief_content(
+        topic_statement="topic",
+        facets=[],
+        briefed_references=[_briefed()],
+    )
+
+    assert result.content.title == sample_topic_brief_content().title
+    assert result.prompt_tokens == 21
+    assert result.completion_tokens == 8
+    assert result.total_tokens == 29
+
+
+def test_generate_topic_brief_content_returns_null_usage_when_absent(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, usage=None)
+
+    result = generate_topic_brief_content(
+        topic_statement="topic",
+        facets=[],
+        briefed_references=[_briefed()],
+    )
+
+    assert result.content.title == sample_topic_brief_content().title
+    assert result.prompt_tokens is None
+    assert result.completion_tokens is None
+    assert result.total_tokens is None
+
+
+def test_generate_topic_brief_content_does_not_map_input_output_keys(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "input_tokens": 13,
+            "output_tokens": 9,
+            "total_tokens": 22,
+        }
+    )
+    _stub_openai(monkeypatch, captured, usage=usage)
+
+    result = generate_topic_brief_content(
+        topic_statement="topic",
+        facets=[],
+        briefed_references=[_briefed()],
+    )
+
+    assert result.prompt_tokens is None
+    assert result.completion_tokens is None
+    assert result.total_tokens == 22

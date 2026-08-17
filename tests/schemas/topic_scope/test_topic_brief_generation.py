@@ -12,6 +12,7 @@ from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     CreateTopicBriefEnqueueResult,
     CreateTopicBriefResult,
     TopicBriefContent,
+    TopicBriefLlmResult,
 )
 from paper_reviewer.topic_scope.topic_brief_generation.template import (
     template_field_ids,
@@ -41,6 +42,39 @@ def test_topic_brief_content_rejects_missing_required() -> None:
 
 def test_topic_brief_content_fields_match_template_front_matter() -> None:
     assert list(TopicBriefContent.model_fields) == template_field_ids()
+
+
+def test_topic_brief_content_has_no_usage_fields() -> None:
+    for name in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        assert name not in TopicBriefContent.model_fields
+
+
+def test_create_topic_brief_result_has_no_usage_fields() -> None:
+    for name in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        assert name not in CreateTopicBriefResult.model_fields
+
+
+def test_topic_brief_llm_result_carries_content_and_usage() -> None:
+    content = TopicBriefContent(
+        title="Example topic brief title for indexing",
+        abstract="A short abstract.",
+        introduction="Background.[1]",
+        sections=[{"heading": "Theme", "body": "Body.[1]"}],
+        concluding_section="Closing.",
+        key_points=["Point one"],
+        citations=[{"n": 1, "doi": "10.1000/A", "text": "10.1000/A — Title"}],
+    )
+    result = TopicBriefLlmResult(
+        content=content,
+        prompt_tokens=21,
+        completion_tokens=8,
+        total_tokens=29,
+    )
+
+    assert result.content is content
+    assert result.prompt_tokens == 21
+    assert result.completion_tokens == 8
+    assert result.total_tokens == 29
 
 
 def test_create_topic_brief_result() -> None:
