@@ -98,7 +98,7 @@ The sandbox Compose project starts **`workspace` only** (no `app` profile), so i
 
 ### Offline paper-brief evaluation notebooks
 
-Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just sandbox` for this procedure (no app Postgres).
+Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just sandbox` for this procedure (no app Postgres). Do **not** open the `.ipynb` files with a host kernel in Cursor (the editor will stay on **Detecting kernels**). Short how-to next to the files: [notebooks/README.md](../notebooks/README.md).
 
 ```bash
 just notebooks

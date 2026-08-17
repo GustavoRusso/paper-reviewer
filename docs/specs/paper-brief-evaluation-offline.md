@@ -179,7 +179,7 @@ Domain functions: `paper_reviewer.topic_scope.paper_brief_evaluation.llm` (`judg
 
 There is **no host Python**. Do **not** install Jupyter, `uv`, or the app toolchain on the host. Host tools stay Docker Desktop and `just` ([host-requirements.md](../host-requirements.md)).
 
-Notebooks run in the Compose **`notebooks`** service (`just notebooks`), not on the host and **not** in `just sandbox`. That recipe starts the app stack first (Postgres), then Jupyter Lab. How to start it: [local-development.md](../local-development.md#offline-paper-brief-evaluation-notebooks).
+Notebooks run in the Compose **`notebooks`** service (`just notebooks`), not on the host and **not** in `just sandbox`. That recipe starts the app stack first (Postgres), then Jupyter Lab. Short how-to next to the files: [notebooks/README.md](../../notebooks/README.md). Full recipe and env: [local-development.md](../local-development.md#offline-paper-brief-evaluation-notebooks).
 
 | Rule | Why |
 | --- | --- |
