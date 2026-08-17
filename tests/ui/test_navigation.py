@@ -7,6 +7,7 @@ from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
 from paper_reviewer.ui.landing import LANDING_CTA_LABEL, landing_cta_page_key
 from paper_reviewer.ui.navigation import AppPage, build_app_pages
 from paper_reviewer.ui.paper_archiving import render_paper_archiving
+from paper_reviewer.ui.paper_brief import render_paper_brief
 from paper_reviewer.ui.external_sources_ingestion import (
     render_external_sources_ingestion,
 )
@@ -151,6 +152,16 @@ def test_fulfill_papers_metadata_page_is_registered() -> None:
     assert pages["fulfill_papers_metadata"].render is render_fulfill_papers_metadata
 
 
+def test_paper_brief_page_is_registered() -> None:
+    pages = {page.key: page for page in build_app_pages()}
+
+    assert "paper_brief" in pages
+    assert pages["paper_brief"].title == "Paper brief"
+    assert pages["paper_brief"].url_path == "paper-brief"
+    assert pages["paper_brief"].render is render_paper_brief
+    assert pages["paper_brief"].in_sidebar is False
+
+
 def test_generate_paper_brief_page_is_registered() -> None:
     pages = {page.key: page for page in build_app_pages()}
 
@@ -167,6 +178,8 @@ def test_workflow_page_order() -> None:
     assert keys.index("topic_analysis") < keys.index("topic_scope")
     assert keys.index("topic_scope") < keys.index("external_sources_ingestion")
     assert keys.index("external_sources_ingestion") < keys.index("show_references")
+    assert keys.index("show_references") < keys.index("paper_brief")
+    assert keys.index("paper_brief") < keys.index("add_reference")
     assert keys.index("show_references") < keys.index("add_reference")
     assert keys.index("add_reference") < keys.index("topic_brief_generation")
     assert keys.index("external_sources_ingestion") < keys.index(
@@ -200,6 +213,7 @@ def test_only_home_and_topic_intake_are_in_the_sidebar() -> None:
     assert by_key["topic_scope"].in_sidebar is False
     assert by_key["external_sources_ingestion"].in_sidebar is False
     assert by_key["show_references"].in_sidebar is False
+    assert by_key["paper_brief"].in_sidebar is False
     assert by_key["add_reference"].in_sidebar is False
     assert by_key["topic_brief_generation"].in_sidebar is False
     assert by_key["search_external_sources"].in_sidebar is False

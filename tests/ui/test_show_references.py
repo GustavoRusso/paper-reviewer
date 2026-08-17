@@ -16,8 +16,8 @@ from paper_reviewer.ui.show_references import (
     GO_TO_TOPIC_INTAKE_LABEL,
     GO_TO_TOPIC_SCOPE_LABEL,
     MISSING_SCOPE_MESSAGE,
-    PAPER_BRIEF_AVAILABLE_BADGE,
     PAPER_BRIEF_NOT_AVAILABLE_BADGE,
+    READ_PAPER_BRIEF_LABEL,
     format_referenced_paper_caption,
     render_show_references,
 )
@@ -86,8 +86,8 @@ def test_page_links_to_add_reference_and_hub() -> None:
     assert '"references_selection"' not in source
 
 
-def test_paper_brief_badge_labels() -> None:
-    assert PAPER_BRIEF_AVAILABLE_BADGE == "Paper brief available"
+def test_paper_brief_link_and_badge_labels() -> None:
+    assert READ_PAPER_BRIEF_LABEL == "Read paper brief"
     assert PAPER_BRIEF_NOT_AVAILABLE_BADGE == "Paper brief not available"
 
 
@@ -133,12 +133,17 @@ def test_page_renders_title_as_content_link() -> None:
     assert "paper.url" in source
 
 
-def test_page_renders_paper_brief_badge() -> None:
+def test_page_renders_paper_brief_link_or_badge() -> None:
     source = inspect.getsource(show_references_module)
-    assert "st.badge" in source
-    assert "PAPER_BRIEF_AVAILABLE_BADGE" in source
+    assert "READ_PAPER_BRIEF_LABEL" in source
     assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in source
     assert "paper_brief_available" in source
+    assert '"paper_brief"' in source
+    assert "extra_query" in source
+    assert "DOI_QUERY_KEY" in source
+    assert "PAPER_BRIEF_AVAILABLE_BADGE" not in source
     render_source = inspect.getsource(show_references_module._render_referenced_paper)
     assert 'color="orange"' in render_source
     assert "PAPER_BRIEF_NOT_AVAILABLE_BADGE" in render_source
+    assert "workflow_page_link" in render_source
+    assert "topic_scope_key" in render_source

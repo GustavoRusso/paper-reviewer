@@ -97,6 +97,8 @@ Workflow pages carry the current `TopicScope` key in a **URL query parameter**, 
 
 Helpers live in `paper_reviewer.ui.topic_scope_url`. They must read and write `topic_scope_key`. Use `workflow_page_link` and `workflow_switch_page` so navigation always passes `query_params`. Step specs link here; they must not restate the clear rule.
 
+The **Paper brief** reader also reads query `doi` (uppercase DOI; domain identifier, not a minted `key`). `workflow_page_link` may pass extra query fields together with `topic_scope_key` so Streamlit does not drop the Topic scope key. Page contract: [paper-brief.md](specs/paper-brief.md).
+
 Session caches (`topic_statement`, search / archiving results, enqueue caches) stay in `st.session_state`. The URL key alone does **not** resume a Topic scope after the session is gone.
 
 Identifier naming (`id` vs `key`): [dev-practices.md](dev-practices.md#identifier-naming-id-vs-key).
@@ -123,6 +125,7 @@ Illustrative only; step specs remain the behavior contract.
 | Search external sources → Paper archiving | Navigate | `st.page_link` |
 | Empty-state “Go to …” | Navigate | `st.page_link` |
 | Paper title → PubMed / PMC / PDF | Content link | URL on the paper, not `st.page_link` |
+| Show references → Paper brief | Navigate | `st.page_link` (label **Read paper brief**; pass `doi` and `topic_scope_key`) |
 | Per-paper Regenerate (Fulfill papers metadata / Generate paper brief) | Default | `st.button("Regenerate", type="secondary")` |
 
 ## Theme

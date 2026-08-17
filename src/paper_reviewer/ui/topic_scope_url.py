@@ -11,6 +11,7 @@ import streamlit as st
 from paper_reviewer.ui.navigation import streamlit_page_for
 
 TOPIC_SCOPE_KEY_QUERY_KEY = "topic_scope_key"
+DOI_QUERY_KEY = "doi"
 
 
 def parse_topic_scope_key(query_params: Mapping[str, Any]) -> UUID | None:
@@ -29,6 +30,21 @@ def parse_topic_scope_key(query_params: Mapping[str, Any]) -> UUID | None:
         return UUID(text)
     except ValueError:
         return None
+
+
+def parse_doi(query_params: Mapping[str, Any]) -> str | None:
+    """Return an uppercase DOI from URL query params, or None."""
+    raw = query_params.get(DOI_QUERY_KEY)
+    if raw is None:
+        return None
+    if isinstance(raw, (list, tuple)):
+        if not raw:
+            return None
+        raw = raw[0]
+    text = str(raw).strip()
+    if not text:
+        return None
+    return text.upper()
 
 
 def topic_scope_query_params(topic_scope_key: UUID) -> dict[str, str]:
@@ -53,15 +69,22 @@ def workflow_page_link(
     *,
     label: str,
     topic_scope_key: UUID | None,
+    extra_query: Mapping[str, str] | None = None,
 ) -> None:
     """Link to a workflow page and preserve the Topic scope key when present.
 
     Streamlit clears query params when ``query_params`` is omitted. Always pass
-    the key for in-workflow navigation so the URL does not lose it.
+    the key for in-workflow navigation so the URL does not lose it. Extra query
+    fields (for example ``doi``) merge with that key.
     """
     kwargs: dict[str, Any] = {
         "label": label,
     }
+    query: dict[str, str] = {}
     if topic_scope_key is not None:
-        kwargs["query_params"] = topic_scope_query_params(topic_scope_key)
+        query.update(topic_scope_query_params(topic_scope_key))
+    if extra_query:
+        query.update(extra_query)
+    if query:
+        kwargs["query_params"] = query
     st.page_link(streamlit_page_for(page_key), **kwargs)

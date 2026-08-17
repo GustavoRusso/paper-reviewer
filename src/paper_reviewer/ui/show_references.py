@@ -19,6 +19,7 @@ from paper_reviewer.ui.references_selection import (
     render_references_selection_header,
 )
 from paper_reviewer.ui.topic_scope_url import (
+    DOI_QUERY_KEY,
     parse_topic_scope_key,
     workflow_page_link,
 )
@@ -29,8 +30,8 @@ MISSING_SCOPE_MESSAGE = (
 )
 EMPTY_REFERENCES_CAPTION = "This Topic scope has no References yet."
 LOAD_ERROR_MESSAGE = "Could not load References for this Topic scope. Try again."
-PAPER_BRIEF_AVAILABLE_BADGE = "Paper brief available"
 PAPER_BRIEF_NOT_AVAILABLE_BADGE = "Paper brief not available"
+READ_PAPER_BRIEF_LABEL = "Read paper brief"
 GO_TO_TOPIC_INTAKE_LABEL = "Go to Topic intake"
 GO_TO_TOPIC_SCOPE_LABEL = "Go to Topic scope"
 CONTINUE_TO_ADD_REFERENCE_LABEL = "Continue to Add reference"
@@ -64,13 +65,23 @@ def _render_missing_scope(*, topic_scope_key: UUID | None) -> None:
     )
 
 
-def _render_referenced_paper(paper: ReferencedPaper) -> None:
+def _render_referenced_paper(
+    paper: ReferencedPaper,
+    *,
+    topic_scope_key: UUID,
+) -> None:
     st.markdown(f"**[{paper.title}]({paper.url})**")
     st.caption(format_referenced_paper_caption(paper))
     if paper.paper_brief_available:
-        st.badge(PAPER_BRIEF_AVAILABLE_BADGE)
+        workflow_page_link(
+            "paper_brief",
+            label=READ_PAPER_BRIEF_LABEL,
+            topic_scope_key=topic_scope_key,
+            extra_query={DOI_QUERY_KEY: paper.doi},
+        )
     else:
         st.badge(PAPER_BRIEF_NOT_AVAILABLE_BADGE, color="orange")
+
 
 def _render_navigation(*, topic_scope_key: UUID) -> None:
     workflow_page_link(
@@ -116,5 +127,5 @@ def render_show_references() -> None:
         return
 
     for paper in papers:
-        _render_referenced_paper(paper)
+        _render_referenced_paper(paper, topic_scope_key=topic_scope_key)
     _render_navigation(topic_scope_key=topic_scope_key)

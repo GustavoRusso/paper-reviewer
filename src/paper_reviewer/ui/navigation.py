@@ -34,6 +34,7 @@ def build_app_pages() -> list[AppPage]:
     from paper_reviewer.ui.generate_paper_brief import render_generate_paper_brief
     from paper_reviewer.ui.landing import render_landing
     from paper_reviewer.ui.paper_archiving import render_paper_archiving
+    from paper_reviewer.ui.paper_brief import render_paper_brief
     from paper_reviewer.ui.external_sources_ingestion import (
         render_external_sources_ingestion,
     )
@@ -83,6 +84,12 @@ def build_app_pages() -> list[AppPage]:
             title="Show references",
             render=render_show_references,
             url_path="show-references",
+        ),
+        AppPage(
+            key="paper_brief",
+            title="Paper brief",
+            render=render_paper_brief,
+            url_path="paper-brief",
         ),
         AppPage(
             key="add_reference",
