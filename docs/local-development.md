@@ -47,6 +47,9 @@ Compose defines:
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `migrate` succeeds).
 - **`prefect-server`** — Prefect API/UI on host port **`PREFECT_PORT`** (default **4200**; Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `PREFECT_UI_API_URL`.
 - **`prefect-worker`** — Serves leaf deployments `inform_source_record/default` and `inform_full_text/default`, `create_paper_brief/default`, `evaluate_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, optional `NCBI_API_KEY`, optional `OPENAI_API_KEY`, optional `OPENAI_BASE_URL`, and optional `OPENAI_MODEL` from `.env`. The Streamlit UI submits `ingest_paper` and `create_topic_brief` runs with `run_deployment` (fire-and-forget). `ingest_paper/default` has a deployment concurrency limit of **5**; extra runs wait (`AwaitingConcurrencySlot`). The UI still submits one run per selected paper. Other served deployments have no such cap. An `ingest_paper` run shows nested subflow runs for `inform_source_record`, `inform_full_text`, and (when full text succeeded) `create_paper_brief` then (when the brief succeeded) `evaluate_paper_brief`. Progress UIs still poll Postgres, not Prefect, for paper and brief status.
+- **`ollama`** — Ollama inference runtime on host port **11434** (Compose profile `app`; started by `just up`). Persists models in named volume `ollama_data`.
+- **`openmodel-provision`** — one-shot `om pull ollama://llama3.1:8b --alias llama3.1-8b` after `ollama` is healthy (Compose profile `app`). Runs on every `just up` before `openmodel` starts; idempotent when the model is already present. First run downloads several GB and can take several minutes.
+- **`openmodel`** — [OpenModel](https://github.com/wundercorp/openmodel) OpenAI-compatible gateway on host port **11435** (Compose profile `app`; started by `just up` after `openmodel-provision` succeeds). Persists gateway metadata in named volume `openmodel_data`. Pair with `.env` `OPENAI_BASE_URL=http://localhost:11435/v1` and `OPENAI_MODEL=llama3.1-8b` for local LLM jobs.
 - **`notebooks`** — Jupyter Lab for offline paper-brief evaluation (Compose profile `notebooks`; started by `just notebooks`, not by `just up` or `just sandbox`). Same image and bind-mount as `workspace`. Publishes host port **`JUPYTER_PORT`** (default **8888**). Sets `DATABASE_URL`, optional `NCBI_API_KEY`, and optional `OPENAI_*` from `.env`. Procedure: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md).
 
 ### Schema migrations (Alembic)
@@ -68,7 +71,25 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `inform_source_record/default`, `inform_full_text/default`, `create_paper_brief/default`, `evaluate_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default`. An `ingest_paper` run shows nested subflow runs for source record, full text, and (when full text succeeded) paper brief then (when the brief succeeded) evaluation. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` / `just logs notebooks` for one service.
+### Local LLM (Ollama + OpenModel)
+
+When using the local gateway for `create_paper_brief` or offline eval notebooks, set in `.env`:
+
+```bash
+OPENAI_API_KEY=ollama
+OPENAI_BASE_URL=http://localhost:11435/v1
+OPENAI_MODEL=llama3.1-8b
+```
+
+`just up` starts `ollama`, runs `openmodel-provision` (pull/register `llama3.1-8b`), then starts `openmodel`. Re-pull or register without a full restart:
+
+```bash
+just pull-model
+```
+
+Confirm the model is listed: `curl http://localhost:11435/v1/models`.
+
+After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `inform_source_record/default`, `inform_full_text/default`, `create_paper_brief/default`, `evaluate_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default`. An `ingest_paper` run shows nested subflow runs for source record, full text, and (when full text succeeded) paper brief then (when the brief succeeded) evaluation. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` / `just logs ollama` / `just logs openmodel` / `just logs notebooks` for one service.
 
 Manual smoke for Paper archiving ingest: after search, open **Paper archiving**. Confirm create/reuse, then enqueue of `ingest_paper` for new papers. Watch **source record**, **full text**, and **brief** labels move while `just logs prefect-worker` shows nested subflow runs. Reused papers that already have terminal statuses do not enqueue. A reused paper whose source record is still `not_started` does enqueue. When the set is terminal, the page links to **Topic scope**. Progress truth is Postgres, not the Prefect UI.
 

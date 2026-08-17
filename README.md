@@ -31,6 +31,8 @@ Researchers, authors, or reviewers who want help framing a topic: turn a free-fo
 - **Topic brief generation** — Phase 4 of the **Topic scope workflow**: draft and store the cited **topic brief**. Spec: [docs/specs/4-topic-brief-generation.md](docs/specs/4-topic-brief-generation.md).
 - **Topic scope workflow** — The four-phase workflow below, run on a **Topic scope**. You can repeat a phase to refine its result.
 
+
+
 ## External sources
 
 The first connected source is [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
@@ -80,16 +82,51 @@ The assistant drafts a cited introduction that explains what is currently known 
 ## Getting started
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
-2. Copy [`.env.example`](.env.example) to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md#environment-configuration). PubMed key notes: [docs/specs/external-sources/pubmed.md](docs/specs/external-sources/pubmed.md).
-3. Run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
+2. Copy `[.env.example](.env.example)` to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md#environment-configuration). PubMed key notes: [docs/specs/external-sources/pubmed.md](docs/specs/external-sources/pubmed.md).
+3. Choose how **paper brief** jobs call an LLM (see below), then run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
 4. Open the services listed below (start on Home to see existing **Topic scopes**, or start Topic intake)
+
+### LLM for paper briefs (OpenAI or local)
+
+Paper brief generation (`create_paper_brief`) and evaluation need a chat model. Configure one of these in `.env`:
+
+**Option A — OpenAI API (cloud)**
+
+Leave `OPENAI_BASE_URL` empty and set your API key:
+
+```bash
+OPENAI_API_KEY=sk-...
+# OPENAI_BASE_URL=          # leave empty
+# OPENAI_MODEL=              # optional; default gpt-4o-mini
+```
+
+**Option B — Local OpenModel + Ollama (on your machine)**
+
+`just up` starts **Ollama** and an **OpenModel** gateway, pulls `llama3.1-8b`, and exposes an OpenAI-compatible API on port **11435**. Set:
+
+```bash
+OPENAI_API_KEY=ollama
+OPENAI_BASE_URL=http://localhost:11435/v1
+OPENAI_MODEL=llama3.1-8b
+```
+
+The first startup can take several minutes while the model downloads. Re-pull without a full restart: `just pull-model`. Confirm the model: `curl http://localhost:11435/v1/models`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama--openmodel).
+
+**NVIDIA GPU:** the local Ollama + OpenModel stack in [compose.yml](compose.yml) is set up for **NVIDIA** GPUs (Compose `deploy.resources.reservations.devices`). You need the NVIDIA Container Toolkit and a compatible driver on the host. If you do not have an NVIDIA card, use Option A or change [compose.yml](compose.yml) (comment out the GPU `deploy` blocks on `ollama` and `openmodel`) and expect slower CPU inference.
+
+Leave both `OPENAI_API_KEY` and `OPENAI_BASE_URL` empty to skip live LLM drafts (jobs record Failed).
 
 ## Services
 
 After `just up`, these services are available:
 
-| Service | URL | Description |
-| --- | --- | --- |
-| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`) | Streamlit UI; Home lists Topic scopes from the database (each row opens the Topic scope hub) and links to Topic intake |
-| Prefect | [http://localhost:4200](http://localhost:4200) (default `PREFECT_PORT`) | Prefect API/UI (`prefect-server`); `prefect-worker` serves the flows (`ingest_paper` at most 5 concurrent runs). Progress still from Postgres. |
-| PostgreSQL | See [docs/local-development.md](docs/local-development.md#environment-configuration) | App relational database (port and credentials from `.env`) |
+
+| Service           | URL                                                                                  | Description                                                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`)                   | Streamlit UI; Home lists Topic scopes from the database (each row opens the Topic scope hub) and links to Topic intake                         |
+| Prefect           | [http://localhost:4200](http://localhost:4200) (default `PREFECT_PORT`)              | Prefect API/UI (`prefect-server`); `prefect-worker` serves the flows (`ingest_paper` at most 5 concurrent runs). Progress still from Postgres. |
+| PostgreSQL        | See [docs/local-development.md](docs/local-development.md#environment-configuration) | App relational database (port and credentials from `.env`)                                                                                     |
+| OpenModel gateway | [http://localhost:11435](http://localhost:11435)                                     | OpenAI-compatible local LLM API (`openmodel`); use `/v1` in `OPENAI_BASE_URL`. Started after one-shot model provision.                        |
+| Ollama            | [http://localhost:11434](http://localhost:11434)                                     | Inference runtime behind OpenModel (`ollama`); models persist in Docker volume `ollama_data`. Default [compose.yml](compose.yml) targets NVIDIA GPUs. |
+
+
