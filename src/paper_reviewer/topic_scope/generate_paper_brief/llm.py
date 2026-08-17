@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import logging
+import json
 import os
 import re
 from pathlib import Path
@@ -343,6 +345,57 @@ def _repair_unescaped_controls_in_strings(text: str) -> str:
     return "".join(out)
 
 
+def _to_jsonable_openai_part(value: object) -> object:
+    if value is None:
+        return None
+    if hasattr(value, "model_dump"):
+        return value.model_dump(mode="json")
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, (list, tuple)):
+        return [_to_jsonable_openai_part(item) for item in value]
+    if hasattr(value, "__dict__"):
+        return {
+            key: _to_jsonable_openai_part(raw)
+            for key, raw in vars(value).items()
+            if not key.startswith("_")
+        }
+    return value
+
+
+def _serialize_openai_part(value: object) -> str:
+    return json.dumps(_to_jsonable_openai_part(value), ensure_ascii=True, indent=2)
+
+
+def _format_usage_log(usage: object | None) -> str:
+    if usage is None:
+        return "OpenAI usage: absent"
+    usage_json = _to_jsonable_openai_part(usage)
+    assert isinstance(usage_json, dict)
+    input_tokens = usage_json.get("input_tokens", usage_json.get("prompt_tokens"))
+    output_tokens = usage_json.get(
+        "output_tokens", usage_json.get("completion_tokens")
+    )
+    total_tokens = usage_json.get("total_tokens")
+    return (
+        "OpenAI usage:\n"
+        f"input_tokens: {input_tokens}\n"
+        f"output_tokens: {output_tokens}\n"
+        f"total_tokens: {total_tokens}\n\n"
+        "OpenAI usage (raw JSON):\n"
+        f"{_serialize_openai_part(usage_json)}"
+    )
+
+
+def _emit_openai_log(message: str) -> None:
+    try:
+        from prefect import get_run_logger
+
+        get_run_logger().info(message)
+    except Exception:
+        logging.getLogger(__name__).info(message)
+
+
 def generate_paper_brief_content(
     full_text_plain: str,
     *,
@@ -394,7 +447,13 @@ def generate_paper_brief_content(
     }
     if base_url is not None:
         create_kwargs["max_tokens"] = _GATEWAY_MAX_TOKENS
+    _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
     completion = client.chat.completions.create(**create_kwargs)
+    _emit_openai_log(
+        "OpenAI response message:\n"
+        f"{_serialize_openai_part(completion.choices[0].message)}"
+    )
+    _emit_openai_log(_format_usage_log(getattr(completion, "usage", None)))
     content = completion.choices[0].message.content
     if not content:
         raise ValueError("OpenAI returned no parsed paper brief")

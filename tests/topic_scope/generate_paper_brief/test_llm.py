@@ -8,6 +8,8 @@ from types import SimpleNamespace
 import pytest
 
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    _format_usage_log,
+    _serialize_openai_part,
     build_brief_user_message,
     clip_full_text_for_gateway,
     extract_scientific_full_text,
@@ -84,6 +86,7 @@ def _stub_openai(
     create_captured: dict[str, object] | None = None,
     *,
     content: str | None = None,
+    usage: object | None = None,
 ) -> None:
     parsed = sample_brief_content()
     raw = content if content is not None else parsed.model_dump_json()
@@ -97,8 +100,15 @@ def _stub_openai(
             def create(**kw: object) -> object:
                 create_kwargs.clear()
                 create_kwargs.update(kw)
-                message = SimpleNamespace(content=raw)
-                return SimpleNamespace(choices=[SimpleNamespace(message=message)])
+                message = SimpleNamespace(
+                    role="assistant",
+                    content=raw,
+                    refusal=None,
+                )
+                return SimpleNamespace(
+                    choices=[SimpleNamespace(message=message)],
+                    usage=usage,
+                )
 
             self.chat = SimpleNamespace(completions=SimpleNamespace(create=create))
 
@@ -209,6 +219,60 @@ def test_generate_paper_brief_content_uses_code_default_model(
     assert create_captured["model"] == "gpt-4o-mini"
 
 
+def test_serialize_openai_part_returns_raw_json() -> None:
+    payload = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "role": "assistant",
+            "content": '{"summary":"ok"}',
+        }
+    )
+
+    dumped = _serialize_openai_part(payload)
+
+    assert json.loads(dumped) == {
+        "role": "assistant",
+        "content": '{"summary":"ok"}',
+    }
+
+
+def test_format_usage_log_maps_prompt_and_completion_tokens() -> None:
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "prompt_tokens": 11,
+            "completion_tokens": 7,
+            "total_tokens": 18,
+            "prompt_tokens_details": {"cached_tokens": 5},
+        }
+    )
+
+    formatted = _format_usage_log(usage)
+
+    assert "input_tokens: 11" in formatted
+    assert "output_tokens: 7" in formatted
+    assert "total_tokens: 18" in formatted
+    assert '"cached_tokens": 5' in formatted
+
+
+def test_format_usage_log_accepts_input_and_output_names() -> None:
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "input_tokens": 13,
+            "output_tokens": 9,
+            "total_tokens": 22,
+        }
+    )
+
+    formatted = _format_usage_log(usage)
+
+    assert "input_tokens: 13" in formatted
+    assert "output_tokens: 9" in formatted
+    assert "total_tokens: 22" in formatted
+
+
+def test_format_usage_log_handles_missing_usage() -> None:
+    assert _format_usage_log(None) == "OpenAI usage: absent"
+
+
 def test_generate_paper_brief_content_passes_configured_model(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -225,6 +289,45 @@ def test_generate_paper_brief_content_passes_configured_model(
     )
 
     assert create_captured["model"] == "llama3.1-8b"
+
+
+def test_generate_paper_brief_content_logs_request_response_and_usage(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    usage = SimpleNamespace(
+        model_dump=lambda mode="json": {
+            "prompt_tokens": 21,
+            "completion_tokens": 8,
+            "total_tokens": 29,
+            "completion_tokens_details": {"reasoning_tokens": 3},
+        }
+    )
+    _stub_openai(monkeypatch, captured, create_captured, usage=usage)
+    emitted: list[str] = []
+    monkeypatch.setattr(
+        "paper_reviewer.topic_scope.generate_paper_brief.llm._emit_openai_log",
+        emitted.append,
+    )
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert len(emitted) == 3
+    assert emitted[0].startswith("OpenAI request:\n")
+    assert '"model": "gpt-4o-mini"' in emitted[0]
+    assert emitted[1].startswith("OpenAI response message:\n")
+    assert '"role": "assistant"' in emitted[1]
+    assert emitted[2].startswith("OpenAI usage:\n")
+    assert "input_tokens: 21" in emitted[2]
+    assert "output_tokens: 8" in emitted[2]
+    assert "total_tokens: 29" in emitted[2]
+    assert '"reasoning_tokens": 3' in emitted[2]
 
 
 def test_generate_paper_brief_content_requires_model_when_base_url_set(
