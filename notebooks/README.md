@@ -34,7 +34,7 @@ Recipe and env details: [docs/local-development.md](../docs/local-development.md
 | File | Step | Status |
 | --- | --- | --- |
 | [paper_brief_evaluation/01-build-corpus.ipynb](paper_brief_evaluation/01-build-corpus.ipynb) | Freeze full text from archived local Papers | Implemented |
-| `paper_brief_evaluation/02-generate-briefs.ipynb` | Generate briefs from the corpus | Not implemented |
+| [paper_brief_evaluation/02-generate-briefs.ipynb](paper_brief_evaluation/02-generate-briefs.ipynb) | Generate briefs from the corpus | Implemented |
 | `paper_brief_evaluation/03-evaluate-briefs.ipynb` | Score those briefs | Not implemented |
 
 Procedure, paths, and domain functions: [docs/specs/paper-brief-evaluation-offline.md](../docs/specs/paper-brief-evaluation-offline.md).

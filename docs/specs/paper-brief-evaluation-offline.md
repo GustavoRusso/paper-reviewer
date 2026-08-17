@@ -2,7 +2,7 @@
 
 This document owns the **offline paper-brief evaluation** procedure: three Jupyter notebooks that freeze a full-text corpus, generate briefs, and score those briefs with the same judge as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). It is not a workflow phase step number.
 
-**Status:** step 1 (build corpus) and the Jupyter runtime (`just notebooks`) are implemented. Steps 2 and 3 (generate briefs; offline judge) are **not** implemented yet.
+**Status:** steps 1–2 (build corpus; generate briefs) and the Jupyter runtime (`just notebooks`) are implemented. Step 3 (offline judge) is **not** implemented yet.
 
 **Criteria, JSON shape, and `evaluation_score` stay owned by** [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). This document **points** at that contract. Do not copy the rubric here.
 
@@ -205,7 +205,7 @@ Do **not** add a domain package for this procedure.
 
 | Piece | Status |
 | --- | --- |
-| Notebooks | [`01-build-corpus.ipynb`](../../notebooks/paper_brief_evaluation/01-build-corpus.ipynb) exists. `02-generate-briefs.ipynb` and `03-evaluate-briefs.ipynb` are not implemented. |
+| Notebooks | [`01-build-corpus.ipynb`](../../notebooks/paper_brief_evaluation/01-build-corpus.ipynb) and [`02-generate-briefs.ipynb`](../../notebooks/paper_brief_evaluation/02-generate-briefs.ipynb) exist. `03-evaluate-briefs.ipynb` is not implemented. |
 | Data dirs | `data/paper_brief_evaluation/` is tracked (corpus and later run results). Still excluded from production images. |
 | Jupyter | Dev dependency (`jupyter` / `ipykernel`). |
 | `just notebooks` | App stack, then the `notebooks` service. Publishes `JUPYTER_PORT`. Passes `OPENAI_*` and `NCBI_API_KEY`. |
