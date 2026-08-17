@@ -68,6 +68,13 @@ def _result(paper_id: int, brief: PaperBrief | None) -> CreatePaperBriefResult:
     )
 
 
+def _clear_evaluation(brief: PaperBrief) -> None:
+    brief.evaluation_status = PaperAspectStatus.not_started
+    brief.evaluation = None
+    brief.evaluation_score = None
+    brief.evaluation_error_message = None
+
+
 def _mark_failed(
     session: Session,
     paper_id: int,
@@ -82,6 +89,7 @@ def _mark_failed(
     brief.prompt_tokens = None
     brief.completion_tokens = None
     brief.total_tokens = None
+    _clear_evaluation(brief)
     session.commit()
     return _result(paper_id, brief)
 
@@ -148,6 +156,7 @@ def create_paper_brief(
         brief.total_tokens = total_tokens
         brief.status = PaperAspectStatus.succeeded
         brief.error_message = None
+        _clear_evaluation(brief)
         session.commit()
         return _result(paper_id, brief)
     finally:

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
+
 from sqlalchemy.orm import Session, sessionmaker
 
 from paper_reviewer.models.paper_brief import (
@@ -20,6 +22,10 @@ from tests.topic_scope.generate_paper_brief.helpers import (
     create_test_paper,
     sample_brief_content,
     sample_llm_result,
+)
+from tests.topic_scope.paper_brief_evaluation.helpers import (
+    sample_evaluation,
+    set_evaluation,
 )
 
 
@@ -181,6 +187,10 @@ def test_happy_path_stores_content_and_passes_full_text(
         assert brief.prompt_tokens == 21
         assert brief.completion_tokens == 8
         assert brief.total_tokens == 29
+        assert brief.evaluation_status is PaperAspectStatus.not_started
+        assert brief.evaluation is None
+        assert brief.evaluation_score is None
+        assert brief.evaluation_error_message is None
     finally:
         session.close()
 
@@ -374,5 +384,139 @@ def test_missing_usage_stores_null_and_succeeds(
         assert brief.prompt_tokens is None
         assert brief.completion_tokens is None
         assert brief.total_tokens is None
+    finally:
+        session.close()
+
+
+def test_noop_skip_does_not_change_evaluation_columns(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(session_factory)
+    add_brief(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        content=sample_brief_content(summary="Already done."),
+    )
+    set_evaluation(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        evaluation=sample_evaluation(),
+        evaluation_score=Decimal("4.25"),
+    )
+    calls: list[str] = []
+
+    result = create_paper_brief(
+        paper_id,
+        session_factory=session_factory,
+        generate_content=lambda *_a, **_k: calls.append("llm")
+        or sample_brief_content(summary="Rewritten."),
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+    assert calls == []
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.content is not None
+        assert brief.content["summary"] == "Already done."
+        assert brief.evaluation_status is PaperAspectStatus.succeeded
+        assert brief.evaluation is not None
+        assert brief.evaluation_score == Decimal("4.25")
+        assert brief.evaluation_error_message is None
+    finally:
+        session.close()
+
+
+def test_force_rewrite_clears_evaluation_columns(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(session_factory)
+    add_brief(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        content=sample_brief_content(summary="Old summary."),
+    )
+    set_evaluation(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        evaluation=sample_evaluation(),
+        evaluation_score=Decimal("4.25"),
+        evaluation_error_message="stale",
+    )
+
+    result = create_paper_brief(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        generate_content=lambda *_a, **_k: sample_brief_content(summary="New summary."),
+    )
+
+    assert result.status is PaperAspectStatus.succeeded
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.content is not None
+        assert brief.content["summary"] == "New summary."
+        assert brief.evaluation_status is PaperAspectStatus.not_started
+        assert brief.evaluation is None
+        assert brief.evaluation_score is None
+        assert brief.evaluation_error_message is None
+    finally:
+        session.close()
+
+
+def test_mark_failed_clears_evaluation_columns(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(session_factory)
+    add_brief(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        content=sample_brief_content(summary="Old summary."),
+    )
+    set_evaluation(
+        session_factory,
+        paper_id,
+        status=PaperAspectStatus.succeeded,
+        evaluation=sample_evaluation(),
+        evaluation_score=Decimal("4.25"),
+    )
+
+    def generate(
+        full_text_plain: str,
+        *,
+        title: str,
+        journal: str | None,
+        published_year: int | None,
+    ) -> PaperBriefContent:
+        raise RuntimeError("LLM timeout")
+
+    result = create_paper_brief(
+        paper_id,
+        force=True,
+        session_factory=session_factory,
+        generate_content=generate,
+    )
+
+    assert result.status is PaperAspectStatus.failed
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.status is PaperAspectStatus.failed
+        assert brief.evaluation_status is PaperAspectStatus.not_started
+        assert brief.evaluation is None
+        assert brief.evaluation_score is None
+        assert brief.evaluation_error_message is None
     finally:
         session.close()

@@ -50,12 +50,14 @@ class FulfillPapersMetadataEnqueueResult(BaseModel):
 class IngestPaperResult(BaseModel):
     """Result of the ingest_paper orchestrator for one Paper.
 
-    ``brief`` is a ``CreatePaperBriefResult`` or ``None``. The nested type lives
-    in generate_paper_brief schemas; this field stays untyped here so the two
-    schema modules do not import each other.
+    ``brief`` is a ``CreatePaperBriefResult`` or ``None``. ``evaluation`` is an
+    ``EvaluatePaperBriefResult`` or ``None``. Nested types live in generate
+    paper brief and paper brief evaluation schemas; these fields stay untyped
+    here so the schema modules do not import each other.
     """
 
     paper_id: int
     source_record: InformSourceRecordResult
     full_text: InformFullTextResult
     brief: object | None = None
+    evaluation: object | None = None

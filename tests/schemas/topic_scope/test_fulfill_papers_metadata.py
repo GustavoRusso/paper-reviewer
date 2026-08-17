@@ -11,6 +11,9 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     CreatePaperBriefResult,
 )
+from paper_reviewer.schemas.topic_scope.paper_brief_evaluation import (
+    EvaluatePaperBriefResult,
+)
 
 
 def test_ingest_paper_result_brief_none_when_full_text_not_succeeded() -> None:
@@ -31,6 +34,7 @@ def test_ingest_paper_result_brief_none_when_full_text_not_succeeded() -> None:
     assert result.source_record.status is PaperAspectStatus.succeeded
     assert result.full_text.status is PaperAspectStatus.unavailable
     assert result.brief is None
+    assert result.evaluation is None
 
 
 def test_ingest_paper_result_includes_brief_when_present() -> None:
@@ -52,3 +56,29 @@ def test_ingest_paper_result_includes_brief_when_present() -> None:
 
     assert result.brief is not None
     assert result.brief.status is PaperAspectStatus.succeeded
+    assert result.evaluation is None
+
+
+def test_ingest_paper_result_includes_evaluation_when_present() -> None:
+    result = IngestPaperResult(
+        paper_id=10,
+        source_record=InformSourceRecordResult(
+            paper_id=10,
+            status=PaperAspectStatus.succeeded,
+        ),
+        full_text=InformFullTextResult(
+            paper_id=10,
+            status=PaperAspectStatus.succeeded,
+        ),
+        brief=CreatePaperBriefResult(
+            paper_id=10,
+            status=PaperAspectStatus.succeeded,
+        ),
+        evaluation=EvaluatePaperBriefResult(
+            paper_id=10,
+            status=PaperAspectStatus.succeeded,
+        ),
+    )
+
+    assert result.evaluation is not None
+    assert result.evaluation.status is PaperAspectStatus.succeeded
