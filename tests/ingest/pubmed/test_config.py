@@ -108,12 +108,14 @@ def test_config_targets_eutils_esearch_then_esummary() -> None:
     assert child_params["retmax"] == 10
 
 
-def test_esummary_retmax_defaults_to_20_when_caller_omits_retmax() -> None:
+def test_esearch_and_esummary_default_retmax_and_sort_when_caller_omits_them() -> None:
     config = build_pubmed_rest_api_config(term="CRISPR")
     esearch = _resource_by_name(config, "esearch")
-    assert "retmax" not in esearch["endpoint"]["params"]
+    esearch_params = esearch["endpoint"]["params"]
+    assert esearch_params["retmax"] == 200
+    assert esearch_params["sort"] == "pub_date"
     esummary = _resource_by_name(config, "esummary")
-    assert esummary["endpoint"]["params"]["retmax"] == 20
+    assert esummary["endpoint"]["params"]["retmax"] == 200
 
 
 def test_esummary_retmax_capped_at_500_for_json() -> None:

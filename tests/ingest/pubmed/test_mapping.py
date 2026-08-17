@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from paper_reviewer.ingest.pubmed.mapping import docsum_to_candidate
 from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
@@ -81,6 +83,7 @@ def test_docsum_with_doi_maps_to_candidate() -> None:
     assert candidate.authors == ["Smith J", "Jones M"]
     assert candidate.journal == "Nature"
     assert candidate.published_year == 2022
+    assert candidate.pub_date == date(2022, 12, 15)
     assert candidate.url == "https://pubmed.ncbi.nlm.nih.gov/36328499/"
     assert candidate.snippet is None
     assert candidate.facet_id == "fixture-pubmed"
@@ -93,6 +96,8 @@ def test_docsum_missing_doi_yields_null_doi() -> None:
     assert candidate.source_uid == "11850928"
     assert candidate.url == "https://pubmed.ncbi.nlm.nih.gov/11850928/"
     assert candidate.facet_id == "core-concepts"
+    assert candidate.published_year == 2002
+    assert candidate.pub_date is None
 
 
 def test_docsum_missing_snippet_omits_snippet() -> None:

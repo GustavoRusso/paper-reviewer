@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import date
 from enum import Enum
 from typing import Any
 
@@ -26,6 +27,7 @@ class PaperCandidate(BaseModel):
     authors: list[str] = Field(default_factory=list)
     journal: str | None = None
     published_year: int | None = None
+    pub_date: date | None = None
     url: str
     snippet: str | None = None
     facet_id: str

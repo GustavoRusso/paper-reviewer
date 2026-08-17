@@ -38,7 +38,8 @@ For each generic `TopicFacet`, the PubMed adapter builds (or accepts) an Entrez 
 | MeSH (v1) | Topic analysis does **not** emit MeSH markup. Use `[Mesh]` (or `[mh]`) only for terms in `filters.mesh_terms`, or supply a full Entrez `term` via `source_overrides.pubmed` `raw_term` |
 | `date_from` / `date_to` | Publication date via `[pdat]` range (e.g. `2018:2024[pdat]`) |
 | `filters` | Only keys documented for PubMed (e.g. `mesh_terms`, `article_types` if added later); ignore unknown keys |
-| `retmax` | Passed to ESearch as `retmax` |
+| `retmax` | Passed to ESearch as `retmax`; when the facet and override both omit it, default **200** |
+| (default sort) | When the facet and override omit `sort`, ESearch uses **`pub_date`** (newest publication first). Do **not** use NCBI `sortpubdate` (it pads missing day/month to `01`). |
 
 Boolean operators in compiled queries must be **ALL CAPS** (`AND`, `OR`, `NOT`). Terms must be URL-encoded for HTTP calls.
 
@@ -78,7 +79,7 @@ Base URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`
 
 | Utility | Endpoint | Role in this source |
 | --- | --- | --- |
-| **ESearch** | `esearch.fcgi` | Compiled `term` → PMIDs (`usehistory=y`, `retmax`, optional `sort`) |
+| **ESearch** | `esearch.fcgi` | Compiled `term` → PMIDs (`usehistory=y`, `retmax`, `sort`; default `retmax=200`, `sort=pub_date` when omitted) |
 | **ESummary** | `esummary.fcgi` | DocSums for candidate summary fields (by ids or History `WebEnv` + `query_key`) |
 | **EFetch** | `efetch.fcgi` | Fuller record for the **source-record** flow after [Paper archiving](../2.2.1-paper-archiving.md); see [EFetch (source record)](#efetch-source-record) and [Fulfill papers metadata](../2.2.2-fulfill-papers-metadata.md) |
 | **PMC Cloud** | AWS Open Data bucket `pmc-oa-opendata` (HTTPS) | Full-text flow after a succeeded source record; see [PMC Cloud enrichment](#pmc-cloud-enrichment) |
@@ -114,6 +115,7 @@ Maps DocSum fields onto the shared `PaperCandidate` contract owned by [search ex
 | `authors` | DocSum `authors[].name` → `list[str]` (ESummary JSON objects with `name`, `authtype`, `clusterid`) |
 | `journal` | DocSum source / full journal name when available |
 | `published_year` | Year parsed from DocSum pubdate / epubdate when available |
+| `pub_date` | Full calendar date from DocSum `pubdate`, then `epubdate`, **only** when year, month, and day are all present (same rule as EFetch `Paper.pub_date`); otherwise null |
 | `url` | `https://pubmed.ncbi.nlm.nih.gov/<pmid>/` |
 | `snippet` | Only if DocSum provides a usable short text; otherwise omit |
 | `facet_id` | Facet id from `SearchCriteria.topic_analysis` |

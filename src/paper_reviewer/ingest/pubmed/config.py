@@ -10,8 +10,10 @@ from dlt.sources.rest_api.typing import RESTAPIConfig
 EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 # NCBI JSON ESummary rejects requests larger than this.
 ESUMMARY_JSON_RETMAX_CAP = 500
-# Used when caller omits retmax so History mode never fetches the full set.
-ESUMMARY_DEFAULT_RETMAX = 20
+# Default ESearch/ESummary hit cap when facet and override omit retmax.
+PUBMED_DEFAULT_RETMAX = 200
+# Default ESearch sort when facet and override omit sort (newest publication first).
+PUBMED_DEFAULT_SORT = "pub_date"
 
 
 def build_pubmed_rest_api_config(
@@ -22,24 +24,21 @@ def build_pubmed_rest_api_config(
     api_key: str | None = None,
 ) -> RESTAPIConfig:
     """Declarative ESearch + ESummary config linked via History WebEnv/query_key."""
+    effective_retmax = retmax if retmax is not None else PUBMED_DEFAULT_RETMAX
+    effective_sort = sort if sort is not None else PUBMED_DEFAULT_SORT
+
     esearch_params: dict[str, Any] = {
         "db": "pubmed",
         "retmode": "json",
         "usehistory": "y",
         "term": term,
+        "retmax": effective_retmax,
+        "sort": effective_sort,
     }
-    if retmax is not None:
-        esearch_params["retmax"] = retmax
-    if sort is not None:
-        esearch_params["sort"] = sort
 
     # History stores the full hit set; ESummary must pass retmax or NCBI tries
     # to return every UID (JSON max 500).
-    esummary_retmax = (
-        ESUMMARY_DEFAULT_RETMAX
-        if retmax is None
-        else min(retmax, ESUMMARY_JSON_RETMAX_CAP)
-    )
+    esummary_retmax = min(effective_retmax, ESUMMARY_JSON_RETMAX_CAP)
 
     client: dict[str, Any] = {"base_url": EUTILS_BASE_URL}
     if api_key is not None:

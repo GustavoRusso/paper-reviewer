@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PaperCandidate,
 )
@@ -32,31 +34,52 @@ def test_empty_input_yields_empty_list() -> None:
     assert merge_candidates([]) == []
 
 
-def test_unique_candidates_preserved_in_order() -> None:
-    a = _candidate(
+def test_merge_sorts_newest_year_then_date_with_nulls_last() -> None:
+    older = _candidate(
         source_uid="1",
         doi="10.1000/A",
-        title="First",
+        title="Older",
+        published_year=2020,
+        pub_date=date(2020, 6, 1),
         url="https://pubmed.ncbi.nlm.nih.gov/1/",
     )
-    b = _candidate(
+    newer = _candidate(
         source_uid="2",
         doi="10.1000/B",
-        title="Second",
+        title="Newer",
+        published_year=2024,
+        pub_date=date(2024, 3, 15),
         url="https://pubmed.ncbi.nlm.nih.gov/2/",
     )
+    same_year_no_date = _candidate(
+        source_uid="3",
+        doi="10.1000/C",
+        title="Same year, no date",
+        published_year=2024,
+        pub_date=None,
+        url="https://pubmed.ncbi.nlm.nih.gov/3/",
+    )
+    no_year = _candidate(
+        source_uid="4",
+        doi="10.1000/D",
+        title="No year",
+        published_year=None,
+        pub_date=None,
+        url="https://pubmed.ncbi.nlm.nih.gov/4/",
+    )
 
-    merged = merge_candidates([a, b])
-    assert [c.source_uid for c in merged] == ["1", "2"]
-    assert [c.title for c in merged] == ["First", "Second"]
+    merged = merge_candidates([older, no_year, same_year_no_date, newer])
+
+    assert [c.source_uid for c in merged] == ["2", "3", "1", "4"]
 
 
-def test_dedupe_by_uppercase_doi_keeps_first() -> None:
+def test_dedupe_by_uppercase_doi_keeps_first_then_sorts() -> None:
     first = _candidate(
         source_uid="36328499",
         doi="10.1038/s41586-022-05543-x",
         title="First hit",
         facet_id="core-concepts",
+        published_year=2022,
         url="https://pubmed.ncbi.nlm.nih.gov/36328499/",
     )
     duplicate = _candidate(
@@ -65,12 +88,14 @@ def test_dedupe_by_uppercase_doi_keeps_first() -> None:
         doi="10.1038/S41586-022-05543-X",
         title="Same paper, other source",
         facet_id="broad",
+        published_year=2022,
         url="https://europepmc.org/article/PMC/9876543",
     )
     other = _candidate(
         source_uid="11850928",
         doi="10.1126/science.example",
         title="Different DOI",
+        published_year=2020,
         url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
     )
 
@@ -141,12 +166,14 @@ def test_kept_candidates_have_non_null_uppercase_doi() -> None:
         source_uid="36328499",
         doi="  10.1038/s41586-022-05543-x  ",
         title="Mixed case",
+        published_year=2024,
         url="https://pubmed.ncbi.nlm.nih.gov/36328499/",
     )
     already_upper = _candidate(
         source_uid="11850928",
         doi="10.1126/SCIENCE.EXAMPLE",
         title="Already upper",
+        published_year=2022,
         url="https://pubmed.ncbi.nlm.nih.gov/11850928/",
     )
 

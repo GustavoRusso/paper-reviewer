@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+from paper_reviewer.ingest.pubmed.config import (
+    PUBMED_DEFAULT_RETMAX,
+    PUBMED_DEFAULT_SORT,
+)
 from paper_reviewer.ingest.pubmed.term import compile_pubmed_query
 from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PubMedFacetOverride,
@@ -156,7 +160,22 @@ def test_retmax_comes_from_facet_when_override_omits_it() -> None:
     compiled = compile_pubmed_query(facet)
 
     assert compiled.retmax == 20
-    assert compiled.sort is None
+    assert compiled.sort == PUBMED_DEFAULT_SORT
+
+
+def test_retmax_and_sort_default_when_facet_omits_them() -> None:
+    facet = TopicFacet.model_validate(
+        {
+            "id": "core-concepts",
+            "label": "Core concepts",
+            "concepts": ["glioblastoma", "immunotherapy"],
+        }
+    )
+
+    compiled = compile_pubmed_query(facet)
+
+    assert compiled.retmax == PUBMED_DEFAULT_RETMAX
+    assert compiled.sort == PUBMED_DEFAULT_SORT
 
 
 def test_empty_concepts_with_only_mesh_filter_still_compiles() -> None:

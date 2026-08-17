@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import date
 from typing import Any
 
 from paper_reviewer.schemas.topic_scope.search_external_sources import (
@@ -10,6 +11,20 @@ from paper_reviewer.schemas.topic_scope.search_external_sources import (
 
 _PUBMED_SOURCE_ID = "pubmed"
 _PUBMED_URL_TEMPLATE = "https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+_MONTH_BY_ABBR: dict[str, int] = {
+    "jan": 1,
+    "feb": 2,
+    "mar": 3,
+    "apr": 4,
+    "may": 5,
+    "jun": 6,
+    "jul": 7,
+    "aug": 8,
+    "sep": 9,
+    "oct": 10,
+    "nov": 11,
+    "dec": 12,
+}
 
 
 def docsum_to_candidate(docsum: dict[str, Any], *, facet_id: str) -> PaperCandidate:
@@ -23,6 +38,7 @@ def docsum_to_candidate(docsum: dict[str, Any], *, facet_id: str) -> PaperCandid
         authors=_author_names(docsum.get("authors")),
         journal=_journal_name(docsum),
         published_year=_published_year(docsum),
+        pub_date=_pub_date(docsum),
         url=_PUBMED_URL_TEMPLATE.format(pmid=pmid),
         snippet=_usable_snippet(docsum.get("snippet")),
         facet_id=facet_id,
@@ -68,6 +84,35 @@ def _published_year(docsum: dict[str, Any]) -> int | None:
         if year is not None:
             return year
     return None
+
+
+def _pub_date(docsum: dict[str, Any]) -> date | None:
+    for key in ("pubdate", "epubdate"):
+        parsed = _full_date_from_docsum_string(docsum.get(key))
+        if parsed is not None:
+            return parsed
+    return None
+
+
+def _full_date_from_docsum_string(value: Any) -> date | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    parts = text.split()
+    if len(parts) < 3:
+        return None
+    year_str, month_str, day_str = parts[0], parts[1], parts[2]
+    if len(year_str) != 4 or not year_str.isdigit():
+        return None
+    month = _MONTH_BY_ABBR.get(month_str[:3].casefold())
+    if month is None or not day_str.isdigit():
+        return None
+    try:
+        return date(int(year_str), month, int(day_str))
+    except ValueError:
+        return None
 
 
 def _year_from_date_string(value: Any) -> int | None:

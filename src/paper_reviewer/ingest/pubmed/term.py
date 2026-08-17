@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from paper_reviewer.ingest.pubmed.config import (
+    PUBMED_DEFAULT_RETMAX,
+    PUBMED_DEFAULT_SORT,
+)
 from paper_reviewer.schemas.topic_scope.search_external_sources import (
     PubMedFacetOverride,
 )
@@ -32,8 +36,8 @@ def compile_pubmed_query(
     if override is not None and override.raw_term is not None:
         return CompiledPubmedQuery(
             term=override.raw_term,
-            retmax=override.retmax if override.retmax is not None else facet.retmax,
-            sort=override.sort,
+            retmax=_resolve_retmax(facet, override),
+            sort=_resolve_sort(override),
         )
 
     mesh_terms = _mesh_terms(facet)
@@ -59,9 +63,26 @@ def compile_pubmed_query(
 
     return CompiledPubmedQuery(
         term=" AND ".join(clauses),
-        retmax=facet.retmax,
-        sort=None,
+        retmax=_resolve_retmax(facet, override),
+        sort=_resolve_sort(override),
     )
+
+
+def _resolve_retmax(
+    facet: TopicFacet,
+    override: PubMedFacetOverride | None,
+) -> int:
+    if override is not None and override.retmax is not None:
+        return override.retmax
+    if facet.retmax is not None:
+        return facet.retmax
+    return PUBMED_DEFAULT_RETMAX
+
+
+def _resolve_sort(override: PubMedFacetOverride | None) -> str:
+    if override is not None and override.sort is not None:
+        return override.sort
+    return PUBMED_DEFAULT_SORT
 
 
 def _mesh_terms(facet: TopicFacet) -> list[str]:
