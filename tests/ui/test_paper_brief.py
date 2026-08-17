@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import inspect
+from decimal import Decimal
 
 from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
@@ -16,6 +17,7 @@ from paper_reviewer.ui.paper_brief import (
     NO_SUCCEEDED_BRIEF_MESSAGE,
     PAPER_MISSING_MESSAGE,
     format_paper_brief_caption,
+    format_paper_brief_evaluation_caption,
     paper_brief_display_sections,
     render_paper_brief,
 )
@@ -100,6 +102,27 @@ def test_format_paper_brief_caption_missing_optional_fields() -> None:
         )
         == "— · — · — · DOI `10.1000/B`"
     )
+
+
+def test_format_paper_brief_evaluation_caption_shows_two_decimal_score() -> None:
+    caption = format_paper_brief_evaluation_caption(Decimal("4.25"))
+
+    assert caption == "evaluation 4.25"
+    assert "faithfulness" not in caption
+    assert "completeness" not in caption
+    assert "conciseness" not in caption
+    assert "topic_agnostic" not in caption
+
+
+def test_format_paper_brief_evaluation_caption_omitted_when_score_is_null() -> None:
+    assert format_paper_brief_evaluation_caption(None) is None
+
+
+def test_header_shows_evaluation_score_caption_when_set() -> None:
+    source = inspect.getsource(paper_brief_module)
+    assert "format_paper_brief_evaluation_caption" in source
+    assert "result.evaluation_score" in source
+    assert "evaluation_error_message" not in source
 
 
 def test_paper_brief_display_sections_skips_empty_optionals() -> None:

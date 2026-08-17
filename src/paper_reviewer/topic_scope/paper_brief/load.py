@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
+
 from sqlalchemy.orm import Session
 
 from paper_reviewer.models.paper import get_paper_by_doi
-from paper_reviewer.models.paper_brief import get_paper_brief_by_paper_id
+from paper_reviewer.models.paper_brief import PaperBrief, get_paper_brief_by_paper_id
 from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
     PaperAspectStatus,
 )
@@ -16,6 +18,15 @@ from paper_reviewer.schemas.topic_scope.paper_brief import (
     PaperBriefRead,
     PaperBriefReadStatus,
 )
+
+
+def _evaluation_score_for_read(brief: PaperBrief) -> Decimal | None:
+    if (
+        brief.evaluation_status == PaperAspectStatus.succeeded
+        and brief.evaluation_score is not None
+    ):
+        return brief.evaluation_score
+    return None
 
 
 def load_paper_brief_for_read(session: Session, doi: str) -> PaperBriefRead:
@@ -41,9 +52,11 @@ def load_paper_brief_for_read(session: Session, doi: str) -> PaperBriefRead:
             status=PaperBriefReadStatus.brief_unavailable,
             **bibliographic,
         )
+    evaluation_score = _evaluation_score_for_read(brief)
     if brief.content is None:
         return PaperBriefRead(
             status=PaperBriefReadStatus.invalid_content,
+            evaluation_score=evaluation_score,
             **bibliographic,
         )
     try:
@@ -51,10 +64,12 @@ def load_paper_brief_for_read(session: Session, doi: str) -> PaperBriefRead:
     except Exception:
         return PaperBriefRead(
             status=PaperBriefReadStatus.invalid_content,
+            evaluation_score=evaluation_score,
             **bibliographic,
         )
     return PaperBriefRead(
         status=PaperBriefReadStatus.ready,
         content=content,
+        evaluation_score=evaluation_score,
         **bibliographic,
     )

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
 from enum import Enum
 
 from pydantic import BaseModel, Field
@@ -31,3 +32,4 @@ class PaperBriefRead(BaseModel):
     journal: str | None = None
     published_year: int | None = None
     content: PaperBriefContent | None = None
+    evaluation_score: Decimal | None = None

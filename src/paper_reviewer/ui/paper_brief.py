@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
 from uuid import UUID
 
 import streamlit as st
@@ -66,6 +67,15 @@ def format_paper_brief_caption(
     return f"{authors_text} · {journal_text} · {year} · DOI `{doi}`"
 
 
+def format_paper_brief_evaluation_caption(
+    evaluation_score: Decimal | None,
+) -> str | None:
+    """Caption line for the overall evaluation score; omit when unset."""
+    if evaluation_score is None:
+        return None
+    return f"evaluation {evaluation_score:.2f}"
+
+
 def paper_brief_display_sections(
     content: PaperBriefContent,
 ) -> list[tuple[str, str | list[str]]]:
@@ -109,6 +119,11 @@ def _render_header(result: PaperBriefRead) -> None:
             doi=result.doi,
         )
     )
+    evaluation_caption = format_paper_brief_evaluation_caption(
+        result.evaluation_score
+    )
+    if evaluation_caption is not None:
+        st.caption(evaluation_caption)
 
 
 def _render_content(content: PaperBriefContent) -> None:

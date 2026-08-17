@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
+
 import pytest
 from pydantic import ValidationError
 
@@ -73,3 +75,21 @@ def test_paper_brief_read_paper_missing_has_no_bibliographic_fields() -> None:
 def test_paper_brief_read_requires_status_and_doi() -> None:
     with pytest.raises(ValidationError):
         PaperBriefRead.model_validate({"doi": "10.1000/EXAMPLE"})
+
+
+def test_paper_brief_read_evaluation_score_is_optional() -> None:
+    missing = PaperBriefRead(
+        status=PaperBriefReadStatus.paper_missing,
+        doi="10.1000/MISSING",
+    )
+    ready = PaperBriefRead(
+        status=PaperBriefReadStatus.ready,
+        doi="10.1000/EXAMPLE",
+        content=_sample_content(),
+        evaluation_score=Decimal("4.25"),
+    )
+
+    assert missing.evaluation_score is None
+    assert ready.evaluation_score == Decimal("4.25")
+    assert "evaluation_status" not in PaperBriefRead.model_fields
+    assert "evaluation" not in PaperBriefRead.model_fields

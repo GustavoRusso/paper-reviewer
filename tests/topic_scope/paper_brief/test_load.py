@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
+from decimal import Decimal
 
 import pytest
 from sqlalchemy import create_engine
@@ -90,6 +91,63 @@ def test_load_paper_brief_for_read_ready_when_succeeded(
     assert result.content.summary == content.summary
     assert result.content.study_type == "Cohort"
     assert result.content.key_findings == ["Metric increased."]
+    assert result.evaluation_score is None
+
+
+def test_load_paper_brief_for_read_copies_score_when_evaluation_succeeded(
+    session: Session,
+) -> None:
+    paper_id = _add_paper(session)
+    content = sample_brief_content()
+    row = create_paper_brief_row(
+        session, paper_id=paper_id, status=PaperAspectStatus.succeeded
+    )
+    row.content = content.model_dump(mode="json")
+    row.evaluation_status = PaperAspectStatus.succeeded
+    row.evaluation_score = Decimal("4.25")
+    session.flush()
+
+    result = load_paper_brief_for_read(session, "10.1000/EXAMPLE")
+
+    assert result.status is PaperBriefReadStatus.ready
+    assert result.evaluation_score == Decimal("4.25")
+
+
+def test_load_paper_brief_for_read_omits_score_when_evaluation_not_started(
+    session: Session,
+) -> None:
+    paper_id = _add_paper(session)
+    content = sample_brief_content()
+    row = create_paper_brief_row(
+        session, paper_id=paper_id, status=PaperAspectStatus.succeeded
+    )
+    row.content = content.model_dump(mode="json")
+    session.flush()
+
+    result = load_paper_brief_for_read(session, "10.1000/EXAMPLE")
+
+    assert result.status is PaperBriefReadStatus.ready
+    assert result.evaluation_score is None
+
+
+def test_load_paper_brief_for_read_omits_score_when_evaluation_failed(
+    session: Session,
+) -> None:
+    paper_id = _add_paper(session)
+    content = sample_brief_content()
+    row = create_paper_brief_row(
+        session, paper_id=paper_id, status=PaperAspectStatus.succeeded
+    )
+    row.content = content.model_dump(mode="json")
+    row.evaluation_status = PaperAspectStatus.failed
+    row.evaluation_error_message = "judge timed out"
+    row.evaluation_score = Decimal("4.25")
+    session.flush()
+
+    result = load_paper_brief_for_read(session, "10.1000/EXAMPLE")
+
+    assert result.status is PaperBriefReadStatus.ready
+    assert result.evaluation_score is None
 
 
 def test_load_paper_brief_for_read_paper_missing(session: Session) -> None:
