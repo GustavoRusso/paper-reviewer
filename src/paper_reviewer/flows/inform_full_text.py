@@ -13,10 +13,15 @@ from paper_reviewer.topic_scope.fulfill_papers_metadata.inform import (
 
 
 @flow(name="inform_full_text")
-def inform_full_text(paper_id: int, doi: str) -> InformFullTextResult:
+def inform_full_text(
+    paper_id: int,
+    doi: str,
+    force: bool = False,
+) -> InformFullTextResult:
     """Idempotent Prefect entrypoint: full-text one Paper by id.
 
     ``doi`` is a Prefect parameter for UI/search (and submit-time run names);
-    durable work keys off ``paper_id``.
+    durable work keys off ``paper_id``. ``force`` is for subflow calls from
+    ``regenerate_paper``; served deployments keep the default skip.
     """
-    return _inform_full_text(paper_id)
+    return _inform_full_text(paper_id, force=force)

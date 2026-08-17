@@ -165,3 +165,29 @@ def test_failed_source_does_not_call_cloud(
     assert result.source_record.status is PaperAspectStatus.failed
     assert result.full_text.status is PaperAspectStatus.not_started
     assert cloud_calls == []
+
+
+def test_fulfill_paper_metadata_does_not_force(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(
+        session_factory,
+        source_record_status=PaperAspectStatus.succeeded,
+        full_text_status=PaperAspectStatus.unavailable,
+        pmcid="PMC5334499",
+    )
+    fetch_calls: list[str] = []
+    cloud_calls: list[str | None] = []
+
+    result = fulfill_paper_metadata(
+        paper_id,
+        session_factory=session_factory,
+        fetch_source_record=lambda _sid, _suid: fetch_calls.append("fetch")
+        or mapped_photo(),
+        enrich_from_pmc_cloud=lambda pmcid: cloud_calls.append(pmcid) or cloud_hit(),
+    )
+
+    assert result.source_record.status is PaperAspectStatus.succeeded
+    assert result.full_text.status is PaperAspectStatus.unavailable
+    assert fetch_calls == []
+    assert cloud_calls == []
