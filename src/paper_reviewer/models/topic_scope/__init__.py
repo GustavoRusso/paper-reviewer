@@ -2,6 +2,7 @@
 
 from paper_reviewer.models.topic_scope.reference import (
     Reference,
+    count_references_for_scope,
     create_reference,
     list_references_for_scope,
 )
@@ -27,6 +28,7 @@ __all__ = [
     "TopicBrief",
     "TopicFacet",
     "TopicScope",
+    "count_references_for_scope",
     "create_reference",
     "create_topic_brief_row",
     "create_topic_scope",

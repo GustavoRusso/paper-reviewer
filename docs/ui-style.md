@@ -119,7 +119,9 @@ Illustrative only; step specs remain the behavior contract. Topic scope hub page
 | Home Topic scope list → Topic scope hub | Navigate | `st.page_link` (label = topic statement; pass `topic_scope_key`) |
 | Topic intake Submit | Confirm / primary | `st.form_submit_button(..., type="primary")` then `st.switch_page` to Topic analysis |
 | Topic analysis → Topic scope hub | Navigate | `st.page_link` |
-| Topic scope hub → External sources ingestion / Show references (References selection) / Topic brief | Navigate | `st.page_link` |
+| Topic scope hub → Show references | Navigate | `st.page_link` (label = Reference count, including `0`; pass `topic_scope_key`) |
+| Topic scope hub → Topic brief generation | Navigate | `st.page_link` (label **Topic brief generation**; pass `topic_scope_key`) |
+| Topic scope hub → External sources ingestion | Navigate | `st.page_link` (label **External sources ingestion**; pass `topic_scope_key`) |
 | External sources ingestion phase stepper → another ingest step | Navigate | `st.page_link` (current step is not a link) |
 | External sources ingestion → Search external sources | Navigate | `st.page_link` |
 | Search external sources → Paper archiving | Navigate | `st.page_link` |

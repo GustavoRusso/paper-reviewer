@@ -6,14 +6,19 @@ from uuid import uuid4
 
 from paper_reviewer.ui.navigation import build_app_pages
 from paper_reviewer.ui.topic_scope import (
-    CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL,
-    CONTINUE_TO_REFERENCES_SELECTION_LABEL,
-    CONTINUE_TO_TOPIC_BRIEF_LABEL,
     GO_TO_TOPIC_ANALYSIS_LABEL,
     GO_TO_TOPIC_INTAKE_LABEL,
+    HUB_ACTIONS_TITLE,
+    HUB_EXTERNAL_SOURCES_INGESTION_LABEL,
+    HUB_EXTERNAL_SOURCES_INGESTION_PAGE_KEY,
+    HUB_REFERENCES_PAGE_KEY,
+    HUB_REFERENCES_TITLE,
+    HUB_TOPIC_BRIEF_LABEL,
+    HUB_TOPIC_BRIEF_PAGE_KEY,
+    HUB_TOPIC_BRIEF_TITLE,
     INCOMPLETE_MESSAGE,
     MISSING_SCOPE_MESSAGE,
-    PHASE_LANDING_PAGE_KEYS,
+    format_hub_reference_count_label,
     render_topic_scope,
     topic_scope_hub_view,
 )
@@ -91,16 +96,24 @@ def test_incomplete_copy_and_analysis_link_label() -> None:
     assert GO_TO_TOPIC_ANALYSIS_LABEL == "Go to Topic analysis"
 
 
-def test_ready_hub_links_to_phase_entries() -> None:
-    assert PHASE_LANDING_PAGE_KEYS == (
-        "external_sources_ingestion",
-        "show_references",
-        "topic_brief_generation",
+def test_ready_hub_action_row_pane_titles() -> None:
+    assert HUB_REFERENCES_TITLE == "References"
+    assert HUB_TOPIC_BRIEF_TITLE == "Topic Brief"
+    assert HUB_ACTIONS_TITLE == "Actions"
+
+
+def test_ready_hub_action_row_destinations() -> None:
+    assert HUB_REFERENCES_PAGE_KEY == "show_references"
+    assert HUB_TOPIC_BRIEF_PAGE_KEY == "topic_brief_generation"
+    assert HUB_EXTERNAL_SOURCES_INGESTION_PAGE_KEY == (
+        "external_sources_ingestion"
     )
-    assert CONTINUE_TO_EXTERNAL_SOURCES_INGESTION_LABEL == (
-        "Continue to External sources ingestion"
+    assert HUB_TOPIC_BRIEF_LABEL == "Topic brief generation"
+    assert HUB_EXTERNAL_SOURCES_INGESTION_LABEL == (
+        "External sources ingestion"
     )
-    assert CONTINUE_TO_REFERENCES_SELECTION_LABEL == (
-        "Continue to References selection"
-    )
-    assert CONTINUE_TO_TOPIC_BRIEF_LABEL == "Continue to Topic brief generation"
+
+
+def test_hub_reference_count_label_is_the_decimal_count() -> None:
+    assert format_hub_reference_count_label(0) == "0"
+    assert format_hub_reference_count_label(3) == "3"

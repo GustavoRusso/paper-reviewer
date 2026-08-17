@@ -65,6 +65,19 @@ def create_reference(
     return row
 
 
+def count_references_for_scope(
+    session: Session,
+    topic_scope_id: int,
+) -> int:
+    """Return how many References exist for a Topic scope."""
+    count = session.scalar(
+        select(func.count())
+        .select_from(Reference)
+        .where(Reference.topic_scope_id == topic_scope_id)
+    )
+    return int(count or 0)
+
+
 def list_references_for_scope(
     session: Session,
     topic_scope_id: int,

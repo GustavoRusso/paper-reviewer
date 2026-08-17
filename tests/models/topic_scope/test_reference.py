@@ -15,6 +15,7 @@ from paper_reviewer.models.paper import create_paper
 from paper_reviewer.models.topic_scope import create_topic_scope
 from paper_reviewer.models.topic_scope.reference import (
     Reference,
+    count_references_for_scope,
     create_reference,
     list_references_for_scope,
 )
@@ -106,6 +107,39 @@ def test_list_references_for_scope_orders_by_created_at_then_id(
     listed = list_references_for_scope(session, topic_scope.id)
 
     assert [paper.title for _ref, paper in listed] == ["First", "Second"]
+
+
+def test_count_references_for_scope_is_zero_when_none_exist(
+    session: Session,
+) -> None:
+    topic_scope = create_topic_scope(session, "no references")
+    session.flush()
+
+    assert count_references_for_scope(session, topic_scope.id) == 0
+
+
+def test_count_references_for_scope_counts_only_this_scope(
+    session: Session,
+) -> None:
+    scope_a = create_topic_scope(session, "scope a")
+    scope_b = create_topic_scope(session, "scope b")
+    session.flush()
+    first_id = _add_paper(
+        session, doi="10.1000/A1", source_uid="40", title="A1"
+    )
+    second_id = _add_paper(
+        session, doi="10.1000/A2", source_uid="41", title="A2"
+    )
+    other_id = _add_paper(
+        session, doi="10.1000/B1", source_uid="42", title="B1"
+    )
+    create_reference(session, scope_a.id, first_id)
+    create_reference(session, scope_a.id, second_id)
+    create_reference(session, scope_b.id, other_id)
+    session.flush()
+
+    assert count_references_for_scope(session, scope_a.id) == 2
+    assert count_references_for_scope(session, scope_b.id) == 1
 
 
 def test_list_references_for_scope_excludes_other_scopes(
