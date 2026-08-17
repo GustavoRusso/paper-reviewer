@@ -24,16 +24,16 @@ All initial local parametrization lives in a project-root **`.env`** file. Compo
 | `POSTGRES_PASSWORD` | `paper_reviewer` | `db` | Must match password in `DATABASE_URL` |
 | `POSTGRES_DB` | `paper_reviewer` | `db` | Must match database in `DATABASE_URL` |
 | `POSTGRES_PORT` | `5432` | `db` host publish | Host → container `5432` |
-| `DATABASE_URL` | `postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer` | `workspace`, `migrate`, `ui`, `prefect-worker` | In-compose hostname is `db`. From the host: `localhost:${POSTGRES_PORT}` |
+| `DATABASE_URL` | `postgresql://paper_reviewer:paper_reviewer@db:5432/paper_reviewer` | `workspace`, `migrate`, `ui`, `prefect-worker`, `notebooks` | In-compose hostname is `db`. From the host: `localhost:${POSTGRES_PORT}` |
 | `UI_PORT` | `8501` | `ui` host publish | Host → container `8501` |
-| `PREFECT_API_URL` | `http://prefect-server:4200/api` | `workspace`, `ui`, `prefect-worker` | In-network Prefect API |
+| `PREFECT_API_URL` | `http://prefect-server:4200/api` | `workspace`, `ui`, `prefect-worker`, `notebooks` | In-network Prefect API |
 | `PREFECT_UI_API_URL` | `http://localhost:4200/api` | `prefect-server` | Browser → host API; keep in sync with `PREFECT_PORT` |
 | `PREFECT_PORT` | `4200` | `prefect-server` host publish | Host → container `4200` |
-| `NCBI_API_KEY` | (empty) | `ui`, `prefect-worker` | Optional; higher PubMed rate limits when set |
-| `OPENAI_API_KEY` | (empty) | `prefect-worker` | Required for the public OpenAI API. Optional when `OPENAI_BASE_URL` is set (local compatible gateway). Leave both empty in tests; the job records Failed if the public API is used with no key |
-| `OPENAI_BASE_URL` | (empty) | `prefect-worker` | Optional OpenAI-compatible API base. Empty uses the public OpenAI API. From Compose, `localhost` / `127.0.0.1` is rewritten to `host.docker.internal` so a gateway on the host is reachable. Local gateways may ignore structured `json_schema`; the job still extracts and validates `PaperBriefContent`. When this URL is set, the job sends `max_tokens=4096` and clips extracted scientific sections to 8000 characters (public OpenAI uses the extracted sections with no character budget) |
-| `OPENAI_MODEL` | (empty) | `prefect-worker` | Chat model id for `create_paper_brief`. Empty uses the public API default (`gpt-4o-mini`). Required when `OPENAI_BASE_URL` is set (local example in `.env.example`: `llama3.1-8b`). Offline eval notebooks will use the same variables (app workspace; [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract); not implemented) |
-| `JUPYTER_PORT` | (later) | app `workspace` (future `just notebooks`) | Host port for Jupyter in the container. Not in Compose yet. Do **not** publish Jupyter on the sandbox. |
+| `NCBI_API_KEY` | (empty) | `ui`, `prefect-worker`, `notebooks` | Optional; higher PubMed rate limits when set |
+| `OPENAI_API_KEY` | (empty) | `prefect-worker`, `notebooks` | Required for the public OpenAI API. Optional when `OPENAI_BASE_URL` is set (local compatible gateway). Leave both empty in tests; the job records Failed if the public API is used with no key |
+| `OPENAI_BASE_URL` | (empty) | `prefect-worker`, `notebooks` | Optional OpenAI-compatible API base. Empty uses the public OpenAI API. From Compose, `localhost` / `127.0.0.1` is rewritten to `host.docker.internal` so a gateway on the host is reachable. Local gateways may ignore structured `json_schema`; the job still extracts and validates `PaperBriefContent`. When this URL is set, the job sends `max_tokens=4096` and clips extracted scientific sections to 8000 characters (public OpenAI uses the extracted sections with no character budget) |
+| `OPENAI_MODEL` | (empty) | `prefect-worker`, `notebooks` | Chat model id for `create_paper_brief` and offline eval notebooks. Empty uses the public API default (`gpt-4o-mini`). Required when `OPENAI_BASE_URL` is set (local example in `.env.example`: `llama3.1-8b`). Notebooks: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract) |
+| `JUPYTER_PORT` | `8888` | `notebooks` host publish | Host → container `8888`. Recipe `just notebooks`. Do **not** publish Jupyter on the sandbox. |
 
 Compose supplies the same defaults when a variable is unset, so an empty or missing `.env` still boots with the values above. Prefer the standard `postgresql://` scheme in `DATABASE_URL`; `paper_reviewer.db` maps it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
 
@@ -47,6 +47,7 @@ Compose defines:
 - **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `migrate` succeeds).
 - **`prefect-server`** — Prefect API/UI on host port **`PREFECT_PORT`** (default **4200**; Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `PREFECT_UI_API_URL`.
 - **`prefect-worker`** — Serves `fulfill_paper_metadata/default`, leaf deployments `inform_source_record/default` and `inform_full_text/default`, `create_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, optional `NCBI_API_KEY`, optional `OPENAI_API_KEY`, optional `OPENAI_BASE_URL`, and optional `OPENAI_MODEL` from `.env`. The Streamlit UI submits `fulfill_paper_metadata`, `create_paper_brief`, `create_topic_brief`, and `ingest_paper` runs with `run_deployment` (fire-and-forget). `ingest_paper/default` has a deployment concurrency limit of **5**; extra runs wait (`AwaitingConcurrencySlot`). The UI still submits one run per selected paper. Other served deployments have no such cap. An `ingest_paper` run shows nested subflow runs for `inform_source_record`, `inform_full_text`, and (when full text succeeded) `create_paper_brief`. Progress UIs still poll Postgres, not Prefect, for paper and brief status.
+- **`notebooks`** — Jupyter Lab for offline paper-brief evaluation (Compose profile `notebooks`; started by `just notebooks`, not by `just up` or `just sandbox`). Same image and bind-mount as `workspace`. Publishes host port **`JUPYTER_PORT`** (default **8888**). Sets `DATABASE_URL`, optional `NCBI_API_KEY`, and optional `OPENAI_*` from `.env`. Procedure: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md).
 
 ### Schema migrations (Alembic)
 
@@ -67,7 +68,7 @@ just run "uv run alembic revision --autogenerate -m 'describe change'"
 
 Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
 
-After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `fulfill_paper_metadata/default` (leaf `inform_source_record/default` and `inform_full_text/default`), `create_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default`. An `ingest_paper` run shows nested subflow runs for source record, full text, and (when full text succeeded) paper brief. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` for one service.
+After `just up`, open the **Paper Reviewer** UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and the Prefect UI at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)). Confirm `prefect-worker` is up (`just status` / `just logs prefect-worker`): it should serve `fulfill_paper_metadata/default` (leaf `inform_source_record/default` and `inform_full_text/default`), `create_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default`. An `ingest_paper` run shows nested subflow runs for source record, full text, and (when full text succeeded) paper brief. Follow logs with `just logs` (all services) or `just logs ui` / `just logs db` / `just logs prefect-server` / `just logs prefect-worker` / `just logs notebooks` for one service.
 
 Manual smoke for Paper archiving ingest: after search, open **Paper archiving**. Confirm create/reuse, then enqueue of `ingest_paper` for new papers. Watch **source record**, **full text**, and **brief** labels move while `just logs prefect-worker` shows nested subflow runs. Reused papers that already have terminal statuses do not enqueue. A reused paper whose source record is still `not_started` does enqueue. When the set is terminal, the page links to **Topic scope**. Progress truth is Postgres, not the Prefect UI.
 
@@ -95,15 +96,17 @@ just test tests/schemas/topic_scope/test_topic_intake.py -q
 
 The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect runs with the app profile (`just up`), not the sandbox. Seeding and `just reset` will be added later.
 
-### Offline paper-brief evaluation notebooks (contract; not implemented)
+### Offline paper-brief evaluation notebooks
 
 Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just sandbox` for this procedure (no app Postgres).
 
-Locked contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract). Later slice:
+```bash
+just notebooks
+```
 
-- Recipe **`just notebooks`**: requires `just up`; starts Jupyter in the **app** `workspace` with `uv run`; host browser at `http://localhost:${JUPYTER_PORT}`.
-- Env: `JUPYTER_PORT` (host publish, same pattern as `UI_PORT`). The notebook process needs `DATABASE_URL`, `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL`, and `NCBI_API_KEY` (step 1 fetch). Today `OPENAI_*` is on `prefect-worker` only; that slice must also pass them into the notebook container.
-- Do not add this recipe until Jupyter is a workspace dependency and the port is in [compose.yml](../compose.yml) / [`.env.example`](../.env.example).
+That starts the app stack if needed, then Jupyter Lab in the **`notebooks`** service (Compose profile `notebooks`). Open `http://localhost:${JUPYTER_PORT}` (default [8888](http://localhost:8888)). The process has `DATABASE_URL`, `NCBI_API_KEY`, and `OPENAI_*` from `.env`. Contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract).
+
+`just down` stops Jupyter with the rest of the app project. The sandbox never publishes `JUPYTER_PORT`.
 
 ## Two environments
 

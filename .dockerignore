@@ -1,5 +1,11 @@
 .git
 .gitignore
+tests
+docs
+notebooks
+data
+AGENTS.md
+README.md
 __pycache__
 *.py[cod]
 *$py.class

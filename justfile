@@ -4,10 +4,12 @@
 set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 
 set default-list := true
+set dotenv-load := true
 
 app_project := "paper-reviewer"
 sandbox_project := "paper-reviewer-sandbox"
 compose := "docker compose"
+jupyter_port := env("JUPYTER_PORT", "8888")
 
 # Build/start the persistent app stack (workspace + app profile: migrate + UI + Postgres + Prefect); wait until healthy
 up:
@@ -23,7 +25,7 @@ down:
     {{compose}} -p {{app_project}} down
 
 # Follow logs (optional service name; default: all running services)
-# Examples: just logs | just logs ui | just logs db | just logs prefect-server | just logs prefect-worker
+# Examples: just logs | just logs ui | just logs db | just logs prefect-server | just logs prefect-worker | just logs notebooks
 logs service="":
     {{compose}} -p {{app_project}} logs -f {{service}}
 
@@ -60,3 +62,9 @@ sandbox-run *args: sandbox
 # Run pytest in the sandbox (optional path/args; fails if no tests collected)
 test *args: sandbox
     {{compose}} -p {{sandbox_project}} exec -T workspace sh -c 'uv run pytest {{args}}'
+
+# Start Jupyter Lab in the app stack (needs Postgres). Not the sandbox.
+# Open http://localhost:${JUPYTER_PORT} (default 8888)
+notebooks: up
+    {{compose}} -p {{app_project}} --profile app --profile notebooks up -d --build --wait notebooks
+    echo Jupyter Lab: http://localhost:{{jupyter_port}}

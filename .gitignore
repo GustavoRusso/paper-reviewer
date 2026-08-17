@@ -31,6 +31,9 @@ htmlcov/
 .dlt/data/
 .dlt/state/
 
+# Jupyter
+.ipynb_checkpoints/
+
 # OS / editor
 .DS_Store
 .idea/

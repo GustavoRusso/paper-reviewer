@@ -147,6 +147,49 @@ services:
       ]
     restart: on-failure
 
+  # Jupyter Lab for local offline eval notebooks. Profile `notebooks` so
+  # `just up` and `just sandbox` do not start it or publish JUPYTER_PORT.
+  notebooks:
+    profiles: ["notebooks"]
+    build: .
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    environment:
+      <<: *app-env
+      NCBI_API_KEY: ${NCBI_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    command:
+      [
+        "uv",
+        "run",
+        "jupyter",
+        "lab",
+        "--ip=0.0.0.0",
+        "--port=8888",
+        "--no-browser",
+        "--allow-root",
+        "--ServerApp.token=",
+        "--ServerApp.password=",
+      ]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/api"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 90s
+
 volumes:
   postgres_data:
   prefect_data:
