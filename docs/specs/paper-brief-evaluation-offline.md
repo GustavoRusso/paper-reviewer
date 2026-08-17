@@ -2,7 +2,7 @@
 
 This document owns the **offline paper-brief evaluation** procedure: three Jupyter notebooks that freeze a full-text corpus, generate briefs, and score those briefs with the same judge as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). It is not a workflow phase step number.
 
-**Not implemented.** This document locks the **behavior contract** (notebooks, paths, file names, domain functions). There are no notebooks, `notebooks/` or `data/` trees, Jupyter dependencies, or gitignore rules yet.
+**Status:** step 1 (build corpus) and the Jupyter runtime (`just notebooks`) are implemented. Steps 2 and 3 (generate briefs; offline judge) are **not** implemented yet.
 
 **Criteria, JSON shape, and `evaluation_score` stay owned by** [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). This document **points** at that contract. Do not copy the rubric here.
 
@@ -27,7 +27,7 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 - If the DOI has no `Paper` row, skip it and say so in the notebook output. Do not archive from the notebook.
 - An empty database after migrate only → every DOI is skipped; no corpus files.
 - After `corpus/` exists, steps 2 and 3 do **not** use Postgres. They still run in the **app** workspace so one `just notebooks` session covers all three steps.
-- Do **not** run these notebooks in `just sandbox` (no Postgres). Runtime: [Runtime (contract)](#runtime-contract).
+- Do **not** run these notebooks in `just sandbox` (no Postgres). Runtime: [Runtime](#runtime).
 
 ## Scope
 
@@ -43,7 +43,6 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 
 ### Out of scope (this document)
 
-- Any notebooks, Jupyter dependency, `.gitignore`, or `.dockerignore` (this docs slice).
 - Prefect (`create_paper_brief`, `evaluate_paper_brief`, `ingest_paper`, `inform_*` flows).
 - Paper archiving / creating a `Paper` row from a DOI that is not already in the local database.
 - Writes to `PaperBrief` (`content`, `evaluation`, `evaluation_status`, `evaluation_score`). Offline brief and judge output are **file artifacts only**.
@@ -176,43 +175,42 @@ Notebook: `03-evaluate-briefs.ipynb`.
 
 Domain functions: `paper_reviewer.topic_scope.paper_brief_evaluation.llm` (`judge_paper_brief_evaluation`) and `paper_reviewer.schemas.topic_scope.paper_brief_evaluation` (`mean_evaluation_score`, `PaperBriefEvaluation`).
 
-## Runtime (contract)
+## Runtime
 
 There is **no host Python**. Do **not** install Jupyter, `uv`, or the app toolchain on the host. Host tools stay Docker Desktop and `just` ([host-requirements.md](../host-requirements.md)).
 
-Notebooks run **inside the persistent app `workspace` container** (`just up`), not on the host and **not** in `just sandbox`.
+Notebooks run in the Compose **`notebooks`** service (`just notebooks`), not on the host and **not** in `just sandbox`. That recipe starts the app stack first (Postgres), then Jupyter Lab. How to start it: [local-development.md](../local-development.md#offline-paper-brief-evaluation-notebooks).
 
 | Rule | Why |
 | --- | --- |
-| App workspace (`just up`) | Step 1 needs the app Postgres (`DATABASE_URL` hostname `db`) and archived `Paper` rows. |
+| `just notebooks` (app stack + `notebooks` service) | Step 1 needs the app Postgres (`DATABASE_URL` hostname `db`) and archived `Paper` rows. |
 | Not `just sandbox` | The sandbox Compose project starts `workspace` only. It has **no** `db`. Step 1 cannot look up papers. |
 | Not host Jupyter | The Linux venv and `uv` exist only in the image ([local-development.md](../local-development.md)). |
-| Browser on the host | Jupyter Lab/Notebook listens in the container. The host opens `http://localhost:${JUPYTER_PORT}`. |
+| Browser on the host | Jupyter Lab listens in the `notebooks` container. The host opens `http://localhost:${JUPYTER_PORT}` (default 8888). |
+| Not on `just up` alone | Profile `notebooks` keeps Jupyter off the default app stack and off the sandbox. |
 
-Future **`just notebooks`** recipe (not in this docs slice): start the app stack if needed, run Jupyter in the app `workspace` with `uv run`, publish `JUPYTER_PORT` (same pattern as `UI_PORT`). Do **not** call `docker compose` on the host by hand ([AGENTS.md](../../AGENTS.md) awkward-recipe rule). Recipe inventory: [local-development.md](../local-development.md).
+Do **not** call `docker compose` on the host by hand ([AGENTS.md](../../AGENTS.md) awkward-recipe rule).
 
-The notebook process must see the same secrets as the worker:
+The notebook process sees the same secrets as the worker:
 
-- `DATABASE_URL` (already on `workspace`)
-- `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `OPENAI_MODEL` (today on `prefect-worker` only; the later slice must pass them into the notebook container)
+- `DATABASE_URL`
+- `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `OPENAI_MODEL` (on the `notebooks` service; used by steps 2–3)
 - `NCBI_API_KEY` for step 1 full-text fetch when the body is missing
 
-The repo bind-mount at `/workspace` is the notebook cwd. Imports use the editable `paper_reviewer` install. Writes under `data/paper_brief_evaluation/` appear on the host disk.
+The repo bind-mount at `/workspace` is the notebook cwd. Imports use the editable `paper_reviewer` install. Writes under `data/paper_brief_evaluation/` appear on the host disk and may be committed. `.dockerignore` still excludes `notebooks/` and `data/` from production images.
 
-## Implementation contract (not in this docs slice)
-
-**Do not implement** the items below until a later slice. They are the target contract so that slice has a single owner.
-
-| Piece | Future contract |
-| --- | --- |
-| Notebooks | The three `.ipynb` files under `notebooks/paper_brief_evaluation/` |
-| Data dirs | `data/paper_brief_evaluation/` (tracked). Still exclude from production images. |
-| Jupyter | Dev dependency (`jupyter` / `ipykernel`) in the workspace image |
-| `just notebooks` | App workspace only. Publish `JUPYTER_PORT`. Pass `OPENAI_*` and `NCBI_API_KEY`. |
-| Compose | `workspace` (or a dedicated notebooks service on the **app** profile) publishes the Jupyter port. Do **not** add Jupyter to the sandbox. |
-| Docker ignore | Exclude `notebooks/` and `data/` from production images |
+## Implementation status
 
 Do **not** add a domain package for this procedure.
+
+| Piece | Status |
+| --- | --- |
+| Notebooks | [`01-build-corpus.ipynb`](../../notebooks/paper_brief_evaluation/01-build-corpus.ipynb) exists. `02-generate-briefs.ipynb` and `03-evaluate-briefs.ipynb` are not implemented. |
+| Data dirs | `data/paper_brief_evaluation/` is tracked (corpus and later run results). Still excluded from production images. |
+| Jupyter | Dev dependency (`jupyter` / `ipykernel`). |
+| `just notebooks` | App stack, then the `notebooks` service. Publishes `JUPYTER_PORT`. Passes `OPENAI_*` and `NCBI_API_KEY`. |
+| Compose | Dedicated `notebooks` service (profile `notebooks`). Do **not** add Jupyter to the sandbox. |
+| Docker ignore | Exclude `notebooks/` and `data/` from production images. |
 
 ## Related
 

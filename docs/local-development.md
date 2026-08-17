@@ -32,7 +32,7 @@ All initial local parametrization lives in a project-root **`.env`** file. Compo
 | `NCBI_API_KEY` | (empty) | `ui`, `prefect-worker`, `notebooks` | Optional; higher PubMed rate limits when set |
 | `OPENAI_API_KEY` | (empty) | `prefect-worker`, `notebooks` | Required for the public OpenAI API. Optional when `OPENAI_BASE_URL` is set (local compatible gateway). Leave both empty in tests; the job records Failed if the public API is used with no key |
 | `OPENAI_BASE_URL` | (empty) | `prefect-worker`, `notebooks` | Optional OpenAI-compatible API base. Empty uses the public OpenAI API. From Compose, `localhost` / `127.0.0.1` is rewritten to `host.docker.internal` so a gateway on the host is reachable. Local gateways may ignore structured `json_schema`; the job still extracts and validates `PaperBriefContent`. When this URL is set, the job sends `max_tokens=4096` and clips extracted scientific sections to 8000 characters (public OpenAI uses the extracted sections with no character budget) |
-| `OPENAI_MODEL` | (empty) | `prefect-worker`, `notebooks` | Chat model id for `create_paper_brief` and offline eval notebooks. Empty uses the public API default (`gpt-4o-mini`). Required when `OPENAI_BASE_URL` is set (local example in `.env.example`: `llama3.1-8b`). Notebooks: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract) |
+| `OPENAI_MODEL` | (empty) | `prefect-worker`, `notebooks` | Chat model id for `create_paper_brief` and offline eval notebooks. Empty uses the public API default (`gpt-4o-mini`). Required when `OPENAI_BASE_URL` is set (local example in `.env.example`: `llama3.1-8b`). Notebooks: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime) |
 | `JUPYTER_PORT` | `8888` | `notebooks` host publish | Host → container `8888`. Recipe `just notebooks`. Do **not** publish Jupyter on the sandbox. |
 
 Compose supplies the same defaults when a variable is unset, so an empty or missing `.env` still boots with the values above. Prefer the standard `postgresql://` scheme in `DATABASE_URL`; `paper_reviewer.db` maps it to SQLAlchemy’s `postgresql+psycopg://` driver for psycopg 3.
@@ -104,7 +104,7 @@ Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just s
 just notebooks
 ```
 
-That starts the app stack if needed, then Jupyter Lab in the **`notebooks`** service (Compose profile `notebooks`). Open `http://localhost:${JUPYTER_PORT}` (default [8888](http://localhost:8888)). The process has `DATABASE_URL`, `NCBI_API_KEY`, and `OPENAI_*` from `.env`. Contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime-contract).
+That starts the app stack if needed, then Jupyter Lab in the **`notebooks`** service (Compose profile `notebooks`). Open `http://localhost:${JUPYTER_PORT}` (default [8888](http://localhost:8888)). The process has `DATABASE_URL`, `NCBI_API_KEY`, and `OPENAI_*` from `.env`. Step 1 notebook: [`notebooks/paper_brief_evaluation/01-build-corpus.ipynb`](../notebooks/paper_brief_evaluation/01-build-corpus.ipynb). Steps 2–3 are not implemented. Contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime).
 
 `just down` stops Jupyter with the rest of the app project. The sandbox never publishes `JUPYTER_PORT`.
 
