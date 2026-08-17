@@ -12,7 +12,7 @@ from paper_reviewer.topic_scope.generate_paper_brief.create import (
 )
 
 
-@flow(name="create_paper_brief")
+@flow(name="create_paper_brief", flow_run_name="{doi}")
 def create_paper_brief(
     paper_id: int,
     doi: str,
@@ -20,7 +20,8 @@ def create_paper_brief(
 ) -> CreatePaperBriefResult:
     """Idempotent Prefect entrypoint: draft one PaperBrief.
 
-    ``doi`` is a Prefect parameter for UI/search (and submit-time run names);
-    durable work keys off ``paper_id``. Standalone runs do not pass ``force``.
+    ``doi`` is a Prefect parameter for UI/search and the flow run name
+    (including subflows); durable work keys off ``paper_id``. Standalone runs
+    do not pass ``force``.
     """
     return _create_paper_brief(paper_id, force=force)

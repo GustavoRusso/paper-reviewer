@@ -13,13 +13,13 @@ from paper_reviewer.schemas.topic_scope.fulfill_papers_metadata import (
 )
 
 
-@flow(name="regenerate_paper")
+@flow(name="regenerate_paper", flow_run_name="{doi}")
 def regenerate_paper(paper_id: int, doi: str) -> RegeneratePaperResult:
     """Force Prefect entrypoint: regenerate one Paper by id.
 
-    ``doi`` is a Prefect parameter for UI/search (and submit-time run names);
-    durable work keys off ``paper_id``. Always forces; do not pass ``force``.
-    Calls leaf flows as subflows.
+    ``doi`` is a Prefect parameter for UI/search and the flow run name
+    (including subflows); durable work keys off ``paper_id``. Always forces;
+    do not pass ``force``. Calls leaf flows as subflows.
     """
     source = inform_source_record(paper_id, doi, force=True)
     full_text = inform_full_text(paper_id, doi, force=True)

@@ -12,6 +12,7 @@ from paper_reviewer.flows.regenerate_paper import regenerate_paper
 
 def test_inform_source_record_flow_is_named_for_contract() -> None:
     assert inform_source_record.name == "inform_source_record"
+    assert inform_source_record.flow_run_name == "{doi}"
     params = inspect.signature(inform_source_record).parameters
     assert list(params) == ["paper_id", "doi", "force"]
     assert params["force"].default is False
@@ -19,6 +20,7 @@ def test_inform_source_record_flow_is_named_for_contract() -> None:
 
 def test_inform_full_text_flow_is_named_for_contract() -> None:
     assert inform_full_text.name == "inform_full_text"
+    assert inform_full_text.flow_run_name == "{doi}"
     params = inspect.signature(inform_full_text).parameters
     assert list(params) == ["paper_id", "doi", "force"]
     assert params["force"].default is False
@@ -26,11 +28,13 @@ def test_inform_full_text_flow_is_named_for_contract() -> None:
 
 def test_fulfill_paper_metadata_flow_is_named_for_contract() -> None:
     assert fulfill_paper_metadata.name == "fulfill_paper_metadata"
+    assert fulfill_paper_metadata.flow_run_name == "{doi}"
     params = inspect.signature(fulfill_paper_metadata).parameters
     assert list(params) == ["paper_id", "doi"]
 
 
 def test_regenerate_paper_flow_is_named_for_contract() -> None:
     assert regenerate_paper.name == "regenerate_paper"
+    assert regenerate_paper.flow_run_name == "{doi}"
     params = inspect.signature(regenerate_paper).parameters
     assert list(params) == ["paper_id", "doi"]

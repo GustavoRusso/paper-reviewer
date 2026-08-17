@@ -12,11 +12,11 @@ from paper_reviewer.topic_scope.fulfill_papers_metadata.inform import (
 )
 
 
-@flow(name="fulfill_paper_metadata")
+@flow(name="fulfill_paper_metadata", flow_run_name="{doi}")
 def fulfill_paper_metadata(paper_id: int, doi: str) -> FulfillPaperMetadataResult:
     """Idempotent Prefect entrypoint: fulfill both aspects for one Paper.
 
-    ``doi`` is a Prefect parameter for UI/search (and submit-time run names);
-    durable work keys off ``paper_id``.
+    ``doi`` is a Prefect parameter for UI/search and the flow run name
+    (including subflows); durable work keys off ``paper_id``.
     """
     return _fulfill_paper_metadata(paper_id)

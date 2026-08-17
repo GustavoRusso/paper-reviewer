@@ -12,7 +12,7 @@ from paper_reviewer.topic_scope.fulfill_papers_metadata.inform import (
 )
 
 
-@flow(name="inform_source_record")
+@flow(name="inform_source_record", flow_run_name="{doi}")
 def inform_source_record(
     paper_id: int,
     doi: str,
@@ -20,8 +20,9 @@ def inform_source_record(
 ) -> InformSourceRecordResult:
     """Idempotent Prefect entrypoint: source-record one Paper by id.
 
-    ``doi`` is a Prefect parameter for UI/search (and submit-time run names);
-    durable work keys off ``paper_id``. ``force`` is for subflow calls from
-    ``regenerate_paper``; served deployments keep the default skip.
+    ``doi`` is a Prefect parameter for UI/search and the flow run name
+    (including subflows); durable work keys off ``paper_id``. ``force`` is for
+    subflow calls from ``regenerate_paper``; served deployments keep the
+    default skip.
     """
     return _inform_source_record(paper_id, force=force)
