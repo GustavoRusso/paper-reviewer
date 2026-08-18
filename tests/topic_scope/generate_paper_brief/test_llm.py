@@ -86,6 +86,7 @@ def _stub_openai(
     create_captured: dict[str, object] | None = None,
     *,
     content: str | None = None,
+    reasoning: str | None = None,
     usage: object | None = None,
 ) -> None:
     parsed = sample_brief_content()
@@ -105,6 +106,8 @@ def _stub_openai(
                     content=raw,
                     refusal=None,
                 )
+                if reasoning is not None:
+                    message.reasoning = reasoning
                 return SimpleNamespace(
                     choices=[SimpleNamespace(message=message)],
                     usage=usage,
@@ -463,6 +466,7 @@ def test_generate_paper_brief_content_omits_max_tokens_on_public_api(
     )
 
     assert "max_tokens" not in create_captured
+    assert "reasoning_effort" not in create_captured
 
 
 def test_generate_paper_brief_content_sets_max_tokens_for_gateway(
@@ -482,6 +486,48 @@ def test_generate_paper_brief_content_sets_max_tokens_for_gateway(
     )
 
     assert create_captured["max_tokens"] == 4096
+    assert create_captured["reasoning_effort"] == "none"
+
+
+def test_generate_paper_brief_content_parses_reasoning_when_content_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    brief = sample_brief_content()
+    _stub_openai(
+        monkeypatch,
+        captured,
+        content="",
+        reasoning=brief.model_dump_json(),
+    )
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "gemma4:e4b")
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert result.content == brief
+
+
+def test_generate_paper_brief_content_raises_when_content_and_reasoning_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, content="")
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "gemma4:e4b")
+
+    with pytest.raises(ValueError, match="OpenAI returned no parsed paper brief"):
+        generate_paper_brief_content(
+            "plain",
+            title="Title",
+            journal="Journal",
+            published_year=2026,
+        )
 
 
 def test_clip_full_text_for_gateway_keeps_prefix_and_drops_tail() -> None:

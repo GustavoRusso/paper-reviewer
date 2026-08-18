@@ -21,6 +21,7 @@ _DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 _LOOPBACK_HOSTS = {"localhost", "127.0.0.1"}
 _PLACEHOLDER_API_KEY = "not-needed"
 _GATEWAY_MAX_TOKENS = 4096
+_GATEWAY_REASONING_EFFORT = "none"
 _GATEWAY_FULL_TEXT_MAX_CHARS = 8000
 _GATEWAY_JSON_ONLY = (
     "Reply with a single JSON object only. "
@@ -429,6 +430,33 @@ def usage_integers(
     )
 
 
+def apply_gateway_chat_options(
+    create_kwargs: dict[str, object],
+    *,
+    max_tokens: int,
+) -> None:
+    """Set local-gateway chat limits and disable thinking-model reasoning."""
+    create_kwargs["max_tokens"] = max_tokens
+    create_kwargs["reasoning_effort"] = _GATEWAY_REASONING_EFFORT
+
+
+def assistant_message_text(message: object) -> str:
+    """Return assistant text from content, then reasoning fields."""
+    content = getattr(message, "content", None)
+    if isinstance(content, str) and content.strip():
+        return content
+    extra = getattr(message, "model_extra", None)
+    extra_dict = extra if isinstance(extra, dict) else {}
+    for key in ("reasoning", "reasoning_content"):
+        value = getattr(message, key, None)
+        if isinstance(value, str) and value.strip():
+            return value
+        extra_value = extra_dict.get(key)
+        if isinstance(extra_value, str) and extra_value.strip():
+            return extra_value
+    return ""
+
+
 def generate_paper_brief_content(
     full_text_plain: str,
     *,
@@ -479,7 +507,9 @@ def generate_paper_brief_content(
         "response_format": type_to_response_format_param(PaperBriefContent),
     }
     if base_url is not None:
-        create_kwargs["max_tokens"] = _GATEWAY_MAX_TOKENS
+        apply_gateway_chat_options(
+            create_kwargs, max_tokens=_GATEWAY_MAX_TOKENS
+        )
     _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
     completion = client.chat.completions.create(**create_kwargs)
     _emit_openai_log(
@@ -488,7 +518,7 @@ def generate_paper_brief_content(
     )
     usage = getattr(completion, "usage", None)
     _emit_openai_log(_format_usage_log(usage))
-    content = completion.choices[0].message.content
+    content = assistant_message_text(completion.choices[0].message)
     if not content:
         raise ValueError("OpenAI returned no parsed paper brief")
     try:

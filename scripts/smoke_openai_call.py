@@ -24,6 +24,8 @@ from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     _GATEWAY_JSON_ONLY,
     _GATEWAY_MAX_TOKENS,
+    apply_gateway_chat_options,
+    assistant_message_text,
     build_brief_user_message,
     clip_full_text_for_gateway,
     load_paper_brief_template,
@@ -95,18 +97,22 @@ print("base_url:", base_url)
 print("model:", model)
 print("full_text:", _FULL_TEXT_PATH.name, f"({len(full_text_plain)} chars)")
 
-completion = client.chat.completions.create(
-    model=model,
-    messages=messages,
-    response_format=type_to_response_format_param(PaperBriefContent),
-    max_tokens=_GATEWAY_MAX_TOKENS,
-)
+create_kwargs: dict[str, object] = {
+    "model": model,
+    "messages": messages,
+    "response_format": type_to_response_format_param(PaperBriefContent),
+}
+apply_gateway_chat_options(create_kwargs, max_tokens=_GATEWAY_MAX_TOKENS)
+completion = client.chat.completions.create(**create_kwargs)
 
 message = completion.choices[0].message
+text = assistant_message_text(message)
 print("--- raw content ---")
 print(repr(message.content))
+print("--- assistant text ---")
+print(repr(text))
 print("--- parsed ---")
 try:
-    print(parse_paper_brief_content(message.content or ""))
+    print(parse_paper_brief_content(text))
 except (ValidationError, ValueError) as exc:
     print(exc)
