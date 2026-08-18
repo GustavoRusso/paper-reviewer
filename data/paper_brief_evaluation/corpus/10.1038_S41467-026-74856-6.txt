@@ -1,0 +1,470 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Nat Commun
+Journal ID: Nat Commun
+NLM Journal ID: 101528555
+
+Nature Communications
+
+EISSN: 2041-1723
+Publisher: Nature Publishing Group
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13473090
+PMID: 42409824
+DOI: 10.1038/s41467-026-74856-6
+Article ID: 74856
+Article version: 1
+Subjects: Article
+
+Patterns of emergence and circulation of West Nile Virus in Algeria
+
+http://orcid.org/0000-0002-6311-748X Hachid Aissam ahachid@pasteur.dz
+1 2
+http://orcid.org/0000-0003-1639-8220 Benbetka Chahrazed 1 3
+Bouamra Abderrezak 4 5
+Bouredjoul Nesrine 1
+Khardine Fayez Ahmed 1
+http://orcid.org/0000-0003-2347-6426 Ochida Noé 6
+http://orcid.org/0000-0002-3076-4293 Garni Rafik 7
+Khaldi Aldjia 1 2
+Seghier Mohamed 1 5
+Charniga Kelly 6
+http://orcid.org/0000-0001-9186-4549 Cauchemez Simon simon.cauchemez@pasteur.fr
+6
+1 https://ror.org/052b46n78 grid.418520.a 0000 0001 2163 7615 Laboratory of Arboviruses and Emerging Viruses, Institut Pasteur d’Algérie, Algiers, Algeria
+2 Faculty of Pharmacy, University of Health Sciences, Algiers, Algeria
+3 https://ror.org/003rfsp33 grid.240344.5 0000 0004 0392 3476 Center for Perinatal Research, Nationwide Children’s Hospital, Columbus, OH USA
+4 Department of Epidemiology, Beni-Messous University Hospital, Algiers, Algeria
+5 Faculty of Medicine, University of Health Sciences, Algiers, Algeria
+6 https://ror.org/05f82e368 grid.508487.6 0000 0004 7885 7602 Mathematical Modelling of Infectious Diseases Unit, Institut Pasteur, Université Paris Cité, INSERM U1332, CNRS UMR 2000, Paris, France
+7 https://ror.org/052b46n78 grid.418520.a 0000 0001 2163 7615 Department of Preventive Medicine and Medical Analysis, Institut Pasteur d’Algérie, Algiers, Algeria
+Electronic publication date: 2026 Jul 6
+Publication date: 2026
+Volume: 17
+Electronic Location ID: 8370
+Received 2025 Jun 23; Accepted 2026 Jun 16
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: Viral infection, West nile virus, Viral transmission
+
+Funding: https://doi.org/10.13039/100010661 EC | Horizon 2020 Framework Programme (EU Framework Programme for Research and Innovation H2020) 874735 Hachid Aissam
+
+Funding: https://doi.org/10.13039/501100001665 Agence Nationale de la Recherche (French National Research Agency) ANR-10-LABX-62-IBEID Hachid Aissam
+
+Funding: https://doi.org/10.13039/100000002 U.S. Department of Health & Human Services | National Institutes of Health (NIH) U01AI151758 Hachid Aissam
+
+Funding: Funder : Pasteur Institute in Algeria .......... Grant Ref Number: IRP-WNV-2015 Funder: European Commission Horizon Europe program......Grant Ref Number: 101094685
+issue-copyright-statement: © Springer Nature Limited 2026
+
+==============================
+In recent years, many countries have experienced increased outbreaks of vector-borne diseases, such as West Nile virus (WNV). WNV is primarily transmitted to humans by the bite of infected Culex mosquitoes and has an enzoonotic transmission cycle involving birds. In Algeria, serological evidence of WNV in humans dates back to the 1970s, but circulation patterns are poorly characterized. To address this, we conduct a cross-sectional seroprevalence survey of WNV in humans and fit serocatalytic models to the data. We also analyze data on severe WNV cases. In this study, we report a seroprevalence of 16.7%. We identify age, region, and residence type as risk factors for infection. We also show that patterns of spread in two provinces in the south are consistent with low level endemic risk over decades, while those from three provinces in the north are all consistent with single outbreaks that occurred within the last 10-15 years. An outbreak may have occurred in Oran in 2010 and in Jijel and Tizi Ouzou near the time of data collection in 2017 and 2018, respectively. Investigation of potential drivers of viral establishment, along with continued surveillance of WNV cases, especially in the northern provinces, is warranted.
+
+Authors report seroprevalence of 16.7% for West Nile Virus in Algeria. Age, region, and residence type were risk factors for infection. They also found differences in the patterns of viral spread across provinces in the north versus the south.
+
+Introduction
+
+West Nile virus (WNV), an enveloped, single-stranded RNA virus1 belonging to the family Flaviviridae (genus Orthoflavivirus; species Orthoflavivirus nilense)2,3 is a neurotropic arbovirus of public health concern. It is primarily transmitted to humans through the bite of infected mosquitoes, predominantly by Culex species, such as Culex pipiens complex and Culex perexiguus4. Other mosquito species, including Aedes albopictus and Aedes rusticus, have been reported to transmit WNV5. In rare cases, person-to-person transmission has been documented through blood transfusion, organ transplantation, and from mother to baby during pregnancy, delivery, or breastfeeding6. WNV has an enzootic transmission cycle involving migratory or resident birds, which are the natural reservoirs. Most of these birds act as amplifying hosts4. Horses, humans, and other mammals are considered dead-end hosts7. In humans, WNV infection is often asymptomatic or presents with mild flu-like symptoms. However, in less than 1% of cases, WNV can cause neurological symptoms, including West Nile Neuroinvasive Disease (WNND), which varies from self-limiting meningitis to life-threatening meningoencephalitis or encephalitis (ME/E)8. Risk factors for severe forms of WNV include older age, underlying medical conditions, immune suppression9, male sex10, and exposure via blood transfusion10 or organ transplantation11. Infection with WNV is thought to confer lifelong immunity12. There is currently no approved vaccine13 or specific treatment14 for WNV disease in humans.
+
+In 1937, WNV was first isolated from a febrile woman in the West Nile district of Uganda15. The disease was subsequently reported in several locations throughout Africa and the Middle East, with occasional cases of neuroinvasive disease16. Since the 1990s, recurrent outbreaks of WNND have occurred and continue to expand to new geographic regions17–19. These WNND epidemics were first reported in the Maghreb countries (Algeria in 1994, Morocco in 1996, and Tunisia in 1997)20,21 before spreading to other parts of the world, including Europe, the Mediterranean Basin20,21, and the United States17. In 2018, European countries such as Italy, Serbia, and Greece experienced their largest recorded outbreaks, with over 2000 cases and 181 deaths4. Viral evolution, ecological changes influencing the abundance and distribution of WNV vectors and hosts (e.g., land use and urbanization), and climate change, through increasing temperatures and fluctuating rainfall, may contribute to the spread and establishment of WNV in different parts of the world4,9,22–24.
+
+The Maghreb region has reported evidence of substantial circulation of WNV from epidemiological surveillance and serological studies in recent years25. In Tunisia, one study carried out in 2007 estimated seroprevalence against WNV as high as 28% in humans26. Furthermore, the country experienced two major outbreaks in 2012 and 2018, with a combined total of 182 neuroinvasive cases and 17 deaths27,28. In Morocco, one human and 42 horses died during an outbreak of equine encephalitis caused by WNV in 199629. Two other equine epizootics were reported in 2003 and 2010, resulting in the deaths of 5 and 8 horses, respectively29. In 2011, a serosurvey study conducted among humans in Rabat and Kenitra found seroprevalence of WNV of 12% and 19%, respectively30.
+
+As part of the Maghreb, Algeria has diverse ecological zones ranging from the coastal Mediterranean climate with hot summers and mild winters in the north to the arid Sahara Desert in the south. There are stagnant water sources (oases) in the south, and the country is geographically located along the path of bird migration routes between Africa and Europe31. During the second half of the twentieth century, the country experienced a trend of increasing temperatures and declining in precipitation, which expanded the arid areas32. These factors likely contributed to the widespread presence of Culex mosquitoes throughout the country and may have also influenced changes in bird migration routes33. Serological surveys, particularly in the southern districts of Biskra and Illizi, have demonstrated the presence of WNV in humans and animals since the 1970s34. In 1994, the first confirmed clinical cases among humans were reported during an outbreak in Timimoun, resulting in 15 confirmed cases and 2 deaths35. This outbreak was followed by sporadic reports of cases in the north of the country, namely in Jijel (2012) and Guelma (2013)34. Recent serological surveys of humans36, equids37, and wild birds38 have provided further evidence of WNV circulation in this part of the country.
+
+Here, we sought to gain further insight into the epidemiology of WNV in Algeria. Across five provinces with suitable environmental conditions for WNV transmission and/or previous reports of human cases of WNV disease, we conducted a seroprevalence study as well as WNV disease acute case detection in hospitals among patients with suspected viral neuroinvasive disease. We also fitted a suite of serocatalytic models to reconstruct the history of WNV circulation in different parts of Algeria.
+
+Results
+
+Characteristics of the study participants
+
+For the WNV seroprevalence study, a total of 1235 leftover serum samples were collected in 2017 and 2018 from the five provinces (Table 1). Information about sociodemographic characteristics was missing for some participants (e.g., 0.2% for age and sex and 0.6% for residence type). The mean age of participants was 29 (range 1–98) years. Over half (57.4%) of the participants were female, and 70% lived in urban areas. More participants were from provinces in the north (832 across Jijel, Tizi Ouzou, and Oran) than from the south (403 in Timimoun and Biskra).Table 1 Univariable analysis of risk factors for West Nile virus infection in Algeria, 2017–2018. N = 1235
+
+Variables	Total N	Seropositivity, N (%)	(95% CI)	OR	(95% CI)	P value	
+Age (N = 1232, 99.8%)	
+ 0–9	244	16 (6.6)	(3.8–10.4)	Ref.			
+ 10–29	444	60 (13.5)	(10.5–17.0)	2.2	(1.3–4.1)	0.006	
+ 30–54	379	83 (21.9)	(17.8–26.4)	4.0	(2.3–7.3)	1e-6	
+ 55–64	79	19 (24.1)	(15.1–35.0)	4.5	(2.2–9.4)	4e-5	
+ 65+	86	27 (31.4)	(21.8–42.3)	6.5	(3.3–13.1)	7e-8	
+Sex (N = 1233, 99.8%)	
+ Female	709	122 (17.2)	(14.5–20.2)	1.1	(0.8–1.5)	0.58	
+ Male	524	84 (16.0)	(13.0–19.5)	Ref.			
+Province of residence (N = 1235, 100%)	
+ Timimoun	118	53 (44.9)	(35.7–54.3)	9.4	(5.6–16.1)	<2e-16	
+ Biskra	285	83 (29.1)	(23.9–34.8)	4.8	(3.0–7.6)	3e-11	
+ Jijel	303	30 (9.9)	(6.8–13.8)	1.3	(0.7–2.2)	0.38	
+ Tizi Ouzou	165	11 (6.7)	(3.4–11.6)	0.8	(0.4–1.7)	0.60	
+ Oran	364	29 (8.0)	(5.4–11.2)	Ref.			
+Region (N = 1235, 100%)	
+ South	403	136 (33.7)	(29.1–38.6)	5.5	(4.0–7.7)	2e-16	
+ North	832	70 (8.4)	(6.6–10.5)	Ref.			
+Residence type (N = 1227, 99.4%)	
+ Suburban/rural	355	99 (27.9)	(23.3–32.9)	2.8	(2.0–3.8)	9e-11	
+ Urban	872	107 (12.3)	(10.2–14.6)	Ref.			
+Risk factors of exposure to WNV infection	
+Blood transfusion (N = 1077, 87.2%)	
+ Yes	45	7 (15.6)	(6.5–29.5)	1.0	(0.4–2.1)	0.95	
+ No	1032	164 (15.9)	(13.7–18.3)	Ref.			
+Residence in a mosquito-infested area (N = 1071, 86.7%)	
+ Yes	463	101 (21.8)	(18.1–25.9)	2.1	(1.5–3.0)	7e-6	
+ No	608	70 (11.5)	(9.1–14.3)	Ref.			
+Residence near a water reservoir (N = 1158, 93.8%)	
+ Yes	397	48 (12.1)	(9.1–15.7)	0.7	(0.5–1.0)	0.057	
+ No	761	124 (16.3)	(13.7–19.1)	Ref.			
+Outdoor activity (N = 447, 36.2%)	
+ Yes	44	12 (27.3)	(15.0–42.8)	2.8	(1.3–5.6)	0.006	
+ No	403	48 (11.9)	(8.9–15.5)	Ref.			
+Logistic regression was used to test statistical significance for all variables. No adjustments for multiple comparisons were made. We used 2-tailed tests for all models.
+
+N participant number, CI confidence interval, OR odds ratio, Ref reference category.
+
+WNV seroprevalence
+
+Out of 1235 samples, 270 were positive or borderline for WNV IgG antibodies by ELISA. Of these 270 individuals, 206 were also positive by PRNT and considered seropositive for WNV. Overall seroprevalence across all study sites was 16.7% (95% CI: 14.6–18.9). WNV seropositivity was higher in areas located in the south than those in the north (Fig. 1).Fig. 1 West Nile virus (WNV) seropositivity in Algeria.
+
+Map showing the five provinces where the seroprevalence study samples were collected between 2017 and 2018. Colors indicate seropositivity (darker is a higher percentage). Provincial boundaries correspond to administrative divisions prior to the 2019 reorganization.
+
+Risk factors associated with WNV seropositivity
+
+In the univariable analysis, we found statistically significant associations between WNV seropositivity and age group, province of residence, region of residence, residence type, living in an area infested by mosquitoes, and outdoor activity (Table 1). There was no significant difference in seropositivity by sex, blood transfusion status, or living near a water reservoir. While seroprevalence in the northern provinces was relatively similar across age, seroprevalence in the southern provinces increased substantially with age (Fig. 2).Fig. 2 Seropositivity and best-fitting serocatalytic model fits of West Nile virus from a cross-sectional seroprevalence study in Algeria. Sampling for all provinces was performed in 2018, except for Jijel where sampling occurred in 2017.
+
+A shows model fits with one outbreak in Oran. B, C show model fits for a recent outbreak at or around the time of data collection for Tizi Ouzou and Jijel. D, E each shows a model with a constant force of infection for provinces in the south. Black points and error bars represent the mean and 95% binomial confidence interval of the seroprevalence, respectively. They are plotted at the mean age within each 10-year age group. The sample sizes for the calculation of the error bars are as follows, from youngest to oldest age of patients: A 81, 37, 77, 69, 31, 31, 30, 7; B 33, 18, 30, 34, 23, 13, 10, NA (only 1 observation), 3; C 53, 48, 72, 52, 27, 24, 10, 13, 3; D 17, 21, 26, 26, 8, 11, 3, 6; E 60, 38, 77, 37, 25, 10, 18, 13, 6. The colored lines and ribbons represent the mean and 95% credible interval of the seroprevalence from the models for each province.
+
+In the multivariable analysis (Table 2), significant risk factors for WNV infection included in the final model were age group, region, and residence type (province of residence was nested within region). The adjusted odds ratios (AORs) of WNV infection increased with each age group from 2.2 (95% CI: 1.2–4.2) among those aged 10–29 years, 4.8 (95% CI: 2.7–9.0) among those aged 30–54 years, 5.8 (95% CI: 2.6–12.8) among those aged 55–64, and 6.5 (95% CI: 3.1–13.7) among those aged 65 years or more, all compared to individuals aged 0–9 years-old. Individuals living in the south had 6.4 (95% CI: 4.6–9.1) times the odds of WNV infection compared to those living in the north, adjusting for age group and residence type. Finally, individuals living in suburban/rural areas had 3.0 (95% CI: 2.2–4.3) times the odds of WNV infection compared to those living in urban areas, adjusting for age group and region.Table 2 Multivariable analysis of risk factors for West Nile virus infection in Algeria, 2017–2018. N = 1235
+
+Variables	AOR	(95% CI)	P value	
+Age (N = 1232, 99.8%)	
+ 0–9	Ref.			
+ 10–29	2.2	(1.2–4.2)	0.01	
+ 30–54	4.8	(2.7–9.0)	2e-7	
+ 55–64	5.8	(2.6–12.8)	1e-5	
+ 65+	6.5	(3.1–13.7)	6e-7	
+Region (N = 1235, 100%)	
+ South	6.4	(4.6–9.1)	<2e-16	
+ North	Ref			
+Residence type (N = 1227, 99.4%)	
+ Suburban/rural	3.0	(2.2–4.3)	2e-10	
+ Urban	Ref			
+Adjusted odds ratios and 95% confidence intervals (CIs) were obtained from a logistic regression model with WNV seropositivity as the outcome and predictors for the following covariates: age group, region, and residence type; 1060 non-missing observations were included in all steps of the stepwise down procedure, while 1224 non-missing observations were included in the final, refitted model. We used 2-tailed tests for all models.
+
+N participant number, CI confidence interval, AOR adjusted odds ratio, Ref reference category.
+
+WNND
+
+Between 2015 and 2019, a total of 479 suspected cases of WNND were reported in the study locations, and of those, 31 cases (6.5%) of WNND were confirmed. While serum samples were available for all patients, some did not have urine or CSF samples, which influenced their diagnostic testing pathway. As summarized in Table S3, most patients tested positive for IgM in serum and/or CSF. These results were often accompanied by a positive IgG test. In four patients with inconclusive serology, follow-up ELISA testing revealed seroconversion. The diagnosis of WNND was further supported by PCR detection of WNV RNA in urine or CSF in 8 cases, and by the identification of neutralizing antibodies through PRNT90 screening in 23 patients. Most confirmed cases of WNND were detected in 2015 or 2018, with 22 and 6 cases, respectively. No WNND cases were recorded in 2016, and only a few cases were detected in 2017 and 2019 (Tables 3 and S3). Patient ages ranged from 6 to 89 years, with a median of 35. The sex ratio was 1.22 males to females. Twenty-three (74.1%) patients had aseptic meningitis, and 8 (25.8%) had ME/E (Tables 3 and S3). Patients with ME/E were significantly older than those with meningitis (p = 0.007) (Fig. 3 and Table S3). Although most patients with ME/E were males, there was no significant association between sex and clinical forms (p = 0.06, Fig. S2). We report a single death following WNV ME/E from 2015-2019, corresponding to a case fatality rate of 3.2% (1/31) (Tables 3 and S3). Patients were mainly located in the north (N = 25 versus N = 6 in the south, Fig. 3).Fig. 3 Epidemiology of West Nile neuroinvasive disease (WNND) cases in Algeria, 2015–2019.
+
+A Confirmed WNND cases by year and province (colored bars). Zero cases were reported in 2016, and zero cases were reported in Oran during the study period. B Confirmed WNND cases by age group and clinical form (colored bars). ME/E meningoencephalitis or encephalitis, MLC aseptic meningitis.
+
+Table 3 Cases of neuro-meningeal West Nile virus (WNV) infections in the study locations from 2015 to 2019, according to the clinical forms
+
+WNND	2015	2016	2017	2018	2019	Total	Age years, median
+(min–max)	Sex ratio (M/F)	Case fatality rate	
+WNV suspected case (N)	100	63	99	92	125	479	23.9 (5–89)	1.58	1	
+WNV aseptic meningitis (N)	20	0	0	2	1	23	27 (6–89)	0.77	0	
+WNV meningo-encephalitis or encephalitis (N)	2	0	1	4	1	8	61 (29–82)	7	1	
+Total WNND [N (%)]	22
+
+(22%)
+
+	0
+
+(0%)
+
+	1
+
+(1%)
+
+	6
+
+(6.5%)
+
+	2
+
+(1.6%)
+
+	31
+
+(6.5%)
+
+	35 (6–89)	1.22	1(3.22)	
+WNND West Nile Neuroinvasive Disease, WNV West Nile Virus, N number of cases, M/F male to female ratio.
+
+Serocatalytic models
+
+For the two provinces in the south, Timimoun and Biskra, two models fitted the data well (i.e., had the lowest Pareto-smoothed importance sampling leave-one-out cross-validation (PSIS-LOO)): the constant model and the constant with outbreak model. Given the small differences in expected log pointwise predictive density (ELPD) (<1), we considered the most parsimonious model to be the one with the best fit, which was the constant model, for both locations (Table S4). In this model, the annual probability of infection, which is constant over time, was nearly twice as large in Timimoun (2.2%, 95% credible interval [CrI] 1.6%–2.8%) than in Biskra (1.3%, 95% CrI 1.1%–1.6%) (Table 4). Under these estimates, our model expects that seroprevalence is 23% (95% CrI: 19–28) at 20 years old and 41% (95% CrI: 34–48) at 40 years old in Biskra (Fig. 2). In Timimoun, the model expects 35% (95% CrI: 28–43) seroprevalence at 20 years old and 58% (95% CrI: 48–68) at 40 years old. The one outbreak model had the worst fit to the data (i.e., highest PSIS-LOO).Table 4 Parameters estimated from serocatalytic models fitted to cross-sectional seroprevalence data on West Nile virus in Algeria
+
+Province	Year of sample collection	Model	Attack rate, mean % (95% CrI)	Estimated time of outbreak, mean year (95% CrI)	Annual probability of infection, mean % (95% CrI)	
+Oran	2018	One outbreak	14 (11–18)	2010 (2008–2012)	-	
+Tizi Ouzou	2018	Recent outbreak	7.2 (3.8–11)	-	-	
+Jijel	2017	Recent outbreak	10 (7.1–14)	-	-	
+Timimoun	2018	Constant FOI	-	-	2.2 (1.6–2.8)	
+Biskra	2018	Constant FOI	-	-	1.3 (1.1–1.6)	
+The estimated time of outbreak was rounded to the nearest year.
+
+CrI credible interval, FOI force of infection.
+
+For Oran in the north, the best-fitting model with the lowest PSIS-LOO was the outbreak model (Table S4). We estimated that an outbreak occurred in 2010 (95% CrI 2008–2012) and infected 14% of the population (95% CrI: 11%–18%) (Table 4). For the other two provinces in the north, Jijel and Tizi Ouzou, the model with the lowest PSIS-LOO and the fewest number of parameters was the recent outbreak model (Table 4 and Supplementary results). Outbreaks may have occurred in these locations around the time of the data collection (2017 for Jijel and 2018 for Tizi Ouzou). We estimated similar attack rates of 7.2% (95% CrI: 3.8%–11%) and 10% (95% CrI: 7.1%–14%) in Tizi Ouzou and Jijel, respectively (Table 4).
+
+To further investigate the timing of outbreaks in the northern provinces, we plotted the seroprevalence by one-year age group for WNV in children (Fig. S3) and indicated the estimated outbreak time. Increases in seroprevalence correspond with the estimated outbreak time for Oran. There is no clear increase in seroprevalence for Jijel or Tizi Ouzou, suggesting children of all ages may have been equally exposed to the virus during a recent outbreak.
+
+All models had good mixing of Markov chain Monte Carlo (MCMC) traces and no warnings about low effective sample sizes. All models except one had R-hat values for the parameters below 1.01. However, some models had divergent transitions after warm-up and Pareto k diagnostic values that were too high. Full model diagnostic information can be found in Table S4.
+
+Discussion
+
+Our study focused on the epidemiology of WNV infection, including transmission patterns and neuroinvasive forms of the disease, in the north and south of Algeria during the late 2010s. This study presents serological evidence that WNV has likely been endemic for decades in the south but emerged only recently in the north of the country, coinciding with climatic32 and socio-environmental changes39,40.
+
+We found different patterns of historical WNV circulation between the southern and northern provinces of Algeria. Our results showed that seropositivity plateaued at approximately 60% for individuals living in the south aged 40 years and older. A potential explanation for this result is seroreversion; however, we found poor evidence of waning immunity in our study. A more likely alternative explanation is that the virus was introduced into this region approximately 40 years before the samples were collected. This hypothesis is supported by evidence from other studies, including one that demonstrated the first serological evidence of WNV in humans in Djanet (southeast Algeria) in 1973 (44 years before the survey)34. Our results are also consistent with the sporadic reports of WNND in the south (2015, 2017–2019). In contrast, we estimated that outbreaks in the north of the country occurred within the last 10–15 years, coinciding with notable climatic shifts32. An outbreak may have occurred in Oran in 2010, and in Jijel and Tizi Ouzou near the time of data collection in 2017 and 2018, respectively. The distance between Oran and the eastern provinces (Jijel and Tizi Ouzou) is over 400 km, suggesting independent outbreaks. However, the proximity of Tizi Ouzou and Jijel (150 km apart) may explain why outbreaks in those provinces may have happened around the same period.
+
+Our modeling results are consistent with our epidemiological surveillance, which captured 20 WNND in Jijel in 2015, just two years before data collection for our study began (also, seroprevalence was 0 for children between 1 and 3 years old). They are also consistent with WNND cases reported in Tizi Ouzou in 2018. However, other evidence of transmission of WNV in the north from the literature is less consistent with our findings. There was a fatal human case of WNND in Jijel in 201234, but no further details were available about this case, including recent travel history. Also, a 2012 study found seroprevalence of 6.7% for WNV in Algiers (the capital of Algeria, on the Mediterranean coast, not far from Tizi Ouzou), which is a few years before the recent outbreak we estimated. It is important to note that Algiers has a higher population density and greater travel networks compared to Tizi Ouzou, which could explain the heterogeneity in outbreak or introduction timing34. Although WNV transmission is higher in the south than in the north, approximately four times more cases of WNND were reported in the north than in the south during the study period. This finding could be due to differences in the sizes of the surveilled populations. There were 4.3 times more individuals living in the three northern provinces compared to the two southern provinces (3.2 million versus 750,000) during the 2008 Census41. Another potential explanation is that detection rates are higher in the north than in the south.
+
+Profound demographic and environmental transformations, driven by demographic growth and socio-economic changes, have occurred in Algeria’s cities and rural areas in recent decades39,40. In the north, dense human settlements, irrigation systems, wetlands, and rapid urban development have created favorable conditions for mosquito breeding and development42. Algeria has also experienced major climatic changes32, including rising temperatures and decreased rainfall, especially in the north, which have likely affected vector ecology and transmission of viruses4,23,24. These combined factors have led to the spread of WNV into new areas. Indeed, previous studies conducted in Europe, especially in the Mediterranean region, have shown an association between climate change and the rise in human WNV cases18, which could be attributed to the expansion of Culex species and an increase in their ability to transmit the virus23.
+
+Comparing the seroprevalence of arbovirus infections across different countries is challenging due to variations in sampled populations, laboratory techniques, and study periods (ranging across 21 years). In our study, we found a seroprevalence of 16.7%, which is higher than that of some neighboring countries in the Mediterranean region, such as Libya (2.75% in 2013)43, Morocco (3.29% in 2019)44, southern France (1.2% in 2019–2020)45, Spain (0.13% in 2010–2011)46, and Greece (1.5% in 2012–2013)47. Higher seroprevalence estimates were reported in Egypt (24% in 1999–2002)48 and Tunisia (19.6% in 2017–2020)49. Whether study participants lived in rural or urban locations was not always clear in these studies. Three studies (Libya, Morocco, and Spain) did not include children, and it was unclear whether children were included in the studies in France and Tunisia. The Greek study was the only nationally representative study with a large sample size, while the study in Morocco had the smallest sample size with less than 100 individuals across two locations. The seroprevalence estimate from Egypt is similar to that for Biskra in our study (24% vs. 29.1%). One study (in Libya) used ELISA alone to confirm WNV serostatus, which can lead to higher rates of false positives compared to using ELISA followed by PRNT. Differences in seroprevalence of WNV across locations may also be due to differences in human behavior, environmental conditions, and vector control interventions, which affect the rate of human exposure to infected mosquitoes.
+
+We found that the seroprevalence of WNV significantly increased with age in the southern provinces. This finding aligns with previous studies and may be explained by cumulative exposure to the virus over time and the more time spent outdoors by older people compared to children47. Residence in the south was also significantly associated with seropositivity, which agrees with previous serological surveys conducted in Algeria34. The increased risk of WNV infection in the south could be due to the increased temperature4 and the oasis effect. The presence of stagnant water sources, vegetation, and milder temperatures in the oases attracts migratory birds, vectors, and humans, amplifying the transmission cycle of WNV50. Differences in seropositivity may also be due to different strains of WNV, which exhibit distinct eco-epidemiological evolutionary characteristics. The strain circulating in the south belongs to the L1 lineage24; however, no strain/variant data are available for the north. Our study also demonstrated that the likelihood of being seropositive to WNV is higher among subjects living in rural or suburban areas than in urban areas. One possible explanation for this finding is that cities and villages with dwellings surrounded by vegetation offer an optimal environment for WNV transmission51.
+
+One limitation of this study is the small sample size for some age groups (especially those 60 years and over). Larger sample sizes could help reduce uncertainty in our parameter estimates and better characterize the time of viral emergence in the south. Among the best-fitting models for the five provinces, three models had some divergent transitions after warmup, and one model had 8% of Pareto k diagnostic values that were too high, even after moment matching. Further data and/or investigation may be warranted given these indications of a lack of fit. Another potential limitation is that the sampling strategy based on recruiting subjects directly from medical analysis laboratories may not have been random and could have introduced selection bias. However, this methodology has been successfully used in several other sero-epidemiological surveys52. On the other hand, a strength of our study is that we used PRNT, a gold standard technique. Despite its high cost, time, and equipment requirements, this method was crucial for confirming ELISA results, thereby reducing cross-reactivity with antibodies against other flaviviruses53,54 that circulate in the region, such as Usutu virus55. Since specific tests for Usutu virus, which belongs to the same serocomplex as WNV and can cross-react even with PRNT, are not available in the country, we did not perform differential tests. However, recent studies indicate that Usutu virus circulation in Algeria is limited and is unlikely to have substantially influenced our results56,57.
+
+To gain more insights into viral circulation and transmission patterns, epidemiological surveillance studies in Algeria should continue monitoring WNV cases, particularly in the northern region, and be expanded to more provinces. In addition, research should be conducted to investigate potential factors that contribute to WNV spread in the country, including the impact of climate change, the transmission ability of vectors, and the genetic characterization of circulating lineages.
+
+Methods
+
+Ethical approval
+
+The seroprevalence study was conducted in accordance with national and institutional guidelines and regulations, and was approved by the Ethics committee of Blida 1 University’s faculty of medicine in Blida, Algeria (01/CEEC/2025). The Ethics committee determined that verbal consent from patients was appropriate, as the activity fell under routine public health surveillance and used leftover sera.
+
+Samples from patients with suspected viral neuroinvasive diseases were included in a national diagnostic protocol as part of the Algerian Ministry of Health surveillance program for WNV infections and were submitted for diagnosis to the National Reference Center for Arboviruses and Emerging Viruses. Hence, informed consent was not necessary.
+
+Participants did not receive compensation for this study.
+
+Study design and sample collection
+
+A cross-sectional seroprevalence study was carried out in five provinces (wilayas) in Algeria. The provinces were selected using a tool developed by the European Center for Disease Prevention and Control that assesses the risk of WNV circulation based on factors, such as wetlands, the presence of migratory bird stopover sites, and previous WNV detection in animals, humans, or vectors (Table S1)58. The study population consisted of individuals living in urban, suburban, or rural areas within the selected provinces. The study locations included two high-risk areas (Jijel in the northeast and Timimoun in the southwest, with 636,731 and 33,059 inhabitants, respectively), one intermediate-risk area (Biskra in the southeast, with 721,051 inhabitants), and two low-risk areas (Oran in the northwest and Tizi Ouzou in the north central, with 1,452,317 and 1,125,664 inhabitants, respectively) (Fig. 1)41.
+
+For the seroprevalence study, the required sample size was estimated at a minimum of 800 individuals, with an average prevalence of 15% based on seroprevalence data in North African and Mediterranean countries28,29,34,47,a  precision of 2.5%, and a 95% confidence interval (CI).
+
+Leftover serum samples were collected from public and private laboratories from patients either seeking routine checkup analyses (e.g., blood tests for cholesterol, blood glucose, thyroid function, vitamin levels) or displaying different pathologies with no bias toward a particular set of symptoms. All samples were collected throughout the year in 2018, except those from Jijel, which were collected in 2017. Eligibility criteria included residing in the study area for at least one year prior to enrollment. Sera from subjects with immunological disorders or ongoing infectious disease (which required immunological, microbiological, or virological investigations) or those presenting with fever were discarded to reduce bias. Participating laboratories recorded basic socio-demographic information (i.e., age, sex, location, and type of residence) and risk factors of exposure to WNV infection59 (i.e., blood transfusion, self-reported residence in a mosquito-infested area, residence near a water reservoir, main activities carried out outdoors) at the time of specimen collection. Sex was determined by a healthcare practitioner. Information about gender was not available for our study.
+
+For the detection of human cases of WNND, the investigation focused on hospitalized patients residing in any of the five study locations presented with aseptic meningitis or ME/E between June 1st and October 31st each year from 2015 to 2019. In line with the Algerian Ministry of Health surveillance framework, a suspected case of WNND was defined as a patient exhibiting neurological manifestations (e.g., aseptic meningitis or meningoencephalitis), along with fever (≥38.5 ᵒC) and cerebrospinal fluid (CSF) showing a lymphocytic predominance (>50%) and normal glycorrhachia, where a viral etiology could not be excluded.
+
+According to the national surveillance plan, recommended biological samples for laboratory confirmation of WNND cases were submitted to the National Reference Center for Arbovirus and Emerging Viruses (Institut Pasteur d’Algérie). A case report form was requested for each suspected case. Samples, including CSF and serum taken at the time of hospitalization for neurological symptoms (acute samples) and urine taken within four weeks after symptom onset, were tested for WNV RNA, IgM, and/or IgG antibodies. Additional follow-up serum samples were collected after day 8 of illness from some patients whose initial serology was inconclusive to demonstrate specific IgG seroconversion. A confirmed case of WNND met at least one of the following laboratory criteria: (i) detection of WNV-specific IgM antibody in CSF by ELISA, (ii) detection of WNV RNA in urine and/or CSF by PCR, or (iii) detection of IgM and IgG antibodies in serum by ELISA confirmed by detection of WNV neutralizing antibodies using the plaque reduction neutralization test (PRNT). Further details about the diagnostic testing algorithm can be found in Supplementary methods and Fig. S1.
+
+Laboratory methods
+
+WNV seroprevalence study. Sera were tested for the presence of WNV IgG antibodies by a commercial indirect ELISA test (Anti-WNV IgG ELISA, Euroimmun, Lubeck, Germany) in a Biosafety Level 2 laboratory. The assay was performed according to the manufacturer’s instructions. Samples with an index value of 1.1 and above were considered positive for WNV IgG antibodies. An index value of less than 0.8 meant that IgG antibodies were not detected, while an index value of ≤1.1 and ≥0.8 was considered borderline.
+
+All samples with positive or borderline IgG ELISA results were further analyzed by PRNT to detect specific neutralizing antibodies for WNV. A qualitative PRNT was performed as follows: each heat-inactivated serum (at 56 °C for 30 min) was diluted to 1:20. A volume of 30 µl of each diluted serum was mixed with an equal volume of WNV strain Eg101 (103 Plaque Forming Units (PFU) per mL) and incubated overnight in duplicate in a 96-well plate at 4 °C. In parallel, a virus back-titration was performed to confirm the virus dose and ensure accurate interpretation of neutralization results. A stepwise dilution series was prepared from the virus stock (103 PFU/mL) by sequential dilution in cell maintenance medium (Leibovitz’s L-15 medium (Gibco, USA) supplemented with 2% Newborn Calf Serum). The dilutions were prepared as follows: D50 was obtained by mixing 150 µL of virus stock with 150 µL of medium; D70 by mixing 180 µL of D50 with 120 µL of medium; D90 by mixing 100 µL of D70 with 200 µL of medium; D95 by mixing 150 µL of D90 with 150 µL of medium; and D99 by mixing 60 µL of D95 with 240 µL of medium. For each dilution, 30 µL was added in duplicate to wells (without serum) and mixed with an equal volume of cell maintenance medium. The following day, 30 µL of a suspension of Porcine Stable kidney (PS) cell line (obtained from Institut Pasteur of Dakar, Senegal), previously cultured to confluence at 37 °C in Leibovitz’s L-15 medium supplemented with 10% Newborn Calf Serum (growth medium), was added at 6.104 cells/30 µl/well, followed by incubation for 3 h at 37 °C in 5% CO2. An overlay of 60 µl of Carboxymethylcellulose sodium salt (1.6%) was added to each well, and the plates were further incubated at 37 °C in 5% CO2 for 4 days. After incubation, cells were fixed with 10% paraformaldehyde for 1 h and stained with amido black solution at room temperature. Each assay included a virus-only control (103 PFU/mL), a cell-only control, and positive and negative serum controls. The number of plaques per well was assessed by virus back-titration. Serums with at least a 90% reduction in plaques (PRNT90) were considered positive compared to virus control. Samples were considered seropositive for WNV if they were positive or borderline for ELISA and positive for PRNT.
+
+WNND case confirmation. Laboratory investigation of suspected WNND was carried out by WNV antibody detection and PCR testing. Thus, collected sera and CSF were first analyzed for IgM and IgG antibodies by commercial ELISA kits (anti-WNV IgM and IgG ELISA, Euroimmun). Patients with positive results from ELISA were confirmed by PRNT, as mentioned earlier, and/or by real-time RT-PCR (RT-qPCR) on ABI 7500Ⓡ real-time PCR system (Applied Biosystems, Foster City, USA) for specific detection of WNV RNA in urine and/or CSF samples. The viral RNA was detected using RT-qPCR assays targeting the conserved 5’ non-coding (NC) region and the envelope (E) gene60,61. The viral nucleic acid was extracted from 140 µL of each sample using QIAmpl Viral RNA Kit (Qiagen, Germany) and eluted in 60 µL of RNase-free water. The RT-qPCR amplification of the 5’ NC region was performed using the SuperScript III Platinum One-Step qRT-PCR Kit (Invitrogen, ThermoFisher Scientific, USA). The reaction was carried out in a total volume of 25 µL, containing 5 µL of RNA, 0.5 µL of SuperScript® III/Platinum® Taq mix, 12.5 μl 2× reaction mix, 0.4 μM of each primer, and 0.2 μM of probe. Cycling conditions were as follows: 50 °C for 30 min, 95 °C for 2 min, 40 cycles of 95 °C for 15 s, and 60 °C for 30 s. Positive samples were additionally analyzed using the E gene RT-PCR assay, under the same conditions as described above, with primers and probe adjusted to 0.8 μM and 0.4 μM, respectively. The list of primer and probe sequences used in both assays is provided in Table S2.
+
+Descriptive analysis
+
+We presented data on demographics and risk factors for WNV infection as frequencies with 95% exact binomial CIs. We performed logistic regression for the univariable analysis to test associations between categorical variables and WNV seropositivity. For each variable, samples with missing information were excluded from the analysis for that variable. We also performed multivariable logistic regression using a stepwise down procedure. All variables with a p-value < 0.20 in the univariable analysis (except for outdoor activity, which had over 60% of observations missing) were initially included in the multivariable logistic regression model. Variables with the highest p-value were removed from the model one at a time until all remaining variables were statistically significant at the 0.05 level. The multivariable model was fitted to the same observations across all steps of the stepwise down procedure. The final multivariable model was refitted using non-missing observations for only selected covariates. For each variable retained in the final model, AORs were calculated along with their 95% CI. We used 2-tailed tests for all logistic regression models.
+
+The geographical distribution of WNV seroprevalence was visualized using the free and Open Source QGIS software version 3.40.9. All other descriptive analyses were performed using R version 4.3.2 (The R Foundation for Statistical Computing, https://www.r-project.org/).
+
+Serocatalytic models
+
+The analysis of age-stratified seroprevalence data with serocatalytic models can provide insights into the history of viral circulation62. In serocatalytic models, the per-capita rate of new infections among susceptible individuals, known as the force of infection (FOI), can be inferred from age-stratified seroprevalence data for pathogens that elicit a durable or well-characterized immune response. If we let λ(k) be the instantaneous FOI at age k, then the probability that an individual of age a has ever been infected is:1 Pa=1−exp(−∫k=0aλkdk)
+
+Here −∫k=0aλkdk is the cumulative hazard of infection from birth to age a. In the special case of a constant FOI, this simplifies to:2 Pa=1−exp−λa
+
+We can derive the annual probability of infection from serocatalytic models as 1-exp(-FOI). For each study location, we used the Rsero package63 in R to fit five models representing different patterns of transmission to the seroprevalence data (not the WNND data). The models were: 1. constant FOI (“constant”), 2. constant FOI and seroreversion (“constant with seroreversion”), 3. constant FOI with occasional outbreaks (“constant with outbreak”), 4. one outbreak, and 5. a recent outbreak.
+
+The constant model is one of the simplest models we considered, with a single parameter, the FOI, which is assumed to be constant. In the seroreversion model, individuals who have seroconverted face an annual probability of seroreverting to seronegative, which captures waning immunity. For the outbreak and constant with outbreak models, the FOI is estimated as a sum of K Gaussian distributions, where K is the number of outbreaks. The constant with outbreak model has a constant FOI (like the constant model), but one or more outbreaks can still occur64. Like the constant model, the recent outbreak model has a single parameter, the attack rate. It can be interpreted as an outbreak that occurred roughly around the time of the survey and infected all age groups equally. Model equations can be found in the Supplementary Methods.
+
+Rsero uses the rstan R package (version 2.32.3)65 to estimate model parameters. Model convergence was assessed by visually inspecting MCMC traces, ensuring that the potential scale reduction factor, R-hat, was below 1.01 for all parameters, checking that the number of divergent transitions was low, and verifying that the effective sample sizes were at least 400 (for four chains)66. Further details about model fitting can be found in Supplementary Methods.
+
+Model selection was based on PSIS-LOO, with the best-fitting model having the lowest PSIS-LOO67. PSIS-LOO is the recommended model comparison criterion for Stan68. For models with similar PSIS-LOO values, the most parsimonious model is preferred. We also computed the difference in ELPD and the standard error of the ELPD to provide an additional level of support for models being similar or different. If the difference in ELPD is less than 4, the difference between models is considered small69. We checked that the Pareto k diagnostic values, which monitor the sampling accuracy of LOO, were low. If more than 1% of Pareto k values were classified as too high, we performed a moment matching correction to the importance sampling for the problematic observations to improve the accuracy of the result70. We did this by setting the argument moment_match to TRUE in the loo() function. Very high Pareto k values typically suggest the model is mis-specified or that there are outliers or mistakes in data processing68. Model fitting and visualization were performed using R version 4.3.2 (The R Foundation for Statistical Computing, https://www.r-project.org/).
+
+Reporting summary
+
+Further information on research design is available in the Nature Portfolio Reporting Summary linked to this article.
+
+Supplementary information
+
+Supplementary Information
+
+Peer Review File
+
+Reporting Summary
+
+Source data
+
+Source Data
+
+Supplementary information
+
+The online version contains supplementary material available at 10.1038/s41467-026-74856-6.
+
+Acknowledgements
+
+The authors are grateful to all the National Public Health physicians and staff who contributed to this work, particularly Pr. N. Achour (EHS EL Kettar, Algiers), Pr. K. Djenouhat (EPH Rouiba, Algiers), Pr. N. Moufek (CHU Oran), Pr. R. Ait Hamouda (EPH Batna), Dr. K. Khaled (EPH Biskra), Dr. A. Khelalef (EPH Tahir, Jijel), Dr. K. Rouibia (EPH Timimoun) and Dr. A. Toua (Institut Pasteur d’Algérie, Oran). The authors thank Dr. M.A. Beloufa, Dr. D.L. Anes-Boulahbal and his team, Pr. S. Bouzghoub and Pr. F. Derrar (Institut Pasteur d’Algérie) for technical assistance, Dr. Amadou Sall (Institut Pasteur de Dakar) and his team for providing the West Nile virus strain and PS cell line. The authors extend their thanks to the Medilabsecure project (EU DGDEVCO: IFS/21010/23/-194 and 2018/402-247) funded by the EU for providing reagents for West Nile virus RNA detection. The authors also thank Dr. D. Fourar and Dr. S. Hammadi (Algerian Health Ministry) for their unwavering support and Nathanaël Hozé for helpful discussions about the methodology used in the Rsero R package.
+
+Author contributions
+
+Conceptualization: A.H., C.B., K.C., M.S., and S.C. Data curation: A.H., C.B., N.B., F.A.K., and A.K. Formal analysis: A.H., C.B., K.C., N.O., A.B., R.G., and S.C. Funding acquisition: A.H. and S.C. Methodology: A.H. and S.C. Supervision: A.H., M.S., K.C., and S.C. Visualization: K.C., R.G. Writing—original draft preparation: A.H., C.B., K.C., and S.C. Writing—review & editing: All authors.
+
+Peer review
+
+Peer review information
+
+Nature Communications thanks Annapaola Rizzoli and the other anonymous reviewer(s) for their contribution to the peer review of this work. A peer review file is available.
+
+Funding
+
+This study was financially supported by the Internal Research Program of Institut Pasteur d’Algérie. S.C. acknowledges support by the Laboratoire d’Excellence Integrative Biology of Emerging Infectious Diseases program (grant ANR-10-LABX-62-IBEID) the European Union’s Horizon 2020 research and innovation programme under VEO grant agreement No. 874735, the European Commission Horizon Europe program (LEAPS project #101094685, call HORIZON-HLTH-2022-DISEASE-07), U01 NIH-PICREID (U01AI151758), and the INCEPTION project (PIA/ANR16-CONV-0005).
+
+Data availability
+
+The aggregated seroprevalence data, including sample year, province, PRNT90 result (positive or negative), and age in 10-year groups, generated in this study have been deposited in the Zenodo database under accession code 10.5281/zenodo.20116899 (10.5281/zenodo.20116898) and are available on GitHub (https://github.com/kcharniga/wnv_algeria). The raw seroprevalence data are protected and are not available due to data privacy laws. Researchers interested in accessing the study data are encouraged to submit a formal request to either the corresponding author (AH, ahachid@pasteur.dz or hachidaissam1@gmail.com) or his laboratory (email: laboratoire.arbovirus@pasteur.dz, phone: +213 20 32 23 62). To uphold ethical standards and ensure appropriate data use, each request will undergo a case-by-case review and approval process. Additionally, as the data include information collected in Algeria, access is subject to Algerian data ownership regulations and may require approval from relevant Algerian authorities. Final approval is expected within two months, and if access is granted, the duration of data access will be granted on a case-by-case basis. The data generated in this study for Fig. 3 are provided in the Source Data file. Data on WNND cases can be found in Table S3. Source data are provided with this paper.
+
+Code availability
+
+Code to perform the descriptive analysis and run the serocatalytic models is available on GitHub (https://github.com/kcharniga/wnv_algeria).
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+These authors contributed equally: Aissam Hachid, Chahrazed Benbetka.
+
+These authors jointly supervised this work: Kelly Charniga, Simon Cauchemez.
+
+
+References
+
+1. Colpitts TM Conway MJ Montgomery RR Fikrig E West Nile virus: biology, transmission, and human infection Clin. Microbiol. Rev. 2012 25 635 648 10.1128/CMR.00045-12 23034323 PMC3485754
+Colpitts, T. M., Conway, M. J., Montgomery, R. R. & Fikrig, E. West Nile virus: biology, transmission, and human infection. Clin. Microbiol. Rev. 25, 635–648 (2012).23034323 10.1128/CMR.00045-12 PMC3485754
+2. International Committee on Taxonomy of Viruses. Taxon Details. https://ictv.global/taxonomy/taxondetails?taxnode_id=202303119&taxon_name=Orthoflavivirus%20nilense.
+3. Postler TS Renaming of the genus Flavivirus to Orthoflavivirus and extension of binomial species names within the family Flaviviridae Arch. Virol. 2023 168 224 10.1007/s00705-023-05835-1 37561168
+Postler, T. S. et al. Renaming of the genus Flavivirus to Orthoflavivirus and extension of binomial species names within the family Flaviviridae. Arch. Virol. 168, 224 (2023).37561168 10.1007/s00705-023-05835-1
+4. Camp JV Nowotny N The knowns and unknowns of West Nile virus in Europe: what did we learn from the 2018 outbreak? Expert Rev. Anti Infect. Ther. 2020 18 145 154 10.1080/14787210.2020.1713751 31914833
+Camp, J. V. & Nowotny, N. The knowns and unknowns of West Nile virus in Europe: what did we learn from the 2018 outbreak? Expert Rev. Anti Infect. Ther. 18, 145–154 (2020).31914833 10.1080/14787210.2020.1713751
+5. Martinet J-P Assessing vector competence of mosquitoes from northeastern France to West Nile virus and Usutu virus PLoS Negl. Trop. Dis. 2023 17 e0011144 10.1371/journal.pntd.0011144 37276229 PMC10270612
+Martinet, J.-P. et al. Assessing vector competence of mosquitoes from northeastern France to West Nile virus and Usutu virus. PLoS Negl. Trop. Dis. 17, e0011144 (2023).37276229 10.1371/journal.pntd.0011144 PMC10270612
+6. U.S. Centers for Disease Control and Prevention. West Nile: Causes and How It Spreads. West Nile Virus https://www.cdc.gov/west-nile-virus/causes/index.html (2024).
+7. Dauphin G Zientara S Zeller H Murgue B West Nile: worldwide current situation in animals and humans Comp. Immunol. Microbiol. Infect. Dis. 2004 27 343 355 10.1016/j.cimid.2004.03.009 15225984
+Dauphin, G., Zientara, S., Zeller, H. & Murgue, B. West Nile: worldwide current situation in animals and humans. Comp. Immunol. Microbiol. Infect. Dis. 27, 343–355 (2004).15225984 10.1016/j.cimid.2004.03.009
+8. Davis LE West Nile virus neuroinvasive disease Ann. Neurol. 2006 60 286 300 10.1002/ana.20959 16983682
+Davis, L. E. et al. West Nile virus neuroinvasive disease. Ann. Neurol. 60, 286–300 (2006).16983682 10.1002/ana.20959
+9. Chancey C Grinev A Volkova E Rios M The global ecology and epidemiology of West Nile Virus BioMed. Res. Int. 2015 2015 1 20 10.1155/2015/376230 PMC4383390 25866777
+Chancey, C., Grinev, A., Volkova, E. & Rios, M. The global ecology and epidemiology of West Nile Virus. BioMed. Res. Int. 2015, 1–20 (2015).10.1155/2015/376230 PMC4383390 25866777
+10. Riccetti N Ferraccioli F Fasano A Stilianakis NI Demographic characteristics associated with West Nile virus neuroinvasive disease – A retrospective study on the wider European area 2006–2021 PLoS ONE 2023 18 e0292187 10.1371/journal.pone.0292187 37768957 PMC10538693
+Riccetti, N., Ferraccioli, F., Fasano, A. & Stilianakis, N. I. Demographic characteristics associated with West Nile virus neuroinvasive disease – A retrospective study on the wider European area 2006–2021. PLoS ONE 18, e0292187 (2023).37768957 10.1371/journal.pone.0292187 PMC10538693
+11. Iwamoto M Transmission of West Nile Virus from an organ donor to four transplant recipients N. Engl. J. Med 2003 348 2196 2203 10.1056/NEJMoa022987 12773646
+Iwamoto, M. et al. Transmission of West Nile Virus from an organ donor to four transplant recipients. N. Engl. J. Med. 348, 2196–2203 (2003).12773646 10.1056/NEJMoa022987
+12. U.S. Centers for Disease Control and Prevention. Clinical Signs and Symptoms of West Nile Virus Disease. West Nile Virus, https://www.cdc.gov/west-nile-virus/hcp/clinical-signs/index.html (2024).
+13. Gould CV Staples JE Huang CY-H Brault AC Nett RJ Combating West Nile Virus disease — Time to revisit vaccination N. Engl. J. Med 2023 388 1633 1636 10.1056/NEJMp2301816 37125778 PMC11627013
+Gould, C. V., Staples, J. E., Huang, C. Y.-H., Brault, A. C. & Nett, R. J. Combating West Nile Virus disease — Time to revisit vaccination. N. Engl. J. Med. 388, 1633–1636 (2023).37125778 10.1056/NEJMp2301816 PMC11627013
+14. Ronca SE Ruff JC Murray KO A 20-year historical review of West Nile virus since its initial emergence in North America: has West Nile virus become a neglected tropical disease? PLoS Negl. Trop. Dis. 2021 15 e0009190 10.1371/journal.pntd.0009190 33956816 PMC8101735
+Ronca, S. E., Ruff, J. C. & Murray, K. O. A 20-year historical review of West Nile virus since its initial emergence in North America: has West Nile virus become a neglected tropical disease? PLoS Negl. Trop. Dis. 15, e0009190 (2021).33956816 10.1371/journal.pntd.0009190 PMC8101735
+15. Smithburn KC Hughes TP Burke AW Paul JH A neurotropic virus isolated from the blood of a native of Uganda 1 Am. J. Trop. Med. Hyg. 1940 s1-20 471 492 10.4269/ajtmh.1940.s1-20.471
+Smithburn, K. C., Hughes, T. P., Burke, A. W. & Paul, J. H. A neurotropic virus isolated from the blood of a native of Uganda 1. Am. J. Trop. Med. Hyg. s1-20, 471–492 (1940).
+16. Petersen LR Brault AC Nasci RS West Nile Virus: review of the literature JAMA 2013 310 308 10.1001/jama.2013.8042 23860989 PMC4563989
+Petersen, L. R., Brault, A. C. & Nasci, R. S. West Nile Virus: review of the literature. JAMA 310, 308 (2013).23860989 10.1001/jama.2013.8042 PMC4563989
+17. Hadfield J Twenty years of West Nile virus spread and evolution in the Americas visualized by Nextstrain PLoS Pathog. 2019 15 e1008042 10.1371/journal.ppat.1008042 31671157 PMC6822705
+Hadfield, J. et al. Twenty years of West Nile virus spread and evolution in the Americas visualized by Nextstrain. PLoS Pathog. 15, e1008042 (2019).31671157 10.1371/journal.ppat.1008042 PMC6822705
+18. Erazo D Contribution of climate change to the spatial expansion of West Nile virus in Europe Nat. Commun. 2024 15 1196 10.1038/s41467-024-45290-3 38331945 PMC10853512
+Erazo, D. et al. Contribution of climate change to the spatial expansion of West Nile virus in Europe. Nat. Commun. 15, 1196 (2024).38331945 10.1038/s41467-024-45290-3 PMC10853512
+19. Kilpatrick AM Globalization, land use, and the invasion of West Nile Virus Science 2011 334 323 327 10.1126/science.1201010 22021850 PMC3346291
+Kilpatrick, A. M. Globalization, land use, and the invasion of West Nile Virus. Science 334, 323–327 (2011).22021850 10.1126/science.1201010 PMC3346291
+20. Calistri P Epidemiology of West Nile in Europe and in the Mediterranean basin TOVJ 2010 4 29 37 20517490 10.2174/1874357901004010029 PMC2878979
+Calistri, P. Epidemiology of West Nile in Europe and in the Mediterranean basin. TOVJ 4, 29–37 (2010).20517490 10.2174/1874357901004010029 PMC2878979
+21. Murgue B Murri S Triki H Deubel V Zeller HG West Nile in the Mediterranean basin: 1950-2000 Ann. N. Y. Acad. Sci. 2001 951 117 126 10.1111/j.1749-6632.2001.tb02690.x 11797769
+Murgue, B., Murri, S., Triki, H., Deubel, V. & Zeller, H. G. West Nile in the Mediterranean basin: 1950-2000. Ann. N. Y. Acad. Sci. 951, 117–126 (2001).11797769 10.1111/j.1749-6632.2001.tb02690.x
+22. World Health Organization. West Nile virus. https://www.who.int/news-room/fact-sheets/detail/west-nile-virus (2017).
+23. Paz S Climate change impacts on West Nile virus transmission in a global context Philos. Trans. R. Soc. B 2015 370 20130561 10.1098/rstb.2013.0561 PMC4342965 25688020
+Paz, S. Climate change impacts on West Nile virus transmission in a global context. Philos. Trans. R. Soc. B 370, 20130561 (2015).10.1098/rstb.2013.0561 PMC4342965 25688020
+24. Mencattelli G Spatial and temporal dynamics of West Nile virus between Africa and Europe Nat. Commun. 2023 14 6440 10.1038/s41467-023-42185-7 37833275 PMC10575862
+Mencattelli, G. et al. Spatial and temporal dynamics of West Nile virus between Africa and Europe. Nat. Commun. 14, 6440 (2023).37833275 10.1038/s41467-023-42185-7 PMC10575862
+25. Mencattelli G Epidemiology of West Nile virus in Africa: an underestimated threat PLoS Negl. Trop. Dis. 2022 16 e0010075 10.1371/journal.pntd.0010075 35007285 PMC8789169
+Mencattelli, G. et al. Epidemiology of West Nile virus in Africa: an underestimated threat. PLoS Negl. Trop. Dis. 16, e0010075 (2022).35007285 10.1371/journal.pntd.0010075 PMC8789169
+26. Bahri O Étude séroépidémiologique de la circulation du virus West Nile chez l’Homme en Tunisie Bull. Soc. Pathol. Exot. 2011 104 272 276 10.1007/s13149-010-0100-x 21161623
+Bahri, O. et al. Étude séroépidémiologique de la circulation du virus West Nile chez l’Homme en Tunisie. Bull. Soc. Pathol. Exot. 104, 272–276 (2011).21161623 10.1007/s13149-010-0100-x
+27. Fares W Genetic characterization of West Nile Virus strains during neuroinvasives infection outbreak in Tunisia, 2018 Transbound. Emerg. Dis. 2021 68 2414 2421 10.1111/tbed.13905 33128297
+Fares, W. et al. Genetic characterization of West Nile Virus strains during neuroinvasives infection outbreak in Tunisia, 2018. Transbound. Emerg. Dis. 68, 2414–2421 (2021).33128297 10.1111/tbed.13905
+28. Hammami S West Nile disease in Tunisia: an overview of 60 years Vet. Ital. 2017 53 215 223 10.12834/VetIt.1181.6565.2 29152704
+Hammami, S. et al. West Nile disease in Tunisia: an overview of 60 years. Vet. Ital. 53, 215–223 (2017).10.12834/VetIt.1181.6565.2 29152704
+29. Benjelloun A El Harrak M Belkadi B West Nile disease epidemiology in North-West Africa: bibliographical review Transbound. Emerg. Dis. 2016 63 e153 e159 10.1111/tbed.12341 25753775
+Benjelloun, A., El Harrak, M. & Belkadi, B. West Nile disease epidemiology in North-West Africa: bibliographical review. Transbound. Emerg. Dis. 63, e153–e159 (2016).25753775 10.1111/tbed.12341
+30. El Rhaffouli, H. et al. Serologic evidence of West Nile Virus infection among humans, Morocco. Emerg. Infect. Dis. 18, 880–1 (2012).10.3201/eid1805.110826 PMC3358061 22516366
+31. Samraoui B Samraoui F An ornithological survey of Algerian wetlands: important bird areas, Ramsar sites and threatened species Wildfowl 2013 58 71 96
+Samraoui, B. & Samraoui, F. An ornithological survey of Algerian wetlands: important bird areas, Ramsar sites and threatened species. Wildfowl 58, 71–96 (2013).
+32. Zeroual A Assani AA Meddi M Alkama R Assessment of climate change in Algeria from 1951 to 2098 using the Köppen–Geiger climate classification scheme Clim. Dyn. 2019 52 227 243 10.1007/s00382-018-4128-0
+Zeroual, A., Assani, A. A., Meddi, M. & Alkama, R. Assessment of climate change in Algeria from 1951 to 2098 using the Köppen–Geiger climate classification scheme. Clim. Dyn. 52, 227–243 (2019).
+33. Lafri I Bitam I Beneldjouzi A Ben Mahdi M An Inventory of mosquitoes (Diptera: Culicidae) in Algeria Bull. Soc. Zool. Fr. 2014 139 255 261
+Lafri, I., Bitam, I., Beneldjouzi, A. & Ben Mahdi, M. An Inventory of mosquitoes (Diptera: Culicidae) in Algeria. Bull. Soc. Zool. Fr. 139, 255–261 (2014).
+34. Lafri I Hachid A Bitam I West Nile virus in Algeria: a comprehensive overview N. Microbes N. Infect. 2019 27 9 13 10.1016/j.nmni.2018.10.002 PMC6260397 30519477
+Lafri, I., Hachid, A. & Bitam, I. West Nile virus in Algeria: a comprehensive overview. N. Microbes N. Infect. 27, 9–13 (2019).10.1016/j.nmni.2018.10.002 PMC6260397 30519477
+35. Guenno BL Bougermouh A Azzam T Bouakaz R West Nile: a deadly virus? Lancet 1996 348 1315 10.1016/S0140-6736(05)65799-6 8909403
+Guenno, B. L., Bougermouh, A., Azzam, T. & Bouakaz, R. West Nile: a deadly virus? Lancet 348, 1315 (1996).8909403 10.1016/s0140-6736(05)65799-6
+36. Hachid A Evidence of West Nile virus circulation among humans in central northern Algeria N. Microbes N. Infect. 2019 29 100512 10.1016/j.nmni.2019.01.008 PMC6444287 30984402
+Hachid, A. et al. Evidence of West Nile virus circulation among humans in central northern Algeria. N. Microbes N. Infect. 29, 100512 (2019).10.1016/j.nmni.2019.01.008 PMC6444287 30984402
+37. Lafri I Seroprevalence of West Nile virus antibodies in equids in the North-East of Algeria and detection of virus circulation in 2014 Comp. Immunol. Microbiol. Infect. Dis. 2017 50 8 12 10.1016/j.cimid.2016.11.005 28131384
+Lafri, I. et al. Seroprevalence of West Nile virus antibodies in equids in the North-East of Algeria and detection of virus circulation in 2014. Comp. Immunol. Microbiol. Infect. Dis. 50, 8–12 (2017).28131384 10.1016/j.cimid.2016.11.005
+38. Medrouh B First serological evidence of West Nile virus infection in wild birds in Northern Algeria Comp. Immunol. Microbiol. Infect. Dis. 2020 69 101415 10.1016/j.cimid.2020.101415 31945717
+Medrouh, B. et al. First serological evidence of West Nile virus infection in wild birds in Northern Algeria. Comp. Immunol. Microbiol. Infect. Dis. 69, 101415 (2020).31945717 10.1016/j.cimid.2020.101415
+39. Saidi FA Phinzi K Molnár E Urbanization in Algeria: toward a more balanced and sustainable urban network? Soc. Sci. 2023 12 174 10.3390/socsci12030174
+Saidi, F. A., Phinzi, K. & Molnár, E. Urbanization in Algeria: toward a more balanced and sustainable urban network? Soc. Sci. 12, 174 (2023).
+40. Karim A A dynamic urban landscape in Algeria: actors, mechanisms and governance challenges Al Bashaer Econ. J. 2024 10 650 662
+Karim, A. A dynamic urban landscape in Algeria: actors, mechanisms and governance challenges. Al Bashaer Econ. J. 10, 650–662 (2024).
+41. Office National des Statistiques d’Algérie. Population résidente par age, par sexe et par wilaya. https://www.ons.dz/collections/ (2009).
+42. Talbot B Ardis M Kulkarni MA Influence of demography, land use, and urban form on West Nile Virus risk and human West Nile Virus incidence in Ottawa, Canada Vector-Borne Zoonotic Dis. 2019 19 533 539 10.1089/vbz.2018.2366 30615572
+Talbot, B., Ardis, M. & Kulkarni, M. A. Influence of demography, land use, and urban form on West Nile Virus risk and human West Nile Virus incidence in Ottawa, Canada. Vector-Borne Zoonotic Dis. 19, 533–539 (2019).30615572 10.1089/vbz.2018.2366
+43. Shaibi T Saadawi WK Aghila H Annajar BB Prevalence of IgG antibodies for the West Nile virus in human population in Tripoli, Libya J. Vector Borne Dis. 2017 54 183 186 10.4103/0972-9062.211701 28748841
+Shaibi, T., Saadawi, W. K., Aghila, H. & Annajar, B. B. Prevalence of IgG antibodies for the West Nile virus in human population in Tripoli, Libya. J. Vector Borne Dis. 54, 183–186 (2017).28748841
+44. Assaid N Serological evidence of West Nile virus infection in human populations and domestic birds in the Northwest of Morocco Comp. Immunol. Microbiol. Infect. Dis. 2021 76 101646 10.1016/j.cimid.2021.101646 33845402
+Assaid, N. et al. Serological evidence of West Nile virus infection in human populations and domestic birds in the Northwest of Morocco. Comp. Immunol. Microbiol. Infect. Dis. 76, 101646 (2021).33845402 10.1016/j.cimid.2021.101646
+45. Constant, O. et al. One Health surveillance of West Nile and Usutu viruses: a repeated cross-sectional study exploring seroprevalence and endemicity in Southern France, 2016 to 2020. Eurosurveillance 27, 2200068 (2022).10.2807/1560-7917.ES.2022.27.25.2200068 PMC9229194 35748300
+46. Piron M Low seroprevalence of West Nile Virus in blood donors from Catalonia, Spain Vector-Borne Zoonotic Dis. 2015 15 782 784 10.1089/vbz.2015.1787 26581013
+Piron, M. et al. Low seroprevalence of West Nile Virus in blood donors from Catalonia, Spain. Vector-Borne Zoonotic Dis. 15, 782–784 (2015).26581013 10.1089/vbz.2015.1787
+47. Hadjichristodoulou C West Nile Virus seroprevalence in the Greek population in 2013: a nationwide cross-sectional survey PLoS ONE 2015 10 e0143803 10.1371/journal.pone.0143803 26605539 PMC4659653
+Hadjichristodoulou, C. et al. West Nile Virus seroprevalence in the Greek population in 2013: a nationwide cross-sectional survey. PLoS ONE 10, e0143803 (2015).26605539 10.1371/journal.pone.0143803 PMC4659653
+48. Soliman A Studies on West Nile virus infection in Egypt J. Infect. Public Health 2010 3 54 59 10.1016/j.jiph.2009.11.002 20701892
+Soliman, A. et al. Studies on West Nile virus infection in Egypt. J. Infect. Public Health 3, 54–59 (2010).20701892 10.1016/j.jiph.2009.11.002
+49. Nasraoui N A sero-epidemiological investigation of West Nile virus among patients without any records of their symptoms from three different hospitals from Tunisia Acta Trop. 2023 242 106905 10.1016/j.actatropica.2023.106905 36948235
+Nasraoui, N. et al. A sero-epidemiological investigation of West Nile virus among patients without any records of their symptoms from three different hospitals from Tunisia. Acta Trop. 242, 106905 (2023).36948235 10.1016/j.actatropica.2023.106905
+50. Ben Hassine T First detection of co-circulation of West Nile and Usutu Viruses in equids in the south-west of Tunisia Transbound. Emerg. Dis. 2014 61 385 389 10.1111/tbed.12259 25065813
+Ben Hassine, T. et al. First detection of co-circulation of West Nile and Usutu Viruses in equids in the south-west of Tunisia. Transbound. Emerg. Dis. 61, 385–389 (2014).25065813 10.1111/tbed.12259
+51. Marcantonio M Identifying the environmental conditions favouring West Nile Virus outbreaks in Europe PLoS ONE 2015 10 e0121158 10.1371/journal.pone.0121158 25803814 PMC4372576
+Marcantonio, M. et al. Identifying the environmental conditions favouring West Nile Virus outbreaks in Europe. PLoS ONE 10, e0121158 (2015).25803814 10.1371/journal.pone.0121158 PMC4372576
+52. Osborne K Weinberg J Miller E The European sero-epidemiology network Eurosurveillance 1997 2 29 31 10.2807/esm.02.04.00167-en 12631820
+Osborne, K., Weinberg, J. & Miller, E. The European sero-epidemiology network. Eurosurveillance 2, 29–31 (1997).12631820 10.2807/esm.02.04.00167-en
+53. Endale A Medhin G Darfiro K Kebede N Legesse M Magnitude of antibody cross-reactivity in medically important mosquito-borne flaviviruses: a systematic review IDR 2021 14 4291 4299 10.2147/IDR.S336351 PMC8541746 34703255
+Endale, A., Medhin, G., Darfiro, K., Kebede, N. & Legesse, M. Magnitude of antibody cross-reactivity in medically important mosquito-borne flaviviruses: a systematic review. IDR ume 14, 4291–4299 (2021).10.2147/IDR.S336351 PMC8541746 34703255
+54. Chan KR Serological cross-reactivity among common flaviviruses Front. Cell. Infect. Microbiol. 2022 12 975398 10.3389/fcimb.2022.975398 36189346 PMC9519894
+Chan, K. R. et al. Serological cross-reactivity among common flaviviruses. Front. Cell. Infect. Microbiol. 12, 975398 (2022).36189346 10.3389/fcimb.2022.975398 PMC9519894
+55. Clé M Usutu virus: a new threat? Epidemiol. Infect. 2019 147 e232 10.1017/S0950268819001213 31364580 PMC6625183
+Clé, M. et al. Usutu virus: a new threat? Epidemiol. Infect. 147, e232 (2019).31364580 10.1017/S0950268819001213 PMC6625183
+56. Boubidi SC First evidence of circulation of multiple arboviruses in Algeria PLoS Negl. Trop. Dis. 2024 18 e0012651 10.1371/journal.pntd.0012651 39509466 PMC11575824
+Boubidi, S. C. et al. First evidence of circulation of multiple arboviruses in Algeria. PLoS Negl. Trop. Dis. 18, e0012651 (2024).39509466 10.1371/journal.pntd.0012651 PMC11575824
+57. Laabassi F Serological evidence of circulation of West Nile virus in equids in Algerian eastern drylands and its epidemiological risk factors Comp. Immunol. Microbiol. Infect. Dis. 2023 94 101947 10.1016/j.cimid.2023.101947 36638646
+Laabassi, F. et al. Serological evidence of circulation of West Nile virus in equids in Algerian eastern drylands and its epidemiological risk factors. Comp. Immunol. Microbiol. Infect. Dis. 94, 101947 (2023).36638646 10.1016/j.cimid.2023.101947
+58. European Centre for Disease Control and Prevention. West Nile virus risk assessment tool https://www.ecdc.europa.eu/en/publications-data/west-nile-virus-risk-assessment-tool (2013).
+59. Montgomery RR Murray KO Risk factors for West Nile virus infection and disease in populations and individuals Expert Rev. Anti-infect. Ther. 2015 13 317 325 10.1586/14787210.2015.1007043 25637260 PMC4939899
+Montgomery, R. R. & Murray, K. O. Risk factors for West Nile virus infection and disease in populations and individuals. Expert Rev. Anti-infect. Ther. 13, 317–325 (2015).25637260 10.1586/14787210.2015.1007043 PMC4939899
+60. Linke S Ellerbrok H Niedrig M Nitsche A Pauli G Detection of West Nile virus lineages 1 and 2 by real-time PCR J. Virol. Methods 2007 146 355 358 10.1016/j.jviromet.2007.05.021 17604132
+Linke, S., Ellerbrok, H., Niedrig, M., Nitsche, A. & Pauli, G. Detection of West Nile virus lineages 1 and 2 by real-time PCR. J. Virol. Methods 146, 355–358 (2007).17604132 10.1016/j.jviromet.2007.05.021
+61. Del Amo J A novel quantitative multiplex real-time RT-PCR for the simultaneous detection and differentiation of West Nile virus lineages 1 and 2, and of Usutu virus J. Virol. Methods 2013 189 321 327 10.1016/j.jviromet.2013.02.019 23499258
+Del Amo, J. et al. A novel quantitative multiplex real-time RT-PCR for the simultaneous detection and differentiation of West Nile virus lineages 1 and 2, and of Usutu virus. J. Virol. Methods 189, 321–327 (2013).23499258 10.1016/j.jviromet.2013.02.019
+62. Hens N Seventy-five years of estimating the force of infection from current status data Epidemiol. Infect. 2010 138 802 812 10.1017/S0950268809990781 19765352
+Hens, N. et al. Seventy-five years of estimating the force of infection from current status data. Epidemiol. Infect. 138, 802–812 (2010).19765352 10.1017/S0950268809990781
+63. Hozé, N. Rsero: an R package to estimate the annual force of infection using serological data. https://github.com/nathoze/Rsero (2023).
+64. Hozé N RSero: a user-friendly R package to reconstruct pathogen circulation history from seroprevalence studies PLOS Comput. Biol. 2025 21 e1012777 10.1371/journal.pcbi.1012777 39899643 PMC11809794
+Hozé, N. et al. RSero: a user-friendly R package to reconstruct pathogen circulation history from seroprevalence studies. PLOS Comput. Biol. 21, e1012777 (2025).39899643 10.1371/journal.pcbi.1012777 PMC11809794
+65. Guo, J. et al. rstan: R Interface to Stan https://cran.r-project.org/web/packages/rstan/index.html (2024).
+66. Vehtari, A., Gelman, A., Simpson, D., Carpenter, B. & Bürkner, P.-C. Rank-Normalization, Folding, and Localization: AnImproved ˆR for Assessing Convergence of MCMC (with Discussion). Bayesian Anal. 16, 667–718 (2021).
+67. Spiegelhalter DJ Best NG Carlin BP Van Der Linde A Bayesian measures of model complexity and fit J. R. Stat. Soc. Ser. B Stat. Methodol. 2002 64 583 639 10.1111/1467-9868.00353
+Spiegelhalter, D. J., Best, N. G., Carlin, B. P. & Van Der Linde, A. Bayesian measures of model complexity and fit. J. R. Stat. Soc. Ser. B Stat. Methodol. 64, 583–639 (2002).
+68. Vehtari A Gelman A Gabry J Practical Bayesian model evaluation using leave-one-out cross-validation and WAIC Stat. Comput. 2017 27 1413 1432 10.1007/s11222-016-9696-4
+Vehtari, A., Gelman, A. & Gabry, J. Practical Bayesian model evaluation using leave-one-out cross-validation and WAIC. Stat. Comput. 27, 1413–1432 (2017).
+69. Sivula, T., Magnusson, M., Matamoros, A. A. & Vehtari, A. Uncertainty in Bayesian Leave-One-Out Cross-Validation Based Model Comparison. Bayesian Anal. 1–31 (2025).
+70. Paananen, T., Piironen, J., Bürkner, P. C. & Vehtari, A. Implicitly adaptive importance sampling. Stat Comput. 31, 16 (2021).

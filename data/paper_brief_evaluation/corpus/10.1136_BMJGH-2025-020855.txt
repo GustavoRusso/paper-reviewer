@@ -1,0 +1,534 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: BMJ Glob Health
+Journal ID: BMJ Glob Health
+NLM Journal ID: 101685275
+Journal ID: bmjgh
+
+BMJ Global Health
+
+EISSN: 2059-7908
+Publisher: BMJ Publishing Group
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13289132
+PMID: 42331515
+DOI: 10.1136/bmjgh-2025-020855
+Article ID: bmjgh-2025-020855
+Article version: 1
+Subjects: Original Research, 1506
+
+Health and economic burdens of emerging infectious diseases in the USA, US territories and globally
+
+Sevilla J P 1 2
+https://orcid.org/0000-0002-8624-1344 Burnes Daria 1
+Birjandi Mona 3
+https://orcid.org/0000-0001-5300-4206 Knee Joseph S 1
+https://orcid.org/0000-0002-5648-4716 Villanueva Julie M 4
+https://orcid.org/0000-0002-4256-7705 Durham David P 5
+Nystrom Scott V 6
+Petro Courtney D 4
+https://orcid.org/0009-0009-6107-8286 Lumpkins Jennifer 7
+https://orcid.org/0009-0009-3058-6077 Schneider Deborah 7
+Bloom David E 2
+https://orcid.org/0000-0003-1970-692X White Richard C 4
+https://orcid.org/0009-0008-6657-0002 Johnson Robert A 4
+1 Data For Decisions LLC , Waltham , Massachusetts , USA
+2 Harvard T H Chan School of Public Health Department of Global Health and Population , Boston , Massachusetts , USA
+3 Outten & Golden LLP , Sharon , Massachusetts , USA
+4 Biomedical Advanced Research and Development Authority, Administration for Strategic Preparedness and Response, U.S. Department of Health and Human Services , Washington , District of Columbia , USA
+5 Leidos Inc , Reston , Virginia , USA
+6 Nystrom Consulting LLC , Ponte Vedra , Florida , USA
+7 SC&A Inc , Arlington , Virginia , USA
+Supplemental material This content has been supplied by the author(s). It has not been vetted by BMJ Publishing Group Limited (BMJ) and may not have been peer-reviewed. Any opinions or recommendations discussed are solely those of the author(s) and are not endorsed by BMJ. BMJ disclaims all liability and responsibility arising from any reliance placed on the content. Where the content includes any translated material, BMJ does not warrant the accuracy and reliability of the translations (including but not limited to local regulations, clinical guidelines, terminology, drug names and drug dosages), and is not responsible for any error and/or omissions arising from translation and adaptation or otherwise.
+
+Additional supplemental material is published online only. To view, please visit the journal online (https://doi.org/10.1136/bmjgh-2025-020855).
+
+RCW, JMV, RAJ and CDP are employees of U.S. Department of Health and Human Services (HHS) Administration for Strategic Preparedness and Response (ASPR) Center for Biomedical Advanced Research & Development Authority (BARDA), which awarded funds to prime contractor SC&A to perform this research. DPD is employed by Leidos, a contractor supporting HHS/ASPR. SVN is employed by Nystrom Consulting and worked on this research as an independent consulting economist to HHS/ASPR/BARDA. JL and DS are employees of SC&A and worked on this research in that capacity. JPS, DB, MB and JK worked on this research as employees of subcontractor Data for Decisions (DfD), which was awarded funds from SC&A to perform this research. DB worked on this research as an external consultant to DfD.
+
+Dr Richard C White; richard.white@hhs.gov
+Publication date: 2026
+Electronic publication date: 2026 Jun 22
+Volume: 11
+Issue: 6
+Electronic Location ID: e020855
+Received 2025 Jun 6; Accepted 2026 Apr 21
+Copyright: Copyright - This article contains at least one map figure, please insert the standard legal disclaimer text at proof stage.- The copyright notice is © Where applicable, author(s) (or their employer(s)) 2026. Re-use permitted under CC-BY. No commercial reuse. Published by BMJ Group.
+Copyright year: 2026
+License: This is an open access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited, appropriate credit is given, any changes made indicated, and the use is non-commercial. See: https://creativecommons.org/licenses/by-nc/4.0/.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Keywords: Global Health; Health economics; Public Health; Infections, diseases, disorders, injuries
+
+Funding: United States Department of Health and Human Services, Administration for Strategic Preparedness and Response Center for Biomedical Advanced Research & Development Authority Contract 47QRAA20D002W, Order 75A50124F8000
+
+==============================
+Abstract
+
+Introduction
+
+Emerging infectious diseases (EIDs) cause significant health and economic burdens in the USA and globally. Existing methods and analyses fall short of what is required to prioritise diseases for health technology research and development (R&D), including for medical countermeasure (MCM) development within rapid response frameworks by the Center for Biomedical Advanced Research and Development Authority, part of the Administration for Strategic Preparedness and Response within the U.S. Department of Health and Human Services.
+
+Methods
+
+We developed a method for quantifying and ranking health and economic disease burdens (‘full burdens’) and applied it to 15 high-priority EIDs for 223 countries and territories, including the USA and US territories, historically from 2000 to 2022 and prospectively from 2025 to 2034. Health burdens consisted of disability-adjusted life-year losses, converted into monetary values using the value of a statistical life-year. Economic burdens consisted of direct and indirect costs during the acute stage of illness for hospitalised cases. We computed unweighted and weighted burden measures, the latter controlling for global disparities in ability-to-pay to avoid EID burdens. We projected future disease burdens using Monte Carlo simulation.
+
+Results
+
+Pandemics caused the largest historical and projected unweighted and weighted full burdens in the USA and globally. Among non-pandemics, across unweighted and weighted burdens, dengue and cholera imposed the largest historical and projected full burdens globally; West Nile Virus imposed the largest historical and projected full burdens in the USA, and dengue imposed the largest historical full burdens in the US territories. Weighted full burdens exceeded five times the unweighted ones. Regionally, the Americas and Africa faced the largest per capita weighted burdens while the Western Pacific region faced the smallest.
+
+Conclusion
+
+R&D priority-setting, including MCM development, depends on multiple criteria, including disease burdens. Our full burden quantification methods and results, along with other such criteria, can inform optimal priority-setting.
+
+WHAT IS ALREADY KNOWN ON THIS TOPIC
+
+WHAT THIS STUDY ADDS
+
+We developed a method for quantifying health and economic disease burdens (‘full burdens’) and applied it to 15 high-priority EIDs for 223 countries and territories, including the USA and US territories, historically (from 2000 to 2022) and prospectively (from 2025 to 2034).
+
+We computed unweighted and weighted full burdens, the latter accounting for country-level ATP. We found that:(a) full burdens across all EIDs were large,(b) full burdens were largely accounted for by mortality losses,(c) pandemic-related full burdens were vastly larger than those of non-pandemic EIDs,(d) among non-pandemic EIDs, dengue and cholera had the largest burdens globally, while West Nile Virus had the largest burdens in the USA;(e) full burdens were highest in the African, American and South-East Asia WHO regions and lowest in the Western Pacific region and (f) weighted full burdens were at least five times larger than unweighted ones.
+
+HOW THIS STUDY MIGHT AFFECT RESEARCH, PRACTICE OR POLICY
+
+Priority-setting for EID-related research and development (R&D), including for MCM development supported by the U.S. Center for Biomedical Advanced Research and Development Authority, generally reflects multiple criteria, including disease burdens, current R&D opportunities and pipeline products, demand and market potential, and other health security risks.
+
+Our methods for estimating and ranking disease burdens and results, in combination with other such criteria, can support these and more general global health priority-setting decisions.
+
+Introduction
+
+Emerging infectious diseases (EIDs) are ‘infections that have newly appeared in a population, or have existed but are rapidly increasing in incidence or geographic range’.1 Most such diseases are zoonotic. Others result from pathogens with pre-existing footholds in human populations that develop variants with heightened transmissibility, severity or resistance to existing medical countermeasures (MCMs)2; spread to new geographic areas3; or re-emerge in areas undergoing changes.2
+
+EIDs cause significant health and economic burdens globally. For example, zoonotic EIDs include:(a) all seven respiratory pandemics since 1889,4 including the 1918 Spanish influenza pandemic (with an estimated 17.4 million deaths5 and 6% gross domestic product (GDP) losses,6(b) both pandemics since 2000 (the 2009 influenza A subtype H1N1 and 2020 SARS-CoV-2 pandemics, the latter associated with an estimated 18 million deaths7 and US$5.5 trillion in GDP losses8),(c) six of seven WHO Public Health Emergencies of International Concern since 2005 (including the 2014 West African Ebola epidemic, which resulted in an estimated 11 000 deaths9 and between US$2.8 and US$32.6 billion in GDP losses10) and (d) all diseases on the WHO 2018 priority pathogen list of diseases that pose the greatest epidemic and pandemic threats.11
+
+Addressing EIDs is therefore a high global health priority. An important question is how to rank EIDs according to their burdens to support priority-setting with respect to research and development (R&D) into MCMs. The relative ranking of EIDs by disease burden can inform their relative R&D priority. A ranking method should account for both the health and economic burdens of these diseases, and for disparities in the distribution of such burdens. This question is faced by both commercial and non-commercial funders of such R&D, including the U.S. Center for Biomedical Advanced Research and Development Authority (BARDA). BARDA is part of the U.S. Administration for Strategic Preparedness and Response, established in 2006 under the U.S. Pandemic and All-Hazards Preparedness Act. BARDA’s mission is to develop MCMs addressing the public health and medical consequences of chemical, biological, radiological and nuclear threats, pandemic influenza and EIDs. To facilitate programmatic decisions and complement other ongoing efforts regarding the future direction of its EID portfolio, BARDA needs an approach to enable more direct comparisons of health and economic burdens among EIDs.
+
+While many studies have reported the health burdens of individual diseases (eg, Guo et al12 for dengue; Zheng et al13 for cholera), their varying methodologies make disease comparisons difficult. Of studies estimating global burdens of multiple infectious diseases, few measured health burdens using summary health measures like disability-adjusted life-years (DALYs) or quality-adjusted life-years (exceptions include Di Bari et al14; IHME15), hampering joint consideration of mortality and morbidity burdens. Few studies derived monetary values for health burdens (exceptions include Sevilla et al8 for the SARS-CoV-2 pandemic and Smith et al16 for Lassa fever), hampering economic evaluations and assessments of funding needs and commitments. Few studies aggregated health and economic burdens, which is critical to understand the full burden of EIDs.81216
+
+Similarly, there are a few projections regarding future burdens,17 and most focused on single diseases and only health burdens. The Global Burden of Disease Study18 projects health burdens, but it does not compute monetary values or include economic burdens, and it excludes relevant historical information and projections related to pandemics. No studies of global economic burdens accounted for insensitivity to ability-to-pay (ATP) of standard economic evaluation methods.
+
+To address this gap and support priority setting, we developed a systematic approach to measuring weighted full burdens that allowed for consistent comparisons across EIDs and applied this approach to calculate the comprehensive health and economic burden of 15 representative EIDs in the USA, the US territories and globally over the historical period from 2000 to 2022 and a projection period from 2025 to 2034. We focused on many infectious diseases and countries to generate burden measures that reflect the global scale of EIDs as a whole and to allow for comparisons among diseases and geographies. We measured both health and economic burdens to account for the full burdens these diseases impose on society and generated monetary values for these burdens to facilitate economic evaluation. We used weights to account for disparities in the global distributions of such burdens. Our method can be considered an application of weighted cost-benefit analysis (wCBA), where full health and economic burdens are assigned monetary values reflecting individuals’ willingness-to-pay (WTP) to avoid these burdens, and weights reflecting diminishing marginal utility of income are used to account for global disparities in ATP. Results from this study will facilitate BARDA’s selection of pathogens for targeted MCM development. Our results and methods can also inform general global health priority-setting.
+
+Methods
+
+Online supplemental file 1 provides further details on methods and data.
+
+Selection of study EIDs
+
+We quantified the health and economic burdens of 15 high-priority EIDs that have emerged since 2000 globally across 223 countries, territories and other locations (hereafter, ‘countries’), including the USA and the US territories. (Online supplemental table S1 shows the sample of countries.) We quantified these burdens historically, from 2000 to 2022 (the ‘historical period’), and prospectively, from 2025 to 2034 (the ‘projection period’; data constraints prevented us from projecting US territory burdens). The 15 diseases are chikungunya, cholera, SARS-CoV-2 (COVID-19), Crimean-Congo haemorrhagic fever (CCHF), dengue, Ebola virus disease (Ebola), Lassa fever (Lassa), Marburg virus disease (Marburg), Middle East respiratory syndrome (MERS), Nipah and Henipaviral disease (Nipah), pandemic influenza A subtype H1N1/09 (H1N1), SARS, Rift Valley fever (RVF), West Nile virus disease (West Nile) and Zika virus disease (Zika).
+
+These EIDs include both 21st century pandemics (H1N1 and COVID-19), all diseases in BARDA’s 2022–2026 Strategic Plan,19 and the WHO 2018 priority pathogen list of diseases that pose the greatest epidemic and pandemic threats,20 21 and all diseases in the UK Health Security Agency’s (UKHSA) Guidance on Emerging Infections22 with data in the Global Burden of Disease Study 2021 (hereafter, ‘GBD’) database.23These EIDs include diseases with wide geographic reach and large numbers of cases and deaths (eg, COVID-19), those that are geographically concentrated (eg, Ebola and Marburg are concentrated in sub-Saharan Africa and Zika is only prevalent in the Americas, see table 2) and those with small number of cases and deaths (eg, Marburg, CCHF and Nipah have cases and deaths in the low hundreds globally, see table 2).
+
+Table 1 Harms and burdens of 15 emerging infectious diseases (EIDs) in 223 countries and territories, 2000–2022
+
+Burden category	Global	USA (without territories)	AFRO	AMRO	EMRO	EURO	SEARO	WPRO	
+Cases (A)*	 6.1 B	 144.8 M	1.3 B	954.1 M	606.0 M	556.3 M	2.2 B	429.8 M	
+Deaths (B)	 21.0 M	 1.2 M	4.7 M	4.0 M	2.0 M	3.6 M	5.7 M	950 041	
+DALYs (C)	 298.0 M	 15.0 M	82.1 M	53.0 M	30.5 M	30.3 M	87.4 M	14.6 M	
+Health burden (D) (US$)	 17.5 T	 7.8 T	493.3 B	9.7 T	437.3 B	5.2 T	754.0 B	943.3 B	
+Economic burden (E) (US$)	 104.8 B	11.5 B	3.5 B	46.8 B	6.0 B	12.8 B	14.4 B	21.3 B	
+Full burden (F) (US$)†	 17.6 T	7.8 T	496.7 B	9.7 T	443.3 B	5.2 T	768.4 B	964.6 B	
+Weighted health burden (G) (US$)	 86.7 T	7.9 T	15.1 T	 21.6 T	 6.8 T	 13.8 T	 24.4 T	 5.1 T	
+Weighted economic burden (H) (US$)	 1.4 T	 11.9 B	 164.9 B	 387.9 B	 154.8 B	 44.9 B	 607.4 B	 89.5 B	
+Weighted full burden (I) (US$)‡	 88.1 T	 7.9 T	15.2 T	22.0 T	6.9 T	13.8 T	25.0 T	5.2 T	
+Person years (J)§	 162.7 B	 7.2 B	20.9 B	21.7 B	14.6 B	20.7 B	42.4 B	42.4 B	
+Full burden per case (F/A) (US$)	2901	53 668	375	10 211	731	9316	350	2244	
+Full burden per death (0.876×F/B) (US$)¶	734 791	5.6 M	92 164	2.1 M	195 862	1.3 M	117 789	889 405	
+Average annual per capita full burden (F/J) (US$)	108	1080	24	449	30	250	18	23	
+Weighted full burden per case (I/A) (US$)	14 525	54 917	11 500	23 013	11 433	24 850	11 391	12 023	
+Weighted full burden per death (0.876×I/B) (US$)‡	3.7 M	5.8 M	2.8 M	4.8 M	3.1 M	3.4 M	3.8 M	4.8 M	
+Average annual per capita weighted full burden (I/J) (US$)	542	1105	729	1012	474	667	590	122	
+* All cases are symptomatic.
+
+† Full burden is equal to the sum of health burdens and economic burdens. Health burdens are monetised by valuing each disability-adjusted life-year by an estimate of individuals’ willingness-to-pay (WTP) for good health. Economic burdens are the sum of direct and indirect costs.
+
+‡ Weighted full burden is equal to the WTP-centric full burden described in ‘†’ adjusted for global disparities in ability-to-pay.
+
+§ Person-years represent the cumulative population over a 23-year period.
+
+¶ Full burden per death and weighted full burden per death figures are calculated based on 87.6% of the total full burden and weighted full burden amounts, to account for the fact that 87.6% of the overall burden is attributable to fatalities.
+
+AFRO, African WHO region; AMRO, Americas WHO region; B, billions; EIDs, emerging infectious diseases; EMRO, Eastern Mediterranean WHO region; EURO, Europe WHO region; M, millions; SEARO, South East Asia WHO region; T, trillions; WPRO, Western Pacific WHO region.
+
+Though disease X is on the WHO priority list, we cannot incorporate it in our historical analysis since it is, by definition, a placeholder name for a future disease with the potential to become a serious international epidemic or pandemic.24 We incorporate it in our projections by simulating possible pandemics from coronavirus and influenza virus (see Projection model), which have been considered the pathogen families most likely to yield disease X.2426 We excluded non-resistant forms of HIV/AIDS, malaria and tuberculosis, which did not emerge or reemerge within our historical window as defined by inclusion in the UKHSA guidance, WHO priority list or BARDA strategic plan. Our study diseases include no antimicrobial-resistant (AMR) pathogens. Resistant pathogens can, in principle, satisfy the definition of EIDs (see the Introduction section), but only one such pathogen emerged in our historical window 2000–2022 as defined by inclusion in the UKHSA guidance, WHO priority list or BARDA strategic plan. This is multidrug-resistant (MDR) malaria, which emerged in Myanmar in 2008.22 However, data for MDR malaria were not available from our data sources, rendering its inclusion in our analysis infeasible.
+
+Health, economic and full burdens
+
+We defined full burdens as the sum of health and economic burdens from EID cases (see Sevilla et al8 for a derivation of this value formula). We defined a ‘case’ as a symptomatic case of any severity level (see online supplemental table S2). We ignore asymptomatic cases, which incur no burdens and whose contribution to transmission is accounted for in the burdens of the resulting symptomatic cases.We measured health burdens across all symptomatic infections, but measured economic burdens only among hospitalised cases.
+
+Health burdens consisted of DALY losses, which in turn consisted of years of life lost and years lived with disability (YLDs). See online supplemental table S3 for YLD derivations. We converted health burdens into monetary values by valuing each DALY by the value of a statistical life-year (VSLY), an estimate of individuals’ WTP for health.
+
+We adopted a societal perspective to measuring economic burdens, which we defined as the sum of direct and indirect costs. Direct costs were treatment costs regardless of payer. Indirect costs equalled the value of lost paid and unpaid work time. We adopted a human capital approach to indirect costs, measuring costs at the patient level and ignoring labour market dynamics, including worker replacement. We measured direct and indirect costs only during the acute stage of illness and for cases requiring hospitalisation, ignoring outpatient and critical care costs. We assumed direct and indirect costs were the same for fatal and non-fatal cases. For simplicity, we ignored other economic burdens faced by the macroeconomy, governments, firms, communities, caregivers and households.
+
+Because WTP is constrained by ATP, standard WTP-centric economic valuation can undervalue burdens and benefits faced by developing nations.27 For example, valuing mortality risks using the country-specific value of a statistical life (VSL) can undervalue developing-country risks since VSL rises with income.27 To address this, we measured full burdens using both standard WTP methodology, not adjusting for global ATP disparities (calling these ‘full burdens’ or ‘unweighted full burdens’) and a weighting methodology adjusting for such disparities (calling these ‘weighted full burdens’). The latter roughly measures what full burdens would be if ATP were everywhere the same as in the USA in 2022. We adopted conservative assumptions under which weighting involved multiplying full burdens in a country-year by the ratio of per capita gross national income (PCGNI) in the USA in 2022 to PCGNI in that country-year.
+
+Monetary values are in 2022 US dollars (USD). Online supplemental file 1 describes currency conversions.
+
+Historical analysis
+
+We obtained and estimated health burdens from data from GBD,23 the WHO,2831 U.S. Centers for Disease Prevention and Control,93234 Africa Centres for Disease Control and Prevention,35 36 European Centre for Disease Prevention and Control,3741 Our World in Data,42 United Nations World Population Prospects Life Tables,43 Pan American Health Organization,44 Government of Canada,45 National Center for Vector Borne Diseases Control, India46 and other published literature.4754 See online supplemental table S2 for details.
+
+We computed VSLY using methodology from Robinson et al,27 and a VSL of US$11.4 million.55
+
+Direct costs per case equalled the product of the disease-specific hospitalisation rate (see online supplemental table S4), the disease-specific hospitalisation length of stay (LOS) (see online supplemental table S5) and the country-specific cost per hospital bed day (from WHO-CHOICE).56 Indirect costs per case equalled the product of the probability of a hospitalised case (proxied by hospitalisation rates), the number of workdays lost (proxied by LOS), the country-specific hours per day spent on paid and unpaid work from Charmes57 and the country- and year-specific average hourly wage derived using data from the International Labour Organization.58 We discounted health and economic burdens at 3% per year, following WHO recommendations.59
+
+We applied imputation and extrapolation methods where data were unavailable (see online supplemental file 1 for details).
+
+We estimated health burdens, economic burdens and unweighted and weighted full burdens for every disease-country-year combination. We computed these burdens per capita and population-wide. Aggregating population-wide burdens to WHO regions and globally follows naturally.
+
+Projection model
+
+We projected future burdens over the years 2025–2034 using Monte Carlo simulation. In this simulation, we generated multiple possible futures (henceforth ‘iterations’) from a probabilistic model of the future, and computed summary statistics of patterns across those iterations.
+
+We built our model using EID- and country-specific probability distributions (PDs) over per capita unweighted and weighted full burdens. We derived PDs using the results of our historical analysis, which showed how EID-specific burdens varied across historical years in each country. We combined historical information about the 2009 H1N1 pandemic with longer-term information about influenza pandemics from 1889 onwards (including the 1918 Spanish influenza pandemic) to generate a PD for all pandemic influenza diseases. We likewise combined historical information about SARS, MERS and COVID-19 to generate a PD for all coronavirus diseases. We take pandemic influenza and coronavirus projections to constitute projections of the two most plausible viral families from which disease X will emerge.24 We also accounted for the long-term historical frequency of large-scale Ebola and Zika outbreaks. See online supplemental tables S6–S8 for illustrations of aspects of our method for cholera, pandemic influenza and coronavirus, respectively.
+
+We drew 5000 iterations (see online supplemental table S9 for justification). Each iteration resulted in an estimate for unweighted and weighted per capita full burdens for every EID-country-projection-year combination, or 13×223×10=28 990 estimates. We adjusted these estimates for population growth, economic growth and discounting. We further adjusted the estimates for dengue and certain neglected tropical diseases to incorporate GBD’s forecasts of these diseases. The summary statistics across iterations reflect both likely future outcomes and uncertainty over those outcomes.
+
+Results
+
+Historical analysis
+
+Table 1 summarises the results of our historical analysis (results for the US territories are in online supplemental table S10), and figure 2 shows annual per capita full burdens and weighted full burdens by region. (Results by country, year and disease are in online supplemental file 3).
+
+Table 2 Magnitude and ranking of 15 emerging infectious disease burdens, 2000–2022
+
+			Full burden	Weighted full burden	
+Disease	Cases	Fatalities	(2022 US$)	Rank	(2022 US$)	Rank	
+Global	
+COVID-19	3.2 B	16.8 M	16.0 T	1	63.3 T	1	
+Pandemic H1N1	1.6 B	363 106	720.1 B	2	4.4 T	4	
+Dengue	1.2 B	594 835	430.4 B	3	8.0 T	3	
+Cholera	89.3 M	3.1 M	379.5 B	4	12.2 T	2	
+West Nile	66 071	3166	18.8 B	5	22.4 B	6	
+MERS	2032	945	2.4 B	6	7.0 B	8	
+SARS	8096	774	1.5 B	7	4.8 B	9	
+Ebola	37 999	52 125	1.2 B	8	93.2 B	5	
+Zika	5.3 M	44	762.6 M	9	7.8 B	7	
+Chikungunya	4.1 M	248	471.8 M	10	4.1 B	10	
+Rift Valley fever	3492	604	228.2 M	11	3.2 B	11	
+Marburg	335	284	53.8 M	12	1.4 B	13	
+CCHF	325	55	35.2 M	13	357.1 M	14	
+Nipah	367	265	27.3 M	14	1.5 B	12	
+Lassa	10 246	59	14.6 M	15	299.3 M	15	
+US without territories	
+COVID-19	100.6 M	1.2 M	7.5 T	1	7.6 T	1	
+Pandemic H1N1	44.1 M	14 266	235.1 B	2	280.7 B	2	
+West Nile	56 513	2769	18.2 B	3	20.3 B	3	
+Dengue	19 144	10	220.0 M	4	240.8 M	4	
+Ebola	4	1	11.4 M	5	12.6 M	5	
+SARS	27	0	1.0 M	6	1.2 M	6	
+Zika	487	0	709 536	7	761 887	7	
+Cholera	194	0	420 866	8	478 042	8	
+Chikungunya	106	0	89 077	9	93 641	9	
+MERS	2	0	24 711	10	27 278	10	
+Marburg	1	0	15 543	11	18 094	11	
+CCHF, Nipah, Lassa fever and Rift Valley fever had no reported cases or fatalities in the USA during the study period, or data were unavailable	
+African WHO region (AFRO)	
+COVID-19	739.5 M	2.6 M	251.2 B	1	6.8 T	2	
+Cholera	56.4 M	2.0 M	214.9 B	2	7.4 T	1	
+Pandemic H1N1	476.8 M	80 246	24.3 B	3	774.6 B	3	
+Dengue	51.6 M	525	5.0 B	4	164.0 B	4	
+Ebola	37 974	52 116	1.1 B	5	93.2 B	5	
+Rift Valley fever	2092	436	54.8 M	6	2.3 B	6	
+Marburg	333	283	49.9 M	7	1.4 B	7	
+Chikungunya	328 667	0	42.5 M	8	292.3 M	8	
+Lassa	10 241	57	7.7 M	9	289.0 M	9	
+CCHF	62	17	3.7 M	10	80.6 M	10	
+MERS	2	1	287 599	11	4.3 M	11	
+SARS	1	1	225 389	12	3.7 M	12	
+West Nile	1	0	134	13	1946	13	
+Zika and Nipah had no reported cases or fatalities in the AFRO region during the study period, or data were unavailable	
+Americas WHO region (AMRO)	
+COVID-19	400.6 M	3.9 M	9.2 T	1	19.0 T	1	
+Pandemic H1N1	144.9 M	38 854	287.9 B	2	658.4 B	3	
+Dengue	397.5 M	20 062	172.4 B	3	1.8 T	2	
+Cholera	2.2 M	75 887	39.8 B	4	439.8 B	4	
+West Nile	58 184	2769	18.2 B	5	20.3 B	5	
+Zika	5.3 M	44	759.4 M	6	7.7 B	6	
+Chikungunya	3.5 M	248	435.9 M	7	3.6 B	7	
+SARS	278	43	165.1 M	8	288.9 M	8	
+Ebola	4	1	11.4 M	9	12.6 M	9	
+MERS	2	0	24 711	10	27 278	10	
+Marburg	1	0	15 543	11	18 094	11	
+RVF, CCHF, Nipah and Lassa had no reported cases or fatalities in the AMRO region during the study period, or data were unavailable	
+Eastern Mediterranean WHO region (EMRO)	
+COVID-19	397.2 M	1.6 M	393.0 B	1	5.4 T	1	
+Cholera	8.8 M	309 992	22.0 B	2	913.1 B	2	
+Pandemic H1N1	152.2 M	29 680	20.6 B	3	345.9 B	3	
+Dengue	47.8 M	14 027	5.2 B	4	216.0 B	4	
+MERS	1868	897	2.3 B	5	6.6 B	5	
+Rift Valley fever	1399	168	173.4 M	6	973.9 M	6	
+CCHF	212	27	18.4 M	7	218.4 M	7	
+Ebola	17	7	362 649	8	9.1 M	9	
+Chikungunya	24 812	0	287 251	9	21.7 M	8	
+SARS	1	0	16 300	10	29 303	11	
+West Nile	80	0	12 997	11	296 243	10	
+Zika, Marburg, Nipah and Lassa had no reported cases or fatalities in the EMRO region during the study period, or data were unavailable	
+Europe WHO region (EURO)	
+COVID-19	439.7 M	3.6 M	4.9 T	1	13.1 T	1	
+Pandemic H1N1	116.4 M	41 902	240.4 B	2	666.6 B	2	
+Cholera	318 249	11 189	3.9 B	3	65.6 B	3	
+West Nile	7806	397	568.2 M	4	2.1 B	4	
+MERS	12	8	29.1 M	5	61.1 M	5	
+CCHF	51	11	13.1 M	6	58.1 M	6	
+Lassa	5	2	6.8 M	7	10.3 M	8	
+Dengue	600	2	6.5 M	8	13.2 M	7	
+SARS	34	1	4.0 M	9	8.0 M	10	
+Marburg	1	1	3.8 M	10	5.5 M	11	
+Chikungunya	3844	0	1.8 M	11	3.4 M	12	
+Ebola	4	1	740 524	12	8.5 M	9	
+Zika, RVF and Nipah had no reported cases or fatalities in the EURO region during the study period, or data were unavailable	
+South-East Asia WHO region (SEARO)	
+COVID-19	1.1 B	4.5 M	520.0 B	1	15.9 T	1	
+Dengue	598.0 M	509 213	148.8 B	2	5.2 T	2	
+Cholera	17.6 M	620 020	73.2 B	3	2.7 T	3	
+Pandemic H1N1	451.2 M	99 898	26.5 B	4	1.2 T	4	
+Nipah	350	265	27.3 M	5	1.5 B	5	
+Chikungunya	262 859	0	4.9 M	6	127.9 M	6	
+SARS	14	2	417 704	7	8.3 M	7	
+MERS	1	0	596	8	7859	8	
+West Nile, Ebola, Zika, Marburg, RVF, CCHF and Lassa had no reported cases or fatalities in the SEARO region during the study period, or data were unavailable	
+Western Pacific WHO region (WPRO)	
+COVID-19	118.6 M	684 509	718.4 B	1	3.0 T	1	
+Pandemic H1N1	241.7 M	72 527	120.3 B	2	739.8 B	2	
+Dengue	65.5 M	51 005	98.8 B	3	695.2 B	4	
+Cholera	4.0 M	141 233	25.6 B	4	698.7 B	3	
+SARS	7768	727	1.3 B	5	4.5 B	5	
+MERS	148	39	117.9 M	6	316.9 M	6	
+Chikungunya	14 224	0	615 475	7	12.8 M	7	
+Nipah	17	0	19 308	8	433 250	8	
+Rift Valley fever	1	0	652	9	5619	9	
+West Nile, Ebola, Zika, Marburg, CCHF and Lassa had no reported cases or fatalities in the WPRO region during the study period, or data were unavailable	
+Full burden is equal to the sum of health burdens and economic burdens. Health burdens are monetised by valuing each disability-adjusted life-year by an estimate of individuals’ willingness-to-pay (WTP) for good health. Economic burdens are the sum of direct and indirect costs. Weighted full burden is equal to the WTP-centric full burden adjusted for global disparities in ability-to-pay.
+
+CCHF, Crimean-Congo haemorrhagic fever; MERS, Middle East respiratory syndrome; Nipah, Nipah and Henipaviral disease.
+
+During the historical period across all EIDs (when discussing results, ‘all EIDs’ correspond to the 15 study EIDs), cases were 6.1 billion globally, 145 million in the USA and 3 million in the US territories. The corresponding fatalities were 21.0 million globally, 1.2 million in the USA and 7497 in the US territories.
+
+Full burdens were US$17.6 trillion globally (health and economic burdens of US$17.5 trillion and US$104.8 billion, respectively), US$7.8 trillion in the USA (health and economic burdens of US$7.8 trillion and US$11.5 billion, respectively) and US$18.9 billion in the USA territories (health and economic burdens of US$17.2 and US$1.6 billion, respectively). Weighted full burdens were US$88.1 trillion globally (health and economic burdens of US$86.7 trillion and US$1.4 trillion, respectively), US$7.9 trillion in the USA (health and economic burdens of US$7.9 trillion and US$11.9 billion, respectively) and US$59.4 billion in the US territories (health and economic burdens of US$54.0 billion and US$5.4 billion, respectively). Global weighted full burdens exceeded five times unweighted full burdens, reflecting the considerable burdens borne by low- and middle-income countries. This suggests the scale of global EID burdens can be masked by the relatively low incomes of countries affected. Full burdens per case were US$2901 globally, US$53 668 in the USA and US$6452 in the US territories. Weighted full burdens per case were US$14 525 globally, US$54 917 in the USA and US$20 323 in the US territories. Annual per capita full burdens were US$108 globally, US$1080 in the USA and US$206 in the US territories; and annual per capita weighted full burdens were US$542 globally, US$1105 in the USA and US$648 in the US territories.
+
+Looking at full burdens per capita per year, whether controlling for ATP or not, the largest such burdens were found in the Americas. Controlling for ATP, the second most affected region was Africa, followed closely by Europe, South-East Asia and the Eastern Mediterranean. The least affected region was the Western Pacific. Controlling for ATP, the largest population-wide burdens were in South-East Asia, which contains large low- and middle-income countries like India, Indonesia and Bangladesh. The Americas followed, with only slightly smaller burdens. Africa and Europe faced intermediate-size burdens, and the Eastern Mediterranean and Western Pacific shared similar, smaller burdens.
+
+We disaggregated full burdens by cost category. Fatality-related health burdens constituted almost 88% of full burdens, disability-related health burdens constituted almost 12% of full burdens, and direct and indirect costs combined constituted less than 1% of the full burden. Thus, deaths were the largest contributor to burdens and a simple but powerful summary indicator of their scale.
+
+Relative disease burdens by disease
+
+Table 2 disaggregates burdens by disease and shows their relative rank according to unweighted and weighted burdens. The vertically stacked panels show these burdens globally, for the USA and for the various WHO regions (results for the US territories are in online supplemental table S11).
+
+COVID-19 had the largest unweighted and weighted full burdens globally and across all WHO regions, with one exception. Globally, COVID-19 had a full burden of US$16.0 trillion and a weighted full burden of US$63.3 trillion. In the USA, it had a full burden of US$7.5 trillion and a weighted full burden of US$7.6 trillion. In the US territories, it had a full burden of US$12.8 billion and a weighted full burden of US$39.5 billion. Full burdens and weighted full burdens of COVID-19 were, respectively, US$251.2 billion and US$6.8 trillion in Africa; US$9.2 trillion and US$19.0 trillion in the Americas; US$393.0 billion and US$5.4 trillion in the Eastern Mediterranean; US$4.9 trillion and US$13.1 trillion in Europe; US$520.0 billion and US$15.9 trillion in South-East Asia; and US$718.4 billion and US$3.0 trillion in Western Pacific. The exception to this rule is that cholera had a larger weighted full burden, US$7.4 trillion, than COVID-19 in Africa.
+
+Globally, the EIDs with the next largest burdens were pandemic H1N1, dengue and cholera, whose full burdens were in the hundreds of billions (US$720 billion for pandemic H1N1, US$430 billion for dengue and US$380 billion for cholera), and whose weighted full burdens were in the trillions (US$12.2 trillion for cholera, US$8.0 trillion for dengue and US$4.4 trillion for pandemic H1N1). Significantly below these in terms of burdens were West Nile, with a full burden of US$18.8 billion, and Ebola, with a weighted full burden of US$93.2 billion. All other EIDs had full burdens below US$2.4 billion and weighted full burdens below US$8 billion.
+
+Global disease rankings were relatively similar whether based on unweighted or weighted full burdens. The most important consequence of weighting on the global disease ranking was for Ebola, ranked eighth according to unweighted full burdens but fifth according to weighted full burdens, reflecting the poverty of the countries affected by the 2014–2016 West African Ebola epidemic.
+
+In the USA, pandemic H1N1 had the second highest full burden, at US$235.1 billion. There was a significant drop in the burdens of the remaining EIDs. The EID with the third highest burden was West Nile, with a full burden of US$18.2 billion. Dengue had the fourth highest full burden, at US$220 million. Ebola had the fifth highest burden, at US$11 million. All other EIDs had full burdens near or below US$1 million.
+
+In the US territories, dengue had the second highest full burden, at US$4.4 billion. Cholera had the third highest full burden, at US$1.6 billion. Zika had the fourth highest full burden, at US$139 million. Chikungunya had the fifth highest burden, at US$21 million. Data on cases and deaths required for burden calculations were unavailable for all other EIDs in the US territories.
+
+In Africa, pandemic H1N1 (full burdens and weighted full burdens of US$24.3 billion and US$774.6 billion, respectively), dengue (full burdens and weighted full burdens of US$5.0 billion and US$164.0 billion, respectively), and Ebola (full burdens and weighted full burdens of US$1.1 billion and US$93.2 billion, respectively) had the next largest burdens in that order. The remaining diseases had significantly smaller burdens.
+
+In the Americas, pandemic H1N1 and dengue have the second and third largest full burdens (US$287.9 billion and US$172.4 billion, respectively), though their rankings switch according to weighted full burdens (US$658.4 billion and US$1.8 trillion, respectively). The diseases with the fourth through seventh largest burdens were cholera (full burdens and weighted full burdens of US$39.8 billion and US$439.8 billion, respectively), West Nile (full burdens and weighted full burdens of US$18.2 billion and US$20.3 billion, respectively), Zika (full burdens and weighted full burdens of US$759.4 million and US$7.7 billion, respectively) and chikungunya (full burdens and weighted full burdens of US$435.9 million and US$3.6 billion, respectively). The remaining diseases had significantly smaller burdens.
+
+In the Eastern Mediterranean, the diseases with the second through fifth largest burdens were cholera (full burdens and weighted full burdens of US$22.0 billion and US$913.1 billion, respectively), pandemic H1N1 (full burdens and weighted full burdens of US$20.6 billion and US$345.9 billion, respectively), dengue (full burdens and weighted full burdens of US$5.2 billion and US$216.0 billion, respectively) and MERS (full burdens and weighted full burdens of US$2.3 billion and US$6.6 billion, respectively). The remaining diseases had burdens lower than US$1 billion.
+
+In Europe, the diseases with the second through fourth largest burdens were pandemic H1N1 (full burdens and weighted full burdens of US$240.4 billion and US$666.6 billion, respectively), cholera (full burdens and weighted full burdens of US$3.9 billion and US$65.6 billion, respectively) and West Nile (full burdens and weighted full burdens of US$568.2 million and US$2.1 billion, respectively). The remaining diseases had burdens lower than US$70 million.
+
+In South-East Asia, the diseases with the second through fourth largest burdens were dengue (full burdens and weighted full burdens of US$148.8 billion and US$5.2 trillion, respectively), cholera (full burdens and weighted full burdens of US$73.2 billion and US$2.7 trillion, respectively), and pandemic H1N1 (full burdens and weighted full burdens of US$26.5 billion and US$1.2 trillion, respectively). The remaining diseases had much lower burdens.
+
+In the Western Pacific, the disease with the second largest burdens was pandemic H1N1 (full burdens and weighted full burdens of US$120.3 billion and US$739.8 billion, respectively). Dengue and cholera have the third and fourth largest full burdens (US$98.8 billion and US$25.6 billion, respectively), though their rankings switch according to weighted full burdens (US$695.2 billion and US$698.7 billion, respectively). The remaining diseases had much lower burdens.
+
+Our historical period saw two pandemics, the 2009 H1N1 pandemic and the 2020–2023 COVID-19 pandemic, which jointly accounted for the largest share of unweighted and weighted full burdens: annual pandemic full burdens were US$727 billion globally, US$336 billion in the USA and US$556 million in the US territories; and annual weighted full burdens were US$2.9 trillion globally, US$343 billion in the USA and US$1.7 billion in the US territories. Excluding these pandemics, annual full burdens across all other EIDs averaged US$36 billion globally, US$802 million in the USA and US$264 million in the US territories; and annual weighted full burdens across all other EIDs averaged US$887 billion globally, US$894 million in the USA and US$867 million in the US territories.
+
+Time trends
+
+Figure 1 presents historical trends of weighted per capita full burdens.
+
+Figure 1 Weighted per capita full burdens, 2000–2022 (2022 USD). Global non-pandemic EIDs aggregate all diseases excluding H1N1 and COVID-19. Global trends (solid black); Africa WHO region (solid blue); Americas WHO region (solid red); South-East Asia WHO region (solid green); USA (black dash) and US territories (black dash-dot). EIDs, emerging infectious diseases.
+
+Panel A shows that global historical trends for all 15 EIDs combined were dominated by the 2009 H1N1 and 2020–2023 COVID-19 pandemics. Panel B excludes pandemics and shows a significant downward trend in non-pandemic EID burdens from approximately US$175 per capita (equivalent to US$1.1 trillion total) in 2000 to US$85 per capita (equivalent to US$684 billion total) in 2022. Panels C and D show trends for cholera and dengue, respectively, the two most quantitatively significant non-pandemic diseases globally and in the US territories. Panel E shows trends for West Nile, the most important non-pandemic EID for the USA. Panels C–E show trends globally (solid black), for the three WHO regions with the highest weighted full burdens (Africa in blue, Americas in red and South-East Asia in green), for the USA (black dash) and for US territories (black dash-dots).
+
+Panels C–E jointly show that the declining global burden of non-pandemic EIDs was explained largely by the significant decline in global cholera burdens from almost US$140 per capita (equivalent to US$811 billion total) to approximately US$40 per capita (equivalent to US$303 billion total). In contrast, the global burdens for dengue and West Nile shown in panels D and E, respectively, did not have an upward or downward trend. Panel C shows that the decline in the global cholera burden was largely driven by the Africa WHO region trend. This in turn was due to this region having the largest share of the weighted global cholera burden over the historical period (60%) combined with control initiatives in the region such as improved water, sanitation and hygiene; enhanced surveillance; and increased treatment and vaccination.60 61 In contrast, the weighted per capita full burdens of cholera increased in the US territories over the historical period (panel C), while that for dengue peaked in 2010 due to an outbreak in Puerto Rico and then steadily declined (panel D). We had no data on West Nile burdens in the US territories (panel E).
+
+Online supplemental file 2 shows historic time trends for each non-pandemic EID, for all non-pandemic EIDs combined and for all EIDs combined by WHO region and for the USA and US territories. These trends show that unweighted and weighted full burdens in all WHO regions, the USA, and the US territories were similarly dominated by pandemics. These trends also show that for the US territories, cholera and dengue trends jointly caused an increasing trend in non-pandemic EID weighted burdens.
+
+Distribution of burdens within countries
+
+Online supplemental file 4 shows the countries accounting for the largest share of burdens. The first and second columns show countries accounting for the largest shares of global unweighted and weighted full burden across all EIDs, respectively. The third and fourth columns show the countries with the highest per capita unweighted and weighted full burdens, respectively. We found that after accounting for ATP, the countries with the largest population-wide and per capita burdens tended to be low- and middle-income countries. We also found that the USA ranked high among countries in terms of unweighted population-wide full burdens, weighted population-wide full burdens and per capita unweighted full burdens.
+
+Projection results
+
+Table 3 presents per capita burden results of our projection analysis for the USA, regionally and globally (results for the US territories are in online supplemental table S12). Figure 2 shows projected annual per capita full burdens and weighted full burdens by region.
+
+Table 3 Monte Carlo results on expected annual per capita unweighted and weighted full burdens (2022 USD), 2025–2034
+
+	Global	USA (without territories)	AFRO	AMRO	EMRO	EURO	SEARO	WPRO	
+Per capita full burden across all EIDs	
+Average (US$)	49	461	16	198	14	118	14	13	
+Maximum (US$)	827	9148	103	3675	213	2244	136	159	
+95th percentile (US$)	383	4098	52	1665	100	1033	65	78	
+Median (US$)	7	4	12	13	2	0.3	7	4	
+5th percentile (US$)	6	2	8	11	2	0.3	6	3	
+Minimum (US$)	5	1	5	9	2	0.3	5	3	
+EID shares	Chikungunya 0.01%, cholera 5.62%, Coronavirus 26.61%, CCHF 0.00%, dengue 6.65%, Ebola 0.01%, Lassa 0.00%, Marburg 0.00%, Nipah 0.00%, pandemic influenza 60.81%, RVF 0.01%, West Nile 0.29%, Zika 0.00%	Chikungunya 0.00%, cholera 0.00%, Coronavirus 30.97%, CCHF 0.00%, dengue 0.01%, Ebola 0.00%, Lassa 0.00%, Marburg 0.00%, Nipah 0.00%, pandemic influenza 68.31%, RVF 0.00%, West Nile 0.71%, Zika 0.00%	Chikungunya 0.01%, cholera 63.72%, Coronavirus 9.29%, CCHF 0.00%, dengue 2.83%, Ebola 0.13%, Lassa 0.00%, Marburg 0.03%, pandemic influenza 23.97%, RVF 0.02%, West Nile 0.00%	Chikungunya 0.01%, cholera 0.85%, Coronavirus 29.09%, dengue 4.83%, Ebola 0.00%, Marburg 0.00%, pandemic influenza 64.72%, West Nile 0.49%, Zika 0.00%	Chikungunya 0.00%, cholera 10.63%, Coronavirus 26.04%, CCHF 0.00%, dengue 4.59%, Ebola 0.00%, pandemic influenza 58.57%, RVF 0.17%, West Nile 0.00%	Chikungunya 0.00%, cholera 0.24%, Coronavirus 29.99%, CCHF 0.00%, dengue 0.00%, Ebola 0.00%, Lassa 0.00%, Marburg 0.00%, pandemic influenza 69.74%, West Nile 0.03%	Chikungunya 0.00%, cholera 13.94%, Coronavirus 15.23%, dengue 35.47%, Nipah 0.01%, pandemic influenza 35.35%	Chikungunya 0.00%, cholera 5.87%, Coronavirus 18.28%, dengue 20.77%, Nipah 0.00%, pandemic influenza 55.08%, RVF 0.00%	
+Per capita weighted full burden all EIDs	
+Average (US$)	370	473	535	526	257	354	482	98	
+Maximum (US$)	3833	9335	3024	7996	3201	6519	4234	842	
+95th percentile (US$)	1865	4171	1555	3731	1514	3044	2049	403	
+Median (US$)	178	4	420	126	90	6	267	46	
+5th percentile (US$)	146	3	284	111	81	4	248	41	
+Minimum (US$)	123	2	171	98	73	4	230	37	
+EID shares	Chikungunya 0.01%, cholera 25.66%, Coronavirus 16.19%, CCHF 0.00%, dengue 19.12%, Ebola 0.07%, Lassa 0.00%, Marburg 0.01%, Nipah 0.00%, pandemic influenza 38.89%, RVF 0.01%, West Nile 0.05%, Zika 0.00%	Chikungunya 0.00%, cholera 0.00%, Coronavirus 30.78%, CCHF 0.00%, dengue 0.01%, Ebola 0.00%, Lassa 0.00%, Marburg 0.00%, Nipah 0.00%, pandemic influenza 68.44%, RVF 0.00%, West Nile 0.77%, Zika 0.00%	Chikungunya 0.00%, cholera 67.78%, Coronavirus 7.72%, CCHF 0.00%, dengue 3.13%, Ebola 0.30%, Lassa 0.00%, Marburg 0.03%, pandemic influenza 21.01%, RVF 0.03%, West Nile 0.00%	Chikungunya 0.03%, cholera 3.58%, Coronavirus 23.88%, dengue 19.12%, Ebola 0.00%, Marburg 0.00%, pandemic influenza 53.15%, West Nile 0.23%, Zika 0.01%	Chikungunya 0.00%, cholera 24.24%, Coronavirus 19.86%, CCHF 0.00%, dengue 9.19%, Ebola 0.00%, pandemic influenza 46.65%, RVF 0.06%, West Nile 0.00%	Chikungunya 0.00%, cholera 1.44%, Coronavirus 29.89%, CCHF 0.00%, dengue 0.00%, Ebola 0.00%, Lassa 0.00%, Marburg 0.00%, pandemic influenza 68.63%, West Nile 0.04%	Chikungunya 0.00%, cholera 15.63%, Coronavirus 13.42%, dengue 38.31%, Nipah 0.01%, pandemic influenza 32.63%	Chikungunya 0.00%, cholera 23.14%, Coronavirus 12.46%, dengue 22.13%, Nipah 0.00%, pandemic influenza 42.27%, RVF 0.00%	
+Mean population	8.5 B	351 M	1.4 B	1.1 B	887 M	938 M	2.2 B	2.0 B	
+* Shares reported as 0.00% reflect rounding to two decimal places. CCHF, RVF, Nipah and Lassa had no reported cases or fatalities in the USA during the study period, or data were unavailable.
+
+AFRO, African WHO region; AMRO, Americas WHO region; B, billions; CCHF, Crimean-Congo haemorrhagic fever; EIDs, emerging infectious diseases; EMRO, Eastern Mediterranean WHO region; EURO, Europe WHO region; M, millions; RVF, Rift Valley fever; SEARO, South East Asia WHO region; WPRO, Western Pacific WHO region.
+
+Figure 2 Average annual per capita full burdens and weighted full burdens by region in the historical period (2000–2022) and the projection period (2025–2034).
+
+Table 3 shows that projected average annual per capita full burdens across all EIDs in the USA (without territories) had an expected value across 5000 iterations of US$461, a median value of US$4, a 90% CI of US$2 to US$4098, a minimum of US$1 and a maximum of US$9148. Pandemic influenza accounted for 68% of the expected burdens, coronavirus for 31% and the remaining EIDs collectively accounted for about 1%. Thus, our single best estimate of the expected annual per capita full burden in the USA across all EIDs was US$461. The actual annual per capita full burden tended to be small, less than or around US$4, reflecting the relatively low burden of non-pandemic EIDs in the USA. But with a small annual probability, which we estimated from historical incidence, of about 1.5%, a large influenza or coronavirus pandemic could strike, causing enormous burdens. Thus, future EID risks in the USA were associated with high probabilities of low burdens and low probabilities of enormous burdens, and these low probability high burdens were associated with large pandemics.
+
+Globally, the average annual per capita full burden across iterations was US$49, the median was US$7, the 90% CI was US$6 to US$383, the minimum was US$5 and the maximum was US$827. The average annual per capita weighted full burden was US$370, the median was US$178, the 90% CI was US$146 to US$1865, the minimum was US$123 and the maximum was US$3833. In contrast to the USA, when we accounted for ATP, we found that the relative importance of non-pandemic to pandemic EIDs rose globally: cholera’s and dengue’s shares of the weighted full burdens were 26% and 19%, respectively (as compared with less than 1% in the USA), pandemic influenza’s share was 39% (compared with 68% in the USA) and coronavirus’s share was 16% (compared with 31% in the USA).
+
+Three factors help explain US-global differences. First, the globe has lower ATP than the USA, making the gap in unweighted full burdens larger than that in weighted full burdens. Second, the USA seems disproportionately affected by large pandemics (our COVID-19 historical analysis found that US and global deaths per capita were 0.0036 and 0.0021, respectively), explaining why maximum and 95th percentile values of per capita weighted full burdens were much lower globally than in the USA. Third, controlling for ATP, non-pandemic EIDs, specifically cholera and dengue, imposed much larger burdens globally than in the USA, explaining why median, 5th percentile and minimum per capita weighted full burdens were much higher globally than in the USA.
+
+Thus, high probability non-pandemic EIDs imposed larger per capita burdens globally than in the USA, while low probability pandemics imposed relatively larger burdens per capita in the USA than globally. The latter effect dominated the former, so the USA on average faced a larger burden across all EIDs taken together.
+
+Looking at regional expected values, across unweighted and weighted full burdens, the Americas region tended to have among the highest per capita burdens, and the Western Pacific was the region with the lowest. Looking at unweighted per capita burdens, Europe had the second largest values, reflecting its high ATP, but looking at weighted per capita burdens, Africa and South-East Asia had significant per capita burdens, reflecting concentrations of cases and deaths in those regions. These regional patterns roughly mirror those of the historical analysis.
+
+Looking at regional variations in relative disease burdens, Africa’s projected burdens are largest for cholera, followed by pandemic influenza and coronavirus; projected burdens in the Americas are largest for pandemic influenza, coronavirus and dengue; projected burdens in the Eastern Mediterranean and Western Pacific are largest for pandemic influenza, followed by coronavirus and cholera (though cholera has a higher weighted full burden than coronavirus); projected burdens in Europe are highest for pandemic influenza followed by coronavirus; projected burdens in South-East Asia are dominated by dengue and pandemic influenza, followed by coronavirus and cholera (though cholera has a higher weighted full burden than coronavirus).
+
+We combined per capita burden projections with population projections to compute population-wide burdens. We estimated an average population across the projection period of 351 million in the USA and 8.5 billion globally. In the USA, we found that the annual weighted full burden from all EIDs had an expected value of US$166.1 billion, but could be as high as US$3.3 trillion and as low as US$702 million. Globally, we found that the same burden had an expected value of US$3.1 trillion but could be as high as US$32.6 trillion and as low as US$1.05 trillion.
+
+Discussion
+
+We developed a general wCBA-based method for quantifying and ranking the unweighted and weighted health and economic burdens of disease. We used this method to measure the global burden of 15 representative EIDs spanning diverse transmission modes, fatality rates, outbreak frequencies and endemic regions.
+
+We found that pandemics caused the largest historical and projected unweighted and weighted full burdens among the 15 EIDs, both in the USA and globally. COVID-19 accounted for the vast share of historical burdens from 2000 to 2022, but pandemic influenza, which is a potential disease X, accounted for most of the projected burdens from 2025 to 2034. Among non-pandemic EIDs, across historical and projected analyses, and across unweighted and weighted full burdens, dengue and cholera had the largest burdens globally, and West Nile had the largest full burden in the USA. Our projections suggest that the time trends of EID burdens will be dominated by the dynamics of pandemics. But our historical analysis suggests that abstracting away from pandemics and accounting for ATP, there is a downward trend in global non-pandemic EID burdens driven largely by declining burdens from cholera.
+
+Regardless of weighting, our historical analysis and projections showed that the Americas region tended to face the largest regional per capita burdens while the Western Pacific region faced the smallest. Controlling for ATP, the Africa and South-East Asia regions had among the highest per capita burdens, reflecting concentrations of cases and deaths in those regions, while South-East Asia was the region with the largest population-wide burdens given its large population. Notably, the USA accounted for large shares of population-wide burdens and had one of the world’s highest per capita unweighted full burdens.
+
+Our method supports ranking and comparing diseases by their unweighted or weighted full burdens, which can inform global health priority-setting and R&D prioritisation as one input among many. Our method for burden quantification and ranking is general and can be applied across disease areas, countries and R&D funders. R&D priorities generally reflect multiple factors. For example, in the U.S. Government context, BARDA’s preparedness and response strategy is two-pronged and involves advanced development of both MCMs targeted at priority pathogens and flexible platform technologies for accelerated response to multiple known and unknown pathogens.62 Within both prongs, priority-setting—given constrained resources—is informed by health and economic disease burdens along with other factors such as national security threats, the existing R&D landscape (including R&D opportunities and products with varying extents of development, regulatory approval, manufacturing scale and accessibility to those in need), demand or market potential and potential for funding partnerships.63 64 BARDA and other organisations (including global health funders) can combine our burden estimates and rankings with information on other relevant priority-setting criteria to optimise their response to critical public health needs.
+
+limitations
+
+Study limitations include
+
+First, our estimates are conservative:(a) we only analysed a subset of EIDs;(b) we calculated economic burdens only for hospitalised cases and during the acute stage;(c) data limitations prevented us from measuring the health burden of long-term sequelae, such as from congenital Zika syndrome (CZS) (though in the case of CZS, accounting for an estimated 3591 cases and 30 027 DALY losses in Brazil from 2015 to 202065 would not change our main conclusions);(d) we did not incorporate public health costs (eg, surveillance and outbreak response); and (e) we did not incorporate the macroeconomic impacts of severe outbreaks, an important limitation given a recent finding that the macroeconomic costs of COVID-19 roughly equal its combined health burdens and direct and indirect cost burdens.8
+
+Second, given the difficulties of predicting the future, for many EIDs, our projections did not model possible future changes to the health, policy, socioeconomic and demographic landscape that could alter future disease trajectories from historical ones. However, our projections accommodated these various landscape features to the extent they shaped historical patterns.
+
+Third, data limitations required us to impute data across countries, diseases and time periods. Data also suffer from measurement error. For example, inadequate disease surveillance systems can result in under-reporting of disease cases and deaths. GBD adjusts its case and death estimates for under-reporting, so this under-reporting risk is mitigated where we rely on their estimates, which are for cholera, COVID-19, dengue and Zika globally; and Ebola for the Democratic Republic of Congo. Some data sources are unclear regarding whether ‘cases’ include asymptomatic infections, which required us to make educated guesses regarding whether they do. Resource and time constraints prevented us from exhaustively searching for EID cases and deaths data.
+
+Table 2 shows significant differences in burdens between pandemic and non-pandemic EIDs, and between dengue and cholera on the one hand and the remaining EIDs on the other. These significant differences suggest that study limitations regarding burden measurement for these remaining EIDs are unlikely to affect their rank relative to pandemics, dengue and cholera.
+
+Fourth, our Monte Carlo projections involved simplifying assumptions. To a significant extent and for many EIDs, our projections largely reflected historical patterns adjusted for population growth, economic growth and discounting. We accounted for additional disease-specific information only for diseases for which GBD provided forecasts: dengue and other EIDs that fall within the GBD category of ‘Other Neglected Tropical Diseases’. (GBD has COVID-19 forecasts showing a transition to endemicity, which we did not use because our projection involves the entire family of coronaviruses.) We assumed that large influenza pandemics do not coincide with large coronavirus pandemics, and that the former supersede the latter when they might otherwise coincide. This assumption tended to raise pandemic influenza’s share of projected burdens and lower pandemic coronavirus’s share more than other equally reasonable assumptions might.
+
+Fifth, our focus on EIDs implies our analysis does not shed light on the priority of other major global infectious disease challenges, such as HIV, malaria, tuberculosis and AMR.
+
+Conclusions
+
+EIDs have been and will continue to be important causes of health and economic burdens in the USA and globally. EID-related R&D priority-setting, including for MCM development by BARDA, generally reflects multiple criteria, including relative disease burdens, current R&D opportunities and pipeline products, demand and market potential, and other health security risks. Our methods for quantifying weighted health and economic burdens can, in combination with other such criteria, support these priority-setting decisions.
+
+Supplementary material
+
+10.1136/bmjgh-2025-020855 online supplemental file 1
+
+10.1136/bmjgh-2025-020855 online supplemental file 2
+
+10.1136/bmjgh-2025-020855 online supplemental file 3
+
+10.1136/bmjgh-2025-020855 online supplemental file 4
+
+Acknowledgements
+
+The authors appreciate the input of Luis Mier-y-Teran and Gal Frenkel during the conduct of this study and Gary Disbrow during the review of this manuscript. The views expressed in this article are those of the authors and do not necessarily reflect the official policy or position of BARDA or the U.S. Department of Health and Human Services.
+
+Data availability statement
+
+Data are available in a public, open access repository.
+
+Funding: This study was funded by the U.S. Department of Health and Human Services Administration for Strategic Preparedness and Response Center for Biomedical Advanced Research & Development Authority through Contract No. 47QRAA20D002W, Order No. 75A50124F8000 awarded to prime contractor SC&A Inc, which awarded funds to subcontractor Data for Decisions to perform this research.
+
+Provenance and peer review: Not commissioned; externally peer reviewed.
+
+Handling editor: Mark G Shrime
+
+Patient consent for publication: Not applicable.
+
+Ethics approval: Not applicable.
+
+Data availability free text: The Global Burden of Disease Study 2021 data are not available due to licence restrictions. All public data, Stata and Python code, and supplementary results used and generated by this study are freely and publicly available in the following GitHub repository: https://github.com/DataforDecisionsLLC/Health-and-Economic-Burdens-of-Emerging-Infectious-Diseases.git.
+
+Map disclaimer: The depiction of boundaries on this map does not imply the expression of any opinion whatsoever on the part of BMJ (or any member of its group) concerning the legal status of any country, territory, jurisdiction or area or of its authorities. This map is provided without any warranty of any kind, either express or implied.
+
+Patient and public involvement: Patients and/or the public were not involved in the design, or conduct, or reporting, or dissemination plans of this research.
+
+
+References
+
+1 Morse SS Factors in the emergence of infectious diseases Emerg Infect Dis 1995 1 7 15 10.3201/eid0101.950102 8903148 PMC2626828
+2 Morens DM Fauci AS Emerging infectious diseases: threats to human health and global stability PLoS Pathog 2013 9 e1003467 10.1371/journal.ppat.1003467 23853589 PMC3701702
+3 World Health Organization Disease outbreak news 2023 Available https://www.who.int/emergencies/disease-outbreak-news/item/2023-DON448
+4 Dattani S Roser M What were the death tolls from pandemics in history? our world data 2023 Available https://ourworldindata.org/historical-pandemics
+5 Spreeuwenberg P Kroneman M Paget J Reassessing the Global Mortality Burden of the 1918 Influenza Pandemic Am J Epidemiol 2018 187 2561 7 10.1093/aje/kwy191 30202996 PMC7314216
+6 Barro RJ Ursúa JF Weng J Macroeconomics of the Great Influenza Pandemic, 1918-1920 Res Econ 2022 76 21 9 10.1016/j.rie.2022.01.001 35600334 PMC9121851
+7 Institute for health metrics and evaluation IHME | covid-19 projections n.d. Available https://covid19.healthdata.org/
+8 Sevilla JP Burnes D Knee JS et al The global health and economic value of COVID-19 vaccination BMJ Glob Health 2024 9 9 e015031 10.1136/bmjgh-2024-015031 PMC11381632 39244220
+9 Centers for Disease Control and Prevention CDC ebola 2024 Available https://www.cdc.gov/ebola/outbreaks/?CDC_AAref_Val=https://www.cdc.gov/vhf/ebola/history/chronology.html
+10 Huber C Finelli L Stevens W The Economic and Social Burden of the 2014 Ebola Outbreak in West Africa J Infect Dis 2018 218 S698 704 10.1093/infdis/jiy213 30321368
+11 Neumann G Kawaoka Y Which Virus Will Cause the Next Pandemic? Viruses 2023 15 199 10.3390/v15010199 36680238 PMC9864092
+12 Guo C Zhou Z Wen Z et al Global Epidemiology of Dengue Outbreaks in 1990-2015: A Systematic Review and Meta-Analysis Front Cell Infect Microbiol 2017 7 317 10.3389/fcimb.2017.00317 28748176 PMC5506197
+13 Zheng Q Luquero FJ Ciglenecki I et al Cholera outbreaks in sub-Saharan Africa during 2010-2019: a descriptive analysis Int J Infect Dis 2022 122 215 21 10.1016/j.ijid.2022.05.039 35605949 PMC9439956
+14 Di Bari C Venkateswaran N Fastl C et al The global burden of neglected zoonotic diseases: Current state of evidence One Health 2023 17 100595 10.1016/j.onehlt.2023.100595 37545541 PMC10400928
+15 IHME Pathogen Core Group Global burden associated with 85 pathogens in 2019: a systematic analysis for the Global Burden of Disease Study 2019 Lancet Infect Dis 2024 868 95 10.1016/S1473-3099(24)00158-0 38640940 PMC11269650
+16 Smith DRM Turner J Fahr P et al Health and economic impacts of Lassa vaccination campaigns in West Africa Nat Med 2024 30 3568 77 10.1038/s41591-024-03232-y 39198710 PMC11645265
+17 Jonkmans N D’Acremont V Flahault A Scoping future outbreaks: a scoping review on the outbreak prediction of the WHO Blueprint list of priority diseases BMJ Glob Health 2021 6 e006623 10.1136/bmjgh-2021-006623 PMC8449939 34531189
+18 GBD 2021 Diseases and Injuries Collaborators Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territories and 811 subnational locations, 1990–2021: a systematic analysis for the Global Burden of Disease Study 2021 The Lancet 2021 403 2133 61 10.1016/S0140-6736(24)00757-8 PMC11122111 38642570
+19 U.S. Department of Health and Human Services Assistant secretary for preparedness and response, biomedical advance research and development authority 2023 Available https://www.medicalcountermeasures.gov/media/38717/barda-strategic-plan-2022-2026.pdf
+20 World Health Organization Prioritizing diseases for research and development in emergency contexts 2024 Available https://www.who.int/activities/prioritizing-diseases-for-research-and-development-in-emergency-contexts
+21 World Health Organization WHO r&d blueprint for epidemics 2024 Available https://www.who.int/teams/blueprint/who-r-and-d-blueprint-for-epidemics
+22 UK Health Security Agency Emerging infections: how and why they arise 2023 Available https://www.gov.uk/government/publications/emerging-infections-characteristics-epidemiology-and-global-distribution/emerging-infections-how-and-why-they-arise
+23 Global Burden of Disease Collaborative Network Global burden of disease study 2021 (GBD 2021) Seattle, United States Institute for Health Metrics and Evaluation (IHME) 2024
+24 Shi Q Dong X High-Priority Pathogens with Potential to Cause “Disease X” Pandemics Zoonoses 2025 5 971 10.15212/ZOONOSES-2025-0015
+25 World Health Organization Pathogens prioritization: a scientific framework for epidemic and pandemic research preparedness 2024 Available https://www.who.int/publications/m/item/pathogens-prioritization-a-scientific-framework-for-epidemic-and-pandemic-research-preparedness
+26 Gray GC Vlasova AN Lednicky JA et al Emerging Respiratory Virus Threats from Influenza D and Canine Coronavirus HuPn-2018 Emerg Infect Dis 2026 32 10.3201/eid3201.251764 PMC12870013 41564895
+27 Robinson LA Hammitt JK O’Keeffe L Valuing Mortality Risk Reductions in Global Benefit-Cost Analysis J Benefit Cost Anal 2019 10 15 50 10.1017/bca.2018.26 32968616 PMC7473065
+28 World Health Organization Disease outbreak news 2024 Available https://www.who.int/emergencies/disease-outbreak-news
+29 World Health Organization Wor african region. integrated african health observatory 2024 Available https://aho.afro.who.int/ind/af?ind=517&cc=af&ci=1&dim=111&dom=Health%20security
+30 World Health Organization Regional office of the eastern mediterranean 2024 Available https://applications.emro.who.int/docs/WHOEMCSR716E-eng.pdf
+31 World Health Organization Summary of probable sars cases with onset of illness from 2015 Available https://www.who.int/publications/m/item/summary-of-probable-sars-cases-with-onset-of-illness-from-1-november-2002-to-31-july-2003
+32 Centers for Disease Control and Prevention CDC marburg virus disease 2023 Available https://www.cdc.gov/vhf/marburg/outbreaks/chronology.html
+33 Centers for Disease Control and Prevention CDC rift valley fever 2024 Available https://www.cdc.gov/vhf/rvf/outbreaks/summaries.html
+34 Centers for Disease Control and Prevention CDC west nile virus 2024 Available https://www.cdc.gov/west-nile-virus/data-maps/historic-data.html?CDC_AAref_Val=https://www.cdc.gov/westnile/statsmaps/historic-data.html
+35 Africa Centres for Disease Control and Prevention AfricaCDC diseases 2024 Available https://africacdc.org/disease/chikungunya/
+36 Africa Centres for Disease Control and Prevention AfricaCDC diseases 2024 Available https://africacdc.org/disease/crimean-congo-haemorrhagic-fever/
+37 European Centre for Disease Prevention and Control Surveillance and updates for chikungunya virus disease 2017 Available https://www.ecdc.europa.eu/en/chikungunya/surveillance-and-disease-data
+38 European Centre for Disease Prevention and Control Surveillance and disease data for crimean-congo haemorrhagic fever 2024 Available https://www.ecdc.europa.eu/en/crimean-congo-haemorrhagic-fever/surveillance-and-disease-data
+39 European Centre for Disease Prevention and Control Marburg virus disease outbreaks in africa 2022 Available https://www.ecdc.europa.eu/en/publications-data/marburg-virus-disease-outbreaks-africa-31-may-2022
+40 European Centre for Disease Prevention and Control Epidemiological update: middle east respiratory syndrome coronavirus (mers-cov) 2024 Available https://www.ecdc.europa.eu/en/search?s=Epidemiological%20update%3A%20Middle%20East%20respiratory%20syndrome%20coronavirus%20%28MERS-CoV%29%20&f%5B0%5D=categories%3A1307&page=1
+41 European Centre for Disease Prevention and Control Surveillance and disease data for west nile virus infections 2024 Available https://www.ecdc.europa.eu/en/west-nile-fever/surveillance-and-disease-data
+42 Our World in Data Cholera reported cases, 1949 to 2021 2023 Available https://ourworldindata.org/grapher/number-reported-cases-of-cholera?tab=table
+43 United nations population division, department of economic and social affairs, world population prospects. single age life table, for both sexes combined, by region, subregion and country, annually for 1950-2021 World Population Prospects 2022 Available https://population.un.org/wpp/Download/Standard/Population/
+44 Pan American Health Organization PLISA health information platform for the americas 2024 Available https://www3.paho.org/data/index.php/en/mnu-topics/chikv-en/550-chikv-weekly-en.html
+45 Government of Canada Surveillance of west nile virus 2024 Available https://www.canada.ca/en/public-health/services/diseases/west-nile-virus/surveillance-west-nile-virus.html#a1
+46 National Center for Vector Borne Diseases Control Ministry of health & family welfare 2024 Available https://ncvbdc.mohfw.gov.in/index4.php?lang=1&level=0&linkid=486&lid=3765
+47 Bettis AA L’Azou Jackson M Yoon I-K et al The global epidemiology of chikungunya from 1999 to 2020: A systematic literature review to inform the development and introduction of vaccines PLoS Negl Trop Dis 2022 16 e0010069 10.1371/journal.pntd.0010069 35020717 PMC8789145
+48 Harapan H Michie A Mudatsir M et al Chikungunya virus infection in Indonesia: a systematic review and evolutionary analysis BMC Infect Dis 2019 19 1 10.1186/s12879-019-3857-y 30866835 PMC6417237
+49 Sharma V Kaushik S Kumar R et al Emerging trends of Nipah virus: A review Rev Med Virol 2019 29 e2010 10.1002/rmv.2010 30251294 PMC7169151
+50 Dawood FS Iuliano AD Reed C et al Estimated global mortality associated with the first 12 months of 2009 pandemic influenza A H1N1 virus circulation: a modelling study Lancet Infect Dis 2012 12 687 95 10.1016/S1473-3099(12)70121-4 22738893
+51 Sang R Nguku PM Britch SC et al Prediction, Assessment of the Rift Valley Fever Activity in East and Southern Africa 2006–2008 and Possible Vector Control Strategies Am J Trop Med Hyg 2010 83 43 51 10.4269/ajtmh.2010.09-0289 20682905 PMC2913499
+52 Archer BN Thomas J Weyer J et al Epidemiologic Investigations into Outbreaks of Rift Valley Fever in Humans, South Africa, 2008-2011 Emerg Infect Dis 2013 19 1918 25 10.3201/eid1912.121527 29360021 PMC3840856
+53 Sow A Faye O Ba Y et al Widespread Rift Valley Fever Emergence in Senegal in 2013-2014 Open Forum Infect Dis 2016 3 ofw149 10.1093/ofid/ofw149 27704007 PMC5047427
+54 Nyakarahuka L Balinandi S Mulei S et al Ten outbreaks of rift valley fever in Uganda 2016-2018: epidemiological and laboratory findings Int J Infect Dis 2019 79 4 10.1016/j.ijid.2018.11.029
+55 U.S. Department of Health and Human Services Appendix d: updating value per statistical life (vsl) estimates for inflation and changes in real income 2023 Available https://aspe.hhs.gov/sites/default/files/2021-07/hhs-guidelines-appendix-d-vsl-update.pdf
+56 World Health Organization WHO-choice estimates of cost for inpatient and outpatient health service delivery 2022 Available https://www.who.int/teams/health-systems-governance-and-financing/economic-analysis/costing-and-technical-efficiency/quantities-and-unit-prices-(cost-inputs)
+57 Charmes J Time use across the world: findings of a world compilation of time use surveys UNDP U N Dev Programme 2015 Available https://hdr.undp.org/content/time-use-across-world-findings-world-compilation-time-use-surveys
+58 International Labour Organization ILOSTAT ILOSTAT 2024 Available https://ilostat.ilo.org/
+59 World Health Organization, The Department of Immunization, Vaccines and Biologicals Guide for standardization of economic evaluations of immunization programmes World Health Organization 2008 Available https://apps.who.int/iris/bitstream/handle/10665/69981/WHO_IVB_08.14_eng.pdf
+60 Amisu BO Okesanya OJ Adigun OA et al Cholera resurgence in Africa: assessing progress, challenges, and public health response towards the 2030 global elimination target Infez Med 2024 32 148 56 10.53854/liim-3202-4 38827826 PMC11142410
+61 Global Task Force on Cholera Control Advocacy – making cholera more visible n.d. Available https://www.gtfcc.org/advocacy/
+62 Johnson RA Barnhart TM Disbrow GL Building a Fast Response Capability for Emerging Infectious Diseases Within the Biomedical Advanced Research and Development Authority Health Secur 2025 23 55 61 10.1089/hs.2024.0074 39812164
+63 White RC Kovacs G Chandran S et al A Framework for Assessing Viral Pathogens: A Key Element of the BARDA Emerging Infectious Diseases Strategy Health Secur 2025 23 47 54 10.1089/hs.2024.0076 39882823
+64 White RC Lewis RG Little JD et al A Framework for Assessing the Opportunity for Advanced Research, Development, and Regulatory Approval of Medical Countermeasures: A Component of BARDA’s Emerging Infectious Diseases Strategy J Infect Dis 2026 233 e1 10 10.1093/infdis/jiaf486 41063660 PMC12811876
+65 de Amorin Vilharba BL Yamamura M de Azevedo MV et al Disease burden of congenital Zika virus syndrome in Brazil and its association with socioeconomic data Sci Rep 2023 13 11882 10.1038/s41598-023-38553-4 37482558 PMC10363536

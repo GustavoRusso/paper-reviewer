@@ -1,0 +1,748 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Sci Rep
+Journal ID: Sci Rep
+NLM Journal ID: 101563288
+
+Scientific Reports
+
+EISSN: 2045-2322
+Publisher: Nature Publishing Group
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13369721
+PMID: 42448744
+DOI: 10.1038/s41598-026-60587-7
+Article ID: 60587
+Article version: 1
+Subjects: Article
+
+Insight into cytotoxic and molecular mechanisms of bee venom and its nanoemulsion against West Nile virus in vitro
+
+https://orcid.org/0000-0001-8552-5372 Salem Abeer M. mabeer@sci.cu.edu.eg abeermohsen_e@yahoo.com
+1
+Seyam Heba 2 3
+Ismail Sameh 3
+El-Mobdy Mohammed A. Abd 3
+Zaher Eman E. 4
+Shaurub El-Sayed H. 5
+ElKenawi Soad A. 5
+1 https://ror.org/03q21mh05 grid.7776.1 0000 0004 0639 9286 Department of Biotechnology, Faculty of Science, Cairo University, P.O. Box 12613, Giza, Egypt
+2 https://ror.org/05hcacp57 grid.418376.f 0000 0004 1800 7673 Honey Bee Research Department, Agricultural Research Center, Plant Protection Research Institute, Dokki, Giza, Egypt
+3 https://ror.org/03q21mh05 grid.7776.1 0000 0004 0639 9286 Faculty of Nanotechnology for Postgraduate Studies, Cairo University, Sheikh Zayed Branch, P.O. Box 12588, Sheikh Zayed City, Giza Egypt
+4 https://ror.org/053g6we49 grid.31451.32 0000 0001 2158 2757 Department of Zoology, Faculty of Science, Zagazig University, Zagazig, Egypt
+5 https://ror.org/03q21mh05 grid.7776.1 0000 0004 0639 9286 Department of Entomology, Faculty of Science, Cairo University, B.O. Box 12613, Giza, Egypt
+Electronic publication date: 2026 Jul 14
+Publication date: 2026
+Volume: 16
+Electronic Location ID: 22072
+Received 2025 Dec 17; Accepted 2026 Jun 29
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: Bee venom, Bee venom nanoemulsion, Antiviral, West Nile virus, Vero cell cytotoxicity, RT-qPCR, Molecular docking
+Keywords: Biotechnology, Diseases, Drug discovery, Microbiology
+
+Funding: Cairo University Open access funding provided by The Science, Technology & Innovation Funding Authority (STDF) in cooperation with The Egyptian Knowledge Bank (EKB).
+
+issue-copyright-statement: © Springer Nature Limited 2026
+
+==============================
+West Nile virus (WNV) causes West Nile fever and is primarily transmitted by Culex spp. mosquitoes. The primary hosts of WNV are birds, while humans and horses can also develop illness following infection. Currently, no specific antiviral therapy exists for WNV, and vaccination remains the only effective preventive measure. This study aimed to evaluate the efficiency of the crude bee venom (BV) and its nanoemulsion (NE) on WNV by determining in vitro Vero cells cytotoxicity and viral titer by RT-qPCR. We also conducted BV peptides-envelope glycoprotein of WNV interactions by molecular docking analysis. The NE of BV was characterized by dynamic light scattering (DLS) and zeta potential analyses. The DLS revealed that the size of NE was greater than that of BV. Also, the DLS showed that the polydispersity index of NE was less than that of BV (0.349 and 0.557, respectively). Zeta potential analysis of NE was slightly less than that of BV (23.0 and 23.7 mV, respectively). Both treatments showed low cytopathic effects on Vero cells compared to positive control infected with WNV. RT-qPCR revealed that the titer of WNV was lower in cells treated with BV and its NE than in controls. Molecular docking revealed BV peptides-envelope glycoprotein of WNV interactions, with binding energy of − 5.2, − 4.5, − 13.0, − 10.8, and − 5.1 kcal/mol for the peptides apamin, tertiapin, melittin, mast cell degranulating peptide, and secapin-2 peptide, respectively. BV-NE demonstrated preliminary in vitro anti-WNV activity requiring mechanistic, toxicological, and in vivo validation.
+
+Introduction
+
+West Nile virus (WNV) is a positive-stranded RNA virus that causes West Nile fever. It is an arthropod-borne virus belonging to the Flaviviridae family, genus Flavivirus, and is part of the Japanese encephalitis serocomplex. In nature, WNV is maintained in a transmission cycle primarily involving Culex mosquitoes and birds; horses and humans serve as incidental (dead-end) hosts1,2. Although many bird and mammal species can become infected with WNV, severe clinical symptoms as disorientation, paralysis, coma, and even death; are typically observed only in infected humans and horses. Huhn et al.3. WNV is transmitted to humans by the bite of infected mosquitoes, which become carriers after feeding on viremic vertebrate hosts, primarily birds4. There is currently no licensed human vaccine for WNV. Prevention for humans relies on mosquito control, while effective, authorized vaccines are available for horses5. Most established methods for assessing viral neutralization evaluate the inhibition of viral entry by measuring the reduction in plaque formation in monolayers of susceptible cell lines. Li4. For preliminary characterization and evaluation of the pathogenesis and virulence of a (novel) WNV strain, both in vitro and in vivo systems have been employed, including the infection of various cell lines. Lim6, Szentpáli-Gavallér7 and primary cell cultures8,9. WNV replication can be studied in vitro using various cell lines derived from different sources. Common cell lines used include C6/36 (mosquito cells), Vero cells (African green monkey kidney cells) and BHK-21 (baby hamster kidney). These cell lines are utilized for viral isolation, propagation, attenuation, and a wide range of molecular investigations. Ben-Nathan et al.10, Lim6, Visser11.
+
+Apitherapy, the therapeutic use of bee-derived products such as pollen, honey, propolis, and bee venom (BV), has been practiced for thousands of years and was particularly prominent in ancient Egyptian and Greek medicine12, Azam et al.52. Bee venom (BV) is a rich source of bioactive molecules, including peptides, amines, enzymes, free amino acids, and low-weight compounds13,14. According to Yaacoub et al.15, the complete chemical makeup of BV remains incompletely characterized. Nevertheless, some identified small-molecule constituents include carbohydrates, alcohols, and polyols (such as pantothenic acid and quinic acid), along with amines like histamine and phenylethylamine. Modified amino acids such as N-acetyl glutamic acid, N-acetyl alanine, N-acetyl aspartic acid, and N-methyl aspartic acid have also been reported. In addition, BV contains several peptides in lower abundance, including apamin, mast cell-degranulating peptide (MCD), adolapine, secapin, and procamine16. The dominant peptide, however, is melittin which is a 26-amino-acid sequence comprising roughly 40–60% of BV’s dry mass14. BV has been evaluated against several viruses within the Flaviviridae family, including flaviviruses such as WNV and hepatitis viruses such as Hepatitis C virus (HCV). Studies have shown that BV exerts direct antiviral effects on HCV, demonstrated by a marked reduction in infectious viral particles in cell culture17.
+
+Nanoemulsions (NEs) are uniform dispersions composed of two immiscible liquids, typically characterized by droplet sizes below 100 nm. They can be formulated as either water-in-oil (W/O) or oil-in-water (O/W) systems18,19. NEs serve as versatile drug-delivery vehicles, offering several advantages, including the ability to incorporate both hydrophilic and hydrophobic substances in a single formulation, enhanced bioavailability and drug loading, controlled release, and protection of active compounds from enzymatic degradation20,21. Previous studies revealed that BV encapsulated in NEs enhances its delivery through the skin and may improve its anti-inflammatory and anti-rheumatic effects22,23.Topical delivery of BV-NEs has shown promise in reducing inflammation in animal models of arthritis, potentially due to BV’s ability to modulate pro-inflammatory pathways24. Aher et al.51 recently noted that nanomaterials can enhance the therapeutic efficacy of BV by enabling targeted delivery and facilitating its reach to specific cell populations.
+
+By using recent and advanced techniques and programs, the protein–protein docking simulations have been employed to examine the antiviral potential of honey bee venom peptides by predicting their interactions with viral targets25, and to assess the binding affinity of selected phytocompounds against WNV proteins26. Accordingly, the present study aimed to assess the effectiveness of crude bee venom and its nanoemulsion against West Nile virus (WNV) by evaluating cytotoxicity in Vero cells and quantifying viral titers using RT-qPCR. In addition, molecular docking was performed to analyze the interactions between bee venom peptides and the WNV envelope glycoprotein.
+
+Materials and methods
+
+Honey bee venom (HBV) extraction by the electrical stimulated method
+
+Honey bee workers were collected from the apiary of the Honey Bee Research Department, Agricultural Research Center, Dokki, Giza, Egypt (30.0379°N, 31.2083°E). Bees were maintained under standardized feeding conditions using 50% sugar syrup (1:1 sucrose). A single pooled batch (1 g) of crude bee venom was collected during the summer season from approximately 10,000 worker honey bees using the electrostimulation method described by Benton et al.,27, with a slight modification. The same pooled batch of bee venom was used throughout the study to minimize batch-to-batch variability. The bee workers stung the glass plates with plastic foil during the electro-stimulation. After drying for 35 min at 27 °C and 50% relative humidity, dried HBV (powder) was scraped and collected from the venom collector’s glass slide with a sharp scraper. HBV powder was then kept frozen at − 20 °C until use.
+
+Preparation of honey bee venom nanoemulsion
+
+A stock of bee venom (BV) dissolved in deionized water was prepared to obtain BV 5 mg/ml concentration. Then, Tween 80, which acts as an emulsifier and a non-ionic surfactant, was added to the solution and mixed well using a magnetic stirrer.Then, garlic oil as the oil phase was added, mixed thoroughly, and centrifuged at1000 rpm for 5 min at room temperature according to Yousefpoor et al.23.
+
+Physical properties analyses
+
+Dynamic light scattering (DLS)
+
+Particle size distribution and polydispersity index were determined using a dynamic light scattering analyzer (MICROTRAC Nano WAVE II, UK) equipped with a 4 mW He-Ne laser (λ = 633 nm). Analyses were conducted at 25 °C with a 90° scattering angle. Prior to measurement, samples were diluted with ultrapure DMSO and passed through a 0.22 μm membrane filter23,28.
+
+Zeta potential analysis
+
+Surface charge characteristics were assessed using a Malvern Zetasizer Nano ZS instrument. Measurements were carried out at 25 °C in folded capillary cells (DTS1070). Zeta potential values were calculated from electrophoretic mobility using Smoluchowski’s equation. pH-dependent assessments were performed across a range of 4–10, with pH adjustments made using 0.1 M HCl and 0.1 M NaOH28,29.
+
+Virus propagation
+
+West Nile virus (WNV) (Eg101 strain, GenBank accession # AF260968) was propagated in African green monkey Vero cell line. The virus strain and Vero cell line were obtained from Tissue Culture laboratory in VACSERA organization.
+
+Cell culture preparation
+
+Vero cells were maintained in DMEM supplemented with 10% FBS, glutamine (2 mM), penicillin (100 µg/ml), and streptomycin (100 µg/ml). The cells were cultured at 37 °C in a humidified incubator with 5% CO₂. The WNV strain and Vero cell line used in this study were obtained from the Tissue Culture Laboratory, VACSERA, Egypt. All experiments involving live WNV and infected Vero cell cultures were conducted under Biosafety Level 3 (BSL-3) containment conditions in accordance with institutional biosafety regulations and VACSERA laboratory safety procedures. Viral manipulations and cell culture procedures were performed in a certified biological safety cabinet using appropriate personal protective equipment and standard virological containment practices.
+
+Cytotoxicity assay
+
+To study the effects of crude honey bee venom and its nanoemulsion on the viability and proliferation of Vero cells, the MTT assay was performed using 2-fold serial dilutions ranging from 100 µg/ml to 0.01 µg/ml according to Hansen et al.30 and Van de Loosdrecht et al.31. This concentration range was selected to evaluate concentration-dependent cytotoxic effects and determine the non-cytotoxic concentrations and IC₅₀ values of the tested formulations. For antiviral evaluation, crude bee venom and bee venom nanoemulsion were each tested at their respective maximum non-cytotoxic concentrations, as determined by the MTT assay. Thus, the comparison between formulations was based on their maximum biologically safe concentrations rather than on equivalent bee venom doses. Vero cells were seeded in 96-well tissue culture plates (Nunc™, Thermo Fisher Scientific) at 100 µl complete culture medium per well and incubated at 37 °C for 24 h. An inverted microscope was used to study and record morphological changes (Helmut HundGmbH, Wetzlar, Germany). After 24 h of cell incubation, the culture media was removed, and cells were washed twice with sterile PBS prior to the addition of the reagent MTT. Then, 25 µl of MTT solution (5 mg/ml Cat. No. M6494) was added to each well and the plates were incubated for an additional 4 h. The supernatant was then gently removed, and 150 µl of dimethyl sulfoxide (DMSO) was added to dissolve the formazan crystals. Optical density (OD) was measured at 540 nm using a LERX800 Biotek-USA ELISA reader. Cell viability (%) was calculated using the formula: Viability (%) = (OD of treated cells / OD of untreated cells [negative control]) × 100.
+
+The half-maximal inhibitory concentration (IC50) values were determined by fitting the survival curves using MasterPlex 2010 software, Version 2.0.77 (MiraiBio, Hitachi Solutions America, Ltd.; https://masterplex-2010.software.informer.com/). Chemical structures and molecular modeling analyses were performed using ChemOffice 3D Bio, Version 15.0.0.106 (PerkinElmer Informatics; https://perkinelmerinformatics.com/products/research/chemdraw/). The IC50 can be calculated using the following formula:
+
+Log1050% end point = log10 dilution above 50% - (Mortality above 50%)/(Mortality above 50% - Mortality below 50%).
+
+Effect of crude honey bee venom and nanoemulsion bee venom against West Nile Virus
+
+Antiviral assays of crude bee venom and its nanoemulsion were conducted to evaluate their effects on WNV-induced cytopathic effects (CPE) and viral titer reduction in infected Vero cells using 2-fold serial dilutions ranging from 100 µg/ml to 0.01 µg/ml. Prior to antiviral testing, cytotoxicity against Vero cells was assessed to determine experimentally defined non-cytotoxic concentrations for each formulation. Antiviral activity was subsequently evaluated using concentrations that did not produce detectable cytotoxic effects on Vero cells. Under these conditions, the bee venom nanoemulsion demonstrated antiviral efficacy at lower non-cytotoxic concentrations compared with crude bee venom. The selected concentrations were added to infected cell cultures and compared with untreated infected controls. The non-toxic concentrations of each treatment in D-MEM growth medium were prepared, and 0.1 ml of each dilution was added per well to Vero cell monolayers, either treated or left untreated. Uninfected wells served as negative controls, whereas infected, untreated wells served as positive controls. Plates were incubated at 37 °C and monitored daily using an inverted microscope. After three days, virus titers in treated and untreated cells were determined based on the endpoint cytopathic effect (CPE) assay following the method of Reed and Muench32. This method was used because antiviral activity was evaluated based on endpoint CPE observations in Vero cells. The key criterion for the definition of CPE is the morphological changes in Vero cells. A commonly used, strict selection criterion for “hits” in screening is > 80% cell viability at the highest concentration tested, allowing for the calculation of an accurate Selectivity Index. To evaluate the potential contribution of nanoemulsion components to antiviral activity and cytotoxicity, additional control groups including Tween 80 alone, garlic oil alone, and blank nanoemulsion (without bee venom) were included and analyzed under the same experimental conditions.
+
+Virus quantification
+
+RNA extraction
+
+RNA was extracted from clear cell line from the wells (negative control without infected virus and treatments) untreated wells (infected with WNV as a positive control) and from wells treated with the non-toxic concentrations of each sample using BIOZOLBIOFLUX (Catalog No. 10760055-1), following the manufacturer’s protocol. RNA quality and quantity were assessed by 1.5% agarose gel electrophoresis and a NanoDrop 2000 spectrophotometer (Thermo Scientific, USA). cDNA synthesis was subsequently carried out using the Thermo Scientific™ RevertAid™ First Strand cDNA Synthesis Kit (#K1621), with 0.40 µg of RNA used per reaction.
+
+Oligonucleotide sequence of West Nile virus
+
+Primer pairs targeting the env gene were designed based on the nucleotide sequence of the WNV reference strain Eg101 (GenBank accession number AF260968). The forward primer was WNV F: 5′-TGG ATT TGG TTC TCG AAG G-3′ (genome positions 1028–1046), and the reverse primer was WNV R: 5′-GGT CAG CAC GTT TGT CAT T-3′ (genome positions 1228–1210), as described by Shukla et al.2.
+
+Real-time PCR (RT-qPCR)
+
+Following the manufacturer’s instructions, RT-qPCR reactions were done using the Quanti-Tect SYBR® Green PCR kit (Qiagen, Valencia, CA). PCR reactions were incubated at 95 °C for 2 min in the CFX96TM Real-time PCR Detection System using SsoFastTM Eva GreenVRsupermix (BioRad), followed by 40 cycles of 95 °C of denaturation for 15 s and annealing at 60 °C for 10 s and then 72 °C for 10 s. In a total of 25 µl for each reaction, 20 µM of primer and 2 µl of cDNA as a template were used in triplicate.
+
+Standard curve
+
+A standard curve for RT-qPCR quantification was generated using cDNA obtained from WNV-infected untreated Vero cells (positive control). The concentration of the amplified cDNA was measured using a NanoDrop 2000 spectrophotometer (Thermo Scientific, USA). Ten-fold serial dilutions ranging from 7 × 10⁶ copies/mL to 7 × 10² copies/mL were prepared and used as reference standards for viral RNA quantification. RNA samples extracted from treated WNV-infected Vero cells were analyzed as unknown samples and quantified by comparison with the generated standard curve. Because the assay was designed for viral RNA quantification rather than host gene expression analysis, normalization to a housekeeping gene was not applied. Absolute viral RNA quantification was performed using a standard curve generated from ten-fold serial dilutions ranging from 7 × 10⁶ to 7 × 10² copies/mL. The RT-qPCR assay exhibited an amplification efficiency of 100.4% and a correlation coefficient (R²) of 0.998.
+
+In-silico study
+
+Molecular docking study
+
+The crystal structures of the West Nile virus envelope glycoprotein (PDB ID: 2i69) and the bee venom peptides Apamin (PDB ID: 7oxf), Tertiapin (PDB ID: 1ter), and Melittin (PDB ID: 2mw6) were retrieved from the Protein Data Bank (PDB). The structures of Mast Cell Degranulating Peptide (ID: P01499) and Secapin peptide (ID: 2-AF-I1VC85) were obtained from UniProt as Alpha Fold models. The 3D structures of the ligands were generated using ChemBio Office software and the DrugBank database. Protein preparation was carried out in UCSF Chimera by removing water molecules and co-crystallized ligands, adding polar hydrogens, and assigning partial charges. Molecular docking of ligands with the target proteins was conducted using Auto Dock Vina. Binding poses were generated and analyzed, binding energies were calculated, and key ligand–protein interactions were evaluated to determine binding affinity. Docking was performed with the following parameters: Num modes = 30, exhaustiveness = 32, energy range = 3, and a grid box encompassing the entire receptor with active torsions enabled.
+
+Ligands	Receptors	
+	West Nile virus envelope glycoprotein(PDB ID: 2i69)	
+Apamin (PDB ID: 7oxf),	49 active torsions	
+Tertiapin (PDB ID: 1ter)	64 active torsions	
+Melittin (PDB ID: 2mw6)	59 active torsions	
+Mast cell degranulating peptide (ID: P01499)	59 active torsions	
+Secapin peptide (ID: 2-AF-I1VC85)	50 active torsions	
+
+To ensure reliability, the molecular docking simulations were conducted in triplicate. From each simulation, the conformation exhibiting the lowest binding free energy was selected for further analysis. For every docking cycle, 30 structural models were generated, with the model displaying an RMSD of 0.000 retained as the optimal representative. Subsequent analyses focused on the evaluation of binding poses and calculation of binding energies to elucidate key molecular interactions between the ligands and their respective protein targets. The binding affinities of apamin, tertiapin, melittin, mast cell degranulating peptide, and secapinpeptide were systematically assessed for each protein. Post-docking, all ligand-protein complexes were subjected to energy minimization, consisting of 1000 steps of the steepest descent algorithm followed by 100 steps of the conjugate gradient method, using a minimization step size of 0.001 Å.
+
+Statistical analysis
+
+All experiments, including cytotoxicity assays, antiviral assays, and RT-qPCR analyses, were performed in triplicate and repeated independently three times (N = 3 independent experiments). Data are presented as mean ± standard deviation (SD). Data normality was assessed using the Shapiro–Wilk test prior to one-way ANOVA. Differences among groups were analyzed using one-way ANOVA followed by Tukey’s Honestly Significant Difference (HSD) post hoc test for multiple pairwise comparisons, with adjusted p values (padj < 0.05) considered statistically significant. Viral titers were analyzed and presented as log₁₀-transformed values; therefore, antiviral effects were interpreted based on direct log₁₀ titer reductions rather than percentage reductions. Cell viability (%) and RT-qPCR Ct values were analyzed using the same statistical framework.
+
+Results
+
+Physical properties analysis
+
+Dynamic light scattering (DLS)
+
+In addition to single-timepoint PDI measurements, a 30-day time-course stability study was performed during storage at 4 °C (n = 3 per time point). The BV/DMSO preparation exhibited a volume-weighted mean diameter (MV) of 675.0 nm, with a median diameter of 87.76 nm and a PDI of 0.589, indicating a moderately polydisperse system with a dominant population centered at 87.8 nm (100 vol%). In contrast, the nanoemulsion exhibited a median diameter of 109.5 nm, an MV of 2007 nm, and a PDI of 0.557. The broader MV reflects the wide tailing characteristic of polydisperse oil-in-water emulsions, whereas the dominant peak at 109.5 nm (100 vol%, width = 119.8 nm) indicates that the primary droplet population remained within the sub-200 nm range (Fig. 1a, b). During storage, the BV/DMSO preparation showed a progressive increase in particle size from 87.76 to 124.3 nm, accompanied by an increase in PDI from 0.589 to 0.714, indicating increased heterogeneity. In contrast, the nanoemulsion showed only a slight increase in size from 109.5 to 118.7 nm and a minimal change in PDI from 0.557 to 0.591, suggesting comparatively improved physical stability over the study period (Fig. 1c). The higher volume-weighted mean diameter compared with the median particle size reflects the polydisperse nature of nanoemulsion and the sensitivity of DLS to a small population of larger droplets or aggregates. Because larger particles scatter light much more strongly than smaller particles, they disproportionately influence the volume-weighted mean diameter. The minimal changes in median particle size (109.5–118.7 nm) and PDI during the 30-day stability study indicate that the dominant nanoemulsion population remained stable despite the presence of a minor fraction of larger particles.
+
+Fig. 1 (a) Particle size distribution histogram and cumulative distribution curve of BV/DMSO. The left panel shows the particle size distribution as volume percentage per size channel, while the right panel presents the cumulative particle size distribution. (b) Particle size distribution histogram and cumulative distribution curve of the bee venom nanoemulsion. (c) Time-dependent dynamic light scattering (DLS) stability profiles of BV/DMSO and bee venom nanoemulsion during storage at 4 °C, including (A) Z-average particle size, (B) polydispersity index (PDI), and (C) zeta potential.
+
+Zeta potential analysis
+
+The BV/DMSO preparation exhibited a zeta potential of − 23.7 mV (negative polarity). The electrophoretic mobility was 1.85 μm/s/V/cm at a conductivity of 23 µS/cm, measured under an applied field strength of 10.0 kV/m. The measured value approaches but does not exceed the conventional stability threshold of ± 30 mV. The nanoemulsion exhibited a zeta potential of + 23.0 mV (positive polarity), with electrophoretic mobility of 1.79 μm/s/V/cm. The higher conductivity (229 µS/cm) compared to BV/DMSO reflects the ionic content of the emulsion formulation. Stability in nanoemulsions is supplemented by steric effects from the emulsifier, so zeta potential alone does not fully define colloidal stability in this system (Table 1; Fig. 2a, b).
+
+Table 1 Zeta potential and electrokinetic parameters of crude bee venom and nanoemulsion bee venom.
+
+Parameter	Crude bee venom	Nanoemulsion bee venom	
+Zeta potential (mV)	-23.7	+ 23.0	
+Polarity	Negative (Automatic)	Positive (Automatic)	
+Electrophoretic Mobility (uM/s/V/Cm)	1.85	1.79	
+Conductivity (uS/Cm)	23	229	
+Field Strength (Req/Act) (KV/m)	10/9.8	10/10.0	
+
+Fig. 2 (a) Zeta potential distribution profile of BV/DMSO showing a negative surface charge with a peak value of − 23.7 mV. (b) Zeta potential distribution profile of the bee venom nanoemulsion showing a positive surface charge with a peak value of + 23.0 mV.
+
+Cytotoxicity assay
+
+Cytotoxicity and cell viability were assessed using an MTT assay. No cell death was observed in treated Vero cells at concentrations up to 10 µg/mL and 0.39 µg/mL for crude bee venom and bee venom nanoemulsion, respectively, after 24 h of incubation. The nanoemulsion formulation significantly reduced Vero cell viability compared with crude bee venom, indicating higher cytotoxicity, with IC₅₀ values of 0.94 µg/mL and 37.6 µg/mL, respectively (p < 0.05) (Fig. 3b). IC₅₀ values for garlic oil, Tween 80, and blank nanoemulsion were 15.2 µg/mL, 21.8 µg/mL, and 0.98 µg/mL, respectively. Cell viability differed significantly among treatment groups (one-way ANOVA, p < 0.05) (Fig. 3a). Untreated cells maintained the highest viability (97.67 ± 2.52%), whereas bee venom nanoemulsion and blank nanoemulsion reduced viability to near-zero levels (0.99 ± 0.09% and 1.58 ± 0.07%, respectively). Crude bee venom retained moderate viability (37.70 ± 0.26%), while Tween 80 and garlic oil exhibited intermediate cytotoxic effects, with viability values of 21.89 ± 0.02% and 16.43 ± 1.31%, respectively. Tukey’s HSD analysis demonstrated significant differences among most treatment groups, except between bee venom nanoemulsion and blank nanoemulsion.
+
+Fig. 3 (a) Comparative cytotoxicity and cell viability (%) of cells across target treatments. Bars display mean cell viability (%) following exposure to Untreated cells, Bee venom, Nanoemulsion bee venom, Tween 80, Garlic oil, and Blank nanoemulsion. Error bars represent the Standard Error of the Mean ± SEM for N = 3 independent replicates. Lowercase letters (a–e) above the error bars indicate statistically significant groupings derived from Tukey’s Honestly Significant Difference (HSD) post-hoc test, using adjusted p-values (p_adj < 0.05) to correct for multiple comparisons. Bars sharing a common letter are not statistically different. (b) IC₅₀ values of crude bee venom (BV), bee venom nanoemulsion (BV-NE), garlic oil, Tween 80, and blank nanoemulsion against Vero cells.
+
+Additional formulation controls, including garlic oil, Tween 80, and blank nanoemulsion, exhibited lower antiviral effects than the bee venom nanoemulsion formulation in both cytotoxicity and RT-qPCR analyses (Figs. 3b and 6).
+
+Fig. 4 Representative micrographs of Vero cells under different treatment conditions. (a) Untreated control Vero cells exhibiting normal spindle-shaped morphology. (b) WNV-infected Vero cells showing pronounced cytopathic effects (CPE). (c,d) Protective antiviral effects of crude bee venom and bee venom nanoemulsion (BV-NE) against WNV infection in Vero cells. (e) Cytotoxic effect observed in treated Vero cells.
+
+Effect of crude bee venom and bee venom nanoemulsion on WNV viral titer in infected vero cells
+
+The cytopathic effect (CPE) in WNV-infected Vero cells was markedly reduced following treatment with crude bee venom (BV) and bee venom nanoemulsion (BV-NE) compared with the untreated infected control, which exhibited an initial viral titer of 7.15 log10 (Fig. 4). Both treatments demonstrated antiviral activity against WNV after 3 days of incubation in Vero cells. Treatment with a non-cytotoxic concentration of crude BV reduced the viral titer to 6.53 ± 0.12 log10, whereas BV-NE markedly reduced the viral titer to 1.45 ± 0.08 log10, indicating substantially greater antiviral activity at a lower non-cytotoxic concentration (Fig. 5).
+
+Fig. 5 Effect of crude bee venom (BV) and bee venom nanoemulsion (BV-NE) on WNV viral titer in infected Vero cells after 3 days of incubation. Viral titers are expressed as log10 values. The positive control represents untreated WNV-infected cells. BV-NE treatment showed the greatest reduction in viral titer compared with crude BV and formulation control treatments. Data are presented as mean ± SEM (n = 3). Different lowercase letters (a–f) indicate statistically significant differences among groups (p < 0.05; one-way ANOVA followed by Tukey’s HSD multiple comparison test).
+
+Quantitative analysis demonstrated that BV-NE achieved the greatest antiviral effect, corresponding to a 5.70 log10 reduction relative to untreated cells (p < 0.05). Blank nanoemulsion, garlic oil, Tween 80, and crude bee venom showed progressively lower antiviral efficacy, with mean viral titers of 3.37 ± 0.47, 4.43 ± 0.12, 5.33 ± 0.21, and 6.53 ± 0.12 log10, respectively. Tukey’s HSD analysis confirmed significant differences among all treatment groups (padj < 0.05) (Fig. 5). Although the blank nanoemulsion exhibited measurable antiviral activity, indicating that the formulation components contribute to viral inhibition, incorporation of bee venom into the nanoemulsion produced a significantly greater antiviral effect. Specifically, the bee venom nanoemulsion reduced the viral titer from 3.37 ± 0.47 log10 (blank nanoemulsion) to 1.45 ± 0.08 log10, representing an additional reduction of approximately 1.92 log10, with the difference being statistically significant (Tukey’s HSD, padj < 0.05). These findings demonstrate that incorporation of bee venom markedly enhanced the antiviral activity beyond that achieved by the carrier system alone, while the nanoemulsion served as both a delivery platform and a partially active antiviral formulation.
+
+Real-time PCR (RT-qPCR)
+
+RT-qPCR analysis demonstrated significant reductions in detectable WNV RNA levels following treatment with crude bee venom (BV) and bee venom nanoemulsion (BV-NE) compared with untreated infected cells. BV-NE yielded the highest mean Ct value (33.84 ± 0.52), indicating the greatest reduction in viral RNA, and differed significantly from all other treatment groups (Tukey’s HSD, padj < 0.05). Blank nanoemulsion showed the second highest Ct value (31.31 ± 1.20). Tween 80 (28.31 ± 0.41) and crude bee venom (28.12 ± 0.46) exhibited statistically comparable effects, followed by garlic oil (27.59 ± 0.52). Untreated cells recorded the lowest Ct value (25.37 ± 0.44), consistent with uninhibited viral replication (Fig. 6). Absolute viral RNA quantification showed that untreated infected cells contained approximately 2.66 × 10⁵ RNA copies/mL. Treatment with the blank nanoemulsion reduced the viral RNA level to approximately 1.68 × 10² copies/mL, confirming that the nanoemulsion components possess intrinsic antiviral activity. Incorporation of bee venom into the nanoemulsion further reduced the viral RNA level to approximately 7.21 copies/mL, representing a substantially greater reduction than that achieved by the blank nanoemulsion alone. Bee venom alone, garlic oil, and Tween 80 yielded viral RNA levels of 5.91 × 10³, 1.71 × 10⁴, and 6.94 × 10³ copies/mL, respectively. These findings demonstrate that incorporation of bee venom markedly enhanced the antiviral activity beyond that achieved by the carrier system alone. The RT-qPCR assay showed excellent analytical performance, with an amplification efficiency of 100.4% and an R² value of 0.998.
+
+Fig. 6 Effect of Tween 80, garlic oil, blank nanoemulsion, crude bee venom (BV), and bee venom nanoemulsion (BV-NE) on West Nile virus (WNV) Ct values determined by RT-qPCR in infected Vero cells. Higher Ct values indicate lower detectable viral RNA levels. Data are presented as mean ± SEM (n = 3). Different lowercase letters (a–e) indicate statistically significant differences among groups (p < 0.05; one-way ANOVA followed by Tukey’s HSD multiple comparison test).
+
+Molecular docking analysis
+
+Based on the observed in vitro inhibitory activity of the tested compounds against WNV, an in silico analysis was conducted to explore the differential binding modes of the ligands with the WNV envelope glycoprotein. Molecular docking was complemented by MD trajectory analysis to further evaluate the interactions between melittin and the target protein, including docking scores and hydrogen-bonding patterns. The results demonstrated strong and stable interactions with key active-site residues of the WNV envelope glycoprotein (Figs. 7, 8, 9, 10 and 11; Table 2).
+
+Fig. 7 Representative 2D and 3D molecular docking models of Apamin bound to the West Nile virus (WNV) envelope glycoprotein. The predicted ligand–protein complexes demonstrate hydrogen bond formation and hydrophobic interactions between Apamin and key amino acid residues within the binding pocket of the WNV envelope protein. Apamin is represented in blue, whereas interacting residues are shown in orange. The calculated binding affinity of the Apamin–WNV complex was − 5.2 kcal/mol.
+
+Fig. 8 Representative 2D and 3D molecular docking models of mast cell degranulating peptide (MCD peptide) interaction with the West Nile virus (WNV) envelope glycoprotein. The predicted ligand–protein complexes demonstrate hydrogen bonding and hydrophobic interactions between the peptide and amino acid residues within the binding pocket of the WNV envelope protein. The mast cell degranulating peptide is represented in yellow, orange, and blue, while interacting residues of the WNV envelope glycoprotein are shown in gray and green. The calculated binding affinity of the peptide–WNV complex was − 10.8 kcal/mol.
+
+Fig. 9 Representative 2D and 3D molecular docking models of melittin interaction with the West Nile virus (WNV) envelope glycoprotein. The predicted ligand–protein complexes illustrate hydrogen bonding and hydrophobic interactions between melittin and amino acid residues within the binding pocket of the WNV envelope protein. Melittin is represented in yellow and gray, while interacting residues of the WNV envelope glycoprotein are shown in blue and orange. The docking complex exhibited a binding free energy of − 13.8 kcal/mol.
+
+Fig. 10 Representative 2D and 3D molecular docking models of tertiapin interaction with the West Nile virus (WNV) envelope glycoprotein. The predicted ligand–protein complexes illustrate hydrogen bonding and hydrophobic interactions between tertiapin and amino acid residues within the binding pocket of the WNV envelope protein. Tertiapin is represented in yellow, orange, and gray, while interacting residues of the WNV envelope glycoprotein are shown in blue and green. The docking complex exhibited a binding free energy of − 4.5 kcal/mol.
+
+Fig. 11 Representative 2D and 3D molecular docking models of Secapin-2 interaction with the West Nile virus (WNV) envelope glycoprotein. The predicted ligand–protein complexes illustrate hydrogen bonding and hydrophobic interactions between Secapin-2 and amino acid residues within the binding pocket of the WNV envelope protein. Secapin-2 is represented in green and gray, while interacting residues of the WNV envelope glycoprotein are shown in yellow and blue. The docking complex exhibited a binding free energy of − 5.1 kcal/mol.
+
+Table 2 Docking scores and hydrogen bonding WNVenvelopeglycoprotein(PDB ID: 2i69) within bee venom components.
+
+Free binding energy of the ligands, temperature (T) = 298.15 K	
+Bee venom peptides	WNV envelope glycoprotein	
+Apamin	–5.2 kcal/mol	
+Donor
+
+SER 341
+
+LEU 355
+
+LEU 355
+
+ASN 359
+
+ASN 2
+
+CYS 3
+
+ARG 13
+
+ARG 13
+
+ARG 13
+
+ARG 13
+
+HIS 18
+
+HIS 18
+
+	Acceptor
+
+ARG 13
+
+HIS 18
+
+HIS 18
+
+GLN 16
+
+THR 300
+
+ASN 359
+
+SER 341
+
+GLY 387
+
+PRO 339
+
+SER 341
+
+ASP 37
+
+ASP 37
+
+	Hydrogen
+
+SER 341
+
+LEU 355
+
+LEU 355
+
+ASN 359
+
+ASN 2
+
+CYS 3
+
+ARG 13
+
+ARG 13
+
+ARG 13
+
+ARG 13
+
+HIS 18
+
+HIS 18
+
+	D. Å dist
+
+2.572
+
+3.453
+
+3.187
+
+2.874
+
+2.902
+
+3.100
+
+2.908
+
+3.010
+
+2.924
+
+2.950
+
+2.755
+
+2.804
+
+	D-H. Å dist
+
+1.616
+
+2.498
+
+2.264
+
+2.038
+
+2.321
+
+1.970
+
+1.980
+
+2.083
+
+1.972
+
+2.040
+
+1.836
+
+1.894
+
+	
+Tertiapin	–4.5 kcal/mol	
+Donor
+
+THR 148
+
+LYS 298
+
+THR 366
+
+LYS 370
+
+ASN 4
+
+ARG 7
+
+ARG 7
+
+ARG 7
+
+LYS 16
+
+LYS 20
+
+	Acceptor
+
+CYS 18
+
+ASN 6
+
+LYS 20
+
+GLY 19
+
+GLY 160
+
+THR 162
+
+GLU 182
+
+THR 162
+
+GLU 150
+
+LYS 370
+
+	Hydrogen
+
+THR 148
+
+LYS 298
+
+THR 366
+
+LYS 370
+
+ASN 4
+
+ARG 7
+
+ARG 7
+
+ARG 7
+
+LYS 16
+
+LYS 20
+
+	D.Ådist
+
+2.671
+
+2.713
+
+3.025
+
+2.783
+
+2.761
+
+2.958
+
+2.722
+
+2.931
+
+2.992
+
+2.782
+
+	D-H.Ådist
+
+1.735
+
+1.832
+
+2.480
+
+1.795
+
+1.845
+
+2.055
+
+1.889
+
+2.000
+
+2.279
+
+1.763
+
+	
+Melittin	–13.0 kcal/mol	
+Donor
+
+GLU 273
+
+TRP 19
+
+ARG 22
+
+ARG 22
+
+	Acceptor
+
+GLN 25
+
+ASP 28
+
+MET 46
+
+ASN 47
+
+	Hydrogen
+
+GLU 273
+
+TRP 19
+
+ARG 22
+
+ARG 22
+
+	D. Å dist
+
+2.917
+
+2.779
+
+2.937
+
+2.799
+
+	D-H. Å dist
+
+2.162
+
+1.814
+
+1.969
+
+1.868
+
+	
+Mast cell degranulating peptide	–10.8 kcal/mol	
+Donor
+
+GLN 264
+
+SER 3
+
+TYR 20
+
+HIS 35
+
+	Acceptor
+
+PHE 21
+
+GLU 244
+
+TRP 217
+
+GLU 26
+
+	Hydrogen
+
+GLN 264
+
+SER 3
+
+TYR 20
+
+HIS 35
+
+	D. Å dist
+
+2.882
+
+2.544
+
+3.114
+
+2.681
+
+	D-H. Å dist
+
+1.905
+
+1.554
+
+2.386
+
+1.796
+
+	
+Secapinpeptide	–5.1 kcal/mol	
+Donor
+
+HIS 214
+
+LYS 29
+
+GLN 49
+
+	Acceptor
+
+ASP 46
+
+GLU 273
+
+ALA 265
+
+	Hydrogen
+
+HIS 214
+
+LYS 29
+
+GLN 49
+
+	D. Å dist
+
+3.102
+
+2.690
+
+2.804
+
+	D-H. Å dist
+
+2.167
+
+1.668
+
+1.792
+
+	
+
+Discussion
+
+WNV is an emerging viral pathogen with outbreaks of varying severity reported worldwide2. In recent years, the number of infections has continued to rise, yet no clinically approved vaccines or effective antiviral drugs are available for human treatment4. Although progress in antiviral drug development has accelerated- particularly over the past two decades, which have been among the most active periods in the field- therapeutic options for WNV remain limited33. Moreover, the high cost of antiviral medications underscores the urgent need for effective preventive measures34. Lately, the therapeutic and prophylactic potential of bee venom (BV) has attracted considerable scientific interest35. Studies have demonstrated its effectiveness against various cancer types as well as its notable antiviral activity14; Atwa et al.35. In vivo studies have further demonstrated the antiviral potential of BV and its constituents. Uddin36 showed that non-cytotoxic concentrations of BV and its main peptide, melittin (MEL), significantly suppressed the replication of various enveloped viruses including Influenza A virus (PR8), Vesicular Stomatitis Virus (VSV), Respiratory Syncytial Virus (RSV), and Herpes Simplex Virus (HSV) as well as non-enveloped viruses such as Enterovirus-71 (EV-71) and Coxsackie Virus (H3) when tested in rats. More recently, Sleman et al.37 reviewed the broad-spectrumantiviral property of HBV against numerous viruses, such as influenza viruses, herpes simplex virus, HIV, hepatitis viruses, and emerging coronaviruses. Also, Sonje et al.38 reviewed that BV contains over 40 bioactive compounds, with melittin comprising approximately 50% of the venomʼs dry weight and demonstrating significant antiviral, antibacterial, and anticancer effects.
+
+So, the current study is an attempt to evaluate the crude BV and its nanoemulsion(NE) form on WNV. The results indicated that NE could deliver BV as more effective and enhanced its physical characterization; this finding is compatible with Yousefpoor et al.23. The dynamic light scattering (DLS) revealed that the size of bee venom nanoemulsion was greater than that of the crude BV. The nanoemulsion exhibited a slightly lower PDI than crude BV, indicating a comparatively narrower particle-size distribution indicating that the NE was more stable and more effective in biological behavior. These results are in line with those reported by Taher et al.39, who found that the DLS analysis revealed that the size of nanoparticles of BV with chitosan increased with increasing chitosan concentration and their PDI was less than 0.5.Yousefpoor et al.23 investigated the ability of BV and its nanoemulsion (NE) formulation to penetrate rat skin, noting that interactions between NE components and the molecular structure of BV may facilitate this permeability. Their results demonstrated that the NE was capable of delivering BV across the skin layers. In addition, dynamic light scattering (DLS) characterization showed that the particle size and polydispersity index (PDI) of the BV-NE increased as the BV concentration increased. Conversely, increasing the surfactant content led to a reduction in particle size, consistent with previous observations by Khani et al.40. This reduction is likely due to the higher number of surfactant molecules stabilizing the droplets and enabling the formation of smaller, more uniform nanoemulsions41.
+
+Zeta potential plays an important role in characterizing colloids and nanoparticles in suspension, as it influences particle interactions and colloidal behavior42. In the present study, the bee venom nanoemulsion exhibited a zeta potential of approximately + 23.0 mV, while crude bee venom showed a value of − 23.7 mV. These values indicate moderate electrostatic stabilization but do not alone provide sufficient evidence for strong colloidal stability. Therefore, the interpretation of nanoemulsion stability was based on the combined evaluation of zeta potential together with the time-resolved DLS analysis, which demonstrated only minor changes in particle size and PDI during the 30-day storage period.
+
+The observed physical stability of the nanoemulsion may also be attributed to steric stabilization provided by the emulsifying components, in addition to electrostatic effects. Similar observations were reported by Gan and Wang43 and Taher et al.39, who attributed reductions in zeta potential to interactions between venom components and carrier materials, including adsorption of venom molecules onto the particle surface. In another study, El Didamony et al.44 reported zeta potential values of 50.3 mV for chitosan nanoparticles and 44.6 mV for BV-loaded nanoparticles.
+
+Considering the characteristic features of crude BV and nanoemulsion bee venom and testing them on WNV, we found that the nanoemulsion bee venom gave more positive results than the crude BV, being it was more effective antiviral compared to the crude, and it was stronger and better than the bee venom in the Vero cells. The results were confirmed by RT-qPCR, and the nanoemulsion achieved antiviral activity at a substantially lower non-cytotoxic concentration compared with crude BV, using 0.39 µg/ml for the nanoemulsion and 10 µg/ml for the crude form. This is considered preferable, economical, affordable, and effective. Previous studies by Ramadan et al.45 and Yousefpoor et al.24 evaluated the effect of crude bee venom (BV) on WNV and demonstrated that BV has a significant antiviral effect. In the present study, the choice of cell line may have influenced the antiviral activity of BV, as the percentage reduction achieved by crude BV was lower than that of the nanoemulsion formulation. This observation aligns with the findings of Ramadan et al.45, who reported that co-incubation of Vero cells with BV prior to WNV infection did not inhibit viral replication. In contrast, Alkhalefa et al.46 tested BV against Foot-and-Mouth Disease Virus (FMDV) in Baby Hamster Kidney-21 (BHK-21) cells and found a significant reduction in viral titers (25.7%) when the virus was treated directly with BV, indicating antiviral effect. Furthermore, BV treatment of cells prior to infection reduced viral titers by 20.8%, suggesting an induced antiviral state within the cells.
+
+Although the efficiency of crude BV is less than NE in Vero cells, this does not reduce the efficiency of BV and its components against WNV. Therefore, to confirm the effectiveness of BV against WNV, molecular docking was applied between the components of BV (apamin, tertiapin, melittin, mast cell degranulating peptide, secapin-2peptide) on the WNV envelope glycoprotein and the docking scores were–5.2, − 4.5, − 13.0, − 10.8, − 5.1 kcal/mol, respectively. According to the results of this study, it was shown that BV has a very strong effect and can attack the virus in its inhibition sites by breaking hydrogen bond of virus’s protein.Protein–protein and protein–peptide interactions are essential for understanding the structural and functional properties of biomolecular complexes. Molecular docking has emerged as a powerful computational approach for characterizing these interactions and predicting binding behaviors among diverse biomolecules47. Despite docking analysis reflects the strongest predicted interaction, experimental interaction needs validation before a definitive antiviral mechanism can be established. The WNV envelope glycoprotein was selected because of its essential role in viral attachment and entry into host cells. Although NS3 protease and NS5 polymerase are also established antiviral targets, evaluation of bee venom peptide interactions with these proteins was beyond the scope of the present study and warrants future investigation. In docking analysis, the best-docked pose, typically the one with the lowest glide score, reflects the strongest predicted interaction25; Abd El48. To date, no studies have assessed protein–peptide docking between bee venom (BV) components and WNV proteins. However, Mustafa et al.49 investigated interactions between BV peptides and the DNA-directed RNA polymerase of viruses in the Capripoxvirus genus (family Poxviridae). Their results showed that the peptides melittin and secapin-1 achieved the lowest binding energies (− 106.9 ± 7.2 kcal/mol and − 101.4 ± 11.3 kcal/mol, respectively) and formed highly stable complexes. Molecular dynamics simulations further supported the stability of the melittin-polymerase complex, indicating sustained peptide-protein binding throughout the simulation period. Similarly, Muzammal et al.50 reported that phospholipase A2 from honeybee venom may serve as a potential antiviral agent against the Ebola virus. Additional computational analyses of hymenopteran venoms have also shown favorable binding of venom-derived compounds within the active pocket of the SARS-CoV-2 3CL protease25; Abd El48.
+
+The main limitations associated with BV include dose-related cytotoxicity and mild allergic responses, with rare instances (< 0.1%) of anaphylaxis. Overall, the antiviral potential of BV is strongly supported by preclinical studies; however, available clinical evidence in humans remains limited37,38. Safety concerns, including allergic reactions and challenges related to formulation standardization, also require careful consideration38.
+
+In addition, the present study did not include plaque reduction assays or time-of-addition experiments (pre-, co-, or post-treatment). Therefore, the precise antiviral mechanism of crude bee venom and its nanoemulsion against WNV, including possible virucidal, viral entry inhibitory, or replication inhibitory effects, could not be conclusively determined. Furthermore, antiviral comparisons were performed using the respective maximum non-cytotoxic concentrations rather than equivalent bee venom doses, and antiviral activity was evaluated only at these concentrations. Consequently, EC₅₀ and Selectivity Index (SI) values could not be determined. Further mechanistic, dose-matched, and in vivo studies are warranted to better characterize the antiviral mode of action and therapeutic potential of these formulations.
+
+In conclusion, BV-NE demonstrated promising preliminary in vitro anti-WNV activity; however, further mechanistic, toxicological, and in vivo investigations are required to validate its therapeutic potential. Future studies evaluating melittin-based monotherapy and combination therapeutic approaches are also recommended. In addition, because the antiviral assays in the present study were performed exclusively in Vero cells, which lack a functional interferon response, further validation using human and mosquito-derived cell models is warranted to better characterize the observed antiviral effects.
+
+Acknowledgements
+
+The authors express their sincere gratitude to their colleagues at the Faculty of Science, Cairo University, and at Zagazig University for their support and technical assistance. Appreciation is further extended to all collaborators who provided valuable scientific input and constructive feedback throughout the study.
+
+Author contributions
+
+AMS, HS, EHZ and SAE conceived, designed and wrote the first draft. EHS, SI and MAA wrote and reviewed the paper. The manuscript was read and approved by all authors.
+
+Funding
+
+Open access funding provided by The Science, Technology & Innovation Funding Authority (STDF) in cooperation with The Egyptian Knowledge Bank (EKB).
+
+Data availability
+
+The datasets generated and/or analyzed during the current study are publicly available in the Zenodo repository. The data can be accessed through Zenodo Record No. 20849245 at https://zenodo.org/records/20849245. [https://doi.org/10.5281/zenodo.20849245].
+
+Declarations
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher’s note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+
+References
+
+1. Komar N West Nile viral encephalitis Revue Scientifique et Technique-Office Int. des. Epizooties 2000 19 1 166 176 10.20506/rst.19.1.1201 11189714
+Komar, N. West Nile viral encephalitis. Revue Scientifique et Technique-Office Int. des. Epizooties. 19 (1), 166–176 (2000).10.20506/rst.19.1.1201 11189714
+2. Shukla J Molecular detection and characterization of West Nile virus associated with multifocal retinitis in patients from southern India Int. J. Infect. Dis. 2012 16 1 e53 e59 10.1016/j.ijid.2011.09.020 22099888
+Shukla, J. et al. Molecular detection and characterization of West Nile virus associated with multifocal retinitis in patients from southern India. Int. J. Infect. Dis. 16 (1), e53–e59 (2012).22099888 10.1016/j.ijid.2011.09.020
+3. Huhn GD Sejvar JJ Montgomery SP Dworkin MS West Nile virus in the United States: an update on an emerging infectious disease Am. Family Phys. 2003 68 4 653 661 12952382
+Huhn, G. D., Sejvar, J. J., Montgomery, S. P. & Dworkin, M. S. West Nile virus in the United States: an update on an emerging infectious disease. Am. Family Phys. 68 (4), 653–661 (2003).12952382
+4. Li W West Nile virus infectious replicon particles generated using a packaging-restricted cell line is a safe reporter system Sci. Rep. 2017 7 1 3286 10.1038/s41598-017-03670-4 28607390 PMC5468312
+Li, W. et al. West Nile virus infectious replicon particles generated using a packaging-restricted cell line is a safe reporter system. Sci. Rep. 7 (1), 3286 (2017).28607390 10.1038/s41598-017-03670-4 PMC5468312
+5. Ulbert S West Nile virus vaccines - current situation and future directions Hum. Vaccines &Immunotherapeutics 2019 15 10 2337 2342 10.1080/21645515.2019.1621149 PMC6816401 31116691
+Ulbert, S. West Nile virus vaccines - current situation and future directions. Hum. Vaccines &Immunotherapeutics. 15 (10), 2337–2342. 10.1080/21645515.2019.1621149 (2019).10.1080/21645515.2019.1621149 PMC6816401 31116691
+6. Lim SM Characterization of the mouse neuroinvasiveness of selected European strains of West Nile virus PLoS One 2013 8 9 e74575 10.1371/journal.pone.0074575 24058590 PMC3776840
+Lim, S. M. et al. Characterization of the mouse neuroinvasiveness of selected European strains of West Nile virus. PLoS One. 8 (9), e74575 (2013).24058590 10.1371/journal.pone.0074575 PMC3776840
+7. Szentpáli-Gavallér, K. et al. Á. In vitro and in vivo evaluation of mutations in the NS region of lineage 2 West Nile virus associated with neuroinvasiveness in a mammalian model. Viruses, 8 (2), 49. (2016).10.3390/v8020049 PMC4776204 26907325
+8. Diniz JA West Nile virus infection of primary mouse neuronal and neuroglial cells: the role of astrocytes in chronic infection Am. J. Trop. Med. Hyg. 2006 75 4 691 696 10.4269/ajtmh.2006.75.691 17038696
+Diniz, J. A. et al. West Nile virus infection of primary mouse neuronal and neuroglial cells: the role of astrocytes in chronic infection. Am. J. Trop. Med. Hyg. 75 (4), 691–696 (2006).17038696
+9. Kong KF Wang X Anderson JF Fikrig E Montgomery RR West Nile virus attenuates activation of primary human macrophages Viral Immunol. 2008 21 1 78 82 10.1089/vim.2007.0072 18355125 PMC2666911
+Kong, K. F., Wang, X., Anderson, J. F., Fikrig, E. & Montgomery, R. R. West Nile virus attenuates activation of primary human macrophages. Viral Immunol. 21 (1), 78–82 (2008).18355125 10.1089/vim.2007.0072 PMC2666911
+10. Ben-Nathan D Porgador A Yavelsky V Rager-Zisman B Models of West Nile virus disease Drug Discovery Today: Disease Models Infect. Dis. 2006 3 1 49 54
+Ben-Nathan, D., Porgador, A., Yavelsky, V. & Rager-Zisman, B. Models of West Nile virus disease. Drug Discovery Today: Disease Models Infect. Dis. 3 (1), 49–54 (2006).
+11. Visser I In vitro and in vivo characterization of a novel West Nile virus lineage 2 strain npjViruses 2024 2 1 61 10.1038/s44298-024-00070-0 PMC11721649 40295818
+Visser, I. et al. In vitro and in vivo characterization of a novel West Nile virus lineage 2 strain. npjViruses 2 (1), 61 (2024).10.1038/s44298-024-00070-0 PMC11721649 40295818
+12. Hellner M Winter D von Georgi R Münstedt K Apitherapy: Usage and experience in German beekeepers Evidence-Based Complement. Altern. Med. 2008 5 4 475 479 10.1093/ecam/nem052 PMC2586305 18955222
+Hellner, M., Winter, D., von Georgi, R. & Münstedt, K. Apitherapy: Usage and experience in German beekeepers. Evidence-Based Complement. Altern. Med. 5 (4), 475–479 (2008).10.1093/ecam/nem052 PMC2586305 18955222
+13. Frangieh J First characterization of the venom from Apis mellifera syriaca, a honeybee from the middle east region Toxins 2019 11 4 191 10.3390/toxins11040191 30935025 PMC6521255
+Frangieh, J. et al. First characterization of the venom from Apis mellifera syriaca, a honeybee from the middle east region. Toxins 11 (4), 191 (2019).30935025 10.3390/toxins11040191 PMC6521255
+14. Wehbe R Bee venom: Overview of main compounds and bioactivities for therapeutic interests Molecules 2019 24 16 2997 10.3390/molecules24162997 31430861 PMC6720840
+Wehbe, R. et al. Bee venom: Overview of main compounds and bioactivities for therapeutic interests. Molecules 24 (16), 2997 (2019).31430861 10.3390/molecules24162997 PMC6720840
+15. Yaacoub C Wehbe R Roufayel R Fajloun Z Coutard B Bee venom and its two main components—melittin and phospholipase A2—as promising antiviral drug candidates Pathogens 2023 12 11 1354 10.3390/pathogens12111354 38003818 PMC10674158
+Yaacoub, C., Wehbe, R., Roufayel, R., Fajloun, Z. & Coutard, B. Bee venom and its two main components—melittin and phospholipase A2—as promising antiviral drug candidates. Pathogens 12 (11), 1354 (2023).38003818 10.3390/pathogens12111354 PMC10674158
+16. Klupczynska A Identification and quantification of honeybee venom constituents by multiplatform metabolomics Sci. Rep. 2020 10 1 21645 10.1038/s41598-020-78740-1 33303913 PMC7729905
+Klupczynska, A. et al. Identification and quantification of honeybee venom constituents by multiplatform metabolomics. Sci. Rep. 10 (1), 21645 (2020).33303913 10.1038/s41598-020-78740-1 PMC7729905
+17. Sarhan M El-Bitar AM Hotta H Potent virucidal activity of honeybee Apis mellifera venom against Hepatitis C Virus Toxicon 2020 188 55 64 10.1016/j.toxicon.2020.10.014 33068557
+Sarhan, M., El-Bitar, A. M. & Hotta, H. Potent virucidal activity of honeybee Apis mellifera venom against Hepatitis C Virus. Toxicon 188, 55–64 (2020).33068557 10.1016/j.toxicon.2020.10.014
+18. Junqueira LA Amaral TN Oliveira L Prado N de Resende JV Rheological behavior and stability of emulsions obtained from Pereskiaaculeata Miller via different drying methods Int. J. Food Prop. 2018 21 1 21 35 10.1080/10942912.2018.1437177
+Junqueira, L. A., Amaral, T. N., Oliveira, L., Prado, N., de Resende, J. V. & M. E. T., & Rheological behavior and stability of emulsions obtained from Pereskiaaculeata Miller via different drying methods. Int. J. Food Prop. 21 (1), 21–35 (2018).
+19. Osanloo M Preparation and optimization nanoemulsion of Tarragon (Artemisia dracunculus) essential oil as effective herbal larvicide against Anopheles stephensi Ind. Crops Prod. 2017 109 214 219 10.1016/j.indcrop.2017.08.037
+Osanloo, M. et al. Preparation and optimization nanoemulsion of Tarragon (Artemisia dracunculus) essential oil as effective herbal larvicide against Anopheles stephensi. Ind. Crops Prod. 109, 214–219 (2017).
+20. Azizi M Esmaeili F Partoazar A EjtemaeiMehr S Amani A Efficacy of nano-and microemulsion-based topical gels in delivery of ibuprofen: an in vivo study J. Microencapsul. 2017 34 2 195 202 10.1080/02652048.2017.1316324 28378606
+Azizi, M., Esmaeili, F., Partoazar, A., EjtemaeiMehr, S. & Amani, A. Efficacy of nano-and microemulsion-based topical gels in delivery of ibuprofen: an in vivo study. J. Microencapsul. 34 (2), 195–202 (2017).28378606 10.1080/02652048.2017.1316324
+21. Kotta S Exploring oral nanoemulsions for bioavailability enhancement of poorly water-soluble drugs Expert Opin. Drug Deliv. 2012 9 5 585 598 10.1517/17425247.2012.668523 22512597
+Kotta, S. et al. Exploring oral nanoemulsions for bioavailability enhancement of poorly water-soluble drugs. Expert Opin. Drug Deliv. 9 (5), 585–598 (2012).22512597 10.1517/17425247.2012.668523
+22. Abbasifard M Yousefpoor Y Amani A Arababadi MK Topical bee venom nano-emulsion ameliorates serum level of endothelin-1 in collagen-induced rheumatoid arthritis model BioNanoScience 2021 11 3 810 815 10.1007/s12668-021-00871-0
+Abbasifard, M., Yousefpoor, Y., Amani, A. & Arababadi, M. K. Topical bee venom nano-emulsion ameliorates serum level of endothelin-1 in collagen-induced rheumatoid arthritis model. BioNanoScience 11 (3), 810–815 (2021).
+23. Yousefpoor, Y., Amani, A., Divsalar, A. & Vafadar, M. R. Topical delivery of bee venom through the skin by a water-in-oil nanoemulsion. Nanomed. J. 9 (2). (2022).
+24. Yousefpoor, Y. et al. Topical bee venom nanoemulsion in collagen-induced arthritis model: effects on biochemical and hematological parameters. 10.21203/rs.3.rs-2524028/v1 (2023).
+25. Al-Rabia MW Repurposing of sitagliptin-melittin optimized nanoformula against SARS-CoV-2; antiviral screening and molecular docking studies Pharmaceutics 2021 13 03 307 10.3390/pharmaceutics13030307 33652894 PMC8025909
+Al-Rabia, M. W. et al. Repurposing of sitagliptin-melittin optimized nanoformula against SARS-CoV-2; antiviral screening and molecular docking studies. Pharmaceutics 13 (03), 307 (2021).33652894 10.3390/pharmaceutics13030307 PMC8025909
+26. Akash S Target specific inhibition of West Nile virus envelope glycoprotein and methyltransferase using phytocompounds: an in silico strategy leveraging molecular docking and dynamics simulation Front. Microbiol. 2023 14 1189786 10.3389/fmicb.2023.1189786 37455711 PMC10338848
+Akash, S. et al. Target specific inhibition of West Nile virus envelope glycoprotein and methyltransferase using phytocompounds: an in silico strategy leveraging molecular docking and dynamics simulation. Front. Microbiol. 14, 1189786 (2023).37455711 10.3389/fmicb.2023.1189786 PMC10338848
+27. Benton, A. W., Morse, R. A. & Stewart, J. B. Venom collection from honey bees. 142, 228–230 (Science, 1963).10.1126/science.142.3589.228 17834840
+28. Ismail SH Synthesis and characterization of antibacterial carbopol/ZnO hybrid nanoparticles gel Crystals 2021 11 9 1092 10.3390/cryst11091092
+Ismail, S. H. et al. Synthesis and characterization of antibacterial carbopol/ZnO hybrid nanoparticles gel. Crystals 11 (9), 1092 (2021).
+29. Ahmed-Farid OA Effects of bee venom and dopamine-loaded nanoparticles on reserpine-induced Parkinson’s disease rat model Sci. Rep. 2021 11 1 21141 10.1038/s41598-021-00764-y 34707203 PMC8551202
+Ahmed-Farid, O. A. et al. Effects of bee venom and dopamine-loaded nanoparticles on reserpine-induced Parkinson’s disease rat model. Sci. Rep. 11 (1), 21141 (2021).34707203 10.1038/s41598-021-00764-y PMC8551202
+30. Hansen MB Nielsen SE Berg K Re-examination and further development of a precise and rapid dye method for measuring cell growth/cell kill J. Immunol. Methods 1989 119 2 203 210 10.1016/0022-1759(89)90397-9 2470825
+Hansen, M. B., Nielsen, S. E. & Berg, K. Re-examination and further development of a precise and rapid dye method for measuring cell growth/cell kill. J. Immunol. Methods. 119 (2), 203–210 (1989).2470825 10.1016/0022-1759(89)90397-9
+31. van de Loosdrecht AA Beelen RH Ossenkoppele GJ Broekhoven MG &Langenhuijsen MM A tetrazolium-based colorimetric MTT assay to quantitate human monocyte mediated cytotoxicity against leukemic cells from cell lines and patients with acute myeloid leukemia J. Immunol. Methods 1994 174 1–2 311 320 10.1016/0022-1759(94)90034-5 8083535
+van de Loosdrecht, A. A., Beelen, R. H., Ossenkoppele, G. J., Broekhoven, M. G. & &Langenhuijsen, M. M. A tetrazolium-based colorimetric MTT assay to quantitate human monocyte mediated cytotoxicity against leukemic cells from cell lines and patients with acute myeloid leukemia. J. Immunol. Methods. 174 (1–2), 311–320 (1994).8083535 10.1016/0022-1759(94)90034-5
+32. Reed LJ Muench H A simple method of estimating fifty per cent endpoints Am. J. Hygiene 1938 27 493 497
+Reed, L. J. & Muench, H. A simple method of estimating fifty per cent endpoints. Am. J. Hygiene. 27, 493–497 (1938).
+33. Eiaka AM El-Bagoury GF El-Nahas EM Khodeir MH Evaluation of the antiviral effect of bee venom on rabies virus Benha Veterinary Med. J. 2016 31 2 258 261 10.21608/bvmj.2016.31308
+Eiaka, A. M., El-Bagoury, G. F., El-Nahas, E. M. & Khodeir, M. H. Evaluation of the antiviral effect of bee venom on rabies virus. Benha Vet. Med. J. 31 (2), 258–261 (2016).
+34. Tyring, S. (ed) Antiviral agents, vaccines, and immunotherapies. (CRC, 2004).
+35. Atwa MH Diana MA HM EN In Vitro and In Vivo Antiviral Effect of Bee Venom on Rift Valley Fever Virus Egypt. J. Anim. Health 2022 3 1 83 90
+Atwa, M. H., Diana, M. A. & HM, E. N. In vitro and in vivo antiviral effect of Bee venom on rift valley fever virus. Egypt. J. Anim. Health. 3 (1), 83–90 (2022).
+36. Uddin MB Inhibitory effects of bee venom and its components against viruses in vitro and in vivo J. Microbiol. 2016 54 853 866 10.1007/s12275-016-6376-1 27888461 PMC7091203
+Uddin, M. B. et al. Inhibitory effects of bee venom and its components against viruses in vitro and in vivo. J. Microbiol. 54, 853–866 (2016).27888461 10.1007/s12275-016-6376-1 PMC7091203
+37. Sleman S Abass ZA Abdullah BJ Abid OI Ameen MB Honeybee venomtherapy and viral infection: a systematic synthesis of venom antiviral activity Front. Virol. 2026 6 1751614 10.3389/fviro.2026.1751614
+Sleman, S., Abass, Z. A., Abdullah, B. J., Abid, O. I. & Ameen, M. B. Honeybee venomtherapy and viral infection: a systematic synthesis of venom antiviral activity. Front. Virol. 6, 1751614. 10.3389/fviro.2026.1751614 (2026).
+38. Sonje CM Honey bee venom: a comprehensive review of therapeutic applications and curative potential Int. Educational Sci. Res. J. 2026 12 111 124
+Sonje, C. M. et al. Honey bee venom: a comprehensive review of therapeutic applications and curative potential. Int. Educational Sci. Res. J. 12, 111–124 (2026).
+39. Taher FA Preparation and characterization of shrimp derived chitosan and evaluation of its efficiency as bee venom delivery for cancer treatment Int. J. Adv. Res. 2017 5 5 370 388 10.21474/IJAR01/4122
+Taher, F. A. et al. Preparation and characterization of shrimp derived chitosan and evaluation of its efficiency as bee venom delivery for cancer treatment. Int. J. Adv. Res. 5 (5), 370–388 (2017).
+40. Khani S Abbasi S Keyhanfar F Amani A Use of artificial neural networks for analysis of the factors affecting particle size in mebudipinenanoemulsion J. Biomol. Struct. Dynamics 2019 37 12 3162 3167 10.1080/07391102.2018.1510341 30238824
+Khani, S., Abbasi, S., Keyhanfar, F. & Amani, A. Use of artificial neural networks for analysis of the factors affecting particle size in mebudipinenanoemulsion. J. Biomol. Struct. Dyn. 37 (12), 3162–3167 (2019).10.1080/07391102.2018.1510341 30238824
+41. Kumar A Kushwaha V Sharma PK Pharmaceutical microemulsion: Formulation, characterization and drug deliveries across skin Int. J. Drug Dev. Res. 2014 6 1 1 21
+Kumar, A., Kushwaha, V. & Sharma, P. K. Pharmaceutical microemulsion: Formulation, characterization and drug deliveries across skin. Int. J. Drug Dev. Res. 6 (1), 1–21 (2014).
+42. Mohanraj VJ Chen Y Nanoparticles – A Review Trop. J. Pharm. Res. 2006 5 1 561 573
+Mohanraj, V. J. & Chen, Y. Nanoparticles – A review. Trop. J. Pharm. Res. 5 (1), 561–573 (2006).
+43. Gan Q Wang T Chitosan nanoparticle as protein delivery carrier—systematic examination of fabrication conditions for efficient loading and release Colloids Surf., B 2007 59 1 24 34 10.1016/j.colsurfb.2007.04.009 17555948
+Gan, Q. & Wang, T. Chitosan nanoparticle as protein delivery carrier—systematic examination of fabrication conditions for efficient loading and release. Colloids Surf., B. 59 (1), 24–34 (2007).10.1016/j.colsurfb.2007.04.009 17555948
+44. El-Didamony SE Kalaba MH El-Fakharany EM Sultan MH Sharaf MH Antifungal and antibiofilm activities of bee venom loaded on chitosan nanoparticles: a novel approach for combating fungal human pathogens World J. Microbiol. Biotechnol. 2022 38 12 244 10.1007/s11274-022-03425-y 36280608 PMC9592658
+El-Didamony, S. E., Kalaba, M. H., El-Fakharany, E. M., Sultan, M. H. & Sharaf, M. H. Antifungal and antibiofilm activities of bee venom loaded on chitosan nanoparticles: a novel approach for combating fungal human pathogens. World J. Microbiol. Biotechnol. 38 (12), 244 (2022).36280608 10.1007/s11274-022-03425-y PMC9592658
+45. Ramadan RH Mohamed AF Abd El-Daim MS Evaluation of antiviral activity of honeybee venom on DNA and RNA virus models Egypt. Acad. J. Biol. Sci. Entomol. 2009 2 1 247 258
+Ramadan, R. H., Mohamed, A. F. & Abd El-Daim, M. S. Evaluation of antiviral activity of honeybee venom on DNA and RNA virus models. Egypt. Acad. J. Biol. Sci. Entomol. 2 (1), 247–258 (2009).
+46. Alkhalefa, N., Elkon, I., Manzoor, R., Elfiky, A. & Mohamadin, M. Antiviral effect of Bee venom on foot and mouth disease virus (An in-vitro Study). Pakistan Vet. J. 41 (2), (2021).
+47. Azeem M Mustafa G Mahrosh HS Virtual screening of phytochemicals by targeting multiple proteins of severe acute respiratory syndrome coronavirus 2: Molecular docking and molecular dynamics simulation studies Int. J. ImmunoPathol Pharmacol. 2022 36 03946320221142793 10.1177/03946320221142793 36442514 PMC9716588
+Azeem, M., Mustafa, G. & Mahrosh, H. S. Virtual screening of phytochemicals by targeting multiple proteins of severe acute respiratory syndrome coronavirus 2: Molecular docking and molecular dynamics simulation studies. Int. J. ImmunoPathol Pharmacol. 36, 03946320221142793 (2022).36442514 10.1177/03946320221142793 PMC9716588
+48. Maksoud AE Potential therapeutic biomolecules of hymenopteran venom against SARS-CoV-2 from Egyptian patients Sci. Rep. 2024 14 1 15363 10.1038/s41598-024-65038-9 38965389 PMC11224265
+Maksoud, A. E. et al. Potential therapeutic biomolecules of hymenopteran venom against SARS-CoV-2 from Egyptian patients. Sci. Rep. 14 (1), 15363 (2024).38965389 10.1038/s41598-024-65038-9 PMC11224265
+49. Mustafa G In Silico analysis of honey bee peptides as potential inhibitors of Capripoxvirus DNA-directed RNA polymerase Animals 2023 13 14 2281 10.3390/ani13142281 37508058 PMC10376589
+Mustafa, G. et al. In Silico analysis of honey bee peptides as potential inhibitors of Capripoxvirus DNA-directed RNA polymerase. Animals 13 (14), 2281 (2023).37508058 10.3390/ani13142281 PMC10376589
+50. Muzammal M In Silico Analysis of Honeybee Venom Protein Interaction with Wild Type and Mutant (A82V+ P375S) Ebola Virus Spike Protein Biologics 2022 2 1 45 55 10.3390/biologics2010003
+Muzammal, M. et al. In silico analysis of Honeybee venom protein interaction with wild type and mutant (A82V+ P375S) Ebola virus spike protein. Biologics 2 (1), 45–55 (2022).
+51. Aher J Jadhav V Bhagare A Lokhande D Honey bee venom loaded nanomaterials: A promising avenue for therapeutic delivery Nano-Structures Nano-Objects 2024 39 101310 10.1016/j.nanoso.2024.101310
+Aher, J., Jadhav, V., Bhagare, A. & Lokhande, D. Honey bee venom loaded nanomaterials: A promising avenue for therapeutic delivery. Nano-Struct. Nano-Objects. 39, 101310 (2024).
+52. Azam MNK A review on bioactivities of honey bee venom Annual Res. &Review Biology 2018 30 1 13
+Azam, M. N. K. et al. A review on bioactivities of honey bee venom. Ann. Res. &Review Biol.. 30, 1–13 (2018).

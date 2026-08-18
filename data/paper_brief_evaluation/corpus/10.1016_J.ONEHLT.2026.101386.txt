@@ -1,0 +1,382 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: One Health
+Journal ID: One Health
+NLM Journal ID: 101660501
+
+One Health
+
+EISSN: 2352-7714
+Publisher: Elsevier
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC12999322
+PMID: 41868139
+DOI: 10.1016/j.onehlt.2026.101386
+Article ID: S2352-7714(26)00070-4
+Article ID: 101386
+Article version: 1
+Subjects: Research Paper
+
+Modelling the impact of temperature and bird migration on the spread of West Nile virus☆
+
+Duve Pride pride.duve@bnitm.de ⁎
+Sauer Felix Gregor
+Lühken Renke
+Bernhard Nocht Institute for Tropical Medicine, Hamburg, Germany
+⁎ Corresponding author. pride.duve@bnitm.de
+Publication date: 2026 Jun
+Electronic publication date: 2026 Mar 11
+Volume: 22
+Electronic Location ID: 101386
+Received 2025 Aug 19; Revised 2026 Feb 13; Accepted 2026 Mar 8
+Copyright: © 2026 The Authors
+Copyright year: 2026
+License: This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, Diffusion, Advection, Spread, Mosquitoes, Migratory birds, Resident birds
+
+==============================
+West Nile virus (WNV) is a climate-sensitive mosquito-borne arbovirus that circulates between mosquitoes of the genus Culex and birds, with potential spillover to humans and other mammals. Recent trends in climatic change, characterised by early and/or prolonged summer seasons, increased temperatures, and above-average rainfall, are likely to have facilitated the spread of WNV in Europe. In this work, we formulate a spatial WNV model as a system of parabolic partial differential equations (PDEs), incorporating diffusion, advection, and temperature-dependent parameters, namely the mosquito birth rate, mosquito biting rate, extrinsic incubation rate, and mortality rate. Diffusion represents the random movement of both mosquitoes and birds across space, while advection captures the directed movement of migratory birds. The model is first studied mathematically, and we show that it has non-negative, unique, and bounded solutions in time and space. Numerical simulations of the PDE model are performed using temperature data for Germany (2019–2025). The simulation results showed strong agreement with the reported WNV cases among birds and equids in Germany. The observed spread patterns throughout the years were mainly driven by the combination of temperature, diffusion processes of hosts and vectors, and the biting preference of mosquitoes between resident and migratory birds. The model better explained the observed WNV spreading pattern, including distant, isolated cases in Germany, when more bites were allocated to migratory birds than to resident birds.
+
+Highlights
+
+• A PDE model is proposed to investigate the spatial spread of WNV in Germany.
+
+• Mosquito and bird movement are modelled through diffusion processes.
+
+• Directed migratory bird movement is incorporated through advection.
+
+• Temperature-dependent mosquito biting, latency, and mortality are considered.
+
+• The model predicts WNV spread in Germany and can be adapted to any region.
+
+Graphical abstract
+
+Graphical abstract Image 1
+
+1 Introduction
+
+West Nile virus (WNV) is an arbovirus of the Japanese encephalitis antigenic complex of the Flaviviridae family. It was first detected in a febrile patient from the West Nile district of Northern Uganda in 1937 [1], but is now considered the most geographically widespread arbovirus worldwide [2]. The virus circulates in an enzootic cycle between Culex (Cx.) mosquitoes and birds, with regular spillovers to humans, equids, and other mammals [3], [4], [5]. Birds are considered amplifying hosts because they develop sufficient viremia, allowing infection of mosquitoes, whereas humans, equids, and other mammals are considered dead-end hosts [6]. Most humans infected with WNV are asymptomatic, but a few may develop fever, headache, rash, among others [7], including the risk of a fatal outcome [8]. Infected equids often exhibit ataxia, lethargy, and weakness as signs of the infection [9]. Multiple theories have been proposed to explain the introduction of new WNV cases in a previously unaffected region. There is evidence that migratory birds play an important role in the spread of the pathogen [6]. For example, birds captured during their seasonal migration have tested positive for WNV in Israel [10], [11], [12], [13]. Migratory birds likely spread the virus to stopover sites in Europe as they travel from the south to the north [4], [14]. In contrast, considering the speed and duration of migratory birds’ flights, along with the duration of viremia, other researchers argued that the short-distance movements of resident birds better explain the spread pattern of WNV [6].
+
+Several mathematical models for WNV have been formulated. Many models emphasise the role of climatic conditions in the dynamics of WNV, as temperature plays a critical role in mosquito life-history traits and virus replication. Thereby, temperature-dependent functions are used to model mosquito and virus development rates [15], [16], [17]. These are included in ordinary differential equations (ODEs) to analyse the dynamics of WNV. However, local transmission dynamics are generally modelled within the vector and host populations, without accounting for geographic spread. Fesce et al. [18] estimated the basic reproductive number of the WNV infection and used it to quantify the infection spread in mosquitoes and birds, to classify areas with temperatures suitable for the outbreak of WNV. Other studies focus on controlling WNV, e.g., Bowman et al. [19] simulated mosquito-reduction methods and personal protective measures. A potential spill-over from birds to equids and humans was modelled by Laperriere et al. [16] using temperature-driven parameters and providing values for parameters governing development and transitions between compartments. Other models analysed differences in seasonal trends using sinusoidal (trigonometric) functions to represent seasonal variations of the WNV disease dynamics [20], [21], [22]. Such models typically show seasons when mosquitoes are most likely to be active without accounting for climatic factors.
+
+Different modelling frameworks also include the role of migratory birds in WNV transmission. Bergsman et al. [23] formulated an ODE model that investigates the interplay of WNV in both resident and migratory hosts. The model considers the yearly seasonal outbreaks that depend primarily on the number of susceptible migrant birds entering the local population each season, demonstrating that the early growth rates of seasonal outbreaks are more influenced by the migratory than the resident bird population. For Germany, Mbaoma et al. [17] recently developed an ODE model for WNV by incorporating the complete life cycle of Cx. pipiens as a vector, and resident birds, migratory birds, and humans as hosts. The study concluded that short-distance migratory birds such as the hooded crow were identified as important hosts in maintaining the enzootic transmission cycle of WNV in Germany. These ecological patterns for bird migration provide the fundamental biological basis for incorporating migratory birds into our model. This is mainly because bird movement patterns may determine where the virus can be introduced and how quickly it can spread during transmission seasons.
+
+Although ODE-based models allow us to understand the transmission dynamics of WNV, they generally do not consider the spatial movement of hosts and vectors across different regions without incorporating additional mechanisims, such as those in multi-patch models or distance-dispersal kernels. For example, Bhowmick et al. [24] used an ODE-based modelling approach in combination with different distance dispersal kernels to describe the spreading process of WNV through migratory birds in Germany. As a promising alternative, researchers have incorporated spatial variation and disease spread across different geographical regions into ODE-based models using partial differential equation (PDE) methods. Lin and Zhu [25] developed a reaction–diffusion PDE model for the spatial spread of WNV in mosquitoes and birds in North America using free-boundary conditions. Another study of WNV propagation was conducted by Maidana and Yang [26], who proposed a spatial model to analyse WNV spread across the USA and calculated the travelling wave speed. The model considers a system of PDEs that describes the movement of mosquito and avian populations through diffusion and advection. Results from this study show that mosquito movements do not play a major role in the spread, while bird advection is an important factor for lower mosquito biting rates.
+
+Maidana and Yang [27], [28] also made significant contributions to the spatial modelling of WNV using PDE models, and their framework is the basis of this study. Unlike previous WNV PDE models in the literature, our model considers not only resident birds but also migratory birds as hosts, thereby capturing seasonal changes in WNV transmission patterns driven by bird migration. Furthermore, we simulate the model in Germany, accounting for spatial heterogeneity, identifying high circulation areas, and giving theoretical insights into the contribution of migratory birds to WNV spread. In Germany, WNV was first detected in August 2018 in birds from the Southeastern region of Berlin [29]. Since then, WNV has been established in Germany and has spread. Germany lies along migration routes of birds between Europe, the Mediterranean, and Africa [30]. A study conducted by Nussbaumer et al. [31] indicates that most migratory birds arrive in the northeastern region of Germany during spring and leave the country in early autumn via the southwestern direction. First WNV strains confirmed in Germany were closely related to strains previously detected in Austria and the Czech Republic [29], indicating a potential route of introduction, and their ability to overwinter in Cx. pipiens [32] allows the virus to persist in the long term.
+
+Fig. 1 Flow chart diagram describing the transmission dynamics of WNV in Germany. Solid arrows represent transitions between compartments, while dotted lines represent interactions between different states. Image created in BioRender, with the licence: Arbovirologie (2025)https://BioRender.com/8a0gfj1. Content not licensed under the Creative Commons Attribution (CC BY) license.
+
+Fig. 1
+
+2 Model formulation
+
+Building on ODE-based models developed by Laperriere et al. [16] and Mbaoma et al. [17], we formulate a model for the spatial spread of WNV in Germany for the years 2019-2025, using 2018 data as initial distribution pattern. Our spatial model consists of a system of semi-linear parabolic PDEs that account for diffusion, advection, and reaction processes, together with temperature-dependent mosquito biting, latency, and mortality rates. In addition, our model includes the populations of mosquitoes and resident and migratory birds. The population of mosquitoes at time t and geographic location x=(x,y), is divided into three compartments: susceptible SV(t,x), exposed EV(t,x) and infectious IV(t,x), with the total population given by NV(t,x)=SV(t,x)+EV(t,x)+IV(t,x). Mosquitoes are recruited into the susceptible class via a logistic recruitment term: bVNV1−NVKV governed by the environmental carrying capacity KV.
+
+In the susceptible state, mosquitoes get infected by biting an infectious resident bird IrB and/or migratory bird ImB at a temperature-dependent mosquito biting rate (1) β(T,x)=0.3441+1.231e−0.184(T−20),
+
+and a probability of acquiring the infection of prV and pmV (Table 1), from resident and migratory birds respectively. When multiple bird host types are present, mosquito bites are distributed among the hosts based on host density and biting preferences. Because of this, we here introduce bite-allocation fractions qr and qm, which represent the proportions of mosquito bites on resident and migratory birds, respectively. Under a density-dependent assumption, these fractions are defined as proportional to local host abundance, such that qr=NrBNrB+cNmB and qm=cNmBNrB+cNmB, where NrB=SrB+ErB+IrB+RrB and NmB=SmB+EmB+ImB+RmB are the total resident and migratory bird populations. c>0 is the host-preference parameter that controls how mosquito bites are divided between resident and migratory birds. When c>1, migratory birds are more attractive, leading to a higher proportion of bites on them. Conversely, when 0<c<1, the attractiveness of migratory birds is reduced, resulting in more bites on resident birds. When c=1, bites are split based on host availability, which corresponds to density-dependent allocation without a specific feeding preference [23].
+
+The force of infection on mosquitoes is therefore given by λBV(T,x)=λrV+λmV=qrprVβ(T,x)IrBNrB+qmpmMβ(T,x)ImBNmB.
+
+A successful contact between infectious birds and susceptible mosquitoes at location x and time t sends susceptible mosquitoes to the exposed class. The latency rate on mosquitoes was fitted in [15], and is given by (2) γV(T,x)=1e−0.09T+5.36.
+
+and from the exposed stage, mosquitoes progress to the infectious class (IV). Mosquitoes die at temperature-dependent natural mortality rate of μV(T,x), where (3) μV(T,x)=0.0025T2−0.094T+1.025710
+
+defined in [45]. Spatial and temporal plots of the thermal functions (Eqs. (1), (2), and (3)) are presented in Section S1 of the Suplementary material. The host population consists of resident and migratory birds. This population is divided into susceptible Sj, exposed Ej, infected Ij, recovered Rj, and dead Dj hosts, with j=rB,mB, and for easier readability, we denote resident birds by subscript (rB), and migratory birds by (mB). The recruitment into the susceptible bird populations is modelled using a logistic growth with density-dependent recruitment:
+
+bjNj1−NjKj, following Bhowmick et al. [33]. Susceptible resident and migratory birds get infected by interacting with infectious mosquitoes, with a biting rate β(T,x) defined in Eq. (1), and a probability of acquiring the infection of pVr and pVm respectively.
+
+In mosquito-borne disease models, the mosquito-to-bird ratio is crucial because it determines the per-bird biting pressure [16], [17], [33], which influences the disease burden. Vogels et al. [34] argued that mosquito abundance is limited by the availability of host blood meals, and bird density directly impacts mosquito feeding success. As a result, the number of bites an individual bird receives mainly depends on the ratio of mosquitoes to birds, rather than solely on mosquito or bird density. Because of this, we introduce the mosquito-to-bird ratio parameter ϕ for resident and migratory birds.
+
+For simplicity of the model, this ratio is considered as an effective seasonal measure of mosquito biting pressure per host, instead of a population count over time. In WNV models, Bhowmick et al. [33] simulated their ODE model with a mosquito-to-bird ratio ranging from 10 to 30, while Laperriere et al. [16] used a ratio of 30. Another study by de Freitas Costa et al. [35], which aimed to investigate the conditions necessary for the circulation of WNV in Germany and the Netherlands, found that larger proportions of susceptible birds and higher vector–host ratios were required. The study showed that WNV circulation in the Netherlands was rarely sustained when vector–host ratios fell below approximately 1:100. We here inferred different yearly ratios whose values ranged between 30 and 60 (Table 2). The force of infection on resident birds is thus given by (4) λVr(T,x)=qrϕpVrβ(T,x)IV(t,x)NV,
+
+while that of migratory birds is (5) λVm(T,x)=qmϕpVmβ(T,x)IV(t,x)NV.
+
+The latency rates on resident and migratory birds are given by γrB and γmB respectively, while their recovery rates are given by αrB and αmB. Proportions 1−νrB of resident birds and 1−νmB of migratory birds recover from the infection, while the proportions νrB and νmB die at the rates αrB, and αmB respectively. Resident and migratory bird species can also die naturally at rates μrB and μmB.
+
+2.1 Diffusion and advection processes
+
+Diffusion describes the process by which matter is transported from one part of a system to another due to random molecular motions [36]. The concept of diffusion dates back to the 19th century, when Fick [37] recognised the transfer of heat by conduction driven by random molecular motions and quantified this process using the heat-conduction equation previously derived by baron de Fourier [38]. To date, the diffusion process has attracted significant attention, especially in mathematical biology. In ecological modelling, diffusion is used to describe the random movement of species from areas of higher concentration to areas of lower concentration [39], influencing their spatial distribution patterns. On the other hand, the advection process refers to the directional flow of a substance by a known velocity vector field [40]. The combined effects of diffusion and advection, along with the ODE terms, form an advection–diffusion–reaction PDE system that models how a phenomenon spreads over time and space. Reaction terms govern local transmission at each location, while diffusion and advection model the movement of species, including infectious ones.
+
+In this study, we define diffusion for mosquitoes and for both resident and migratory birds as they move locally in search of resting/breeding sites, food, and other needs. The advection process is defined for migratory birds only, as we can account for their seasonal directional migration patterns. Diffusion is denoted by the Laplacian operator (Δ), with diffusion coefficients for mosquitoes, resident, and migratory birds denoted by D1,D2,D3 in km2/day respectively. Furthermore, we set the diffusion coefficients so that mosquito diffusion is lower than that of resident and migratory birds, as mosquitoes are considered insects with a small radius of action [26], [41], [42]. A lower diffusion coefficient is assigned to resident birds compared to migratory birds to highlight the greater mobility of migratory birds. To improve the interpretability of diffusion coefficients, we define the root-mean-square displacement (RMSD). The RMSD describes the dispersal distance species move from the initial source under diffusion alone after a time τ [43], [44], and it is calculated using the formula: RMSD=2pDτ,
+
+where p=2 is the spatial dimension, D is the diffusion coefficient and τ is the time step. We denote the advection term by the gradient operator (∇), with a velocity A=[vx,vy] km/day, in a two-dimensional plane. The schematic diagram of our PDE model and the governing system of equations are shown in Fig. 1 and system (6).
+
+(6) Mosquitopopulation:∂SV∂t=D1ΔSV+bVNV1−NVKV−[λrV(T,x)+λmV(T,x)+μV(T,x)]SV,∂EV∂t=D1ΔEV+[λrV(T,x)+λmV(T,x)]SV−γV(T,x)+μV(T,x)EV,∂IV∂t=D1ΔIV+γV(T,x)EV−μV(T,x)IV,
+
+Resident birds:∂SrB∂t=D2ΔSrB+brBNrB1−NrBKrB−λVr(T,x)+μrBSrB,∂ErB∂t=D2ΔErB+λVr(T,x)SrB−[γrB+μrB]ErB,∂IrB∂t=D2ΔIrB+γrBErB−[αrB+μrB]IrB,∂RrB∂t=D2ΔRrB+(1−νrB)αrBIrB−μrBRrB,∂DrB∂t=αrBνrBIrB,
+
+Migratory birds:∂SmB∂t=D3ΔSmB−A⋅∇SmB+bmBNmB1−NmBKmB−λVm(T,x)+μmBSmB,∂EmB∂t=D3ΔEmB−A⋅∇EmB+λVm(T,x)SmB−[γmB+μmB]EmB,∂ImB∂t=D3ΔImB−A⋅∇ImB+γmBEmB−[αmB+μmB]ImB,∂RmB∂t=D3ΔRmB−A⋅∇RmB+(1−νmB)αmBImB−μmBRmB,∂DmB∂t=νmBαmBImB.
+
+The total populations of mosquitoes, resident birds and migratory birds are given by NV=SV+EV+IV,NrB=SrB+ErB+IrB+RrB,NmB=SmB+EmB+ImB+RmB, while the initial conditions are given by:
+
+SV(0,x)=ψ1(x), EV(0)=ψ2(x), IV(0)=ψ3(x), SrB(0,x)=ψ4(x), ErB(0,x)=ψ5(x), IrB(0,x)=ψ6(x), RrB(0,x)=ψ7(x), DrB(0)≥0, SmB(0,x)=ψ8(x), EmB(0,x)=ψ9(x), ImB(0,x)=ψ10(x), RmB(0,x)=ψ11(x), DmB(0)≥0, where, x=(x,y)∈Ω,Δ=∂2(⋅)∂x2+∂2(⋅)∂y2,∇=∂(⋅)∂x,∂(⋅)∂y.
+
+We assume the system moves in a region Ω⊂R2, with a smooth boundary ∂Ω according to Fick’s law [37], so that in the initial conditions, x∈Ω, where ψi∈C2(Ω)∩C(Ω¯) and subject to the homogeneous Neumann boundary conditions: ∂SV∂n=∂EV∂n=∂IV∂n=∂SrB∂n=∂ErB∂n=∂IrB∂n=∂RrB∂n=∂SmB∂n=∂EmB∂n=∂ImB∂n=∂RmB∂n=0,
+
+forx∈∂Ω,t>0, and n is the unit outer normal to Ω. The state variables and initial conditions are summarised in Table (S1) of the Supplementary material, while model parameters are shown in Table 1.
+
+Table 1 Definition of parameters used in system (6).
+
+Table 1Parameter	Definition	Value	Source	
+bV(x)	Birth rate of mosquitoes	0.0666	[23]	
+brB(x)	Birth rate of resident birds	0.00342	[45]	
+bmB(x)	Birth rate of migratory birds	0.0014	[23]	
+μV(T,x)	Natural mortality rate of mosquitoes	Eq. (3)	[16]	
+μrB(x)	Natural mortality rate of resident birds	0.0005	[17]	
+μmB(x)	Natural mortality rate of migratory birds	0.00023	[17]	
+γV(T,x)	Latency rate on mosquitoes	Eq. (2)	[15]	
+γrB(x)	Latency rate on resident birds	0.196	[17]	
+γmB(x)	Latency rate on migratory birds	0.285	[17]	
+αrB(x)	Removal rate of infectious resident birds	0.867	[17]	
+αmB(x)	Removal rate of infectious migratory birds	0.4	[17]	
+νrB(x)	Proportion of dead resident birds	0.655	[17]	
+νmB(x)	Proportion of dead migratory birds	0.103	[17]	
+pVr(x)	Probability of a new resident bird infection	0.97	[17]	
+pVm(x)	Probability of a new migratory bird infection	0.9	[17]	
+prV(x)	Probability of a new mosquito infection from a resident bird	0.4	[17]	
+pmV(x)	Probability of a new mosquito infection from a migratory bird	0.7	[17]	
+β(T,x)	Mosquito biting rate	Eq. (1)	[45]	
+ϕ(x)	Mosquito to resident bird ratio	Table 2	Assumed	
+D1(x)	Diffusion coefficient of mosquitoes	Table 2	Inferred from the data	
+D2(x)	Diffusion coefficient of resident birds	Table 2	Inferred from the data	
+D3(x)	Diffusion coefficient of migratory birds	Table 2	Inferred from the data	
+A(t,x)=[vx;vy]	Advection vector for migratory birds (in km/day)	[1;1] & [−1;−1]	Estimated Section 5	
+
+3 Mathematical properties of the model
+
+The mathematical proofs for the positivity, uniqueness, boundedness and well-posedness of the model and its solution are shown in Section S3 of the Supplementary material.
+
+4 Steady states and the reproductive number
+
+The PDE system (6) admits a non-trivial WNV-free equilibrium point E0 such that SV0,EV0,IV0,SrB0,ErB0,IrB0,RrB0,DrB0,SmB0,EmB0,ImB0,RmB0,DmB0
+
+=KV1−μVbV,0,0,KrB1−μrBbrB,0,0,0,0,KmB1−μmBbmB,0,0,0,0.
+
+E0 is positive if and only if bj>μj, for j=V,rB,mB. The uniqueness of E0 can be verified using [[46], Lemma 2.1]. The basic reproductive number of the deterministic part of our model is computed following [47], as follows:
+
+Let ℱ, be the matrix of new infections, and V, the matrix of transitions, then ℱ=(λrV+λVm)SV0λVrSrB0λVmSmB0,V=(γV+μV)EV−γVEV+μVIV(γrB+μrB)ErB−γrBErB+(αrB+μrB)IrB(γmB+μmB)EmB−γmBEmB+(αmB+μmB)ImB.
+
+Partial derivatives evaluated at the WNV-free equilibrium point yield: F=000ϕβprVSV0SrB0+SmB00ϕβpmVSV0SrB0+SmB00000000βpVrSrB0SV0(SrB0+SmB0)00000000000βpVmSmB0SV0(SrB0+SmB0)0000000000,
+
+and V=−γV−μV00000γV−μV000000−γrB−μrB00000γrB−αrB−μrB000000−γmB−μmB00000γmB−αmB−μmB.
+
+The basic reproductive number R0(x) is thus given by the spectral radius of FV−1, which gives (7) R0(x)=R0Res+R0Mig,
+
+whereR0Res=γVϕβprVpVrγrBμV(αrB+μrB)(γrB+μrB)(γV+μV)1+KmB1−μmBbmBKrB1−μrBbrB2
+
+andR0Mig=γVϕβpmVpVmγmBμV(αmB+μmB)(γmB+μmB)(γV+μV)1+KrB1−μrBbrBKmB1−μmBbmB2.
+
+Since all parameters of the model are positive, and the equilibrium point is also positive, then R0Res and R0Mig are non-negative. The basic reproductive number R0(x) is plotted for the entire country and compared with observed data for 2018–2025 (Fig. 2). R0(x) shows high circulation areas in the eastern parts of Germany, with other regions in the southeastern and northern parts also showing circulation, which is in agreement with the observed data. Moreover, we also included the 2025 case data to evaluate whether our R0(x) risk map can predict regions where future cases may occur. Indeed, as of March 2026, 2025 WNV cases were observed in the east, north, and southwest of Germany, regions previously flagged as high-risk by R0(x). This result is important because it allows potential high-risk regions to be identified before seasonal outbreaks occur.
+
+Fig. 2 The basic reproductive number R0(x) compared to observed data.
+
+Fig. 2
+
+5 Simulation framework
+
+Based on available WNV data in Germany, birds of the Accipitridae family were the most affected species in 2018 [17], [48]. Therefore, as also done by Mbaoma et al. [17], we used parameters associated with northern goshawks and raptors for the resident bird, both of which fall under the Accipitridae family. Migratory birds in the model represent species that move over short to long distances, particularly along the northeast to southwest seasonal migratory routes. Parameters for these birds are based on those observed in corvids, as they are among the most frequently reported WNV-positive birds, second only to raptors and tits [17]. For a detailed derivation of these parameters, we refer the reader to [17] and the references therein.
+
+Initial population densities of infectious birds and mosquitoes are estimated to be high in Halle (Saale), the main WNV hot spot in 2018, followed by Berlin, and, lastly, lower densities in Laage, Poing, and Plessa, as indicated by the 2018 WNV observed case data [49]. On the other hand, initial densities of susceptible hosts and mosquitoes are assumed to be spatially homogeneously distributed across the entire country. A 2-dimensional Gaussian function of the form f(t,x)=e−(x−x0)2+(y−y0)22σ2
+
+is used to define the initial condition peaks. (x0,y0) are the central coordinates specifying the nodes of the infected regions, and σ is the standard deviation. σ=40 km in Berlin and Halle Saale (main hotspot regions), and 20 km in other infected areas.
+
+The effect of host-specific feeding allocation is first examined using a baseline scenario with c=1, in which mosquito feeding preference depends solely on bird densities. This scenario is used to infer diffusion coefficients and compare model predictions with observed data. Two additional scenarios are then defined: scenario 1, with c=0.4, in which mosquitoes primarily feed on resident birds; and scenario 2, with c=3, in which mosquitoes prefer migratory birds.
+
+The model runs on a daily time step from 1 March to 30 November each year, spanning 2019 to 2025. Each year, the final solution for that year is saved and used as the initial condition for the next, but starting with zero exposed and infectious birds. Such an initialisation reflects the short duration of WNV viremia in birds, which lasts only a few days [50], [51], [52], and may be cleared before the next spring. The only reservoirs considered in this work are mosquitoes, which overwinter with infected specimens carrying the virus into spring [32], [53]. These start and end dates are chosen because WNV activity is known to be high in summer. Spring and autumn are included to account for the seasonal bird migrations into Germany in spring and out in autumn. This choice also enables the incorporation of new data from ongoing WNV surveillance activities. For instance, the initial conditions for 2020 were updated when a new WNV case was confirmed in Hamburg, north of Germany, which may have influenced subsequent spread patterns observed in the north.
+
+In the process, we use inverse modelling to infer the diffusion and advection coefficients that may have influenced the observed spreading pattern. This is done by running the model with different coefficients and visually comparing the model output to the observed data. The final coefficients are selected based on their ability to replicate the observed pattern, while respecting the biological constraints of the magnitudes, i.e., D1<D2<D3. This approach is primarily used because the available data are limited and sparse; therefore, our main goal is to explain the observed qualitative spread pattern of WNV.
+
+Temperature strongly influences the activity of Cx. pipiens including their ability to transmit WNV [54]. This motivated us to model mosquito parameters using temperature-dependent functions, namely: mosquito biting rate β(T,x), latency rate γV(T,x), and mortality rate μV(T,x). ERA5 reanalysis data on single levels from 1940 to present are downloaded from the Copernicus Climate Data Store [55]. The data is first cleaned, and the years 2019–2025 are subsequently extracted for interpolation onto the mesh and used to compute the temperature-space dependent mosquito functions. During the simulation process, β(T,x),γV(T,x) and μ(T,x) are dynamically updated based on the temperatures at different locations in Germany. Advection, representing the directed movement of migratory birds, is fixed throughout the years. The spring-to-early summer movement is described by the vector field [vx;vy]=[1;1] while the late summer-to-autumn movement is described by [vx;vy]=[−1;−1] in km per day. To solve our PDE model, we use the MATLAB PDE Toolbox [56], which uses the finite element method. The toolbox solves PDEs of the form: (8) m∂2u∂t2+d∂u∂t−∇⋅c∇u+au=f,
+
+In our case, m=0, d=1, and a=0. Matrices c and f represent the diffusion coefficients and reaction terms, respectively, and are included in Section S4 of the Supplementary material, along with the pseudo-code for the simulation procedure. The map of Germany is downloaded as a shapefile from [57] and simplified using MapShaper [58]. The observed data indicate presence only, as no absence data are available, and for this reason, we qualitatively present our results on a Low-High scale for better interpretation.
+
+6 Model fitting
+
+To fit our model predictions, we compared simulated cases with observed data. The observed data comprises bird and equid infection cases, as well as mortality, obtained from the World Organisation for Animal Health (WOAH) [59]. Due to the lack of systematic WNV surveillance in Germany, many dead birds go undetected, while others are discovered at decomposed stages, which can affect PCR tests. Domesticated equids are usually easier to diagnose because owners often report sick animals. Given that birds are the amplifying hosts, it is reasonable to assume that, before equid cases are reported, an amplifying host was infected first and might have gone undetected. Moreover, our observed bird data is dominated by dead birds, while the equid data is dominated by infected equids. Because of this, our model fitting compares merged WNV-related events observed in birds and equids, with the compartment of dead resident birds, given the high WNV-related deaths observed in birds of the Accipitridae family [17], [48]. Firstly, we aggregate both the simulated and observed data within the GADM (Database of Global Administrative Areas) level-2 administrative units of Germany (N = 356) [57], comprising both rural districts (Landkreise) and urban districts (kreisfreie Städte). The PDE solution u(x,y,tf) is extracted at the final time step, and the domain Ω is divided into 356 sub domains Ωii=1N corresponding to the GADM level-2 administrative units, such that Ω=⋃i=1NΩi. For each Ωi, the mean simulated number of cases is given by 1|Ωi|∫Ωiu(x,y,tf)dA, where |Ωi| is the area of the region Ωi.
+
+Observed cases are aggregated using the formula ∑j=1Nobs1Ωi(xj,yj,tf), where 1Ωi(xj,yj,tf) is the indicator function equal to 1 if the observed point lies within Ωi, and 0 otherwise, and Nobs is the number of observed points per region.
+
+Boundaries are shrunk inwards using the polybuffer function [56] from the toolbox to prevent misclassification near borders. The isinterior operator [56] is then applied to prevent double-counting elements located on regional borders. Thus, only points lying strictly within the interior of a polygon are counted as belonging to that region.
+
+Lastly, Spearman’s rank correlation coefficient (ρ) [60] is applied to quantify the degree of spatial correspondence between simulated and observed patterns in each district. Spearman’s (ρ) is calculated using the formula: (9) ρ=1−6∑i=1Ndi2N(N2−1),
+
+where di is the difference between the rank of the simulated and observed points, and N is the number of administrative units. A positive ρ indicates that locations with a high density of simulated cases correspond to locations with a high density of observed points. Conversely, a negative ρ implies that high values in one pattern correspond to low values in the other, indicating an opposite relationship. A ρ close to zero suggests the absence of a monotonic spatial relationship [60]. P-values are computed to assess whether the observed correlation occurred by chance, with smaller p-values (< 0.05) indicating that the correlation is unlikely to have occurred by chance.
+
+7 Results
+
+For all scenarios, the model is initialised with 2018 WNV cases data. Under the baseline scenario, where mosquito biting is solely influenced by host availability, a strong visual agreement between the simulated and observed patterns is evident throughout the 2019–2025 simulation period (Fig. 3). The model’s main strength lies in its ability to identify high circulation areas that were initially localised in 2018. The RMSD estimates indicate that WNV-mosquito infections reached an average annual dispersal range of 46.9 km in 2022, and 33.2 km for all other years. However, resident birds dispersed an average range of 66.3 km in 2022 and 57.4 km in all other years. In migratory birds, an annual RMSD of 104.9 km was observed over the years (Table 2). The RMSD for mosquitoes remained lower than that for resident and migratory birds, while the RMSD for resident birds was lower than that for migratory birds, reflecting the greater mobility of avian hosts compared to mosquito species. Still under the baseline scenario, Spearman’s correlation coefficients (ρ) were all statistically significant with values greater than 0.4 (Table 2, Fig. 4).
+
+In 2023, the model accurately predicted an isolated case in the northwestern region (next to the Dutch border) and another isolated case in the southwestern region close to the Upper Rhine valley (Fig. 3(f)). This suggests the model’s ability to anticipate under-reported spread patterns mainly driven by temperature, mosquito, and bird movements.
+
+When mosquito preference is biased towards resident birds (scenario 1, c=0.4), the model predicts a slower spatial expansion of WNV (Fig. 7). Although resident birds may experience increased local transmission, the reduced infection probability among migratory birds limits long-range dissemination of the virus. Only in 2025 did the model manage to detect the isolated case observed in 2023 along the Upper Rhine valley. This outcome suggests that local amplification alone is insufficient to reproduce the observed national-scale spread and highlights the critical role of migratory-mediated dispersal, which can involve either short or long-distance migration, in shaping WNV spreading patterns.
+
+In contrast, when mosquitoes bite migratory birds instead of resident birds (scenario 3, c=3), the spread of WNV becomes rapid (Fig. 6). This occurs when mosquito bites that might have gone to resident birds are instead taken by migratory birds. It is clear that by the year 2022, cases observed in 2024 were already being predicted by the model. Due to their directional dispersal patterns, infected migratory birds could serve as long-range carriers, establishing the virus in new locations beyond primary endemic areas. Therefore, host-specific feeding behaviour might play a crucial role in long-distance transmission dynamics.
+
+Fig. 3 Model simulation compared to observed data of WNV in Germany between the years 2019–2025, for the case when c=1, corresponding to density-dependent bite allocation proportional to host availability.
+
+Fig. 3
+
+Fig. 4 Scatter plots for Spearman’s rank correlation showing the monotonic relationship between model predictions and observed data for the case c=1, corresponding to density-dependent bite allocation proportional to host availability.
+
+Fig. 4
+
+Fig. 5 Spatial comparison between simulated and observed WNV cases in Germany (2019–2025), on a log10 scale.
+
+Fig. 5
+
+Table 2 Summary values for the diffusion coefficients (D1,D2,D3), in km2 per day; RMSD for each species in km; Spearman’s correlation coefficient and P-values, for the case c=1, corresponding to density-dependent bite allocation proportional to host availability.
+
+Table 2Year	D1	D2	D3	RMSD1	RMSD2	RMSD3	ϕV	ρ	P-value	
+2019	1.0	3.0	10.0	33.2	57.4	104.9	60	0.42	5.9×10−16	
+2020	1.0	3.0	10.0	33.2	57.4	104.9	30	0.49	2.3×10−25	
+2021	1.0	3.0	10.0	33.2	57.4	104.9	40	0.48	3.4×10−23	
+2022	2.0	4.0	10.0	46.9	66.3	104.9	50	0.50	1.3×10−22	
+2023	1.0	3.0	10.0	33.2	57.4	104.9	50	0.44	1.0×10−17	
+2024	1.0	3.0	10.0	33.2	57.4	104.9	30	0.42	1.1×10−16	
+2025	1.0	3.0	10.0	33.2	57.4	104.9	30	0.43	4.9×10−17	
+
+Fig. 6 Model simulations compared with observed WNV cases in Germany (2019–2022) under Scenario 3: c=3, representing preferential biting of migratory birds.
+
+Fig. 6
+
+Fig. 7 Model simulation compared to observed data of WNV in Germany between the years 2019–2025, for the case when c=0.4, corresponding to the case when resident birds are preferred, and there is a reduced mosquito feeding on migratory birds.
+
+Fig. 7
+
+8 Discussions and conclusions
+
+Understanding the WNV spreading pattern allows early detection of WNV outbreaks. Identifying high-circulation areas also supports early planning and resource allocation for preventive measures. At the same time, implementing systematic surveillance programs to understand the spread of WNV is costly. Therefore, in this study, we modelled the spread of WNV in Germany using a temperature-driven PDE model with advection and diffusion processes. We proved that our model has non-negative, bounded, and unique solutions, and that the system (6) is well-posed.
+
+In agreement with previous studies [17], [23], [33], at the temporal level, the basic reproductive number (R0(x)) indicates that the presence of migratory birds increases the number of amplifying local hosts. At the spatial scale, R0(x) identified low-high risk regions of public health interest, which agreed with the observed WNV cases in birds and equids, and other temperature-driven WNV models, e.g., by Mbaoma et al. [17]. The reproductive number identified regions in the eastern parts of Germany as high circulation areas, a result similar to that obtained in [17], [24]. In addition, R0(x) flagged regions in the north, south and southwest of Germany as new circulation areas. Our approach explains the drivers of WNV spread in Germany and infers estimates of spreading speeds. In particular, from the simulation of our PDE model, we computed the annual RMSD, which estimates the average displacement of the infection over a given period, and due to a lack of real host movement data, we chose diffusion coefficients that best matched the observed data.
+
+Scenario analyses comparing the model with different mosquito biting preferences between resident and migratory birds were explored. Results indicated that when a large proportion of bites is allocated to resident birds, WNV spread is very localised (Fig. 7). In contrast, when migratory birds receive more bites, a more rapid spread is observed (Fig. 6) and the model detected 2023, 2024, and 2025 cases as early as in 2022 (Fig. 6(e)). While this comparison is based on limited, sparse data, the alignment between simulated spreading pathways and known migratory bird flyways is consistent with the hypothesis that long-range, directed bird migration may contribute to WNV dissemination. This observation is also supported by a recent study by Tóth et al. [61]. Our results suggest that migratory birds may still have played a role in shaping the WNV spread pattern in Germany, even if they may not be the primary source of infection. Thus, effective surveillance and prevention efforts of WNV may also be implemented at key stopover sites, where migratory birds are likely to rest and interact with local mosquitoes.
+
+The 2023 data showed an isolated WNV case near the Dutch border (Fig. 3(f)). That year, no WNV cases were reported directly across the Dutch border, suggesting that the German case may have resulted from internal dispersal rather than immediate cross-border importation. However, given regional differences in surveillance intensity and reporting, the absence of reported cases may not necessarily indicate the absence of infection. Therefore, while the spatial agreement is promising, results near national boundaries should be interpreted with caution, given our modelling assumptions on homogeneous Neumann boundary conditions, which prevent cross-border inflows. Notably, in 2023, the model identified a region between the Dutch border and parts of the north of Germany as a possible high-circulation area, a finding confirmed by the observational data for the year 2024 (Fig. 2 and Fig. 3(f)).
+
+Our model uncovers a transmission corridor for WNV that spreads from the east in an anticlockwise direction, likely reflecting the temperature gradient suitable for mosquito activity. Interestingly, the circulation areas identified in our model agree with those in the study by Di Pol et al. [62], which aimed at modelling the temperature suitability for the risk of WNV establishment in European Cx. pipiens populations. As of March 2026, WNV bird and equid cases for 2025 had been reported in the eastern, northern, and southwestern regions, regions that were previously flagged as circulation areas in previous years (Fig. 2, right). This is an indication of seasonal recurrence supported by empirical evidence from North America and Southern Europe WNV events that show that once introduced into ecologically suitable regions, WNV tends to establish persistent seasonal transmission with annual reemergence [7], [63]. The overwintering of WNV-infected Culex mosquitoes likely plays an important role for the local persistence of the virus [32].
+
+Results from our spatially explicit PDE model suggest that temperature, mosquito-feeding preference, together with species movement through diffusion and advection, play a significant role in the spread of WNV in Germany. However, while our model successfully simulates WNV dispersal in Germany, limitations exist. For instance, factors such as land use influence the overall spatiotemporal distribution of mosquito populations [64], which is important for modelling mosquito abundance. Additionally, we used only temperature as the weather variable to account for heterogeneity in mosquito parameters, whereas precipitation, wind speed, and wind direction also affect mosquito distribution and activity [65]. If spatially resolved datasets for all these factors are accessible, they can be considered to improve the spatial heterogeneity of our PDE model. Estimating diffusion and advection coefficients through inverse modelling may introduce uncertainty and potential identifiability issues, as different parameter combinations can yield similar model outputs [66], [67]. Even if our diffusion coefficients were estimated within a biologically plausible range consistent with previous studies and known dispersal behaviour of species, exploratory simulations (not presented here) indicated that the qualitative model behaviour remained reasonable even for different combinations, and thus values chosen here represent one plausible scenario. Future work could address this limitation by adopting more systematic estimation frameworks, such as Bayesian approaches [68]. To better capture spatial heterogeneity, another step could be to use spatially varying diffusion coefficients, since movement patterns are not constant in reality. Moreover, our PDE model could also be extended to a stochastic PDE system to incorporate additional random effects that deterministic PDEs cannot model.
+
+The low correlation coefficients observed in model fitting may have partly resulted from the sparse and discrete nature of the reported observational data. Future work incorporating higher-resolution surveillance data could improve the model’s calibration accuracy. Furthermore, the choropleth maps presented in Fig. 5 indicate that the model overestimates cases in some towns, where no WNV cases were confirmed. Although this could be true given the continuous nature of the PDE model, the lack of systematic surveillance might also lead to under-reporting of observed cases. This is evidenced by the fact that most data arises from incidental or passive detection rather than systematic monitoring [69], and thus our simulation results should be viewed as minimum estimates rather than representing the full WNV situation.
+
+CRediT authorship contribution statement
+
+Pride Duve: Writing – review & editing, Conceptualization, Methodology, Formal analysis, Software, Validation, Writing – original draft. Felix Gregor Sauer: Writing – review & editing, Writing – original draft, Supervision, Conceptualization. Renke Lühken: Writing – review & editing, Writing – original draft, Supervision, Conceptualization.
+
+Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have influenced the work reported in this paper.
+
+Appendix A Supplementary data
+
+The following is the Supplementary material related to this article. Video S1
+
+Video S2
+
+Video S3
+
+Video S4
+
+Video S5
+
+Video S6
+
+Video S7
+
+MMC S8
+
+Supplementary material containing mathematical analysis of the model and figures for temperature-dependent functions.
+
+MMC S8
+
+Data availability
+
+The MATLAB codes used to reproduce the simulations presented in this study, together with the cleaned WNV datasets used for model fitting, are archived at Zenodo and can be accessed from Duve et al. [70]. The codes may also be adapted to investigate transmission dynamics in other regions. The original datasets can be obtained from the World Organisation for Animal Health (WOAH) [59] website.
+
+Acknowledgements
+
+The authors would like to thank the Federal Ministry of Education and Research of Germany (BMBF) under the project NEED (Grant Number 01Kl2022), the Federal Ministry for the Environment, Nature Conservation, Nuclear Safety and Consumer Protection (Grant Number 3721484020), and the 10.13039/501100001659 German Research Foundation (JO 1276/51) for funding this project. The authors are also grateful to the National Research Platform for Zoonosen for funding the research visit of Pride Duve to Prof. Dr. Reinhard Racke’s lab, at the University of Konstanz. Furthermore, we would like to acknowledge and thank Reinhard Racke, Nicolas Schlosser, and Stefanie Frei from the University of Konstanz for the discussions, consultations, and support.
+
+☆ This article is part of a Special issue entitled: ‘One Health framework for Inf Disease Modelling’ published in One Health.
+
+Appendix A Supplementary material related to this article can be found online at https://doi.org/10.1016/j.onehlt.2026.101386.
+
+
+References
+
+1 Smithburn K.C. Hughes T.P. Burke A.W. Paul J.H. A neurotropic virus isolated from the blood of a native of Uganda Am. J. Trop. Med. 0096-6746 s1-20 4 1940 471 492 10.4269/ajtmh.1940.s1-20.471
+2 Ciota Alexander T. West Nile virus and its vectors Curr. Opin. Insect Sci. 2214-5745 22 2017 28 36 10.1016/j.cois.2017.05.002 28805636
+3 Calisher C.H. Karabatsos N. Dalrymple J.M. Shope R.E. Porterfield J.S. Westaway E.G. Brandt W.E. Antigenic relationships between flaviviruses as determined by cross-neutralization tests with polyclonal antisera J. Gen. Virol. 1465-2099 70 1 1989 37 43 10.1099/0022-1317-70-1-37 2543738
+4 Hubálek Zdenek Halouzka Jirí West Nile fever–a reemerging mosquito-borne viral disease in Europe Emerg. Infect. Dis. 1080-6059 5 5 1999 643 650 10.3201/eid0505.990505 10511520 PMC2627720
+5 Kramer Laura D. Styer Linda M. Ebel Gregory D. A global perspective on the epidemiology of West Nile virus Annu. Rev. Entomol. 1545-4487 53 1 2008 61 81 10.1146/annurev.ento.53.103106.093258 17645411
+6 Rappole J.H. Hubálek Z. Migratory birds and West Nile virus: Migratory birds and west nile virus J. Appl. Microbiol. 1364-5072 94 2003 47 58 10.1046/j.1365-2672.94.s1.6.x 12675936
+7 Petersen Lyle R. Brault Aaron C. Nasci Roger S. West Nile virus: review of the literature Jama 0098-7484 310 3 2013 308 10.1001/jama.2013.8042 23860989 PMC4563989
+8 Campbell Grant L. Marfin Anthony A. Lanciotti Robert S. Gubler Duane J. West Nile virus Lancet Infect. Dis. 1473-3099 2 9 2002 519 529 10.1016/s1473-3099(02)00368-7 12206968
+9 Salazar Patricia Traub-Dargatz Josie L. Morley Paul S. Wilmot Delwin D. Steffen David J. Cunningham Wayne E. Salman M.D. Outcome of equids with clinical signs of West Nile virus infection and factors associated with death J. Am. Vet. Med. Assoc. 0003-1488 225 2 2004 267 274 10.2460/javma.2004.225.267 15323385
+10 Ernek E. Kozuch O. Nosek J. Teplan J. Folk C. Arboviruses in birds captured in Slovakia 1977 203628
+11 Malkinson Mertyn Banet Caroline Weisman Yoram Pokamunski Shimon King Roni Deubel Vincent Introduction of West Nile virus in the Middle East by migrating white storks Emerg. Infect. Dis. 1080-6059 8 4 2002 392 397 10.3201/eid0804.010217 11971773 PMC2730252
+12 Nir Yehuda Goldwasser Robert Lasowski Yehuda Avivi Amiel Isolation of arboviruses from wild birds in Israeli Am. J. Epidemiol. 0002-9262 86 2 1967 372 378 10.1093/oxfordjournals.aje.a120747 6058393
+13 Watson G.E. Shope R.E. Kaiser M.N. An ectoparasite and virus survey of migratory birds in the eastern Mediterranean Transcontinental connections of migratory birds and their role in the distribution of arboviruses 1972 Nauka Novosibirsk 176 180
+14 Hannoun Claude Corniou Berhard Mouchet Jean Role of migrating birds in arbovirus transfer between Africa and Europe Transcontinental connections of migratory birds and their role in the distribution of arboviruses 1972 Nauka Novosibirsk, Russia 167 172
+15 Heidecke Julian Wallin Jonas Fransson Peter Singh Pratik Sjödin Henrik Stiles Pascale Claire Treskova Marina Rocklöv Joacim Uncovering temperature sensitivity of West Nile virus transmission: Novel computational approaches to mosquito-pathogen trait responses PLoS Comput. Biol. 1553-7358 21 3 2025 e1012866 10.1371/journal.pcbi.1012866 PMC11981226 40163523
+16 Laperriere Vincent Brugger Katharina Rubel Franz Simulation of the seasonal cycles of bird, equine and human West Nile virus cases Prev. Vet. Med. 0167-5877 98 2–3 2011 99 110 10.1016/j.prevetmed.2010.10.013 21093946
+17 Mbaoma Oliver Chinonso Thomas Stephanie Margarete Beierkuhnlein Carl Spatiotemporally explicit epidemic model for West Nile virus outbreak in Germany: An inversely calibrated approach J. Epidemiol. Glob. Health 2210-6014 14 3 2024 1052 1070 10.1007/s44197-024-00254-0 38965178 PMC11442818
+18 Fesce Elisa Marini Giovanni Rosà Roberto Lelli Davide Cerioli Monica Pierangela Chiari Mario Farioli Marco Ferrari Nicola Understanding West Nile Virus Spread: Mathematical Modelling to Determine the Mechanisms with the Most Influence on Infection Dynamics 2022 Cold Spring Harbor Laboratory 10.1101/2022.02.15.480483
+19 Bowman C. Gumel A. van den Driessche P. Wu J. Zhu H. A mathematical model for assessing control strategies against West Nile virus Bull. Math. Biol. 0092-8240 67 5 2005 1107 1133 10.1016/j.bulm.2005.01.002 15998497
+20 Abdelrazec Ahmed Lenhart Suzanne Zhu Huaiping Dynamics and optimal control of a West Nile virus model with seasonality Can. Appl. Math. Q. 23 4 2015 12 33
+21 Cruz-Pacheco Gustavo Esteva Lourdes Vargas Cristobal Seasonality and outbreaks in West Nile virus infection Bull. Math. Biol. 1522-9602 71 6 2009 1378 1393 10.1007/s11538-009-9406-x 19288065
+22 Moschini P. Bisanzio D. Pugliese A. A seasonal model for West Nile virus Math. Model. Nat. Phenom. 1760-6101 12 2 2017 58 83 10.1051/mmnp/201712205
+23 Bergsman Louis M. Hyman James A. Manore Carrie A mathematical model for the spread of West Nile virus in migratory and resident birds Math. Biosci. Eng. 1551-0018 13 2 2016 401 424 10.3934/mbe.2015009 27105987
+24 Bhowmick Suman Gethmann Jörn Conraths Franz J. Sokolov Igor M. Lentz Hartmut H.K. SEIR-Metapopulation model of potential spread of West Nile virus Ecol. Model. 0304-3800 476 2023 110213 10.1016/j.ecolmodel.2022.110213
+25 Lin Zhigui Zhu Huaiping Spatial spreading model and dynamics of West Nile virus in birds and mosquitoes with free boundary J. Math. Biol. 1432-1416 75 6–7 2017 1381 1409 10.1007/s00285-017-1124-7 28378145
+26 Maidana Norberto Aníbal Yang Hyun Mo Spatial spreading of West Nile virus described by traveling waves J. Theoret. Biol. 0022-5193 258 3 2009 403 417 10.1016/j.jtbi.2008.12.032 19167405
+27 Maidana Norberto A. Yang Hyun M. Assessing the spatial propagation of West Nile virus Biomat 2007 2008 World Scientific 259 273 10.1142/9789812812339˙0013
+28 Maidana Norberto Anibal Yang Hyun Mo How do bird migrations propagate the West Nile virus Math. Popul. Stud. 1547-724X 20 4 2013 192 207 10.1080/08898480.2013.831709
+29 Ziegler Ute Lühken Renke Keller Markus Cadar Daniel van der Grinten Elisabeth Michel Friederike Albrecht Kerstin Eiden Martin Rinder Monika Lachmann Lars Höper Dirk Vina-Rodriguez Ariel Gaede Wolfgang Pohl Andres Schmidt-Chanasit Jonas Groschup Martin H. West Nile virus epizootic in Germany, 2018 Antiviral Res. 0166-3542 162 2019 39 43 10.1016/j.antiviral.2018.12.005 30550796
+30 Musitelli Federica Spina Fernando Møller Anders Pape Rubolini Diego Bairlein Franz Baillie Stephen R. Clark Jacquie A. Nikolov Boris P. du Feu Chris Robinson Robert A. Saino Nicola Ambrosini Roberto Representing migration routes from re-encounter data: a new method applied to ring recoveries of Barn swallows (hirundo rustica) in Europe J. Ornithol. 2193-7206 160 1 2018 249 264 10.1007/s10336-018-1612-6
+31 Nussbaumer Raphaël Bauer Silke Benoit Lionel Mariethoz Grégoire Liechti Felix Schmid Baptiste Quantifying year-round nocturnal bird migration with a fluid dynamics model J. R. Soc. Interface 1742-5662 18 179 2021 20210194 10.1098/rsif.2021.0194 PMC8220276 34157892
+32 Kampen Helge Tews Birke Andrea Werner Doreen First evidence of West Nile virus overwintering in mosquitoes in Germany Viruses 1999-4915 13 12 2021 2463 10.3390/v13122463 34960732 PMC8703620
+33 Bhowmick Suman Gethmann Jörn Conraths Franz J. Sokolov Igor M. Lentz Hartmut H.K. Locally temperature-driven mathematical model of West Nile virus spread in Germany J. Theoret. Biol. 0022-5193 488 2020 110117 10.1016/j.jtbi.2019.110117 31866397
+34 Vogels Chantal B.F. Hartemink Nienke Koenraadt Constantianus J.M. Modelling West Nile virus transmission risk in Europe: effect of temperature and mosquito biotypes on the basic reproduction number Sci. Rep. 2045-2322 7 1 2017 10.1038/s41598-017-05185-4 PMC5504010 28694450
+35 de Freitas Costa Eduardo Streng Kiki Avelino de Souza Santos Mariana Counotte Michel Jacques The effect of temperature on the boundary conditions of West Nile virus circulation in Europe PLOS Negl. Trop. Dis. 1935-2735 18 5 2024 e0012162 10.1371/journal.pntd.0012162 PMC11098507 38709836
+36 Crank John The Mathematics of Diffusion 1979 Oxford University Press
+37 Fick Adolf Ueber diffusion Ann. Phys., Lpz. 1521-3889 170 1 1855 59 86 10.1002/andp.18551700105
+38 baron de Fourier Jean Baptiste Joseph Théorie analytique de la chaleur 1822 Firmin Didot
+39 Murray James D. Mathematical Biology: I. An Introduction vol. 17 2007 Springer Science & Business Media
+40 Boyd John P. Chebyshev and Fourier Spectral Methods 2001 Courier Corporation
+41 Harrington Laura C. Scott Thomas W. Lerdthusnee Kriangkrai Coleman Russell C. Costero Adriana Clark Gary G. Jones James J. Kitthawee Sangvorn Kittayapong Pattamaporn Sithiprasasna Ratana Edman John D. Dispersal of the dengue vector Aedes Aegypti within and between rural communities Am. J. Trop. Med. Hyg. 0002-9637 72 2 2005 209 220 10.4269/ajtmh.2005.72.209 15741559
+42 Verdonschot Piet F.M. Besse-Lototskaya Anna A. Flight distance of mosquitoes (Culicidae): A metadata analysis to support the management of barrier zones around rewetted and newly constructed wetlands Limnologica 0075-9511 45 2014 69 79 10.1016/j.limno.2013.11.002
+43 Einstein A. 00DCber die von der molekularkinetischen theorie der W00e4rme geforderte bewegung von in ruhenden Fl00FCssigkeiten suspendierten teilchen Ann. Phys., Lpz. 1521-3889 322 8 1905 549 560 10.1002/andp.19053220806
+44 Metelmann Soeren Development of Climate-Driven Models for Mosquito-Borne Disease Risk in the UK 2019 The University of Liverpool (United Kingdom)
+45 Rubel Franz Brugger Katharina Hantel Michael Chvala-Mannsberger Sonja Bakonyi Tamás Weissenböck Herbert Nowotny Norbert Explaining usutu virus dynamics in Austria: Model development and calibration Prev. Vet. Med. 0167-5877 85 3–4 2008 166 186 10.1016/j.prevetmed.2008.01.006 18314208
+46 Wang Xueying Zhao Xiao-Qiang Wang Jin A cholera epidemic model in a spatiotemporally heterogeneous environment J. Math. Anal. Appl. 0022-247X 468 2 2018 893 912 10.1016/j.jmaa.2018.08.039
+47 van den Driessche P. Watmough James Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission Math. Biosci. 0025-5564 180 1–2 2002 29 48 10.1016/s0025-5564(02)00108-6 12387915
+48 Ziegler Ute Bergmann Felicitas Fischer Dominik Müller Kerstin Holicki Cora M. Sadeghi Balal Sieg Michael Keller Markus Schwehn Rebekka Reuschel Maximilian Fischer Luisa Krone Oliver Rinder Monika Schütte Karolin Schmidt Volker Eiden Martin Fast Christine Günther Anne Globig Anja Conraths Franz J. Staubach Christoph Brandes Florian Lierz Michael Korbel Rüdiger Vahlenkamp Thomas W. Groschup Martin H. Spread of West Nile virus and usutu virus in the German bird population, 201920132020 Microorganisms 2076-2607 10 4 2022 807 10.3390/microorganisms10040807 35456857 PMC9030481
+49 Ziegler Ute Santos Pauline Dianne Groschup Martin H. Hattendorf Carolin Eiden Martin Höper Dirk Eisermann Philip Keller Markus Michel Friederike Klopfleisch Robert Müller Kerstin Werner Doreen Kampen Helge Beer Martin Frank Christina Lachmann Raskit Tews Birke Andrea Wylezich Claudia Rinder Monika Lachmann Lars Grünewald Thomas Szentiks Claudia A. Sieg Michael Schmidt-Chanasit Jonas Cadar Daniel Lühken Renke West Nile virus epidemic in Germany triggered by epizootic emergence, 2019 Viruses 1999-4915 12 4 2020 448 10.3390/v12040448 32326472 PMC7232143
+50 Brault Aaron C. Langevin Stanley A. Bowen Richard A. Panella Nicholas A. Biggerstaff Brad J. Miller Barry R. Komar Nicholas Differential virulence of West Nile strains for American crows Emerg. Infect. Dis. 1080-6059 10 12 2004 2161 2168 10.3201/eid1012.040486 15663854 PMC1237116
+51 Komar Nicholas Langevin Stanley Hinten Steven Nemeth Nicole Edwards Eric Hettler Danielle Davis Brent Bowen Richard Bunning Michel Experimental infection of North American birds with the New York 1999 strain of West Nile virus Emerg. Infect. Dis. 1080-6059 9 3 2003 311 322 10.3201/eid0903.020628 12643825 PMC2958552
+52 Nemeth Nicole Gould Daniel Bowen Richard Komar Nicholas Natural and experimental West Nile virus infection in five raptor species J. Wildl. Dis. 0090-3558 42 1 2006 1 13 10.7589/0090-3558-42.1.1 16699143
+53 Balatsos Georgios Beleri Stavroula Tegos Nikolaos Bisia Marina Karras Vasileios Zavitsanou Evangelia Papachristos Dimitrios P. Papadopoulos Nikos T. Michaelakis Antonios Patsoula Eleni Overwintering West Nile Virus in Active Culex Pipiens Mosquito Populations in Greece 2024 Springer Science and Business Media LLC 10.21203/rs.3.rs-4205818/v1 PMC11221078 38956733
+54 Ciota Alexander T. Matacchiero Amy C. Kilpatrick A. Marm Kramer Laura D. The effect of temperature on life history traits of Culex mosquitoes J. Med. Entomol. 1938-2928 51 1 2014 55 62 10.1603/me13003 24605453 PMC3955846
+55 Hersbach Hans Bell Bill Berrisford Paul Biavati Giovanni Horányi András Muñoz Sabater Joaquín Nicolas Jean Peubey Christophe Radu Radu Rozum Ivan Schepers Dennis Simmons Adrian Soci Claudia Dee Dick Thépaut Jean-Noël ERA5 Monthly Averaged Data on Single Levels from 1940 to Present 2023 Copernicus Climate Change Service (C3S) Climate Data Store (CDS) 10.24381/cds.f17050d7 (Accessed 09 April 2025)
+56 MathWorks, Inc. Partial Differential Equation Toolbox™ User’s Guide 2025 The MathWorks, Inc. Natick, Massachusetts Available at: https://www.mathworks.com/help/pde/
+57 Global Administrative Areas GADM database of Global Administrative Areas (version 4.1) 2024 University of California, Berkeley Available online: https://gadm.org. (Accessed 20 October 2025). (digital geospatial data)
+58 Harrower M. Bloch M. MapShaper.org: a map generalization web service IEEE Comput. Graph. Appl. 0272-1716 26 4 2006 22 27 10.1109/mcg.2006.85 16863094
+59 World Organisation for Animal Health (WOAH) WAHIS (animal disease events) 2018 Retrieved on (2024-11-11) from (https://wahis.woah.org/#/event-management). Data extracted by (Pride Duve/BNITM). Reproduced with permission. ”The World Organisation for Animal Health (WOAH) bears no responsibility for the integrity or accuracy of the data contained herein, but not limited to, any deletion, manipulation, or reformatting of data that may have occurred beyond its control.”
+60 Spearman C. The proof and measurement of association between two things Am. J. Psychol. 0002-9556 15 1 1904 72 10.2307/1412159 3322052
+61 Tóth Gábor Endre Petersen Marike Chevenet Francois Sikora Marcy Tomazatos Alexandru Bialonski Alexandra Baum Heike Horváth Balázs Siriyasatien Padet Heitmann Anna Jansen Stephanie Offergeld Ruth Lachmann Raskit Schmidt Michael Schmidt-Chanasit Jonas Cadar Dániel Blood Donors as Sentinels for Genomic Surveillance of West Nile Virus in Germany (2020–2024) Using a Sensitive Amplicon-Based Sequencing Approach 2025 Cold Spring Harbor Laboratory 10.1101/2025.06.24.25329984 41192565
+62 Di Pol Gabriella Crotta Matteo Taylor Rachel A. Modelling the temperature suitability for the risk of West Nile virus establishment in European Culex pipiens populations Transbound. Emerg. Dis. 1865-1682 69 5 2022 10.1111/tbed.14513 PMC9790397 35304820
+63 Calistri Paolo Giovannini Armando Hubalek Zdenek Ionescu Aurelia Monaco Federica Savini Giovanni Lelli Rossella Epidemiology of West Nile in Europe and in the Mediterranean basin Open Virol. J. 4 2010 29 10.2174/1874357901004010029 20517490 PMC2878979
+64 Watts Matthew J. Sarto i Monteys Victor Mortyn P. Graham Kotsila Panagiota The rise of West Nile virus in Southern and Southeastern Europe: A spatial-temporal analysis investigating the combined effects of climate, land use and economic changes One Health 2352-7714 13 2021 100315 10.1016/j.onehlt.2021.100315 PMC8408625 34485672
+65 Ducheyne E. De Deken R. Bécu S. Codina B. Nomikou K. Mangana-Vougiaki O. Georgiev G. Purse B.V. Hendrickx G. Quantifying the wind dispersal of Culicoides species in Greece and Bulgaria Geospatial Health 1827-1987 1 2 2007 177 10.4081/gh.2007.266 18686243
+66 Liu Yue Suh Kevin Maini Philip K. Cohen Daniel J. Baker Ruth E. Parameter identifiability and model selection for partial differential equation models of cell invasion J. R. Soc. Interface 1742-5662 21 212 2024 10.1098/rsif.2023.0607 PMC10914513 38442862
+67 Simpson Matthew J. Baker Ruth E. Vittadello Sean T. Maclaren Oliver J. Practical parameter identifiability for spatio-temporal models of cell invasion J. R. Soc. Interface 1742-5662 17 164 2020 20200055 10.1098/rsif.2020.0055 PMC7115235 32126193
+68 Barajas-Solano D.A. Tartakovsky A.M. Approximate Bayesian model inversion for PDEs with heterogeneous and state-dependent coefficients J. Comput. Phys. 0021-9991 395 2019 247 262 10.1016/j.jcp.2019.06.010
+69 Constant Orianne Gil Patricia Barthelemy Jonathan Bolloré Karine Foulongne Vincent Desmetz Caroline Leblond Agnès Desjardins Isabelle Pradier Sophie Joulié Aurélien Sandoz Alain Amaral Rayane Boisseau Michel Rakotoarivony Ignace Baldet Thierry Marie Albane Frances Benoît Reboul Salze Florence Tinto Bachirou Van de Perre Philippe Salinas Sara Beck Cécile Lecollinet Sylvie Gutierrez Serafin Simonin Yannick One health surveillance of West Nile and Usutu viruses: a repeated cross-sectional study exploring seroprevalence and endemicity in southern France, 2016 to 2020 Eurosurveillance 1560-7917 27 25 2022 10.2807/1560-7917.es.2022.27.25.2200068 PMC9229194 35748300
+70 Duve Pride Sauer Felix. G. Lühken Renke Codes and data for the paper: Modelling the impact of temperature and bird migration on the spread of West Nile virus 2026 10.5281/zenodo.18996831

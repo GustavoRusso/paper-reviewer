@@ -1,0 +1,1091 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: J Med Entomol
+Journal ID: J Med Entomol
+NLM Journal ID: 0375400
+Journal ID: jme
+
+Journal of Medical Entomology
+
+ISSN: 0022-2585
+EISSN: 1938-2928
+Publisher: Oxford University Press
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13394702
+PMID: 42490527
+DOI: 10.1093/jme/tjag095
+Article ID: tjag095
+Article version: 1
+Subjects: Review; Vector-Borne Diseases, Surveillance, Prevention; AcademicSubjects/MED00860; AcademicSubjects/SCI01382
+
+Effectiveness of natural predators, microbial bioinsecticides, and plant-based bioinsecticides to reduce mosquito-borne disease burden: a systematic review
+
+https://orcid.org/0000-0002-4559-3095 Tortosa-La Osa Silvia Student in the Doctoral Program in Health Sciences, University of Sevilla, Sevilla, Spain
+
+Lobato-Rayo Francisco Virgen del Rocío University Hospital, Sevilla, Spain
+
+https://orcid.org/0000-0003-1509-1198 Martín-Ruiz Eva Department of Nursing, Faculty of Nursing, Universidad de Huelva, Huelva, Spain
+
+https://orcid.org/0000-0001-5448-1370 Olry de Labry-Lima Antonio Andalusian Center for Documentation and Information on Medicines (CADIME), Granada, Spain
+Andalusian School of Public Health, Granada, Spain
+CIBER in Epidemiology and Public Health (CIBERESP), Madrid, Spain
+Biosanitary Research Institute, Universidad de Granada, Granada, Spain
+
+Alto Barry Subject Editor
+Corresponding author. Faculty of Nursing, University of Huelva, Campus El Carmen, Avda. de las Fuerzas Armadas, s/n. 21007 Huelva, Spain (Email: eva.martin@denf.uhu.es).
+Publication date: 2026 Aug
+Electronic publication date: 2026 Jul 23
+Volume: 63
+Issue: 4
+Electronic Location ID: tjag095
+Received 2026 Jan 23; Revised 2026 May 27; Accepted 2026 Jun 3
+Copyright: © The Author(s) 2026. Published by Oxford University Press on behalf of Entomological Society of America.
+Copyright year: 2026
+License: This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (https://creativecommons.org/licenses/by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact reprints@oup.com for reprints and translation rights for reprints. All other permissions can be obtained through our RightsLink service via the Permissions link on the article page on our site—for further information please contact journals.permissions@oup.com.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Keywords: mosquito borne disease, vector control of diseases, biological control agents, Copepoda, fish
+
+Funding: Universidad de Huelva / CBUA
+Page count: 24
+
+==============================
+Abstract
+
+Mosquito-borne diseases are a major public health burden given the limited pharmacological options. While the adverse effects of synthetic insecticides are well documented, it is necessary to assess whether environmentally friendly interventions are effective for disease control. Although natural predators, microbial bioinsecticides and plant-based bioinsecticides have gained attention for their specificity and reduced environmental impact, no comprehensive synthesis of evidence on their effectiveness in reducing disease burden has been conducted, highlighting the need for this review. A PRISMA 2020-compliant systematic searched for literature published from 2000 to 2026 in PubMed, Cochrane, Embase, Web of Science, LILACS, and CAB Abstracts. Experimental field studies evaluating these interventions against Aedes, Anopheles, and Culex, reporting epidemiological indicators of chikungunya, dengue, Zika, lymphatic filariasis, West Nile virus, Rift Valley fever, yellow fever, malaria, or Japanese encephalitis, were eligible. Due to outcome heterogeneity, a narrative synthesis was performed instead of a meta-analysis. Eighteen studies from Asia, Africa, Central America, and South America, assessing bacterial larvicides, copepods, and larvivorous fish, were included. Only five studies performed statistical analysis to compare intervention and control groups, two of which found no significant association between the intervention and the disease outcome. The remaining sixteen reduced disease burden in intervention groups with different levels of evidence. These interventions show potential to reduce the burden of dengue, malaria, and chikungunya across diverse settings, supporting their role as promising alternative or complementary tools for disease control. Future research would benefit from more experimental designs, standardized epidemiological outcomes, and robust statistical analysis.
+
+Prospero  Registration Number
+
+CRD42024628633.
+
+Graphical abstract
+
+Graphical Abstract For image description, please refer to the figure legend and surrounding text.
+
+Introduction
+
+Vector-borne diseases are responsible for more than 700,000 deaths annually worldwide, predominantly in low-income countries (TDR, 2021 Yildirim-Ozturk et al. 2025). A large proportion of these diseases are transmitted by mosquitoes (WHO 2024a). However, broader estimates focusing specifically on mosquito-borne diseases suggest substantially greater mortality of more than one million deaths per year (Piovezan-Borges et al. 2022), and an economic cost of US$12 billion per year globally (Chilakam et al. 2023).
+
+Although there are over 3,500 species of mosquitoes, only around 10% are medically relevant (Diniz et al. 2017). The species of greatest epidemiological relevance belong to the genera Aedes, Culex, and Anopheles, since they serve as vectors for viruses and parasites that cause diseases of great public health importance (Miranda et al. 2024), including chikungunya, lymphatic filariasis, dengue, Rift Valley fever, Zika, malaria, yellow fever, West Nile fever, and Japanese encephalitis (WHO 2024a).
+
+The ecology of mosquitoes is linked to their breeding habitats of preference, which determines their spatial and temporal distribution (Day 2016). Environmental or meteorological and human factors play a key role in mosquitoes' distribution (Wearing et al. 2016, Bera 2025); therefore, changes in any of the above can facilitate mosquitoes expanding to new territories, contributing to the emergence and resurgence of mosquito-borne diseases (Bera 2025). In the process of geographic expansion, three elements are required: the presence of the mosquito, the introduction of the pathogen, and suitable conditions for local transmission (Wearing et al. 2016). Globalization, particularly global trade and international human movements (tourism and migration), is contributing to pathogens and vectors trespassing boundaries (Miranda et al. 2024, Yan et al. 2024). Climate and environmental change, involving a global increase in temperatures and changes in rain patterns, creates a favorable condition for mosquitoes' expansion (Colón-González et al. 2021, Bera 2025). Human activity such as unplanned urbanization, lack of reliable piped water, poor solid waste management, or inadequate use of wastewater can contribute to creating new breeding sites (WHO 2017, Bera 2025). Human action can also contribute to eliminating traditional breeding sites, forcing mosquitoes to adapt to new, even less suitable habitats (Ramasamy and Surendran 2016, Bera 2025).
+
+Not all mosquitoes contribute equally to the geographical expansion of mosquito-borne diseases. The most widely introduced species of mosquitoes are Ae. aegypti (192 regions) (Pabst et al. 2024), main vector of dengue, Zika, and chikungunya, also involved in yellow fever urban transmission (ECDC 2026), followed by Ae. albopictus (189 regions), secondary vector of dengue, Zika, and Chikungunya (Pabst et al. 2024), Cx. quinquefasciatus (111 regions) and Cx. pipiens (63 regions) (Pabst et al. 2024), vectors of West Nile virus, Japanese encephalitis, and lymphatic filariasis, among others (Institut Pasteur 2025), and Ae. japonicus (62 regions) (Pabst et al. 2024), competent vector of Japanese encephalitis, chikungunya, dengue, and Rift Valley fever (Institut Pasteur 2025).
+
+The pharmacological arsenal against mosquito-borne diseases remains limited. Vaccines and chemoprophylaxis have been developed for some diseases, although their accessibility and availability vary across affected populations. Yellow fever has a safe and effective vaccine (Gaythorpe et al. 2021), with a global stockpile available (WHO n.d.). Several Japanese encephalitis vaccines exist, though information about their efficacy and safety in low- and middle-income countries is limited, as most studies have been conducted in higher-income contexts (Pilihanto et al. 2025). Two malaria vaccines have been recommended by WHO for endemic areas since 2023 (WHO 2024b), effective against Plasmodium falciparum but not against P. vivax (predominant responsible of malaria outside Africa) (WHO 2020). The first approved dengue vaccine, Dengvaxia®, faced challenges related to safety in naïve population. Consequently, its use became restricted to people with prior exposure to dengue, limiting its demand due to the need for screening (Daniels et al. 2025, Van Truong et al. 2025). For the second dengue vaccine, Qdenga®, risk has been identified for seronegative individuals with serotypes 3 and 4 (Daniels et al. 2025), reason why WHO recommends this vaccine only in high transmission settings and for frequent or long-term travelers (more likely exposed to dengue) (WHO 2025a). Two vaccines against chikungunya (Ixchiqa® and Vimkunya®) have been approved in some countries, but they are not widely available nor used widespread (WHO 2025b, Kling et al. 2026). Chemoprophylaxis is available against malaria, and it is recommended for people traveling to endemic areas (Wei et al. 2026). A combination of drugs is available against lymphatic filariasis and has been implemented in over half of endemic countries (Wei et al. 2026).
+
+Considering these challenges, vector control remains the primary strategy to prevent these diseases (Fouet and Kamdem 2019). Vector control strategies predominantly use synthetic chemical insecticides; however, their use is limited by environmental toxicity and insecticide resistance, resulting in compromised long-term sustainability (Gao et al. 2025).
+
+In this context, effective, safe, and environmentally friendly approaches are needed to reduce the dependence on synthetic insecticides (Benelli et al. 2016) and mitigate environmental damage. Traditionally, biological control utilizes organisms that predate, parasite, or are pathogenic to mosquitoes (Huang et al. 2017), contributing to reduce mosquitoes' populations. Natural predators, such as copepods, water bugs, fish, and amphibians that feed on aquatic stages of mosquitoes, play a role in their ecology (Benelli et al. 2016, Miranda et al. 2024). Conversely, bioinsecticides are substances from natural sources, frequently described as more environmentally friendly alternatives to synthetic or conventional insecticides, as they have lower risks associated with their use (Horowitz et al. 2009), including a lower likelihood of inducing resistance (Şengül Demirak and Canpolat 2022). Among them, microbial insecticides, consisting of microorganisms such as viruses, bacteria, fungi, or protozoa, can be considered a form of biological control, as they use living organisms to induce mortality (Horowitz et al. 2009). Particularly, bacterial and entomopathogenic fungi have been explored against mosquitoes (Engdahl et al. 2022), showing environmental safety (Mittal 2003, Perumal et al. 2024). Additionally, insecticides derived from plants (plant-based bioinsecticides) have also shown some activity against early or adult stages of mosquitoes (Şengül Demirak and Canpolat 2022).
+
+Vector control interventions can be assessed using entomological indicators to assess its impact on the vector and epidemiological indicators to assess their impact on the disease burden in a population (WHO 2012).
+
+The density of the population of mosquitoes is a basic entomological indicator (WHO 2012). There are different entomological indicators related to all mosquito stages (egg, larva, pupa, and adult) that are used for entomological surveillance (PAHO 2019a) and provide valuable information about vectors. For instance, egg indicators provide information on the spatial and temporal distribution of female mosquitoes; larval indicators provide information about the infestation level, useful before the implementation of control measures; pupal indicators provide information about the density of adult mosquitoes and allow the identification of the breeding sites; adults provide a direct measurement of the abundance of adults (PAHO 2019b). Indexes of pupae and adult density are generally recommended over ovitraps and larvae because of their higher epidemiological value given than they provide more accurate information about adult mosquitoes, which are the last link in the chain of transmission (Wilson et al. 2015, PAHO 2019b). However, other characteristics related to the capacity of mosquitoes to transmit a disease are also available as entomological indicators (WHO 2012). These include parity rate as a proxy of vector longevity (number of female mosquitoes that took a blood meal and laid their eggs at least once), infection/sporozoite rate (proportion of vectors infected with the pathogen), biting rate (number of bites received by a host in a unit time), entomological inoculation rate (EIR; number of infective bites received per person in a unit time), or human blood-fed females (proportion of females engorged with human blood) (WHO 2012, Van Hul et al. 2021). These, when possible, are preferable to mosquito density indices (Wilson et al. 2015). However, entomological indicators alone are considered insufficient to understand the potential impact of vector control interventions on disease burden (Van Hul et al. 2021).
+
+Epidemiological indicators, conversely, are used to demonstrate the public health value of a vector control intervention (Wilson et al. 2015, Van Hul et al. 2021). These typically refer to indicators of disease burden, including incidence (rate of new cases in a population over a defined period), prevalence (overall proportion of a population affected by a disease at a given point in time), mortality (number of deaths in a population) (WHO 2012, PAHO 2019a, Van Hul et al. 2021). Some surveillance systems gather information on numbers of cases, although they reflect the exact impact of a disease in a population in terms of number of people affected, this indicator is less useful to compare populations at risk since most geographical areas have different population sizes (WHO 2025c). Since epidemiological indicators are used to know if a strategy has been effective in reducing the disease (WHO 2012), the present review is focused on published scientific evidence on the effectiveness of natural predators, microbial bioinsecticides, and plant-based bioinsecticides in reducing epidemiological indicators of mosquito-borne diseases in humans.
+
+Materials and Methods
+
+This literature review was conducted in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) 2020 updated guideline (Page et al. 2021). The literature search strategy included free text terms adapted to each database studied and controlled terms, including medical subject headings (MeSH). Searched databases included PubMed, Embase (through Elsevier), Web of Science (WOS) Core Collection, Cochrane, LILACS, and CAB Abstracts (via EBSCOhost). To validate the search strategy, different combinations of controlled vocabulary and free-text terms were tested to optimize sensitivity. Search terms were adapted to each database. Relevant articles were also examined to identify additional search terms and to validate the comprehensiveness of the strategy. The search strategy is available in Supplementary Text S1.
+
+Eligibility criteria were established based on the PICO framework. The population (P) comprised individuals in settings where mosquito-borne diseases, including chikungunya, dengue, Zika virus infection, lymphatic filariasis, West Nile virus infection, Rift Valley fever, yellow fever, malaria, and Japanese encephalitis, are transmitted by Aedes, Culex, or Anopheles mosquitoes. The intervention (I) focused on natural enemies of mosquitoes, such as larvivorous fish, copepods, water bugs, or amphibians, and bioinsecticides including microbial bioinsecticides, like bacteria or entomopathogenic fungi, and plant-based bioinsecticides, targeting Aedes, Culex, or Anopheles mosquitoes. The comparator (C) involved comparison with other types of intervention or no intervention. The outcome (O) covered epidemiological indicators to measure disease burden (the impact of a health problem on a given population) such as incidence (rate of new cases in a population over a defined period), prevalence (overall proportion of a population affected by a disease at a given point in time), mortality (number of deaths in a population over a period), or number of cases (absolute number of cases over a period). Studies published between 2000 and April 2026 in English, Spanish, or Portuguese were eligible. Only studies conducted in the field under real conditions were considered in this review. Both analytical observational (case-control or cohort) and experimental designs were eligible.
+
+The following were established as exclusion criteria: type of publications such as systematic reviews, protocols, or conference communication; studies whose objective was not to evaluate the impact of the intervention on a disease burden in a population; studies with an observational design (descriptive and analytical studies different from cohort or case/control studies); studies evaluating interventions outside the scope of the review; and studies in which the intervention of interest was combined with another intervention (eg chemical or environmental) only in the intervention group, making it impossible to attribute the observed effect to the intervention of interest (studies with balanced co-interventions across groups were not excluded); studies conducted under laboratory, semifield, or simulated field conditions; and studies focused solely on entomological outcomes without reporting any epidemiological outcome.
+
+To facilitate the process, search results were imported to the Rayyan Qatar Computing Research Institute (QCRI) (Ouzzani et al. 2016), a tool that supports semiautomated and blind review initial screening based on efficient filtering and classification of studies by title and abstract. A total of 6,762 articles were identified through the database search, of which 3,900 remained after the removal of duplicates and were screened by title and abstract using Rayyan. Of these, 158 were selected for full-text assessment. Seven of these were inaccessible, and authors were contacted when contact details were available, however, no full texts were recovered through this process, leaving 151 articles for full-text assessment. Authors were contacted when further information was required to assess eligibility during full-text review. The reasons for exclusion are detailed in Supplementary Table S1. A total of 18 studies met the inclusion criteria and were therefore included (Fig. 1).
+
+Fig. 1. Flow diagram of the search performed and number of articles examined at each stage.
+
+PRISMA flow diagram illustrating the study selection process for a systematic review of biological vector control interventions. A total of 6,762 records were identified through database searches and 8 through citation searching. After removing 2,862 duplicate records, 3,900 records were screened, of which 3,742 were excluded. Full texts of 151 articles were assessed for eligibility, and 133 were excluded for reasons including outcome indicators, study setting, study objective, publication type, study design, and intervention characteristics. A further 7 records identified through citation searching were excluded after full-text assessment. Ultimately, 18 studies met the eligibility criteria and were included in the systematic review.
+
+Risk of bias of the included studies was assessed using two different tools. The Cochrane Collaboration’s tool (Higgins et al. 2011) was used for randomized controlled trials. This tool includes a set of items to identify potential sources of bias. Each item was rated as low risk, high risk, or unclear according to the information provided in the study. An overall risk of bias of each study and across studies was assigned by qualitatively summarizing assessments across items. The Joanna Briggs Institute Critical Appraisal Checklist (Barker et al. 2024) was used for quasi-experimental studies. This tool is a set of structured questions to assess internal validity and statistical conclusion validity of the studies. Each question was answered with yes, no, unclear, or not applicable. The final judgment of each study and across studies was determined by reviewers based on the study context.
+
+Initial screening, full-text review and risk of bias assessment were carried out by reviewers independently. Any disagreement during any step of the process was resolved through discussion and by consensus among the reviewers.
+
+Data from the selected articles was extracted using ad hoc tables. Due to the high heterogeneity of the outcome measures used (incidence rates, absolute case numbers, and prevalence), a meta-analysis was not possible. A narrative synthesis of the results was performed, and results are presented organized by type of intervention to facilitate readability.
+
+Results
+
+Overview of the Articles Included
+
+Ten studies were conducted in Asia (Kay et al. 2002, Seleena et al. 2004, Ghosh et al. 2005, 2011, Nam et al. 2005, 2012, Tan et al. 2012, Setha et al. 2016, Bohari et al. 2020, Singh et al. 2022), six in Africa (Geissbühler et al. 2009, Majambere et al. 2010, Obopile et al. 2018, Munyakanage et al. 2024, Tia et al. 2024, Kailembo et al. 2025), one in Central America (Blanco Castro et al. 2000), and one in South America (Moreno et al. 2014). Eleven studies focused on malaria (Blanco Castro et al. 2000, Seleena et al. 2004, Ghosh et al. 2005, Geissbühler et al. 2009, Majambere et al. 2010, Moreno et al. 2014, Obopile et al. 2018, Singh et al. 2022, Munyakanage et al. 2024, Tia et al. 2024, Kailembo et al. 2025), six studies on dengue (Kay et al. 2002, Nam et al. 2005, 2012, Tan et al. 2012, Setha et al. 2016, Bohari et al. 2020), and one on chikungunya (Ghosh et al. 2011). Twelve articles studied interventions based on bacterial larvicides (Blanco Castro et al. 2000, Seleena et al. 2004, Geissbühler et al. 2009, Majambere et al. 2010, Tan et al. 2012, Moreno et al. 2014, Setha et al. 2016, Obopile et al. 2018, Bohari et al. 2020, Munyakanage et al. 2024, Tia et al. 2024, Kailembo et al. 2025), three on copepods inoculation (Kay et al. 2002, Nam et al. 2005, 2012), and three on the introduction of larvivorous fish (Ghosh et al. 2005, 2011, Singh et al. 2022).
+
+The 18 included studies were experimental studies. One was a randomized controlled trial in which areas were randomly assigned to two groups (control and intervention) (Tia et al. 2024). The remaining 17 employed a quasi-experimental approach: 12 were nonrandomized controlled trials, in which study areas were assigned to two or more groups using a nonrandom method (Kay et al. 2002, Seleena et al. 2004, Nam et al. 2005, 2012, Geissbühler et al. 2009, Ghosh et al. 2011, Tan et al. 2012, Setha et al. 2016, Obopile et al. 2018, Bohari et al. 2020, Munyakanage et al. 2024, Kailembo et al. 2025), four were noncontrolled trials, in which only one group was studied with no comparison group (Blanco Castro et al. 2000, Ghosh et al. 2005, Moreno et al. 2014, Singh et al. 2022), and one was a randomized cross-over trial, in which two groups acted as both intervention and control group in a random sequence (Majambere et al. 2010). More detailed characteristics of the included studies and how the interventions were carried out are presented in Table 1.
+
+Table 1. Detailed characteristics of the included studies and the interventions performed
+
+Reference (country)	Disease and vector	Study design	Intervention	Study group selection	How the intervention is implemented	When	Additional relevant information about the intervention	
+Bacterial larvicides	
+Majambere et al. (2010) (Gambia)	Malaria; An. gambiae s.l.	Quasi-experimental, randomized cross-over trial	Bti (strain AM65-52)	Four zones selected on both banks (north and south) of the river; 50 villages selected from each zone: 2006:
+
+Intervention zones: Zones 1 and 3
+
+Control zones: Zones 2 and 4
+
+2007:
+
+Intervention zones: Zones 2 and 4
+
+Control zones: Zones 1 and 3
+
+	Larvicide was applied weekly to all accessible aquatic habitats by locally recruited field applicators:Bti water-dispersible granules applied using knapsack sprayers at 0.2 kg/ha in areas with low vegetation.
+
+Bti corn granules applied by hand from buckets or motorized knapsack at 5.0 kg/ha in vegetated or hard-to-access habitats
+
+	June–November 2006 (year 1); May–November 2007 (Year 2)	Each zone was divided into three parallel 4 km-wide bands; study villages recruited from the central band to minimize mosquito migration from surrounding untreated areas.
+
+Entomological baseline data were collected in 2005.
+
+Information was collected from consenting individuals before the trial regarding bed net and ITN use, open gaps in sleeping-rooms and ethnicity.
+
+	
+Obopile et al. (2018) (Botswana)	Malaria; An. arabiensis	Quasi-experimental, nonrandomized controlled trial	Bti	Two villages with similar malaria transmission and amount of stagnant water: Intervention: one village
+
+Control: one village
+
+	Liquid Bti (1200 ITU/mg) applied at 2 L/ha to water bodies using a backpack sprayer.
+
+Granular Bti (200 ITU) applied at 2 g/m² with a hand applicator (easy-access areas) or manually broadcast in large, hard-to-access water bodies
+
+	August–October 2012; August–October 2013	Stable and semistable breeding sites were previously identified and mapped.
+
+Communities were informed about the larviciding initiative to obtain their support and participation.
+
+	
+Tia et al. (2024) (Ivory Coast)	Malaria; An. gambiae s.l.	Randomized controlled trial	Bti	Four rural villages selected in the same department, reporting to the same health center, with similar LLIN coverage, ≤100 households, ∼population sizes, and several malaria cases per year: Bti + LLIN group: two villages.
+
+LLIN only group: two villages
+
+	LLIN + Bti group: LLIN use plus biweekly Bti applications (3000 ITU/mg) at 0.5 mg/L (22 treatments total) in mosquito breeding sites (rice fields, rain runoffs, river edges, ponds, puddles, community water pumps, hoof prints, swamps, ponds, and wells) using backpack sprayers.
+
+LLIN group: LLIN use only
+
+	March 2019–February 2020	Before study: Anopheles breeding sites mapped in both groups; size and density of breeding sites estimated.
+
+Bti application started in dry season because there are les breeding sites and they are more stable.
+
+LLIN coverage was similar in both groups (>80%).
+
+	
+Munyakanage et al. (2024) (Rwanda)	Malaria; An. gambiae s.l.	Quasi-experimental, nonrandomized controlled trial	Bti (strain AM65-52)	Five blocks of marshlands in the same district: Intervention area: four marshlands zones across four sectors (336 ha).
+
+Control area: one marshland zone in a different sector (78 ha)
+
+	Intervention area: aerial Bti application by drones (3000 ITU/mg) at 300 g/ha every 2 weeks; farmers used manual backpack sprayers in inaccessible areas. 20 Bti rounds in total.
+
+Control area: no intervention
+
+	July 2020–April 2021	LLIN were distributed in February 2020 in both study areas.
+
+	
+Tan et al. (2012) (Malaysia)	Dengue; Ae. aegypti, Ae. albopictus	Quasi-experimental, nonrandomized controlled trial	Bti (strain AM65-52)	Two sites highly populated with abundant vegetation in a dengue-endemic area: Intervention site: 8 ha; ∼300 households.
+
+Control site: 10 ha; 300 households
+
+	Intervention site: Bti spraying with motorized backpacks over 7 ha in drains, gutters, and vegetation (max 500 g/ha). Outdoor containers >50 L treated manually (8 g/1,000 L). Schedule: 7 biweekly applications, then 7 weekly, finally 4 biweekly.
+
+Control site: routine vector-control program with pyrethroid fogging around case households (21 total)
+
+	December 2007–June 2008	Before study: larval habitats mapped and study to determine the volume of water to ensure adequate coverage.
+
+Dosage adjusted depending on larval density previously observed.
+
+	
+Bohari et al. (2020) (Malaysia)	Dengue; Ae. aegypti, Ae. albopictus.	Quasi-experimental, nonrandomized controlled trial	Bti (strain AM65-52)	Three zones in one rural district selected based on dengue burden and case frequency: Intervention zone: Z-7L (2,640 households).
+
+Control zones: Z-5 (1,809 households) and Z-14 (2,227 households)
+
+	2015 (pilot):
+
+Intervention zone: Bti (3000 ITU/mg) applied directly to household drinking-water containers at 8 g/1,000 L and by backpack sprayer to outdoor natural and artificial containers at 500 g/ha.
+
+Bti applied weekly for 4 weeks, then biweekly for 2 months (8 treatments total).
+
+Control zones: no Bti treatment.
+
+2016 (Bti integrated in routine program):
+
+Intervention zone: Bti applied upon case detection: aerial backpack spraying outside the case household and within 100 m around it. Bti applied weekly for 4 weeks, then biweekly until no cases were reported within 400 m.
+
+Control zones: no Bti treatment
+
+	2015: May–October 2015
+
+2016: from EW 27/2016
+
+	In 2016, the government activated routine program around each reported case (400 m radius): thermal fogging and ULV spraying with pyrethroids/organophosphates within 24 hours; distribution of temephos for tanks and water containers; destruction of breeding sites; and indoor spraying with water-based insecticide.
+
+	
+Setha et al. (2016) (Cambodia)	Dengue; Ae. aegypti	Quasi-experimental, nonrandomized controlled trial	Bti (strain AM65-52)	Communes selected based on high population and dengue incidence rate in one province with 11 districts: Intervention group: six districts (all their communes) with the highest incidence in 2010.
+
+Control group: the other five districts
+
+	Direct Bti application at 8 g/ha using a spoon on the surface of all containers found; treated containers were marked.
+
+Intervention group: two rounds in all 59 communes across six districts. 1st round: 754,098 containers in 85,239 houses. 2nd round 2: 754,111 containers in 85,257 houses.
+
+Control group: no intervention
+
+	1st round May 2011; 2nd round August 2011	First phase in 2005–2006 and another in 2010 not disclosed here because Bti impact was measured only through entomological indicators.
+
+Temephos resistance had been previously detected in the intervention province.
+
+Households received leaflets describing the product, its efficacy, and safety.
+
+Community acceptance of Bti was high (95%).
+
+	
+Moreno et al. (2014) (Venezuela)	Malaria; An. darlingi, An. marajoara, An. Nuneztovari	Quasi-experimental noncontrolled trial	L. sphaericus	A rural area, with low populated zones, was selected based on malaria morbidity	L. sphaericus applied at 30–50 kg/ha with a motorized backpack sprayer in all 20 breeding sites (ponds), every 30–45 days	May 2010–May 2011	N/A	
+Blanco Castro et al. (2000) (Guatemala)	Malaria; An albimanus	Quasi-experimental noncontrolled trial	L. sphaericus (strain-2362)	46 localities with the highest risk selected within five municipalities that account for 80% of all malaria cases in their department	L. sphaericus was applied with knapsack sprayers and motorized pumps directly in breeding sites (10 mL/m2)	Mach–April 1998	Traditionally, these municipalities have used organophosphate insecticide fenthion, however prevalence rate increased by >50% between 1994 and 1997.
+
+Types of breeding sites treated not mentioned in the article.
+
+	
+Seleena et al. (2004) (Malaysia)	Malaria; An. balabacensis	Quasi-experimental, nonrandomized controlled trial	Bti and L. sphaericus	Four villages in endemic malaria district were selected based on high malaria incidence, high vector density, prior epidemiological/entomological data availability, and year-round accessibility. four different treatments applied in each village: Bti/L. sphaericus intervention village: 11 × 104 m2 with 31
+
+houses and 119 residents;
+
+Alphacypermethrin intervention village: 36 × 104 m2 with 30 houses and 178 residents; chemical insecticide (alphacypermethrin) intervention
+
+Bti/L. sphaericus or alphacypermethrin intervention village: 25 × 104 m2 with 28 houses and 107 residents
+
+Untreated village: 20 × 104 m2 with 59 houses and 216 residents
+
+	Larvicides were applied monthly with portable blowers:Bti 1,200 ITU/mg at 500 ml/10,000 m2
+
+L. sphaericus 650 ITU/mg at 500 g/10,000 m2
+
+	Bti: November 1998–December 1999; Bs: March–August 2000	All four villages also continued to receive conventional malaria control (indoor residual spraying + insecticide-impregnated mosquito nets) throughout the trial.
+
+In January 1999 and December 1999 Bti was not applied due to unavailability.
+
+Breeding sites comprise shallow muddy pools formed by human or animal footprints.
+
+Bti and Ls potency was assessed: Bti potency decreased; Bs remained stable throughout the study.
+
+	
+Geissbühler et al. (2009) (Tanzania)	Malaria; An. gambiae s.l., (main vector), An. funestus, An. coustani	Quasi-experimental, nonrandomized controlled trial	Bti and L. sphaericus	Fifteen wards (districts) in the three municipalities of one city (5 wards/each): Intervention wards: three wards (1 per municipality) selected based on the capacity of community workers to manage data and the completeness of breeding sites maps (∼128,000 residents, 17 km²)
+
+Control wards: remaining 12 wards (∼484,000 residents, 38 km²) served as nonintervention group
+
+	Community workers applied:Bti granules weekly to all identified open habitats (light-exposed) at 0.04–1 g/m² depending on formulation.
+
+L. sphaericus granules were applied to closed (covered, polluted) habitats every 3 months at 1 g/m²
+
+	March 2006–March 2007	Approximately 90 larval surveillance workers mapped and monitored all water bodies weekly using standardized sketch maps and forms.
+
+Entomological surveillance and larvicide application were ran by people from their own communities.
+
+Open habitats mainly produce Anopheles, and they were the primary focus of this program.
+
+Closed habitats mainly produce Culex.
+
+	
+Kailembo et al. (2025)
+
+(Tanzania)
+
+	Malaria; An. arabiensis (dominant); An. gambiae s.s. and An. funestus (secondaries)	Quasi-experimental, nonrandomized controlled trial	Bti and L. sphaericus	Three intervention councils selected based on available resources representing three levels of malaria risk; control councils matched based on rainfall pattern, ecological and vector similarity and same malaria risk: High risk strata: one intervention council; five control councils
+
+Moderate risk strata: one intervention council; seven control councils.
+
+Low risk strata: one intervention council; four control councils
+
+	Community volunteers applied larvicide with backpack sprayers intermittently based on rainfall pattern; three rounds per year (each round = 8 consecutive weeks), covering ∼46% of weeks per year. Total: six rounds in 2 years. Bti applied weeks 1–6 of each round; L. sphaericus applied weeks 7–8 (longer residual effect): larvicides were rotated to mitigate potential resistance. Treatment coverage of identified habitats was >90% in all three councils across both years	June 2022–April 2024	In high and low intervention councils, larviciding was applied in all villages; in moderate risk intervention council was applied in 88/127 villages (89% of area and 75% of population) excluding villages of high altitude (very low transmission).
+
+Breeding habitats were identified by community volunteer; no independent expert assessment was conducted, it’s likely that breeding sites were missed.
+
+Both biolarvicides have a short residual efficacy (1–2 weeks); frequent reapplication required.
+
+All councils implemented the six rounds; success is likely due to the involvement of the community.
+
+	
+Copepods	
+Kay et al. (2002) (Vietnam)	Dengue; Ae. aegypti, Ae. albopictus	Quasi-experimental, nonrandomized controlled trial	Copepods genera Mesocyclops (mainly M. woutersi Van der Velde, M. aspericornis, M. thermocyclo poides)	Ten communes from three districts (1 rural, two urban) selected for high-frequency use of large outdoor tanks and wells: Intervention group: six communes (C1-C6) selected due to dengue history and heavy use of water tanks (11,675 households; 49,647 residents).
+
+Control group: four communes (C7–C10) (8,909 households; 37,665 residents)
+
+	Intervention group: inoculation of copepods in tanks, wells, jars, drums and ornamental ponds. After July 1998, during follow up, reinoculation of copepods if copepods were absent.
+
+Control group: no intervention
+
+	April-July 1998 (implementation); follow-up until March 2000	Pre-intervention entomological survey to identify key Aedes containers.
+
+Community engagement activities: KAP surveys, teacher training, clean-up campaigns, school/neighborhood activities, mass communication, and distribution of educational materials.
+
+	
+Nam et al. (2005) (Vietnam)	Dengue; Ae. aegypti	Quasi-experimental, nonrandomized controlled trial	Copepods genera Mesocyclops (M. aspericornis, M. ogunnus, M. thermocyclopoides, among others)	Intervention group: three communes (from three different provinces) selected based on high dengue frequency, strong health-staff engagement, community concern, and presence of large water-storage containers suitable for copepods (5,913 households; 27,167 residents).
+
+Control group: one neighboring commune (2,165 households; 10,419 residents)
+
+	Intervention group: manual introduction of copepods in large domestic containers (>100 L).
+
+Control group: no intervention
+
+	September 2000–June 2003	Community committees for mobilization and education activities (schools, meetings, loudspeaker messages, events, printed materials) with radio/TV coverage and KAP surveys.
+
+Household visits: education, waste management guidance, and copepod maintenance.
+
+	
+Nam et al. (2012) (Vietnam)	Dengue; Ae. aegypti	Quasi-experimental, nonrandomized controlled trial (Phase 1)/
+ 
+Quasi-experimental, noncontrolled trial (Phase 2)	Copepods genera Mesocyclops	Communes selected based on high dengue frequency, strong health-staff engagement, community concern, and the presence of large water-storage containers suitable for copepods: Phase 1: in two different provinces:
+
+Intervention communes: 2 communes.
+
+Control commune: 1 commune
+
+Phase 2: 12 communes selected among those involved in a water and sanitation project, incorporated into the study stepwise: first three model communes, then nine more progressively
+
+	Intervention communes: monthly visits to households to inoculate copepods in standard jars (100–200 L) and large water storage tanks (∼1,000 L).
+
+Control commune: no intervention
+
+	Phase 1: June 2004–June 2007
+
+Phase 2: October 2005–April 2010. In various stages:
+
+stage 1: three communes in March 2006–April 2009.
+
+subsequent stages: from September 2007
+
+	KAP surveys, teacher training on dengue, dengue education incorporated into school’s curriculum and into extracurricular activities by participating with Mesocyclops inoculation and community clean up campaigns.
+
+The subsequent stages on Phase 2 are not detailed here because the impact was not assessed using epidemiological indicators.
+
+	
+Fish	
+Singh et al. (2022) (India)	Malaria; An. culicifacies, An. stephensi	Quasi-experimental noncontrolled trial	Larvivorous fish Gambusia affinis	Two districts with high malaria incidence were selected. Two main breeding sites of malaria vectors were intervened: 251 diggies (surface water tanks) and 251 sumpwells (water supply surface tanks)	Release of 5–10 fish per linear meter, using a ratio of three females to two males	February 2012–February 2016	N/A
+
+	
+Ghosh et al. (2005) (India)	Malaria; An. culicifacies and An. fluviatilis	Quasi-experimental noncontrolled trial	Larvivorous fish Poecilia reticulata	Three villages, differing in wells or streams availability as breeding sites, randomly selected in a high-risk malaria area where indoor insecticide spraying is not allowed: Village 1: 398 inhabitants; wells only (22 wells)
+
+Village 2: 396 inhabitants; four wells + one perennial stream
+
+Village 3: 130 inhabitants; one perennial stream only
+
+	P. reticulata were collected from a nearby stock and released at 3–5 fish/m² into all wells and streams in the three sentinel villages. 50–100 fish released per well depending on size. Fish were also released into breeding habitats of nearby villages to prevent vector immigration	October 1996	Monitoring of fish populations was conducted pre- and post-monsoon.
+
+Prior to fish introduction, composition of vector populations was characterized.
+
+Villages were ∼17 km from each other.
+
+Pre-intervention vector analysis showed that competent malaria vectors (A. culicifacies species A) were associated with villages with wells, but not with villages with streams only.
+
+	
+Ghosh et al. (2011) (India)	Chikungunya; Ae. aegypti, Ae. albopictus	Quasi-experimental nonrandomized trial with three intervention arms	Larvivorous fish Poecilia reticulata and Gambusia affinis	Three randomly selected cities from two districts heavily affected by chikungunya: Intervention 1: one city with 114 households; population 568.
+
+Intervention 2: one city with 420 households; population 2040.
+
+Intervention 3: one city with 284 households; population 134
+
+	I1 (Poecilia only): release of 10–15 Poecilia in 32 indoor cement tanks.
+
+I2 (IEC + Poecilia): release of 10–15 Poecilia in 482 indoor cement tanks + IEC campaign.
+
+I3 (IEC + Gambusia): release of 10–15 Gambusia in 337 indoor cement tanks + IEC campaign
+
+	March–May 2006 (interventions 1 and 2). July–October 2006 (intervention 3)	Initial sampling identified potential breeding sites, mainly indoor cement tanks.
+
+KAP assessments were conducted.
+
+Education included talks and live demonstrations of fish preying on mosquitoes.
+
+	
+Ae, Aedes; An, Anopheles; Bti, Bacillus thuringiensis var israelensis; EW, epidemiological week; G, grams; Ha, hectare; IEC, information, education and communication; IRS, indoor residual spraying; ITU, international toxic units; KAP: knowledge, attitudes and practices; L, liters; L. sphaericus, Lysinibacillus sphaericus; LLIN, long-lasting insecticide-treated nets; M, meters; N/A, not applicable; TV, television; ULV: ultra-low volume.
+
+Epidemiological Outcomes
+
+Ten studies measured the impact of the intervention using disease incidence as an indicator expressed as the number of cases per 1,000 people per year (n = 4) (Blanco Castro et al. 2000, Kay et al. 2002, Ghosh et al. 2005, Tia et al. 2024), number of cases per 1,000 people per month (n = 2) (Munyakanage et al. 2024, Kailembo et al. 2025), number of cases per 100,000 people per year (n = 2) (Nam et al. 2005, 2012), number of cases per 100,000 people over several epidemiological weeks (n = 1) (Bohari et al. 2020), and number of cases per 100 people per year (n = 1) (Majambere et al. 2010). Conversely, seven used the absolute number of disease cases per year (n = 3) (Seleena et al. 2004, Obopile et al. 2018, Singh et al. 2022), over several epidemiological weeks (n = 2) (Moreno et al. 2014, Setha et al. 2016), per month (n = 1) (Tan et al. 2012), and without unit time (n = 1) (Ghosh et al. 2011). Lastly, one study used prevalence measured as the proportion of cases detected over the total sampled per year (n = 1) (Geissbühler et al. 2009).
+
+In the included studies, epidemiological data were obtained from records gathered by the official health services or authorities exclusively (passive surveillance) (n = 10), from active detection of cases exclusively (active surveillance) (n = 1) (Geissbühler et al. 2009), and from both active and passive surveillance (n = 6) (Seleena et al. 2004, Ghosh et al. 2005, Majambere et al. 2010, Nam et al. 2012, Moreno et al. 2014, Bohari et al. 2020). One study did not state how the information was collected (Blanco Castro et al. 2000). A detailed description of the outcomes and how they were measured is provided in Table 2.
+
+Table 2. Detailed description of the outcomes and results is provided
+
+Reference	Outcome measure	How outcomes are measured	Results	Conclusion	Additional relevant information about the results	
+Bacterial larvicides	
+Majambere et al. (2010)	Incidence	Population (6 months to 10 years) to be monitored selected before the intervention to conduct passive case detection to determine incidence of clinical malaria: ill children brought to be examined by study nurses (2 stationed in each study zone) for malaria signs and symptoms, blood sample rapid test for parasites; thick blood smear if fever was present.
+ 
+The incidence of malaria was analyzed as a cross-over study, with a multilevel generalized linear model (GLLAMM).	Malaria incidence (cases/100 child-years of exposure): 2006:
+
+Intervention zones:
+
+Zone 1: 70.9 (58.8–85.6)
+
+Zone 3: 44.1 (35.2–55.2)
+
+Control zones:
+
+Zone 2: 30.3 (23.1–39.7)
+
+Zone 4: 29.1 (22.1–38.4)
+
+2007:
+
+Intervention zones:
+
+Zone 2: 17.0 (12.4 − 23.5)
+
+Zone 4: 24.7 (18.8–32.3)
+
+Control zones:
+
+Zone 1: 7.2 (4.3–11.9)
+
+Zone 3: 27.2 (20.9–35.4)
+
+	Larviciding was associated with increased malaria risk in 2006 (OR = 2.89, 95%; CI = 1.79–4.68, P < 0.001).
+No statistically significant association observed in 2007 (OR = 1.25, 95% CI = 0.74–2.09, P = 0.404).	Entomological surveillance based on larval density, adult density, EIR and sporozoite rate was used to assess the impact of the intervention.
+
+A census of residents was carried out in the 50 study villages in 2006
+
+Informed consent was obtained from parents or caregivers to enroll ∼500 children in each zone.
+
+Active case detection through cross-sectional surveys before (May–June) and after (November–December) was also carried out to assess prevalence of parasitemia; all study children were examined for malaria signs and symptoms, measure of anemia and collection of thick blood smears for determination of parasitemia.
+
+Parasitemia declined across all zones from 2006 to 2007 regardless of intervention.
+
+In 2007, participants who had reached 10 years were replaced by infants 6–18 months; those who left the study were replaced by additional children from the same village.
+
+ITN use increased substantially between 2006 and 2007, particularly in zones 2 and 4, which could confound comparisons.
+
+Sex, age, bed net use, ITN use, sleeping in a room with gaps, and ethnicity did not significantly impact on the OR.
+
+	
+Obopile et al. (2018)	Number of cases	Clinical malaria cases from the national program. Data per year was compared between intervention and control villages.	Number of cases per year: Intervention village:
+
+2011: 21
+
+2012: 0
+
+2013: 0
+
+Control village:
+
+2011: 3
+
+2012: 20
+
+2013: 70
+
+	By the end of the intervention, malaria cases were reduced to 0 cases (100% reductiona) in the intervention village. The control village reported 70 cases (>2,000% increasea).	Impact was also measured using larval and adult mosquito density indicators.
+
+Previous IRS and LLIN use in the study area may have left residual effect influencing results.
+
+IRS coverage was higher in the intervention village’s district (79.5%) versus control village’s district (58%), both below the 80% recommended.
+
+The study covered seven sites, but disease impact was assessed only in two villages.
+
+	
+Tia et al. (2024)	Incidence	Health center records of malaria cases confirmed by rapid diagnostic tests (RDTs) and/or microscopy test with prescription of artemisinin-based combination therapy (ACT). Rate ratio (RR) of Poisson test was used to compare malaria incidence before (March 2018–February 2019) and after (March 2019–February 2020).	Incidence (× 1,000 residents): Bti + LLIN group:
+
+t0 = 291.8/t1 = 111.4
+
+RR = 0.38 (0.33–0.44); P < 0.001
+
+LLIN only group:
+
+t0 = 188.0/t1 = 186.1
+
+RR = 0.99 (0.87–1.12); P = 0.898
+
+	Bti combine with LLIN achieved a significant reduction in malaria incidence (61.8%a) while LLIN alone achieved a 1.0%a reduction.	Entomological indicators were also used to assess the impact of the intervention using larva, pupae and adult density, biting rate, EIR, infection rate and parity rate.
+
+Bed net use was measured in both groups.
+
+	
+Munyakanage et al. (2024)	Incidence	Fifteen villages in proximity to the marshlands were selected. Suspected cases registered by community health workers, compiled monthly. Data were compared before (July 2020) and after (April 2021) in each group. Differences in malaria incidence between sites was determined using Mann–Whitney test.	Incidence (×1,000 residents): twelve villages near the intervention site: t0 = 2.64/t1 = 1.28b
+
+three villages near the control site: t0 = 5.60/t1 = 5.53
+
+	Malaria incidence experienced a reduction of 51.5%a in the 12 villages near the intervention site and 1.25%a in the three villages near the control site. The intervention significantly reduced malaria incidence (U = 20, z = −2.268; P = 0.023) in the intervention area compared to control.	Impact was also assessed using larva, pupae and adult density indicators.
+
+The area was a complex rice-field ecosystem with frequent flooding and human-made breeding sites.
+
+Cases were confirmed using rapid diagnostic testsc.
+
+	
+Tan et al. (2012)	Number of cases	Official records from the control program of the serologically confirmed cases. Number of cases were compared between intervention and control site in peak months (May–July).	Number of cases (May–July 2008): Intervention site: 0
+
+Control site: 12
+
+	There was no dengue cases recorded during the peak months at intervention site, but 12 cases occurred in the control site.	The impact of spray application was also measured through larval and ovitraps surveillance.
+
+17 of the pyrethroid fogging were conducted within a 400 m radius of the untreated control site.
+
+	
+Bohari et al. (2020)	Incidence	Cases confirmed serologically (NS1, IgG, IgM) collected by the health system through active and passive surveillance. Data were compared before in each zone before (EW 1–28/2015 or EW 1–31/2016) and during intervention (EW 29–52/2015 or EW 32–52/2016).	Incidence (×100,000 residents): 2015 (pilot):
+
+Intervention zone:
+
+Z-7L: t0 = 460/t1 = 9
+
+Control zones:
+
+Z-5: t0 = 1,527/t1 = 263
+
+Z-14: t0 = 1,753/t1 = 310
+
+2016 (integrated):
+
+Intervention zone:
+
+Z-7L: t0 = 577/t1 = 99
+
+Control zones:
+
+Z-5: t0 = 855/t1 = 290
+
+Z-14: t0 = 1,304/t1 = 492
+
+	In 2015 dengue incidence decreased 98%a in the intervention zone versus a reduction of 82.8%a and 82.3% ain the control zones.
+
+In 2016 incidence decreased 82.8%a in the intervention while the reduction in the control zones was 66.1%a and 62.3%a
+
+	Entomological indicators based on ovitraps, larval, and pupae density indicators were also used to assess the impact.
+
+To calculate incidence, population per zone was estimated multiplying the number of houses by 4.2 (value provided by the Ministry of Health based on a 2011 survey).
+
+	
+Setha et al. (2016)	Number of cases	Clinical cases and some confirmed serologically collected by dengue program. Data before (EW 1–20), window period (EW 21–24) and peak season (EW 25–36) were compared between 2010 and 2011 in each group. The difference in dengue cases was determined using Mann–Whitney test.	Number of dengue cases per period: Intervention group (2010/2011):
+
+t0 = 94/56
+
+tw = 73/54
+
+t1 = 674/354 (P < 0.05)
+
+Control group (2010/2011):
+
+t0 = 24/51 (P < 0.05)
+
+tw = 20/63 (P < 0.05)
+
+t1 = 132/596 (P < 0.05)
+
+	Intervention districts in 2011 showed a statistical reduction of 47.48% in dengue cases (P < 0.05), while control districts showed a 351.52% increase (P < 0.05).	Incidence could not be calculated since population data was unavailable.
+
+In 2010, another phase covered communes in all 11 districts, but impact was not assessed epidemiological indicators because some case records lacked address information, making it impossible to classify them from treated or nontreated communes.
+
+Impact was also assessed using pupae and adult indicators, but only in the 2010 phase.
+
+	
+Moreno et al. (2014)	Number of cases	Cases collected through active and passive official surveillance. Data before (EW 18/2009-EW 17/2010) were compared with intervention period (EW 18/2010-EW 17/2011).	N/A	During intervention, malaria cases were reduced by 40% after the 1st application, 60% after the 3rd and reached 80% after the 4th, remaining at that level until the end of the study.	Impact was also assessed using larva and adult indicators.
+
+Case origin was verified through on-site epidemiological surveys.
+
+Rural workers conducted active case detection.
+
+	
+Blanco Castro et al. (2000)	Incidence	Malaria incidence during the post-intervention period (May–July 1998) in the five municipalities involved is compared with the same period from 1994 to 1997. A Chi-square test was used to analyze the results.	Incidence per 1,000 inhabitants 1997 vs 1998: Municipality 1: 15.95/7.19
+
+Municipality 2: 9.34/5.33
+
+Municipality 3: 8.73/4.07
+
+Municipality 4: 6.78/0.72
+
+Municipality 5: 5.35/2.33
+
+	A statistically significant reduction (P < 0.01) of 59.4%a in the malaria incidence was observed in all five municipalities during May–July 1998 compared with the same period in 1997.	Entomological surveillance was used to assess the efficacy of Bs based on larval density and biting rate.
+
+The source of the incidence data is not explicitly stated in the article.
+
+Incidence data are presented in figures aggregated by municipality; it is not explicitly stated whether these figures reflect the entire municipality or only the treated localities within each municipality.
+
+Only data from 1997 and 1998 are visible in the article.
+
+	
+Seleena et al. (2004)	Number of cases	Number of malaria cases per village per year obtained from the local health office through 1) monthly mass blood surveys (∼70% population coverage) and 2) passive case detection in clinics and hospitals.	Malaria cases per year: Bti/L. sphaericus intervention village:
+
+1998: 14
+
+1999: 0
+
+2000: 0
+
+Alphacypermethrin intervention village:
+
+1998: 9
+
+1999: 1
+
+2000: 0
+
+Bti/L. sphaericus or alphacypermethrin intervention village:
+
+1998: 1
+
+1999: 1
+
+2000: 0
+
+Untreated village:
+
+1998: 6
+
+1999: 5
+
+2000: 5
+
+	All interventions, including Bti and Bs alone, achieved a complete elimination of malaria cases (100% reductiona). The untreated village reported A reduction of 16.7%a in malaria cases.	Entomological surveillance was used to assess the impact with adult density and parity rate indicators.
+
+	
+Geissbühler et al. (2009)	Prevalence	4 rounds of cluster-sampled household surveys of parasite infection status. In each round 10 new TCUs were randomly sampled in each of the 15 wards. All consenting participants provided finger-pricked blood samples for Giemsa-stained thick and thin smear microscopic examination. Prevalence was compared between intervention and control wards at baseline (year 1 April 2004–March 2025), during pre-intervention (year 2, April 2005–March 2006) and during intervention (year 3, April 2006–March 2007). Results were analyzed using Generalized Estimating Equations.	Prevalence of malaria infection in children ≤5 years in intervention wards vs control wards per year: Y1: P = 0.047
+
+Y2: P = 0.020
+
+Y3: P = 0.002
+
+	Bacterial larviciding significantly reduced malaria infection risk in children ≤5 years (OR = 0.284; P = 0.017)	Impact was also assessed using biting rate and EIR indicators.
+
+Blood-sampling rounds took place: 1st May–September 2004; 2nd November 2004–July 2005; 3rd September 2005–May 2006; 4th July 2006–March 2007.
+
+Positive individuals were treated and retested, and those retest records were not included in the analysis.
+
+	
+Kailembo et al. (2025)	Incidence	Monthly confirmed cases (through rapid test or microscopy) from routine health facility records, disaggregated by age (all ages, children <5 years and people ≥5 years). Data collected before (January 2020–May 2022) and during the intervention (June 2022–April 2024). Incidence rate ratio calculated comparing the change in incidence in intervention vs. control councils before and after. Association between intervention and malaria incidence assessed using negative binomial regression.	Incidence rate ratio (IRR) of confirmed malaria cases per 1,000 population per month: High risk strata:
+
+all ages: 1.16 (0.98–1.37), P = 0.079
+
+<5: 1.12 (0.94–1.34), P = 0.190
+
+≥5: 1.20 (1.01–1.42), P = 0.039
+
+Moderate risk strata:
+
+all ages: 0.86 (0.72–1.02), P = 0.081
+
+<5: 0.88 (0.74–1.04), P = 0.133
+
+≥5: 0.84 (0.70–1.02), P = 0.078
+
+Low risk strata:
+
+all ages: 0.96 (0.76–1.22), P = 0.738
+
+<5: 0.85 (0.64–1.14), P = 0.271
+
+≥5: 0.97 (0.76–1.25), P = 0.839
+
+	There was no strong evidence of an association between larviciding and malaria incidence across any risk stratum.
+
+There was an increase of 16.0%a in malaria incidence in the high-risk strata in incidence in intervention councils vs. control, while there was a reduction of 14.0%a and 4.0%a in the moderate and low risk areas, respectively
+
+	Entomological surveillance was conducted (reported separately) using larvae abundance, adult abundance, sporozoite rate (SR) and entomological inoculation rate (EIR).
+
+Other secondary disease indicators were used: fever test positivity rate (proportion of confirmed malaria-positive cases among all fever patients tested in laboratories per month) and antenatal care positivity rate (proportion of confirmed malaria-positive cases among pregnant women screened at their first visit per month)
+
+Only facilities with ≥80% reporting rate across the study period were included (590 of 1,334 total facilities after exclusions)
+
+Authors concluded the need for continuous year-round larviciding and larger, randomised cluster trials are needed to generate stronger evidence.
+
+Reported coverage of larvicide of identified habitats >90% in all three councils across the 2 years.
+
+	
+Copepods	
+Kay et al. (2002)	Incidence	Official provincial health-center records of suspected cases with IgM ELISA evidence compared per year.	Incidence (×1,000 residents) per commune 1998 vs 1999: Intervention:
+
+C1: 0.68; 0
+
+C2: 0; 0
+
+C3: N/A
+
+C4: 0.15; 0
+
+C5: 0; 0
+
+C6: 1.3; 0
+
+Control:
+
+C7: 0.18; 2.1
+
+C8: 0; 0
+
+C9: 31.2; 0
+
+C10: 13.4; 0
+
+	After the intervention, all communes experienced a 100%a reduction in incidence or remained zero, except 1 control commune which experienced an increase (>1,000%a).	Impact was also measured using larval indicators.
+
+A major challenge in monitoring virus transmission using serial blood samples was the cultural resistance to blood collection.
+
+Travel history for each patient was monitored to determine where the infection occurred.
+
+Mesocyclops survival was measured.
+
+	
+Nam et al. (2005)	Incidence	Data from commune health centers (suspected cases confirmed by IgM ELISA) and from district and provincial health centers (routine protocol). Average incidence before vs. after in the three treated communes was compared with the incidence average in their districts and their provinces.	Incidence average (×100,000 residents) in each of the three intervention communes vs their district vs their province: 1996: 1,641.7; 357.2; 170.6
+
+1997: 2,418.5; 360.4; 166.2
+
+1998: 1,597.5; 1,543.9; 419.1
+
+1999: 467.5; 159.6; 69.0
+
+2000: 55.2; 58.1; 23.1
+
+2001: 11.0; 44.2; 28.9
+
+2002: 0.0; 112.8; 51.2
+
+2003: 0.0; 14.4; 6.6
+
+	In 2003 the intervention communes achieved reduction of 100%a in the average dengue incidence vs a 91.0%a and 90.4%a reduction in their districts and provinces, respectively.	Impact was also measured using entomological indicators (larval and adults' density).
+
+Copepods survival in containers was evaluated.
+
+	
+Nam et al. (2012)	Incidence	Phase 1: suspected cases confirmed by IgM ELISA in the 2 intervention and the 1 control communes. Incidence was compared per year and analyzed with Chi square test.
+
+Phase 2 (stage 1): active case detection through blood sampling. Incidence of each of the three model communes compared with their respective surrounding district and analyzed with Chi square test.
+
+	Incidence (×100,000 residents) per year: Phase 1: Intervention commune 1 vs intervention commune 2 vs control commune:
+
+1999: 104.5; 0; 14.0
+
+2000: 59.1; 50.3; 98.0
+
+2001: 36.3; 122.3; 265.8
+
+2002: 9.8; 0; 0
+
+2003: 13.6; 43.1; 111.9
+
+2004: 145.4; 70.8; 559.5
+
+2005: 50.0; 0; 14.0
+
+2006: 9.8; 0; 14.0
+
+2007: 0; 0; 69.9
+
+Phase 2 (stage 1): Each model communes (3 communes) vs surrounding district:
+
+2006: 187.0/79.5; 12.0/4.4; 0/NA
+
+2007: 11.7/34.7; 0/36.6; 240.2/125.3
+
+2008: 23.7/27,5; 12.0/41.0; 160.1/118.4
+
+2009: 0/42.7; 0/150.3; 183.0/311.7
+
+	In 2007 (Phase 1), incidence in intervention communes was statistically lower than in control commune (X2 = 40.0; P < 0.001). There was a 100%a reduction in intervention communes and a 37.5%a reduction in control communes.
+
+In 2009 (Phase 2-stage 1), incidence in intervention communes was statistically lower compared with surrounding areas (X2 = 33.03; P < 0.001). There was a 100% reduction in two intervention communes while in their respective surrounding districts there was a 46.3%a reduction and >3,000%a increase. The remaining intervention commune experienced a 23.8%a reduction and its surrounding district an increase >140%a.
+
+	Entomological indicators (larvae and adults) were used to measure impact of the intervention.
+
+Mesocyclops survival was evaluated (final prevalence >75% in most communes).
+
+The article reports epidemiological data only for Phase 1 and Phase 2 Stage 1.
+
+Several communes continued the intervention after the project.
+
+	
+Fish	
+Singh et al. (2022)	Number of cases	Malaria cases from the Department of Health, compared before and after the intervention.	Malaria cases: Before:
+
+2010: 245
+
+2011: 205
+
+2012: 190
+
+After:
+
+2013: 17
+
+2014: 2
+
+2015: 1
+
+	Intervention reduced malaria cases (>99.5% reductiona).	Larval and adult mosquito density indicators were also used to measure the impact of the intervention.
+
+	
+Ghosh et al. (2005)	Incidence	Malaria incidence (based on parasite presence confirmation) monitored fortnightly through active and passive surveillance by primary health center personnel. Both thin and thick blood films prepared from all febrile cases, stained and examined microscopically to confirm parasite presence. Baseline years (1994–1996) compared to intervention/follow-up years (1997–2003).	Malaria incidence per 1,000 population per year: Village 1 (wells only):
+
+1994: 50.3
+
+1995: 52.8
+
+1996: 120.6
+
+1997: 27.6
+
+1998–2003: 0
+
+Village 2 (wells and stream):
+
+1994: 0.2
+
+1995: 0.2
+
+1996: 0.7
+
+1997: 0
+
+1998–2003: 0
+
+Village 3 (stream only):
+
+1994: 1.6
+
+1995: 1.6
+
+1996: 0.8
+
+1997: 1.6
+
+1998–2003: 0
+
+	Introduction of P. reticulata lead to zero malaria cases detected from 1998 (over one year after release of fish) until 2003 in the three villages (100% reductiona).	Active surveillance procedures are not described in the article.
+
+Entomological surveillance was used not to assess the impact of the intervention, but to understand the composition of vector population and host preference of mosquitoes.
+
+	
+Ghosh et al. (2011)	Number of cases	Chikungunya-compatible febrile cases from the national vector program. Baseline data were compared with data collected 1 month after starting the intervention.	Number of chikungunya cases: Poecilia: t0 = 226/t1 = 78;
+
+IEC + Poecilia: t0 = 816/t1 = 1;
+
+IEC + Gambusia: t0 = 432/t1 = 136;
+
+	Poecilia alone achieved a reduction of 65.48% in chikungunya cases, while Poecilia combined with IEC was the most effective (99.87%) followed by Gambusia plus IEC (68.51%)	Larval indicators were used to measure the impact.
+
+Fish survival was evaluated after one month (Poecilia 86%-34%; Gambusia 16%).
+
+	
+Bti, Bacillus thuringiensis var israelensis; L. sphaericus, Lysinibacillus sphaericus; N/A, not available in the original article; NS1, Antigen tests for dengue virus; IgG, Immunoglobulin G test; IgM, Immunoglobulin M test; t0, initial measure; t1, final measure posterior; tw, week period measure (time females are able to transmit the pathogen); EW, epidemiological week; LLIN, long-lasting insecticide-treated nets; IRS, indoor residual spraying; IEC, information, education and communication.
+
+a Data calculated by the reviewers to estimate the percentage of reduction (more information in Supplementary Table S5).
+
+b Data recalculated by the reviewers (due to a minor error in the original paper).
+
+c Information provided by the article’s author in response to a request for further detail.
+
+Risk of Bias
+
+Overall, quasi-experimental studies showed moderate to high risk of bias. The three domains of greater concern were related to the confounding factors, the participant retention, and the measurement of outcomes (Fig. 2 and Supplementary Table S2).
+
+Fig. 2. Results of the risk of bias assessment for the quasi-experimental studies included.
+
+Stacked bar chart summarizing the methodological quality assessment of 17 quasi-experimental studies using nine JBI appraisal criteria. Most studies clearly defined the relationship between cause and effect (17/17), included a control group (13/17), used comparable groups (8/17), and provided similar care apart from the intervention (12/17). Multiple pre- and post-intervention outcome measurements were reported in 12 studies, and outcomes were generally measured consistently (12/17) and reliably (11/17). The most common methodological concerns were incomplete follow-up, which was unclear or inadequate in 14 studies, and inappropriate or insufficiently reported statistical analysis, identified in 10 studies. Bar colors indicate ratings of Yes (green), Unclear (yellow), and No (red).
+
+Confounding bias was evaluated by assessing the similarity among participants in the 13 studies that included a control group and was rated as unclear in nine studies due to incomplete reporting of group characteristics (Kay et al. 2002, Seleena et al. 2004, Nam et al. 2005, 2012, Geissbühler et al. 2009, Ghosh et al. 2011, Setha et al. 2016, Munyakanage et al. 2024). The main issues were lack of information about population size and number of households in the comparison groups, absence of baseline disease burden information or mosquito abundance for the groups being compared, lack of number of breeding sites in each group, and incomplete reporting of water store practices or breeding sites configuration. Participant retention bias was evaluated by assessing the completeness of participants follow-up. It was considered incomplete in four studies due to missing outcome data for at least some of the comparison units (eg results reported in three of four communes that were part of the study) (Kay et al. 2002, Nam et al. 2012, Tan et al. 2012, Singh et al. 2022). Follow-up was considered unclear in 10 studies because epidemiological outcomes were collected through active detection of cases without providing further details or because they were collected exclusively through passive surveillance by health services without reporting whether the compared groups had equivalent access to health services, private health center information was not considered, the distribution of health workers within the study area was unknown, or information about health center capacity or distribution was missing (Blanco Castro et al. 2000, Seleena et al. 2004, Ghosh et al. 2005, 2011, Nam et al. 2005, Setha et al. 2016, Obopile et al. 2018, Bohari et al. 2020, Munyakanage et al. 2024, Kailembo et al. 2025). Outcome measurement bias was evaluated by assessing the reliability of the procedure followed to measure the outcomes. It was considered unclear in six studies, due to the lack of information on whether cases were detected based on clinical signs or laboratory tests, missing information about the test used to confirm the cases, missing information about the case detection method used in each group (eg blood sampling in intervention communes with no information provided regarding the comparison districts and provinces), lack of clarity on whether reported information corresponds only to the intervention sites or all the sites in the entire municipality and lack of description of active surveillance procedures (Blanco Castro et al. 2000, Seleena et al. 2004, Ghosh et al. 2005, Nam et al. 2012, Singh et al. 2022, Munyakanage et al. 2024).
+
+Additionally, statistical validity, which is related to the use of appropriate statistical analysis, was rated as high risk because 10 of the 17 quasi-experimental studies did not perform a statistical analysis (Kay et al. 2002, Seleena et al. 2004, Ghosh et al. 2005, 2011, Nam et al. 2005, Tan et al. 2012, Moreno et al. 2014, Obopile et al. 2018, Bohari et al. 2020, Singh et al. 2022). Seven studies conducted analysis with different approaches. Mann–Whitney test, a nonparametric test used to compare independent groups, was used to assess the differences in malaria incidence between intervention and control sites (Munyakanage et al. 2024) and the difference in the dengue cases between years (Setha et al. 2016). A chi-square test was used to analyze the difference in malaria incidence before and after the intervention in the intervention group (Blanco Castro et al. 2000) and to compare dengue incidence between intervention and control groups (Nam et al. 2012). Regression models were used in two studies; a negative binomial regression was used to assess the association between intervention and malaria incidence (Kailembo et al. 2025), while generalized estimating equations (GEE) were used to estimate the risk of malaria infection depending on whether the area received the intervention or not (Geissbühler et al. 2009). Finally, one study used a multilevel generalized linear model (GLLAMM) to analyze the incidence of malaria in a cross-over study, considering the variable follow-up time of each child enrolled in the study (Majambere et al. 2010).
+
+The randomized trial (Tia et al. 2024) also showed a moderate-to-high risk of bias. Random sequence generation and allocation concealment risk were both rated as high risk, as the article does not provide information about the method used to assign villages to intervention or control groups, nor about any measures taken to prevent manipulation during the allocation process. Blinding of participants and personnel was also rated as high risk since larvicide was actively sprayed in the intervention villages while control villages received no treatment, making it reasonable to assume that both participants and study personnel were aware of group assignment. Finally, incomplete outcome data was considered high risk because malaria cases were detected through passive surveillance, and the article does not provide information on whether all villages had comparable access to the health center. Additionally, regarding the statistical analysis performance, in this study a Poisson regression model was used to compare malaria incidence before and after the intervention in each group (Tia et al. 2024) (Supplementary Table S3).
+
+Intervention Effectiveness
+
+To standardize the results, when data was available for each group within each article before and after the intervention, the percentage of change (reduction or increase) in epidemiological indicators was calculated by the reviewers (n = 11) (Blanco Castro et al. 2000, Kay et al. 2002, Seleena et al. 2004, Ghosh et al. 2005, Nam et al. 2005, 2012, Obopile et al. 2018, Bohari et al. 2020, Singh et al. 2022, Munyakanage et al. 2024, Tia et al. 2024) (Supplementary Table S4). Three studies already expressed the reduction in each group in percentages (Ghosh et al. 2011, Moreno et al. 2014, Setha et al. 2016). In the remaining four studies, this percentage was not calculated since data before and after was not provided (Tan et al. 2012) or the effect of the intervention was already presented in relative measures comparing the intervention group versus the control (Geissbühler et al. 2009, Majambere et al. 2010, Kailembo et al. 2025).
+
+Bacterial Larvicides
+
+Twelve studies used bacterial larvicides, specifically Bacillus thuringiensis var. israelensis (Bti) (n = 7), targeting Anopheles (n = 4) (Majambere et al. 2010, Obopile et al. 2018, Munyakanage et al. 2024, Tia et al. 2024) or Aedes (n = 3) (Tan et al. 2012, Setha et al. 2016, Bohari et al. 2020), Lysinibacillus sphaericus (L. sphaericus), targeting Anopheles (n = 2) (Blanco Castro et al. 2000, Moreno et al. 2014), and a combination of both Bti and L. sphaericus, also targeting Anopheles (n = 3) (Seleena et al. 2004, Geissbühler et al. 2009, Kailembo et al. 2025).
+
+Bacterial larvicides were applied in various water bodies such as rice paddies, reflows of showers, river edges, pools, puddles, village pumps, hoof prints, swamps, ponds, and watering wells, in marshlands, lakes, indoor water recipients, outdoor water recipients, outdoors stagnant bodies of water, and drains, roof gutters, vegetation, wells, and streams. More detail about how the interventions were performed is provided in Table 2.
+
+Four of the twelve studies used Bacillus thuringiensis var. israelensis (Bti) to control Anopheles in Africa against malaria. The application of Bti in aquatic habitats in Gambia was not effective to reduce malaria incidence in children between 6 months and 10 years. It was found that the likelihood of malaria was higher in intervention zones than control zones, with treated areas showing 2.89 times higher probability one year [Odds Ratio (OR)=2.89, P < 0.001] and 1.25 times the subsequent year (OR = 1.25, P = 0.404) (Majambere et al. 2010). In Botswana the intervention with Bti in water bodies resulted in fewer malaria cases in the intervention village (100% reduction) than in the control village (>2,000% increase) (Obopile et al. 2018). In Ivory Coast, in a study where long-lasting insecticide-treated nets (LLIN) were used as a balanced co-intervention across groups, the use of Bti in breeding sites achieved a statistically significant reduction in malaria incidence [Rate ratio (RR)=0.38; 61.8% reduction], while there was no statistical difference in the group where only LLIN were used (RR = 0.99; 1.0% reduction) (Tia et al. 2024). In Rwanda, the application of Bti in marshlands significantly reduced malaria incidence in the villages near the treated site (51.5% reduction) compared to those near the control site (1.2% reduction) (P = 0.023) (Munyakanage et al. 2024).
+
+Three of the twelve studies used Bti to control Aedes against dengue in Asia. In West Malaysia, in a site where Bti was used to treat drains, gutters, and vegetation, no dengue cases were reported in the peak dengue season, while 12 cases were reported in the untreated site (Tan et al. 2012). In another study in East Malaysia (in the central area of Borneo Island), the application of Bti during an initial phase in one commune was associated to a 98.0% reduction in dengue incidence, while an 82.8% and 82.3% reduction was achieved in the two untreated communes. During the second phase, where Bti was integrated as part of the routine dengue control program, dengue incidence was reduced 82.8% while the reduction in the untreated communes was 62.3% and 66.1% (Bohari et al. 2020). In Cambodia, districts in which containers were treated with Bti experienced a 47.5% reduction (P < 0.05) in dengue cases, while nontreated districts had a 351.5% increase (P < 0.05) (Setha et al. 2016).
+
+Two of the twelve studies used Lysinibacillus sphaericus (formerly known as Bacillus sphaericus) to control Anopheles against malaria in South and Central America. In Venezuela the intervention with L. sphaericus sprayed in breeding sites in a rural area reduced the number of malaria cases by 40% after the first application, 60% after the third, and 80% after the fourth (Moreno et al. 2014). Similarly, L. sphaericus applied in breeding sites in Guatemala reduced malaria incidence 59.4% compared with the previous year (Blanco Castro et al. 2000).
+
+Three of the twelve studies combined the use of both bacterial larvicides in Asia and Africa against Anopheles to control malaria. In East Malaysia (in the north of Borneo Island), applications of Bti followed by L. sphaericus in one village achieved a 100% reduction in malaria cases. Comparable reductions were recorded in the two chemically treated villages, while the untreated village showed a 16.7% reduction (Seleena et al. 2004). In Tanzania, Bti and L. sphaericus were applied in open and closed mosquito habitats in three districts in the Dar es Salaam region achieving a significant reduction in malaria prevalence compared with the untreated districts. Specifically, children in treated districts had a risk of infection 71.6% lower than in the untreated districts (OR = 0.284, P = 0.017) (Geissbühler et al. 2009). In another study in Tanzania carried out in the Tanga region, a combination of Bti and L. sphaericus was applied in mosquito habitats in three areas with different malaria risks. There was a reduction of malaria incidence in the treated councils compared to the untreated in the moderate and low-risk strata [Incidence Rate Ratio (IRR)=0.86 and 0.96, respectively], and an increase in the high-risk strata (IRR = 1.16); however, the association between larviciding and malaria incidence at any risk level was not statistically significant (Kailembo et al. 2025). Further details about the results are provided in Table 2.
+
+Copepods
+
+Three studies assessed the effect of inoculating copepods in the genus Mesocyclops to feed on Aedes mosquitoes to control dengue in Asia, specifically Vietnam.
+
+In Northern Vietnam, copepods were inoculated in outdoor tanks and wells. The intervention reduced dengue incidence to zero cases (100% reduction) in the three communes with cases at the beginning of the study. The reduction was also 100% in two of the three untreated communes with cases at the beginning. Only one untreated commune experienced a considerable dengue incidence increase (>1,000%) (Kay et al. 2002). In Central Vietnam, copepods were used in water-storage containers in three communes. At the end of the study, it was found a 100% reduction in dengue incidence in these communes, while in their respective districts and provinces it was recorded an average reduction of 91.0% and 90.4%, respectively (Nam et al. 2005). Lastly, in Southern Vietnam, copepods were inoculated also in water-storage containers in two communes. At the end of the study, dengue incidence was reduced by 100% in both communes and 37.5% in the untreated commune. The difference was statically significant (P < 0.001). In the second phase of the study, when copepods were integrated as part of the dengue control program, there was a 100% reduction in dengue incidence in two of the three communes that received the intervention, while their correspondent surrounding district reported also a reduction (46.3%) and a high increase (>3,000% increase). The other intervention commune experienced a reduction of 23.8% and its surrounding district an increase (>140%). The difference between intervention communes and their districts was statistically significant (P < 0.001) (Nam et al. 2012). Further details about the results are provided in Table 2.
+
+Fishes
+
+Three studies evaluated the effect of introducing the larvivorous fish in Asia, all of them in India.
+
+In Northwestern India, Gambusia affinis was introduced in water tanks in two districts to feed on Anopheles to control malaria. At the end of the intervention, the number of malaria cases was reduced by 99.5% (Singh et al. 2022). In the south of India an intervention based on the introduction of Poecilia reticulata in wells and streams to feed on Anopheles to control malaria was carried out in three villages. One year after the intervention, it was found a reduction in malaria incidence of 100% in all the villages (Ghosh et al. 2005). Lastly, in South India, Poecilia reticulata was introduced in indoor tanks in one city to feed on Aedes to control chikungunya. Poecilia was less effective in reducing the number of chikungunya cases (65.48%) than the intervention used in another city based on the combination of Poecilia with information and education campaigns (99.87%) or the combination of Gambusia affinis plus information and education campaigns used in a third city (68.51%) (Ghosh et al. 2011). Further details about the results are provided in Table 2.
+
+Discussion
+
+Public health efforts to prevent and control mosquito-borne diseases are constrained by the limited availability of vaccines and drugs (Onen et al. 2023). Therefore, vector control plays a major role in controlling these diseases (Wilson et al. 2015), with different available approaches including chemical, environmental, biological, and new technologies (PAHO 2019a).
+
+Considering the occurrence of chemical insecticide resistance, there is an urgent need to gather evidence regarding the effectiveness of safe and environmentally friendly interventions on human diseases (WHO 2017). To the best of the reviewers' knowledge, this review is the first aimed at integrating evidence on the effectiveness of interventions based on natural predators, microbial bioinsecticides, and plant-based bioinsecticides addressing the main mosquito-borne diseases and evaluating the impact through epidemiological indicators.
+
+In this systematic review that covers over 25 years of publications, 18 studies were included assessing the impact of the use of bacterial larvicides, copepods, and larvivorous fish as vector control interventions, through epidemiological indicators, to reduce the burden of mosquito-borne diseases in 11 countries in three continents. The evidence of this review is mainly focused on malaria and dengue (n = 17), consistent with their impact globally. Malaria is responsible for almost 250 million cases globally, with most of the fatalities in children under 5 years old, and dengue causes more than 95 million cases, with a population at risk of 3.9 million in over 30 countries (WHO 2024a). The studies included in this review were mostly carried out in Asia and Africa (n = 16). All the studies conducted in Africa (n = 6) were focused on malaria, consistent with the malaria burden that Africa carries, with an estimated 94% of malaria cases worldwide (World Malaria Report 2024: addressing inequity in the global malaria response) (WHO 2024b). Conversely, over half of the studies conducted in Asia were focused on dengue (n = 6), disease that has replaced malaria as the main mosquito-borne disease in this region over the course of the years (Wei et al. 2025).
+
+Most of the studies included here reported positive trends in lowering the burden of mosquito-borne diseases; however, the extent of the impact of these interventions and the level of evidence varied across studies. Among the eighteen studies, only five performed statistical analysis to compare intervention and control groups, three of which found significant differences in the disease outcome in the intervention groups compared with the control groups (Geissbühler et al. 2009, Nam et al. 2012, Munyakanage et al. 2024), while of which two found no significant association between the intervention and the disease outcome (Majambere et al. 2010, Kailembo et al. 2025). Among the remaining 13 studies, six showed higher reductions in epidemiological indicators in the intervention groups than the control groups (Kay et al. 2002, Nam et al. 2005, Setha et al. 2016, Obopile et al. 2018, Bohari et al. 2020, Tia et al. 2024), four showed reduction on epidemiological indicators after applying the intervention compared to before (Blanco Castro 2000, Ghosh et al. 2005, Moreno et al. 2014, Singh et al. 2022), one showed a higher reduction in the intervention group that the untreated group but equal to other interventions' groups (Seleena et al. 2004), one showed a reduction lower than other interventions (Ghosh et al. 2011), and one showed less cases in the intervention site compared to the control site (Tan et al. 2012).
+
+Bacterial Control
+
+Bacillus thuringiensis serovariety israelensis (Bti) and Lysinibacillus sphaericus (L. sphaericus) are the most common, widespread bacteria used for mosquito control (Lacey 2007). Bti is less specific than L. sphaericus (Lacey 2007) and has been widely used against Aedes, Anopheles, and Culex (Miranda et al. 2024). In this review, nine studies used Bti (alone or in combination with L. sphaericus) as a vector control intervention targeting Anopheles or Aedes. Conversely, L. sphaericus is more specific and has a narrower host spectrum, being species of Culex the most susceptible mosquitoes (Guidi et al. 2013) and some species of Anopheles (Mittal 2003). Still, five studies used L. sphaericus (alone or combined with Bti) against Anopheles. However, in the study carried out in the Dar es Salaam region in Tanzania, L. sphaericus was only used in the recipients likely to act as breeding habitats for Culex (cover and polluted recipients), and its impact was not considered since the target of the study was Anopheles as malaria vector (Geissbühler et al. 2009). Bti offers a great advantage over L. sphaericus in terms of resistance development since it has not been reported in Aedes, Anopheles, and Culex (Miranda et al. 2024) while it is known that repeated applications of L. sphaericus can lead to the of resistance in target mosquitoes (Mittal 2003).
+
+Biological larvicides are considered highly effective against immature mosquito stages (Mittal 2003); however, the evidence identified in this review in ten studies indicates that they may extend their impact beyond entomological indicators, contributing to reducing disease burden, although with different levels of certainty across studies. Only in two studies there was no evidence of the association between the use of bacterial larvicides and the reduction of malaria incidence (Majambere et al. 2010, Kailembo et al. 2025). In the two studies conducted in Central and South America (Blanco Castro et al. 2000, Moreno et al. 2014), although malaria burden was reduced in the intervention groups, the absence of control groups limits the interpretation of results. In the study conducted in West Malaysia (Tan et al. 2012), the application of Bti reduced the number of dengue cases compared to the control site; however, there is some lever of uncertainty since there are no measurements before the intervention, making it impossible to know if that difference already existed prior to the treatment (Barker et al. 2024). The most robust evidence of the effectiveness of bacterial larvicides is provided in the studies conducted in Rwanda and Tanzania (Geissbühler et al. 2009, Munyakanage et al. 2024) were the effect of Bti was analyzed and compared through statistical analysis showing a significant reduction in malaria incidence and prevalence, respectively, in the intervention areas versus control areas.
+
+In the studies included here, bacterial larvicides were applied across a wide range of water bodies, from natural or artificial outdoor water recipients to indoor water containers, including those used for potable water, consistent with the existing literature that supports that Bti and L. sphaericus are totally safe to other nontarget organisms, the environment, and human health (Mittal 2003). Bacterial control may represent a potential substitute for chemical insecticides (Gómez-Vargas and Esteban Zapata-Úsuga 2023), particularly in places where resistance to specific insecticides has been detected (Tan et al. 2012). A logistic limitation might be their low residual activity, requiring, therefore, constant reapplications (Lacey 2007).
+
+Copepods have been long recognized as effective biological control agents against Aedes, as demonstrated by a pioneering field study in Tahiti in 1981 (Riviere and Thirel 1981), where Mesocyclops eliminated up to 85% of immature stages. Subsequent experiences reported comparable outcomes following copepod inoculation, such as small-scale eradication of Aedes in a Vietnamese village in 1996 (Vu et al. 1998). Large-scale inoculation combined with community-based actions led to the elimination of Aedes aegypti in several communes in Vietnam in 1998 and the absence of reported dengue cases since 2002 (Kay and Nam 2005). Similar findings were reported in Sri Lanka, where copepods reduced anopheline mosquitoes' populations (Ranathunge et al. 2019, Udayanga et al. 2019). The findings in this review are consistent with this evidence since all three copepod studies included here reported reductions in dengue incidence at intervention sites (Kay et al. 2002, Nam et al. 2005, 2012). However, in the study conducted in Northern Vietnam, a complete reduction in dengue incidence was also achieved in two of the untreated communes, while another experienced a great increase, which can be explained by the influence of infected people flow in and out of the communes rather than the presence or absence of the intervention (Kay et al. 2002). Copepods effectiveness depends on sustained population survival, which may be compromised by water evaporation, container emptying or cleaning, and limited food availability (Lazaro et al. 2015), therefore, survival monitoring was identified as a critical component and was addressed in all included studies.
+
+Larvivorous fish, particularly Gambusia and Poecilia, are natural predators of immature mosquito stages and have been introduced to over 60 countries for mosquito control, proving their effectiveness at reducing larval populations (Benelli et al. 2016). Although fish have been used since the early 20th century for malaria control (WHO 2003), only three studies using epidemiological indicators were found for this review, underscoring the need for further experimental field evidence on disease burden reduction. The three fish studies included here report positive results, with a reduction between 65% and 100% in the number of malaria cases (Singh et al. 2022), malaria incidence (Ghosh et al. 2005), and chikungunya cases (Ghosh et al. 2011). In general, effective introduction of fish for vector control requires adequate knowledge of fish and mosquito ecology to ensure feasibility and assessments of different fish species to test adaptation capacity (Jafari et al. 2019). Potential negative impacts of fish introduction must be carefully considered, as it may lead to predation of nontarget organisms (Rupp 1996). It may also disrupt natural ecosystem balance (Griffin and Knight 2012); therefore, native fish species are recommended (Jafari et al. 2019).
+
+Considering the positive results of the interventions included in this review and the evidence suggesting that an integrated approach combining different types of interventions is recommended to improve the effectiveness of vector control programs and optimize resources (PAHO 2019a), bacterial larvicides, copepods, and larvivorous fish can be a valuable complementary tool for mosquito-borne disease control. In a meta-analysis conducted to assess the impact of interventions against Ae. aegypti, the evidence showed that the combination of different interventions such as chemical insecticides with educational campaigns, lethal ovitraps with larvicides, chemical insecticides with environmental management, or physical measures with chemical control, among others, was more effective than biological, chemical, or mechanical interventions alone (Lima et al. 2015). This pattern is also reflected in the findings of the present review. Two studies (Munyakanage et al. 2024, Tia et al. 2024) reported a statistically significant reduction in malaria following the use of bacterial larvicides, while long-lasting insecticide-treated nets were being used in all sites (treated and untreated) as part of government campaigns. Similarly, in East Malaysia, a significant reduction of dengue incidence in the zones where Bti was applied while, while chemical and environmental actions were taken after formal notification of cases as part of the official program run by the Malaysian government around a case’s residence in both groups (Bohari et al. 2020).
+
+Additionally, community engagement in vector control programs is crucial for maximizing effectiveness (Atkinson et al. 2011, Bardach et al. 2019), and ensuring sustainability, even after formal official activities have ended (Kay et al. 2010). In the present review, six of 15 studies incorporated different community activities as part of their interventions to enhance awareness and acceptance. The three copepods articles (Kay et al. 2002, Nam et al. 2005, 2012) included community activities in their studies, such as TV, radio, and loudspeaker announcements, cleanup campaigns, or school students participating in Mesocyclops inoculation activities. In the South India study, the study included an information and education component in two sites. Although the introduction of Poecilia reticulata showed a reduction in chikungunya cases, the effect was higher when either Poecilia or Gambusia were combined with educational talks and live demonstrations of fish preying on mosquitoes to engage the community (Ghosh et al. 2011). The studies in Cambodia and Botswana (Setha et al. 2016, Obopile et al. 2018) also carried out conscientization activities while inoculating Bti, achieving up to 95% community acceptance (Setha et al. 2016, Obopile et al. 2018). The studies in Tanzania and Gambia involved the community and used their local knowledge to conduct entomological surveys in breeding sites (Geissbühler et al. 2009, Kailembo et al. 2025) and as field applicators of the larvicides (Geissbühler et al. 2009, Majambere et al. 2010, Kailembo et al. 2025). These findings support the importance of communicating and engaging with the community to increase acceptance and involvement.
+
+Limitations
+
+Epidemiological studies are inherently complex, particularly in developing countries, as is the case for all eighteen included studies here. Challenges such as underreporting, limited digital infrastructure, or inconsistent case definition are common (Malebana et al. 2025). In some cases, studies need to rely on official public health surveillance systems, facing potential failures in data collection, diagnostic confirmation, and reporting practices (Lessa et al. 2025). In this review, 10 of the 18 studies included assessed the impact of the interventions on epidemiological indicators using exclusively the information gathered by the public health authorities. Limitations were reported in one study (Setha et al. 2016), which stated that the impact of the 2010 phase could not be assessed because some case records lacked address information, making it impossible to classify them into treated or untreated communes. To avoid this situation, Moreno et al. (2014) verified the origin of the cases through on-site epidemiological surveys. In other cases, case detection can be done by actively running human sampling, which may imply difficulties related to ethics or consent, among others (Cooke et al. 2022). In this review, seven studies used active surveillance, of which one exclusively carried out active detection of cases (Geissbühler et al. 2009) and six combined it with passive surveillance, not reporting any resistance from participants. In the copepods study in Northern Vietnam, while not collecting samples directly, study staff strengthened local capacity through training in serological testing, dengue diagnosis, and record keeping (Kay et al. 2002). However, in a parallel prospective study carried out within the latter study (results not included here), difficulties were reported due to resistance to blood collection from apparently healthy individuals (Kay et al. 2002). One study did not state how the epidemiological information was collected (Blanco Castro et al. 2000).
+
+The heterogenicity of epidemiological indicators used to report the impact of the interventions in the studies included in this review made it not possible to conduct a quantitative meta-analysis, limiting the presentation of results to a narrative description. Eleven studies used incidence and prevalence, both WHO-recommended epidemiological indicators, to measure the effect of vector control interventions in reducing a disease burden (WHO 2012). They capture different aspects of disease dynamics; while incidence reflects the number of new cases over a period, prevalence shows the proportion of existing cases at a time point (Noordzij et al. 2010). In this review, incidence was reported under different population denominators (per 100, 1,000, or 100,000 inhabitants) and under different unit times (year, month, and several epidemiological weeks). Conversely, seven studies assessed intervention impact using the absolute number of cases. Case counts may be informative during discrete periods (outbreaks or seasonal diseases) (WHO 2018), however, they are less suitable for comparing areas which may have different population size or immunity status (WHO 2025a). These findings underscore the need for standardized recommended epidemiological indicators to enable proper evaluation and comparison of interventions' effectiveness (Bowman et al. 2016).
+
+Entomological indicators are widely used to assess the impact of vector control interventions. In this review, all 18 studies also used them, larval indicators being the most used across studies (n = 12), followed by indicators of adult density (n = 9), pupae density (n = 3), and eggs (ovitraps) (n = 2). Other indicators related to the capacity of mosquitoes to transmit a disease were also used, including biting rate (n = 3), entomological inoculation rate (EIR) (n = 3), parity rate (n = 2), human blood-fed females (n = 2), and sporozoite rate (n = 1; Supplementary Table S5).
+
+Although the relationship between entomological and epidemiological indicators is complex (Bowman et al. 2014), an attempt was done to identify potential numerical correlation between entomological and epidemiological indicators across the included studies. Entomological indicators of higher epidemiological relevance (pupae and adult mosquito density) (PAHO 2019b, Wilson et al. 2015) and those related to the vectorial capacity to transmit disease (World Health Organization 2012a) were extracted to assess the possibility of comparison with epidemiological results. Interestingly, the Bti study in Botswana analyzed the correlation between entomological and epidemiological indicators, finding that there was no significant association between the number of Anopheles adults and malaria cases (P = 0.1565) (Obopile et al. 2018). In two studies (Nam et al. 2005, 2012) the percentage of reduction in adult mosquito density was calculated by the reviewers (Supplementary Table S6) to allow comparison with epidemiological results. However, in most studies, both indicators could not be compared because they were reported differently, quantitative data was not provided, or it was not disaggregated to allow comparison, among other reasons (Supplementary Table S5), which precluded a direct comparison. Only four studies reported indicators in a comparable way (Supplementary Table S7). In the Bti study in Rwanda (malaria) and in the Central Vietnam copepods study (dengue), epidemiological and entomological indicators experienced a similar percentual reduction (ranging from 75% to 79.8%; 97.1% to 100%, respectively) (Munyakanage et al. 2024, Nam et al. 2005). Conversely, in the Bti study in Ivory Coast and in the copepods study in Southern Vietnam, there was more variability in the reduction in malaria and dengue incidence and the entomological indicators, ranging from 40% to 88% (Tia et al. 2024) and from 23.8% to 100% (Nam et al. 2012). Although two of the four comparable studies showed numerically similar reductions in both entomological and epidemiological indicators, this observation is based solely on a comparison of date without conducting any further analysis. Establishing a relationship between indicators is a challenge mainly when it is done from studies that might have not been specifically designed to establish this association (Van Hul et al. 2021), which might be the case of the studies included here.
+
+In terms of study design, randomized controlled trials (RCTs) are considered the “gold standard” for evaluating intervention effects (CRD 2009), yet in this review only one RCT was included while quasi-experimental designs predominated (17 of 18). Ideally, quasi-experimental studies include a control group to know if the outcome would have been different or not without the intervention (Barker et al. 2024); however, five studies did not include a control group. When there is a control group, this should be as similar as possible to the intervention group (Miller et al. 2020); however, similarity was unclear in 9 of the 12 studies that included a control group. Furthermore, multiple outcome measurements before and after are recommended to demonstrate intervention-related change (Barker et al. 2024), but such measurements were absent in five studies. These methodological gaps may compromise the internal validity of the included studies.
+
+Lastly, appropriate statistical analysis is also essential to improve the quality of evidence (Lazaro et al. 2015) producing research findings both valid and reliable (Panos and Boeckler 2023). Nevertheless, in this review, only eight studies conducted statistical analysis of epidemiological outcomes. Among them, five performed statistical analysis to compare intervention and control groups (Geissbühler et al. 2009, Majambere et al. 2010, Nam et al. 2012, Munyakanage et al. 2024, Kailembo et al. 2025), while three used statistical analysis to compare the epidemiological indicators before and after (Blanco Castro et al. 2000, Tia et al. 2024) and across years (Setha et al. 2016). Future studies assessing the effectiveness of vector control interventions would benefit from the use of adjusted statistical approaches, such as logistic regression and multilevel analysis, which allow researchers to control confounding variables and account for clustering effects.
+
+Conclusion
+
+This systematic review provides evidence that biological interventions, specifically bacterial larvicides, copepods, and larvivorous fish, can contribute to reducing the burden of dengue, malaria, and chikungunya in diverse settings, with sixteen of the eighteen studies included reporting a reduction in disease outcomes with different levels of evidence.
+
+Among the eighteen studies, five performed statistical analysis to compare intervention and control groups, three of which (2 Bti to control malaria and 1 copepods to control dengue) found significant differences in the disease outcome in the intervention groups compared with the control groups, while two studies (1 Bti and 1 Bti combined with L. sphaericus) found no significant association between the intervention and the malaria outcome. Six studies (2 Bti to control malaria, 2 Bti to control dengue, and 2 copepods to control dengue) found a higher reduction in disease outcomes in the intervention groups than the control groups. Four studies (2 L. sphaericus and 2 fish to control malaria) showed reduction on epidemiological indicators after applying the intervention compared to before. One study combining Bti and L. sphaericus showed higher reduction in malaria indicators the intervention group that the untreated group but equal to other interventions' groups. One fish study showed a reduction in chikungunya outcomes lower than other fish interventions combined with information and education. And lastly, one Bti study showed less cases of dengue in the intervention site compared to the control site.
+
+Considering that chemical control is still the cornerstone of vector control, rapid and worrying increase of insecticide resistance developed by mosquitoes (Dusfour et al. 2019), and the negative effect on the environment and human health (Van Den Berg et al. 2012), these results reinforce the potential of eco-friendly and sustainable vector control interventions such as bacterial larvicides, copepods, and larvivorous fish as promising, complementary alternatives.
+
+Future research assessing the effectiveness of vector control interventions to reduce mosquito-borne disease burden would benefit from more rigorous study designs capable of strengthening causal inference under field conditions. Although randomized controlled trials provide very high-quality evidence (Zabor et al. 2020), their implementation can be operationally difficult. In this context, well-designed quasi-experimental studies remain valuable alternatives, particularly when they incorporate comparable control groups and repeated measurements before and after the interventions. Ensuring baseline comparability between intervention and control groups is essential, including factors such as disease burden, mosquito abundance, population characteristics, and environmental conditions that may influence transmission dynamics.
+
+Greater standardization of epidemiological indicators would also improve comparability across studies and facilitate evidence synthesis (Bowman et al. 2016). In the present review, epidemiological indicators were reported using heterogeneous population denominators and time units, while several studies relied exclusively on the absolute number of cases, limiting cross-study comparison. Case detection was also heterogeneous. Although active case detection may improve completeness of information from all participants, it can be operationally challenging. Studies that report case detection procedures and comparable access to health care services would reduce the risk of bias.
+
+Finally, appropriate statistical analysis is also essential to improve the quality of evidence (Lazaro et al. 2015), producing research findings both valid and reliable (Panos and Boeckler 2023). In this review, 11 studies did not perform statistical analysis of epidemiological indicators, limiting the strength of the results. Future studies should prioritize statistical methods that compare the effect in the intervention and control groups to improve the quality and comparability of evidence supporting vector control intervention decision-making.
+
+Supplementary Material
+
+tjag095_Supplementary_Data
+
+Acknowledgements
+
+We would like to thank Camila Higueras Callejón, librarian at the Andalusian School of Public Health, who provided support through the selection of databases, the construction of the search strategy, and the selection of search terms, and to the reviewers of the Journal of Medical Entomology for their insightful comments and constructive recommendations. We acknowledge the use of NotebookLM in the creation of the graphical summary.
+
+Author Contributions
+
+Silvia Tortosa (Conceptualization [equal], Data curation [equal], Formal analysis [equal], Investigation [equal], Methodology [equal], Supervision [equal], Validation [equal], Writing—original draft [equal], Writing—review & editing [equal]), Francisco Lobato Rayo (Data curation [equal], Formal analysis [equal], Investigation [equal], Methodology [equal]), Eva Martin-Ruiz (Conceptualization [equal], Data curation [equal], Formal analysis [equal], Investigation [equal], Methodology [equal], Validation [equal], Visualization [equal], Writing—original draft [equal], Writing—review & editing [equal]), and Antonio Olry de Labry Lima (Conceptualization [equal], Data curation [equal], Formal analysis [equal], Investigation [equal], Methodology [equal], Supervision [equal], Validation [equal], Visualization [equal], Writing—original draft [equal], Writing—review & editing [equal])
+
+Supplementary Material
+
+Supplementary material is available at Journal of Medical Entomology online.
+
+Funding
+
+Funding for open access charge: Universidad de Huelva / CBUA.
+
+Conflicts of Interest
+
+None declared.
+
+
+References
+
+Atkinson J-A , VallelyA, FitzgeraldL, et al  2011. The architecture and effect of participation: a systematic review of community participation for communicable disease control and elimination. Implications for malaria elimination. Malar. J. 10:225. 10.1186/1475-2875-10-225 21816085 PMC3171376
+Bardach AE , García‐PerdomoHA, AlcarazA, et al  2019. Interventions for the control of Aedes aegypti in Latin America and the Caribbean: systematic review and meta‐analysis. Tropical Med. Int. Health  24:530–552. 10.1111/tmi.13217 30771267
+Barker TH , HabibiN, AromatarisE, et al  2024. The revised JBI critical appraisal tool for the assessment of risk of bias for quasi-experimental studies. JBI Evid. Synth. 22:378–388. 10.11124/JBIES-23-00268 38287725
+Benelli G , JeffriesC, WalkerT.  2016. Biological control of mosquito vectors: past, present, and future. Insects  7:52. 10.3390/insects7040052 27706105 PMC5198200
+Bera B.  2025. Mosquito ecology and disease transmission: implications for global health and vector control. UPJOZ. 46:64–72. 10.56557/upjoz/2025/v46i84894
+Blanco Castro SD , Martínez AriasA, Cano VelásquezOR, et al  2000. Introducción del Bacillus sphaericus cepa-2362 (GRISELESF) para el control biológico de vectores maláricos en Guatemala. Rev. Cubana Med. Trop. 52:37–43.11107892
+Bohari R , Jin HinC, MatusopA, et al  2020. Wide area spray of bacterial larvicide, Bacillus thuringiensis israelensis strain AM65-52, integrated in the national vector control program impacts dengue transmission in an urban township in Sibu district, Sarawak, Malaysia. PLoS One  15:e0230910. 10.1371/journal.pone.0230910 32236146 PMC7112204
+Bowman LR , DoneganS, McCallPJ.  2016. Is dengue vector control deficient in effectiveness or evidence?: systematic review and meta-analysis. PLoS Negl. Trop. Dis. 10:e0004551. 10.1371/journal.pntd.0004551 26986468 PMC4795802
+Bowman LR , Runge-RanzingerS, McCallPJ.  2014. Assessing the relationship between vector indices and dengue transmission: a systematic review of the evidence. PLoS Negl. Trop. Dis. 8:e2848. 10.1371/journal.pntd.0002848 24810901 PMC4014441
+Centre for Reviews and Dissemination (CRD). 2009. CRD’s guidance for undertaking reviews in healthcare. 3rd ed. York Publ. Services.
+Chilakam N , LakshminarayananV, KeremuttS, et al  2023. Economic burden of mosquito-borne diseases in low- and middle-income countries: protocol for a systematic review. JMIR Res. Protoc. 12:e50985. 10.2196/50985 38079215 PMC10750235
+Colón-González FJ , SeweMO, TompkinsAM, et al  2021. Projecting the risk of mosquito-borne diseases in a warmer and more populated world: a multi-model, multi-scenario intercomparison modelling study. Lancet Planet. Health  5:e404–e414. 10.1016/S2542-5196(21)00132-7 34245711 PMC8280459
+Cooke E , LopezG, HilmersA, et al  2022. Ethical challenges and moral distress among field epidemiologists. BMC Public Health  22:510. 10.1186/s12889-022-12950-2 35296269 PMC8924561
+Daniels BC , FergusonN, DorigattiI.  2025. Efficacy, public health impact and optimal use of the Takeda dengue vaccine. Nat. Med.  31:2663–2672. 10.1101/2024.08.10.24311393 40563017 PMC12353809
+Day J.  2016. Mosquito oviposition behavior and vector control. Insects  7:65. 10.3390/insects7040065 27869724 PMC5198213
+Diniz DFA , De AlbuquerqueCMR, OlivaLO, et al  2017. Diapause and quiescence: dormancy mechanisms that contribute to the geographical expansion of mosquitoes and their evolutionary success. Parasit. Vectors  10:310. 10.1186/s13071-017-2235-0 28651558 PMC5485599
+Dusfour I , VontasJ, DavidJ-P, et al  2019. Management of insecticide resistance in the major Aedes vectors of arboviruses: advances and challenges. PLoS Negl. Trop. Dis. 13:e0007615. 10.1371/journal.pntd.0007615 31600206 PMC6786541
+Engdahl CS , TikheCV, DimopoulosG.  2022. Discovery of novel natural products for mosquito control. Parasit. Vectors  15:481. 10.1186/s13071-022-05594-z 36539851 PMC9768913
+European Centre for Disease Prevention and Control (ECDC). 2026. Mosquito factsheets. https://www.ecdc.europa.eu/en/disease-vectors/facts/mosquito-factsheets
+Fouet C , KamdemC.  2019. Integrated mosquito management: is precision control a luxury or necessity?  Trends Parasitol. 35:85–95. 10.1016/j.pt.2018.10.004 30446394 PMC6503858
+Gao H , HuW, CuiC, et al  2025. Emerging challenges for mosquito-borne disease control and the promise of symbiont-based transmission-blocking strategies. PLoS Pathog. 21:e1013431. 10.1371/journal.ppat.1013431 40844991 PMC12373244
+Gaythorpe KA , HamletA, JeanK, et al  2021. The global burden of yellow fever. eLife. 10:e64670. 10.7554/eLife.64670 33722340 PMC7963473
+Geissbühler Y , KannadyK, ChakiPP, et al  2009. Microbial larvicide application by a large-scale, community-based program reduces malaria infection prevalence in urban Dar es Salaam, Tanzania. PLoS One. 4:e5107. 10.1371/journal.pone.0005107 19333402 PMC2661378
+Ghosh SK , ChakaravarthyP, PanchSR, et al  2011. Comparative efficacy of two poeciliid fish in indoor cement tanks against chikungunya vector Aedes aegypti in villages in Karnataka, India. BMC Public Health. 11:599. 10.1186/1471-2458-11-599 21798018 PMC3163548
+Ghosh SK , TiwariSN, SathyanarayanTS, et al  2005. Larvivorous fish in wells target the malaria vector sibling species of the Anopheles culicifacies complex in villages in Karnataka, India. Trans. R Soc. Trop. Med. Hyg. 99:101–105. 10.1016/j.trstmh.2004.03.009 15607336
+Gómez-Vargas W , Esteban Zapata-ÚsugaG.  2023. Vector control strategies. In: Puerta-GuardoH, Manrique-SaideP, editors. Mosquito research - recent advances in pathogen interactions, immunity, and vector control strategies. IntechOpen. 10.5772/intechopen.105026
+Griffin LF , KnightJM.  2012. A review of the role of fish as biological control agents of disease vector mosquitoes in mangrove forests: reducing human health risks while reducing environmental risk. Wetlands Ecol. Manage. 20:243–252. 10.1007/s11273-012-9248-4
+Guidi V , LehnerA, LüthyP, et al  2013. Dynamics of Bacillus thuringiensis var. israelensis and Lysinibacillus sphaericus spores in urban catch basins after simultaneous application against mosquito larvae. PLoS One  8:e55658. 10.1371/journal.pone.0055658 23390547 PMC3563526
+Higgins JPT , AltmanDG, GotzschePC, et al; Cochrane Bias Methods Group. 2011. The Cochrane Collaboration’s tool for assessing risk of bias in randomised trials. BMJ  343:d5928. 10.1136/bmj.d5928 22008217 PMC3196245
+Horowitz AR , EllsworthPC, IshaayaI.  2009. Biorational pest control–an overview. In: IshaayaI, HorowitzAR, editors. Biorational control of arthropod pests. Springer. p. 1–20. 10.1007/978-90-481-2316-2_1
+Huang Y-J , HiggsS, VanlandinghamD.  2017. Biological control strategies for mosquito vectors of arboviruses. Insects  8:21. 10.3390/insects8010021 28208639 PMC5371949
+Institut Pasteur. 2025. Which mosquitoes pose a risk? Species, main diseases and high-risk regions. https://www.pasteur.fr/en/research-journal/news/which-mosquitoes-pose-risk-species-main-diseases-and-high-risk-regions
+Jafari A , EnayatiA, JafariF, et al  2019. A narrative review of the control of mosquitoes by larvivorous fish in Iran and the world. Iran. J. Health Sci. 7:49.10.18502/jhs.v7i2.1064
+Kailembo D , GavanaT, KasagamaE, et al  2025. Large-scale intermittent larviciding intervention and associations with key malaria epidemiological parameters in Tanga Region, Tanzania. Malar. J. 24:350. 10.1186/s12936-025-05548-7 [CRef][10.1186/s12936-025-05548-7]41107938 PMC12534916
+Kay B , NamVS.  2005. New strategy against Aedes aegypti in Vietnam. Public Health.10.1016/S0140-6736(05)17913-6 15708107
+Kay BH , NamVS, TienTV, et al  2002. Control of Aedes vectors of dengue in three provinces of Vietnam by use of Mesocyclops (Copepoda) and community-based methods validated by entomologic, clinical, and serological surveillance. Am. J. Trop. Med. Hyg. 66:40–48. 10.4269/ajtmh.2002.66.40 12135266
+Kay BH , Tuyet HanhTT, LeNH, et al  2010. Sustainability and cost of a community-based strategy against Aedes aegypti in northern and central Vietnam. Am. J. Trop. Med. Hyg. 82:822–830. 10.4269/ajtmh.2010.09-0503 20439962 PMC2861387
+Kling K , FalmanA, BrankeL, et al  2026. Vaccination against chikungunya - a systematic review on the immunogenicity, tolerability, and safety of the live-attenuated vaccine (LAV) Ixchiq and the virus like particle (VLP) vaccine Vimkunya. Vaccine  75:128251. 10.1016/j.vaccine.2026.128251 41564838
+Lacey LA.  2007. Bacillus thuringiensis serovariety israelensis and Bacillus sphaericus for mosquito control. J. Am. Mosq. Control Assoc. 23:133–163. 10.2987/8756-971X(2007)23%5B133:BTSIAB%5D2.0.CO;217853604
+Lazaro A , HanWW, Manrique-SaideP, et al  2015. Community effectiveness of copepods for dengue vector control: systematic review. Trop. Med. Int. Health  20:685–706. 10.1111/tmi.12485 25708814
+Lessa CLS , FiuzaBSD, HodelKVS, et al  2025. Understanding dengue underreporting: an analysis of the impacts for the world, Latin America and Brazil. Sci. World J. 2025:9993911. 10.1155/tswj/9993911 PMC12286677 40704162
+Lima EP , GoulartMOF, Rolim NetoML.  2015. Meta-analysis of studies on chemical, physical and biological agents in the control of Aedes aegypti. BMC Public Health  15:858. 10.1186/s12889-015-2199-y 26341708 PMC4559884
+Majambere S , PinderM, FillingerU, et al  2010. Is mosquito larval source management appropriate for reducing malaria in areas of extensive flooding in the Gambia? A cross-over intervention trial. Am. J. Trop. Med. Hyg. 82:176–184. 10.4269/ajtmh.2010.09-0373 20133989 PMC2813154
+Malebana LF , SepadiMM, MokgobuMI.  2025. Communicable disease surveillance in South Africa and LMICs: a systematic review of systems, challenges, and integration with environmental health. TropicalMed. 10:314. 10.3390/tropicalmed10110314 PMC12656745 41295579
+Miller CJ , SmithSN, PugatchM.  2020. Experimental and quasi-experimental designs in implementation research. Psychiatry Res. 283:112452. 10.1016/j.psychres.2019.06.027 31255320 PMC6923620
+Miranda LS , RuddSR, MenaO, et al  2024. The perpetual vector mosquito threat and its eco-friendly nemeses. Biology (Basel)  13:182. 10.3390/biology13030182 38534451 PMC10968120
+Mittal PK.  2003. Biolarvicides in vector control: challenges and prospects. J. Vector Borne Dis. 40:20–32.15119068
+Moreno JE , MartínezÁ, AcevedoP, et al  2014. Evaluación preliminar de la eficiencia de Bacillus sphaericus en un área endémica a malaria del estado Bolívar, Venezuela Preliminary evaluation of the effectiveness of Bacillus sphaericus in an malaria- endemic region in Bolívar state, Venezuela. Bol. Mal. Salud Amb. 54:1.
+Munyakanage D , NiyitumaE, MutabaziA, et al  2024. The impact of Bacillus thuringiensis var. israelensis (Vectobac® WDG) larvicide sprayed with drones on the bio-control of malaria vectors in rice fields of sub-urban Kigali, Rwanda. Malar. J. 23:281. 10.1186/s12936-024-05104-9 39289705 PMC11407014
+Nam VS , YenNT, DucHM, et al  2012. Community-based control of Aedes aegypti by using Mesocyclops in southern Vietnam. Am. J. Trop. Med. Hyg. 86:850–859. 10.4269/ajtmh.2012.11-0466 22556087 PMC3335693
+Nam VS , YenNT, PhongTV, et al  2005. Elimination of dengue by community programs using Mesocyclops (Copepoda) against Aedes aegypti in central Vietnam. Am. J. Trop. Med. Hyg. 72:67–73. 10.4269/ajtmh.2005.72.67 15728869
+Noordzij M , DekkerFW, ZoccaliC, et al  2010. Measures of disease frequency: prevalence and incidence. Nephron. Clin. Pract. 115:c17–c20. 10.1159/000286345 20173345
+Obopile M , SegoeaG, WaniwaK, et al  2018. Did microbial larviciding contribute to a reduction in malaria cases in eastern Botswana in 2012–2013?  Public Health Action  8:S50–S54. 10.5588/pha.17.0012 29713595 PMC5912423
+Onen H , LuzalaMM, KigoziS, et al  2023. Mosquito-borne diseases and their control strategies: an overview focused on green synthesized plant-based metallic nanoparticles. Insects  14:221. 10.3390/insects14030221 36975906 PMC10059804
+Ouzzani M , HammadyH, FedorowiczZ, et al  2016. Rayyan—a web and mobile app for systematic reviews. Syst. Rev. 5:210. 10.1186/s13643-016-0384-4 27919275 PMC5139140
+Pabst R , SousaCA, EsslF, et al  2024. Global invasion patterns and dynamics of disease vector mosquitoes. Nat. Commun.  16:9127. 10.1101/2024.08.06.606755 PMC12546602 41125600
+Page MJ , McKenzieJE, BossuytPM, et al  2021. Declaración PRISMA 2020: una guía actualizada para la publicación de revisiones sistemáticas. Rev. Esp. Cardiol. 74:790–799. 10.1016/j.recesp.2021.06.016 34446261
+Pan American Health Organization (PAHO). 2019a. Handbook for integrated vector management in the Americas. https://www.paho.org/en/documents/handbook-integrated-vector-management-americas
+Pan American Health Organization (PAHO). 2019b. Technical document for the implementation of interventions based on generic operational scenarios for Aedes aegypti control. https://iris.paho.org/items/2d2f23af-1bfe-4c29-8dc4-6f0a1418214a
+Panos GD , BoecklerFM.  2023. Statistical analysis in clinical and experimental medical research: simplified guidance for authors and reviewers. Drug Des. Devel. Ther. 17:1959–1961. 10.2147/DDDT.S427470 PMC10328100 37426626
+Perumal V , KannanS, PittarateS, et al  2024. A review of entomopathogenic fungi as a potential tool for mosquito vector control: a cost-effective and environmentally friendly approach. Entomol. Res. 54:e12717. 10.1111/1748-5967.12717
+Pilihanto EI , NyratriBK, FirdausMD, et al  2025. Japanese encephalitis vaccine in low- and middle-income countries (LMICs): a narrative review of efficacy, effectiveness, safety, cost, and policy. Vaccines. (Basel)  13:1038. 10.3390/vaccines13101038 41150426 PMC12568123
+Piovezan-Borges AC , Valente-NetoF, UrbietaGL, et al  2022. Global trends in research on the effects of climate change on Aedes aegypti: international collaboration has increased, but some critical countries lag behind. Parasit. Vectors  15:346. 10.1186/s13071-022-05473-7 36175962 PMC9520940
+Ramasamy R , SurendranS.  2016. Mosquito vectors developing in atypical anthropogenic habitats: global overview of recent observations, mechanisms and impact on disease transmission. J. Vector Borne Dis. 53:91–98. 10.4103/0972-9062.184818 27353577
+Ranathunge T , AbeyewickremeW, IqbalMCM, et al  2019. Use of cyclopoid copepods for control of Anopheles (Diptera: Culicidae) mosquito larvae to prevent re-emergence of malaria in Sri Lanka. J. Vector Borne Dis. 56:200–206. 10.4103/0972-9062.289393 32655068
+Riviere F , ThirelR.  1981. La prédation du CopépodeMesocyclops leuckarti pilosa [Crustacea] sur les larves de Aedes (stegomyia) aegypti et de Ae. (St.) polynesiensis [Dip.: Culicidae]. Essais préliminaires d‘utilisation comme agent de lutte biologique. Entomophaga  26:427–439. 10.1007/BF02374717
+Rupp HR.  1996. Adverse assessments of Gambusia affinis: an alternate view for mosquito control practitioners. J. Am. Mosq. Control Assoc. 12:155–166.8827587
+Seleena P , LeeH, ChooiK, et al  2004. Space spraying of bacterial and chemical insecticides against Anopheles balabacensis Baisas for the control of malaria in Sabah, East Malaysia. Southeast Asian J. Trop. Med. Public Health  35:68–78.15272747
+Şengül Demirak MŞ , CanpolatE.  2022. Plant-based bioinsecticides for mosquito control: impact on insecticide resistance and disease transmission. Insects  13:162. 10.3390/insects13020162 35206735 PMC8878986
+Setha T , ChanthaN, BenjaminS, et al  2016. Bacterial larvicide, Bacillus thuringiensis israelensis strain AM 65-52 water dispersible granule formulation impacts both dengue vector, Aedes aegypti (L.) population density and disease transmission in Cambodia. PLoS Negl. Trop. Dis. 10:e0004973. 10.1371/journal.pntd.0004973 27627758 PMC5023181
+Singh H , GuptaSK, VikramK, et al  2022. Sustainable control of malaria employing Gambusia fishes as biological control in Jalore and Barmer districts of Western Rajasthan. J. Vector Borne Dis. 59:91–97. 10.4103/0972-9062.346869 35708410
+Tan A , LokeS, BenjaminS, et al  2012. Spray application of Bacillus thuringiensis israelensis (Bti strain AM65-52) against Aedes aegypti (L.) and Ae. albopictus Skuse populations and impact on dengue transmission in a dengue endemic residential site in Malaysia. Southeast Asian J. Trop. Med. Public Health  43:296–310.23082582
+TDR (Special Programme for Research and Training in Tropical Diseases). 2021 Investigating links between extreme poverty and vector-borne diseases. TDR. https://tdr.who.int/newsroom/news/item/06-10-2021-investigating-links-between-extreme-poverty-and-vector-borne-diseases
+Tia J-PB , TchicayaESF, ZahouliJZB, et al  2024. Combined use of long-lasting insecticidal nets and Bacillus thuringiensis israelensis larviciding, a promising integrated approach against malaria transmission in northern Côte d‘Ivoire. Malar. J. 23:168. 10.1186/s12936-024-04953-8 38812003 PMC11137964
+Udayanga L , RanathungeT, IqbalMCM, et al  2019. Predatory efficacy of five locally available copepods on Aedes larvae under laboratory settings: an approach towards bio-control of dengue in Sri Lanka. PLoS One  14:e0216140. 10.1371/journal.pone.0216140 31136574 PMC6538144
+Van Den Berg H , ZaimM, YadavRS, et al  2012. Global trends in the use of insecticides to control vector-borne diseases. Environ. Health Perspect. 120:577–582. 10.1289/ehp.1104340 22251458 PMC3339467
+Van Hul N , BraksM, Van BortelW.  2021. A systematic review to understand the value of entomological endpoints for assessing the efficacy of vector control interventions. EFS3  18:EN-6954. 10.2903/sp.efsa.2021.EN-6954
+Van Truong L , ThuyLT, HienLT, et al  2025. From controversy to confidence: strengthening dengue vaccines safety reporting. Vaccine  62:127489. 10.1016/j.vaccine.2025.127489 40669253
+Vu SN , NguyenTY, KayBH, et al  1998. Eradication of Aedes aegypti from a village in Vietnam, using copepods and community participation. Am. J. Trop. Med. Hyg. 59:657–660. 10.4269/ajtmh.1998.59.657 9790448
+Wearing HJ , RobertMA, ChristoffersonRC.  2016. Dengue and chikungunya: modelling the expansion of mosquito-borne viruses into naïve populations. Parasitology  143:860–873. 10.1017/S0031182016000421 27045211
+Wei S , ZhangT, SunS, et al  2025. The shift in mosquito-borne diseases incidence across Asia-Pacific region (1992–2021): insights from an age-period-cohort analysis using the global burden of disease study 2021. BMC Public Health  25:3373. 10.1186/s12889-025-24765-y 41063040 PMC12505811
+Wei Y-L , WuZ, LiR-L, et al  2026. Review of selected mosquito-borne diseases: arboviruses (dengue, chikungunya, Zika, West Nile, Japanese encephalitis, yellow fever) and parasitic diseases (malaria, lymphatic Filariasis). Front. Public Health  13:1712094. 10.3389/fpubh.2025.1712094 41648764 PMC12868167
+Wilson AL , BoelaertM, KleinschmidtI, et al  2015. Evidence-based vector control? Improving the quality of vector control trials. Trends Parasitol. 31:380–390. 10.1016/j.pt.2015.04.015 25999026
+World Health Organization (WHO). 2003. Use of fish for mosquito control. Regional Office for the Eastern Mediterranean. https://iris.who.int/handle/10665/116355
+World Health Organization (WHO). 2012. Monitoring and evaluation indicators for integrated vector management. https://apps.who.int/iris/handle/10665/76504
+World Health Organization (WHO). 2017. Global vector control response 2017–2030. https://www.who.int/publications/i/item/9789241512978
+World Health Organization (WHO). 2018. Overview of vaccine preventable diseases surveillance principles. https://www.who.int/publications/m/item/vaccine-preventable-diseases-surveillance-standards_overview
+World Health Organization (WHO). 2020. Malaria: the malaria vaccine implementation programme (MVIP). https://www.who.int/news-room/questions-and-answers/item/malaria-vaccine-implementation-programme
+World Health Organization (WHO). 2024a. Vector-borne diseases. https://www.who.int/news-room/fact-sheets/detail/vector-borne-diseases
+World Health Organization (WHO). 2024b. World malaria report 2024: addressing inequity in the global malaria response. https://www.who.int/publications/i/item/9789240104440
+World Health Organization (WHO). 2025a. Vaccines and immunization: dengue. https://www.who.int/news-room/questions-and-answers/item/dengue-vaccines
+World Health Organization (WHO). 2025b. Chikungunya. https://www.who.int/news-room/fact-sheets/detail/chikungunya
+World Health Organization (WHO). 2025c. Malaria surveillance, monitoring and evaluation: a reference manual. 2nd ed. https://www.who.int/publications/i/item/9789240112476
+World Health Organization (WHO). n.d. Yellow fever vaccines stockpiles. https://www.who.int/groups/icg/yellow-fever/stockpiles 10.1016/j.vaccine.2017.06.087 28689653
+Yan J , MackayAJ, StoneCM.  2024. Dynamics of invasive mosquitoes: introduction pathways, limiting factors, and their potential role in vector-borne pathogen transmission. Front. Trop. Dis. 5:1503120. 10.3389/fitd.2024.1503120
+Yildirim-Ozturk EN.  2025. What could be responsible for some mosquito-borne diseases? Is it poverty, gender inequality, underdevelopment, globalization, or climate change? Which one(s)?  J. Trop. Med. 2025:5405719. 10.1155/jotm/5405719 41143008 PMC12549193
+Zabor EC , KaizerAM, HobbsBP.  2020. Randomized controlled trials. Chest  158:S79–S87. 10.1016/j.chest.2020.03.013 32658656 PMC8176647

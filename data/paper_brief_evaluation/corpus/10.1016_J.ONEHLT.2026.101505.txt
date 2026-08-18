@@ -1,0 +1,186 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: One Health
+Journal ID: One Health
+NLM Journal ID: 101660501
+
+One Health
+
+EISSN: 2352-7714
+Publisher: Elsevier
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13334394
+PMID: 42440749
+DOI: 10.1016/j.onehlt.2026.101505
+Article ID: S2352-7714(26)00189-8
+Article ID: 101505
+Article version: 1
+Subjects: Short Communication
+
+First evidence of exposure to West Nile Virus in horses within Denmark, 2025
+
+Ryt-Hansen Pia piarh@ku.sund.dk piarh@sund.ku.dk a ⁎
+Kallehauge-Larsen Camilla E. gwt348@alumni.ku.dk a
+Gonzalez Gaëlle gaelle.gonzalez@anses.fr b
+Migné Camille Victoire camille.migne@anses.fr b
+Larsen Lars Erik lael@sund.ku.dk a
+Gelskov Laura Vebæk lvg@sund.ku.dk a c
+Lohse Louise lolo@ssi.dk c
+Hansen Sanni sannih@sund.ku.dk d
+Olesen Ann Sofie asjo@ssi.dk c
+a Department of Veterinary and Animal Sciences, University of Copenhagen, Frederiksberg C, Denmark
+b ANSES, INRAE, Ecole Nationale Vétérinaire d'Alfort, UMR 1161 Virologie, Laboratoire de Santé Animale, Maison-Alfort, France
+c Section for Veterinary Virology, Department of Virology & Microbiological Preparedness, Statens Serum Institut, Copenhagen, Denmark
+d Department of Veterinary Clinical Sciences, Faculty of Health and Medical Sciences, University of Copenhagen, Taastrup, Denmark
+⁎ Corresponding author at: Department of Veterinary and Animal Sciences, University of Copenhagen, Frederiksberg C, Denmark piarh@ku.sund.dkpiarh@sund.ku.dk
+Publication date: 2026 Dec
+Electronic publication date: 2026 Jun 29
+Volume: 23
+Electronic Location ID: 101505
+Received 2026 Mar 13; Revised 2026 Jun 14; Accepted 2026 Jun 27
+Copyright: © 2026 Published by Elsevier B.V.
+Copyright year: 2026
+Copyright holder:
+License: This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Keywords: West Nile virus, Zoonosis, Vector-borne, Orthoflavivirus, Horses, Seroprevalence
+
+==============================
+A nationwide serological screening of 822 horses was conducted in Autumn 2025 to investigate potential exposure to West Nile Virus (WNV) within Denmark. Serum samples were tested for antibodies against WNV, tick-borne encephalitis virus (TBEV) and Usutu virus (USUV). Four horses without any history of travel outside of Denmark, or previous vaccination against WNV, tested positive for WNV neutralising antibodies. The results support local exposure to WNV indicating that virus infected mosquitoes have been present in Denmark and underline the usefulness of horses as sentinels for the risk of human exposure.
+
+West Nile Virus (WNV) is an important zoonotic virus. Its transmission primarily occurs through bites from infected mosquitoes (mainly the Culex genus), that serves as vectors, while birds are considered natural reservoir hosts. Mammals, including humans and horses, serve as dead-end-hosts. Typically the infection causes no or mild disease, however approximately 10–20% of infected horses and 1% of infected humans develop severe neurological disease [1]. During recent years, WNV has expanded its distribution in Northern Europe, most likely due to climate changes. In 2024, optimal weather conditions resulted in a significant increase in the number of vectors [2], [3]. In Denmark, 2024 was recorded as the second warmest and second wettest within the country and Culex mosquitoes were recorded at exceptional high levels [4], [5].
+
+The Danish national surveillance for WNV has so far been restricted to mainly focus on mosquitoes and birds, and there has been no indications of WNV circulation within these populations [6]. However, in 2024 detections of WNV in both horses and humans were recorded close to the southern border of Denmark [7]. This study aimed to assess WNV exposure in Danish horses through serological antibody screening to evaluate their usefulness as sentinel animals for WNV surveillance in a Danish setting.
+
+1 Study population and methods
+
+From the 1st-19th of September 2025, following the peak mosquito season in Denmark, 822 serum samples from horses, originating from 22 veterinary clinics spread geographically across Denmark, were collected. All larger Danish clinics were contacted were contacted for participation in the project representing 33 clinics. The samples were obtained from horses already scheduled for blood sampling or a medical injection. Nevertheless, additional ethical approvals for the sampling were obtained. Data on the horse's breed, age, location, WNV vaccination history and any prior travel activity outside Denmark were acquired. When analysing the results, the WNV vaccination history and history of travel outside of Denmark was specifically used to evaluate autochthonous exposure. From the obtained blood samples serum was isolated and subjected to three different antibody ELISA tests. Initially the serum samples were screened for orthoflavivirus IgG antibodies using the ID Screen® Flavivirus Competition ELISA (Innovative Diagnostics, Montpellier, France) [8]. Samples that tested positive or inconclusive in this ELISA test were subsequently tested more specifically for West Nile Virus IgM and IgG antibodies using the ID Screen® West Nile IgM Capture (Innovative Diagnostics) [9] and the INgezim West Nile COMPAC (Gold Standard Diagnostics, Spain) [10], respectively. The latter is believed to be more specific towards the Japanese encephalitis serocomplex (i.e. WNV and USUV) when compared to the orthoflavivirus IgG ELISA [10]. Finally, the same orthoflavivirus-antibody positive samples were tested by serum neutralisation tests (SNTs) to evaluate the level of neutralising antibodies at the European Reference Laboratory for equine diseases, at Anses, Maisons-Alfort, France, using viral reference strains of WNV, USUV and TBEV as previously described [11], [12]. Serum titers of 10 were considered “inconclusive” and not regarded as antibody positive in the following analysis. In addition, these inconclusive results were excluded from the prevalence estimates. Titers greater than or equal to 20 were interpreted as evidence of the presence of neutralising antibodies directed against the tested viruses. A difference of at least four dilution steps between titers obtained for different viruses was required to confirm the specificity of the neutralising antibody response
+
+2 Detection of WNV antibody positive horses
+
+Using the ID Screen® Flavivirus Competition ELISA, 6% (49/822) of the serum samples tested positive (47/822) or inconclusive (2/822) for orthoflavivirus IgG antibodies. Of these samples 61% (30/49) originated from horses that had a history of travel or prior WNV vaccination (Table 1) which could explain their positivity in the tests. Thus, these horses were excluded from the evaluation of local exposure.Table 1 Overview of the results obtained using the three ELISA tests, Denmark, 2025 (n = 822).
+
+	Orthoflavivirus IgG [8]	WNV IgM [9]	WNV IgG [10]	
+	Tested samples	Positive samples	Tested samples	Positive samples	Tested samples	Positive samples	
+No. of horses	822	49	49	0	49	34	
+ELISA positive horses with travel or WNV vaccination historya	97	30b	NA	NA	NA	29c	
+Horses exposed to orthoflavivirus/WNV in Denmark	NA	19	NA	NA	NA	5	
+a The group included one unvaccinated foal that was born to a vaccinated mare, most likely delivering WNV maternally derived antibodies to the foal.
+
+b This number included 24 vaccinated horses with and without travel history and six horses with a travel history.
+
+c One horse with travel history tested positive for orthoflavivirus IgG but not WNV IgG antibodies. NA: not applicable.
+
+The 49 serum samples tested negative in the ID Screen® West Nile IgM Capture ELISA, indicating no recent exposure to WNV.
+
+Using the INgezim West Nile COMPAC on the same 49 samples, 69% (34/49) of the orthoflavivirus-antibody positive horses tested positive. Out of these, 85% (29/34) had a history of travel or prior WNV vaccination, leaving five horses without a history of travel outside of Denmark or prior WNV vaccination that had antibodies believed to be specific to viruses within the JEV serocomplex (e.g. WNV or USUV). Hence these five horses could have been exposed to these viruses within Denmark.
+
+The results obtained from the WNV SNT confirmed that four of the five horses mentioned above had neutralising antibodies against WNV with titers ranging from 20 to 80. This indicates that those four horses had been exposed to WNV within Denmark (Table 2). The four horses were all located in the southern parts of Denmark and were sampled from three different veterinary clinics in the southern part of Jutland and Lolland-Falster (Fig. 1). Interestingly, one of these four horses had an “inconclusive” result reported from the initial ID Screen® Flavivirus Competition ELISA, but it had a neutralising antibody titer of 40 in the WNV VNT.Table 2 Overview of the results obtained using serum neutralisations tests for WNV, USUV and TBEV, Denmark, 2025 (n = 49).
+
+	WNV	USUV	TBEV	WNV + TBEVa	WNV + USUVb	
+No. of SNT positive horses	15	0	8	2*	3	
+SNT positive horses with travel or WNV vaccination history	11	0	0	0	3	
+Horses exposed in Denmark	4	0	8	2	0	
+a For viruses outside the same serocomplex (WNV and TBEV) co-infections were determined when there was a positive result in both the WNV SNT and TBEV SNT.
+
+b For viruses within the same serocomplex (WNV and USUV) cross-reactions or co-infections were determined when there was less than a fourfold neutralising titer difference in the WNV SNT and USUV SNT. * three additional samples tested doubtful for WNV and positive for TBEV.
+
+Fig. 1 The approximate location of the SNT WNV (green symbol) and TBEV (yellow symbol) antibody positive horses in Denmark. It should be noted that the island Bornholm is located approx. 200 km to the east of Zealand in the Baltic Sea and not where it is shown on the map. Created in BioRender. Ryt-Hansen, P. (2026) https://BioRender.com/c3znrhw (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Fig. 1
+
+To estimate the seroprevalence from exposures to WNV in Denmark, horses with a history of WNV vaccination and/or travel outside of Denmark (n = 97) were excluded from the total number of sampled horses resulting in a seroprevalence of 0.6% (4/725) with a 95% Wilson CI [0.2–1.4] [13].
+
+The fifth sample that tested positive using the INgezim West Nile COMPAC and negative using the WNV SNT had a titer of 10 in the USUV VNT and was reported as inconclusive using this test. This could potentially explain the discrepancy between the ELISA results and the WNV SNT, as the Ingezim ELISA can detect antibodies against USUV.
+
+Interestingly, one imported horse that tested positive for orthoflavivirus IgG antibodies using the ID Screen® Flavivirus Competition ELISA and negative using the INgezim West Nile COMPAC had high neutralising antibodies (titer = 320) in the WNV SNT.
+
+The remaining fourteen horses that tested positive in the ID Screen® Flavivirus Competition ELISA but negative in the INgezim West Nile COMPAC, were mainly the horses that tested positive for neutralising antibodies against TBEV or TBEV plus WNV in the SNTs (n = 12), but also included two horses that had doubtful neutralising antibody titers (10) against WNV or USUV, respectively.
+
+Interestingly, only 50% (110/221) of the WNV vaccinated horses had neutralising antibodies (titer ≥20) against WNV, with titers ranging between 20 and 80. Four horses that were vaccinated against WNV had neutralising antibody titers regarded as inconclusive (10), and seven WNV vaccinated horses were reported as negative using the WNV SNT. The horses that tested negative and inconclusive in the SNT had received two vaccine doses, with the last dose being administered between February and June 2025. However, this vaccine history did not differ from what was reported from horses that tested positive in the SNT, who were also vaccinated twice within the same time period.
+
+Overall, all samples from which a positive result was reported using the ID Screen® Flavivirus Competition ELISA and/or the INgezim West Nile COMPAC also had a positive or inconclusive result reported from minimum one of the three viruses included in the SNT. The only exceptions were six WNV vaccinated horses that tested negative against all three viruses in the SNTs.
+
+Individual S/N values of the ELISA tests and SNT titers of the 49 horses are listed in Supplementary Table S1.
+
+3 Detection of TBEV or USUV antibody positive horses using SNTs
+
+Using SNTs, two horses tested positive for neutralising antibodies against both WNV and TBEV, while three horses tested inconclusive for WNV and positive for TBEV, and eight horses tested positive for neutralising antibodies against TBEV, only. To estimate the seroprevalence caused by exposure to TBEV in Denmark, horses with a history of travel outside of Denmark (n = 73) were excluded resulting in seroprevalence of 1.1% (8/749) with a 95% Wilson CI of [0.54–2.09] [13]. Five of these eight horses were from Bornholm, two were from Funen and one was from central Jutland (Fig. 1). No horses were exclusively positive for neutralising antibodies against USUV.
+
+4 Public and veterinary health actions
+
+The results of this study provide the first evidence for local exposure to WNV in the southern parts of Denmark and indicate that infected mosquitoes have been present in the country. As none of the samples were positive for WNV IgM antibodies that are known to be present for up to 4–6 weeks after WNV infections [14] it is likely that the horses included in this study were not exposed to WNV in 2025, but during previous seasons. This corresponds well with the low level of mosquitoes observed during the 2025 season [4]. Early exposure in the 2025 season cannot be ruled out. However, it could be argued that the very low numbers of reported Culex mosquitos in the spring and early summer of 2025 means that exposure to WNV during that period was less likely [4]. The findings from this study have been communicated to the Danish veterinary and health authorities, respectively, to further disseminate the implications to the veterinary and human practitioners. Both need to consider WNV as a potential differential diagnosis in horses and humans presenting with neurological symptoms, and provide information on prevention strategies. Furthermore, the results were communicated to the public community through articles via official channels, newsflashes and social media.
+
+5 Discussion
+
+The present national surveillance system for WNV in Denmark mainly focuses on mosquitoes and dead wild birds that are tested for virus, and live birds that are tested for antibodies [6]. Previous studies have described the relevance of horses as sentinel species for the detection of WNV circulation in a given country or region [[15], [16]]. The added value of including the equine surveillance component is further supported by the findings of this study.
+
+For WNV serology, it is important to recognize that using ELISA the extensive antibody cross-reactivity between different orthoflaviviruses challenges serological diagnosis [12], and also for SNT some level of cross-reaction can be observed, complicating final identification of the specific underlying infection(s). This was also clear from the current study, in which cross-reactions or co-infections could not be ruled out for all samples. Overall, the INgezim West Nile COMPAC [10] was able to differentiate between prior exposures to TBEV and WNV, while cross-reactions to USUV could not be ruled out. In the current study, this was illustrated by the observation ofhorses that tested positive for neutralising antibodies against TBEV in the TBEV SNT, as these horses tested negative when using the INgezim West Nile COMPAC. Furthermore, it was illustrated by horses that tested positive (or doubtful) for neutralising antibodies against USUV in the USUV SNT, as most of these horses tested positivein the INgezim West Nile COMPAC ELISA. The latter suggests cross-reaction between WNV and USUV in the Ingezim ELISA, which corresponds well with them belonging to the same serocomplex [17]. Finally, it was evident that the ID Screen® Flavivirus Competition ELISA provided one inconclusive result though the sample was clearly positive for WNV antibodies using both the INgezim West Nile COMPAC ELISA and the WNV SNT. This indicates that there is a risk of false negative results when using the ID Screen® Flavivirus Competition ELISA as the initial screening ELISA. Conversely, the INgezim West Nile COMPAC ELISA produced a negative result for a sample with a SNT WNV titer of 320. In conclusion, the results of this study clearly illustrate that serological diagnostics for WNV should be performed using multiple assays in order to ensure proper detection.
+
+The four horses with WNV specific antibodies and no related vaccine or travel activity, originated from the southern parts of Denmark, corresponding well to the observed south-north expansion of WNV in Europe [18]. Currently, a detection in a dead bird in Estonia still represents the most northern WNV case registered in Europe [19].
+
+It should be noted that not all veterinary practitioners that were contacted, participated in the study. This resulted in an un-evenly distributed sampling, with fewer clinics being included from the northern part of Denmark. This should be taken into account when considering the seroprevalences reported in this study. Still there was a clear geographical distribution of the WNV positive cases which emphasise that focus on both diagnostics, surveillance and prevention should be a priority in these southern areas of Denmark, for both horse and human practitioners. A suspicion of West Nile Fever (clinical disease) is notifiable to the veterinary authorities, but from Germany it has been reported that antibodies can often be detected in horses from an area prior to clinical cases in both the animal and human population [7]. Hence, antibody detection in horses can be considered as an early warning for the risk of human exposure to WNV, and it is important that medical doctors now regard WNV as a potential differential diagnosis in humans presenting with neurological symptoms. In Denmark, there is no active surveillance of human WNV infections, but the virus is laboratory-notifiable to Statens Serum Institut as a “List 2” disease [20]. As of now, WNV was not reported as autochthonous in humans in Denmark.
+
+Interestingly, in this study, only 50% of the WNV vaccinated horses tested positive for neutralising antibodies against WNV despite that most of the horses had received two vaccine doses in 2025, with the last dose provided during spring/early-summer. There was no difference in the timing of the last dose among the horses testing positive and negative for neutralising antibodies against WNV. Two commercial vaccines are available for horses in Denmark, and there was no clear correlation between lack of neutralising antibodies and the type of vaccine used. However, all vaccinated horses tested positive using the INgezim West Nile COMPAC [10] ELISA. These results indicate that horses might respond to a varying degree with neutralising antibodies towards the WNV vaccinations, but do produce a substantial humeral antibody response towards the virus. Future studies are needed to further evaluate the level and specificity of vaccine-associated WNV neutralising antibodies and its relation to vaccine protection.
+
+Antibodies against TBEV was also documented for the first time in horses in Denmark including one detection in an area of central Jutland [21], where no human cases have been detected so far. However, it cannot be ruled out that the horse had had prior travel activity within Denmark (as national travel activity was not acquired as a part of the study data set), including to known TBEV risk areas.
+
+A previous study has suggested using grazing animals for surveillance of TBEV [22] and horses could thus serve as a potential sentinel species for the identification of novel risk areas for both TBEV and WNV. Indeed, the TBEV antibody positive horses observed on the island Bornholm and in Funen correspond well to the reported human cases in Denmark, and underline that TBEV areas keeps expanding posing a potential zoonotic risk [23]. Finally, one limitation of the study was that the serum samples were not analysed for neutralising antibodies against other orthoflaviviruses that are present in some parts of the country, e.g. louping ill virus (LIV), which could potentially cross-react to antibodies directed against TBEV [24]. Both TBEV and LIV has been detected in ticks from Bornholm, where the majority of the TBEV-antibody positive horses were detected [25].
+
+Use of artificial intelligence tools
+
+None declared.
+
+CRediT authorship contribution statement
+
+Pia Ryt-Hansen: Writing – original draft, Visualization, Validation, Supervision, Software, Resources, Project administration, Methodology, Investigation, Formal analysis, Data curation, Conceptualization. Camilla E. Kallehauge-Larsen: Writing – review & editing, Visualization, Methodology, Investigation, Formal analysis, Data curation. Gaëlle Gonzalez: Writing – review & editing, Methodology, Formal analysis, Data curation. Camille Victoire Migné: Writing – review & editing, Methodology, Formal analysis, Data curation. Lars Erik Larsen: Writing – review & editing, Resources. Laura Vebæk Gelskov: Writing – review & editing, Methodology, Data curation. Louise Lohse: Writing – review & editing, Methodology, Formal analysis. Sanni Hansen: Writing – review & editing, Supervision, Resources, Project administration, Methodology, Formal analysis, Data curation, Conceptualization. Ann Sofie Olesen: Writing – review & editing, Validation, Supervision, Software, Resources, Methodology, Investigation, Formal analysis, Data curation, Conceptualization.
+
+Ethical statement
+
+An ethical approval was obtained from the Animal Ethics Institutional Review Board (AEIRB) at University of Copenhagen with the reference no. 2025–08-BAV-010 A. In addition, the Danish Competent Authority approved that the study was below the cannula criteria with the reference no. 2025–157,238.
+
+Declaration of competing interest
+
+None declared.
+
+Appendix A Supplementary data
+
+Supplementary material
+
+Data availability
+
+All data from this study is included in the manuscript and the supplementary file
+
+Appendix A Supplementary data to this article can be found online at https://doi.org/10.1016/j.onehlt.2026.101505.
+
+
+References
+
+1 Schwarz E.R. Long M.T. Comparison of West Nile virus disease in humans and horses: exploiting similarities for enhancing syndromic surveillance Viruses 15 6 2023 10.3390/v15061230 PMC10303507 37376530
+2 Lu L. West Nile virus spread in Europe: Phylogeographic pattern analysis and key drivers PLoS Pathog. 20 1 2024 10.1371/journal.ppat.1011880 PMC10810478 38271294
+3 de F. Costa E. Streng K. de S. Santos M.A. Counotte M.J. The effect of temperature on the boundary conditions of West Nile virus circulation in Europe PLoS Negl. Trop. Dis. 18 5 2024 e0012162 10.1371/journal.pntd.0012162 PMC11098507 38709836
+4 Myggetal.dk https://myggetal.dk/
+5 Rubek F. DMI Rapport 25–01 Danmarks Klima 2024 - with English Summary . [Online]. Available: https://www.dmi.dk/fileadmin/Rapporter/2025/DMIRap25-01.pdf 2025
+6 Olesen A.S. A decade of West Nile virus surveillance in the host and vector populations of Denmark, 2011 to 2023 Euro Surveill. 30 37 2025 10.2807/1560-7917.ES.2025.30.37.2400791 PMC12449679 40970304
+7 Offergeld R. Frank C. Schmidt-Chanasit J. Ziegler U. Preußel K. Lachmann R. West Nile virus infections in Germany: update 2022–2024 Transfus. Med. Hemother. 2025 10.1159/000549166 PMC12707936 41409651
+8 ID Screen® Flavivirus Competition - Innovative Diagnostic https://www.innovative-diagnostics.com/produit/id-screen-west-nile-competition-multi-species/ (accessed Feb. 06, 2026)
+9 ID Screen® West Nile IgM Capture - Innovative Diagnostics https://www.innovative-diagnostics.com/produit/id-screen-west-nile-igm-capture/ (accessed Feb. 06, 2026)
+10 INgezim West Nile 480 tests https://www.goldstandarddiagnostics.com/ingezim-west-nile-480-tests.html (accessed Feb. 06, 2026)
+11 Chevalier N. Seroprevalence of West Nile, Usutu and tick-borne encephalitis viruses in equids from South-Western France in 2023 Vet. Res. 56 1 2025 91 10.1186/s13567-025-01508-w 40275349 PMC12023385
+12 Beck C. Lowenski S. Durand B. Bahuon C. Zientara S. Lecollinet S. Improved reliability of serological tools for the diagnosis of West Nile fever in horses within Europe PLoS Negl. Trop. Dis. 11 9 2017 10.1371/journal.pntd.0005936 PMC5617233 28915240
+13 Wilson E.B. Probable inference, the law of succession, and statistical inference J. Am. Stat. Assoc. 22 158 1927 209 212 10.1080/01621459.1927.10502953
+14 Joó K. Comparison of assays for the detection of West Nile virus antibodies in equine serum after natural infection or vaccination Vet. Immunol. Immunopathol. 183 2017 1 6 10.1016/j.vetimm.2016.10.015 28063471
+15 Angelini P. West Nile virus circulation in Emilia-Romagna, Italy: the integrated surveillance system 2009 Eurosurveillance 15 16 Apr. 2010 11 15 10.2807/ese.15.16.19547-en 20430000
+16 Gothe L.M.R. Horses as sentinels for the circulation of flaviviruses in Eastern–Central Germany Viruses 15 5 May 2023 1108 10.3390/v15051108 37243194 PMC10222594
+17 Calisher C.H. Antigenic relationships between flaviviruses as determined by cross-neutralization tests with polyclonal antisera J. Gen. Virol. 70 1 1989 37 43 10.1099/0022-1317-70-1-37 no. 1 2543738
+18 Laverdeur J. West Nile and Usutu viruses: current spreading and future threats in a warming northern Europe Front. Virol. 5 2025 1544884 10.3389/fviro.2025.1544884
+19 “West Nile Fever Detected for the First Time in Estonia LABRIS.” https://labris.agri.ee/en/news/west-nile-fever-detected-first-time-estonia (accessed Jun. 01, 2026).
+20 Anmeldelsespligtige smitsomme sygdomme | Sundhedsstyrelsen https://www.sst.dk/vidensbase/sygdomme-og-behandling/smitsomme-sygdomme/anmeldelse-af-smitsomme-sygdomme/anmeldelsespligtige-smitsomme-sygdomme (accessed Feb. 12, 2026)
+21 Florescu A.M. Tick-borne encephalitis in adults in Denmark: a nationwide prospective cohort study from 2015 to 2023 J. Neurol. 272 3 Mar. 2025 241 10.1007/s00415-025-12986-5 40029446 PMC11876282
+22 Klaus C. Goats and sheep as sentinels for tick-borne encephalitis (TBE) virus – epidemiological studies in areas endemic and non-endemic for TBE virus in Germany Ticks Tick. Borne. Dis. 3 1 2012 27 37 10.1016/j.ttbdis.2011.09.011 22309856
+23 TBE - opgørelse over sygdomsforekomst 2025 https://www.ssi.dk/sygdomme-beredskab-og-forskning/sygdomsovervaagning/t/tbe-opgorelse-over-sygdomsforekomst-2025 (accessed Jun. 01, 2026)
+24 Mansfield K.L. Flavivirus-induced antibody cross-reactivity J. Gen. Virol. 92 12 Dec. 2011 2821 2829 10.1099/VIR.0.031641-0/CITE/REFWORKS 21900425 PMC3352572
+25 Skarpaas T. Tickborne encephalitis virus, Norway and Denmark Emerg. Infect. Dis. 12 7 2006 1136 10.3201/EID1207.051567 16836835 PMC3291057

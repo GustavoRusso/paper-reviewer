@@ -1,0 +1,459 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Ann Med
+Journal ID: Ann Med
+NLM Journal ID: 8906388
+
+Annals of Medicine
+
+ISSN: 0785-3890
+EISSN: 1365-2060
+Publisher: Taylor & Francis
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC12818317
+PMID: 41546488
+DOI: 10.1080/07853890.2026.2615482
+Article ID: 2615482
+Article version: 1
+Article version: Version of Record
+Subjects: Review Article, Infectious Diseases
+
+West Nile virus: epidemiology, prevention, clinical features, diagnosis, treatment, and open research questions
+
+V. Zerbato et al.
+
+https://orcid.org/0000-0002-9204-032X Zerbato Verena Writing – original draft Writing – review & editing a
+https://orcid.org/0009-0008-0706-7562 Rossi Benedetta Writing – original draft Writing – review & editing b
+https://orcid.org/0000-0001-6121-7009 Di Bella Stefano Conceptualization Supervision Writing – review & editing a c
+https://orcid.org/0009-0000-1940-5620 Bartalucci Claudia Writing – original draft Writing – review & editing d
+Cerchiaro Matteo Writing – original draft Writing – review & editing d e
+https://orcid.org/0000-0002-3398-9295 Da Re Daniele Writing – original draft Writing – review & editing f
+https://orcid.org/0000-0002-9096-5812 Dentone Chiara Writing – original draft Writing – review & editing e
+https://orcid.org/0000-0003-1761-436X Sepulcri Chiara Writing – original draft Writing – review & editing d g
+https://orcid.org/0000-0001-9721-7211 Marini Giovanni Writing – original draft Writing – review & editing f
+Delfino Emanuele Writing – original draft Writing – review & editing e
+Sang Tran Alex Writing – original draft Writing – review & editing a c
+Di Biagio Antonio Writing – original draft Writing – review & editing d e
+https://orcid.org/0000-0003-2385-1759 Giacobbe Daniele Roberto Conceptualization Supervision Writing – review & editing d e
+Bassetti Matteo Conceptualization Supervision Writing – review & editing d e
+a Infectious Diseases Unit, Trieste University Hospital (ASUGI) , Trieste , Italy
+b Department of Clinical and Experimental Sciences, Unit of Infectious and Tropical Diseases, University of Brescia and ASST Spedali Civili di Brescia , Brescia , Italy
+c Clinical Department of Medical, Surgical and Health Sciences, Trieste University , Trieste , Italy
+d Department of Health Sciences (DISSAL), University of Genoa , Genoa , Italy
+e Clinica Malattie Infettive, IRCCS Ospedale Policlinico San Martino , Genoa , Italy
+f Research and Innovation Centre, Fondazione Edmund Mach , San Michele all’Adige , Italy
+g Division of Immunology, Transplantation, and Infectious Diseases, IRCCS San Raffaele Scientific Institute , Milan , Italy
+CONTACT Daniele Roberto Giacobbe danieleroberto.giacobbe@unige.it Clinica Malattie Infettive, IRCCS Ospedale Policlinico San Martino, L.go R. Benzi, 10–16132 Genoa, Italy.
+Electronic publication date: 2026 Jan 17
+Publication date: 2026
+Volume: 58
+Issue: 1
+Electronic Location ID: 2615482
+Copyright: © 2026 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group
+Copyright year: 2026
+Copyright holder: The Author(s)
+License: This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (http://creativecommons.org/licenses/by-nc/4.0/), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this article has been published allow the posting of the Accepted Manuscript in a repository by the author(s) or with their consent.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Keywords: West Nile virus, arbovirus, neuroinvasive disease, diagnosis, vaccine development, one health, vector-borne disease, mosquito
+
+Support: The author(s) reported there is no funding associated with the work featured in this article.
+
+Figure count: 4
+Table count: 2
+Page count: 19
+
+==============================
+Abstract
+
+Background
+
+West Nile virus (WNV) is among the most widespread arboviruses and has become a seasonal threat in temperate regions. Sustained in an enzootic bird–mosquito cycle, with humans and horses as incidental hosts, its geographic range has expanded in recent decades due to ongoing climatic and ecological changes. While most infections are asymptomatic or mild, a minority progress to neuroinvasive disease with high morbidity and long-term sequelae. This review summarizes current knowledge on epidemiology, pathogenesis, clinical spectrum, diagnostic challenges, therapeutic options, prevention, and research gaps.
+
+Discussion
+
+Lineages 1 and 2 co-circulate in Europe, where repeated large outbreaks highlight WNV adaptability to warmer summers, altered rainfall, and expanded mosquito habitats driven by recent ecological shifts. After inoculation, replication occurs in keratinocytes and dendritic cells, amplification in lymph nodes, and dissemination to visceral organs and the central nervous system. Neuroinvasion depends on viral proteins and host immune responses. Severe disease is associated with advanced age, immunosuppression, comorbidities, and genetic susceptibility. Clinical manifestations range from febrile illness to meningitis, encephalitis, or acute flaccid myelitis. Persistent neurological and functional sequelae are common, adding to disease burden. Diagnosis relies on molecular and serological tests, limited by short viremia and cross-reactivity with other flaviviruses. No approved antiviral therapy exists; management is supportive. Experimental antivirals, monoclonal antibodies, and interferon have shown mixed results. Vaccine candidates have progressed to phase 1–2 trials, but none are licensed for humans. Prevention relies on integrated vector control, veterinary surveillance, and donor screening, framed within a One Health approach.
+
+Conclusion
+
+WNV exemplifies the impact of global ecological change on zoonotic diseases. Strengthening surveillance, refining diagnostics, and advancing antivirals and vaccines through multidisciplinary collaboration are essential to mitigate future outbreaks.
+
+KEY MESSAGES
+
+West Nile virus is one of the most widespread arboviruses worldwide, with seasonal outbreaks increasingly affecting temperate regions due to climate and ecological changes.
+
+Although most infections are mild, neuroinvasive disease causes severe morbidity and long-term sequelae, and no specific antivirals or licensed human vaccines are available.
+
+Integrated One Health surveillance, improved diagnostics, and the development of effective vaccines and antivirals are crucial to mitigate future outbreaks and strengthen preparedness.
+
+Introduction
+
+West Nile virus (WNV) was first isolated in the West Nile District of Uganda in 1937, initially linked to sporadic, typically mild febrile illness across Africa and the Middle East [1,2]. Large human outbreaks emerged later: South Africa in 1974 (hundreds of cases), Algeria in 1994, and—most prominently—Bucharest in 1996 with >390 neuroinvasive cases and 17 deaths, followed by Volgograd (Russian Federation) in 1998 (∼826 neuroinvasive; ∼4% case-fatality rate) [2,3]. Among the most pathogenetic of the currently known 8 lineages, phylogeographic work shows that lineage 1a likely originated in sub-Saharan Africa and spread northward via eastern and western avian routes; this lineage seeded the Western Hemisphere, causing New York City’s 1999 introduction (∼62 cases; 7 deaths) and rapid continental establishment with major US peaks in 2002–2003 (>15,000 reported cases; ∼600 deaths) and in 2012 (>5,600 cases; 286 deaths) [4–8]. By contrast, lineage 2, long endemic in sub-Saharan Africa/Madagascar, entered Europe around 1999–2000 (Hungary; Russia) and became established, driving large outbreaks in Greece in 2010 (>260 neuroinvasive; 35 deaths) and contributing to Europe’s exceptional 2018 season (>2,000 confirmed cases) and Italy’s record 2022 epidemic (>580 cases; 37 deaths) [4,9–11]. Across settings, an avian–mosquito enzootic cycle sustains transmission, with Culex pipiens sl acting as the main vector in Europe and mammals like humans and horses as accidental dead-end hosts; migratory birds underpin long-distance dispersal [12,13]. The current picture is one of co-circulation of lineages 1 and 2 across Europe with recurrent urban and peri-urban epidemics.
+
+Today, WNV is one of the most widespread arboviruses worldwide, with >48,000 reported cases in the US alone (1999–2017) and frequent seasonal outbreaks in Europe, the Mediterranean, the Middle East, and parts of South America [14–16] (Table 1). While traditionally considered a tropical and subtropical pathogen, WNV has re-emerged as a significant threat in temperate regions. Increasingly warm conditions, changes in rainfall, and expanding mosquito habitats have enabled intense seasonal transmission in southern and central Europe, with earlier onset and prolonged duration of epidemics [17]. The unprecedented European outbreak of 2018, and recurrent severe epidemics in Italy, highlight how WNV epidemiology has shifted from sporadic incursions to endemic seasonal circulation in temperate climates, underscoring the virus’s capacity to adapt and persist under changing ecological conditions.
+
+Table 1. Major documented West Nile virus human outbreaks and clusters worldwide.
+
+Country/Region	Year(s)	Reported cases	Lineage	
+Uganda	1937	1 (first isolation)	Prototype (African)	
+France (Camargue)	1962–63	Sporadic	Lineage 1	
+South Africa (Karoo)	1974	Hundreds	Lineage 2	
+Algeria	1994	≈50	Lineage 1	
+Romania (Bucharest)	1996	>390 neuroinvasive	Lineage 1	
+Tunisia	1997	≈173 neuroinvasive	Lineage 1	
+Russia (Volgograd)	1999	826 neuroinvasive	Lineage 1	
+USA (New York)	1999	59–62 hospitalized	Lineage 1	
+Israel	2000	417 confirmed	Lineage 1	
+USA	2002–03	4,156 (2002); 9,862 (2003)	Lineage 1	
+Greece	2010	262 (197 WNND)	Lineage 2	
+Romania	2010	57 (54 WNND)	Lineage 2	
+Croatia	2012–13	7 WNND (2012); 20 (2013)	Lineage 2	
+Serbia	2012	70+ WNND	Lineage 2	
+USA	2012	5,674	Lineage 1 (WN02/SW03)	
+Romania	2016	≈90	Lineage 2	
+Europe (multi-country)	2018	≈1,993	Lineages 1 & 2	
+Germany	2019	5 autochthonous	Lineage 2	
+Netherlands	2020	6 autochthonous	Lineage 2	
+Spain (Andalusia/Extremadura)	2020	77	Lineage 1	
+Italy	2022	≥723	Lineages 1 & 2	
+Greece	2022	283	Lineage 2	
+Romania	2022	47	Lineage 2	
+Hungary	2022	14	Lineage 2	
+Croatia	2022	8	Lineage 2	
+Austria	2022	6	Lineage 2	
+France	2022	6	Lineage 2	
+Spain	2022	4	Lineage 1	
+Slovakia	2022	1	Lineage 2	
+Spain	2023	17	Lineage 1	
+Italy	2023	329	Lineage 1 & 2	
+Greece	2023	162	Lineage 2	
+Romania	2023	103	Lineage 2	
+Spain	2024	114	Lineage 1 & 2	
+Europe (multi-country)	2024	Ongoing	Lineage 1 & 2	
+CFR, case fatality ratio; WNND, West Nile neuroinvasive disease. Numbers may vary slightly depending on case definition and source; values represent published estimates.
+
+Epidemiology and transmission
+
+WNV circulates in a complex network of vectors and hosts (Figure 1). Among mosquitoes, several Culex species—Cx. pipiens, Cx. quinquefasciatus, Cx. tarsalis, Cx. torrentium and others—constitute the principal vectors, sustaining enzootic transmission in both temperate and tropical habitats [4]. Yet the picture is far from exclusive: secondary vectors such as Aedes albopictus and Ae. vexans are increasingly recognised as contributors, particularly in peri-urban environments where they may bridge transmission from avian hosts to humans [18]. Birds remain the central reservoirs, with striking heterogeneity in competence [19,20]. Passeriformes are among the most competent reservoir species, corvids are characterized by a high fatality rate [19], and birds at the apex of the food web, like raptors, might acquire infection through predation of infected preys [21]. Humans and horses are considered epidemiological dead ends, but occasional reports of viremia in mammals such as squirrels, rabbits, racoons, or bats suggest that non-avian hosts may yet play underappreciated roles in viral ecology and transmission [22–25].
+
+Figure 1. Enzootic cycle of West Nile virus and monthly distribution of human West Nile virus disease cases.
+
+On the left, schematic representation of the enzootic cycle of West Nile virus, showing virus maintenance between avian hosts and mosquito vectors, with occasional spillover to humans and other mammals (Created in BioRender. Da Re, D. (2026) https://BioRender.com/zxtwvpj). On the right, normalised monthly distribution of reported human WNV disease cases in Europe and the USA. European data (ECDC, 2024: https://wnv-monthly.ecdc.europa.eu/archive/wnv-2024.html) were manually digitised using WebPlotDigitizer and are publicly available at subannual level for 2024 only (for a recent overview of the seasonal trend 2010–2021 please see Figure 1C in Marini et al., 2022). USA data (CDC, 1999–2024: https://www.cdc.gov/west-nile-virus/data-maps/historic-data.html) were retrieved from official surveillance records. Values are scaled by the relative maximum within each region to enable seasonal pattern comparison.
+
+Climate and seasonality
+
+The virus is now endemic across North America and Europe, while underreporting in regions such as parts of the African continent may reflect limited surveillance rather than true absence [26]. At temperate latitudes, transmission typically peaks in late summer (Figure 1), coinciding with high mosquito abundance [27] and optimal temperatures (23.6–25.5 °C; [28]), while winter conditions prevent mosquito activity and transmission. Climate change, however, is reshaping these patterns: warmer temperatures accelerate both mosquito development and viral replication within individual mosquitoes [29], thus enhancing WNV amplification with greater spillover risk [30], extending the activity of vectors into spring and autumn, and facilitating expansion into higher latitudes and elevations [31,32]. Periods of drought can intensify transmission by concentrating birds and mosquitoes around scarce water sources, while extreme heat occasionally reduces vector survival [29], underscoring the non-linear influence of climate change on WNV transmission dynamics. At the same time, land-use practices such as irrigation, agricultural intensification, and wetland restoration intersect with these climatic shifts to create novel ecological niches for both primary and secondary vectors and hosts [29,33]. The result is a disease system that is dynamic, regionally specific, and increasingly difficult to predict.
+
+Co-circulation with other flaviviruses
+
+The ecology of WNV cannot be understood in isolation. In Europe, the rapid expansion of Usutu virus (USUV) into the same avian and mosquito communities [34] highlights the complexity of multi-pathogen landscapes. Co-circulation challenges diagnostics, given extensive serological cross-reactivity, and raises important but unresolved questions about whether immune cross-protection, antibody-dependent enhancement, or ecological competition might alter the epidemiology of either virus [35]. Additionally, the overlap of WNV with Zika, dengue, and Japanese encephalitis viruses increasingly affects both tropical and temperate regions, compounding diagnostic and surveillance challenges [26].
+
+Outlook and open questions
+
+Taken together, these dynamics position WNV as an emblematic case of an emerging zoonosis in an era of global change. Its ability to persist across continents, exploit diverse mosquito and avian species, and coexist with other flaviviruses underscores the difficulty of achieving a fundamental understanding of this disease system. The epidemiological significance of mammals beyond humans and horses has so far remained largely unexplored: even limited competence in species such as squirrels, lagomorphs, or bats could prove important for viral persistence during inter-epidemic periods. Forecasting models, though increasingly sophisticated [36], continue to struggle to integrate entomological, ornithological, environmental, and social data in ways that yield actionable predictions. They remain constrained by limited quantitative estimates for key epidemiological parameters, patchy surveillance, and fragmented reporting [37]. Moreover, the spatial scale of investigation can influence the observed effects of land use and land use change on WNV epidemiology, together with the specific roles of diverse avian and mammalian host species, all of which hinder adequate model parameterization [29,38]. The consequences of co-circulation with other arboviruses are similarly uncertain, with the potential for cross-immunity or immune enhancement to either dampen or amplify epidemic risk. Demographic change adds yet another dimension: as human populations age, the burden of severe WNV disease is likely to increase, suggesting that epidemiological trends are being shaped not only by climate and land use but also by shifting host susceptibility and human exposure [39].
+
+Pathogenesis
+
+A graphical representation of the different pathogenetic steps of WNV disease, described in the following paragraphs, is available in Figure 2.
+
+Figure 2. West Nile virus infection pathogenesis in humans.
+
+After infection, West Nile virus (WNV) replicates in keratinocytes, Langerhans cells and dendritic cells. Infected immune cells (macrophages among others) produce proinflammatory cytokines (type I IFNs, IL-1β, TNF) and chemokines, while neutrophils, NK cells, B-cells and T-cells try to control further dissemination. Replication continues in draining lymph nodes, then WNV spreads into the bloodstream, eventually reaching central nervous system and visceral organs. Created in BioRender. Tran, A.S. (2026) https://BioRender.com/4y1fbcx
+
+Entry, replication, and dissemination
+
+During the meal, mosquitoes inject saliva, containing viral particles, directly into blood vessels or, more often, into the dermal layer. A single bite can deliver up to 106 plaque-forming units of virus [40]. Mosquito saliva also carries factors that inhibit haemostasis and dampen host inflammation, causing local immunosuppression and enhancing pathogen infectivity [41]. Once inoculated, the virus replicates in epidermal keratinocytes and dendritic cells. Amplification proceeds in draining lymph nodes, then spreads to the bloodstream and visceral organs, including spleen and brain. Several cell-surface receptors have been implicated in mediating WNV entry. In vitro studies indicate roles for integrins (including αVβ3), C‑type lectins (e.g. DC‑SIGNR and DC‑SIGN), heparan sulfate proteoglycans, and cholesterol‑rich membrane microdomains [42–44]. Acidic endosomes trigger fusion and release of the RNA genome into the cytoplasm. This RNA is translated into a polyprotein, cleaved by viral and host enzymes into functional proteins. Replication complexes generate new RNA genomes, which are packaged by capsid proteins into immature particles. These undergo protein modifications, are transported to the cell surface, and released by exocytosis [45].
+
+Mechanisms of neuroinvasion (crossing the blood–brain barrier)
+
+Neuroinvasivity of WNV, which is reported to happen in fewer than 1% of infections in immunocompetent people [46], depends on both viral and host factors. The most relevant viral determinant is a N-linked glycan located on domain I of the E protein, named E154 [47]. This and other proteins (i.e. NS1, NS2A, NS3, NS4B and NS5) mediate, in a manner that is still largely unknown, binding and penetration into central nervous system (CNS) endothelial cells. Moreover, during the host response, blood-brain barrier permeability can be altered by the high levels of inflammatory cytokines, including tumour necrosis factor (TNF), and the activity of metalloproteinases, which break down tight junction proteins. Other proposed ways WNV might reach the CNS could be direct infection of olfactory neurons and spread through the olfactory bulb, recruitment and migration of big amounts of infected polymorphonuclear cells into the CNS (“Trojan Horse” mechanism), and retrograde transport along axons from peripheral neurons. Within the CNS, WNV targets neurons in the brainstem, hippocampus, cortex, cerebellum, and spinal cord, leading to neuronal damage [45]. Therefore, direct neuronal injury, persistent neuroinflammation, autoimmune phenomena, impaired repair mechanisms, microglial activation and vascular/blood-brain barrier disruption can lead to long-term neurological sequelae [48].
+
+Risk factors for severe disease
+
+Advanced age represents the most significant risk factor. Some studies have reported a 2% probability of neuroinvasive disease in people older than 65 years, compared to 0.1–0.4% probability in the younger population [49]. Other studies have shown an increased rate of hospitalization (nearly 98%) in people older than 70 years with neuroinvasive disease [50]. There is evidence that with ageing, antiviral defences weaken: pathogen recognition receptors are less effective, innate immune cells such as macrophages, dendritic cells, and natural killer cells show impaired activity, and regulatory changes like up-regulation of defined receptors may enhance viral entry into the CNS. These immunological alterations contribute to the higher vulnerability of older adults and underline the need to identify therapeutic strategies tailored to age-related susceptibility [51]. Additional risk factors for severe disease are male sex, diabetes, cardiovascular disease, chronic kidney disease, malignancies, immunosuppression (e.g. solid organ transplantation, immunosuppressive therapy with anti-CD20 antibodies) and genetic factors [52]. Certain human leukocyte antigens (HLA) types make severe disease more likely (HLA-A*68 and C*08), while others seem protective (B*40 and C*03). Variations (single nucleotide polymorphisms, SNPs) in immune-related genes - like those in interferon pathways (IRF3, MX-1, OAS-1) - have been associated with greater infection risk and worse neurological outcomes. Other genes, including RFC1, SCN1a, and ANPEP, have also been linked to disease severity. Even a CCR5 deletion, known for protecting against HIV, appears to worsen WNV disease outcomes. Altogether, host genetics play a major role in who gets sick and how severe the illness becomes [53].
+
+Host immune response
+
+The immune response to WNV involves a coordinated interplay of innate and adaptive mechanisms. Innate defences are triggered by viral RNA intermediates recognized by pattern-recognition receptors such as TLR3, RIG-I, and MDA5, activating macrophages, dendritic cells, neutrophils, NK cells, and γδ T cells. Activated macrophages and NK cells produce cytokines and chemokines, including type I interferons, CXCL1, CXCL2, CXCL10, TNF-α, IL-6, IL-8, and IL-1β, which restrict viral replication and recruit immune effectors, while IRFs 3, 5, and 7 drive dendritic cell-mediated antiviral responses. Adaptive immunity is crucial for viral clearance: B cells and IgM antibodies limit viremia, CD8+ T cells eliminate infected neurons, CD4+ T cells sustain antibody and T cell responses, and regulatory T cells prevent immunopathology. Protective immunity thus relies on effective innate restriction and adaptive clearance, whereas dysregulated responses can exacerbate neuropathogenesis [45,54].
+
+Taken together, these findings suggest that both host genetic determinants and immune response signatures represent valuable predictors of WNV disease severity. However, they remain research tools rather than clinically implemented measures due to limited validation and feasibility, even though their clinical utility would depend heavily on early diagnosis, which is rarely achieved in most patients [55].
+
+Clinical manifestations in humans
+
+Clinical manifestations of WNV disease range from silent infection to severe neurologic disease. About 80% are asymptomatic; ∼20% present with a self-limited febrile illness, and only 1–2% progress to neuroinvasive disease, while extra-neurologic involvement is even rarer [49,52,56] (Figure 3).
+
+Figure 3. Clinical manifestation of West Nile virus infection.
+
+IC: immunocompromised. Created in BioRender. Giacobbe, D. (2026) https://BioRender.com/j4yvm5r
+
+The burden of non-neuroinvasive disease is difficult to quantify because affected individuals infrequently seek medical care [56], but seroprevalence studies estimate ∼250 infections per reported neuroinvasive case [49]. Incubation after a mosquito bite is typically 2–6 days, extending to ≥14 days in immunocompromised hosts. This may reflect delayed viral clearance and prolonged viraemia in patients with impaired immune responses [57].
+
+Symptomatic non-neuroinvasive disease (West Nile fever; WNF) classically presents with abrupt fever and an influenza-like syndrome with chills, malaise, headache, arthralgias, myalgias, conjunctivitis and retro-orbital pain, lasting 3–6 days [58]. Lymphadenopathy and a nonspecific maculopapular trunk/extremity rash may occur; the rash is typically transient (<24 h) and reported more often in WNF than in neuroinvasive diseases, especially in children [59].
+
+Neuroinvasive WNV diseases manifest as meningitis, encephalitis/meningoencephalitis, or acute flaccid myelitis [58,60]. A 1–7-day, sometimes biphasic, febrile prodrome is common. Meningitis, more frequent in younger patients, is clinically indistinguishable from other viral meningitides and presents with headache, neck stiffness, photophobia and possible concomitant gastrointestinal symptoms (nausea, vomiting, diarrhea) [60,61]. Encephalitis, more common in older adults and immunocompromised individuals, causes confusion and movement disorders (tremor, myoclonus, ataxia), reflecting WNV neurotropism for extrapyramidal structures [60,62]. Syndromic overlap across WNF, meningitis, and encephalitis is common, and altered mental status may stem from severe systemic illness without histopathologic or radiologic evidence of true encephalitis. Seizures are not typical, occurring less often than with other arboviruses, and are usually reported in <10% of cases [63].
+
+Acute flaccid paralysis (also called WNV poliomyelitis) arises from anterior horn cell involvement, typically appearing within 48 h of symptom onset and often accompanying meningitis or encephalitis [60]. The presentation is poliomyelitis-like, with asymmetric limb weakness, reduced reflexes, and preserved sensation that represent hallmark features [60]. The most severe complication is respiratory muscle denervation causing diaphragmatic/intercostal paralysis and neuromuscular respiratory failure, often requiring endotracheal intubation [64]. Less frequent neurologic manifestations include cranial neuropathies and optic neuritis; Guillain–Barré syndrome has also be reported and, given its ascending symmetric weakness with sensory/autonomic involvement, can be distinguished from acute flaccid myelitis by clinical, cerebrospinal fluid (CSF), and electrodiagnostic findings [65].
+
+Atypical extra-neurologic involvement is uncommon. Reported manifestations include ocular disease (chorioretinitis, uveitis) [60,64,66], rhabdomyolysis, myocarditis, pancreatitis, renal involvement and hepatitis. Incidence remains undefined because evidence comes mainly from case reports and small series [4].
+
+Laboratory testing may show peripheral leukocytosis or leukopenia with occasional hyponatremia. CSF typically has mild lymphocytic pleocytosis, though early samples can be normal or neutrophil-predominant; protein is mildly increased and glucose is usually normal [60]. Brain magnetic resonance imaging is variably abnormal and may be normal even in severe encephalitis; characteristic findings are bilateral basal ganglia and thalamic signal on T2-weighted, fluid-attenuated inversion recovery, and diffusion-weighted imaging, consistent with deep-gray neurotropism [60]. Electroencephalography often shows generalized slowing with triphasic waves and may reveal focal epileptiform activity [60].
+
+Long-term post-infectious sequelae are hallmarks of WNV disease, driving substantial morbidity, mainly after neuroinvasive disease (up to ≈75%) and also after WNF (up to ≈50%) [61]. Manifestations span physical (weakness, fatigue, myalgia, headache, tremor, joint weakness, neck pain), cognitive (memory loss, depression, impaired concentration, irritability, confusion, anxiety), and functional domains (difficulties with ambulation and activities of daily living) [67,68]. In a recent meta-analysis, 20 studies included reported post-discharge neurocognitive morbidity including fatigue 37–75%, memory concerns 11–57%, concentration deficits 17–48%, depression 17–38%, with variable symptom duration and substantial methodological heterogeneity across the studies [69]. The clinical spectrum and true incidence remain uncertain; dedicated risk-prediction studies are lacking, although age, immunocompromised states, diabetes, and cardiovascular disease have been associated with long-term sequelae [67]. Across infectious diseases, post-acute sequelae are well described with multi-organ involvement, yet mechanisms remain incompletely defined [70–72]. Persistent viral replication may contribute; analogous to SARS-CoV-2, WNV persistence, particularly in urine, has been reported in patients with chronic symptoms, however the role of persistent infection versus immune-mediated mechanisms are not yet defined and warrant additional study [73].
+
+Diagnosis
+
+As in other arboviral diseases, diagnosis of WNV disease relies on both direct and indirect viral detection. Timing of testing, paired with the choice of sample type, is crucial in order to maximize sensitivity. The clinical suspicion of WNV disease, paired with the use of the right test at the right time is at the basis of the diagnostic cascade (Figure 4).
+
+Figure 4. Schematic diagnostic algorithm for WNV disease.
+
+Proposed diagnostic algorithm for West Nile Virus infection. Figure based on information accessed through CDC diagnostic algorithms (https://www.cdc.gov/west-nile-virus/hcp/diagnosis-testing/diagnostic testing-algorithm.html; last accessed 28 September 2025) and ECDC case definitions (https://www.ecdc.europa.eu/en/west-nile-fever/facts; last accessed 28 September 2025). WNV, West Nile virus; CSF, cerebrospinal fluid; IgM, immunoglobulin M; IgG, immunoglobulin G; RT-PCR, real-time polymerase chain reaction.
+
+Direct viral detection
+
+Direct viral detection has the advantage of providing a definite diagnosis of WNV disease, as it identifies the presence of the virus itself rather than relying on the host immune response. Real-time polymerase chain reaction (RT-PCR) is the mainstay of direct viral detection: commercial and in-house assays are available, with limits of detection as low as 10 copies/ml [74]. Sensitivity of WNV detection varies across sample types and has been reported to be higher for whole blood (86.8%) with respect to other body fluids such as serum (26%), cerebrospinal fluid (16.6%), plasma (20%) and urine (58.3%) during the acute phase of infection [75]. The diagnostic yield of molecular testing is limited by the virological characteristics of WNV disease: viremia is usually short-lived, often occurs at low levels and it is detectable in plasma until five days post symptoms-onset, although longer intervals have been reported, especially in immunocompromised patients [76], while viral shedding is longer in whole blood and urine, providing higher chances to detect the virus during the course of disease [77]. Pan-flavivurs RT-PCR assays have been developed and are particularly beneficial for surveillance purposes [78] but require multiple PCR test steps.
+
+Indirect viral detection (serology)
+
+Given the limitations and challenges of direct viral detection, antibody testing is currently the main strategy for WNV disease diagnosis: multiple commercial and in-house assays exist and are mainly based on enzyme-linked immunosorbent assay (ELISA) or indirect immunofluorescence. The most common antigens used for IgM and IgG ELISA testing are recombinant envelope proteins (i.e. Anti-West Nile Virus ELISA [IgG], Euroimmun AG, Lübeck, Germany), which however are prone to cross-reactivity due to infections by other flaviviruses or prior vaccination (envelope proteins are included in most available vaccines) [79]. A promising approach is the use of the non-structural protein NS1, using available commercial kits (i.e. Anti-West Nile Virus NS1 ELISA [IgG], Euroimmun AG, Lübeck, Germany) or in-house assays. In a recent paper by Girl P. et al. the authors compared five serological methods (one ELISA NS-1 based, one ELISE envelope-based, one immunofluorence kit and one in-house NS-1 ELISA kit) and found that the in-house NS-1 ELISA had the best sensitivity and specificity compared to the reference standard [80].
+
+WNV-specific IgM usually appears 3–8 days after symptom onset and persists for 1–3 months, though longer persistence (up to 3 years) has been documented [81]. Detection of IgM in CSF, especially with an intact blood–brain barrier, strongly suggests neuroinvasive disease, typically becoming detectable 1–8 days after neurological symptoms [81]. IgGs generally appear from day 8 onwards and can persist for years, making paired acute and convalescent sera necessary to demonstrate seroconversion [82].
+
+Discrimination among flaviviruses in the presence of positive serology can be achieved by neutralization assays, which require trained personnel and are affected by lab-to-lab variability [83].
+
+Other techniques
+
+Antigen testing is currently available as a point-of-care testing for the dengue virus, based on the detection of non-structural protein 1 (NS1); however this protein is mostly retained in WNV-infected cells, making it an unsuitable candidate for WNV antigen testing [84]. Antigen testing has proved to be sensitive for WNV disease diagnosis in birds, but a similar option is currently lacking for human WNV disease [85]. The nearly-point-of-care, species-independent, NS1-based lateral flow microarray immunoassay has proved sensitive and specific in a proof-of-concept study for diagnosing WNV and distinguish it from usutu virus using sera from horses, birds and humans, and representing a future promising tool [86].
+
+Therapy
+
+No specific therapies have been currently approved for WNV disease, and supportive care remains the mainstay of management of symptomatic cases [52].
+
+Antiviral agents
+
+Several antiviral agents with in vitro activity against WNV have been reported; for example, ribavirin. Whether this in vitro activity translates to clinical benefit remains to be established, with no apparent benefits, and possibly also a detrimental effect (association between ribavirin and death), being reported in an outbreak setting [87].
+
+Regarding other antiviral agents showing in vitro activity against WNV, the use of acyclovir has been reported in case series only, with any possible related evidence on its efficacy remaining preliminary due to small sample size [88].
+
+Remdesivir also exhibits in vitro activity against WNV [89], nonetheless with only a recent case report [90] and a small case series [91] describing its use. Other antivirals have also shown in vitro activity, but no supporting clinical data currently exist (Table 2).
+
+Table 2. Antivirals with in vitro activity against WNV.
+
+Antiviral	Target	Result	Ref	
+Remdesivir 	RdRp(a) inhibition	Inhibits the WNV(b) RdRp 	89	
+Favipiravir	Mechanism of action still not well understood	Decreases virus-specific infectivity and drives the virus to extinction. 	92	
+Rilpivirine	RdRp(a) inhibition	Inhibits the WNV(b) RdRp	93	
+Sofosbuvir	RdRp(a) inhibition	Inhibits the WNV(b) RdRp	94	
+2′-C-methylcytidine (2′-CMC)	RdRp(a) inhibition	Inhibits the WNV(b) RdRp	95	
+7-deaza-2′-C-methyladenosine	RdRp(a) inhibition	Inhibits the WNV(b) RdRp	96	
+RdRp: RNA-dependent RNA polymerases; WNV: West Nile virus.
+
+Immunotherapy
+
+Passive antibody transfer
+
+Intravenous immunoglobulin (IVIG) has been proposed as a potential therapeutic option for WNV neuroinvasive disease. Preclinical studies in animal models suggested possible efficacy [97]. However, a multicenter, randomized, placebo-controlled phase 2 trial involving 62 patients treated with IVIG enriched with anti-WNV antibodies reported no significant differences between 3 treatment groups [98].
+
+In 2010, MGAWN1, a recombinant humanized monoclonal antibody targeting the envelope (E) protein of WNV, was well tolerated in a phase 1 trial with limited drug-related adverse events, but phase 2 development was discontinued due to insufficient enrollment [99] in United States.
+
+Corticosteroids
+
+Corticosteroid therapy has been reported to modulate proinflammatory mediators implicated in WNV disease neuropathogenesis [100]. Case reports have reported clinical improvement following high-dose corticosteroids in case of complications such as acute flaccid paralysis and opsoclonus–myoclonus–ataxia [101–104]. On the other hand, two case series did not report apparent clinical improvement with corticosteroid use. In one of them, no relevant difference in hospital stay was reported between 18 patients treated with steroids and 154 untreated controls [88]. In a similar way, in a study of 65 patients with neuroinvasive WNV disease no differences in mortality (odds ratio [OR], 1.70; 95% CI, 0.3–13.8; p = .89) or neurological outcomes (OR, 0.53; 95% CI, 0.16–1.76; p = .47) were reported between patients treated with corticosteroids and untreated patients [105].
+
+Interferon-Alpha
+
+Two patients with confirmed WNV disease and coma received interferon alpha-2b within 72 h, with neurological improvement observed within 48 h, though association between treatment and favorable outcome remains uncertain [106]. Off-label use of interferon alpha in other case reports has also been reported without an apparent favorable course of the disease, though again the association of outcomes with treatment remains largely uncertain due to the very low certainty of evidence of isolated reports [107,108].
+
+Supportive care
+
+Supportive management may include analgesics for headache, antiemetics and rehydration for nausea and vomiting, and intensive monitoring for patients with encephalitis. These individuals required frequent monitoring, possibly in the intensive care unit, for early detection of elevated intracranial pressure, seizures, or impaired airway protection [109]. Patients with acute flaccid myelitis also require close monitoring for neuromuscular respiratory failure [60].
+
+Vaccines
+
+Several candidate vaccines have been successfully developed, some of which have been licensed for use in horses but none have been authorized for humans [110].
+
+Equids are sporadically infected by WNV and around 20% can develop clinical signs that have recently been equally severe also in humans [111]. Four of the six licensed vaccines are currently on the market for use in horses. The WN-Innovator, by Zoetis, US, inactivated virus, showed 94% protection against viremia, with a classic inactivated whole virion-based approach, was the first to be developed and was licensed by the USDA in 2003 [112]. Live attenuated recombinant viruses have also been used (either based on canary poxvirus - RECOMBITEK® by MERIAL Ltd., US, induced cell-mediated immunity and neutralizing antibodies- or yellow fever virus), as well as a plasmid DNA vaccine [113]. However, despite their proven efficacy, these vaccines require repeated administrations to get a solid initial immunization, and due to a short duration of the induced immunity, annual boosters are required, increasing the cost for horse owners [114].
+
+Several commercial and experimental vaccine candidates have been assayed in wild birds, exotic zoo birds and domestic birds, although no one has yet been authorized for use on them. However, the implementation of bird vaccines faces several drawbacks, such as the feasibility of access to the target host, mainly for wild species, and the administration route [115,116].
+
+At least 7 different WNV vaccine candidates have been studied in phase 1 or 2 human clinical trials [117,118]. Development of phase 3 efficacy trials has been limited by the unpredictable nature of WNV outbreaks, which makes it challenging to select geographic areas and prepare for trials before WNV activity is detected.
+
+Human clinical studies have been conducted with several vaccine candidates, including two live attenuated chimeric, one DNA (first and second generation), one recombinant subunit, and two inactivated whole-virus vaccines. ChimeriVax-WN02 (Sanofi Pasteur; NCT00442169, NCT00746798), a live attenuated chimeric vaccine yellow fever strain expressing the premembrane and envelope (prM–E) genes of WNV, demonstrated seroconversion rates above 90% after a single dose in phase 2 clinical trials even in older age groups.
+
+Several phase 1 clinical trials have evaluated alternative vaccine approaches, each with distinct immunogenic profiles. WN/DEN4-3′D30, a live attenuated chimeric vaccine, demonstrated seroconversion rates ranging from 55% to 95% depending on the dosing schedule in different clinical trials (NCT00094718, NCT00537147, NCT02186626). DNA-based candidates, such as VRC-WNVDNA017-00-VP (NCT00106769) and VRC-WNVDNA020-00-VP (NCT00300417), have demonstrated strong neutralising antibody responses, with seroconversion rates exceeding 96% after a three-dose regimen. Notable advancements include recombinant subunit vaccines, such as one using the truncated E protein (rWNV-80E) combined with adjuvants, which elicited strong humoral and cellular immunity in mice. Inactivated whole-virus formulations, including HydroVax-001 (NCT02337868), have shown moderate seroconversion rates (31–50%) following two doses [119].
+
+All were associated with minimal adverse events, and most were shown to have favorable immunogenicity, although the inactivated virus vaccine elicited only moderate immune responses [114].
+
+Concerns have also been raised over vaccine safety, particularly with live attenuated virus vaccine candidates. The risk of prolonged viremia and adverse events from live vaccines is highest in the same populations for which vaccination would be recommended. Although early clinical trials with WNV chimeric vaccines did not find that older participants had serious vaccine-associated adverse events [120].
+
+The benefits of live vaccines, including durability of immunity and need for only one dose, will need to be weighed against potential safety concerns, particularly for the principal age group that would be targeted. Although inactivated vaccines might have a better safety profile, the likely need for multiple doses and the limited sustainability of immunity could affect vaccine uptake [121].
+
+The development of a vaccine against WNV faces several significant obstacles, for example viral genetic diversity, lack of suitable animal model for all disease features and target population challenges. A key limitation is the perceived lack of profitability, which discourages pharmaceutical companies from investing substantial resources into research and development. In 2017 the CDC published a paper describing the cost-effectiveness of an age-based WN vaccination program [122]. The studies by Snyder et al. [123] provide strong support for such a vaccination program in the US and suggest that policymakers may wish to reevaluate the public health and cost-effectiveness of a targeted WN vaccine program [124].
+
+Prevention and public health control
+
+Vector control represents the cornerstone of WNV infection prevention. Strategies can be broadly categorized into chemical, biological, and environmental interventions, each with distinct advantages and limitations [125]. Chemical control, primarily through ultra-low volume adulticides and larvicides, has demonstrated rapid suppression of mosquito populations and reduced infection rates when applied with precise timing [126]. However, the emergence of insecticide resistance, as well as environmental contamination, limit its long-term sustainability. Biological control methods, particularly the use of microbial larvicides such as Bacillus thuringiensis israelensis and Lysinibacillus sphaericus, offer environmentally safe alternatives with minimal resistance development [127]. Environmental control, focusing on habitat modification and source reduction, remains a sustainable approach, reducing breeding sites and interrupting transmission cycles, though it requires coordinated multi-sectoral effort and community participation [128]. Integrated vector management programs that combine these approaches are recognized as the most effective and adaptable strategy, enhancing operational feasibility, mitigating resistance development, and aligning with ecological sustainability principles to reduce WNV transmission risk. When operationally feasible, mosquito monitoring through the trapping and testing of vector populations provides an additional early indicator of WNV circulation, complementing veterinary surveillance efforts [129].
+
+Following vector monitoring, veterinary surveillance provides an essential component of early warning for WNV circulation. In the European Union, outbreaks of WNV infection in equids and birds are notifiable and systematically reported to the Animal Disease Information System, highlighting their institutional role as indicators [130]. Data on equids and birds frequently serve as the first signal of seasonal WNV activity, sometimes weeks before human cases, and in several countries such signals have triggered blood safety measures for substances of human origin [131]. When veterinary data are integrated with entomological and public health information under One Health principles, predictive capacity and outbreak preparedness are significantly enhanced [132].
+
+Because many WNV infections are asymptomatic, screening of blood and organ donors plays a crucial role in preventing transmission via transfusion or transplantation. Several European countries have adopted nucleic acid amplification testing (NAT) of donor blood in areas where WNV is known to circulate, improving safety by detecting viral RNA even before clinical symptoms appear [133]. In addition, European Union legislation requires blood establishments to defer donors of allogeneic blood donations for 28 days after leaving an area with locally acquired WNV, unless an individual NAT yields a negative result (Directive 2014/110/EU) [134]. Surveillance data published weekly during the WNV transmission season assist in defining which regions are high risk. These data enable blood services to dynamically adjust screening or deferral criteria [135]. Organ and tissue donation also present a public health risk, and regulatory frameworks now often require testing or donor deferral depending on epidemiologic risk and recent exposure [136]. Despite the effectiveness of donor screening, there are challenges: cost and logistics of NAT, identifying high‐risk donors, harmonizing guidelines across countries, and ensuring that organ donation safety measures keep pace with expanding viral geography.
+
+Conclusions and future perspectives
+
+WNV disease has emerged as a growing global health threat affecting both humans and animals. Since the early 2000s, its geographic range has expanded considerably, with increasing outbreaks across multiple continents. However, its geographic epidemiology pattern remains complex and likely underestimated, as many infections are asymptomatic or paucisymptomatic and thus go undetected. The typically low viral load and transient viremia further complicate diagnosis and can delay clinical recognition. Strengthening preparedness is therefore essential both in endemic regions, and also in currently non-endemic areas, where ecological and climatic changes may favor future emergence. Indeed, WNV disease, together with other arboviral diseases has been listed among climate-sensitive priority diseases [137]. Effective preparedness relies on timely detection, which requires combining direct and indirect diagnostic methods, integrating sensitive molecular techniques capable of detecting very low viral loads, and developing rapid point-of-care tests for specific viral antigens (e.g. NS5) or antibodies (e.g. IgM) [84]. Moreover, identifying and validating biological markers that predict progression to neuroinvasive disease could help stratify patient risk, enabling prompt therapeutic intervention and closer follow-up.
+
+At present, there is no specific antiviral therapy for WNV disease, and treatment remains largely supportive, particularly for neuroinvasive disease. Closing this therapeutic gap will require robust translational research efforts. Alongside in vitro studies testing the efficacy and safety of candidate compounds, molecular docking approaches should be employed to evaluate their theoretical binding affinity to key viral targets [138],. Integrating computational strategies with high-throughput screening and medicinal chemistry could accelerate the identification of promising antiviral molecules to advance into preclinical and clinical studies. These advancements must be embedded within integrated One Health surveillance frameworks, supported by sustained multidisciplinary collaboration among virologists, epidemiologists, clinicians, veterinarians, entomologists, ecologists, and public health experts. This cross-sectoral approach is essential to early detect viral circulation, monitor environmental drivers of transmission, and coordinate targeted prevention and control strategies before human cases, and outbreaks, occur [29,139].
+
+Ultimately, understanding how climate, ecological dynamics, viral evolution, and demographic shifts interact will be crucial to anticipate the future trajectory of WNV disease. More broadly, WNV serves as a sentinel example of how zoonotic pathogens may respond to accelerating global change, challenging both our scientific understanding and our ability to act proactively.
+
+Disclosure statement
+
+Outside the submitted work, MB has received funding for scientific advisory boards, travel, and speaker honoraria from Cidara, Gilead, Menarini, MSD, Mundipharma, Pfizer, and Shionogi. Outside the submitted work, DRG reports investigator-initiated grants from Pfizer, Shionogi, Menarini, Tillotts Pharma, and Gilead Italia, travel support from Pfizer, and speaker/advisor fees from Pfizer, bioMérieux, Advanz Pharma, Menarini, and Tillotts Pharma. The remaining authors report no conflicts of interests.
+
+Data availability statement
+
+Data sharing is not applicable to this article as no new data were created or analyzed in this study.
+
+
+References
+
+1 Smithburn KC, Hughes TP, Burke AW, et al. A neurotropic virus isolated from the blood of a native of Uganda. Am J Trop Med Hyg. 1940;s1-20(4):471–492. doi: 10.4269/ajtmh.1940.s1-20.471.
+2 Hayes CG. West Nile virus: Uganda, 1937, to New York City, 1999. Ann N Y Acad Sci. 2001;951(1):25–37. doi: 10.1111/j.1749-6632.2001.tb02682.x.11797781
+3 Dk L, Butenko AM, Gaĭdamovich SI[, et al. Epidemic outbreak of meningitis and meningoencephalitis, caused by West Nile virus, in the Krasnodar territory and Volgograd region (preliminary report). ]Vopr Virusol. 2000;45:37–38.10695043
+4 Petersen LR, Brault AC, Nasci RS. West Nile virus: review of the literature. JAMA. 2013;310(3):308–315. doi: 10.1001/jama.2013.8042.23860989 PMC4563989
+5 Petersen LR, Marfin AA. West Nile virus: a primer for the clinician. Ann Intern Med. 2002;137(3):173–179. doi: 10.7326/0003-4819-137-3-200208060-00009.12160365
+6 Nash D, Mostashari F, Fine A, et al. The outbreak of West Nile virus infection in the New York City area in 1999. N Engl J Med. 2001;344(24):1807–1814. doi: 10.1056/NEJM200106143442401.11407341
+7 Gray RR, Veras NMC, Santos LA, et al. Evolutionary characterization of the West Nile Virus complete genome. Mol Phylogenet Evol. 2010;56(1):195–200. doi: 10.1016/j.ympev.2010.01.019.20102743
+8 Zehender G, Ebranati E, Bernini F, et al. Phylogeography and epidemiological history of West Nile virus genotype 1a in Europe and the Mediterranean basin. Infect Genet Evol. 2011;11(3):646–653. doi: 10.1016/j.meegid.2011.02.003.21320643
+9 Ciccozzi M, Peletto S, Cella E, et al. Epidemiological history and phylogeography of West Nile virus lineage 2. Infect Genet Evol. 2013;17:46–50. doi: 10.1016/j.meegid.2013.03.034.23542457
+10 Mingione M, Branda F, Maruotti A, et al. Monitoring the West Nile virus outbreaks in Italy using open access data. Sci Data. 2023;10(1):777. doi: 10.1038/s41597-023-02676-0.37935727 PMC10630380
+11 Athanasakopoulou Z, Sofia M, Skampardonis V, et al. Indication of West Nile Virus (WNV) lineage 2 overwintering among wild birds in the regions of peloponnese and western greece. Vet Sci. 2023;10(11):661. doi: 10.3390/vetsci10110661.37999484 PMC10674244
+12 Mancuso E, Cecere JG, Iapaolo F, et al. West Nile and usutu virus introduction via migratory birds: a retrospective analysis in Italy. Viruses. 2022;14(2)[Internet] :416. doi: 10.3390/v14020416.35216009 PMC8880244
+13 Schwartz FW, Ibaraki M, Hort HM. Seasonal bird migration could explain regional synchronicity and amplification in human west nile virus case numbers. Geohealth. 2025;9(3):e2024GH001194. doi: 10.1029/2024GH001194.PMC11923459 40115967
+14 Ronca SE, Ruff JC, Murray KO. A 20-year historical review of West Nile virus since its initial emergence in North America: has West Nile virus become a neglected tropical disease? PLoS Negl Trop Dis. 2021;15(5):e0009190. doi: 10.1371/journal.pntd.0009190.33956816 PMC8101735
+15 Abbas I, Ahmed F, Muqaddas H, et al. Epidemiology and surveillance of West Nile virus in the Mediterranean Basin during 2010-2023: a systematic review. Curr Res Parasitol Vector Borne Dis. 2025;7:100277. doi: 10.1016/j.crpvbd.2025.100277.40586111 PMC12205625
+16 Hadfield J, Brito AF, Swetnam DM, et al. Twenty years of West Nile virus spread and evolution in the Americas visualized by Nextstrain. PLoS Pathog. 2019;15(10):e1008042. doi: 10.1371/journal.ppat.1008042.31671157 PMC6822705
+17 Paz S. Climate change impacts on vector-borne diseases in Europe: risks, predictions and actions. Lancet Reg Health Eur. 2021;1:100017. doi: 10.1016/j.lanepe.2020.100017.35104838 PMC8454730
+18 Martinet J-P, Bohers C, Vazeille M, et al. Assessing vector competence of mosquitoes from northeastern France to West Nile virus and Usutu virus. PLoS Negl Trop Dis. 2023;17(6):e0011144. doi: 10.1371/journal.pntd.0011144.37276229 PMC10270612
+19 Komar N, Langevin S, Hinten S, et al. Experimental infection of North American birds with the New York 1999 strain of West Nile virus. Emerg Infect Dis. 2003;9(3):311–322. doi: 10.3201/eid0903.020628.12643825 PMC2958552
+20 Pérez-Ramírez E, Llorente F, Jiménez-Clavero MÁ. Experimental infections of wild birds with West Nile virus. Viruses. 2014;6(2):752–781. doi: 10.3390/v6020752.24531334 PMC3939481
+21 Vidaña B, Busquets N, Napp S, et al. The Role of Birds of Prey in West Nile Virus Epidemiology. Vaccines (Basel). 2020;8(3):550. PMID: 32967268; PMCID: PMC7564710. doi: 10.3390/vaccines8030550.32967268 PMC7564710
+22 Padgett KA, Reisen WK, Kahl-Purcell N, et al. West Nile virus infection in tree squirrels (Rodentia: sciuridae) in California, 2004-2005. Am J Trop Med Hyg. 2007;76(5):810–813. doi: 10.4269/ajtmh.2007.76.810.17488896 PMC1939863
+23 Jeffrey Root J. West Nile virus associations in wild mammals: a synthesis. Arch Virol. 2013;158(4):735–752. doi: 10.1007/s00705-012-1516-3.23212739
+24 Habarugira G, Suen WW, Hobson-Peters J, et al. West Nile virus: an update on pathobiology, epidemiology, diagnostics, control and “one health” implications. Pathogens. 2020;9(7):589. doi: 10.3390/pathogens9070589.32707644 PMC7400489
+25 Root JJ, Bentler KT, Nemeth NM, et al. Experimental infection of raccoons (Procyon lotor) with West Nile virus. Am J Trop Med Hyg. 2010;83(4):803–807. PMID: 20889868; PMCID: PMC2946745. doi: 10.4269/ajtmh.2010.10-0173.20889868 PMC2946745
+26 Mencattelli G, Ndione MHD, Rosà R, et al. Epidemiology of West Nile virus in Africa: an underestimated threat. PLoS Negl Trop Dis. 2022;16(1):e0010075. doi: 10.1371/journal.pntd.0010075.35007285 PMC8789169
+27 Young JJ, Haussig JM, Aberle SW, et al. Epidemiology of human West Nile virus infections in the European union and European union enlargement countries, 2010 to 2018. Euro Surveill. 2021;26(19): 2001095. doi: 10.2807/1560-7917.ES.2021.26.19.2001095.PMC8120798 33988124
+28 Shocket MS, Verwillow AB, Numazu MG, et al. Transmission of West Nile and five other temperate mosquito-borne viruses peaks at temperatures between 23 °C and 26 °C. Elife. 2020;9:e58511. doi: 10.7554/eLife.58511.PMC7492091 32930091
+29 Giesen C, Herrador Z, Fernandez-Martinez B, et al. A systematic review of environmental factors related to WNV circulation in European and Mediterranean countries. One Health. 2023;16:100478. doi: 10.1016/j.onehlt.2022.100478.37363246 PMC10288031
+30 Marini G, Manica M, Delucchi L, et al. Spring temperature shapes West Nile virus transmission in Europe. Acta Trop. 2021;215:105796. doi: 10.1016/j.actatropica.2020.105796.33310078
+31 Farooq Z, Sjödin H, Semenza JC, et al. European projections of West Nile virus transmission under climate change scenarios. One Health. 2023;16:100509. doi: 10.1016/j.onehlt.2023.100509.37363233 PMC10288058
+32 Erazo D, Grant L, Ghisbain G, et al. Contribution of climate change to the spatial expansion of West Nile virus in Europe. Nat Commun. 2024;15(1):1196. doi: 10.1038/s41467-024-45290-3.38331945 PMC10853512
+33 Ferraguti M, Martínez-de la Puente J, Roiz D, et al. Effects of landscape anthropization on mosquito community composition and abundance. Sci Rep. 2016;6(1):29002. doi: 10.1038/srep29002.27373794 PMC4931447
+34 Nikolay B. A review of West Nile and Usutu virus co-circulation in Europe: how much do transmission cycles overlap? Trans R Soc Trop Med Hyg. 2015;109(10):609–618. doi: 10.1093/trstmh/trv066.26286946
+35 Simonin Y. Circulation of West Nile virus and Usutu virus in Europe: overview and challenges. Viruses. 2024;16(4)[Internet] :599. Available from. doi: 10.3390/v16040599.38675940 PMC11055060
+36 Candeloro L, Ippoliti C, Iapaolo F, et al. Predicting WNV circulation in Italy using Earth Observation data and Extreme Gradient Boosting model. Remote Sens (Basel). 2020;12(18):3064. doi: 10.3390/rs12183064.
+37 de Wit MM, Dimas Martins A, Delecroix C, et al. Mechanistic models for West Nile virus transmission: a systematic review of features, aims and parametrization. Proc Biol Sci. 2024;291(2018):20232432. doi: 10.1098/rspb.2023.2432.38471554 PMC10932716
+38 Bowden SE, Magori K, Drake JM. Regional differences in the association between land cover and West Nile virus disease incidence in humans in the United States. Am J Trop Med Hyg. 2011;84(2):234–238. PMID: 21292890; PMCID: PMC3029173. doi: 10.4269/ajtmh.2011.10-0134.21292890 PMC3029173
+39 Marini G, Pugliese A, Wint W, et al. Modelling the West Nile virus force of infection in the European human population. One Health. 2022;15:100462. doi: 10.1016/j.onehlt.2022.100462.36532665 PMC9754970
+40 Styer LM, Kent KA, Albright RG, et al. Mosquitoes inoculate high doses of West Nile virus as they probe and feed on live hosts. PLoS Pathog. 2007;3(9):1262–1270. doi: 10.1371/journal.ppat.0030132.17941708 PMC1976553
+41 Titus RG, Bishop JV, Mejia JS. The immunomodulatory factors of arthropod saliva and the potential for these factors to serve as vaccine targets to prevent pathogen transmission. Parasite Immunol. 2006;28(4):131–141. doi: 10.1111/j.1365-3024.2006.00807.x.16542315
+42 Lee JW, Chu JJ, Ng ML. Quantifying the specific binding between West Nile virus envelope domain III protein and the cellular receptor alphaVbeta3 integrin. J Biol Chem. 2006;281(3):1352–1360. Epub 2005 Nov 7. PMID: 16275649. doi: 10.1074/jbc.M506614200.16275649
+43 Davis CW, Nguyen HY, Hanna SL, et al. West Nile virus discriminates between DC-SIGN and DC-SIGNR for cellular attachment and infection. J Virol. 2006;80(3):1290–1301. PMID: 16415006; PMCID: PMC1346927. doi: 10.1128/JVI.80.3.1290-1301.2006.16415006 PMC1346927
+44 Medigeshi GR, Hirsch AJ, Streblow DN, et al. West Nile virus entry requires cholesterol-rich membrane microdomains and is independent of alphavbeta3 integrin. J Virol. 2008;82(11):5212–5219. Epub 2008 Apr 2. PMID: 18385233; PMCID: PMC2395215. doi: 10.1128/JVI.00008-08.18385233 PMC2395215
+45 Suthar MS, Diamond MS, Gale M.Jr. West Nile virus infection and immunity. Nat Rev Microbiol. 2013;11(2):115–128. doi: 10.1038/nrmicro2950.23321534
+46 Debiasi RL, Tyler KL. West Nile virus meningoencephalitis. Nat Clin Pract Neurol. 2006;2(5):264–275. doi: 10.1038/ncpneuro0176.16932563 PMC3773989
+47 Beasley DWC, Whiteman MC, Zhang S, et al. Envelope protein glycosylation status influences mouse neuroinvasion phenotype of genetic lineage 1 West Nile virus strains. J Virol. 2005;79(13):8339–8347. doi: 10.1128/JVI.79.13.8339-8347.2005.15956579 PMC1143769
+48 Marshall EM, Barzon L, Koopmans M, et al. Extrapolation and comparison of West Nile virus- and Usutu virus-associated neurological diseases in humans: linking pathology to clinical symptoms. Clin Microbiol Rev. 2025;38(3):e0023224. doi: 10.1128/cmr.00232-24.40590537 PMC12424405
+49 Carson PJ, Borchardt SM, Custer B, et al. Neuroinvasive disease and West Nile virus infection, North Dakota, USA, 1999-2008. Emerg Infect Dis. 2012;18(4):684–686. doi: 10.3201/eid1804.111313.22469465 PMC3309699
+50 McDonald E, Mathis S, Martin SW, et al. Surveillance for West Nile Virus Disease - United States, 2009-2018. MMWR Surveill Summ. 2021;70(1):1–15. doi: 10.15585/mmwr.ss7001a1.PMC7949089 33661868
+51 Montgomery RR. Age-related alterations in immune responses to West Nile virus infection. Clin Exp Immunol. 2017;187(1):26–34. doi: 10.1111/cei.12863.27612657 PMC5167051
+52 Gould CV, Staples JE, Guagliardo SAJ, et al. West Nile Virus: a Review. JAMA. 2025;334(7):618–628. doi: 10.1001/jama.2025.8737.40622703
+53 Colpitts TM, Conway MJ, Montgomery RR, et al. West Nile Virus: biology, transmission, and human infection. Clin Microbiol Rev. 2012;25(4):635–648. doi: 10.1128/CMR.00045-12.23034323 PMC3485754
+54 Bai F, Thompson EA, Vig PJS, et al. Current understanding of West Nile virus clinical manifestations, immune responses, neuroinvasion, and immunotherapeutic implications. Pathogens. 2019;8(4):193. doi: 10.3390/pathogens8040193.31623175 PMC6963678
+55 Cahill ME, Conley S, DeWan AT, et al. Identification of genetic variants associated with dengue or West Nile virus disease: a systematic review and meta-analysis. BMC Infect Dis. 2018;18(1):282. doi: 10.1186/s12879-018-3186-6.29929468 PMC6014009
+56 Zou S, Foster GA, Dodd RY, et al. West Nile fever characteristics among viremic persons identified through blood donor screening. J Infect Dis. 2010;202(9):1354–1361. doi: 10.1086/656602.20874087
+57 Pealer LN, Marfin AA, Petersen LR, et al. Transmission of West Nile virus through blood transfusion in the United States in 2002. N Engl J Med. 2003;349(13):1236–1245. doi: 10.1056/NEJMoa030969.14500806
+58 Campbell GL, Marfin AA, Lanciotti RS, et al. West Nile virus. Lancet Infect Dis. 2002;2(9):519–529. doi: 10.1016/s1473-3099(02)00368-7.12206968
+59 Ferguson DD, Gershman K, LeBailly A, et al. Characteristics of the rash associated with West Nile virus fever. Clin Infect Dis. 2005;41(8):1204–1207. doi: 10.1086/444506.16163642
+60 Sejvar JJ. Clinical manifestations and outcomes of West Nile virus infection. Viruses. 2014;6(2):606–623. doi: 10.3390/v6020606.24509812 PMC3939474
+61 Sejvar JJ, Curns AT, Welburg L, et al. Neurocognitive and functional outcomes in persons recovering from West Nile virus illness. J Neuropsychol. 2008;2(2):477–499. doi: 10.1348/174866407x218312.19824176
+62 Sejvar JJ, Haddad MB, Tierney BC, et al. Neurologic manifestations and outcome of West Nile virus infection. JAMA. 2003;290(4):511–515. doi: 10.1001/jama.290.4.511.12876094
+63 Zheng M, Li S, Hogan RE, et al. Arbovirus and seizures. Acta Epileptol. 2020;2(1):17. doi: 10.1186/s42494-020-00026-w.
+64 Sejvar JJ, Bode AV, Marfin AA, et al. West Nile virus-associated flaccid paralysis. Emerg Infect Dis. 2005;11(7):1021–1027. doi: 10.3201/eid1107.040991.16022775 PMC3371783
+65 Ahmed S, Libman R, Wesson K, et al. Guillain-Barré syndrome: an unusual presentation of West Nile virus infection. Neurology. 2000;55(1):144–146. doi: 10.1212/wnl.55.1.144.10891928
+66 Ruiz-Lozano RE, Zafar S, Berkenstock MK, et al. Ocular manifestations of West Nile virus infection: a case report and systematic review of the literature. Eur J Ophthalmol. 2025;35(3):844–855. doi: 10.1177/11206721241304150.39659186
+67 Patel H, Sander B, Nelder MP. Long-term sequelae of West Nile virus-related illness: a systematic review. Lancet Infect Dis. 2015;15(8):951–959. doi: 10.1016/S1473-3099(15)00134-6.26163373
+68 Sejvar JJ, Bode AV, Marfin AA, et al. West Nile virus-associated flaccid paralysis outcome. Emerg Infect Dis. 2006;12(3):514–516. doi: 10.3201/eid1203.050643.16704798 PMC3291435
+69 Roberts JA, Kim CY, Hwang SA, et al. Clinical, prognostic, and longitudinal functional and neuropsychological features of west nile virus neuroinvasive disease in the united states: a systematic review and meta-analysis. Ann Neurol. 2025;98(1):93–106. doi: 10.1002/ana.27220.40008684
+70 Izquierdo-Condoy JS, Vásconez-Gonzáles J, Morales-Lapo E, et al. Beyond the acute phase: a comprehensive literature review of long-term sequelae resulting from infectious diseases. Front Cell Infect Microbiol. 2024;14:1293782. doi: 10.3389/fcimb.2024.1293782.38357446 PMC10864624
+71 Choutka J, Jansari V, Hornig M, et al. Unexplained post-acute infection syndromes. Nat Med. 2022;28(5):911–923. doi: 10.1038/s41591-022-01810-6.35585196
+72 Cody SG, Adam A, Siniavin A, et al. Flaviviruses-induced neurological sequelae. Pathogens. 2024;14(1):22. doi: 10.3390/pathogens14010022.39860983 PMC11768111
+73 Murray K, Walker C, Herrington E, et al. Persistent infection with West Nile virus years after initial infection. J Infect Dis. 2010;201(1):2–4. doi: 10.1086/648731.19961306 PMC2791189
+74 Tang Y, Anne Hapip C, Liu B, et al. Highly sensitive TaqMan RT-PCR assay for detection and quantification of both lineages of West Nile virus RNA. J Clin Virol. 2006;36(3):177–182. doi: 10.1016/j.jcv.2006.02.008.16675298
+75 Lustig Y, Mannasse B, Koren R, et al. Superiority of West Nile virus RNA detection in whole blood for diagnosis of acute infection. J Clin Microbiol. 2016;54(9):2294–2297. doi: 10.1128/JCM.01283-16.27335150 PMC5005505
+76 Jordan I, Briese T, Fischer N, et al. Ribavirin inhibits West Nile virus replication and cytopathic effect in neural cells. J Infect Dis. 2000;182(4):1214–1217. doi: 10.1086/315847.10979920
+77 Lustig Y, Sofer D, Bucris ED, et al. Surveillance and diagnosis of West Nile virus in the face of flavivirus cross-reactivity. Front Microbiol. 2018;9:2421. doi: 10.3389/fmicb.2018.02421.30369916 PMC6194321
+78 Sohier C, Breman FC, Vervaeke M, et al. West Nile virus monitoring in flanders (Belgium) during 2022-2023 reveals endemic usutu virus circulation in birds. Transbound Emerg Dis. 2024;2024(1):4146156. doi: 10.1155/tbed/4146156.40303116 PMC12017172
+79 Shu PY, Chen LK, Chang SF, et al. Antibody to the nonstructural protein NS1 of Japanese encephalitis virus: potential application of mAb-based indirect ELISA to differentiate infection from vaccination. Vaccine. 2001;19(13-14):1753–1763. doi: 10.1016/s0264-410x(00)00391-1. PMID: 11166901.11166901
+80 Girl P, Euringer K, Coroian M, et al. Comparison of five serological methods for the detection of West Nile virus antibodies. Viruses. 2024;16(5):788. PMID: 38793670; PMCID: PMC11126072. doi: 10.3390/v16050788.38793670 PMC11126072
+81 Roehrig JT, Nash D, Maldin B, et al. Persistence of virus-reactive serum immunoglobulin m antibody in confirmed west nile virus encephalitis cases. Emerg Infect Dis. 2003;9(3):376–379. doi: 10.3201/eid0903.020531.12643836 PMC2958550
+82 Busch MP, Kleinman SH, Tobler LH, et al. Virus and antibody dynamics in acute west nile virus infection. J Infect Dis. 2008;198(7):984–993. doi: 10.1086/591467.18729783
+83 Chan KR, Ismail AA, Thergarajan G, et al. Serological cross-reactivity among common flaviviruses. Front Cell Infect Microbiol. 2022;12:975398. doi: 10.3389/fcimb.2022.975398.36189346 PMC9519894
+84 Madere FS, Andrade da Silva AV, Okeze E, et al. Flavivirus infections and diagnostic challenges for dengue, West Nile and Zika Viruses. Npj Viruses. 2025;3:36. doi: 10.1038/s44298-025-00114-z.
+85 Stone WB, Okoniewski JC, Therrien JE, et al. VecTest as diagnostic and surveillance tool for West Nile virus in dead birds. Emerg Infect Dis. 2004;10(12):2175–2181. doi: 10.3201/eid1012.040836.15663856 PMC3323400
+86 Godarzi B, Chandler F, van der Linden A, et al. A species-independent lateral flow microarray immunoassay to detect WNV and USUV NS1-specific antibodies in serum. One Health. 2024;18:100668. PMID: 38261918; PMCID: PMC10796932. doi: 10.1016/j.onehlt.2023.100668.38261918 PMC10796932
+87 Chowers MY, Lang R, Nassar F, et al. Clinical characteristics of the West Nile fever outbreak, Israel, 2000. Emerg Infect Dis. 2001;7(4):675–678. doi: 10.3201/eid0704.017414.11585531 PMC2631759
+88 Murray KO, Baraniuk S, Resnick M, et al. Clinical investigation of hospitalized human cases of West Nile virus infection in Houston, Texas, 2002-2004. Vector Borne Zoonotic Dis. 2008;8(2):167–174. doi: 10.1089/vbz.2007.0109.18399781
+89 Konkolova E, Dejmek M, Hřebabecký H, et al. Remdesivir triphosphate can efficiently inhibit the RNA-dependent RNA polymerase from various flaviviruses. Antiviral Res. 2020;182:104899. doi: 10.1016/j.antiviral.2020.104899.32763313 PMC7403104
+90 Shamsher E, Dash J, Serratrice J, et al. Imported severe West Nile virus neuro-invasive disease treated by remdesivir in a patient with anti-CD20 therapy for multiple sclerosis: a case report. CMI Communications. 2024;1(2):105034. doi: 10.1016/j.cmicom.2024.105034.
+91 Esposito N, Viceconte G, Festa L, et al. Outbreak of human neuroinvasive West Nile virus infection in campania, Italy, August-September 2024. Vector Borne Zoonotic Dis. 2025;25(9):565–567. doi: 10.1177/15303667251360262.40645761
+92 Escribano-Romero E, Jiménez de Oya N, Domingo E, et al. Extinction of West Nile virus by favipiravir through lethal mutagenesis. Antimicrob Agents Chemother. 2017;61(11):e01400-17. doi: 10.1128/AAC.01400-17.PMC5655064 28848019
+93 García-Zarandieta M, Quesada E, Martínez-Jiménez MI, et al. Identification of West Nile virus RNA-dependent RNA polymerase non-nucleoside inhibitors by real-time high throughput fluorescence screening. Antiviral Res. 2023;212:105568. doi: 10.1016/j.antiviral.2023.105568.36842536
+94 Dragoni F, Boccuto A, Picarazzi F, et al. Evaluation of sofosbuvir activity and resistance profile against West Nile virus in vitro. Antiviral Res. 2020;175:104708. doi: 10.1016/j.antiviral.2020.104708.31931104
+95 Cochet M, Piumi F, Gorna K, et al. An equine iPSC-based phenotypic screening platform identifies pro- and anti-viral molecules against West Nile virus. Vet Res. 2024;55(1):32. doi: 10.1186/s13567-024-01290-1.38493182 PMC10943879
+96 Eyer L, Fojtíková M, Nencka R, et al. Viral RNA-dependent RNA polymerase inhibitor 7-Deaza-2’–methyladenosine prevents death in a mouse model of West Nile virus infection. Antimicrob Agents Chemother. 2019;63(3):e02093-18. doi: 10.1128/AAC.02093-18.PMC6395895 30642926
+97 Srivastava R, Ramakrishna C, Cantin E. Anti-inflammatory activity of intravenous immunoglobulins protects against West Nile virus encephalitis. J Gen Virol. 2015;96(Pt 6):1347–1357. doi: 10.1099/vir.0.000079.25667322 PMC4635485
+98 Gnann JW, Agrawal A, Hart J, et al. Lack of efficacy of high-titered immunoglobulin in patients with West Nile virus central nervous system disease. Emerg Infect Dis. 2019;25(11):2064–2073. doi: 10.3201/eid2511.190537.31625835 PMC6810207
+99 Beigel JH, Nordstrom JL, Pillemer SR, et al. Safety and pharmacokinetics of single intravenous dose of MGAWN1, a novel monoclonal antibody to West Nile virus. Antimicrob Agents Chemother. 2010;54(6):2431–2436. doi: 10.1128/AAC.01178-09.20350945 PMC2876374
+100 Pavesi A, Tiecco G, Rossi L, et al. Inflammatory response associated with West Nile neuroinvasive disease: a systematic review. Viruses. 2024;16(3):383. doi: 10.3390/v16030383.38543749 PMC10976239
+101 Pyrgos V, Younus F. High-dose steroids in the management of acute flaccid paralysis due to West Nile virus infection. Scand J Infect Dis. 2004;36(6-7):509–512. doi: 10.1080/00365540410020659.15307586
+102 Zaltzman R, Klein C, Gordon CR. Opsoclonus myoclonus ataxia associated with West Nile virus infection: A dramatic presentation with benign prognosis? J Neurol Sci. 2017;376:38–41. doi: 10.1016/j.jns.2017.02.057.28431624
+103 Karagianni P, Alexopoulos H, Sourdi A, et al. West Nile virus infection triggering autoimmune encephalitis: Pathophysiological and therapeutic implications. Clin Immunol. 2019;207:97–99. doi: 10.1016/j.clim.2019.07.007.31454696
+104 Leis AA, Sinclair DJ. Lazarus effect of high dose corticosteroids in a patient with west nile virus encephalitis: a coincidence or a clue? Front Med (Lausanne). 2019;6:81. doi: 10.3389/fmed.2019.00081.31106205 PMC6494927
+105 Colaneri M, Lissandrin R, Calia M, et al. The WEST study: a retrospective and multicentric study on the impact of steroid therapy in west nile encephalitis. Open Forum Infect Dis. 2023;10(3):ofad092. doi: 10.1093/ofid/ofad092.36949874 PMC10026538
+106 Kalil AC, Devetten MP, Singh S, et al. Use of interferon-alpha in patients with West Nile encephalitis: report of 2 cases. Clin Infect Dis. 2005;40(5):764–766. doi: 10.1086/427945.15714427
+107 Chan-Tack KM, Forrest G. Failure of interferon alpha-2b in a patient with West Nile virus meningoencephalitis and acute flaccid paralysis. Scand J Infect Dis. 2005;37(11-12):944–946. doi: 10.1080/00365540500262690.16308241
+108 Penn RG, Guarner J, Sejvar JJ, et al. Persistent neuroinvasive West Nile virus infection in an immunocompromised patient. Clin Infect Dis. 2006;42(5):680–683. doi: 10.1086/500216.16447115
+109 Thy M, Gaudemer A, Vellieux G, et al. Critical care management of meningitis and encephalitis: an update. Curr Opin Crit Care. 2022;28(5):486–494. doi: 10.1097/MCC.0000000000000980.35975963
+110 Saiz J-C. Animal and human vaccines against West Nile Virus. Pathogens. 2020;9(12):1073. doi: 10.3390/pathogens9121073.33371384 PMC7767344
+111 Angenvoort J, Brault AC, Bowen RA, et al. West Nile viral infection of equids. Vet Microbiol. 2013;167(1-2):168–180. doi: 10.1016/j.vetmic.2013.08.013.24035480 PMC4581842
+112 Gould LH, Fikrig E. West Nile virus: a growing concern? J Clin Invest. 2004;113(8):1102–1107. doi: 10.1172/JCI200421623.15085186 PMC385414
+113 Petersen LR, Roehrig JT. Flavivirus DNA vaccines–good science, uncertain future. J Infect Dis. 2007;196(12):1721–1723. doi: 10.1086/523655.18190248
+114 Kocabiyik DZ, Álvarez LF, Durigon EL, et al. West Nile virus - a re-emerging global threat: recent advances in vaccines and drug discovery. Front Cell Infect Microbiol. 2025;15:1568031. doi: 10.3389/fcimb.2025.1568031.40444156 PMC12119551
+115 Jiménez de Oya N, Escribano-Romero E, Camacho M-C, et al. A recombinant subviral particle-based vaccine protects magpie () against West Nile virus infection. Front Microbiol. 2019;10:1133. doi: 10.3389/fmicb.2019.01133.31231320 PMC6560071
+116 Jiménez de Oya N, Escribano-Romero E, Blázquez A-B, et al. Current progress of avian vaccines against West Nile Virus. Vaccines (Basel). 2019;7(4):126. doi: 10.3390/vaccines7040126.31547632 PMC6963603
+117 Moore TC, Tang X, Brown HE. Assessing the relationship between entomological surveillance indices and west nile virus transmission, united states: systematic review. Vector Borne Zoonotic Dis. 2025;25(5):317–328. doi: 10.1089/vbz.2024.0072.39943921
+118 Kaiser JA, Barrett ADT. Twenty years of progress toward west nile virus vaccine development. Viruses. 2019;11(9):823. doi: 10.3390/v11090823.31491885 PMC6784102
+119 Principi N, Esposito S. Development of vaccines against emerging mosquito-vectored arbovirus infections. Vaccines (Basel). 2024;12(1):87. doi: 10.3390/vaccines12010087.38250900 PMC10818606
+120 Gould CV, Staples JE, Huang CY-H, et al. Combating West Nile Virus disease - time to revisit vaccination. N Engl J Med. 2023;388(18):1633–1636. doi: 10.1056/NEJMp2301816.37125778 PMC11627013
+121 Alghamdi A, Alissa M, Alshehri MA. Mechanisms of immune evasion of West Nile virus. Rev Med Virol. 2025;35(3):e70042. doi: 10.1002/rmv.70042.40432246
+122 Shankar MB, Staples JE, Meltzer MI, et al. Cost effectiveness of a targeted age-based West Nile virus vaccination program. Vaccine. 2017;35(23):3143–3151. doi: 10.1016/j.vaccine.2016.11.078.28456529
+123 Snyder RE, Cooksey GS, Kramer V, et al. West Nile Virus-associated hospitalizations, California, 2004-2017. Clin Infect Dis. 2021;73(3):441–447. doi: 10.1093/cid/ciaa749.32525967
+124 Barrett ADT. Is it time to reevaluate the priority for a West Nile vaccine? Clin Infect Dis. 2021;73(3):448–449. doi: 10.1093/cid/ciaa744.32526009
+125 Singh P, Khatib MN, Ballal S, et al. et al. West Nile Virus in a changing climate: epidemiology, pathology, advances in diagnosis and treatment, vaccine designing and control strategies, emerging public health challenges - a comprehensive review. Emerging microbes & infections. 2025;14(1):2437244. .10.1080/22221751.2024.2437244 PMC11703391 39614679
+126 Kalmouni J, Will JB, Townsend J, et al. Temperature and time of host-seeking activity impact the efficacy of chemical control interventions targeting the West Nile virus vector, Culex tarsalis. PLoS Negl Trop Dis. 2024;18(8):e0012460. doi: 10.1371/journal.pntd.0012460.39213461 PMC11392387
+127 Huang YS, Higgs S, Vanlandingham DL. Biological control strategies for mosquito vectors of arboviruses. Insects. 2017;8(1):21. [Internet] Available from: doi: 10.3390/insects8010021.28208639 PMC5371949
+128 Baitharu I, Shroff S, Naik PP, et al. Environmental management and sustainable control of mosquito vector: challenges and opportunities. molecular identification of mosquito vectors and their management. 2020;129–47.
+129 Handbook for integrated vector management. [Internet] 2012. [cited 2025 Sep 14]; Available from: https://www.who.int/publications/i/item/9789241502801.
+130 Surveillance, prevention and control of West Nile virus and Usutu virus infections in the EU/EEA. [Internet]. [cited 2025 Sep 14]; Available from: doi: 10.2903/sp.efsa.2023.EN-8242.
+131 Leblond A, Lecollinet S. Clinical screening of horses and early warning for West Nile virus. Equine Vet Educ. 2017;29(6):325–327. doi: 10.1111/eve.12571.
+132 Todoric D, Vrbova L, Mitri ME, et al. An overview of the national West Nile Virus surveillance system in Canada: a one health approach. CCDR. 2022;48(5):181–187. doi: 10.14745/ccdr.v48i05a01.37325258 PMC10262935
+133 Pisani G, Cristiano K, Pupella S, et al. West Nile Virus in Europe and safety of blood transfusion. Transfus Med Hemother. 2016;43(3):158–167. doi: 10.1159/000446219.27403087 PMC4924479
+134 Directive - 2014/110 - EN - EUR-Lex. [Internet]. [cited 2025 Sep 14]; Available from: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014L0110&qid=1649074114926.
+135 About the seasonal surveillance of West Nile virus infections. [Internet]. European Centre for Disease Prevention and Control2024 [cited 2025 Sep 14]; Available from: https://www.ecdc.europa.eu/en/west-nile-fever/surveillance-and-disease-data/about.
+136 Center for Biologics Evaluation, Research. Use of nucleic acid tests to reduce the risk of transmission of West Nile Virus from living donors of human cells, tissues, and cellular and tissue-based products (HCT/Ps). [Internet]. U.S. Food and Drug Administration2019 [cited 2025 Sep 14]; Available from: https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-nucleic-acid-tests-reduce-risk-transmission-west-nile-virus-living-donors-human-cells-tissues.
+137 Haque S, Mengersen K, Barr I, et al. Towards development of functional climate-driven early warning systems for climate-sensitive infectious diseases: statistical models and recommendations. Environ Res. 2024;249:118568. doi: 10.1016/j.envres.2024.118568.38417659
+138 Akash S, Bayıl I, Rahman MA, et al. Target specific inhibition of West Nile virus envelope glycoprotein and methyltransferase using phytocompounds: an strategy leveraging molecular docking and dynamics simulation. Front Microbiol. 2023;14:1189786. doi: 10.3389/fmicb.2023.1189786.37455711 PMC10338848
+139 Münger E, Atama NC, van Irsel J, et al. One health approach uncovers emergence and dynamics of Usutu and West Nile viruses in the Netherlands. Nat Commun. 2025;16(1):7883. doi: 10.1038/s41467-025-63122-w.40849294 PMC12375057

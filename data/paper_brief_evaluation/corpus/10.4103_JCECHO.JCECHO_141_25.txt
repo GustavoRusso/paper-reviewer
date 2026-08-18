@@ -1,0 +1,273 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: J Cardiovasc Echogr
+Journal ID: J Cardiovasc Echogr
+NLM Journal ID: 101562228
+Journal ID: JCE
+Journal ID: J Cardiovasc Echography
+
+Journal of Cardiovascular Echography
+
+ISSN: 2211-4122
+EISSN: 2347-193X
+Publisher: Wolters Kluwer -- Medknow Publications
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13197037
+PMID: 42181924
+DOI: 10.4103/jcecho.jcecho_141_25
+Article ID: JCE-36-33
+Article version: 1
+Subjects: Original Article
+
+West Nile Virus as a Trigger for Cardiovascular Diseases: A Meta-summary of Case Reports
+
+Mauriello Alfredo
+Correra Adriana 1
+Zumbo Giulia 2
+Giallauria Francesco 3
+Caturano Alfredo 4
+Micco Pierpaolo Di 5
+D’andrea Antonello 6
+Maraolo Alberto Enrico 2
+Russo Vincenzo 7
+Division of Cardiology, Istituto Nazionale Tumori-IRCCS-Fondazione G. Pascale, Naples, Italy
+1 Department of Cardiology, University of Foggia, Foggia, Italy
+2 Department of Clinical Medicine and Surgery, University of Naples “Federico II”, Naples, Italy
+3 Department of Translational Medical Sciences, University of Naples “Federico II”, Naples, Italy
+4 Department of Human Sciences and Promotion of the Quality of Life, San Raffaele Roma Open University, Rome, Italy
+5 Department of Medicina Medicina, UOC Medicina Interna, P.O. Santa Maria Delle Grazie, Pozzuoli, Italy
+6 Department of Cardiology, Cardiology and Intensive Care Unit, “Umberto I” Hospital, Nocera, Italy
+7 Department of Medical and Translational Sciences, Cardiology Unit, University of Campania “Luigi Vanvitelli,” Monaldi Hospital, Naples, Italy
+Address for correspondence: Dr. Antonello D’andrea, Department of Cardiology, Cardiology and Intensive Care Unit, Umberto I Hospital, Nocera 84014, Italy. E-mail: antonellodandrea@libero.it
+Publication date: 2026 Jan-Feb
+Electronic publication date: 2026 Apr 28
+Volume: 36
+Issue: 1
+First page: 33
+Last page: 37
+Received 2025 Oct 1; Accepted 2025 Oct 19
+Copyright: Copyright: © 2026 Journal of Cardiovascular Echography
+Copyright year: 2026
+License: This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License (CC BY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal.
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Keywords: Cardiovascular disease, case series, myocarditis, West Nile virus
+
+Funding: Nil.
+
+==============================
+Background:
+
+West Nile virus (WNV) has recently been described as a possible trigger of cardiovascular diseases (CVDs). There is little data in the literature about this association.
+
+Subjects and Methods:
+
+In the present meta-summary, eight case reports describing patients who experienced CVDs following a WNV infection were included. Patient characteristics, triggers, and type of syncope were collected.
+
+Results:
+
+A total of eight patients with a median age of 67.29 (interquartile range: 53–70) years were evaluated; 87.5% were male. Seventy-five percent of patients had an altered mental status. Left ventricular ejection fraction was impaired in five patients (62.5%). Four of eight patients (50%) had arrhythmias, with 3 of them having a normal ejection fraction. Sudden cardiac death was reported in one patient (12.5%).
+
+Conclusions:
+
+CVDs due to WNV have been associated with myocarditis and arrhythmias, among elderly patients, males, and those with neurological impairment.
+
+INTRODUCTION
+
+The West Nile virus (WNV) is a widespread mosquito-borne flavivirus that poses a significant public health issue in endemic regions.[1] Recently, the incidence of WNV infection has been steadily increasing in some Italian areas over the last years, particularly in the North-East,[23] and a new spread in Southern regions in 2025 is driving a national spike of cases.[4]
+
+In a small fraction of cases (<1%), the virus invades the central nervous system, leading to a serious condition known as West Nile neuroinvasive disease.[5] This can manifest as encephalitis (50%–71%), meningitis (15%–35%), or acute flaccid paralysis (3%–19%).
+
+For patients with the neuroinvasive form of WNV, long-term physical and cognitive issues can persist even after the initial symptoms disappear. These lasting problems may include fatigue, ongoing weaknesses, memory loss, depression, and difficulty concentrating. The prognosis for WNV infection depends on the form of the disease. While West Nile Fever and WNV meningitis typically have a good outcome, WNV encephalitis (WNE) is more severe. It carries a higher risk of death, with a fatality rate between 10% and 30%.[6]
+
+Cardiovascular diseases (CVDs) are the leading cause of morbidity and mortality among older adults, placing a significant burden on healthcare systems.[7] Although rare, recent case reports and studies have highlighted the potential for WNV infection to involve the cardiovascular system, leading to complications such as myocarditis, cardiomyopathy, and arrhythmias. This underscores the need for clinicians to be aware of this rare complication in patients with WNV.[89101112131415] Our meta-summary of case reports aimed to characterize patients who experienced CVDs during WNV infection.
+
+SUBJECTS AND METHODS
+
+To ensure transparency and methodological rigor, this meta-summary was conducted following the principles outlined in the Preferred Reporting Items for Systematic Reviews and Meta-Analyses guideline.[16]
+
+Search strategy and study selection
+
+The methodology involved a comprehensive search of three major electronic databases: PubMed, Google Scholar, and EMBASE. The search, which was conducted for the period from 2009 to 2023, utilized the following keywords: “West Nile Virus,” “Myocarditis,” and “Cardiovascular disease.” We focused on original reports published in English. Duplicate papers were systematically removed. The initial screening of all titles and abstracts was performed independently by two researchers (AM and VR). Any discrepancies in study selection were resolved through discussion and a final consensus. Ultimately, eight case reports/case series met the inclusion criteria and were included in the meta-summary. The detailed process of study selection is illustrated in Figure 1.
+
+Figure 1 Flow diagram of the study selection
+
+Eligibility criteria
+
+Studies were included in this meta-summary if they met all of the following criteria:
+
+Study Design: The study was a case report or a case series
+
+Population: The study described one or more patients with a confirmed WNV infection
+
+Exposure: The study reported on the development of a cardiovascular complication during or following the WNV infection
+
+Outcomes: The study described the clinical outcome of the patient(s).
+
+Studies were excluded for the following reasons: (i) they were review articles, editorials, or letters to the editor without original patient data; (ii) they were not published in English; (iii) they presented pooled data from which individual patient information could not be extracted; or (iv) WNV infection was suspected but not diagnostically confirmed.
+
+Data extraction
+
+Two reviewers (AM and VR) independently extracted relevant information from the included studies using a standardized, predefined data extraction form created in Microsoft Excel. Discrepancies were resolved by consensus. The following data were collected from each case:
+
+Publication Details: First author, year of publication
+
+Patient Demographics: Age and gender
+
+Clinical Information: Preexisting comorbidities, baseline neurological status (e.g., normal vs. altered mental status)
+
+Cardiovascular Findings: Type of cardiovascular complication, diagnostic evidence of myocarditis, left ventricular ejection fraction (LVEF), presence and type of arrhythmias, length of hospital stays, and timing of complication onset
+
+Prognosis: Clinical outcome (e.g., survival, death, persistence of cardiac impairment).
+
+Quality assessment
+
+The methodological quality of the included case reports and case series was independently assessed by two reviewers (AM and VR). For this appraisal, we utilized an adapted version of the methodological tool proposed by Murad et al., which is specifically designed for case reports and series [Supplementary Table 1].[17] This tool evaluates studies across four key domains:
+
+Supplementary Table 1 Preferred reporting items for systematic reviews and meta-analyses 2020 Checklist
+
+Section and topic	Item number	Checklist item	Location where item is reported	
+Title	
+Title	1	Identify the report as a systematic review	1	
+Abstract	
+Abstract	2	See the PRISMA 2020 for Abstracts checklist	1	
+Introduction	
+Rationale	3	Describe the rationale for the review in the context of existing knowledge	1	
+Objectives	4	Provide an explicit statement of the objective (s) or question (s) the review addresses	1	
+Methods	
+Eligibility criteria	5	Specify the inclusion and exclusion criteria for the review and how studies were grouped for the syntheses	3	
+Information sources	6	Specify all databases, registers, websites, organizations, reference lists, and other sources searched or consulted to identify studies. Specify the date when each source was last searched or consulted	2	
+Search strategy	7	Present the full search strategies for all databases, registers, and websites, including any filters and limits used	2	
+Selection process	8	Specify the methods used to decide whether a study met the inclusion criteria of the review, including how many reviewers screened each record and each report retrieved, whether they worked independently, and, if applicable, details of automation tools used in the process	3	
+Data collection process	9	Specify the methods used to collect data from reports, including how many reviewers collected data from each report, whether they worked independently, any processes for obtaining or confirming data from study investigators, and, if applicable, details of automation tools used in the process	3	
+Data items	10a	List and define all outcomes for which data were sought. Specify whether all results that were compatible with each outcome domain in each study were sought (e.g., for all measures, time points, analyses), and if not, the methods used to decide which results to collect	3	
+10b	List and define all other variables for which data were sought (e.g., participant and intervention characteristics, funding sources). Describe any assumptions made about any missing or unclear information	3	
+Study risk of bias assessment	11	Specify the methods used to assess risk of bias in the included studies, including details of the tool (s) used, how many reviewers assessed each study, and whether they worked independently, and if applicable, details of automation tools used in the process	4	
+Effect measures	12	Specify for each outcome the effect measure (s) (e.g., risk ratio, mean difference) used in the synthesis or presentation of results	4	
+Synthesis methods	13a	Describe the processes used to decide which studies were eligible for each synthesis (e.g., tabulating the study intervention characteristics and comparing against the planned groups for each synthesis [item number 5])	4	
+13b	Describe any methods required to prepare the data for presentation or synthesis, such as handling of missing summary statistics or data conversions	4	
+13c	Describe any methods used to tabulate or visually display the results of individual studies and syntheses	4	
+13d	Describe any methods used to synthesize results and provide a rationale for the choice (s). If meta-analysis was performed, describe the model (s), method (s) to identify the presence and extent of statistical heterogeneity, and software package (s) used	4	
+13e	Describe any methods used to explore possible causes of heterogeneity among study results (e.g., subgroup analysis, meta-regression)	4	
+13f	Describe any sensitivity analyses conducted to assess the robustness of the synthesized results	4	
+Reporting bias assessment	14	Describe any methods used to assess the risk of bias due to missing results in a synthesis (arising from reporting biases)	4	
+Certainty assessment	15	Describe any methods used to assess certainty (or confidence) in the body of evidence for an outcome	4	
+Results	
+Study selection	16a	Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the review, ideally using a flow diagram	2	
+16b	Cite studies that might appear to meet the inclusion criteria, but which were excluded, and explain why they were excluded	2	
+Study characteristics	17	Cite each included study and present its characteristics	4	
+Risk of bias in studies	18	Present assessments of risk of bias for each included study	4	
+Results of individual studies	19	For all outcomes, present, for each study: (a) summary statistics for each group (where appropriate) and (b) an effect estimate and its precision (e.g., confidence/credible interval), ideally using structured tables or plots	4	
+Results of syntheses	20a	For each synthesis, briefly summarize the characteristics and risk of bias among contributing studies	5	
+20b	Present the results of all statistical syntheses conducted. If meta-analysis was done, present for each the summary estimate and its precision (e.g., confidence/credible interval) and measures of statistical heterogeneity. If comparing groups, describe the direction of the effect	5	
+20c	Present the results of all investigations of possible causes of heterogeneity among study results	5	
+20d	Present the results of all sensitivity analyses conducted to assess the robustness of the synthesized results	5	
+Reporting biases	21	Present assessments of risk of bias due to missing results (arising from reporting biases) for each synthesis assessed	6	
+Certainty of evidence	22	Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed	6	
+Discussion	
+Discussion	23a	Provide a general interpretation of the results in the context of other evidence	7	
+23b	Discuss any limitations of the evidence included in the review	8	
+23c	Discuss any limitations of the review processes used	8	
+	23d	Discuss implications of the results for practice, policy, and future research	7	
+Other information	
+Registration and protocol	24a	Provide registration information for the review, including register name and registration number, or state that the review was not registered	N/A	
+24b	Indicate where the review protocol can be accessed, or state that a protocol was not prepared	N/A	
+24c	Describe and explain any amendments to information provided at registration or in the protocol	N/A	
+Support	25	Describe sources of financial or nonfinancial support for the review, and the role of the funders or sponsors in the review	8	
+Competing interests	26	Declare any competing interests of review authors	8	
+Availability of data, code, and other materials	27	Report which of the following are publicly available and where they can be found: Template data collection forms; Data extracted from included studies; Data used for all analyses; Analytic code; Any other materials used in the review	8	
+From: Page MJ, McKenzie JE, Bossuyt PM, Boutron I, Hoffmann TC, Mulrow CD, et al. The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. BMJ 2021; 372:n71. PRISMA=Preferred reporting items for systematic reviews and meta-analyses, NA=Not available
+
+Selection: Whether the patient (s) represent the whole experience of the investigators
+
+Ascertainment: How adequately the exposure (WNV infection) and outcomes (cardiovascular events) were confirmed
+
+Causality: Whether alternative causes for the cardiovascular event were ruled out
+
+Reporting: Whether the case was described with sufficient detail for replication and clinical inference.
+
+Following the recommendations for this tool, an overall qualitative judgment on the methodological quality of each included study was made, rather than calculating a summary quality score, as the latter can be misleading [Supplementary Table 2].[17]
+
+Supplementary Table 2 Tool for evaluating the methodological quality of case series
+
+Selection: Did the patient (s) represent the entire experience of the investigators?	
+Ascertainment: Were the exposure (WNV infection) and the outcomes (cardiovascular events) confirmed adequately?	
+Causality: Were alternative causes for the cardiovascular event ruled out?	
+Reporting: Was the case described with enough detail for replication and clinical inference?	
+According to the recommendations for this tool, the study made an overall qualitative judgment on the methodological quality of each included study. It did not calculate a summary quality score because this can be misleading	
+WNV=West Nile virus
+
+Data synthesis
+
+Given the nature of the included studies (case reports/series without a comparator group), a formal meta-analysis to calculate relative risks or odds ratios was not feasible. Instead, a qualitative synthesis and meta-summary of the findings were performed. The extracted data were tabulated to provide a comprehensive overview of the patient population, clinical characteristics, cardiovascular manifestations, and outcomes.
+
+RESULTS
+
+The meta-summary included eight patients who developed cardiovascular complications following a WNV infection. The cohort had a median age of 67.29 years (interquartile range: 53–70), with a strong male predominance (87.5%). In addition to cardiac involvement, three-quarters of the patients (75%) exhibited neurological symptoms, including altered mental status. Preexisting comorbidities were present in 62.5% (5 of 8) of the patients. A majority of the patients (5/8, 62.5%) presented with an impaired LVEF. Arrhythmias were reported in half of the patients (4/8), with three of these cases occurring in patients with a normal ejection fraction. It is notable that the sole female patient was the only one who did not recover her ejection fraction and ultimately required a cardiac resynchronization therapy device. Sudden cardiac death was a reported outcome in one patient (12.5%). Data on the length of hospital stay and the timing of cardiac complications were not consistently available across all reports included.
+
+Table 1 shows the clinical features of the study population.[89101112131415]
+
+Table 1 Clinical features of the study population
+
+Year	Author	Age (years)	Gender	Comorbidities	Mental status	Presence of myocarditis	Length of hospital stay (days)	Complication	Day of onset of complication	Prognosis	
+2009	Khouzam[15]	42	Female	Dyslipidemia; Moderate obesity	Normal	Ejection fraction of 25%–30%	N/A	Myocarditis	N/A	Persistence of myocardial impairment	
+2016	Espinosa and Schelb[14]	65	Male	None	Alterated	Normal ejection fraction	Discharge to rehabilitation	Severe idioventricular episodes also to the 30s with sinus pauses of up to 8 s	28	Survived without cardiac intervention	
+2023	Laurito et al.[11]	77	Male	None	Alterated	Ejection fraction of 50%	Discharge to rehabilitation	Myocarditis	2	Survived without cardiac intervention	
+2022	Lei et al.[9]	37	Male	None	Alterated	Ejection fraction of 25%–30%	Discharge to rehabilitation	Myocarditis	N/A	Survived without cardiac intervention	
+2022	Gao et al.[8]	68	Male	Rheumatoid arthritis; Heart failure with preserved ejection fraction	Normal	Ejection fraction of 40%	7	Myocarditis	4	Survived without cardiac intervention	
+2009	Kushawaha et al.[10]	65	Male	Diabetes mellitus; Arterial hypertension; Former smoker	Alterated	Ejection fraction of 50%–55%, myocarditis confirmed by autopsy	4	Asystole and myocarditis	On day 2, impaired ejection fraction; On day 4, asystole	Death	
+2023	Oates et al.[13]	72	Male	Arterial hypertension	Alterated	Normal ejection fraction	51	Sick sinus syndrome	6	Survived without cardiac intervention	
+2019	Ajam et al.[12]	67	Male	None	Alterated	Normal ejection fraction	N/A	Symptomatic sinus bradycardia with prolonged QTc resulting in pulseless electrical activity	5	Survived without cardiac intervention	
+NA=Not available
+
+DISCUSSION
+
+Reports of WNV-associated cardiac involvement are currently rare: clinical attention during outbreaks often focuses on neurological complications, making cardiac involvement possibly underdiagnosed. Moreover, seasonal and epidemic patterns of WNV circulation may further limit opportunities for systematic cardiac evaluation. Although medical literature consistently identifies CVD, diabetes, hypertension, and immunosuppression as significant risk factors for severe outcomes, including cardiac manifestations,[1819] only 50% of the patients in this cohort had one of these preexisting conditions.
+
+Cardiac arrhythmias are a frequent complication in critically ill patients. However, WNV type-specific arrhythmias have not been reported. Bode et al.[20] in their retrospective study, they enrolled 228 patients with WNV. Patients with WN were more likely to develop arrhythmia than were other patients; of 65 patients with WNE, 7 (11%) developed arrhythmia other than sinus bradycardia or tachycardia, compared with 2 (2%) of 103 patients who had WNV meningitis. Animal models suggest that this may result from viral infection of neurons within the cardiac conduction system leading to autonomic instability and subsequent arrhythmia.[21]
+
+In the cases we described, patients developed bradyarrhythmia, which in one case was a complication of myocarditis and led to the patient’s death.
+
+While serology and polymerase chain reaction can confirm WNV infection systemically, they do not reliably establish direct myocardial involvement. Endomyocardial biopsy, the gold standard for confirmation, is rarely feasible in critically ill patients, and postmortem examination remains the most reliable method for demonstrating myocardial necrosis with inflammatory infiltrates.[22] A previously reported case by Kushawaha et al.[10] linked a neuroinvasive disease with cardiac involvement, thanks to the autopsy finding of myocarditis, including scarring of the left ventricle and inflammatory cell infiltration. However, it remains uncertain whether the heart damage in WNV-associated myocarditis is caused by an indirect immune-mediated damage triggered by the virus or from direct viral invasion of the cardiac tissue.
+
+A potential explanation for the direct viral involvement of the myocardium is the intrinsic cellular tropism and enhanced invasiveness of the WNV. This heightened viral aggressiveness may also underpin the concurrent neurological and cardiac manifestations observed in these patients. The review further suggests that advanced age and male sex are significant, commonly identified risk factors for the development of these WNV-induced cardiovascular complications. Notably, the elderly, along with severely immunosuppressed people, represent the category at highest risk of neurological complications and unfavorable prognosis.[22]
+
+The present meta-summary, while the first to explore the association between WNV and CVDs, has some notable limitations. The most significant constraints are the exclusion of non-English language papers and the small number of included cases, which may affect the generalizability of the findings.
+
+Despite these limitations, the analysis identified several common factors among the patients examined. Specifically, a consistent pattern emerged in which patients with WNV-related CVDs were frequently male, of advanced age, and had concurrent neurological involvement. While a definitive causal link between WNV and CVDs is challenging to establish from the available case reports, these shared patient characteristics are a key finding of the study.
+
+CONCLUSIONS
+
+This meta-summary, the first to explore the association between the WNV and CVDs, analyzed 8 cases of patients who developed cardiac complications following WNV infection. The findings indicate that these complications were found predominantly in male patients (87.5%), of advanced age (median age of 67.29 years), and with concurrent neurological involvement. A significant association was noted, with 75% of the patients also exhibiting neurological symptoms, including altered mental status. The most common cardiac complications were myocarditis and arrhythmias, with the latter present in 50% of the patients. An impaired LVEF was found in 62.5% of the cases. Larger studies are needed to better assess the incidence of cardiovascular complications in patients with WNV infections, as well as their precipitating factors and outcomes.
+
+Conflicts of interest
+
+There are no conflicts of interest.
+
+
+REFERENCES
+
+1. Londono-Renteria B Colpitts TM A brief review of West Nile virus biology Methods Mol Biol 2016 1435 1 13 27188545 10.1007/978-1-4939-3670-0_1
+2. Pierson TC Diamond MS The continued threat of emerging flaviviruses Nat Microbiol 2020 5 796 812 32367055 10.1038/s41564-020-0714-0 PMC7696730
+3. Barzon L Pacenti M Franchin E Squarzon L Lavezzo E Toppo S Novel West Nile virus lineage 1a full genome sequences from human cases of infection in North-Eastern Italy, 2011 Clin Microbiol Infect 2012 18 E541 4 23004685 10.1111/1469-0691.12001
+4. Ferrara P West Nile virus in Italy: A rising public health concern calling for reinforced surveillance and preventive measures Infect Dis Now 2025 55 105132 40783175 10.1016/j.idnow.2025.105132
+5. Watson JT Pertel PE Jones RC Siston AM Paul WS Austin CC Clinical characteristics and functional outcomes of West Nile fever Ann Intern Med 2004 141 360 5 15353427 10.7326/0003-4819-141-5-200409070-00010
+6. Ouhoumanne N Lowe AM Fortin A Kairy D Vibien A Lensch JK Morbidity, mortality and long-term sequelae of West Nile virus disease in Québec Epidemiol Infect 2018 146 867 74 29587891 10.1017/S0950268818000687 PMC9184952
+7. Wang MS Deng JW Geng WY Zheng R Xu HL Dong Y Temporal trend and attributable risk factors of cardiovascular disease burden for adults 55 years and older in 204 countries/territories from 1990 to 2021: An analysis for the Global Burden of Disease Study 2021 Eur J Prev Cardiol 2025 32 539 52 39591503 10.1093/eurjpc/zwae384
+8. Gao AR Nichols L Mannuru D A rare case of West Nile virus-associated cardiomyopathy Cureus 2022 14 e28473 36176843 10.7759/cureus.28473 PMC9512124
+9. Lei K Ji W Bhaya B Ahsan C A rare case of cardiac recovery after acute myocarditis from West Nile virus infection: A review of the current literature Case Rep Cardiol 2022 2022 8517728 36213688 10.1155/2022/8517728 PMC9534694
+10. Kushawaha A Jadonath S Mobarakai N West Nile virus myocarditis causing a fatal arrhythmia: A case report Cases J 2009 2 7147 19829922 10.1186/1757-1626-2-7147 PMC2740101
+11. Laurito A Rodella L Vizzardi E Metra M West Nile virus and myocarditis, a rare event: Case report G Ital Cardiol (Rome) 2023 24 827 30 37767835 10.1714/4100.40983
+12. Ajam M Abu-Heija AA Shokr M Ajam F Saydain G Sinus bradycardia and QT interval prolongation in West Nile virus encephalitis: A case report Cureus 2019 11 e3821 30868034 10.7759/cureus.3821 PMC6402859
+13. Oates C Hussien M Kaiser CL A case of neuroinvasive West Nile virus and sick sinus syndrome J Am Coll Cardiol 2023 81 2820
+14. Espinosa R Schelb K Idioventricular rhythm in a case of West Nile encephalomyelitis J Neuroinfect Dis 2016 7 214 [doi: 10.4172/2314-7326.1000214]
+15. Khouzam RN Significant cardiomyopathy secondary to West Nile virus infection South Med J 2009 102 527 8 19373156 10.1097/SMJ.0b013e31819e9bf7
+16. Page MJ McKenzie JE Bossuyt PM Boutron I Hoffmann TC Mulrow CD The PRISMA 2020 statement: An updated guideline for reporting systematic reviews BMJ 2021 372 n71 33782057 10.1136/bmj.n71 PMC8005924
+17. Murad MH Sultan S Haffar S Bazerbachi F Methodological quality and synthesis of case series and case reports BMJ Evid Based Med 2018 23 60 3 10.1136/bmjebm-2017-110853 PMC6234235 29420178
+18. Badawi A Velummailum R Ryoo SG Senthinathan A Yaghoubi S Vasileva D Prevalence of chronic comorbidities in dengue fever and West Nile virus: A systematic review and meta-analysis PLoS One 2018 13 e0200200 29990356 10.1371/journal.pone.0200200 PMC6039036
+19. Petersen LR Brault AC Nasci RS West Nile virus: Review of the literature JAMA 2013 310 308 15 23860989 10.1001/jama.2013.8042 PMC4563989
+20. Bode AV Sejvar JJ Pape WJ Campbell GL Marfin AA West Nile virus disease: A descriptive study of 228 patients hospitalized in a 4-county region of Colorado in 2003 Clin Infect Dis 2006 42 1234 40 16586381 10.1086/503038
+21. Wang H Siddharthan V Hall JO Morrey JD Autonomic nervous dysfunction in hamsters infected with West Nile virus PLoS One 2011 6 e19575 21573009 10.1371/journal.pone.0019575 PMC3090402
+22. Gould CV Staples JE Guagliardo SA Martin SW Lyons S Hills SL West Nile virus: A review JAMA 2025 334 618 28 40622703 10.1001/jama.2025.8737

@@ -1,0 +1,199 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Clin Transplant Res
+Journal ID: Clin Transplant Res
+NLM Journal ID: 9918787371206676
+
+Clinical Transplantation and Research
+
+ISSN: 3022-6783
+EISSN: 3022-7712
+Publisher: Korean Society for Transplantation
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13349803
+PMID: 41786361
+DOI: 10.4285/ctr.25.0050
+Article ID: ctr-40-2-328
+Article version: 1
+Subjects: Case Report
+
+West Nile virus encephalitis in a kidney transplant recipient: a case report and review of the literature
+
+https://orcid.org/0009-0003-3549-0548 Sharma Divisha
+https://orcid.org/0000-0003-4611-0670 Harris Courtney E.
+https://orcid.org/0000-0002-4473-8096 Mills Alexandra G.
+https://orcid.org/0009-0008-0429-9798 Charles Drew W.
+Division of Infectious Diseases, Department of Medicine, Medical University of South Carolina, Charleston, SC, USA
+Corresponding author: Drew W. Charles Division of Infectious Diseases, Department of Medicine, Medical University of South Carolina, 135 Rutledge Ave, Charleston, SC 29425, USA, E-mail: charlesd@musc.eduCo-corresponding author: Courtney E. Harris, Division of Infectious Diseases, Department of Medicine, Medical University of South Carolina, 135 Rutledge Ave, Charleston, SC 29425, USA, E-mail: harricou@musc.eduCo-corresponding author: Divisha Sharma, Division of Infectious Diseases, Department of Medicine, Medical University of South Carolina, 135 Rutledge Ave, Charleston, SC 29425, USA, E-mail: drsharmabryant@gmail.com
+Print publication date: 2026 Jun 30
+Electronic publication date: 2026 Mar 6
+Volume: 40
+Issue: 2
+First page: 328
+Last page: 334
+Received 2025 Jul 28; Revised 2025 Nov 23; Accepted 2025 Dec 28
+Copyright: © The Korean Society for Transplantation
+Copyright year: 2026
+License: This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/4.0) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Keywords: West Nile virus, Organ transplantation, Encephalitis viruses, Neuroinvasive disease, Intravenous immunoglobulin
+
+==============================
+West Nile virus (WNV) neuroinvasive disease is an uncommon but serious complication in solid organ transplant (SOT) recipients. We report the case of a 66-year-old kidney transplant recipient who developed encephalitis during the 2024 mosquito season in South Carolina. The patient presented with high-grade fever and progressive altered mental status. Brain magnetic resonance imaging showed symmetric posterior fluid-attenuated inversion recovery hyperintensities, and tacrolimus-associated posterior reversible encephalopathy syndrome was suspected. However, cerebrospinal fluid analysis revealed lymphocytic pleocytosis and was ultimately positive for WNV immunoglobulin M, immunoglobulin G, and polymerase chain reaction, confirming neuroinvasive infection. Immunosuppression was reduced, and a 5-day course of intravenous immunoglobulin (IVIG) was administered. The patient’s neurological status gradually improved; however, allograft function deteriorated, and long-term hemodialysis became necessary. At 6-month follow-up, the patient remained on dialysis and was dependent on others for activities of daily living. This case highlights diagnostic challenges in immunosuppressed hosts, emphasizes the importance of vector-borne infection surveillance in SOT populations, and supports immunosuppression reduction with adjunctive IVIG as a reasonable therapeutic approach. Routine WNV screening of donors in endemic areas and patient education on mosquito avoidance may help mitigate risk.
+
+HIGHLIGHTS	
+The diagnosis of West Nile encephalitis primarily depends on cerebrospinal fluid serology and polymerase chain reaction testing, which are the cornerstones of diagnostic evaluation.
+
+Brain magnetic resonance imaging findings in West Nile encephalitis may resemble those of posterior reversible encephalopathy syndrome, potentially leading to misdiagnosis of calcineurin inhibitor-related neurotoxicity.
+
+The primary therapeutic approach is supportive care, emphasizing judicious reduction of immunosuppression and consideration of intravenous immunoglobulin therapy.
+
+Neurological recovery may occur; however, patients face the risk of graft loss.
+
+Prevention and education remain the fundamental strategies for reducing disease occurrence and transmission in endemic areas.
+
+	
+
+INTRODUCTION
+
+West Nile virus (WNV) is a mosquito-borne flavivirus that became endemic in North America after 1999. Infection is usually asymptomatic; however, approximately 1 in 150 WNV infections results in neuroinvasive disease, and solid organ transplant (SOT) recipients are at heightened risk due to impaired cell-mediated immunity. Neuroinvasive complications occur in up to 2.5% of infected recipients, with mortality approaching 10% [1,2]. Because clinical manifestations vary widely and can overlap with medication toxicities in transplantation (e.g., calcineurin inhibitor neurotoxicity) and other opportunistic infections, diagnosis is often delayed. We present a rare case of recipient-acquired WNV encephalitis in a renal allograft recipient, followed by a review of current management strategies and the pertinent literature.
+
+CASE REPORT
+
+Informed consent was obtained from the patient’s next of kin. A 66-year-old man was admitted to the hospital in September 2024 after 3 days of fever peaking at 39.5 °C and progressive altered mental status. He had undergone deceased donor renal transplantation in 2017 for diabetic nephropathy and received basiliximab induction (cytomegalovirus serostatus: donor negative/recipient positive), followed by maintenance immunosuppression with extended-release tacrolimus 2 mg daily (target trough, 5–7 ng/mL), mycophenolate mofetil 500 mg every 12 hours, and prednisone 5 mg daily. His medical history was significant for diabetic retinopathy with binocular blindness, hypertension, dyslipidemia, gastroparesis, and hypothyroidism. He resided in suburban South Carolina and habitually spent evenings on his porch; relatives did not recall recent mosquito exposure or sick contacts. The family also reported no recent travel and denied any notable exposure to ticks, birds, or wildlife.
+
+The patient was hypertensive on presentation, with a blood pressure of 170/76 mmHg. He was febrile and tachypneic, with poor urine output. On physical examination, the patient was lethargic but arousable, could move all extremities, and inconsistently followed single-step commands. Anasarca and scattered expiratory wheezes were also noted. Baseline laboratory testing (Tables 1 and 2) revealed mild leukopenia, thrombocytopenia, and an elevated serum creatinine level of 2.4 mg/dL (baseline, 1.6 mg/dL), with a tacrolimus trough level within the target range (4.7 ng/mL) and modest transaminitis. A chest radiograph demonstrated a left retrocardiac infiltrate, and empiric ceftriaxone was initiated and later escalated to piperacillin-tazobactam plus azithromycin. A respiratory viral polymerase chain reaction (PCR) panel on a nasopharyngeal swab was positive for parainfluenza virus 3, representing a potential confounder. Although defervescence occurred by hospital day 6, encephalopathy progressed, necessitating transfer to the intensive care unit for close monitoring because the patient was unable to protect his airway.
+
+Noncontrast head computed tomography was unremarkable, but brain magnetic resonance imaging (MRI) revealed symmetric occipito-parietal fluid-attenuated inversion recovery (FLAIR) hyperintensities, raising suspicion for tacrolimus-associated posterior reversible encephalopathy syndrome (PRES); accordingly, tacrolimus was held. Antimicrobial coverage was broadened for presumptive meningoencephalitis to vancomycin, ampicillin, ceftriaxone, and acyclovir. The working differential diagnosis at this stage of the evaluation is detailed in Table 3.
+
+Initial lumbar puncture was unsuccessful. A repeat procedure performed 48 hours later showed an opening pressure of 27 cm H2O. Crystal-clear cerebrospinal fluid (CSF) contained 64 WBC/µL (67% lymphocytes), an elevated protein level of 57 mg/dL, and no organisms on Gram stain or culture. CSF and serum were positive for WNV immunoglobulin M (IgM)/immunoglobulin G (IgG), and CSF WNV PCR was positive while serum PCR was negative, confirming neuroinvasive WNV encephalitis.
+
+Immunosuppression was minimized by discontinuing mycophenolate mofetil while continuing prednisone. Based on observational studies supporting its use in immunocompromised hosts, intravenous immunoglobulin (IVIG; 0.4 g/kg/day) was administered for 5 consecutive days. Empiric antibiotics and acyclovir were discontinued. Neurological status gradually improved: the patient became less lethargic and more conversational. However, renal allograft function deteriorated, necessitating intermittent hemodialysis and ultimately resulting in graft loss. Six months after discharge, the patient remained dialysis-dependent but exhibited no new neurological deficits, although he continued to experience short-term memory loss and required assistance to get out of bed.
+
+DISCUSSION
+
+WNV is an arthropod-borne flavivirus maintained in a bird-mosquito enzootic cycle (principally Culex spp.); humans and other mammals are incidental, dead-end hosts [1]. Transmission in SOT populations can occur not only via the classic mosquito route but also through transfused blood products, transplanted organs, or, rarely, breast milk, prompting the Organ Procurement and Transplantation Network to mandate seasonal screening of living donors in endemic areas [2].
+
+Annual incidence in the United States fluctuates with vector ecology. However, transplant recipients remain disproportionately vulnerable compared with immunocompetent individuals, developing neuroinvasive disease in roughly 1 in 40 infections versus 1 in 150 in the general community [3]. Pathogenesis is multifactorial—chronic calcineurin inhibitor exposure impairs type I interferon signaling, while depletion of memory B and T cell pools delays seroconversion and permits unchecked neurotropism. A systemic review of 140 published SOT cases (2002–2022) indicate that the kidney is the most frequently affected allograft, the median time to infection is 14 months, and donor-derived transmission accounts for up to 53% of cases [4].
+
+While most patients manifest a self-limited febrile illness, approximately 25% develop a maculopapular rash and <3% progress to neuroinvasive disease—meningitis, encephalitis, or anterior horn cell poliomyelitis [2]. Long-term sequelae such as persistent weakness, tremor, or neuropsychiatric impairment occur in 30% to 50% of survivors [5].
+
+Our patient’s presentation—high-grade fever progressing to encephalopathy with normal CSF glucose and lymphocytic pleocytosis—mirrors the prototypical transplant-related phenotype. Notably, flaccid paralysis, a harbinger of poor outcomes [4], was absent, perhaps helping to explain the milder disease course and eventual partial neurological recovery.
+
+CSF WNV PCR plays markedly different roles depending on the patient’s immune status. In immunocompetent individuals, viremia and viral RNA in the central nervous system (CNS) are usually cleared by the time neurological symptoms appear, so CSF PCR is positive in fewer than 60% of cases. Consequently, serology—specifically IgM in serum or CSF—remains the diagnostic mainstay [6–8]. WNV-specific IgM becomes detectable by day 4 of illness and generally precedes IgG by 1 to 3 days, as illustrated in Fig. 1 [9]; detection of IgM in CSF implies intrathecal antibody synthesis and is highly specific for neuroinvasive disease because IgM does not cross the intact blood-brain barrier. After seroconversion, the sensitivity of serum PCR falls rapidly, limiting its usefulness to the brief early viremic window or to profoundly B cell-depleted hosts.
+
+The picture changes in immunocompromised patients, such as SOT recipients or those with other forms of impaired humoral immunity. In these patients, antibody responses can be delayed or absent, and viremia (as well as viral persistence in the CNS) may be prolonged [10]. As a result, CSF PCR—or, more broadly, nucleic acid amplification testing—often has a much higher yield and may be the only means of confirming WNV encephalitis. Reflecting this, the American Society of Transplantation recommends CSF PCR as a first-line diagnostic modality in immunocompromised hosts, and the Infectious Diseases Society of America similarly endorses CSF PCR when a robust IgM response cannot be assumed. Recent cohort studies reinforce these recommendations, showing significantly higher CSF PCR positivity rates in immunosuppressed patients compared with immunocompetent individuals. The present patient, who displayed concurrent IgM and IgG positivity with negative serum PCR, illustrates the typical postviremic phase depicted in Fig. 1, in which viral RNA has largely cleared from the blood while antibodies have begun to rise. Thus, while serology remains the cornerstone in immunocompetent hosts, CSF PCR is an indispensable—and sometimes the sole—diagnostic tool for WNV encephalitis in immunocompromised patients.
+
+Tacrolimus-associated PRES was a critical noninfectious mimic. MRI findings consistent with neuroinvasive disease include diffusion restriction and FLAIR/T2 hyperintensity involving the brainstem, deep gray matter, and cerebellum [11]. In contrast, the characteristic imaging findings of PRES are best visualized as areas of hyperintensity on FLAIR sequences, typically involving the parieto-occipital and posterior frontal cortical and subcortical white matter, with rare cases involving the brainstem, basal ganglia, or cerebellum [12]. Unlike PRES, the posterior predilection of these abnormalities is variable in West Nile encephalitis.
+
+Although the patient’s tacrolimus trough level (2.4–4.7 ng/mL) was within the contemporary target range, the literature indicates that PRES can develop at any concentration and is often precipitated by hypertension [13]. Clinical deterioration despite tacrolimus cessation suggested that PRES alone could not explain the course and justified continued pursuit of an infectious diagnosis.
+
+No antiviral therapy has demonstrated proven efficacy. Management relies on rapid reduction of immunosuppression and meticulous supportive care, including ventilatory support for bulbar dysfunction and aggressive rehabilitation [2]. While various strategies for immunosuppression reduction can be considered—including gradual tapering of tacrolimus, conversion to a mammalian target of rapamycin inhibitor, or continuation of low-dose tacrolimus maintenance therapy as an alternative to optimize the balance between infection control and graft preservation—the current literature does not indicate a superior approach. Small series and animal models suggest a neutralizing effect of high-titer IVIG [14]; nonetheless, evidence in humans is limited to observational studies and case reports with mixed outcomes. In a recent single-center series of eight transplant recipients with neuroinvasive WNV, five received IVIG; all survived, although two experienced sustained allograft loss [3,4].
+
+Longitudinal studies show that up to 60% of survivors experience persistent fatigue, tremor, or neurocognitive deficits at 12 months, regardless of initial disease severity. Encouragingly, at 8-month telephone follow-up, our patient was dialysis-dependent yet conversational, illustrating that some functional neurological recovery is achievable even in older, chronically immunosuppressed hosts.
+
+Neuroinvasive WNV should be considered in the differential diagnosis for any febrile SOT recipient with new neurological deficits during mosquito season, even when no mosquito exposure is recalled. Early CSF analysis, careful differentiation from calcineurin inhibitor neurotoxicity, judicious immunosuppression tapering, and consideration of IVIG constitute current best practice. Broader donor screening and patient education on mosquito avoidance are vital preventive measures, while multicenter trials are needed to clarify the role of IVIG and to evaluate future antivirals or vaccines.
+
+ARTICLE INFORMATION
+
+Fig. 1 Timeline for development of West Nile virus (WNV) immunoglobulin G (IgG) and immunoglobulin M (IgM) antibodies after WNV infection. Adapted from Davis et al. Ann Neurol 2006;60:286–300, with permission from Wiley [9].
+
+Table 1 Blood and microbiological investigations
+
+Investigation (specimen)	Result	
+Baseline laboratory tests		
+Complete blood count (peripheral blood)	WBC 4.8 × 109/L (81% neutrophils; ANC 3.3 × 109/L); lymphocytes 0.37 × 109/L; Hb 10.5 g/dL; platelets 105 × 109/L	
+Comprehensive metabolic panel (serum)	Creatinine 3.5 mg/dL (baseline 1.6 mg/dL); AST 92 U/L; ALT 22 U/L	
+Tacrolimus trough (plasma)	2.4–4.7 ng/mL	
+Microbiology and virology		
+Respiratory viral PCR panel (nasopharyngeal swab)	Parainfluenza virus 3 detected; all other targets negative	
+Blood cultures ×2 (peripheral blood)	No growth at 5 days	
+Urine culture (clean-catch)	No growth	
+Serological/molecular		
+WNV IgM & IgG (serum)	Positive	
+WNV PCR (serum)	Not detected	
+CMV PCR (plasma)	Negative	
+Aspergillus galactomannan antigen (serum)	Negative	
+WBC, white blood cells; ANC, absolute neutrophil count; Hb, hemoglobin; AST, aspartate aminotransferase; ALT, alanine aminotransferase; PCR, polymerase chain reaction; WNV, West Nile virus; IgM, immunoglobulin M; IgG, immunoglobulin G; CMV, cytomegalovirus.
+
+Table 2 Neuroimaging and cerebrospinal fluid investigations
+
+Investigation (modality/specimen)	Result	
+Imaging		
+Chest radiograph (PA)	Left retrocardiac infiltrate/pulmonary edema	
+Brain CT, noncontrast	No acute intracranial abnormality	
+Brain MRI, FLAIR	Initial: symmetric loss of FLAIR suppression in occipital and posterior parietal sulci with a small focus of diffusion restriction in the left occipital horn—suggestive of meningitis with early ventriculitis.
+After 3 weeks: persistent periventricular T2/FLAIR hyperintensity around occipital horns, reduced cortical/sulcal abnormalities, and new faint T2/FLAIR signals in thalami and basal ganglia—typical for WNV encephalitis.	
+Cerebrospinal fluid		
+Opening pressure	27 cm H2O	
+Cell count	64 cells/µL (67% lymphocytes), 5 RBC/µL	
+Glucose	85 mg/dL	
+Protein	57 mg/dL	
+Gram stain and bacterial/fungal cultures	Negative	
+Multiplex MEa) PCR panel	Negative	
+HSV PCR	Negative	
+VZV PCR	Negative	
+EBV PCR	Negative	
+Parvovirus B19 PCR	Negative	
+Toxoplasma PCR	Negative	
+Cryptococcal antigen	Negative	
+WNV IgM & IgG	Positive	
+WNV PCR	Positive	
+PA, postero-anterior; CT, computed tomography; MRI, magnetic resonance imaging; FLAIR, fluid-attenuated inversion recovery; WNV, West Nile virus; RBC, red blood cells; PCR, polymerase chain reaction; HSV, herpes simplex virus; VZV, varicella zoster virus; EBV, Epstein-Barr virus; IgM, immunoglobulin M; IgG, immunoglobulin G.
+
+a)ME panel (BioFire® FilmArray®) simultaneously detects: Escherichia coli K1, Haemophilus influenzae, Listeria monocytogenes, Neisseria meningitidis, Streptococcus agalactiae, Streptococcus pneumoniae, cytomegalovirus, enterovirus, HSV-1/2, human herpesvirus-6, human parechovirus, VZV, and Cryptococcus neoformans/gattii.
+
+Table 3 Differential diagnosis of encephalitis in a kidney transplant recipient
+
+Etiology/syndrome	Key investigation & result	Assessment	
+Arboviral			
+West Nile virus	CSF PCR positive; CSF & serum IgM + IgG positive	Confirmed cause	
+Eastern equine, St Louis, Powassan viruses	Not tested	Test only if clinical relapse/new exposure	
+Herpesviridae & other viruses			
+HSV-1/HSV-2	CSF ME panel & HSV-PCR negative	Ruled out	
+VZV	CSF ME panel negative	Ruled out	
+CMV	CSF ME panel & serum PCR negative	Unlikely	
+HHV-6	CSF ME panel negative	Unlikely	
+Enterovirus/Parechovirus	CSF ME panel negative	Unlikely	
+Epstein-Barr virus	CSF PCR negative	Ruled out	
+JC virus (PML)	CSF PCR negative; no demyelination on MRI	Very unlikely	
+Bacterial pathogens			
+L. monocytogenes, E. coli K1, H. influenzae, N. meningitidis, S. agalactiae, S. pneumoniae	CSF ME panel & culture negative; empiric antibiotics	Ruled out	
+Fungal/yeast			
+Cryptococcus neoformans/gattii	CSF ME panel & cryptococcal Ag negative	Ruled out	
+Aspergillus spp.	Serum galactomannan & CSF culture negative	Ruled out	
+Protozoal			
+Toxoplasma gondii (reactivation)	CSF PCR negative	Ruled out	
+Noninfectious mimics			
+Tacrolimus neurotoxicity/PRES	Occipito-parietal FLAIR hyperintensities; tacrolimus 2.4–4.7 ng/mL; improved after withdrawal	Likely contributing	
+Metabolic/uremic encephalopathy	Allograft failure, but cognition improved with dialysis	Secondary factor	
+CSF, cerebrospinal fluid; PCR, polymerase chain reaction; IgM, immunoglobulin M; IgG, immunoglobulin G; HSV, herpes simplex virus; ME panel, multiplex meningitis/encephalitis PCR panel (BioFire®); VZV, varicella zoster virus; CMV, cytomegalovirus; HHV, human herpesvirus; PML, progressive multifocal leukoencephalopathy; MRI, magnetic resonance imaging; Ag, antigen; PRES, posterior reversible encephalopathy syndrome; FLAIR, fluid-attenuated inversion recovery.
+
+Conflict of Interest
+
+No potential conflict of interest relevant to this article was reported.
+
+Author Contributions
+
+Conceptualization: AM, DC, DS. Data curation: DS, DC. Formal analysis: DS, DC, AM. Investigation: all authors. Methodology: all authors. Project administration: DC. Resources: all authors. Software: DS. Supervision DC, AM, CH. Validation: all authors. Visualization: all authors. Writing–original draft: DS, DC. Writing–review & editing: all authors. All authors read and approved the final manuscript.
+
+
+REFERENCES
+
+1 Watson JT Pertel PE Jones RC Siston AM Paul WS Austin CC 2004 Clinical characteristics and functional outcomes of West Nile Fever Ann Intern Med 141 360 5 10.7326/0003-4819-141-5-200409070-00010 15353427
+2 Anesi JA Silveira FP AST Infectious Diseases Community of Practice 2019 Arenaviruses and West Nile virus in solid organ transplant recipients: guidelines from the American Society of Transplantation Infectious Diseases Community of Practice Clin Transplant 33 e13576 10.1111/ctr.13576 31022306 PMC6786906
+3 Abbas A Qiu F Sikyta A Fey PD Florescu DF 2022 Neuroinvasive West Nile virus infections after solid organ transplantation: single center experience and systematic review Transpl Infect Dis 24 e13929 10.1111/tid.13929 35980220 PMC10078393
+4 Kasule SN Gupta S Patron RL Grill MF Vikram HR 2023 Neuroinvasive West Nile virus infection in solid organ transplant recipients Transpl Infect Dis 25 e14004 36573623 10.1111/tid.14004
+5 Murray K Walker C Herrington E Lewis JA McCormick J Beasley DW 2010 Persistent infection with West Nile virus years after initial infection J Infect Dis 201 2 4 10.1086/648731 19961306 PMC2791189
+6 Petersen LR Brault AC Nasci RS 2013 West Nile virus: review of the literature JAMA 310 308 15 10.1001/jama.2013.8042 23860989 PMC4563989
+7 Mbonde AA Gritsch D Harahsheh EY Kasule SN Hasan S Parsons AM 2024 Neuroinvasive West Nile virus infection in immunosuppressed and immunocompetent adults JAMA Netw Open 7 e244294 10.1001/jamanetworkopen.2024.4294 38546642 PMC10979308
+8 Miller JM Binnicker MJ Campbell S Carroll KC Chapin KC Gonzalez MD 2024 Guide to utilization of the microbiology laboratory for diagnosis of infectious diseases: 2024 update by the Infectious Diseases Society of America (IDSA) and the American Society for Microbiology (ASM) Clin Infect Dis ciae104 10.1093/cid/ciae104 38442248
+9 Davis LE DeBiasi R Goade DE Haaland KY Harrington JA Harnar JB 2006 West Nile virus neuroinvasive disease Ann Neurol 60 286 300 10.1002/ana.20959 16983682
+10 Carson PJ Konewko P Wold KS Mariani P Goli S 2006 Long-term clinical and neuropsychological outcomes of West Nile virus infection Clin Infect Dis 43 723 30 10.1086/506939 16912946
+11 Gould CV Staples JE Guagliardo SA Martin SW Lyons S Hills SL 2025 West Nile virus: a review JAMA 334 618 28 10.1001/jama.2025.8737 40622703
+12 Tetsuka S Ogawa T 2019 Posterior reversible encephalopathy syndrome: a review with emphasis on neuroimaging characteristics J Neurol Sci 404 72 9 10.1016/j.jns.2019.07.018 31349066
+13 Fugate JE Rabinstein AA 2015 Posterior reversible encephalopathy syndrome: clinical and radiological manifestations, pathophysiology, and outstanding questions Lancet Neurol 14 914 25 10.1016/S1474-4422(15)00111-8 26184985
+14 Lauterio A De Carlis R Centonze L Merli M Valsecchi M Monti G 2023 The role of intravenous immunoglobulin in the treatment of community: acquired West Nile virus encephalitis after liver transplantation Transpl Infect Dis 25 e14025 10.1111/tid.14025 36715644

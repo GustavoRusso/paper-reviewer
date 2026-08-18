@@ -1,0 +1,456 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Sci Rep
+Journal ID: Sci Rep
+NLM Journal ID: 101563288
+
+Scientific Reports
+
+EISSN: 2045-2322
+Publisher: Nature Publishing Group
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13438650
+PMID: 42552348
+DOI: 10.1038/s41598-026-64742-y
+Article ID: 64742
+Article version: 1
+Subjects: Article
+
+Not all West Nile virus lineages behave alike: dose-response differences between lineages 1 and 2
+
+https://orcid.org/0009-0002-7359-2409 Höller Patrick patrick.hoeller@bnitm.de
+1
+http://orcid.org/0000-0002-6903-9742 Sauer Felix Gregor 1
+http://orcid.org/0000-0002-1984-839X Lühken Renke 1
+http://orcid.org/0000-0003-4536-4257 Becker Norbert 2 3
+http://orcid.org/0000-0003-4433-0231 Schmidt-Chanasit Jonas 1 4
+http://orcid.org/0000-0002-4623-5070 Jansen Stephanie 1 4
+http://orcid.org/0000-0002-9584-0947 Heitmann Anna 1
+1 https://ror.org/01evwfd48 grid.424065.1 0000 0001 0701 3136 Bernhard Nocht Institute for Tropical Medicine, Hamburg, Germany
+2 Institute for Dipterology, Speyer, Germany
+3 https://ror.org/038t36y30 grid.7700.0 0000 0001 2190 4373 Centre for Organismal Studies, University of Heidelberg, Heidelberg, Germany
+4 https://ror.org/00g30e956 grid.9026.d 0000 0001 2287 2617 Faculty of Mathematics, Informatics and Natural Sciences, University of Hamburg, Hamburg, Germany
+Electronic publication date: 2026 Aug 4
+Publication date: 2026
+Volume: 16
+Electronic Location ID: 24001
+Received 2026 Apr 24; Accepted 2026 Jul 27
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, Minimal infectious dose, Lineage 1, Lineage 2, Transmission risks, Culex pipiens, Culex torrentium, Aedes albopictus
+Keywords: Diseases, Ecology, Ecology, Evolution, Microbiology, Zoology
+
+Funding: Bernhard-Nocht-Institut für Tropenmedizin (3424) Open Access funding enabled and organized by Projekt DEAL.
+
+issue-copyright-statement: © Springer Nature Limited 2026
+
+==============================
+The globally distributed arbovirus West Nile virus (WNV) is expanding across Europe, with rising numbers of human cases and an increasingly broad geographic distribution. Transmitted primarily by Culex mosquitoes, WNV lineages 1 and 2 are pathogenic to humans, yet their differences in transmission dynamics remain unclear. As vertebrate hosts develop varying viremia, mosquitoes encounter a wide range of viral doses, which may influence transmission. Here, we investigated the dose-response differences between the lineages in Cx. pipiens biotype pipiens, Cx. torrentium, and Aedes albopictus. Mosquitoes were fed increasing titers of one strain of either WNV lineage, and infection and transmission were assessed after 14 days at 24 °C. Lineage 2 required lower infectious doses while causing higher transmission. Notably, Cx. torrentium was identified as a highly competent vector for lineage 2. These findings highlight important differences between WNV lineages, improve our understanding of dose-dependent transmission, and therefore support refined risk assessments in Europe.
+
+Supplementary Information
+
+The online version contains supplementary material available at 10.1038/s41598-026-64742-y.
+
+Introduction
+
+West Nile virus (WNV), species Orthoflavivirus nilense, within the family Flaviviridae and the genus Orthoflavivirus, is an emerging mosquito-borne virus of public health concern in Europe1,2. Over the last decade, several outbreaks have been recorded, and the affected area has expanded into Central Europe, including Germany. The spread of WNV in Europe can, in large parts, be attributed to higher temperatures due to the ongoing global warming, which, among other effects, shortens the viral extrinsic incubation period3,4. The geographic range of the virus is expected to expand further and could place up to 244 million people across Europe at risk of infection in the future2,3.
+
+Approximately 20% of WNV infections are symptomatic, causing West Nile fever, characterized by headache, fever, myalgia, and fatigue. Less than 1% develop neuroinvasive disease, such as meningitis or encephalitis, with a case fatality rate of up to 17%5. Vaccines for horses have been available since the early 2000s, but no human vaccine has progressed past phase II6. The largest epidemic recorded in Europe occurred in 2018, with 1548 confirmed autochthonous human cases and 166 deaths across 11 countries7. The most recent data from 2025 reports once again above-average numbers with 989 cases and 63 deaths in 14 countries8.
+
+WNV is maintained in an enzootic cycle between mosquitoes as vectors and reservoirs, and birds as amplifying hosts5,9. Mosquitoes of the genus Culex are considered the main vectors of WNV, with Cx. pipiens s.s. being the most abundant in Europe. Culex pipiens s.s. can be further subdivided into two distinct biotypes: pipiens and molestus5,10,11. Recent data show that both biotypes, as well as Cx. torrentium, feed on avian, human, and nonhuman mammalian hosts12. In Central and Northern Europe, Cx. torrentium is predominant, but often not distinguished from Cx. pipiens s.s., despite its epidemiological importance13. Another species of interest is Ae. albopictus, the most widespread invasive mosquito in Europe. Although not considered an important WNV vector, the species is competent for WNV and exhibits an opportunistic feeding behavior, warranting further research into its role in the WNV transmission cycle14.
+
+WNV can be subdivided into nine distinct lineages, six of which have been detected in Europe. WNV lineage 1 (L1) and lineage 2 (L2) are most frequently associated with diagnosed infections in humans and animals15. WNV-L1 was first detected in Europe in the 1960s, presumably introduced by migratory birds, and has caused multiple outbreaks since. In contrast, WNV-L2 was first described in Europe in 2004, likely also introduced via migratory birds, and subsequently spread rapidly through Southern and Central Europe, where it has become the dominant cause of human cases16. However, WNV-L1 is still co-circulating in Europe, e.g. in Italy, and is the prevailing lineage in other parts of the world15.
+
+The virus can also be transmitted to mammalian hosts, including humans and horses5. However, humans and horses are considered incidental dead-end hosts, as their viremia is typically too low to further infect mosquitoes5. In contrast, viremia levels in avian species vary by several orders of magnitude and can reach levels of more than 1010 plaque-forming units (PFU) per mL, which influences their potential to be infectious for mosquitoes17–19. Therefore, mosquitoes encounter vastly different levels of viremia when feeding on animals, making it important to understand how viremia influences mosquito infection, and which viremia levels are sufficient to enable transmission (i.e. the minimal infectious dose required for transmission, MID). A lower MID implies that mosquitoes can become infectious after feeding from a broader range of hosts, as even closely related birds can have widely different peak viremias17. Interestingly, a recent report of a human co-infection with WNV lineages 1 and 3 described an unusually high WNV-L1 RNA concentration of 105.5 PFU equivalents/mL, raising the question of whether humans can serve as amplifying hosts under very specific conditions20.
+
+In this study, we aimed to improve the understanding of the differences between WNV-L1 and L2 in terms of their infection dynamics in mosquitoes. We exposed Cx. pipiens biotype pipiens, Cx. torrentium, and Ae. albopictus with WNV-L1 or L2 at varying blood meal titers. Using forced salivation assays, we assessed how blood meal titer, mosquito body titer, and mosquito species influence infection and transmission.
+
+Results
+
+Feeding and survival rates
+
+Feeding rates (fully engorged females per females offered a blood meal) ranged from 22.5% to 47.4% (Supplementary Table 1). Mean survival rates (alive females 14 days post exposure per fed females) were generally higher in the two Culex species (Cx. pipiens biotype pipiens: 94.5%, Cx. torrentium: 93.4%) compared to Ae. albopictus (74.3%) (Supplementary Table 1).
+
+Infection rates, transmission efficiencies, and minimum infectious doses
+
+All three investigated mosquito species were susceptible to WNV-L1 and L2 infections at all tested blood meal titers (Fig. 1, Table 1). For WNV-L1, the infection rates (IRs, WNV RNA-positive bodies divided by the total number of analyzed mosquitoes per condition) in Ae. albopictus consistently increased with rising blood meal titers, ranging from 41% at a blood meal titer of 105 TCID50/mL to 52% at 107 TCID50/mL, while no virus was detected in the saliva at any blood meal titer. In Cx. pipiens biotype pipiens, IRs rose from 10% at 105 TCID50/mL to 33% at 107 TCID50/mL, and transmission was only observed at the highest blood meal titer (107 TCID50/mL), with a transmission efficiency (TE) of 7%. For Cx. torrentium, again, the highest blood meal titer of 107 TCID50/mL produced the highest IR of 63%. Similar to Cx. pipiens biotype pipiens, WNV was detected in the saliva at the highest blood meal titer only, with a TE of 7%. Overall, increasing blood meal titers generally resulted in increased IR, and positive saliva was observed only at the highest blood meal titer in Cx. pipiens biotype pipiens and Cx. torrentium, but not in Ae. albopictus. For WNV-L2, IRs in Ae. albopictus increased from 25% at 105 TCID₅₀/mL to 87% at 10⁷ TCID₅₀/mL, with virus detected in the saliva at 106 and 107 TCID50/mL (TE = 4% and 33%). In Cx. pipiens biotype pipiens, IRs rose from 24 to 59% with increasing blood meal titers, and transmission was detected at 105 (3%) and 107 TCID50/mL (10%), but not at 106 TCID50/mL.
+
+Fig. 1 Infection rates (RNA positive bodies/analyzed mosquitoes, blue) and transmission efficiencies (positive salivas/analyzed mosquitoes, red) of three mosquito species exposed to a WNV of either lineage 1 or lineage 2 at different blood meal titers (10x). Mosquitoes were incubated for 14 days at 24 ± 5 °C.
+
+Table 1 The number of mosquitoes subjected to salivation assay, the infection rate (RNA-positive bodies/analyzed mosquitoes), and the transmission efficiency (positive salivas/analyzed mosquitoes), stratified by WNV lineage, mosquito species, and blood meal titer. Blood meal titers marked in bold indicate the minimal infectious dose required for transmission. Mosquitoes were incubated for 14 days at 24 ± 5 °C.
+
+WNV lineage	Mosquito species	Blood meal titer as TCID50/mL	No. of analyzed mosquitoes	Infection rate (no. of mosquitoes with positive body)	Transmission efficiency (no. of mosquitoes with positive saliva)	
+Lineage 1	Ae. albopictus	105
+
+106
+
+107
+
+	27
+
+29
+
+25
+
+	41% (11)
+
+48% (14)
+
+52% (13)
+
+	0% (0)
+
+0% (0)
+
+0% (0)
+
+	
+Cx. pipiens biotype pipiens	105
+
+106
+
+10 7
+
+	30
+
+30
+
+30
+
+	10% (3)
+
+17% (5)
+
+33% (10)
+
+	0% (0)
+
+0% (0)
+
+7% (2)
+
+	
+Cx. torrentium	105
+
+106
+
+10 7
+
+	29
+
+30
+
+30
+
+	14% (4)
+
+13% (4)
+
+63% (19)
+
+	0% (0)
+
+0% (0)
+
+7% (2)
+
+	
+Lineage 2	Ae. albopictus	105
+
+10 6
+
+107
+
+	28
+
+27
+
+30
+
+	25% (7)
+
+78% (21)
+
+87% (26)
+
+	0% (0)
+
+4% (1)
+
+33% (10)
+
+	
+Cx. pipiens biotype pipiens	10 5
+
+106
+
+107
+
+	29
+
+30
+
+29
+
+	24% (7)
+
+50% (15)
+
+59% (17)
+
+	3% (1)
+
+0% (0)
+
+10% (3)
+
+	
+Cx. torrentium	104
+
+10 5
+
+106
+
+107
+
+	30
+
+30
+
+31
+
+29
+
+	20% (6)
+
+33% (10)
+
+68% (21)
+
+76% (22)
+
+	0% (0)
+
+3% (1)
+
+6% (2)
+
+31% (9)
+
+	
+
+Culex torrentium showed a clear dose-response pattern. For this species, the experiment also included a blood meal titer of 104 TCID50/mL for WNV-L2. Testing 104 TCID50/mL of L2 was not possible for Cx. pipiens biotype pipiens, which also still transmitted WNV at the lowest tested blood meal titer, due to the limited number of field-caught specimens. IRs in Cx. torrentium ranged from 20% at 104 TCID50/mL to 76% at 107 TCID50/mL. Transmission was detected at 105 TCID50/mL with a TE of 3% and went up to 31% at 10⁷ TCID₅₀/mL.
+
+The minimum infectious dose (MID, minimum blood meal titer required to allow transmission) was lower for all mosquito species exposed to WNV-L2 (Table 1). Both Culex species had a MID of 107 TCID50/mL for L1 and 105 TCID50/mL for L2. Aedes albopictus´ MID was 106 TCID50/mL for L2, while not even the highest blood meal titer tested was sufficient to allow transmission for L1.
+
+Predictors of viral infection, transmission, and body titer
+
+A hurdle model was fitted separately for each viral lineage to assess the factors (mosquito species, blood meal titer) influencing infection. In this model, Cx. pipiens biotype pipiens had significantly lower odds (odds ratios (ORs): L1 = 0.22, L2 = 0.37 of becoming infected with both lineages compared to Ae. albopictus, while Cx. torrentium showed the same trend, it was only significant for WNV-L1 (OR = 0.40) (Table 2). In contrast, each log10-fold increase in blood meal titer more than doubled the odds of infection for both lineages (ORs: L1 = 2.08, L2 = 2.63). Furthermore, the influence of the different predictors on the body titer was assessed. Once an infection was established, all predictors showed a significant positive effect on body titers for both lineages, with coefficient estimates from the linear component of the hurdle model ranging from 0.56 to 1.46 (Table 2). Notably, body titers visually cluster into two groups, a low body titer group and a high body titer group (< and > 106 viral RNA copies/body) (Fig. 2). Except for six Ae. albopictus specimens, all mosquitoes with positive saliva (n = 25) belonged to the high body titer group (Fig. 2). These six specimens were all infected with WNV-L2. One of them showed a negative infection result, despite a positive saliva. Even though cross-contamination was considered highly unlikely, the specimen was excluded from all analyses due to a lack of biological explanation. Importantly, the decision of removing or keeping this data point does not affect the statements or the conclusions of this manuscript.
+
+Table 2 Results of two models assessing the influence of various predictors on (i) the likelihood of positive infection (ii) the body titer (viral RNA/mosquito body) for WNV-L1 and -L2, and (iii) the likelihood of positive transmission for WNV-L2. No transmission model could be fitted for WNV-L1 due to the very limited number of positive saliva samples (n = 4). The infection and body titer model were fitted as a two-step hurdle model, while the transmission model was fitted as a generalized linear model. Effect sizes from the logistic regression components of the transmission and infection models are expressed as odds ratios, whereas parameter estimates are reported for the linear component of the body titer model (denoted by *). The reference category was Ae. albopictus for mosquito species. “n.a.” = not available, “n.s.” = non-significant, “CI” = confidence interval.
+
+Model	Predictor	Odds ratio / *Estimate (95% CI)	p-value	Odds ratio / *Estimate (95% CI)	p-value	
+WNV Lineage 1	WNV Lineage 2	
+Positive infection	Cx. pipiens biotype pipiens	0.22 (0.11–0.48)	 < 0.001	0.37 (0.19–0.75)	0.006	
+Cx. torrentium	0.40 (0.21–0.81)	0.010	0.78 (0.40–1.54)	0.476 (n.s.)	
+Log10(Blood meal titer)	2.08 (1.44–3.03)	 < 0.001	2.63 (1.92–3.57)	 < 0.001	
+Body titer	Cx. pipiens biotype pipiens	*1.01 (0.01–2.01)	0.049	*1.04 (0.12–1.96)	0.027	
+Cx. torrentium	*1.46 (0.56–2.37)	0.002	*1.32 (0.48–2.15)	0.002	
+Log10(Blood meal titer)	*0.56 (0.07–1.06)	0.026	*1.37 (0.94–1.80)	 < 0.001	
+Positive transmission	Cx. pipiens biotype pipiens	n.a	n.a	0.11 (0.02–0.61)	0.012	
+Cx. torrentium	n.a	n.a	0.30 (0.07–1.35)	0.117 (n.s.)	
+Log10(Blood meal titer)	n.a	n.a	2.51 (0.94–6.72)	0.067 (n.s.)	
+Log10(Body titer)	n.a	n.a	2.25 (1.63–3.09)	 < 0.001	
+
+Fig. 2 Relationship between the log10-transformed blood meal titer (TCID50/mL) and (i) the probability of mosquito infection (left panel, binomial component of the hurdle model) and (ii) the log10-transformed body titer (viral RNA/mosquito body) (right panel, linear part of the hurdle model, including only infected mosquitoes with detectable body titers) for Ae. albopictus, Cx. pipiens biotype pipiens, and Cx. torrentium experimentally exposed to WNV-L1 or L2. For (i), logistic regression curves were fitted, whereas for (ii), linear regression curves were fitted. 95% CI are shown in grey. Black dots indicate mosquitoes with a negative saliva, red dots indicate mosquitoes with a positive saliva, jittered for better visibility. The dashed line indicates the approximate threshold (106) around which the body titers cluster into low- and high-titer groups.
+
+In addition, for WNV-L2, a generalized linear model was fitted to evaluate the predictors of transmission. For WNV-L1, no transmission model could be fitted due to the limited number of positive saliva samples (n = 4), therefore, Figs. 3 and 4 only show WNV-L2. In this WNV-L2 model, higher body titers significantly increased the likelihood of detecting positive saliva, with each log10-fold increase doubling the odds of transmission (OR = 2.25) (Table 2, Fig. 3). Blood meal titer had a similar but non-significant effect (OR = 2.51) (Table 2, Fig. 4). Culex pipiens biotype pipiens significantly reduced the odds of transmission compared to Ae. albopictus (OR = 0.11), whereas Cx. torrentium also showed reduced odds (OR = 0.30), although this effect was not statistically significant (Table 2). Due to the limited number of positive saliva samples, the same statistical analysis could not be performed for WNV-L1, although it was observed that transmission occurred exclusively at the highest blood meal titer (107 TCID50/mL), and only in the two Culex species, which showed the same TE of 7% (Fig. 1, Table 1). However, the proportion of mosquitoes with positive saliva in the higher body titer group (> 106 viral RNA copies) is higher in Cx. pipiens biotype pipiens, compared to Cx. torrentium (Fig. 2).
+
+Fig. 3 Relationship between the log10-transformed body titer (viral RNA/mosquito body) and the probability of positive saliva for Ae. albopictus, Cx. pipiens biotype pipiens, and Cx. torrentium experimentally exposed to WNV-L2. Data points represent observed transmission outcomes (positive = 1; negative = 0). Logistic regression curves with 95% CI in red were fitted using a binomial generalized linear model.
+
+Fig. 4 Relationship between the log10-transformed blood meal titer (TCID50/mL) and the probability of positive saliva for Ae. albopictus, Cx. pipiens biotype pipiens, and Cx. torrentium experimentally exposed to WNV-L2. Data points represent observed transmission outcomes (positive = 1; negative = 0), jittered for better visibility. Logistic regression curves with 95% CI in red were fitted using a binomial generalized linear model.
+
+Discussion
+
+Two native European mosquito species, Cx. pipiens biotype pipiens and Cx. torrentium, and the invasive species Ae. albopictus were separately exposed to WNV-L1 and L2 with blood meal titers ranging from 104 to 107 TCID50/mL. All species were susceptible to infection by both lineages, and higher blood meal titers were overall significantly associated with increased IRs and higher body titers. The TEs showed a similar trend, however, differences between blood meal titers were not statistically significant, likely due to the small number of positive saliva samples. This dose-response relationship aligns with previous findings for various mosquito species infected with WNV-L121–23, and has been documented for other arboviruses24,25.
+
+Beyond the general dose-response effect, there were strong differences both between the mosquito species and the viral lineages. Overall, WNV-L2 resulted in higher IRs, higher TEs, and had lower MIDs across all tested mosquito species compared to L1. Particularly notable was the difference between the two Culex species, while both showed the same TEs when infected with WNV-L1, Cx. torrentium exhibited a three-times higher TE when infected with WNV-L2 compared to Cx. pipiens biotype pipiens (30% vs. 10%). A previous study on WNV-L2 in Cx. pipiens biotype pipiens showed higher TEs of up to 53%, however, a blood meal titer of 108 TCID50/mL was used, which was tenfold higher than the highest one used in our study26. Earlier work on WNV-L1 has also identified Cx. torrentium as a more competent vector than Cx. pipiens biotype pipiens with comparable TEs observed in our study27. In contrast, Burgas-Pau et al. reported significantly higher IR for WNV-L1 than WNV-L2 in Cx. theileri, while the TE was also higher, it was a non-significant effect28. This discrepancy may suggest varying effects of WNV lineages on mosquito-species, or differences between the specific viral strains.
+
+To our knowledge, this study provides the first vector competence assessment of Cx. torrentium for WNV-L2. Due to the differences in vector competence between the two tested Culex species, it is important to distinguish these morphologically similar species in studies, as it otherwise may obscure key patterns. This is especially important as Cx. torrentium is the dominant Culex species in Northern Europe, and WNV is predicted to continue its geographic spread towards this area, driven by climate change2,13.
+
+Although Ae. albopictus is not a main WNV vector, it is vector competent for the virus, and WNV has been isolated from field-caught specimens on multiple occasions14. Given its rapid expansion across Europe, understanding its potential role as a bridge vector is important14. In this study, Ae. albopictus was highly susceptible to infection with both WNV lineages. However, Ae. albopictus was not competent for WNV-L1, whereas it transmitted WNV-L2 with the highest TEs (max. 33%) and at significantly higher odds than Cx. pipiens biotype pipiens. This contrasts with other European studies that reported transmission of WNV-L1 by Ae. albopictus29. However, Martinet et al.29 used a higher mean temperature (28 °C) than in this study (24 °C), limiting the comparability of results.
+
+Independent of the tested species, higher body titers were significantly associated with higher odds of transmission for WNV-L2, and all mosquitoes that transmitted WNV-L1 exhibited a high body titer. Similar findings have also been reported for WNV in Cx. theileri where higher viral copies in the body and head were associated with an increased probability of transmission28. In addition, we also observed a clustering of mosquitoes into high and low body titer groups. Large differences in mosquito body titers have been observed for other arboviruses, such as Sindbis virus, and have potentially been linked to differential gene regulation and variation in viral population structures30,31. Similar clustering has also been described for Rift Valley fever virus in Cx. pipiens, where infected mosquitoes with a disseminated infection had higher body titers compared to those in which the infection was restricted to the midgut. Furthermore, transmission was only observed in mosquitoes with higher titers and disseminated infections32. While a similar mechanism may also contribute to the clustering observed in this study, it does not fully explain our findings, as several mosquitoes with lower body titers still transmitted WNV. This suggests that factors other than dissemination contribute to the variation in body titers. However, the underlying causes are not yet fully understood and require further investigation.
+
+In this study, we also determined the MID for each lineage-mosquito-combination. A low MID can not only expand the range of avian hosts17 but may also broaden the transmission window, allowing mosquitoes to become infected not only at peak viremia, but also during its rise and decline in amplifying hosts. This extended window may enhance WNV transmission and thereby increase the risk of spillover to humans. Remarkably, the MIDs showed a clear lineage-specific difference. The MID was considerably lower for WNV-L2, with both Culex species requiring a 100-fold lower dose to transmit L2 (105 TCID50/mL) compared to L1 (107 TCID50/mL). For Ae. albopictus, the gap was even clearer, as transmission was only observed with WNV-L2 (MID = 106 TCID50/mL).
+
+Previous findings on the MID of WNV-L2 in Ae. albopictus are comparable to ours. Only 107 and 105 TCID50/mL as blood meal titers were tested, and the former was reported as MID33. More studies are available for WNV-L1, with the lowest observed MID of 106.7 PFU/mL in Ae. albopictus from France29. This is a stark difference from our findings, where a similar infectious dose did not result in transmission. But again, Martinet et al.29 used a higher incubation temperature than the present study. Studies with Cx. pipiens biotype pipiens and Cx. torrentium use a high blood meal titer (often 107 viral particles/mL) rather than a range of titers, therefore, comparisons on the MID are not feasible27,34,35. Our data suggest that the combination of WNV-L2 and Cx. torrentium may be of particular concern, as this species exhibited both the lowest MID and a high TE. Together with increasingly favorable environmental conditions, this could contribute to the spread of WNV-L2 in Europe.
+
+Future work should include multiple viral strains of each lineage to distinguish lineage-specific differences from strain-specific ones. Additionally, mosquitoes from different regions should be included to assess the influence of different populations on vector competence and MID. Only a subset of the field-caught mosquitoes was screened for pre-existing WNV infections, as it is not possible to test those individual mosquitoes selected for experimental exposure. Therefore, it is impossible to exclude a pre-existing WNV infection with complete certainty. Caution is needed when comparing experimental MIDs to natural viremias, as infection and transmission can differ substantially between live hosts and artificial systems36,37. For example, one study on St. Louis encephalitis virus found that the infection threshold in Cx. quinquefasciatus was 10,000-fold lower when fed on viremic chicks compared to an artificial feeding system37. Additionally, TEs measured via artificial salivation have been shown to potentially underestimate the natural transmission potential38. Detection of viral RNA by RT-qPCR does not necessarily prove that a mosquito is infected. However, all mosquitoes in this study were analyzed 14 days post-exposure, making it unlikely that residual WNV RNA from the infectious blood meal was detected. A previous study demonstrated that mosquitoes fed with inactivated Usutu virus, a closely related flavivirus, showed no detectable viral RNA in any body tissue or saliva at 7 days post-exposure39.
+
+Furthermore, infectious viral particles were detected in the saliva of one mosquito despite testing negative for WNV RNA in the body. This individual was excluded from the analysis as a biological explanation is lacking. Several previous studies have reported similar discrepancies between infection, dissemination, and transmission results, and have hypothesized that the virus may be cleared partially or completely within the mosquito39–41. However, there is currently insufficient evidence to conclusively determine the cause of this observation. Importantly, exclusion or inclusion of this specimen does not meaningfully affect the IR, TE, MIDs, or the overall conclusions of this study.
+
+In conclusion, this study provides a comprehensive assessment of the infection dynamics of the tested WNV lineages in native European Cx. pipiens biotype pipiens and Cx. torrentium, as well as the invasive Ae. albopictus. Distinct viral lineage- and mosquito species-specific differences were observed. WNV-L2 infection consistently resulted in higher TE and lower MIDs across all mosquito species compared to WNV-L1. Among the two tested Culex species, Cx. torrentium stood out as a particularly efficient vector for WNV-L2, highlighting a need for closer monitoring. Overall, this study strengthens our understanding of how viral lineage, mosquito species, and blood meal titer interact.
+
+Materials and methods
+
+Origins of mosquitoes, viruses, and cells
+
+Three mosquito species were tested: Ae. albopictus, Cx. pipiens biotype pipiens and Cx. torrentium. The Ae. albopictus colony was established in 2016/17 from eggs collected in Freiburg, Germany. For both Culex species, egg rafts were field-collected in northern Germany (Lat: 53.467821, Long: 9.831346) in 2024 and 2025. Each egg raft was reared individually at 21 °C, and five to 10 larvae were used to molecularly determine the species and biotype, as described by Rudolf et al.42. Ten adults of each field-caught species were screened for underlying Orthoflavi-, Orthobunya-, and Alphavirus infections using pan-PCRs43–45 and confirmed negative. All adult mosquitoes were kept at 70% relative humidity, 26 °C, and a 12 h:12 h light:dark photoperiod, including 30 min of twilight each. Mosquitoes were fed an 8% fructose solution ad libitum. Two WNV strains were used: WNV strain TOS-09 of L1, isolated in 2008 from a human in Ferrera, Italy (accession no. HM641225, 7th passage, titer: 8.9 × 108 50% tissue culture infectious dose (TCID50) /mL), and WNV strain 1382 of L2, isolated in 2018 from a blackbird in Berlin, Germany (accession no. MH986055, 6th passage, titer: 6.7 × 109 TCID50/mL)46. Virus propagation and detection of infectious viral particles were performed using Vero cells (Chlorocebus sabaeus, ATCC, CCL-81).
+
+Infection and salivation of mosquitoes
+
+Female mosquitoes (2–15 days old) were deprived of food and water for 24 h (Aedes) or 48 h (Culex) prior to an artificial blood meal (50% human blood preservations (type 0), 30% of an 8% fructose solution, 10% fetal bovine serum, 10% virus suspension) for 2 h via two 50 µL drops and two saturated cotton swabs per tube47. Mosquitoes were housed in 50 mm × 100 mm cylindrical plastic tubes with corresponding plugs (Carl Roth; Karlsruhe, Germany) at a maximum density of 20 mosquitoes. All mosquito species were fed blood meals with 105, 106, and 107 TCID50/mL of either WNV lineage, corresponding to viremia levels commonly found in wild birds17. Culex torrentium was additionally fed with a blood meal containing 104 TCID50/mL WNV-L2, as there was still transmission observed at 105 TCID50/mL. Fully engorged mosquitoes were incubated at 70% relative humidity, with a 12 h:12 h light:dark photoperiod, and at 24 °C with a ± 5 °C fluctuation to simulate the natural daily light and temperature change. A diurnal temperature fluctuation of approximately 10 °C can be observed during the summer months, i.e., the WNV transmission season, in Germany48. The temperature extrema were synchronized with the corresponding light and dark phases. An 8% fructose solution was available ad libitum. After 14 days, a salivation assay was performed as previously described47. Briefly, wings and legs were removed, and the proboscis was inserted into a capillary tube containing 10 µL phosphate-buffered saline for 30 min. To detect infectious viral particles in the saliva, the saliva solution was placed on Vero cells and incubated (37 °C; 5% CO2) for 7 days. For each experimental condition (viral lineage, mosquito species, blood meal titer), the aim was to analyze 30 mosquito specimens, allowing the identification of TE of ≥ 3%.
+
+Downstream processing and detection of WNV RNA
+
+Mosquito bodies, excluding wings and legs, were homogenized individually in 500 µL medium and subjected to RNA extraction using the MagMAX CORE Nucleic Acid Purification Kit (Applied Biosystems; USA). If cells exposed to mosquito saliva showed a cytopathic effect, RNA of the supernatant was extracted using the QIAmp Viral RNA Mini Kit (Qiagen; Germany). All RNA samples were analyzed using the RealStar WNV RT-PCR Kit 2.0 (altona Diagnostics; Germany). Each RT-qPCR run included no-template controls and a dilution series of NY99-WNV RNA of known concentration (altona Diagnostics; Germany), which served as both a positive control and standard calibrator for quantification. No amplification was observed in any no-template control. Ten RT-qPCR runs were performed to quantify viral body titers. The standard curves showed an average slope of −3.17 ± 0.15, resulting in a mean efficiency of approximately 107%. Overall, this assay demonstrated good performance. RNA from the mosquito bodies was used to quantify the viral RNA per mosquito. Mosquitoes with a concentration of ≥ 100 viral RNA copies per mosquito body were classified as positive for WNV-specific RNA. Samples that fell below this threshold were excluded from all subsequent analysis. RNA from the cell supernatants was used to confirm WNV as the causative agent of the cytopathic effect.
+
+Data analysis
+
+All calculations, visualizations, and model fitting were performed in R version 4.5.149 using RStudio version 2025.09.1 + 40150 with the packages tidyverse51 and glmmTMB52,53. The IR was calculated as the number of WNV-positive bodies divided by the total number of blood-fed mosquitoes analyzed per condition. To determine the TE, the number of mosquitoes with WNV-positive saliva was divided by the total number of blood-fed mosquitoes analyzed per condition.
+
+To assess the influence of various predictors on the likelihood of positive infection, and on the body titer (viral RNA copies per mosquito), separate hurdle models were fitted for WNV-L1 and WNV-L2. A hurdle model was chosen due to a large proportion of body titers being zero (i.e. no infection), it overcomes this by separating the analysis into two components: (i) the binary component (zero-inflation) models the probability of detecting viral RNA (i.e. positive infection) using logistic regression with binomial distribution, and (ii) the continuous component analyses the effects on the body titers, which were log10-transformed allowing the use of a linear regression with Gaussian distribution. Mosquito species and blood meal titer (log10-transformed) were chosen as predictors for both components of the hurdle models. To convert the outputs of the binary components from likelihood of non-infection to likelihood of infection, the results were inverted. Model diagnostics were performed and indicated a good fit for both models. Pearson residual-based dispersion of the continuous component was 1.12 for the WNV-L1 model and 1.5 for the WNV-L2 model, demonstrating mild to moderate overdispersion. Multicollinearity was assessed, with variance inflation factors of the (i) zero-inflated component being 1.03 for the WNV-L1 model and 1.07 for the WNV-L2 model, and of the (ii) continuous component being 1.12 for the WNV-L1 model and 1.03 for the WNV-L2 model, indicating no relevant collinearity among predictors in either model.
+
+To assess the influence of different factors on the likelihood of detecting positive transmission, a generalized linear model (GLM) with a binomial distribution and logit link function was fitted for WNV-L2. Transmission outcome was taken as the binary response variable, and mosquito species, blood meal titer (log10-transformed), and body titer (log10-transformed) were used as fixed effects. Model diagnostics were performed and indicated a good fit. Pearson residual-based dispersion was 0.31, demonstrating no overdispersion. Multicollinearity was assessed, with variance inflation factors ranging from 1.00 to 1.22, indicating no relevant collinearity among predictors.
+
+For all models, Ae. albopictus was set as reference species. The value 1 was added to all body titers to allow log10-transformation of all observations. Model output estimates of the logistic regression models (likelihood of transmission, likelihood of infection) were exponentiated to obtain odds ratios, and 95% confidence intervals were calculated to allow better interpretation of the results. Coefficients from the linear component of the hurdle model were not exponentiated, as the viral body titer is a continuous variable.
+
+Supplementary Information
+
+Below is the link to the electronic supplementary material.
+
+Supplementary Material 1.
+
+Supplementary Material 2.
+
+Acknowledgements
+
+The authors thank Amrei Mack and Unchana Lange (BNITM) for their excellent technical assistance and help in the arthropod breeding facility. We thank Giada Rossini (University of Bologna, Italy) for providing the WNV TOS-09 isolate. This work has previously been published as a preprint under: Höller P, Sauer FG, Lühken R, et al. Not all West Nile virus lineages behave alike: vector competence and minimum infectious dose differences between lineages 1 and 2. bioRxiv; 2026. p. 2026.02.03.700853. Available from: 10.64898/2026.02.03.700853v1.
+
+Author contributions
+
+Conceptualization: S.J., A.H.; Methodology: P.H.; Formal analysis: P.H., F.G.S.; Original draft preparation: P.H.; Review and editing: all authors; Funding acquisition: J.S.C., A.H., R.L.; Resources: R.L., N.B.; Supervision: A.H., S.J.; All authors have read and agreed to the published version of the manuscript.
+
+Funding
+
+Open Access funding enabled and organized by Projekt DEAL. This study is part of the CuliFo3 project (grant number FKZ2819107A22) funded by the German Federal Ministry of Agriculture, Food and Regional Identity through the Federal Office for Agriculture and Food; and the German Federal Ministry of Research, Technology and Space under the project NEED and CIMT (grant number 01Kl2022). FGS received funding of the Klaus Tschira Boost Fund, a joint initiative of GSO – Guidance, Skills & Opportunities e.V. and Klaus Tschira Stiftung.
+
+Data availability
+
+The data supporting the findings of this study are available within the article and its supplementary materials. Supplementary Table 1 shows feeding and survival rates. Supplementary Table 2shows all individual mosquitoes analyzed, their infection and transmission statuses, and their body titers.
+
+Declarations
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher’s note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+
+References
+
+1. International Committee on Taxonomy of Viruses. Genus: Orthoflavivirus | ICTV. https://ictv.global/report/chapter/flaviviridae/flaviviridae/orthoflavivirus.
+2. Farooq Z European projections of West Nile virus transmission under climate change scenarios One Health 2023 16 100509 10.1016/j.onehlt.2023.100509 37363233 PMC10288058
+Z Farooq 2023 European projections of West Nile virus transmission under climate change scenarios One Health 16 10050937363233 10.1016/j.onehlt.2023.100509 PMC10288058
+3. Erazo D Contribution of climate change to the spatial expansion of West Nile virus in Europe Nat. Commun. 2024 15 1196 10.1038/s41467-024-45290-3 38331945 PMC10853512
+D Erazo 2024 Contribution of climate change to the spatial expansion of West Nile virus in Europe Nat. Commun. 15 119638331945 10.1038/s41467-024-45290-3 PMC10853512
+4. Dohm DJ O’Guinn ML Turell MJ Effect of environmental temperature on the ability of Culex pipiens (Diptera: Culicidae) to transmit West Nile virus J. Med. Entomol. 2002 39 221 225 10.1603/0022-2585-39.1.221 11931261
+DJ Dohm ML O’Guinn MJ Turell 2002 Effect of environmental temperature on the ability of Culex pipiens (Diptera: Culicidae) to transmit West Nile virus J. Med. Entomol. 39 221 22511931261 10.1603/0022-2585-39.1.221
+5. European Centre for Disease Prevention and Control. Factsheet about West Nile virus infection. https://www.ecdc.europa.eu/en/west-nile-fever/facts (2023).
+6. Ronca SE Ruff JC Murray KO A 20-year historical review of West Nile virus since its initial emergence in North America: Has West Nile virus become a neglected tropical disease? PLoS Negl. Trop. Dis. 2021 15 e0009190 10.1371/journal.pntd.0009190 33956816 PMC8101735
+SE Ronca JC Ruff KO Murray 2021 A 20-year historical review of West Nile virus since its initial emergence in North America: Has West Nile virus become a neglected tropical disease? PLoS Negl. Trop. Dis. 15 e000919033956816 10.1371/journal.pntd.0009190 PMC8101735
+7. European Centre for Disease Prevention and Control (ECDC). West Nile virus infection Annual Epidemiological Report for 2018. (2019).
+8. European Centre for Disease Prevention and Control. Monthly updates: Seasonal surveillance in humans and animals in 2025 for West Nile virus October 2025. https://www.ecdc.europa.eu/en/infectious-disease-topics/west-nile-virus-infection/surveillance-and-disease-data/monthly-updates (2025).
+9. Wu P Yu X Wang P Cheng G Arbovirus lifecycle in mosquito: Acquisition, propagation and transmission Expert Rev. Mol. Med. 2019 21 e1 10.1017/erm.2018.6 30862324
+P Wu X Yu P Wang G Cheng 2019 Arbovirus lifecycle in mosquito: Acquisition, propagation and transmission Expert Rev. Mol. Med. 21 e130862324 10.1017/erm.2018.6
+10. Möhlmann TWR Community analysis of the abundance and diversity of mosquito species (Diptera: Culicidae) in three European countries at different latitudes Parasit. Vectors 2017 10 510 10.1186/s13071-017-2481-1 29061177 PMC5653988
+TWR Möhlmann 2017 Community analysis of the abundance and diversity of mosquito species (Diptera: Culicidae) in three European countries at different latitudes Parasit. Vectors 10 51029061177 10.1186/s13071-017-2481-1 PMC5653988
+11. Becker N Die Stechmücken Deutschlands: Biologie, Medizinische Relevanz, Forschung, Taxonomie, Bestimmung und Bekämpfung 2025 Springer
+N Becker 2025 Die Stechmücken Deutschlands: Biologie, Medizinische Relevanz, Forschung, Taxonomie, Bestimmung und Bekämpfung Springer
+12. Wehmeyer ML Host attraction and host feeding patterns indicate generalist feeding of Culex pipiens s.s. and Cx. torrentium Parasit. Vectors 2024 17 369 10.1186/s13071-024-06439-7 39215365 PMC11363403
+ML Wehmeyer 2024 Host attraction and host feeding patterns indicate generalist feeding of Culex pipiens s.s. and Cx. torrentium Parasit. Vectors 17 36939215365 10.1186/s13071-024-06439-7 PMC11363403
+13. Hesson JC The arbovirus vector Culex torrentium is more prevalent than Culex pipiens in northern and central Europe Med. Vet. Entomol. 2014 28 179 186 10.1111/mve.12024 23947434
+JC Hesson 2014 The arbovirus vector Culex torrentium is more prevalent than Culex pipiens in northern and central Europe Med. Vet. Entomol. 28 179 18623947434 10.1111/mve.12024
+14. European Centre for Disease Prevention and Control. Aedes albopictus - Factsheet for experts. https://www.ecdc.europa.eu/en/disease-vectors/facts/mosquito-factsheets/aedes-albopictus (2016).
+15. Lu L West Nile virus spread in Europe: Phylogeographic pattern analysis and key drivers PLoS Pathog. 2024 20 e1011880 10.1371/journal.ppat.1011880 38271294 PMC10810478
+L Lu 2024 West Nile virus spread in Europe: Phylogeographic pattern analysis and key drivers PLoS Pathog. 20 e101188038271294 10.1371/journal.ppat.1011880 PMC10810478
+16. Mencattelli G Spatial and temporal dynamics of West Nile virus between Africa and Europe Nat. Commun. 2023 14 6440 10.1038/s41467-023-42185-7 37833275 PMC10575862
+G Mencattelli 2023 Spatial and temporal dynamics of West Nile virus between Africa and Europe Nat. Commun. 14 644037833275 10.1038/s41467-023-42185-7 PMC10575862
+17. Pérez-Ramírez E Llorente F Jiménez-Clavero MÁ Experimental infections of wild birds with West Nile virus Viruses 2014 6 752 781 10.3390/v6020752 24531334 PMC3939481
+E Pérez-Ramírez F Llorente MÁ Jiménez-Clavero 2014 Experimental infections of wild birds with West Nile virus Viruses 6 752 78124531334 10.3390/v6020752 PMC3939481
+18. VanDalen KK Hall JS Clark L McLean RG Smeraski C West Nile virus infection in American robins: New insights on dose response PLoS ONE 2013 8 e68537 10.1371/journal.pone.0068537 23844218 PMC3699668
+KK VanDalen JS Hall L Clark RG McLean C Smeraski 2013 West Nile virus infection in American robins: New insights on dose response PLoS ONE 8 e6853723844218 10.1371/journal.pone.0068537 PMC3699668
+19. Komar N Experimental infection of North American birds with the New York 1999 strain of West Nile virus Emerg. Infect. Dis. 2003 9 311 322 10.3201/eid0903.020628 12643825 PMC2958552
+N Komar 2003 Experimental infection of North American birds with the New York 1999 strain of West Nile virus Emerg. Infect. Dis. 9 311 32212643825 10.3201/eid0903.020628 PMC2958552
+20. Davis, E. et al. Evidence of lineage 1 and 3 West Nile virus in person with neuroinvasive disease, Nebraska, USA, 2023. Emerg. Infect. Dis. 30, (2024).10.3201/eid3010.240595 PMC11431902 39320165
+21. Anderson SL Richards SL Tabachnick WJ Smartt CT Effects of West Nile virus dose and extrinsic incubation temperature on temporal progression of vector competence in Culex pipiens quinquefasciatus J. Am. Mosq. Control Assoc. 2010 26 103 107 10.2987/09-5926.1 20402358 PMC2858365
+SL Anderson SL Richards WJ Tabachnick CT Smartt 2010 Effects of West Nile virus dose and extrinsic incubation temperature on temporal progression of vector competence in Culex pipiens quinquefasciatus J. Am. Mosq. Control Assoc. 26 103 10720402358 10.2987/09-5926.1 PMC2858365
+22. Goddard LB Roth AE Reisen WK Scott TW Vector competence of California mosquitoes for West Nile virus Emerg. Infect. Dis. 2002 10.3201/eid0812.020536 12498652 PMC2738502
+LB Goddard AE Roth WK Reisen TW Scott 2002 Vector competence of California mosquitoes for West Nile virus Emerg. Infect. Dis. 10.3201/eid0812.02053612498652 10.3201/eid0812.020536 PMC2738502
+23. Vanlandingham DL Short report: Comparison of oral infectious dose of West Nile virus isolates representing three distinct genotypes in Culex quinquefasciatus Am. J. Trop. Med. Hyg. 2008 79 951 954 10.4269/ajtmh.2008.79.951 19052310 PMC2699256
+DL Vanlandingham 2008 Short report: Comparison of oral infectious dose of West Nile virus isolates representing three distinct genotypes in Culex quinquefasciatus Am. J. Trop. Med. Hyg. 79 951 95419052310 PMC2699256
+24. Beranek MD Giayetto O Fischer S Diaz A Assessment of Mayaro virus vector competence of the mosquito Aedes aegypti (Linnaeus, 1762) populations in Argentine using dose–response assays Med. Vet. Entomol. 2024 38 234 243 10.1111/mve.12712 38489505
+MD Beranek O Giayetto S Fischer A Diaz 2024 Assessment of Mayaro virus vector competence of the mosquito Aedes aegypti (Linnaeus, 1762) populations in Argentine using dose–response assays Med. Vet. Entomol. 38 234 24338489505 10.1111/mve.12712
+25. Althouse BM Hanley KA The tortoise or the hare? Impacts of within-host dynamics on transmission success of arthropod-borne viruses Philos. Trans. Royal Soc. B: Biol. Sci. 2015 370 20140299 10.1098/rstb.2014.0299 PMC4528497 26150665
+BM Althouse KA Hanley 2015 The tortoise or the hare? Impacts of within-host dynamics on transmission success of arthropod-borne viruses Philos. Trans. Royal Soc. B: Biol. Sci. 370 2014029910.1098/rstb.2014.0299 PMC4528497 26150665
+26. Holicki CM West Nile virus lineage 2 vector competence of indigenous Culex and Aedes mosquitoes from Germany at temperate climate conditions Viruses 2020 12 561 10.3390/v12050561 32438619 PMC7291008
+CM Holicki 2020 West Nile virus lineage 2 vector competence of indigenous Culex and Aedes mosquitoes from Germany at temperate climate conditions Viruses 12 56132438619 10.3390/v12050561 PMC7291008
+27. Jansen S Vector competence of Northern European Culex pipiens biotype pipiens and Culex torrentium to West Nile virus and Sindbis virus Viruses 2023 15 592 10.3390/v15030592 36992301 PMC10056470
+S Jansen 2023 Vector competence of Northern European Culex pipiens biotype pipiens and Culex torrentium to West Nile virus and Sindbis virus Viruses 15 59236992301 10.3390/v15030592 PMC10056470
+28. Burgas-Pau A Laboratory evidence on the vector competence of European field-captured Culex theileri for circulating West Nile virus lineages 1 and 2 Parasit. Vectors 2025 18 132 10.1186/s13071-025-06763-6 40188104 PMC11971848
+A Burgas-Pau 2025 Laboratory evidence on the vector competence of European field-captured Culex theileri for circulating West Nile virus lineages 1 and 2 Parasit. Vectors 18 13240188104 10.1186/s13071-025-06763-6 PMC11971848
+29. Martinet J-P Assessing vector competence of mosquitoes from northeastern France to West Nile virus and Usutu virus PLoS Negl. Trop. Dis. 2023 17 e0011144 10.1371/journal.pntd.0011144 37276229 PMC10270612
+J-P Martinet 2023 Assessing vector competence of mosquitoes from northeastern France to West Nile virus and Usutu virus PLoS Negl. Trop. Dis. 17 e001114437276229 10.1371/journal.pntd.0011144 PMC10270612
+30. Hodoameda P Ebel GD Mukhopadhyay S Clem RJ Extreme infectious titer variability in individual Aedes aegypti mosquitoes infected with Sindbis virus is associated with both differences in virus population structure and dramatic disparities in specific infectivity PLoS Pathog. 2024 20 e1012047 10.1371/journal.ppat.1012047 38412195 PMC10923411
+P Hodoameda GD Ebel S Mukhopadhyay RJ Clem 2024 Extreme infectious titer variability in individual Aedes aegypti mosquitoes infected with Sindbis virus is associated with both differences in virus population structure and dramatic disparities in specific infectivity PLoS Pathog. 20 e101204738412195 10.1371/journal.ppat.1012047 PMC10923411
+31. Hodoameda P Ditter RE Santos SR Clem RJ Differing transcriptomic responses in high titer versus low titer Aedes aegypti mosquitoes after oral infection with Sindbis virus Viruses 2024 16 1487 10.3390/v16091487 39339963 PMC11437473
+P Hodoameda RE Ditter SR Santos RJ Clem 2024 Differing transcriptomic responses in high titer versus low titer Aedes aegypti mosquitoes after oral infection with Sindbis virus Viruses 16 148739339963 10.3390/v16091487 PMC11437473
+32. Turell MJ Gargan TP Bailey CL Replication and dissemination of Rift Valley fever virus in Culex pipiens Am. J. Trop. Med. Hyg. 1984 33 176 181 10.4269/ajtmh.1984.33.176 6696176
+MJ Turell TP Gargan CL Bailey 1984 Replication and dissemination of Rift Valley fever virus in Culex pipiens Am. J. Trop. Med. Hyg. 33 176 1816696176 10.4269/ajtmh.1984.33.176
+33. Brustolin M Culex pipiens and Stegomyia albopicta (= Aedes albopictus) populations as vectors for lineage 1 and 2 West Nile virus in Europe Med. Vet. Entomol. 2016 30 166 173 10.1111/mve.12164 26890285
+M Brustolin 2016 Culex pipiens and Stegomyia albopicta (= Aedes albopictus) populations as vectors for lineage 1 and 2 West Nile virus in Europe Med. Vet. Entomol. 30 166 17326890285 10.1111/mve.12164
+34. Leggewie M Culex pipiens and Culex torrentium populations from Central Europe are susceptible to West Nile virus infection One Health 2016 2 88 94 10.1016/j.onehlt.2016.04.001 28616480 PMC5462652
+M Leggewie 2016 Culex pipiens and Culex torrentium populations from Central Europe are susceptible to West Nile virus infection One Health 2 88 9428616480 10.1016/j.onehlt.2016.04.001 PMC5462652
+35. Vogels CB Göertz GP Pijlman GP Koenraadt CJ Vector competence of European mosquitoes for West Nile virus Emerg. Microbes Infect. 2017 6 e96 10.1038/emi.2017.82 29116220 PMC5717085
+CB Vogels GP Göertz GP Pijlman CJ Koenraadt 2017 Vector competence of European mosquitoes for West Nile virus Emerg. Microbes Infect. 6 e9629116220 10.1038/emi.2017.82 PMC5717085
+36. Olajiga OM Artificial feeding systems for vector-borne disease studies Biology 2024 13 188 10.3390/biology13030188 38534457 PMC10967833
+OM Olajiga 2024 Artificial feeding systems for vector-borne disease studies Biology 13 18838534457 10.3390/biology13030188 PMC10967833
+37. Meyer RP Hardy JL Presser SB Comparative vector competence of Culex tarsalis and Culex quinquefasciatus from the Coachella, Imperial, and San Joaquin valleys of California for St. Louis encephalitis virus Am. J. Trop. Med. Hyg. 1983 32 305 311 10.4269/ajtmh.1983.32.305 6301301
+RP Meyer JL Hardy SB Presser 1983 Comparative vector competence of Culex tarsalis and Culex quinquefasciatus from the Coachella, Imperial, and San Joaquin valleys of California for St. Louis encephalitis virus Am. J. Trop. Med. Hyg. 32 305 3116301301 10.4269/ajtmh.1983.32.305
+38. Gloria-Soria A Brackney DE Armstrong PM Saliva collection via capillary method may underestimate arboviral transmission by mosquitoes Parasit. Vectors 2022 15 103 10.1186/s13071-022-05198-7 35331315 PMC8944160
+A Gloria-Soria DE Brackney PM Armstrong 2022 Saliva collection via capillary method may underestimate arboviral transmission by mosquitoes Parasit. Vectors 15 10335331315 10.1186/s13071-022-05198-7 PMC8944160
+39. Krambrich J Bole-Feysot E Höller P Lundkvist Å Hesson JC Vector competence of Swedish Culex pipiens mosquitoes for Usutu virus One Health 2024 18 100707 10.1016/j.onehlt.2024.100707 38500563 PMC10945277
+J Krambrich E Bole-Feysot P Höller Å Lundkvist JC Hesson 2024 Vector competence of Swedish Culex pipiens mosquitoes for Usutu virus One Health 18 10070738500563 10.1016/j.onehlt.2024.100707 PMC10945277
+40. Chapman GE Laboratory transmission potential of British mosquitoes for equine arboviruses Parasit. Vectors 2020 13 413 10.1186/s13071-020-04285-x 32787904 PMC7425075
+GE Chapman 2020 Laboratory transmission potential of British mosquitoes for equine arboviruses Parasit. Vectors 13 41332787904 10.1186/s13071-020-04285-x PMC7425075
+41. Pilgrim J UK mosquitoes are competent to transmit Usutu virus at native temperatures One Health 2024 19 100916 10.1016/j.onehlt.2024.100916 39497950 PMC11532274
+J Pilgrim 2024 UK mosquitoes are competent to transmit Usutu virus at native temperatures One Health 19 10091639497950 10.1016/j.onehlt.2024.100916 PMC11532274
+42. Rudolf M First nationwide surveillance of Culex pipiens complex and Culex torrentium mosquitoes demonstrated the presence of Culex pipiens biotype pipiens/molestus hybrids in Germany PLoS ONE 2013 8 e71832 10.1371/journal.pone.0071832 24039724 PMC3770594
+M Rudolf 2013 First nationwide surveillance of Culex pipiens complex and Culex torrentium mosquitoes demonstrated the presence of Culex pipiens biotype pipiens/molestus hybrids in Germany PLoS ONE 8 e7183224039724 10.1371/journal.pone.0071832 PMC3770594
+43. Chao D-Y Davis BS Chang G-JJ Development of multiplex real-time reverse transcriptase PCR assays for detecting eight medically important flaviviruses in mosquitoes J. Clin. Microbiol. 2007 45 584 589 10.1128/JCM.00842-06 17108075 PMC1829073
+D-Y Chao BS Davis G-JJ Chang 2007 Development of multiplex real-time reverse transcriptase PCR assays for detecting eight medically important flaviviruses in mosquitoes J. Clin. Microbiol. 45 584 58917108075 10.1128/JCM.00842-06 PMC1829073
+44. Lambert AJ Lanciotti RS Consensus amplification and novel multiplex sequencing method for S segment species identification of 47 viruses of the Orthobunyavirus, Phlebovirus, and Nairovirus genera of the family Bunyaviridae J. Clin. Microbiol. 2009 47 2398 2404 10.1128/JCM.00182-09 19535518 PMC2725646
+AJ Lambert RS Lanciotti 2009 Consensus amplification and novel multiplex sequencing method for S segment species identification of 47 viruses of the Orthobunyavirus, Phlebovirus, and Nairovirus genera of the family Bunyaviridae J. Clin. Microbiol. 47 2398 240419535518 10.1128/JCM.00182-09 PMC2725646
+45. Eshoo MW Direct broad-range detection of alphaviruses in mosquito extracts Virology 2007 368 286 295 10.1016/j.virol.2007.06.016 17655905
+MW Eshoo 2007 Direct broad-range detection of alphaviruses in mosquito extracts Virology 368 286 29517655905 10.1016/j.virol.2007.06.016
+46. Ziegler U West Nile virus epizootic in Germany, 2018 Antivir. Res. 2019 162 39 43 10.1016/j.antiviral.2018.12.005 30550796
+U Ziegler 2019 West Nile virus epizootic in Germany, 2018 Antivir. Res. 162 39 4330550796 10.1016/j.antiviral.2018.12.005
+47. Heitmann, A. et al. Forced salivation as a method to analyze vector competence of mosquitoes. J. Vis. Exp. (2018).10.3791/57980 PMC6126663 30148488
+48. Osborn, T. Climate observations - diurnal temperature range. https://crudata.uea.ac.uk/~timo/climgen/national/web/Germany/obs_dtr.htm (2016).
+49. R Core Team. R: A Language and Environment for Statistical Computing. (R Foundation for Statistical Computing, Vienna, Austria, 2024).
+50. Posit team. RStudio: Integrated Development Environment for R. (Posit Software, PBC, Boston, MA, 2025).
+51. Wickham H Welcome to the tidyverse J. Open Source Softw. 2019 4 1686 10.21105/joss.01686
+H Wickham 2019 Welcome to the tidyverse J. Open Source Softw. 4 1686
+52. Brooks ME GlmmTMB balances speed and flexibility among packages for zero-inflated generalized linear mixed modeling R J. 2017 9 378 400 10.32614/RJ-2017-066
+ME Brooks 2017 GlmmTMB balances speed and flexibility among packages for zero-inflated generalized linear mixed modeling R J. 9 378 400
+53. McGillycuddy M Popovic G Bolker BM Warton DI Parsimoniously fitting large multivariate random effects in glmmTMB J. Stat. Softw. 2025 112 1 19 10.18637/jss.v112.i01
+M McGillycuddy G Popovic BM Bolker DI Warton 2025 Parsimoniously fitting large multivariate random effects in glmmTMB J. Stat. Softw. 112 1 19

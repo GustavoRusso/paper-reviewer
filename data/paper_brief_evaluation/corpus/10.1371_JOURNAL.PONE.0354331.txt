@@ -1,0 +1,332 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: PLoS One
+Journal ID: PLoS One
+NLM Journal ID: 101285081
+Journal ID: plos
+
+PLOS One
+
+EISSN: 1932-6203
+Publisher: PLOS
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13446685
+PMID: 42560975
+DOI: 10.1371/journal.pone.0354331
+Article ID: PONE-D-26-05946
+Article version: 1
+Subjects: Research Article, Biology and life sciences, Organisms, Viruses, RNA viruses, Flaviviruses, West Nile virus, Biology and life sciences, Microbiology, Medical microbiology, Microbial pathogens, Viral pathogens, Flaviviruses, West Nile virus, Medicine and health sciences, Pathology and laboratory medicine, Pathogens, Microbial pathogens, Viral pathogens, Flaviviruses, West Nile virus, Biology and life sciences, Organisms, Viruses, Viral pathogens, Flaviviruses, West Nile virus, Biology and Life Sciences, Population Biology, Population Metrics, Death Rates, Biology and Life Sciences, Organisms, Eukaryota, Animals, Vertebrates, Amniotes, Birds, Biology and Life Sciences, Zoology, Animals, Vertebrates, Amniotes, Birds, Biology and Life Sciences, Microbiology, Microbial Evolution, Viral Evolution, Biology and Life Sciences, Evolutionary Biology, Organismal Evolution, Microbial Evolution, Viral Evolution, Biology and Life Sciences, Microbiology, Virology, Viral Evolution, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Disease Vectors, Insect Vectors, Mosquitoes, Biology and Life Sciences, Species Interactions, Disease Vectors, Insect Vectors, Mosquitoes, Biology and Life Sciences, Zoology, Entomology, Insects, Mosquitoes, Biology and Life Sciences, Organisms, Eukaryota, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Biology and Life Sciences, Zoology, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Infectious Disease Control, Biology and Life Sciences, Evolutionary Biology, Evolutionary Processes, Evolutionary Rate, Biology and Life Sciences, Psychology, Behavior, Animal Behavior, Animal Migration, Social Sciences, Psychology, Behavior, Animal Behavior, Animal Migration, Biology and Life Sciences, Zoology, Animal Behavior, Animal Migration
+
+Finite-time stability of the West Nile Virus model with Brownian motion
+
+Finite-time stability of the West Nile Virus model
+
+https://orcid.org/0000-0003-4412-8308 Chang Kangkang Conceptualization Formal analysis Writing – original draft Writing – review & editing ¤ *
+School of Mathematics and Statistics, Xinxiang University, Xinxiang, Henan, P.R. China
+Sánchez Granero Miguel Angel Editor
+Universidad de Almeria, SPAIN
+* E-mail: changkangkang86@sina.comCompeting Interests: The authors have declared that no competing interests exist.
+
+¤ Current address: School of Mathematics and Statistics, Xinxiang University, Xinxiang, Henan, P.R. China
+
+Electronic publication date: 2026 Aug 6
+Publication date: 2026
+Volume: 21
+Issue: 8
+Electronic Location ID: e0354331
+Received 2026 Feb 3; Accepted 2026 Jul 6
+Copyright: © 2026 Kangkang Chang
+Copyright year: 2026
+Copyright holder: Kangkang Chang
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Funding: Supported by Natural Science Foundation of Henan 262300420312 https://orcid.org/0000-0003-4412-8308 Chang Kangkang Startup Foundation for Doctors of Xinxiang University 1366020229 https://orcid.org/0000-0003-4412-8308 Chang Kangkang The research was Supported by Natural Science Foundation of Henan (No.262300420312, received by KC) and the Startup Foundation for Doctors of Xinxiang University (No.1366020229, received by KC).
+
+Figure count: 25
+Table count: 2
+Page count: 21
+Data Availability: All relevant data are within the manuscript.
+
+Data Availability
+
+All relevant data are within the manuscript.
+
+==============================
+West Nile virus disease is an acute infectious illness caused by infection with the West Nile virus, which was first isolated from the blood of a febrile patient in the West Nile region of Uganda in 1937. In recent decades, West Nile fever has continued to expand across endemic regions globally, with no specific antiviral treatment or vaccine currently available for prevention. This study examines the finite-time stability of a stochastic West Nile virus model. Initially, the boundedness, existence and uniqueness of the solution are established. Furthermore, by constructing a Lyapunov function and utilizing the Gronwall inequality, a sufficient condition for the finite-time stability of the West Nile virus model is derived. Finally, numerical simulations are conducted to verify the theoretical results, and the influence of noise intensity, mortality rates and transmission rates on the finite-time stability of the model are analyzed. The results show that the lower the noise intensity and transmission rates, the greater the mortality rates, and the better the system can achieve finite-time stability.
+
+1. Introduction
+
+West Nile virus is a zoonotic disease caused by infection with the West Nile virus, primarily affecting birds, humans, and mammals such as horses and cattle. Birds serve as reservoir hosts for the virus, while humans are predominantly infected through the bites of infected mosquitoes. In 2023, cases of West Nile virus infection were reported in several countries across Europe and the United States, with Italy documenting a total of 336 cases of West Nile fever, resulting in 29 fatalities (http://m.cz.ithc.cn/article/463053). In 2024, multiple countries have also reported deaths attributed to West Nile virus. According to Israel¡¯s Health Ministry, 913 individuals have been confirmed infected with West Nile virus since the outbreak began in June, with a death toll reaching 70. As of September 11, Greece has recorded 162 cases of West Nile virus infection and 25 deaths. Additionally, recent West Nile virus infections have been reported in multiple European countries, including Greece, Italy, and Spain (http://m.cz.ithc.cn/article/463053). Currently, no specific antiviral treatment or vaccine is available to prevent the West Nile virus. The most straightforward and effective method to mitigate the risk of infection remains the avoidance of mosquito bites.
+
+Mathematical models [1–8] provide an effective approach for analyzing the pathogenesis of West Nile virus. For instance, Bhowmick et al. [1] examined the influence of migratory bird movement patterns on the transmission dynamics of West Nile virus. Zhu et al. [3] developed a West Nile virus model incorporating seasonality and investigated its dynamics along with optimal control strategies. Maliyoni [5] analyzed a stochastic West Nile virus model, deriving the extinction threshold and identifying conditions that determine whether the disease persists or becomes extinct. Baafi and Hurford [7] explored the effects of temperature and rainfall on disease transmission, highlighting regional differences in vector control effectiveness over time.
+
+Previous studies have primarily examined the dynamic behavior of West Nile virus using ordinary differential equation models. Concurrently, numerous researchers have developed diffusion model [9–21] tto further explore disease transmission. Wang et al. [9] investigated the long term behavior of a West Nile virus model with free boundaries. Lin and Zhu [10] incorporated the free boundaries into a reaction-diffusion West Nile model, introducing a spatio-temporal risk index. Xing et al. [12] analyzed a reaction-diffusion West Nile model with spatial heterogeneity, assessing the effects of spatial variation, dispersal rates, advection rate and bird recovery rates on species survival or extinction. Chang et al. [15] examined the dynamical behavior of a nonlocal diffusion West Nile virus model under spatial heterogeneity. Ge et al. [18]evaluated the impact of seasonal fluctuations on virus transmission. We also observe that mosquitoes and birds are highly susceptible to external disturbances. For instance: temperature, humidity, and rainfall can affect the reproductive and survival rates of mosquito vectors; insecticide spraying and vaccination campaigns face uncertainties in their implementation timing and efficacy; bird migration routes may alter disease transmission patterns. These factors collectively highlight the practical significance of investigating stochastic models to better capture the complexity and unpredictability of West Nile Virus dynamics. Up to now, there are many studies on stochastic epidemic models [22,23], but then, there are few papers on the dynamics of stochastic West Nile model models.
+
+Moreover, these studies primarily focused on the long-term behavior of the disease, whereas in practical scenarios, controlling disease progression over a limited time frame is often of greater concern, namely, finite-time stability. Finite-time stability is an effective method for analyzing the transient response of systems, proposed by Dorato in 1961 [24]. If, under given initial condition constraints, the system state remains within a specified threshold during a predefined time interval, the system is considered finite-time stability. So far, some researchers have devoted efforts to the study of finite-time stability [24–29]. But, the finite-time stability analysis of stochastic West Nile Virus model has not yet been thoroughly investigated, which motivates the research presented in this paper. This study focuses on the finite-time stability of a West Nile virus model, investigating disease progression within a constrained period. The main contributions of this research are as follows: (1) To account for the influence of weather and temperature variations on disease transmission, stochastic noise is incorporated into the model. (2) A sufficient condition or the finite-time stability of the West Nile virus model is established. (3) Numerical simulations are conducted to validate the theoretical findings and examine the impact of noise intensity on finite-time stability.
+
+This paper is structured as follows. Section 2 presents the development of the West Nile Virus model, where the boundedness, existence, and uniqueness of the solution are established. In Section 3, a Lyapunov function is constructed, and the Gronwall inequality is applied to derive a sufficient condition for the finite-time stability of the West Nile Virus model. Section 4 validates the results of Theorem 1.2 through numerical simulations. Finally, Section 5 concludes the paper with final remarks.
+
+2. Model
+
+The mortality rates of mosquito vectors and hosts are influenced by stochastic fluctuations in environmental factors such as temperature, humidity, and insecticide application. By modeling mortality rates as stochastic processes, the impact of these unpredictable disturbances on disease transmission dynamics can be more realistically captured. On the basis of Model (1.1) in reference [15], we perturb the parameters μm with μm−ε1η1(t) and μb with μb−ε2η2(t) [30], dBi=dηi, εi(i=1,2) denote the noise intensity, ηi represents the Gaussian white noise, then, we can obtain that the following model:
+
+{dSmdt=Λm−μmSm−b1βmNbSmIb+ε1SmdB1(t),dImdt=b1βmNbSmIb−μmIm+ε1ImdB1(t),dSbdt=Λb−μbSb−b1βbNbSbIm+ε2SbdB2(t),dIbdt=b1βbNbSbIm−μbIb−dbIb+ε2IbdB2(t),Sm,0=Sm(0),Im,0=Im(0),Sb,0=Sb(0),Ib,0=Ib(0), (1)
+
+where Bi(t),(i=1,2) defined on (Ω,ℱ,{ℱt}t≥0,P), (Ω,ℱ,{ℱt}t≥0,P) be a complete probability space. W(t)=(Ss(t),Ia(t),Sh,Ih)∈R+4, ‖W(t)‖2=Sm2(t)+Im2(t)+Sb2(t)+Ib2(t), ‖·‖ denotes the norm. Let Nm=Sm+Im denotes the total number of mosquitoes, Nb=Sb+Ib represents the total number of birds. All the parameters are bounded. The parameter descriptions are shown in Table 1.
+
+10.1371/journal.pone.0354331.t001 Table 1 Parameters and their description.
+
+Parameter	Description of parameter	
+Sm	the populations of uninfected female mosquitoes	
+Im	the populations of infected female mosquitoes	
+Sb	the population of susceptible birds	
+Ib	the population of infected birds	
+Λm	the recruitment rates of susceptible mosquitoes	
+μm	the natural death rates of mosquitos	
+βm	the virus transmission rates from infected birds to uninfected mosquitoes	
+Nb	the recovery rate of birds	
+Λb	the recruitment rates of susceptible birds	
+μb	the natural death rates of birds	
+βb	the virus transmission rates from mosquitoes to birds	
+db	the disease-induced death rate of infected birds	
+
+3. Main results
+
+Existence and uniqueness of the solution
+
+Theorem 1.1 For the initial value (Sm,0,Im,0,Sb,0,Ib,0), system (1) exists the unique global positive (Sm(t),Im(t),Sb(t),Ib(t)), and satisfies that Sm(t)+Im(t)+Sb(t)+Ib(t)<∞.
+
+Proof. First, we prove Sm(t)+Im(t)+Sb(t)+Ib(t)<∞. By virtue of system (1), we have
+
+d(Sm(t)+Im(t)+Sb(t)+Ib(t))=Λm−μm(Sm+Im)+Λb−μbSb−(μb+db)Ib+ε1SmdB1(t)++ε1ImdB1(t)+ε2SbdB2(t)+ε2IbdB2(t)≤Λm+Λb−min(μm,(μb+db)){Sm(t)+Im(t)+Sb(t)+Ib(t)}+ε1SmdB1(t)++ε1ImdB1(t)+ε2SbdB2(t)+ε2IbdB2(t).
+
+By virtue of the stochastic comparison theorem [31], we know that Sm(t)+Im(t)+Sb(t)+Ib(t)<∞.
+
+Next, we show that there exists a unique solution for system (1). For the first equation of system (1), let f(Sm,Ib)=Λm−μmSm−b1βmNbSmIb, g(Sm)=ε1Sm, where f(Sm,Ib) is the drift term, g(Sm) is the diffusion term.
+
+Furthermore,
+
+|∂f∂Sm|=|−μm−b1βmNbIb|≤μm+b1βm,|∂f∂Ib|=|b1βmNbSm|≤b1βmNbNm,|∂g∂Sm|=ε1,
+
+hence, the drift term and diffusion term of the first equation of system (1) satisfy the Lipschitz condition. For the other three equations in system (1), by applying the same approach, we can demonstrate that their drift terms and diffusion terms satisfy the Lipschitz conditions. As a result, there is a unique local solution on t∈[0,τe), where τe is the explosion time.
+
+Finally, we prove the uniqueness of the solution. Let k0 > 1 be sufficiently large. For each integer k > k0, define the stopping time
+
+τk=inf{t∈[0,τe]:min(Sm(t),Im(t),Sb(t),Ib(t))≤1k   or  max(Sm(t),Im(t),Sb(t),Ib(t))≥k}.
+
+Let inf∅=∞(the infimum of the empty set). τk is increasing as k→∞. Let τ∞=limk→∞τk, then τ∞<τe a.s.
+
+Next, we prove that τ∞=∞ a.s. If the conclusion doesn’t hold, then there exists a number T > 0 and 0<ϵ<1 such that ℙ{τ∞<∞}>ϵ. Therefore, there is an integer k1≥k0 satisfy that ℙ{τk<T}≥ϵ,  k≥k1.
+
+Define the Lyapunov function as follows:
+
+V~(W(t))=(Sm−1−logSm)+(Im−1−logIm)+(Sb−1−logSb)+(Ib−1−logIb). (2)
+
+For equation (2), According to the Itô formula, we have
+
+dV~(W(t))=(1−1Sm)(Λm−μmSm−b1βmNbSmIb)dt+12ε12dt+ε1(Sm−1)dB1(t)+(1−1Im)(b1βmNbSmIb−μmIm)dt+12ε12dt+ε1(Im−1)dB1(t)+(1−1Sb)(Λb−μbSb−b1βbNbSbIm)dt+12ε22dt+ε2(Sb−1)dB2(t)+(1−1Ib)(b1βbNbSbIm−μbIb−dbIb)dt+12ε22dt+ε2(Ih−1)dB2(t)≤{Λm−μmSm+μm+b1βmNbIb+ε12+b1βmNbSmIb−μmIm+μm+Λb−μbSb−b1βbNbSbIm+μb+b1βbNbIm+b1βbNbSbIm−μbIb−dbIb+μb+db+ε22}+ε1(Sm−1)dB1(t)+ε1(Im−1)dB1(t)+ε2(Sb−1)dB2(t)+ε2(Ib−1)dB2(t). (3)
+
+According to the previous results, we have
+
+dV~(W(t))≤M+ε1(Sm−1)dB1(t)+ε1(Im−1)dB1(t)+ε2(Sb−1)dB2(t)+ε2(Ib−1)dB2(t). (4)
+
+We integrate both sides of (4) from 0 to τk∧T and take expectations
+
+EV~(W(τk∧T))≤V~(W(0))+MT.
+
+Let Ωk={τk≤T}, we know that P(Ωk)≥ϵ. Note that for any ϖ∈Ωk, there is at least one of Sa(τk,ϖ), Ia(τk,ϖ), Sh(τk,ϖ), Ih(τk,ϖ) equaling either k or 1k. Therefore
+
+V~(W(τk∧T))≥(k−1−logk)∧(1k−1−log1k).
+
+Furthermore
+
+V~(W(0))+MT≥E{1ΩkV~(N(τk∧T))}≥ϵ{(k−1−logk)∧(1k−1−log1k)},
+
+where 1Ωk denotes the indicator function. As k→∞, we have
+
+∞>V~(W(0))+MT=∞.
+
+This is a contradiction. Hence, we have τ∞=∞.
+
+Stability of system
+
+Before proving that the system (1) is finite-time stability, according to references [26], we first give the following definition.
+
+Definition 1.1 There exists positive number T, B1, B2(where B2>B1) such that system (1) is finite-time stability, if Sm,0+Im,0+Sb,0+Ib,0≤B1, then, for any t∈[0,T], we have
+
+𝔼(Sm2(t)+Im2(t)+Sb2(t)+Ib2(t))≤B2.
+
+Remark 1 Under given initial condition constraints, the system state remains within a specified threshold during a predefined time interval, the system is considered finite-time stability.
+
+Next, we will give and prove the conditions of finite-time stability for system (1).
+
+Theorem 1.2 If the following conditions hold
+
+1+ε12+b12−2μm>0,βm2+b12+ε12−2μm>0,1+ε22−2μb>0,βb2+ε22−2μb−2db>0,
+
+then, system (1) is finite-time stability.
+
+Proof. Define
+
+𝕍(t)=Sm2(t)+Im2(t)+Sb2(t)+Ib2(t).
+
+According to the Itô formula, we have
+
+d𝕍(t)=2Sm(t)[Λm−μmSm−b1βmNbSmIb]dt+ε12Sm2(t)dt+2ε1Sm2(t)dB1(t)+2Im(t)[b1βmNbSmIb−μmIm]dt+ε12Im2(t)dt+2ε1Im2(t)dB1(t)+2Sb(t)[Λb−μbSb−b1βbNbSbIm]dt+ε22Sb2(t)dt+2ε2Sb2(t)dB2(t)+2Ib(t)[b1βbNbSbIm−μbIb−dbIb]dt+ε22Ib2(t)dt+2ε2Ib2(t)dB2(t) (5)
+
+Furthermore, we have
+
+d𝕍(t)≤[Λm2+Sm2(t)−2μmSm2(t)+ε12Sm2(t)]dt+[βm2Im2(t)+b12Sm2(t)−2μmIm2(t)+ε12Im2(t)]dt+[Λb2+Sb2(t)−2μbSb2(t)+ε22Sb2(t)]dt+[βb2Ib2(t)+b12Im2(t)−2μbIb2(t)−2dbIb2(t)+ε22Ib2(t)]dt+2ε1Sm2(t)dB1(t)+2ε1Im2(t)dB1(t)+2ε2Sb2(t)dB2(t)+2ε2Ib2(t)dB2(t). (6)
+
+For Equation (6), we can integrate from 0 to t∈[0,T] and take expectation
+
+𝔼(Sm2(t)+Im2(t)+Sb2(t)+Ib2(t))−(Sm2(0)+Im2(0)+Sb2(0)+Ib2(0))≤(Λm2+Λb2)t+𝔼∫0t{(1+ε12+b12−2μm)Sm2(s)+(βm2+b12+ε12−2μm)Im2(s)+(1+ε22−2μb)Sm2(s)+(βb2+ε22−2μb−2db)Ib2(s)}ds. (7)
+
+Due to the following conditions hold, 1+ε12+b12−2μm>0, βm2+b12+ε12−2μm>0, 1+ε22−2μb>0, βb2+ε22−2μb−2db>0, hence Equation (7) is equivalent to
+
+𝔼(Sm2(t)+Im2(t)+Sb2(t)+Ib2(t))≤(Sm2(0)+Im2(0)+Sb2(0)+Ib2(0))+(Λm2+Λb2)t+M𝔼∫0t{Sm2(s)+Im2(s)+Sm2(s)+Ib2(s)}ds, (8)
+
+where
+
+M=max{1+ε12+b12−2μm,βm2+b12+ε12−2μm,1+ε22−2μb,βb2+ε22−2μb−2db}. By virtue of the [32, Lemma 3.2, section 2.3], we can obtain
+
+𝔼(Sm2(t)+Im2(t)+Sb2(t)+Ib2(t))≤{(Sm2(0)+Im2(0)+Sb2(0)+Ib2(0))+(Λm2+Λb2)t}eMt. (9)
+
+Due to t∈[0,T], we have
+
+𝔼(Sm2(t)+Im2(t)+Sb2(t)+Ib2(t))≤{(Sm2(0)+Im2(0)+Sb2(0)+Ib2(0))+(Λm2+Λb2)T}eMT:=B2. (10)
+
+Therefore, system (1) is finite-time stability.
+
+4. Numerical simulations
+
+First, we set the parameter values as follows:
+
+Let T = 2, B1 = 41, B2 = 544.752, (Sm,0,Im,0,Sb,0,Ib,0)=(4.5,2.5,3.5,1.5), according to Table 2, we can obtain the following conditions, 1+ε12+b12−2μm>0, βm2+b12+ε12−2μm>0, 1+ε22−2μb>0, βb2+ε22−2μb−2db>0.
+
+10.1371/journal.pone.0354331.t002 Table 2 Value of parameter.
+
+Parameter	Value	
+Λm	6.5 [15]	
+μm	0.15 [15]	
+βm	0.6 [5]	
+ε1	0.25	
+b 1	0.08	
+Nb	150 [15]	
+Λb	1.5 [15]	
+ε2	0.15	
+βb	0.88 [19,33]	
+μb	0.2	
+db	0.12	
+
+The effect of noise intensity on finite-time stability
+
+Based on the conditions of Theorem 1.2, it can be concluded that system (1) exhibits finite-time stability with respect to (2,41,544.752). In Figs 1–5, let ε1=0.25, ε2=0.15, the evolution trajectories of Sm,Im,Sb,Ib and the state trajectories of the norm W (t) are presented.
+
+10.1371/journal.pone.0354331.g001 Fig 1 The evolution path of Sm for moderate noise intensity.
+
+10.1371/journal.pone.0354331.g002 Fig 2 The evolution path of Im for moderate noise intensity.
+
+10.1371/journal.pone.0354331.g003 Fig 3 The evolution path of Sb for moderate noise intensity.
+
+10.1371/journal.pone.0354331.g004 Fig 4 The evolution path of Ib for moderate noise intensity.
+
+10.1371/journal.pone.0354331.g005 Fig 5 The state trajectories of system (1) for moderate noise intensity.
+
+In Figs 6–10, let ε1=0.3, ε2=0.2, the evolution trajectories of Sm,Im,Sb,Ib and the state trajectories of the norm W (t) are presented.
+
+10.1371/journal.pone.0354331.g006 Fig 6 The evolution path of Sm for high noise intensity.
+
+10.1371/journal.pone.0354331.g007 Fig 7 The evolution path of Im for high noise intensity.
+
+10.1371/journal.pone.0354331.g008 Fig 8 The evolution path of Sb for high noise intensity.
+
+10.1371/journal.pone.0354331.g009 Fig 9 The evolution path of Ib for high noise intensity.
+
+10.1371/journal.pone.0354331.g010 Fig 10 The state trajectories of system (1) for high noise intensity.
+
+In Figs 11–15, let ε1=0.2, ε2=0.1, the evolution trajectories of Sm,Im,Sb,Ib and the state trajectories of the norm W (t) are presented.
+
+10.1371/journal.pone.0354331.g011 Fig 11 The evolution path of Sm for low noise intensity.
+
+10.1371/journal.pone.0354331.g012 Fig 12 The evolution path of Im for low noise intensity.
+
+10.1371/journal.pone.0354331.g013 Fig 13 The evolution path of Sb for low noise intensity.
+
+10.1371/journal.pone.0354331.g014 Fig 14 The evolution path of Ib for low noise intensity.
+
+10.1371/journal.pone.0354331.g015 Fig 15 The state trajectories of system (1) for low noise intensity.
+
+From Figs 1 – 4, 6 – 9 and 11 – 14, it can be observed that the system to attains a steady state more easily when the noise intensity is lower, whereas increased noise intensity makes stability more challenging to achieve. From Figs 5, 10 and 15, it can be observed that the system to attains a steady state more easily when the noise intensity is lower, whereas increased noise intensity makes stability more challenging to achieve. Through Figs 6 – 9, it can be seen that when the noise intensity increases, the solution will also increases, and at the same time, it can be observed from Fig 10 that the system does not satisfy finite-time stability either. Therefore, to effectively control the disease during an outbreak, external disturbances should be minimized as much as possible.
+
+The effect of mortality rates on finite-time stability
+
+In Figs 16–19 and 20, Let μm=0.1, μb=0.15, ε1=0.25, ε2=0.15, and other parameters are as shown in Table 2. From Figs 1 – 4 and 16 – 19, it can be seen that both mosquito populations and bird individuals increase with the decrease of mortality rate. From Figs 5 and 20, reducing mortality rate leads to greater fluctuation intensity of the system’s state trajectory, and the trajectory will exceed the finite-time stability threshold at certain points.
+
+10.1371/journal.pone.0354331.g016 Fig 16 The evolution path of Sm for low mortality rate.
+
+10.1371/journal.pone.0354331.g017 Fig 17 The evolution path of Im for low mortality rate.
+
+10.1371/journal.pone.0354331.g018 Fig 18 The evolution path of Sb for low mortality rate.
+
+10.1371/journal.pone.0354331.g019 Fig 19 The evolution path of Ib for low mortality rate.
+
+10.1371/journal.pone.0354331.g020 Fig 20 The state trajectories of system (1) for low mortality rate.
+
+The effect of transmission rates on finite-time stability
+
+In Figs 21–24 and 25, let βm=0.8, βb=1, ε1=0.25, ε2=0.15, and other parameters are as shown in Table 2. As can be seen from Figs 5 and 25, with the increase of the transmission rate, the fluctuation amplitude of the state trajectories increases.
+
+10.1371/journal.pone.0354331.g021 Fig 21 The evolution path of Sm for high transmission rate.
+
+10.1371/journal.pone.0354331.g022 Fig 22 The evolution path of Im for high transmission rate.
+
+10.1371/journal.pone.0354331.g023 Fig 23 The evolution path of Sb for high transmission rate.
+
+10.1371/journal.pone.0354331.g024 Fig 24 The evolution path of Ib for high transmission rate.
+
+10.1371/journal.pone.0354331.g025 Fig 25 The state trajectories of system (1) for high transmission rate.
+
+5. Conclusions
+
+As the spread of the virus is highly influenced by external factors, particularly extreme weather conditions such as temperature, humidity, and rainfall, a stochastic West Nile virus model is established in this study. Initially, the boundedness, existence, and uniqueness of the solution are proven. Subsequently, by constructing a Lyapunov function, a sufficient condition or the finite-time stability of the West Nile virus model is derived. Finally, numerical simulations are conducted to validate the theoretical findings. Through these simulations, state trajectories under different noise intensities and transmission rates are analyzed, demonstrating that lower noise intensity facilitates the attainment of a steady state, whereas higher noise intensity makes stability more difficult to achieve, meanwhile, as the transmission rates increases, the fluctuation of the system’s state trajectory becomes greater. At the same time, reducing mortality rates leads to greater fluctuation intensity of the system’s state trajectory, and the trajectory will exceed the finite-time stability threshold at certain points. Therefore, based on the simulation results, to effectively control this disease, the first step is to reduce external interference, that is, to lower the noise intensity; Secondly, mosquito control and diseased poultry management should be implemented, and infected groups should be isolated or disinfected. Future research will focus on incorporating the effects of time delay, Lévy noise, and impulse perturbations on the finite-time stability of the system.
+
+
+References
+
+1 Bhowmick S , Gethmann J , Conraths FJ , Sokolov IM , Lentz HHK . SEIR-Metapopulation model of potential spread of West Nile virus. Ecol Model. 2023;476:110213. doi: 10.1016/j.ecolmodel.2022.110213
+2 de Wit MM , Dimas Martins A , Delecroix C , Heesterbeek H , Ten Bosch QA . Mechanistic models for West Nile virus transmission: a systematic review of features, aims and parametrization. Proc R Soc B Biol Sci. 2024;291(2018):20232432. doi: 10.1098/rspb.2023.2432 38471554 PMC10932716
+3 Abdelrazec A , Lenhart S , Zhu H . Dynamics and optimal control of a west nile virus model with seasonality. Can Appl Math Q. 2015;23(4):12–33.
+4 Holcomb KM , Staples JE , Nett RJ , Beard CB , Petersen LR , Benjamin SG , et al. Multi-model prediction of West Nile virus neuroinvasive disease with machine learning for identification of important regional climatic drivers. Geohealth. 2023;7(11):e2023GH000906. doi: 10.1029/2023GH000906 38023388 PMC10654557
+5 Maliyoni M . Probability of disease extinction or outbreak in a stochastic epidemic model for West Nile virus dynamics in birds. Acta Biotheor. 2021;69(2):91–116. doi: 10.1007/s10441-020-09391-y 32889647
+6 De Nardi A , Marini G , Dorigatti I , Rosà R , Tamba M , Gelmini L , et al. Quantifying West Nile virus circulation in the avian host population in Northern Italy. Infect Dis Model. 2024;10(2):375–86. doi: 10.1016/j.idm.2024.12.009 39816752 PMC11729645
+7 Baafi J , Hurford A . Modeling the impact of seasonality on mosquito population dynamics: insights for vector control strategies. Bull Math Biol. 2025;87(2):33. doi: 10.1007/s11538-024-01409-7 39847171
+8 McCarter MSJ , Self S , Dye-Braumuller KC , Lee C , Li H , Nolan MS . The utility of a Bayesian predictive model to forecast neuroinvasive West Nile virus disease in the United States of America, 2022. PLoS One. 2023;18(9):e0290873. doi: 10.1371/journal.pone.0290873 37682897 PMC10490885
+9 Wang Z , Nie H , Du Y . Sharp asymptotic profile of the solution to a West Nile virus model with free boundary. Eur J Appl Math. 2023;35(3):462–82. doi: 10.1017/s0956792523000281
+10 Lin Z , Zhu H . Spatial spreading model and dynamics of West Nile virus in birds and mosquitoes with free boundary. J Math Biol. 2017;75(6–7):1381–409. doi: 10.1007/s00285-017-1124-7 28378145
+11 Wang F-B , Wu R , Zhao X-Q . A nonlocal reaction-diffusion model of West Nile virus with vertical transmission. J Nonlinear Sci. 2023;34(1). doi: 10.1007/s00332-023-09985-z
+12 Xing J , Nie H , Wu J . On a partially degenerate West Nile virus model in closed advective environments. Z Angew Math Phys. 2024;76(1):13. doi: 10.1007/s00033-024-02402-9
+13 Pu L , Lin Z , Lou Y . A West Nile virus nonlocal model with free boundaries and seasonal succession. J Math Biol. 2023;86(2):25. doi: 10.1007/s00285-022-01860-x 36625946
+14 Guo J-S , Choi W , Ogiwara T , Wu C-C . Forced waves for an epidemic model of West Nile virus with climate change effect. Z Angew Math Phys. 2024;75(6):1–9. doi: 10.1007/s00033-024-02350-4
+15 Chang K , Zhang Z , Liang G . Threshold dynamics of a nonlocal diffusion West Nile virus model with spatial heterogeneity. AIMS Math. 2023;8(6):14253–69. doi: 10.3934/math.2023729
+16 Bai Z , Zhang Z . Dynamics of a periodic West Nile virus model with mosquito demographics. CPAA. 2022;21(11):3755. doi: 10.3934/cpaa.2022121
+17 Shyu Y-C , Chien R-N , Wang F-B . Global dynamics of a West Nile virus model in a spatially variable habitat. Nonlinear Anal Real World Appl. 2018;41:313–33. doi: 10.1016/j.nonrwa.2017.10.017
+18 Ge J , Lin Z , Tarboush AK , Zhu H . Dynamics of West Nile virus driven by seasonal fluctuations in a spatially variable habitat. DCDS-B. 2023;28(3):2081–103. doi: 10.3934/dcdsb.2022159
+19 Bai Z , Zhao X-Q . Threshold dynamics of a nonlocal and time-delayed West Nile virus model with seasonality. CNSNS. 2022;115:106758. doi: 10.1016/j.cnsns.2022.106758
+20 Moon SA , Cohnstaedt LW , McVey DS , Scoglio CM . A spatio-temporal individual-based network framework for West Nile virus in the USA: spreading pattern of West Nile virus. PLoS Comput Biol. 2019;15(3):e1006875. doi: 10.1371/journal.pcbi.1006875 30865618 PMC6433293
+21 Tarboush AK , Ge J , Lin Z . Coexistence of a cross-diffusive West Nile virus model in a heterogenous environment. Math Biosci Eng. 2018;15(6):1479–94. doi: 10.3934/mbe.2018068 30418795
+22 Ain QT , Din A , Qiang X , Kou Z . Dynamics for a nonlinear stochastic cholera epidemic model under Lévy noise. Fractal Fract. 2024;8(5):293. doi: 10.3390/fractalfract8050293
+23 Lu Y , Wang H , Meng Z . Dynamic analysis of a stochastic SVEIR epidemic model with saturated incidence and partial vaccination. Int J Biomath. 2024. doi: 10.1142/s1793524524501031
+24 Dorato P . Short-time stability in linear time-varying systems. Polytechnic Institute of Brooklyn; 1961.
+25 Han X-X , Wu K-N , Ding X . Finite-time stabilization for stochastic reaction-diffusion systems with Markovian switching via boundary control. Appl Math Comput. 2020;385:125422. doi: 10.1016/j.amc.2020.125422
+26 Hu J , Zhang Q , Meyer-Baese A , Ye M . Finite-time stability and optimal control of a stochastic reaction-diffusion model for Alzheimer’s disease with impulse and time-varying delay. Appl Math Model. 2022;102:511–39. doi: 10.1016/j.apm.2021.10.004
+27 Batiha IM , Ogilat O , Bendib I , Ouannas A , Jebril IH , Anakira N . Finite-time dynamics of the fractional-order epidemic model: stability, synchronization, and simulations. Chaos Solit Fractals: X. 2024;13:100118. doi: 10.1016/j.csfx.2024.100118
+28 Gunasekaran N , Vadivel R , Zhai G , Vinoth S . Finite-time stability analysis and control of stochastic SIR epidemic model: a study of COVID-19. Biomed Signal Process Control. 2023;86:105123. doi: 10.1016/j.bspc.2023.105123 37337551 PMC10261717
+29 Wu K-N , Na M-Y , Wang L , Ding X , Wu B . Finite-time stability of impulsive reaction-diffusion systems with and without time delay. Appl Math Comput. 2019;363:124591. doi: 10.1016/j.amc.2019.124591
+30 Zhang X , Yuan R . Sufficient and necessary conditions for stochastic near-optimal controls: a stochastic chemostat model with non-zero cost inhibiting. Appl Math Model. 2020;78:601–26. doi: 10.1016/j.apm.2019.10.013
+31 Mao X . A note on comparison theorems for stochastic differential equations with respect to semimartingales. Stochastics Stoch Rep. 1991;37(1–2):49–59. doi: 10.1080/17442509108833726
+32 Mao X . Stochastic differential equations and their applications. 2nd ed. Chichester: Horwood; 2007.
+33 Jiang J , et al. Threshold conditions for West Nile virus outbreaks. Bull Math Biol. 2009;71:627–47. doi: 10.1007/s11538-008-9374-6 19101771

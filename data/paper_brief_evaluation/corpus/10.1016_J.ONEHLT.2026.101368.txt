@@ -1,0 +1,202 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: One Health
+Journal ID: One Health
+NLM Journal ID: 101660501
+
+One Health
+
+EISSN: 2352-7714
+Publisher: Elsevier
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC12936764
+PMID: 41767606
+DOI: 10.1016/j.onehlt.2026.101368
+Article ID: S2352-7714(26)00052-2
+Article ID: 101368
+Article version: 1
+Subjects: Short Communication
+
+Cocirculation of endemic and recently introduced West Nile Virus lineage 1 clades in Southern Spain
+
+Casimiro-Soriguer Carlos S. a b 1
+Lara Maria a 1
+Pedrosa-Corral Irene c d
+Gómez-Camarasa Cristina c d
+Lorusso Nicola e f
+Chaves J. Alberto e
+Navarro-Marí Jose M. c d
+Merino Laura b g h
+Lepe Jose A. b g h
+Dopazo Joaquin joaquin.dopazo@juntadeandalucia.es a b ⁎
+Sanbonmatsu-Gámez Sara c d 2
+Perez-Florido Javier a b 2
+a Platform of Computational Medicine, Fundación Progreso y Salud (FPS), Hospital Virgen del Rocio, 41013 Sevilla, Spain
+b Institute of Biomedicine of Seville, IBiS, University Hospital Virgen del Rocío/CSIC/University of Sevilla, 41013 Sevilla, Spain
+c Laboratorio de Referencia de Virus de Andalucía, Servicio de Microbiología, Hospital Virgen de las Nieves, 18014 Granada, Spain
+d Instituto de investigación biosanitaria, ibs.GRANADA, 18012 Granada, Spain
+e Dirección General de Salud Pública y Ordenación Farmacéutica, Consejería de Salud y Consumo, Junta de Andalucía, 41020 Sevilla, Spain
+f Preventive Medicine and Public Health, Maimonides Biomedical Research Institute (Imibic), Córdoba, Spain
+g Servicio de Microbiología, Unidad Clínica Enfermedades Infecciosas, Microbiología y Medicina Preventiva, Hospital Universitario Virgen del Rocío, 41013 Sevilla, Spain
+h Centro de Investigación Biomédica en Red en Enfermedades Infecciosas (CIBERINFEC), ISCIII, Madrid, Spain
+⁎ Corresponding author at: Platform of Computational Medicine, Fundación Progreso y Salud (FPS), Hospital Virgen del Rocio, 41013 Sevilla, Spain. joaquin.dopazo@juntadeandalucia.es1 These first authors contributed equally to this article.
+
+2 These authors were co-principal investigators
+
+Publication date: 2026 Jun
+Electronic publication date: 2026 Feb 18
+Volume: 22
+Electronic Location ID: 101368
+Received 2025 Sep 2; Revised 2026 Feb 15; Accepted 2026 Feb 17
+Copyright: © 2026 The Author(s)
+Copyright year: 2026
+License: This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, Genomic surveillance, Lineage 1 clades, Phylogenetics, Outbreak, One Health
+
+==============================
+In 2024, Andalusia (Southern Spain) reported its largest recent West Nile virus (WNV) outbreak, with 106 confirmed human cases and 16 deaths. Genomic analysis of 27 WNV isolates revealed the co-circulation of multiple WNV lineage 1 clades, including both endemic and recently introduced strains, reflecting a marked increase in viral genetic diversity. These findings underscore the critical role of integrated genomic surveillance systems in monitoring pathogen evolution and supporting timely public health responses to emerging zoonotic threats.
+
+Highlights
+
+• Genomic analysis of 27 WNV isolates reveals the co-circulation of endemic and newly introduced lineage 1 clades in Spain.
+
+• Phylogenetic analysis identifies persistent WNV strains from previous outbreaks alongside novel variants.
+
+• The findings highlight Spain's role in the circulation of WNV between Africa and Europe.
+
+• Findings also underscore the need for enhanced One Health surveillance in Spain.
+
+1 Introduction
+
+WNV has been detected in mainland Europe since the mid-1990s [1] with two circulating lineages (1 and 2) causing sporadic outbreaks, affecting birds [2], horses [3] and humans [4]. In particular, the first occurrences in southern Spain were reported in early 2000s, with notable outbreaks occurring in Andalusia in 2010 and 2020 [5]. Both, lineage 1 and, more recently, lineage 2 have been detected in the region [5], [6]. The 2020 outbreak marked a turning point for regional surveillance efforts. However, in 2024, a resurgence occurred, resulting in the largest WNV outbreak in Andalusia to date, with 106 confirmed human cases and 16 fatalities [6], which prompted the inclusion of WNV in the genomic surveillance circuit of Andalusia [7], [8]. Here we provide a detailed molecular characterization of the last WNV lineage 1 outbreak in Andalusia, documenting the coexistence of imported viruses along with endemic viruses from a phylogenetic clade present in the south of Spain at least since 2020.
+
+2 Genomic surveillance circuit in Southern Spain (Andalusia)
+
+2.1 Sample collection in the surveillance circuit
+
+Epidemiological surveillance in Andalusia is coordinated through the “Sistema de Vigilancia Epidemiológica de Andalucía” (SVEA) [9], integrated within the national surveillance network and guided by a One Health approach. The system combines human, animal, entomological, and environmental data streams to enable early detection and coordinated response to zoonotic threats like WNV. Surveillance activities follow EU case definitions [10] and involve routine case reporting, laboratory confirmation, and integration of data from equine and wildlife surveillance, supported by sectoral collaboration across regional ministries [11]. In response to previous outbreaks, Andalusia implemented an Integrated Surveillance and Vector Control Programme that mandates entomological monitoring and local mosquito control plans in affected municipalities [12]. The surveillance infrastructure is reinforced by genomic data integration through the regional “Sistema Integrado de Epidemiología Genómica de Andalucía” (SIEGA) platform, enabling pathogen lineage tracking to inform risk assessments and response strategies [8].
+
+Specimens, including whole blood and urine, collected from cases with clinical suspicion of WNV infection in Andalusia (Southern Spain) during 2024 (see Table 1) were submitted to the Andalusian Virus Reference Laboratory Samples following the SVEA Protocol for WNV surveillance and alert [9].Table 1 WNV isolates from human reported in this study with its corresponding sample source, date and location (province), along with the average sequencing depth and genome coverage. These sequences are represented in Fig. 1 along with the sequences from other isolates from human, mosquitoes, birds and horses.
+
+Table 1ENA ID	Source	Collection date	Location	Mean depth	Genome Coverage	
+ERS25346490	Urine	17/08/2021	Sevilla	5315.63	99.28	
+ERS25346491	Urine	03/09/2021	Sevilla	4476.02	88.79	
+ERS25346492	Urine	21/09/2021	Sevilla	1596.51	97.90	
+ERS25339721	Urine	11/07/2024	Sevilla	5518.87	97.95	
+ERS25339711	Urine	14/07/2024	Sevilla	4127.72	99.49	
+ERS25339715	Urine	17/07/2024	Sevilla	3213.48	98.16	
+ERS25339713	Urine	22/07/2024	Sevilla	2040.80	99.28	
+ERS25339712	Blood	22/07/2024	Sevilla	19,197.25	95.29	
+ERS25339707	Urine	31/07/2024	Sevilla	2533.45	99.28	
+ERS25339722	Urine	03/08/2024	Sevilla	2421.36	99.28	
+ERS25339714	Urine	03/08/2024	Sevilla	3877.46	98.16	
+ERS25339719	Urine	07/08/2024	Sevilla	3606.40	97.95	
+ERS25339717	Urine	07/08/2024	Sevilla	2998.61	97.95	
+ERS25339718	Urine	12/08/2024	Sevilla	3724.15	97.72	
+ERS25339725	Urine	17/08/2024	Sevilla	3883.71	97.79	
+ERS25339710	Urine	24/08/2024	Sevilla	5296.19	98.16	
+ERS25339716	Urine	27/08/2024	Sevilla	3555.52	97.95	
+ERS25339727	Urine	30/08/2024	Sevilla	7783.96	95.59	
+ERS25339724	Urine	01/09/2024	Sevilla	9695.63	98.16	
+ERS25339728	Urine	04/09/2024	Cordoba	7763.31	98.16	
+ERS25339708	Blood	04/09/2024	Cordoba	7914.82	99.49	
+ERS25339723	Urine	06/09/2024	Sevilla	5448.10	61.18	
+ERS25339720	Urine	10/09/2024	Jaen	8986.46	98.16	
+ERS25339709	Urine	11/09/2024	Sevilla	14,155.03	60.37	
+ERS25339705	Urine	12/09/2024	Huelva	11,946.43	99.28	
+ERS25339706	Urine	18/09/2024	Cordoba	15,628.23	95.57	
+ERS25339726	Blood	20/09/2024	Sevilla	28,404.83	97.28	
+
+2.2 Sample sequencing
+
+RNA was extracted using the QIAsymphony DSP Virus/Pathogen Mini Kit (Qiagen, Hilden, Germany). A qRT-PCR targeting the 3’UTR region of the WNV genome was employed to detect viral RNA [13] in urine, serum and whole blood samples.
+
+RNA extracted from WNV positive samples was reverse transcribed using LunaScript® RT SuperMix Kit (New England Biolabs, Ipswich, MA, USA). Multiplex PCR was carried out using Q5® Hot Start High-Fidelity (New England Biolab) protocol, utilizing a panel of 41 primer pairs previously validated for WNV genome amplification [5], [14].
+
+PCR products were purified with Agencourt AMPure XP beads (Beckman Coulter), and libraries were prepared using the Illumina DNA Prep Kit. Samples were pooled in equal concentrations after quantification by Qubit 4 fluorometer (Invitrogen). Sequencing was performed on the iSeq 100 System using a iSeq 100 i1 Reagent v2 (300-cycle) (Illumina).
+
+Raw paired-end reads (150 bp × 2) were analyzed using the nf-core/viralrecon pipeline software (v.2.6.0) [15] (see also [5], [6]). Quality control, trimming, alignment to a WNV lineage 1 reference genome (JF719067), and variant calling were performed using standard tools including Bowtie 2 (v2.4.4) [16], iVar (v1.4) [17] and bcftools (v1.16) [18]. A consensus genome was generated for each sample based on high-confidence variants (allele frequency ≥ 0.75).
+
+The new WNV sequences reported here are available in the European Nucleotide Archive (ENA) database under the project identifier PRJEB43037.Fig. 1 Phylogenetic tree of the current Spanish samples in the context of the recent phylogenetically-related WNV sequences available (See Table 1 and Supplementary Table 1).
+
+Phylogenetic tree of the current Spanish samples in the context of the recent phylogenetically-related WNV sequences available (See Table 1 and Supplementary Table 1).
+
+Fig. 1
+
+2.3 Phylogenetic analysis of the 2024 outbreak in Andalusia
+
+A set of 228 whole genomes of WNV lineage 1 from previous outbreaks found in the GenBank repository (listed in Supplementary Table 1) were downloaded and aligned with the 24 new whole genome sequences from the 2024 outbreak, plus 3 extra whole genomes from the 2021 outbreak, reported in this study (Table 1) using MAFFT v7.515 [19].
+
+Fig. 1 shows a phylogenetic tree depicting the current Spanish samples in the context of the recent phylogenetically-related WNV sequences available, reconstructed using the Augur toolkit (v21.0.0) [20]. This phylogeny can be interactively visualized using the SIEGA Nextstrain server [21]. Finally, Supplementary Fig. S1 depicts an expanded phylogenetic tree, constructed with a total of 255 whole genome sequences, covering virtually all WNV lineage 1 sequences available in the public repositories, that portraits the phylogenetic origin of all the European samples in the context of the WNV sequences reported worldwide.
+
+3 Discussion
+
+Fig. 1 provides a clear picture of the recent 2024 outbreak in the context of all the data available on recent WNV lineage 1 outbreaks. Largely, the 2024 outbreak clade, which also includes one Portuguese isolate (PQ660506) dating also from 2024 [22], derives from previous samples from mosquito reported in 2022 in Spain (OQ357821, OQ357822 and OQ357820) [23]. All these sequences derive from previous samples reported in 2020 in birds (OP713603), demonstrating the key role of Spain in the traffic of WNV between Europe and Africa [24], as confirmed by other related sequences from Senegal (OP846978 and ON813210 in 2013 as well as OP846982 and ON813211 in 2016), France (MT863559 in 2015) and Italy (OP609790 in 2022) Data on bird's migration [25] confirm that Spain is the transit point used for travelling between Africa and Europe. All the infected subjects in Table 1 came from small villages close to the Guadalquivir river and swamps around.
+
+Interestingly, one of the sequences from the recent 2024 outbreak (See ERS25339705 in Table 1) is not related to the rest of isolates of the current outbreak reported here but it derives from WNV from the 2020 and 2021 outbreaks [5]. This clade has been continuously present in Spain at least since 2016, when it was reported in birds and horses [24].
+
+These results confirm the coexistence of different genetic clades of WNV lineage 1, along with the recently reported occurrence of WNV lineage 2 [6], documenting a remarkable increase in the diversity of WNV populations in Southern Spain. This increase in the genetic diversity highlights the potential for altered virulence, host range, or transmission dynamics, and underscores the critical importance of proactive, integrated surveillance strategies combining vector monitoring, genomic sequencing, and rapid response measures, as exemplified by the Andalusian Programme for Surveillance and Control of WNV Vectors [12]. Advancing our understanding of the environmental and genomic determinants of WNV transmission remains essential for forecasting outbreaks and guiding targeted interventions. In this context, genomics-informed surveillance platforms, such as SIEGA [8], offer valuable support for real-time detection, lineage tracking, and evidence-based public health decision-making in response to emerging zoonotic threats [26].
+
+The following are the supplementary data related to this article.Supplementary Fig. S1 Phylogenetic tree of 228 whole genomes of WNV lineage 1 from previous outbreaks found in the GenBank repository (See also Supplementary Table 1).
+
+Supplementary Fig. S1
+
+Supplementary Table 1
+
+A set of 228 whole genomes of WNV lineage 1 from previous outbreaks found in the GenBank repository.
+
+Supplementary Table 1
+
+CRediT authorship contribution statement
+
+Carlos S. Casimiro-Soriguer: Methodology, Investigation. Maria Lara: Investigation, Formal analysis, Data curation. Irene Pedrosa-Corral: Resources, Methodology. Cristina Gómez-Camarasa: Resources. Nicola Lorusso: Conceptualization. J. Alberto Chaves: Conceptualization. Jose M. Navarro-Marí: Resources. Laura Merino: Resources. Jose A. Lepe: Resources, Methodology. Joaquin Dopazo: Writing – review & editing, Writing – original draft, Supervision, Resources, Conceptualization. Sara Sanbonmatsu-Gámez: Writing – review & editing, Writing – original draft, Methodology, Investigation, Conceptualization. Javier Perez-Florido: Writing – review & editing, Writing – original draft, Supervision, Methodology, Investigation, Formal analysis, Conceptualization.
+
+Ethical issues
+
+Viral samples were provided and sequenced in the context of the Andalusian Protocol for WNF surveillance and alert [9]. Only epidemiological data disconnected from the affected individual are used in the study, and no ethical approval was required.
+
+Declaration of competing interest
+
+Joaquin Dopazo reports administrative support, article publishing charges, and statistical analysis were provided by Horizon Europe. Joaquin Dopazo reports administrative support and statistical analysis were provided by Carlos III Health Institute. The other authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+Data availability
+
+The WNV sequences reported are available in the European Nucleotide Archive (ENA) database under the project identifier PRJEB43037
+
+Acknowledgements
+
+This research was funded by grants PT17/0009/0006 from the 10.13039/501100004587 ISCIII , co-funded by the 10.13039/501100008530 European Regional Development Fund (ERDF) as well as H2020 “ELIXIR-EXCELERATE fast-track ELIXIR implementation and drive early user exploitation across the life sciences” (GA 676559).
+
+
+References
+
+1 Zeller H. Schuffenecker I. West Nile virus: an overview of its spread in Europe and the Mediterranean basin in contrast to its spread in the Americas Eur. J. Clin. Microbiol. Infect. Dis. 23 2004 147 156 10.1007/s10096-003-1085-1 14986160
+2 Ziegler U. Bergmann F. Fischer D. Müller K. Holicki C.M. Sadeghi B. Sieg M. Keller M. Schwehn R. Reuschel M. Spread of West Nile virus and Usutu virus in the German bird population, 2019–2020 Microorganisms 10 2022 807 35456857 10.3390/microorganisms10040807 PMC9030481
+3 de Heus P. Kolodziejek J. Camp J.V. Dimmel K. Bagó Z. Hubálek Z. van den Hoven R. Cavalleri J.M. Nowotny N. Emergence of West Nile virus lineage 2 in Europe: characteristics of the first seven cases of West Nile neuroinvasive disease in horses in Austria Transbound. Emerg. Dis. 67 2020 1189 1197 31840920 10.1111/tbed.13452 PMC7317211
+4 Young J.J. Haussig J.M. Aberle S.W. Pervanidou D. Riccardo F. Sekulić N. Bakonyi T. Gossner C.M. Epidemiology of human West Nile virus infections in the European Union and European Union enlargement countries, 2010 to 2018 Eurosurveillance 26 2021 2001095 33988124 10.2807/1560-7917.ES.2021.26.19.2001095 PMC8120798
+5 Casimiro-Soriguer C.S. Perez-Florido J. Fernandez-Rueda J.L. Pedrosa-Corral I. Guillot-Sulay V. Lorusso N. Martinez-Gonzalez L.J. Navarro-Marí J.M. Dopazo J. Sanbonmatsu-Gámez S. Phylogenetic analysis of the 2020 West Nile Virus (WNV) outbreak in Andalusia (Spain) Viruses 13 2021 836 10.3390/v13050836 34063166 PMC8148183
+6 Lara M. Casimiro-Soriguer C.S. Pedrosa-Corral I. Gómez-Camarasa C. Lorusso N. Navarro-Marí J.M. Dopazo J. Perez-Florido J. Sanbonmatsu-Gámez S. First autochthonous transmission of West Nile virus (WNV) lineage 2 to humans in Spain One Health 20 2025 101036 40276693 10.1016/j.onehlt.2025.101036 PMC12018207
+7 Casimiro-Soriguer C.S. Lara M. Aguado A. Loucera C. Ortuño F.M. Lorusso N. Navarro-Marí J.M. Sanbonmatsu-Gámez S. Camacho-Martinez P. Merino-Diaz L. A genomic surveillance circuit for emerging viral pathogens Microorganisms 13 2025 912 40284750 10.3390/microorganisms13040912 PMC12029405
+8 Casimiro-Soriguer C.S. Pérez-Florido J. Robles E.A. Lara M. Aguado A. Rodríguez Iglesias M.A. Lepe J.A. García F. Pérez-Alegre M. Andújar E. Jiménez V.E. Camino L.P. Loruso N. Ameyugo U. Vazquez I.M. Lozano C.M. Chaves J.A. Dopazo J. The integrated genomic surveillance system of Andalusia (SIEGA) provides a One Health regional resource connected with the clinic Sci. Rep. 14 2024 19200 10.1038/s41598-024-70107-0 39160186 PMC11333592
+9 Regional Government of Andalusia. Epidemiology Andalusian Surveillance System (SVEA). Protocolo de vigilancia y alerta de Fiebre del Nilo Occidental. [Protocol for West Nile fever surveillance and alert]. https://www.juntadeandalucia.es/sites/default/files/inline-files/2025/07/PROTOCOLO_FIEBRE%20DEL%20NILO%20OCCIDENTAL_2025_v4%20%28JULIO%29.pdf, 2025 (accessed 2 April 2025).
+10 European Union Commission Implementing Decision (EU) 2018/945 of 22 June 2018 on the communicable diseases and related special health issues to be covered by epidemiological surveillance as well as relevant case definitions (Text with EEA relevance.) https://eur-lex.europa.eu/eli/dec_impl/2018/945/oj 2018 accessed 30/07/2025
+11 Red Nacional de Vigilancia Epidemiológica Protocolo para la vigilancia de la fiebre del Nilo Occidental de la Red Nacional de Vigilancia Epidemiológica [Protocol for the surveillance of West Nile fever of the National Network of Epidemiological Surveillance] https://cne.isciii.es/documents/d/cne/protocolo-20vigilancia-20fiebre-20nilo-20occidental_renave-pdf 2020 accessed 30/07/2025
+12 Regional Government of Andalusia; Consejeria de Salud y Consumo Programa de vigilancia y control integral de vectores de la fiebre del nilo occidental [Integrated Surveillance and Vector Control Programme] https://www.juntadeandalucia.es/sites/default/files/inline-files/2025/03/Programa%20FNO%202025_definitivo_firmado%20%281%29.pdf 2025 accessed 30/07/2025
+13 Vázquez A. Herrero L. Negredo A. Hernández L. Sánchez-Seco M.P. Tenorio A. Real time PCR assay for detection of all known lineages of West Nile virus J. Virol. Methods 236 2016 266 270 10.1016/j.jviromet.2016.07.026 27481597
+14 Hepp C.M. Cocking J.H. Valentine M. Young S.J. Damian D. Samuels-Crow K.E. Sheridan K. Fofanov V.Y. Furstenau T.N. Busch J.D. Phylogenetic analysis of West Nile Virus in Maricopa County, Arizona: evidence for dynamic behavior of strains in two major lineages in the American Southwest PloS One 13 2018 e0205801 10.1371/journal.pone.0205801 PMC6261030 30475820
+15 Patel H. Monzón S. Varona S. Espinosa-Carrasco J. García M. Heuer M. Underwood A. Gabernet G. Ewels P. Julia M. Kelly S. Tavares H. Hanssen F. Wilson S. Sameith K. Wells M. Menden K. nf-core/viralrecon: nf-core/viralrecon v2.6.0 - Rhodium Raccoon (2.6.0) https://zenodo.org/records/7764938 2023
+16 Langmead B. Salzberg S.L. Fast gapped-read alignment with bowtie 2 Nat. Methods 9 2012 357 359 10.1038/nmeth.1923 22388286 PMC3322381
+17 Grubaugh N.D. Gangavarapu K. Quick J. Matteson N.L. De Jesus J.G. Main B.J. Tan A.L. Paul L.M. Brackney D.E. Grewal S. An amplicon-based sequencing framework for accurately measuring intrahost virus diversity using PrimalSeq and iVar Genome Biol. 20 2019 1 19 30621750 10.1186/s13059-018-1618-7 PMC6325816
+18 Danecek P. Bonfield J.K. Liddle J. Marshall J. Ohan V. Pollard M.O. Whitwham A. Keane T. McCarthy S.A. Davies R.M. Twelve years of SAMtools and BCFtools GigaScience 10 2021 giab008 10.1093/gigascience/giab008 PMC7931819 33590861
+19 Katoh K. Standley D.M. A simple method to control over-alignment in the MAFFT multiple sequence alignment program Bioinformatics 32 2016 1933 1942 27153688 10.1093/bioinformatics/btw108 PMC4920119
+20 Huddleston J. Hadfield J. Sibley T.R. Lee J. Fay K. Ilcisin M. Harkins E. Bedford T. Neher R.A. Hodcroft E.B. Augur: a bioinformatics toolkit for phylogenetic analyses of human pathogens J. Open Source Software 6 2021 2906 10.21105/joss.02906 PMC8237802 34189396
+21 SIEGA West Nile Virus Epidemiological Local Server - SIEGA http://nextstrain.clinbioinfosspa.es/wnv 2020 accessed 2 April 2025
+22 Maroco D. Parreira R. Dos Santos F.A. Lopes Â. Simões F. Orge L. Seabra S.G. Fagulha T. Brazio E. Henriques A.M. Tracking the pathways of West Nile virus: phylogenetic and phylogeographic analysis of a 2024 isolate from Portugal Microorganisms 13 2025 585 10.3390/microorganisms13030585 PMC11945232 40142478
+23 Ruiz-López M.J. Aguilera-Sepúlveda P. Cebrián-Camisón S. Figuerola J. Magallanes S. Varona S. Cuesta I. Cano-Gómez C. Sánchez-Mora P. Camacho J. Sánchez-Peña C. Marchena F.J. Ameyugo U. Ruíz S. Sánchez-Seco M.P. Agüero M. Jiménez-Clavero M. Fernández-Pinero J. VÁZQUEZ A. Re-emergence of a West Nile Virus (WNV) variant in South Spain with rapid spread capacity Viruses 15 2023 10.3390/v15122372 PMC10747266 38140614
+24 Aguilera-Sepúlveda P. Cano-Gómez C. Villalba R. Borges V. Agüero M. Bravo-Barriga D. Frontera E. Jiménez-Clavero M.Á. Fernández-Pinero J. The key role of Spain in the traffic of West Nile virus lineage 1 strains between Europe and Africa Infect. Dis. 56 2024 743 758 10.1080/23744235.2024.2348633 38836293
+25 SEO/BirdLIfe Migra, Birds In Movement http://www.migraciondeaves.org/ 2026
+26 Gardy J.L. Loman N.J. Towards a genomics-informed, real-time, global pathogen surveillance system Nat. Rev. Genet. 19 2018 9 10.1038/nrg.2017.88 29129921 PMC7097748

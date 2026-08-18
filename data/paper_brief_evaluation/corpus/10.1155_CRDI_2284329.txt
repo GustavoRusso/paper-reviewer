@@ -1,0 +1,224 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Case Rep Infect Dis
+Journal ID: Case Rep Infect Dis
+NLM Journal ID: 101573243
+Journal ID: CRDI
+
+Case Reports in Infectious Diseases
+
+ISSN: 2090-6625
+EISSN: 2090-6633
+Publisher: Wiley
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13397092
+PMID: 42499780
+DOI: 10.1155/crdi/2284329
+Article ID: CRDI2284329
+Article version: 1
+Subjects: Case Report, Article
+
+Severe Usutu Virus Encephalitis Treated With Corticosteroids: A Case Report
+
+Casolari Stefania https://orcid.org/0000-0003-2494-464X 1
+Lusetti Deborah 1
+Martini Elena 1
+Gozzi Licia https://orcid.org/0000-0002-9510-3939 1
+Orlando Gabriella 1
+Franceschini Erica https://orcid.org/0000-0001-6922-5759 1
+Mussini Cristina https://orcid.org/0000-0002-6615-4198 1 2 crimuss@unimore.it
+
+Miyahara Satoshi smiyahara@bwh.harvard.edu
+
+1 Infectious Diseases Unit , Azienda Ospedaliero-Universitaria di Modena , University of Modena and Reggio Emilia , Modena , Italy , unimore.it
+2 Department of Surgical, Medical, Dental and Morphological Sciences , University of Modena and Reggio Emilia , Modena , Italy , unimore.it
+Electronic publication date: 2026 Jul 24
+Publication date: 2026
+Volume: 2026
+Electronic Location ID: 2284329
+Revised 2026 Apr 10; Received 2025 Nov 21; Accepted 2026 Apr 15
+Copyright: Copyright © 2026 Stefania Casolari et al. Case Reports in Infectious Diseases published by John Wiley & Sons Ltd.
+Copyright year: 2026
+License: This is an open access article under the terms of the https://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: flavivirus neuroinvasive disease, steroid therapy, Usutu virus, viral encephalitis
+Figure count: 0
+Table count: 0
+Reference count: 36
+Page count: 5
+
+source-schema-version-number: 2.0
+cover-date: 2026
+details-of-publishers-convertor: Converter:WILEY_ML3GV2_TO_JATSPMC version:6.8.4 mode:remove_FC converted:24.07.2026
+
+Casolari, Stefania , Lusetti, Deborah , Martini, Elena , Gozzi, Licia , Orlando, Gabriella , Franceschini, Erica , Mussini, Cristina , Severe Usutu Virus Encephalitis Treated With Corticosteroids: A Case Report, Case Reports in Infectious Diseases, 2026, 2284329, 5 pages, 2026. 10.1155/crdi/2284329
+
+Academic Editor: Satoshi Miyahara
+
+==============================
+Usutu virus (USUV) is a neurotropic flavivirus, phylogenetically related to West Nile virus (WNV), maintained in the environment through a bird‐to‐mosquito transmission cycle, with humans and other animals occasionally becoming infected. In recent years, different cases of human infections have been reported concomitantly with increased viral circulation in several European countries. Most USUV infections in humans remain asymptomatic; however, neuroinvasive disease has been reported, mainly in the elderly and the immunocompromised but also in healthy individuals. Herein, we report a case of severe USUV meningoencephalitis in an elderly patient treated with a short course of dexamethasone and discuss the potential role of steroids in light of the most recent literature on the pathogenetic mechanisms of arboviral encephalitis.
+
+1. Introduction
+
+Usutu virus (USUV) is an arthropod‐borne virus that has recently gained attention for its ability to cause infections of the central nervous system. It belongs to the Japanese encephalitis virus (JEV) serocomplex and is a member of the Orthoflavivirus genus, within the Flaviviridae family [1]. It is an enveloped, single‐stranded RNA virus whose natural transmission cycle involves mosquitoes as vectors (mainly Culex spp. but also the Aedes and Mansonia genera), birds as amplifying hosts, and humans and other mammals as incidental “dead‐end” hosts [2]⁠. As transmission requires competent vectors, in temperate climates, virus circulation is limited to some periods of the year, usually from late spring to early autumn.
+
+Most human USUV infections are asymptomatic or present with mild and nonspecific symptoms (i.e., rash, fever, and headache). However, neurological disorders ranging from facial paralysis to severe forms of meningoencephalitis and encephalitis have also been reported [3]⁠. Laboratory diagnosis of USUV infection is classically based on the detection of the USUV RNA genome by reverse transcription polymerase chain reaction (RT‐PCR) in bodily fluids or on the demonstration of a specific antibody response against the virus. However, serological tests for USUV suffer from a lack of specificity and must be controlled by neutralization approaches to exclude cross‐reaction with antibodies directed against other flaviviruses, including West Nile virus (WNV) [4, 5]. USUV can also be isolated in cell culture, but this method is not routinely indicated for diagnosis due to its complexity, costs, and long turnaround times.
+
+First isolated in South Africa in 1959, USUV is thought to have been introduced into Europe through bird migration [6]. The first human case of USUV infection was reported in 1981 in the Central African Republic, and a second case was identified in Burkina Faso in 2004; both patients experienced moderate symptoms including fever, rash, and jaundice [7]. In 2009, the first case of USUV encephalitis was diagnosed in Modena, in the north of Italy, in a patient with B‐cell lymphoma. In the same year, a second case of neuroinvasive infection was reported in a patient recovering from orthotopic liver transplantation [8, 9].
+
+Over the last two decades, USUV has spread rapidly across the continent, becoming endemic in several countries, with a rise in reported human infections [3, 10, 11]. Seroprevalence studies conducted in Europe suggest that human USUV infections are largely underestimated. Antibodies against USUV were detected in the blood of 0.01% and 1% of healthy blood donors in Germany and Italy, respectively [12, 13], while a higher seroprevalence (7.5%) was reported in serum samples collected from healthy individuals in Serbia [14]. A retrospective analysis conducted in Italy on 915 patients, about one‐third of whom were suspected of having encephalitis or meningoencephalitis, found a seroprevalence of 6.5% and USUV RNA in 1.1% of cerebrospinal fluid (CSF) and serum samples. Moreover, the study detected an intense cocirculation with WNV in that area, with significantly higher USUV RNA presence and USUV antibody levels compared to those of WNV [15]⁠.
+
+Since 2017, Italy has implemented a joint USUV and WNV national surveillance plan, integrated within a One Health approach, targeting humans, birds, equids, and mosquitoes, with the goal to identify areas at high risk of human disease. Indeed, in Italy, USUV infection is a notifiable disease [16]⁠.
+
+In 2023, the ECDC published the first surveillance report of WNV and USUV infections in the EU/EEA, providing an overview of the epidemiological situation. Eight countries (Austria, Croatia, Czechia, France, Germany, Hungary, Italy, and the Netherlands) reported a total of 104 cases of autochthonous human USUV infections between 2012 and 2021, of which 56 were found in Italy (54%) [11]⁠.
+
+As far as we know, more than 30 cases of acute human infection with neurological symptoms have been described, most in patients with comorbidities of varying severity, although some developed neurological forms without any identified concomitant pathological conditions [3]⁠. To date, there is no approved antiviral drug for USUV and for other arboviral infections, and treatment remains supportive and symptomatic. While there are some conflicting case reports on the use of steroids in viral encephalitis (VE), overall, the data are unfavorable, demonstrating no benefit to support their use [17–20].
+
+There is also concern that steroids might lead to uncontrolled viral replication and potential adverse events.
+
+We present a case of severe USUV encephalitis in which we attempted to leverage the anti‐inflammatory properties of corticosteroids.
+
+2. Case Report
+
+In August 2024, an 84‐year‐old man presented to the Emergency Department in Modena Hospital (Italy) with a 1‐week history of fever and chills. His past medical history included only hypertension and dyslipidemia. The patient was independent in activity of daily living (ADL) and instrumental activity of daily living (IADL).
+
+Upon admission, despite high fever (39°C), the patient was alert, oriented to person, and cooperative, with a Glasgow Coma Scale score of 15. Vital signs revealed a blood pressure of 115/65 mmHg and a heart rate of 105 beats per minute (bpm). Arterial blood gas analysis documented respiratory failure (SpO2 84%). Blood tests showed leukopenia (WBC 2600/mmc, N 1550/mmc), anemia (Hb 10.9 g/dL), mild renal impairment (creatinine 1.25 mg/dL; eGFR 53 mL/min), and C‐reactive protein 1.5 mg/dL. A chest X‐ray revealed bilateral lower interstitial thickening. A molecular swab for SARS‐CoV‐2 was negative.
+
+After admission to the geriatrics department, blood and urine cultures were collected, and treatment with ceftriaxone was started. Over the following 24 h, fever persisted, and the patient’s mental status deteriorated, with the onset of confusion, drowsiness, aphasia, buccal synkinesis, distal tremors, and neck stiffness. Plain brain computed tomography and electroencephalogram were both unremarkable. Lumbar puncture revealed slightly cloudy CSF, with pleocytosis (122 cells/μL, mixed mononuclear and polymorphonuclear), elevated protein (137 mg/dL), and mild hypoglycorrhachia (54 mg/dL, with peripheral blood glucose 120 mg/dL).
+
+Since two doses of ceftriaxone had already been administered before the lumbar puncture, and given the presence of neutrophils in the CSF, empirical treatment with ceftriaxone, ampicillin, and acyclovir was started despite viral infection being suspected. Due to clinical severity, i.v. dexamethasone 12 mg was also administered. The patient was transferred to a subintensive care unit. A qualitative multiplex polymerase chain reaction (PCR) for common meningitis/encephalitis pathogens (BioFire FilmArray meningitis/encephalitis panel) on CSF gave a negative result, as well as later cultures.
+
+CSF, serum, and urine samples were sent to the Regional Reference Centre for Microbiological Emergencies (CRREM) to be tested for arboviral infection. The following day, tests gave positive results for USUV by RT‐PCR [21] in serum and urine, while results for CSF were negative. Serological and molecular assays for WNV and TOSV were negative. No serology for USUV was performed. All antibiotics and antiviral treatments were subsequently discontinued.
+
+Given that rapid neurological improvement in consciousness and resolution of neck stiffness occurred, we decided to administer a second dose of dexamethasone (reduced to 8 mg) the day after the first infusion. A few hours later, the patient began to speak again and achieved full restoration of consciousness; steroid administration was then discontinued. In the following days, gradual improvement of asthenia, buccal synkinesis, and tremors was observed. At discharge, the patient was in good general condition, independent in ADL, partially dependent in IADL (6/8), and able to walk independently with a walking stick.
+
+3. Discussion
+
+Currently, USUV is endemic in Europe, and its spread to new geographic areas is expected to rise, together with the potential occurrence of severe forms of encephalitis [22]. VE is a major cause of morbidity and mortality worldwide; however, with the exception of acyclovir for Herpes simplex virus (HSV) encephalitis, there is no treatment supported by high‐quality evidence from clinical trials. Immunomodulatory therapy with glucocorticoids has been widely used, either as an adjunct to antiviral drugs or as monotherapy, when no effective agent is available.
+
+Although evidence supporting the routine use of steroids remains scant, they are often administered based on individual clinical judgment or local policy, adopting a personal approach regarding dosage, duration of treatment, and timing of initiation. The rationale behind corticosteroid administration lies in their potential to reduce the exaggerated inflammatory response that characterizes the pathogenic mechanisms of VE. Indeed, the neurological damage in VE seems to be due to an uncontrolled immune system reaction of the host—a cytokine storm—rather than a direct viral invasion [17].
+
+After a neurotropic virus infects the brain, an immune cascade leads to cytokine release, recruiting leukocytes to infiltrate the perivascular space and parenchyma. While this response is essential for viral clearance, overexpression of inflammatory cytokine genes may be detrimental in the long term to neuronal function, enhancing the severity of the inflammation. Results from different studies have confirmed that high levels of proinflammatory cytokines adversely affect the blood–brain barrier (BBB) integrity, facilitating viral entry into the brain and vascular leakage, leading to brain edema and increased intracranial pressure [23–26].
+
+On the other hand, there are concerns that immunosuppressive effects could exacerbate viral replication, particularly during early infection, resulting in worsening of the disease. Although never demonstrated, this has led many practitioners to restrict corticosteroid use to patients with significant brain edema.
+
+According to the 2008 IDSA guidelines for VE, there is poor‐quality evidence to support a recommendation for glucocorticoid use in patients with encephalitis due to HSV, EBV, or VZV [27]. A clinical trial investigating adjunctive steroids in HSV encephalitis (GACHE trial) was terminated prematurely due to slow recruitment, after enrollment of only 21 patients in the steroid arm and 20 patients in the placebo arm. No significant differences were seen in primary or secondary endpoints, and no serious adverse effects occurred in patients treated with dexamethasone [28, 29]. Hodzic et al., in a recent meta‐analysis, concluded that steroid use in VE cannot be routinely recommended for lack of benefit, underscoring the poor quality of data, limited by heterogeneity of study populations and interventions, incomplete data, and different bias [17]. The newly released DexEnceph trial, the only completed RCT investigating the effects of adjunctive dexamethasone in HSV encephalitis, did not find any improvement in the primary outcome (verbal memory) and no significant differences in secondary outcomes, including other neuropsychological, functional, or imaging outcomes [19, 20]⁠. The authors concluded that their findings cannot support the adjunction of steroids in HSV encephalitis.
+
+Concerning flavivirus encephalitis, corticosteroid use for WNV encephalitis has been proposed in case reports and clinical studies, with conflicting results [30, 31]. Real‐life data from a retrospective multicentric Italian study found no significant impact on intrahospital mortality or neurological sequelae, highlighting the need for prospective studies [18]⁠. A recent systematic review of WNV encephalitis pathogenesis and related inflammation identifies IL‐6 and TNF‐α as the principal cytokines upregulated during CNS infection. They both exert protective effects during infection, but they are also capable of inducing inflammation‐related damage, resulting in effects that are detrimental to the host [32]. Immunomodulation therapy could mitigate the cytokine burden of inflammation.
+
+Patabendige et al. conducted an elegant in vitro study, using a BBB model inoculated with JEV. The authors observed that JEV infection triggered cytokine production from brain endothelial cells and astrocytes, controlling viral replication but disrupting BBB integrity, allowing entry of the virus into the brain. Dexamethasone administration dampened the immune response and restored barrier integrity without increasing JEV particles in culture, supporting reconsideration of its therapeutic role [33]⁠. A recent research using a mouse model of USUV encephalitis showed that microglial activation, BBB disruption, and inflammatory leukocyte recruitment are hallmarks of disease. Dexamethasone treatment prevented proinflammatory mediator production and reduced leukocyte recruitment significantly, restraining encephalitis severity in mice. Considering that extensive inflammation, rather than the viral load in the brain, is at the root of USUV‐induced disease burden, the authors suggest that steroids could have a role in the treatment of USUV encephalitis [34]⁠.
+
+With regard to safety, it is known that even a short course of corticosteroids can cause side effects such as acute psychosis, exacerbation of diabetes, thrombotic events, and worsening of systemic infections. However, even if available studies do not demonstrate a clear impact of steroids on mortality or neurological outcomes, they consistently highlight a negligible risk of adverse events. The previously cited meta‐analysis by Hodzic et al. found no safety concerns, particularly regarding survival [17]. Similarly, in an old trial by Hoke et al. examining the effects of high‐dose corticosteroids in JEV patients, no harmful effects of treatment could be demonstrated [35]. An observational cohort study conducted in Denmark also found no dose‐dependent association between dexamethasone and unfavorable outcomes in patients with viral meningitis [36]⁠. In the DexEnceph RCT, administration of dexamethasone 40 mg daily for 4 days was not associated with harm and importantly, and it did not lead to an increased detection of HSV in the CSF at 14 days. Indeed, the authors concluded that although it was not possible to demonstrate an improvement in patient outcome, considering that steroids have a role in the treatment of inflammatory brain disease such as autoimmune encephalitis, the safety in HSV encephalitis raises the possibility for early empirical therapy in suspected encephalitis, even before the cause is established [19, 20].
+
+4. Conclusion
+
+Due to the paucity of reported cases, USUV‐induced encephalitis remains an almost unexplored field. We consider this clinical case of particular interest, as it raises several important considerations.
+
+First, from an epidemiological point of view, many areas in Europe are characterized by the cocirculation of USUV and WNV. Given the cross‐reactivity of the diagnostic tests between these viruses, USUV neuroinvasive disease may be underreported, as some USUV infections could be misclassified as WNV infections.
+
+Second, USUV encephalitis may evolve quickly: It is important to maintain a high level of suspicion in endemic areas, in order to avoid diagnostic delays, especially in the elderly and the immunocompromised patients.
+
+Third, in light of the literature hypothesizing a central role of the immune response in the pathogenetic mechanism of arboviral encephalitis and considering that available current research aligned in identifying a low risk of harmful effects in this context, we believed that an early short‐term immunomodulatory treatment with dexamethasone could be beneficial. The prompt clinical and neurological improvement observed after only two doses of dexamethasone was impressive.
+
+The dose we selected was well below the 40 mg recommended in bacterial meningitis and consistent with studies reporting favorable outcomes, where most patients received dexamethasone at equivalent doses of 5–30 mg per day [17].
+
+At the time we treated our patient, results from DexEnceph were not available yet. As this is the only RCT on VE and steroids, it can be worth citing one reported study limitation: Although the primary outcome showed no difference, the 95% CI (−9.6–13.1) includes potential for clinically meaningful effects, therefore a clinically relevant benefit cannot be excluded [19, 20].
+
+We hope that this case, together with the most recent literature on the pathogenetic mechanism of arboviral encephalitis, may encourage further investigation into the potential role of corticosteroids as a treatment option for USUV and other closely related flavivirus‐associated neurological disorders, at least until more targeted immunomodulatory therapies will be available.
+
+Nomenclature
+
+ADL Activity of daily living
+
+BBB Blood–brain barrier
+
+CSF Cerebrospinal fluid
+
+EBV Epstein–Barr virus
+
+HSV Herpes simplex virus
+
+IADL Instrumental activity of daily living
+
+JEV Japanese encephalitis virus
+
+TOSV Toscana virus
+
+USUV Usutu virus
+
+VE Viral encephalitis
+
+VZV Varicella zoster virus
+
+WBCs White blood cells
+
+WNV West Nile virus
+
+Funding
+
+No funding was obtained.
+
+Disclosure
+
+All authors read and approved the final manuscript.
+
+Ethics Statement
+
+The authors have nothing to report.
+
+Consent
+
+We obtained informed and signed consent for publication from the patient.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+Acknowledgments
+
+We acknowledge the Centro di Riferimento Regionale per le Emergenze Microbiologiche (CRREM), Clinical Microbiology Unit, Department of Experimental, Diagnostic and Specialty Medicine, Policlinico Sant’Orsola, Bologna, Italy.
+
+Data Availability Statement
+
+Data sharing is not applicable to this article as no datasets were generated or analyzed during the current study.
+
+
+1 Simonin Y. , Circulation of West Nile Virus and Usutu Virus in Europe: Overview and Challenges, Viruses. (2024) 16, no. 4, 10.3390/V16040599.PMC11055060 38675940
+2 Vilibic-Cavlek T. , Petrovic T. , Savic V. et al., Epidemiology of Usutu Virus: the European Scenario, Pathogens. (2020) 9, 10.3390/pathogens9090699.PMC7560012 32858963
+3 Cadar D. and Simonin Y. , Human Usutu Virus Infections in Europe: a New Risk on Horizon?, Viruses. (2022) 15, no. 1, 10.3390/v15010077.PMC9866956 36680117
+4 Percivalle E. , Cassaniti I. , Sarasini A. et al., West Nile or Usutu Virus? A Three-Year Follow-Up of Humoral and Cellular Response in a Group of Asymptomatic Blood Donors, Viruses. (2020) 12, no. 2, 10.3390/v12020157.PMC7077259 32013152
+5 Berneck B. S. , Rockstroh A. , Barzon L. et al., Serological Differentiation of West Nile Virus‐ and Usutu Virus‐Induced Antibodies by Envelope Proteins with Modified Cross‐Reactive Epitopes, Transboundary and Emerging Diseases. (2022) 69, no. 5, 2779–2787, 10.1111/tbed.14429.34919790
+6 Engel D. , Jöst H. , Wink M. et al., Reconstruction of the Evolutionary History and Dispersal of Usutu Virus, a Neglected Emerging Arbovirus in Europe and Africa, mBio. (2016) 7, no. 1, 10.1128/mBio.01938-15.PMC4742707 26838717
+7 Nikolay B. , Diallo M. , Bouh B. C. S. et al., Usutu Virus in Africa, Vector Borne and Zoonotic Diseases. (2011) 11, 10.1089/vbz.2011.0631.21767160
+8 Pecorari M. , Longo G. , Gennari W. et al., First Human Case of Usutu Virus Neuroinvasive Infection, Italy, August-September 2009, Euro Surveillance. (2009) 14, no. 50, 9–10, 10.2807/ese.14.50.19446-en.20070936
+9 Cavrini F. , Gaibani P. , Longo G. et al., Usutu Virus Infection in a Patient Who Underwent Orthotropic Liver Transplantation, Italy, August-September 2009, Euro Surveillance. (2009) 14, no. 50, 17–18, 10.2807/ese.14.50.19448-en.20070935
+10 Roesch F. , Fajardo A. , Moratorio G. , and Vignuzzi M. , Usutu Virus: an Arbovirus on the Rise, Viruses. (2019) 11, no. 7, 10.3390/v11070640.PMC6669749 31336826
+11 European Centre for Disease Prevention and Control , Surveillance, Prevention and Control of West Nile Virus and Usutu Virus Infections in the EU/EEA, 2023, 10.2900/844421.
+12 Allering L. , Jöst H. , Emmerich P. et al., Detection of Usutu Virus Infection in a Healthy Blood Donor from south-west Germany, 2012, Euro Surveillance. (2012) 17, no. 50, 5–7, 10.2807/ese.17.50.20341-en.23241231
+13 Pierro A. , Gaibani P. , Spadafora C. et al., Detection of Specific Antibodies Against West Nile and Usutu Viruses in Healthy Blood Donors in Northern Italy, 2010 – 2011, Clinical Microbiology and Infection. (2013) 19, no. 10, E451–E453, 10.1111/1469-0691.12241.23663225
+14 Hrnjaković Cvjetković I. , Petrović T. , Petrić D. et al., Seroprevalence of Mosquito-Born And Tick-Born Microorganisms In Human Population of South Backa District, Archives of Veterinary Medicine. (2016) 9, no. 1, 23–30, 10.46784/e-avm.v9i1.94.
+15 Grottola A. , Marcacci M. , Tagliazucchi S. et al., Usutu Virus Infections in Humans: a Retrospective Analysis in the Municipality of Modena, Italy, Clinical Microbiology and Infection. (2017) 23, no. 1, 33–37, 10.1016/j.cmi.2016.09.019.27677699
+16 Italian Ministry of Health , Piano Nazionale Integrato Di Sorveglianza E Risposta Ai Virus West Nile E Usutu, 2018.
+17 Hodzic E. , Hasbun R. , Granillo A. et al., Steroids for the Treatment of Viral Encephalitis: A Systematic Literature Review and Meta-Analysis, Journal of Neurology. (2023) 270, no. 7, 3603–3615, 10.1007/s00415-023-11715-0.37060361 PMC10105360
+18 Colaneri M. , Lissandrin R. , Calia M. et al., The WEST Study: a Retrospective and Multicentric Study on the Impact of Steroid Therapy in West Nile Encephalitis, Open Forum Infectious Diseases. (2022) 10, no. 3, 1–5, 10.1093/ofid/ofad092.PMC10026538 36949874
+19 Whitfield T. , Fernandez C. , Davies K. et al., Protocol for Dexenceph: a Randomised Controlled Trial of Dexamethasone Therapy in Adults with Herpes simplex Virus Encephalitis, BMJ Open. (2021) 11, no. 7, 1–10, 10.1136/bmjopen-2020-041808.PMC8728349 34301646
+20 Solomon T. , Hooper C. , and Easton A. , Safety and Efficacy of Adjunct Dexamethasone in Adults with Herpes simplex Virus Encephalitis in the UK (DexEnceph): a Multicentre, observer-blind, Randomised, Phase 3, Controlled Trial, Lancet Neurology. (2026) 25, no. 2, 136–146, 10.1016/s1474-4422(25)00454-5.41579900
+21 Cavrini F. , Pepa M. E. D. , Gaibani P. et al., A Rapid and Specific real-time RT-PCR Assay to Identify Usutu Virus in Human Plasma, Serum, and Cerebrospinal Fluid, Journal of Clinical Virology. (2011) 50, no. 3, 221–223, 10.1016/j.jcv.2010.11.008.21156352
+22 Gaibani P. , Barp N. , Massari M. et al., Case Report of Usutu Virus Infection in an Immunocompromised Patient in Italy, 2022, Journal of NeuroVirology. (2023) 29, 1–3, 10.1007/s13365-023-01148-w.37227671 PMC10211289
+23 Klein R. S. , Garber C. , Funk K. E. et al., Neuroinflammation During RNA Viral Infections, Annual Review of Immunology. (2019) 37, no. 1, 73–95, 10.1146/annurev-immunol-042718-041417.PMC6731125 31026414
+24 Quicke K. M. and Suthar M. S. , The Innate Immune Playbook for Restricting West Nile Virus Infection, Viruses. (2013) 5, no. 11, 2643–2658, 10.3390/v5112643.24178712 PMC3856407
+25 Montazersaheb S. , Hosseiniyan Khatibi S. M. , Hejazi M. S. et al., COVID-19 Infection: an Overview on Cytokine Storm and Related Interventions, Virology Journal. (2022) 19, 1–15, 10.1186/s12985-022-01814-1.35619180 PMC9134144
+26 Tyler K. L. , Acute Viral Encephalitis, New England Journal of Medicine. (2018) 379, no. 6, 557–566, 10.1056/nejmra1708714.30089069
+27 Tunkel A. R. , Glaser C. A. , Bloch K. C. et al., The Management of Encephalitis: Clinical Practice Guidelines by the Infectious Diseases Society of America, Clinical Infectious Diseases. (2008) 47, no. 3, 303–327, 10.1086/589747.18582201
+28 Martinez-Torres F. , Menon S. , Pritsch M. et al., Protocol for German Trial of Acyclovir and Corticosteroids in Herpes-simplex-virus-encephalitis (GACHE): a Multicenter, Multinational, Randomized, double-blind, placebo-controlled German, Austrian and Dutch Trial [ISRCTN45122933], BMC Neurology. (2008) 8, 1–10, 10.1186/1471-2377-8-40.18959773 PMC2605746
+29 Meyding-Lamadé U. , Jacobi C. , Martinez-Torres F. et al., The German Trial on Aciclovir and Corticosteroids in Herpes-simplex-virus-Encephalitis (GACHE): a Multicenter, Randomized, double-blind, placebo-controlled Trial, Neurology Research Practice. (2019) 1, 10.1186/s42466-019-0031-3.PMC7650106 33324892
+30 Kal S. , Beland A. , and Hasan M. , West Nile Neuroinvasive Disease Treated with high-dose Corticosteroids, Cureus. (2022) 14, 14–16, 10.7759/cureus.31971.PMC9795833 36589189
+31 Leis A. A. and Sinclair D. J. , Lazarus Effect of High Dose Corticosteroids in a Patient with West Nile Virus Encephalitis: a Coincidence or a Clue?, Frontiers of Medicine. (2019) 6, 1–4, 10.3389/fmed.2019.00081.PMC6494927 31106205
+32 Pavesi A. , Tiecco G. , Rossi L. et al., Inflammatory Response Associated with West Nile Neuroinvasive Disease: a Systematic Review, Viruses. (2024) 16, no. 3, 10.3390/v16030383.PMC10976239 38543749
+33 Patabendige A. , Michael B. D. , Craig A. G. , and Solomon T. , Molecular and Cellular Neuroscience Brain Microvascular endothelial-astrocyte Cell Responses Following Japanese Encephalitis Virus Infection in an in Vitro Human blood-brain Barrier Model, Molecular and Cellular Neuroscience. (2018) 89, 60–70, 10.1016/j.mcn.2018.04.002.29635016 PMC5984247
+34 Slowikowski E. , Willems C. , Rodrigues Lemes R. M. et al., A Central Role for CCR2 in Monocyte Recruitment and blood–brain Barrier Disruption During Usutu Virus Encephalitis, Journal of Neuroinflammation. (2025) 22, 1–20, 10.1186/s12974-025-03435-1.40241134 PMC12004732
+35 Hoke C. H.Jr, Vaughn D. W. , Nisalak A. et al., Effect of high-dose Dexamethasone on the Outcome of Acute Encephalitis due to Japanese Encephalitis Virus, The Journal of Infectious Diseases. (1992) 165, no. 4, 631–637, 10.1093/infdis/165.4.631.1313068
+36 Petersen P. T. , Bodilsen J. , Grønholm Jepsen P. M. et al., Dexamethasone in Adults with Viral Meningitis: an Observational Cohort Study, Clinical Microbiology and Infection. (2025) 31, no. 1, 87–92, 10.1016/j.cmi.2024.08.015.39182578

@@ -1,0 +1,522 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Nanoscale Adv
+Journal ID: Nanoscale Adv
+NLM Journal ID: 101738708
+Journal ID: NA
+
+Nanoscale Advances
+
+EISSN: 2516-0230
+Publisher: Royal Society of Chemistry
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC12958062
+PMID: 41788761
+DOI: 10.1039/d5na00988j
+Article ID: d5na00988j
+Article version: 2
+Subjects: Chemistry
+
+Multi-scale computational insights into West Nile virus E-protein adsorption on graphene and phosphorene nanomaterials
+
+Papalini Alessia a b
+https://orcid.org/0000-0002-1083-9198 Brancolini Giorgia a
+a Center S3, CNR Institute of Nanoscience Via Campi 213/A Modena 41125 Italy giorgia.brancolini@nano.cnr.it
+b PhD National Programme in One Health Approaches to Infectious Diseases and Life Science Research, Departiment of Public Health, Experimental and Forensice Medicine, University of Pavia Pavia 27100 Italy
+Electronic publication date: 2026 Feb 13
+Publication date: 2026 Apr 21
+Volume: 8
+Issue: 8
+First page: 2539
+Last page: 2552
+Received 2025 Oct 22; Accepted 2026 Feb 7
+Copyright: This journal is © The Royal Society of Chemistry
+Copyright year: 2026
+Copyright holder: RSC
+
+License: This article is licensed under a Creative Commons Attribution-Non Commercial 3.0 Unported Licence. You can use material from this article in other publications without requesting further permissions from the RSC, provided that the correct acknowledgement is given and it is not used for commercial purposes.
+License URL: https://creativecommons.org/licenses/by-nc/3.0/
+
+Funding: NextGenerationEU 10.13039/100031478 PE00000007, INF-ACT
+Page count: 14
+pubstatus: Paginated Article
+
+==============================
+The increasing global impact of flaviviruses highlights the critical need for diagnostic platforms and antiviral therapeutic strategies. In this context, protein–nanomaterial interactions offer valuable opportunities for the rational design of devices with tailored properties. Here, we investigated the adsorption of the West Nile virus envelope protein, specifically domain III, onto two-dimensional nanomaterials, namely graphene and phosphorene, using an integrated multiscale computational approach combining Brownian dynamics docking and extensive molecular dynamics simulations. Docking and MD refinement revealed multiple stable binding orientations on both graphene and phosphorene. On graphene, adsorption is mainly driven by residues in the C–D loop and C-terminal region, involving both hydrophobic and charged interactions. In contrast, phosphorene exhibits more distributed binding, engaging the N-terminal and several loop regions through predominantly polar and hydrophobic contacts, reflecting distinct adsorption mechanisms for the two surfaces. Free energy decomposition confirmed that adsorption on both surfaces is thermodynamically favorable and primarily driven by van der Waals interactions, with phosphorene exhibiting higher stabilization energies. Structural analyses (radius of gyration, solvent-accessible surface area, and secondary structure content) indicate that graphene induces stronger but more disruptive binding, leading to a reduction in β-strand content, whereas phosphorene preserves the protein's native fold and hydrogen-bond network, minimizing structural perturbation. Comparison with experimental data supports these computational findings, suggesting that phosphorene achieves an optimal balance between adsorption strength and structural preservation. These atomistic insights provide a foundation for designing a sensitive and selective phosphorene-based biosensing platform for WNV detection and offer valuable guidance for designing phosphorene-inspired antiviral therapeutic strategies.
+
+Multiscale simulations show that phosphorene provides strong but non-disruptive binding to the West Nile virus envelope protein, outperforming graphene and highlighting its potential for biosensing and antiviral applications.
+
+1 Introduction
+
+The growing global threat posed by flaviviruses underscores the urgent need for sensitive and specific diagnostic platforms and effective therapeutic strategies.
+
+West Nile virus (WNV) is a mosquito-borne flavivirus within the Flaviviridae family and the Japanese encephalitis virus serocomplex.1,2 First isolated in Uganda's West Nile Province in 1937 from a febrile patient, WNV was initially thought to pose minimal risk to humans but caused significant mortality in various animals, including birds, horses, and rodents.1 In recent decades, the virus has seen a substantial rise in human and equine cases. Mosquitoes serve as both vectors and intermediate hosts, facilitating virus amplification before transmission to final hosts.1 In humans, WNV is primarily transmitted via mosquito bites, although hospital-acquired transmission through organ transplantation, accidental needle sticks, hemodialysis, and blood transfusions has also been reported.3
+
+Like other flaviviruses, WNV possesses a positive-sense, single-stranded RNA genome of approximately 11 000 nucleotides.3,4 This genome is enclosed in an icosahedral nucleocapsid, surrounded by a host-derived lipid bilayer about 50 nm in diameter. The virion membrane contains structural and nonstructural proteins, with the three structural proteins being capsid (C), premembrane (prM), and envelope (E).4 The E protein, conserved among flaviviruses, is composed of three domains (DI, DII, and DIII) linked by a flexible, pH-dependent region, making it a key target for vaccines and immunotherapy.1,5,6
+
+Among emerging technologies, nanomaterials have attracted considerable attention in biomedical and biosensing applications due to their high surface-to-volume ratio, which facilitates efficient therapeutic loading and molecular interactions.7 Within this class, phosphorene has emerged as a particularly promising two-dimensional (2D) material because of its high surface area, tunable band gap, and excellent charge carrier mobility.8–14 Phosphorene's tunable band gap, mechanical flexibility, transparency, high stability, and ease of functionalization with biomolecules make it an excellent candidate for sensor applications. Its electronic properties can be further tuned by varying the number of layers or introducing defects,15–17 while its mechanical robustness and ambient stability support reliable performance.18,19 Phosphorene nanosheets can also be functionalized with a variety of biomolecules,20 making the study of interactions between viral proteins and phosphorene highly relevant for sensor design.
+
+Biosensors based on nanostructures have demonstrated great potential for selective virus detection, including coronaviruses21,22 and flaviviruses.23,24
+
+Computational and theoretical approaches have proven valuable in designing nanomaterial-based sensors, enabling prediction and optimization of molecular interactions at the nanoscale.25–30 Various nanomaterials, including MoS2,31 graphene,32–35 and phosphorene,36 have been explored as sensing platforms due to their tunable electronic and surface properties. For instance, Mukhopadhyay et al.37 studied the adsorption of two dimeric proteins, HIV-1 integrase and k6 85 repressor protein, on black phosphorene, showing that interactions depend on phosphorene orientation, affecting complex stability and highlighting potential nanotoxicity. Similarly, Mehranfar et al.36 used full-atomistic MD simulations to study SARS-CoV-2 RBD adsorption on phosphorene, finding stable binding without significant secondary structure changes, supporting phosphorene's potential for biosensing and biomedical applications.
+
+Building on these studies, this research investigates the surface interactions of phosphorene nanosheets with the E-protein of WNV, comparing them with graphene. Graphene's well-characterized strong protein interactions via π – π stacking, van der Waals forces, and hydrophobic effects38–42 provide a benchmark for evaluating emerging nanostructures like phosphorene.
+
+This study employs a multi-level computational strategy, combining Brownian dynamics and full-atomistic molecular dynamics (MD) simulations, to investigate the interactions between the domain III of the West Nile virus (WNV) E-protein and two nanomaterials: phosphorene and graphene nanosheets. We focused on domain III (DIII) of the WNV envelope (E) protein as the primary binding site based on structural evidence and rational hypothesis.43 Namely, its surface accessibility, antigenicity, and structural stability make it the ideal target for studying protein–nanomaterial interactions in the context of biosensor development. Using DIII as the primary docking site for adsorption represents a reasonable and accepted approximation, as DIII is a structurally autonomous, surface-exposed domain that governs receptor recognition and molecular binding in the native WNV E protein.4,44
+
+By comparing a well-established carbon-based material with a novel phosphorus-based nanomaterial, we analyze contact residues, binding free energies, and structural stability to elucidate similarities and differences in protein–surface interactions. These molecular-level insights contribute to the rational design of sensitive and selective phosphorene-based biosensors for WNV detection. Detailed molecular simulations reveal aspects of protein–surface interactions that are inaccessible to experiments alone, offering information on the dynamics, energetics, and stability of adsorption, orientation, and binding on nanostructured surfaces. The atomistic results are directly compared with Raman spectroscopic data on protein–phosphorene complexes45 and protein adsorption data on graphene surfaces.38 The consistency between simulation and experiment underscores the predictive capability of the proposed multiscale approach and provides a reliable foundation for the rational design of advanced nano–bio interfaces and biosensing technologies.
+
+2 Methodology
+
+To investigate the interaction between the E-protein of WNV and two model surfaces, graphene and phosphorene, we employed a multiscale computational approach.
+
+In the first step, we examined the possible orientations of the protein relative to each surface using Brownian Dynamics (BD) simulations. In the second step, the representative orientations obtained from BD were used as initial configurations for Molecular Dynamics (MD) simulations, enabling us to explore the protein's dynamic behavior on the surfaces.
+
+The structure of the E-protein of WNV was derived from the resolved structure of the full E-protein (PDB ID: 2HG0, a resolution of 3 Å). From this structure residues 299 to 400 were selected to isolate domain III (Fig. 1A) which was analyzed in interaction with graphene (Fig. 1B) and phosphorene (Fig. 1C) surfaces.
+
+Fig. 1 Components of the studied system: (A) depicts the E-protein of WNV, and in red domain III, residues 299 to 400 are shown. (B) illustrates the phosphorene surface, while (C) presents the graphene surface, with two and three layers, respectively.
+
+This domain adopts a β-barrel fold composed of seven antiparallel β-strands. Protonation states were assigned using the H++ server at pH 7.2, resulting in a net charge of zero for domain III.46
+
+A salt concentration of 15 mM was applied using the APBS program.47 The phosphorene surface used in the simulations had dimensions of 72.9 Å × 71.9 Å and was composed of two layers, while the graphene surface measured 72.6 Å × 72.6 Å and consisted of three stacked layers. In the model, phosphorus and carbon atoms were modeled as uncharged Lennard-Jones particles.42,48 Compared to lower-dimensional phosphorene or graphene nanostructures (quantum dots or nanoribbons), the extended 2D sheets studied here are free from electronic confinement and edge effects, which are known to strongly influence the electronic structure, adsorption energetics, and charge redistribution in finite systems. Consequently, our approach isolates the intrinsic protein–surface van der Waals interactions without edge- or confinement-induced contributions, in contrast to earlier reports on confined phosphorene and graphene derivatives.49,50
+
+The atomistic model used for the surface was based on the experimental evidence available for phosphorene15 and graphene nanosheets.51 Dynamic light scattering (DLS) measurements reported diameters of phosphorene particles in the range of 60–80 nm.52 These values correspond to equivalent spherical diameters, since DLS estimates the size by relating the translational diffusion coefficient to that of a sphere, even though phosphorene is formed by stacked 2D layers and is therefore not spherical in nature.52 Similarly, DLS measurements of graphene nanosheets obtained by ultrasonic exfoliation of graphite reported hydrodynamic diameters in the range of 170–190 nm.51
+
+Given these experimental dimensions and considering that the protein has an approximate diameter of only 3 nm the protein perceives the phosphorene and graphene surface locally as flat. This justified the use of a flat surface model in the simulations.
+
+2.1 Brownian dynamics docking
+
+To determine the optimal orientations of the protein relative to the two surfaces, Brownian dynamics (BD) simulations were performed using the SDA 7.3.0 software.53,54
+
+In these calculations, both the protein and the surface were modeled as rigid bodies. A total of 5000 trajectories were generated, with the surfaces held stationary while the protein was translated and rotated along the z-axis.
+
+The ProMetCS implicit solvent model was employed. Each trajectory was initiated from 80 Å separation between the centers of mass of the protein and the surface, ensuring negligible protein–surface interaction energy at the starting point.55
+
+The relative translational diffusion coefficient was set to 0.0123 Å2 ps−1, and the protein's rotational diffusion coefficient was 1.36 × 10−4 rad2 ps−1, as calculated with HydroPro.56
+
+Simulations were carried out with a rectangular box, with x and y dimensions defined as input parameters. Desolvation and electrostatic parameters were applied according to a well established scheme, with hydrophobic desolvation forces set to −0.013 kcal mol−1 Å−2, electrostatic desolvation forces set to 1.67 kcal mol−1 Å−2, and the electrostatic potential set to 0.5 kcal mol−1 Å−2.57
+
+Following the simulation, a single-linkage clustering algorithm implemented in SDA was applied to group the orientations based on Cα RMSD, using a cutoff of 3 Å. This value was chosen as a structural clustering threshold that balances within cluster similarity and sufficient cluster separation.58 This yielded the minimal number of distinct orientations across the trajectories. The simulation protocol was identical for all the protein–graphene and protein–phosphorene systems. For each system, four orientations were obtained; the four most populated and structurally distinct orientations were selected for subsequent molecular dynamics analyses.
+
+2.2 Protein–surface molecular dynamics
+
+After initial docking, molecular dynamics (MD) simulations were conducted to assess the stability of the protein–surface complexes obtained from BD simulations. All MD simulations were performed using the GROMACS 2022.3 (ref. 59 and 60) package with the OPLS/AA61 force field applied to both the protein and the surface, together with the SPC/E water model.62
+
+The Particle-Mesh-Ewald (PME) method combined with the Verlet cutoff scheme was used for long-range electrostatic interactions.63 The cutoff for interactions is set to 1.10 nm for electrostatics and van der Waals, with energy and pressure corrections applied. The neighbor list was updated every 10 steps using a spatial grid. A time step of 1 fs was employed with the leap-frog integrator, and all covalent bonds involving hydrogen atoms were constrained using the LINCS algorithm.64
+
+Each simulation followed the same protocol: an initial energy minimization using the steepest descent algorithm, followed by a 50 ns equilibration in the NVT ensemble at 300 K using a Berendsen thermostat.65 No NPT equilibration was performed due to the presence of the rigid surface.
+
+During equilibration, the protein and solvent were allowed to move freely while the surface atoms were kept fixed. Temperature coupling was applied using velocity rescaling.66 Subsequently, production MD simulations were performed for 500 ns at 300 K, with the surface atoms (both phosphorene and graphene) kept fixed.
+
+For the simulation setup, a rectangular box was constructed for each system: 71.9 Å × 72.9 Å × 100 Å for phosphorene and 71.6 Å × 71.6 Å × 100 Å for graphene. The surface geometries were first optimized at the DFT level using Quantum ESPRESSO67 and then replicated to construct the atomistic models, ensuring physically realistic atomic structures.
+
+The protein's center of mass was initially placed 30 Å above the surface prior to solvation, ensuring equilibration in solvent while retaining the orientations obtained from docking.
+
+The Lennard-Jones parameters for surface atoms were modified from the standard OPLS/AA values. For phosphorene, σ = 3.33 Å and ε = 1.6720 kJ mol−1 were used, based on calculations by the Ballone and Jones research group.48 For graphene, σ = 3.39 Å and ε = 0.360 kJ mol−1 42 were applied. This approach accounts for the intrinsic differences between the two materials while avoiding force-field inconsistencies.
+
+For each of the four orientations identified in the BD simulations, five independent MD simulations (d1–d5) with different initial velocity seeds were performed to improve statistical sampling and accuracy.
+
+Thus we performed a clustering analysis on the generated trajectories. Specifically, for each of the twenty independent simulations (500 ns each), the last 10 ns were extracted and subsequently concatenated into a single reference trajectory. Clustering was performed using the GROMOS algorithm, with a cutoff of 0.25 nm. This value allowed us to identify the structural clusters most representative of the configurations assumed by the protein in proximity to the two surfaces considered. Smaller (0.20 nm) and larger (0.30 nm) cutoffs were also tested: the smaller cutoff led to excessive fragmentation into smaller clusters, while the larger cutoff led to the merging of structurally distinct poses. Tables 4 and 5 show the centroids of each obtained cluster with the corresponding population probability. For each centroid, contact residues with a distance <3.5 Å are also highlighted. In addition, we measured the contact probability, that is, for each amino acid residue, we counted the frequency of direct interactions with the two surfaces during the entire 500 ns of the simulations. This analysis is shown as histograms in Fig. 4.
+
+Structural analyses (RMSF, radius of gyration, solvent-accessible surface area, and secondary structural content) and free energy decomposition calculations were performed on the entire trajectories and then divided into their corresponding clusters. All results were analyzed using Python code and Visual Molecular Dynamics (VMD) software to visualize the trajectories and create the images.68
+
+3 Results and discussion
+
+3.1 Docking of E-protein onto surfaces
+
+Brownian dynamics (BD) simulations were performed to determine the initial binding orientations of E-protein on the graphene and phosphorene surface, respectively. To identify the most common binding orientations, a single-linkage hierarchical clustering algorithm was applied to the 5000 frames of protein–surface encounter complexes based on their spatial arrangement.69 Structures were clustered using 3 Å of Cα atoms. Each cluster was represented by the structure most central to its members and ranked according to the interaction energy of that representative. The representative structures for both graphene and phosphorene are shown in Fig. 2. The accuracy and robustness of this approach were validated in previous studies.55,70,71
+
+Fig. 2 Representative orientations of the four clusters identified after BD docking of the E-protein and the two surfaces, with graphene in gray and phosphorene in orange. Residues within 3.5 Å of the surface are highlighted in licorice.
+
+In both cases, four distinct orientations were identified. Three of these were common to both surfaces, although their distribution and stability varied, whereas the fourth orientation differed between the two systems.
+
+The total interaction energy was decomposed into three main contributions: the van der Waals energy, described by the Lennard-Jones potential (ELJ), the protein desolvation energy (Udes) and the nonpolar (hydrophobic) desolvation energy (Uh).
+
+These interaction energy contributions, together with cluster sizes and contact residues of the most populated orientations for both graphene and phosphorene, are reported in Table 1. Contact residues are defined as those within a distance of d 3 Å from the surface.
+
+Table 1 Complexes resulting from BD docking between the two surfaces and domain III of the E-protein
+
+Label	U tot a	U des b	U h c	LJd	Cluster size (%)	Contact residuese	
+Graphene	
+A	−84.10	11.19	−7.95	−87.34	16	LYS310, THR314, TYR383, GLU390, ASN394 and HIS396	
+B	−70.31	5.37	−7.09	−68.59	51	SER345, THR350, PHE379 and GLY380	
+C	−68.00	4.16	−6.22	−65.94	32	GLY313, THR314, ALA316, ASP317, THR318, GLY319, HISE320 and LYS370	
+D	−68.07	4.12	−6.21	−65.98	1	LYS307, THR330, THR332, ALA367, ASN368 and GLU390	
+ 	
+Phosphorene	
+A	−92.90	4.47	−7.78	−89.58	25	LYS310, THR314, TYR383, GLU390, ASN394 and HIS396	
+B	−84.59	2.51	−7.38	−79.72	61	SER345, THR350, PHE379 and GLY380	
+C	−81.56	2.16	−6.88	−76.85	13	GLY313, THR314, ALA316, ASP317, THR318, GLY319, HISE320 and LYS370	
+D	−80.12	4.26	−8.33	−76.05	1	THR301, TYR302, LYS307, THR332, ASP333 and ALA365	
+a Total interaction energy of the cluster in kT with T = 300 K.
+
+b Surface desolvation energy, in kT.
+
+c Nonpolar (hydrophobic) desolvation energy, in kT.
+
+d Lennard-Jones energy term.
+
+e Residues with atoms in contact with graphene at distances <3.5 Å.
+
+Among the terms, the Lennard-Jones component dominates the interaction energy, whereas the hydrophobic contribution accounts for less than 10% of the total energy. This analysis demonstrates that protein–surface interactions are primarily driven by van der Waals forces, with only a minor role played by hydrophobic effects.
+
+Fig. 2 illustrates the most common protein–surface complex structures: panel A shows complexes on graphene, while panel B shows complexes on phosphorene.
+
+3.1.1 Graphene
+
+In the selected starting geometry, the protein approaches the graphene layer with both its longest axis oriented perpendicular and horizontal to the surface, which reflects the preferred adsorption mode.
+
+Among the possible docking positions, A and D appear much less frequently than B and C, primarily because pose A is associated with higher desolvation penalties and therefore less favorable stabilization and D has a low Lennard-Jones potential. In pose B, residue PHE379 aligns its aromatic ring parallel to the graphene surface, maximizing π–π stacking interactions. This interaction is further stabilized by GLY380, which contributes additional surface contacts. In pose C, stabilization is instead dominated by the aromatic ring of HIS310, supported by the hydrophobic residues ALA316, GLY313, and GLY319, together with charged residues LYS370 and ASP317. These complementary contributions highlight how different poses exploit specific combinations of aromatic, hydrophobic, and charged residues to optimize binding with the graphitic surface.
+
+3.1.2 Phosphorene
+
+Among the observed docking positions, pose B occurs more frequently than A, C and D, indicating that it is the most representative adsorption orientation. In this orientation, PHE379 orients its aromatic ring parallel to the phosphorene sheet, optimizing π–π stacking interactions. GLY380 further reinforces the interaction by establishing supplementary contacts with the surface, while the polar residues SER345 and THR350 also contribute through additional surface interactions, thereby strengthening the overall stabilization.
+
+By contrast, in pose A, the dominant stabilizing interactions involve the aromatic ring of HIS396, along with the charged residues LYS310 and GLU390. Similarly, pose C is stabilized with a contact of HIS320 along with LYS370 and ASP317 and pose D is only rarely seen. In pose B, the protein generally adopts a perpendicular orientation relative to the phosphorene plane, reflecting the preferred adsorption geometry for maximizing residue–surface interactions. Because graphene is more hydrophobic than phosphorene, we expect an enhanced contribution from aromatic rings of nonpolar residues at the protein–surface interface. Also, it is important to remark that the docking simulations do not allow protein relaxation in solvent; to assess whether these residues remain stably engaged in protein–surface interactions, we employed molecular dynamics simulations, as will be described in the next sections.
+
+3.2 Molecular dynamics of protein–graphene complexes
+
+For each of the four representative complexes obtained from the rigid-body BD simulations, five independent molecular dynamics (MD) simulations were performed with different initial velocity seeds (d1–d5).
+
+All MD simulations followed the same protocol and parameters as described in the Methodology section.
+
+The main results of this analysis are summarized in Table 2.
+
+Table 2 Final orientations of the E-protein-graphene complexes obtained after 500 ns of MD simulations
+
+Labela	Final orientationb	Last framec	
+A (d1)	Stable		
+A (d2)	Converted to B		
+A (d3)	Converted to B		
+A (d4)	Stable		
+A (d5)	Converted to B		
+B (d1)	Stable		
+B (d2)	Stable		
+B (d3)	Converted to A		
+B (d4)	Converted to C		
+B (d5)	Stable		
+C (d1)	Converted to E		
+C (d2)	Converted to A		
+C (d3)	Converted to B		
+C (d4)	Stable		
+C (d5)	Converted to A		
+D (d1)	Converted to E		
+D (d2)	Converted to E		
+D (d3)	Converted to C		
+D (d4)	Converted to C		
+D (d5)	Converted to E		
+a Complex label (from docking with different seeds).
+
+b Final orientation relative to the initial pose.
+
+c Structure in the final frame.
+
+The first column lists the four different docked complexes along with the initial simulation seeds used for each simulation.
+
+The second column indicates whether each trajectory preserved the initial orientation of the complex or converted to a different pose. To assess the stability of each orientation, the final frame (third column) is reported to determine how closely the final structure aligned with the initial configuration. For clarity in the analysis, each complex is color-coded based on its sequence, with the N-terminal region in red and the C-terminal region in blue.
+
+Complex A: two out of five simulations retain the starting pose, while the other three simulations converge to pose B.
+
+Complex B: three simulations retain the initial orientation, while the other two convert to poses A and C.
+
+Complex C: only one out of five simulations retains the initial orientation, while the others convert to poses A and B and a new pose E.
+
+Complex D: none of the simulations retain the initial orientation; two convert to pose C and the others convert to a new pose E.
+
+From the simulations with different initial orientations, it has emerged that despite initial differences, complexes display common behaviors related to protein stability and the residues most frequently involved in interactions with the surface. Overall, most simulations do not result in radical changes to the final position; some simulations retain the same initial orientation, while others converge to new poses distinct from their starting configurations or poses which were already seen from other initial orientations.
+
+Overall, most of the relaxed complexes tend to re-orient to adopt a horizontal orientation rather than a vertical one. In the simulation, complex A remains stable or is converted to complex B, while complex B is mostly stable or converted to complex A, without major changes in the overall surface-interacting residues, except for complex C (d3). In contrast, complex C displays greater variability, converting to poses A and B and a new pose named E. Complex D, which consistently disregards its initial pose, converts instead to pose C and pose E where the N-terminal region is the main contact point.
+
+In Fig. S1 in the SI, we additionally report the RMSD profile for each trajectory, confirming that stable structural regions exhibit no major fluctuations, as reported in Fig. S1.
+
+In Fig. S2, we report the radius of gyration (Rg) along the trajectory (gray), which is compared with the radius of gyration for the protein in water (black), which further supports these findings: vertically oriented complexes show Rg values comparable to those of the protein in water, whereas horizontally oriented complexes display higher Rg values. Fig. S8 summarizes the horizontal–horizontal and vertical–vertical trends across graphene and phosphorene. This indicates that when the protein relaxes horizontally the interaction with the surfaces involves more residues, and it tends to induce a loss of compactness observed in water, indicating that the surface interactions significantly influence the protein's conformation.
+
+To summarize, simulations from different initial orientations reveal common patterns of stability and surface binding. Most complexes either retain their initial pose or converge to a limited set of recurring orientations.
+
+3.3 Molecular dynamics of protein–phosphorene complexes
+
+The same simulation protocol has been applied to the four representative protein–phosphorene complexes identified from the rigid-body BD simulations, running five independent molecular dynamics (MD) simulations, with different initial seeds (d1–d5).
+
+All MD simulations followed the same protocol and parameters as those described in the Methodology section.
+
+The main results of this analysis are summarized in Table 3.
+
+Table 3 Final orientations of the E-protein–phosphorene complexes obtained after 500 ns of MD simulations
+
+Labela	Final orientationb	Last framec	
+A (d1)	Converted to E		
+A (d2)	Stable		
+A (d3)	Stable		
+A (d4)	Converted to B		
+A (d5)	Converted to B		
+B (d1)	Stable		
+B (d2)	Stable		
+B (d3)	Stable		
+B (d4)	Stable		
+B (d5)	Stable		
+C (d1)	Stable		
+C (d2)	Stable		
+C (d3)	Stable		
+C (d4)	Converted to A		
+C (d5)	Stable		
+D (d1)	Stable		
+D (d2)	Converted to C		
+D (d3)	Stable		
+D (d4)	Converted to E		
+D (d5)	Stable		
+a Complex label (from docking with different seeds).
+
+b Final orientation relative to the initial pose.
+
+c Structure in the final frame.
+
+From the analysis of twenty simulations starting with different initial orientations, common behaviors regarding the stability of protein poses and the residues most frequently interacting with the surface have emerged. By analyzing the final orientations, it can be observed that starting from a defined initial orientation, the final pose rarely shows drastic changes: most trajectories either retain the docking pose or converge to a limited set of alternative orientations.
+
+Complex A: two out of five simulations retain the initial orientation, while the remaining three simulations converge to pose B and to a new pose, named pose E, that was not observed in the docking.
+
+Complex B: all five simulations preserve the initial orientation.
+
+Complex C: four of five simulations remain in the starting pose, with only one converting to pose A.
+
+Complex D: three simulations retain the starting orientation, while the other two converge to pose C and a new pose E.
+
+RMSD analysis confirms that the final poses correspond to stable regions of the trajectory, without major fluctuations, as reported in Fig. S3.
+
+The Rg further distinguishes orientations: proteins in vertical orientations show Rg values nearly identical to those in water (e.g., complex B, d1–d3), whereas horizontal orientations yield noticeably higher Rg values (e.g., complex A, d2–d3; complex D, d4), as reported in Fig. S4. The cross-material comparison of horizontal versus horizontal and vertical versus vertical trends is presented in Fig. S8.
+
+As observed previously for graphene, this effect is also evident on the phosphorene surface, where horizontal poses promote a larger contact area involving more residues. This extensive interaction with the surface alters the overall shape of the protein, leading to reduced compactness compared to the protein in solution.
+
+Overall, despite different initial orientations, the complexes converge toward a binding mode defined by recurring contact regions, underscoring the protein's ability to stabilize the interactions with the phosphorene surface.
+
+3.3.1 Comparison between graphene and phosphorene
+
+To compare the adsorption behavior of the E protein on graphene and phosphorene, an initial analysis was carried out based on the clustering of the protein trajectories on the two surfaces.
+
+Clustering analysis on the E protein trajectories on graphene identified four representative binding orientations (Table 4). Three of these configurations (clusters 1, 2 and 4) correspond to docking-predicted poses (B, A, and C, respectively), while cluster 3 represents a newly identified binding mode (pose E). The contact analysis reveals that residues involved in surface interactions vary among clusters, indicating multiple stable adsorption geometries. Overall, graphene exhibits a slight preference for horizontal over vertical orientations, suggesting that extended surface contacts are energetically favored.
+
+Table 4 Representative orientations of the four clusters obtained by clustering protein E on graphene. Residues within 3.5 Å of the surface are highlighted in licorice and colored according to residue type. Additionally, all contact residues for each cluster are shown. In residue labels, HISE denotes histidine protonated at the ε-nitrogen, HISD denotes histidine protonated at the δ-nitrogen, and HISH indicates fully protonated histidine
+
+Cluster 1 (38%)	Cluster 2 (24%)	Cluster 3 (23%)	Cluster 4 (15%)	
+				
+Contact residues (<3.5 Å)	
+ALA344, SER345 and ASN347	PHE311, LEU312 and THR314	THR300, THR301 and TYR302	THR300, THR301, TYR302 and THR332	
+ASP348, THR350 and VAL352	GLU390, GLN391 and GLN392	GLY303, VAL304 and SER306	ASP333, PRO335, VAL358 and ASN359	
+PHE379, GLY380 and SER400	ILE393, ASN394 and HISD395	ASN347, ASP348 and ARG388	PHE361, VAL362, SER363 and ALA365	
+HISH396, TRP397 and HISE398	GLY389 and GLU390	THR366, ASN368 and ALA369	
+
+Key interaction regions include the C–D loop (residues 344–352) and the C-terminal segment (379–400) in cluster 1 and strand A and the C-terminal region in cluster 2. In contrast, the N-terminal region (residues 299–303) is involved in both clusters 3 and 4, together with the F–G loop (residues 388–392) in cluster 3 and the B–C loop (residues 330–335) and D–E loop (residues 364–368) in cluster 4.
+
+Clustering analysis on the trajectories on phosphorene, in contrast, identified five representative binding orientations (Table 5). Among them, cluster 1 is the most populated (50%), indicating a dominant and stable adsorption geometry. Four of the five clusters correspond to docking-predicted complexes: cluster 1 to complex B, cluster 2 to complex D, cluster 3 to complex A, and cluster 4 to complex C, while cluster 5 represents a newly identified binding pose (pose E).
+
+Table 5 Representative orientations of the four clusters obtained by clustering protein E on phosphorene. Residues within 3.5 Å of the surface are highlighted in licorice and colored according to residue type. Additionally, all contact residues for each cluster are shown. In residue labels, HISE denotes histidine protonated at the ε-nitrogen, HISD denotes histidine protonated at the δ-nitrogen, and HISH indicates fully protonated histidine
+
+Cluster 1 (50%)	Cluster 2 (18%)	Cluster 3 (12%)	Cluster 4 (10%)	Cluster 5 (10%)	
+					
+Contact residues (<3.5 Å)	
+ALA344, SER345 and ASN347	GLY299, THR300 and THR301	LYS310 and PHE311	HISE320 and VAL358	THR300 and GLY303	
+ASP348, THR350 and VAL352	TYR302, GLY303 and VAL304	LEU312 and THR314	ASN359 and PHE361	VAL304 and ASN347	
+PHE379, GLY380 and ASP381	THR332, ASP333 and GLY334	THR330 and GLU390	SER363 and VAL364	ASP348 and LEU349	
+HISE398 and SER400	PRO335, SER363 and VAL364	GLN391 and ILE393	THR366 and ASN368	THR350 and ARG388	
+THR366	HISD395		LEU372, GLY389 and GLU390	
+
+The contact analysis reveals that the key interacting residues are primarily located within the C–D loop (residues 344–352), the E–F loop (residues 377–380), and the C-terminal segment (residues 379–400) in the preferred cluster 1, with additional contributions from the A strand in cluster 3. In contrast, the N-terminal region (residues 299–303) is involved in both clusters 2 and 5, together with the B–C (residues 330–335) and D–E loops (residues 364–368) in cluster 2 and the F–G loop (residues 388–392) and C–D loop (residues 344–353) in cluster 5. Cluster 4, instead, primarily interacts through the D–E loop (residues 364–368). Thus, phosphorene promotes a diverse but well-defined set of adsorption geometries, dominated by a single stable orientation and characterized by consistent loop and terminal contacts that stabilize the protein–surface complex whereas graphene supports multiple adsorption geometries with a modest preference.
+
+Fig. 3 reports the RMSF analysis, comparing protein flexibility on the two surfaces to that in water.
+
+Fig. 3 (A) Cartoon representation of the protein highlighting the secondary structural elements, strand A (res. 309–316), strand B (res. 323–330), strand C (res. 336–343), strand D (res. 354–363), strand E (res. 369–376), strand F (res. 381–387), and strand G (res. 388–400), together with the loop regions connecting them (A–B, B–C, C–D, D–E, E–F, and F–G). (B) RMSF values of the protein interacting with graphene for the four most representative clusters (colored lines) compared to the free protein in solution (black line). (C) RMSF values of the protein interacting with phosphorene for the five most representative clusters (colored lines) compared to the free protein in solution (black line). In (B) and (C), the β-strand structures of the protein are shown in light gray, together with the loop regions connecting them (A–B, B–C, C–D, D–E, E–F, and F–G).
+
+In the case of graphene, in Fig. 3B, the RMSF values showed a more marked fluctuation of the adsorbed protein compared to the RMSF value of the protein in water (in black in the graph). In particular, in the figure we can observe more amplified peaks (with respect to the value in water) in correspondence with residues 319 of the A–B loop, 347 of the C–D loop, 367 of the D–E loop and 390 of the F–G loop.
+
+In the case of phosphorene, in Fig. 3C, we observe a peak more amplified than in the case of water in residue 319 of the A–B loop and 347 of the C–D loop.
+
+However, for the residues in the region 363–367 of the D–E loop, we can observe that the peaks are less marked with respect to the values that the protein exhibits in water. This region is likely the one in which the RMSF decreases across all simulations, reflecting the stabilization of the protein on the surface through the loop.
+
+From these results, it can be concluded that the interaction of the protein with graphene induces a greater degree of structural destabilization compared to phosphorene. This trend is consistent with previous observations by Mehranfar et al.,36 who reported reduced flexibility of the RBD on phosphorene relative to graphene, associated with higher stability on the phosphorene surface.
+
+We compared the interactions of the protein with graphene and phosphorene surfaces, by examining the contact probability in the two nanomaterials.
+
+Fig. 4 shows the percentage of residues in contact with each surface across different simulation runs. The results show that certain regions displayed higher contact frequencies. The contact probability threshold was chosen to facilitate the comparison between the two nanomaterials and to highlight the regions of the protein that present a higher probability of interaction, considering residues in contact within a distance of 3.5 Å.
+
+Fig. 4 Contact probability of E-protein residues and the surfaces of the two nanomaterials. Graphene on the left, phosphorene on the right. The histogram shows the percentage probability of residues being in contact with the surfaces. The red line indicates the 35% threshold for frequent interactions. The β-strand structures of the protein are shown in light gray, along with the loop regions connecting them (A–B, B–C, C–D, D–E, E–F, and F–G).
+
+For graphene, the main contact regions were residues 346–352 (C–D loop) and residues 397–400 (C-terminal). These residues included charged residues (ASP348, HISH396, HISE398, and LYS399), along with hydrophobic and polar residues.
+
+For phosphorene, the most frequent contacts occurred at residues 364–369 (D–E loop) and 299–302 (N-terminal region). Overall, contact probabilities were generally lower than those on graphene, indicating greater variability in protein-surface interactions. Unlike graphene, the residues most often in contact with phosphorene were predominantly polar and hydrophobic, with a little contribution from charged residues.
+
+To analyze the binding stability of the protein with respect to the two surfaces, the free energy was calculated using GROMACS MMPBSA.72,73
+
+The total binding energy is determined asEtotal = Ecomplex − (Eprotein + Esurface)
+
+The terms contributing most significantly to the total energy are the van der Waals (vdW) component of the molecular mechanical energy and the polar solvation energy, which was estimated using the Poisson–Boltzmann model. The MMPBSA method has shown broad applicability and reliability in estimating binding free energies across a variety of biomolecular systems, including protein/ligand systems, DNA/ligand systems, RNA/ligand systems, and even carbohydrate systems.74,75 In the MMPBSA method, the interaction energy is calculated by combining molecular mechanics, an implicit solvation model based on the Poisson–Boltzmann model, and a surface area term.76 While it does not yield highly precise absolute energies, it reliably captures qualitative differences in binding strength and stability. Therefore, this study uses MMPBSA for a comparative analysis of E protein adsorption on graphene versus phosphorene, providing indicative rather than definitive absolute values of interaction energies.
+
+Table 6 summarizes the average energy terms for each cluster.
+
+Table 6 Binding free energy decomposition of the protein–surface complex, calculated in the last 50 ns. (ΔGgas) corresponds to the gas-phase contribution (dominated by van der Waals interactions), (ΔGsolv) is the solvation free energy penalty (polar and nonpolar terms), and (ΔGtot) is the total binding free energy (ΔGgas + ΔGsolv). The free energy value in kcal mol−1 calculated for each cluster both for graphene and phosphorene
+
+Cluster	ΔGgas	ΔGsolv	ΔGtot	
+Graphene	
+1	−85 ± 16	24 ± 5	−59 ± 13	
+2	−125 ± 6	35 ± 2	−90 ± 5	
+3	−111 ± 7	30 ± 4	−81 ± 4	
+4	−137 ± 15	34 ± 8	−102 ± 7	
+ 	
+Phosphorene	
+1	−105 ± 10	31 ± 4	−73 ± 7	
+2	−115 ± 11	29 ± 3	−85 ± 10	
+3	−188 ± 40	50 ± 13	−137 ± 25	
+4	−146 ± 23	39 ± 9	−107 ± 15	
+5	−143 ± 14	36 ± 5	−106 ± 9	
+
+In the gas phase, the formation of the complex is thermodynamically favorable. In the solvated phase, the solvation free energy penalty accounts for the energetic cost of transferring the protein–surface complex from vacuum to solvent. It includes both polar contributions (estimated with the Poisson–Boltzmann model, arising from electrostatic interactions with the solvent) and nonpolar contributions (associated with cavity formation and hydrophobic effects). However, in the solvated phase, ΔGsolv is positive for all cases, indicating that solvation weakens protein–surface interactions. Despite this penalty, the overall total energy (ΔGtot) remains negative, confirming that adsorption onto both graphene and phosphorene is thermodynamically favorable. Interestingly, phosphorene clusters had higher binding energies than graphene, suggesting stronger stabilization.
+
+These findings are consistent with previous reports by Mehranfar,36 which also indicate that phosphorene generally stabilizes protein complexes more effectively than graphene, largely due to a combination of electrostatic and van der Waals interactions. To further probe stability, we analyzed solvent-accessible surface area (SASA) and internal hydrogen-bond interactions (H-bonds).
+
+The SASA analysis (Fig. S5a) shows that adsorption onto graphene or phosphorene slightly increases the protein's solvent-accessible surface, reflecting its adsorption onto the surfaces. Notably, graphene induces higher SASA values across all clusters compared to phosphorene, likely due to larger surface-induced exposure. Hydrogen bond analysis (Fig. S5b) reveals no significant disruption of the protein's internal H-bond network upon surface adsorption, with the exception of poses 3 (graphene) and 5 (phosphorene), which show slightly higher H-bond counts than the protein in solution. Fig. 5 compares the radius of gyration (Rg) and the percentage of β-strand elements for graphene (gray) and phosphorene (orange). Horizontally adsorbed clusters exhibit larger radii of gyration Rg than vertically adsorbed clusters for both graphene and phosphorene. For instance, in Fig. 5a, this difference is clear when comparing cluster 2 (vertical) and cluster 3 (horizontal) on phosphorene. The comparison between horizontal versus horizontal and vertical versus vertical trends across both materials is shown in Fig. S8. The results show consistent behavior in both systems: vertical poses always exhibit smaller radii of gyration (Fig. S8A) and higher β-strand content (Fig. S8B) than horizontal poses. Similarly, horizontal poses consistently display higher total energy (Fig. S8C) and are stabilized by a larger number of contact residues (Fig. S8D), independent of the material specificity.
+
+Fig. 5 The average values calculated in the last 50 ns of the gyration radius in (A) for graphene (gray) and phosphorene (orange) in comparison with the protein in water (black). (B) Percentage of β strand with respect to all secondary structure elements, calculated in the final 50 ns, for graphene (gray) and phosphorene (orange), with the initial point (in magenta).
+
+Fig. 5b shows the β-strand content at the start (magenta) and end of the simulations (gray for graphene and orange for phosphorene), see Fig. S6 and S7 for individual trajectories. Clusters with higher Rg generally display greater β-strand loss, as seen for cluster 3 for phosphorene. On graphene, 2 and 4 exhibit the largest reductions, together representing 50% of poses, whereas on phosphorene only cluster 3 shows a notable decrease (30% of simulations). Overall, phosphorene induces less disruption of β-strand elements than graphene, suggesting that while interactions with graphene are stronger, they also lead to greater structural destabilization. In contrast, interactions with phosphorene are weaker and more reversible, preserving the secondary structure more effectively. These results suggest that phosphorene is more biocompatible than graphene, preserving the protein secondary structure and making it a more promising material for therapeutic and diagnostic applications.
+
+3.3.2 Comparison of simulations with experiments
+
+We compared the interactions of protein E with graphene and phosphorene surfaces by analyzing residues that are consistently in contact with each material across all molecular dynamics simulations. Fig. 4 presents the percentage of contacting residues for each surface over different simulation runs. Notably, specific regions exhibited markedly higher contact frequencies, suggesting preferred binding motifs.
+
+To refine this analysis, in Table 7 we introduced an enrichment value rather than reporting simple contact probabilities. This descriptor accounts for both the number of residue–surface contacts and the total abundance of each residue type within the protein sequence.
+
+Table 7 Residue enrichment: comparison of graphene and phosphorene. The residues considered for this analysis were taken from Tables 4 and 5. An enrichment value of 0 indicates that the residue never comes into contact with either surface, while values greater than 1 indicate a preferential interaction for that type of residue
+
+Residue	Graphene	Residue	Phosphorene	
+ASN	2.49	ASN	1.82	
+HISH	2.49	ASP	1.82	
+TRP	2.49	PHE	1.82	
+PHE	1.87	THR	1.70	
+GLN	1.66	HISE	1.62	
+HISE	1.66	ARG	1.21	
+THR	1.49	GLY	1.10	
+SER	1.42	SER	1.04	
+ALA	1.24	LEU	0.91	
+ARG	1.24	GLN	0.81	
+ASP	1.24	TYR	0.81	
+TYR	0.83	VAL	0.75	
+VAL	0.77	GLU	0.61	
+GLY	0.68	ILE	0.61	
+GLU	0.62	LYS	0.49	
+ILE	0.62	ALA	0.40	
+PRO	0.36	PRO	0.35	
+LEU	0.31	CYS	0.00	
+CYS	0.00	HISH	0.00	
+LYS	0.00	TRP	0.00	
+
+For example, if five PHE residues interact with phosphorene but only six PHE residues are present in the protein, this indicates a stronger enrichment than if five out of ten VAL residues were involved. Enrichment values greater than 1 therefore denote a preferential interaction for that residue type. For phosphorene, the most enriched residues include GLY and PHE (hydrophobic), THR, ASN, and HISE (polar), and ASP and ARG (charged). Among these, PHE, ARG, and HISE were also identified by Rinaldi et al.45 as key interacting residues due to their bulky side chains. Comparison between the experimental Raman spectra of lysozyme–phosphorene complexes and the computational interaction map of the WNV E protein further supports these results. Raman shifts associated with aromatic residues (TRP, TYR, and PHE) and backbone modes point to strong π–π and hydrophobic interactions at the interface. Similarly, our simulations reveal contact clusters enriched in aromatic (PHE, TYR, and HIS) and hydrophobic (LEU, VAL, and ILE) residues, confirming phosphorene's affinity for nonpolar and aromatic side chains. The close correspondence between experimental and computational observations demonstrates the reliability of our modeling approach in identifying high-affinity regions and accurately reproducing the spectroscopic signatures of protein–surface interactions. Although the experimental comparison is not a direct quantitative validation of the WNV E protein, it supports the consistency of the proposed interaction mechanism. To extend the transferability of our findings, we are developing an ab initio derived interfacial force field for general peptide-surface interactions, which will be reported in a forthcoming publication. For graphene, the most enriched residues comprise polar (ASN, THR, and GLN), hydrophobic (TRP, ALA, and PHE), and charged (HIS, ASP, and ARG) amino acids. The contact pattern therefore spans multiple chemical classes, indicating that adsorption is not purely hydrophobic. This trend partially agrees with the findings of Biggs et al.,77 who showed that adsorption of the graphite-binding peptide GrBP5 at the water/graphite interface is primarily driven by hydrophobic and aromatic residues, while polar hydroxyl groups contribute to stabilizing the adsorbed state. In our case, the stronger involvement of charged residues suggests a more complex adsorption mechanism in which hydrophobic interactions dominate anchoring, while electrostatic and hydrogen-bonding effects enhance interfacial stability. Comparable results were also reported by Raffaini,78 who described cooperative interactions among hydrophobic, polar, and charged residues during protein adsorption on graphite. As observed for albumin subdomains, hydrophobic residues mediate initial surface attachment, whereas polar and charged groups stabilize the interface through water-mediated cooperative effects. Consistent with this picture, our enrichment analysis identifies ALA, PHE, ASN, THR, GLN, HIS, ASP, and ARG as the residues most frequently coming into contact with graphene, confirming that protein adsorption on this surface arises from a synergy of hydrophobic, electrostatic, and hydrogen-bonding interactions. Overall, the strong agreement between our phosphorene simulations and Raman experimental data, together with the consistency of the graphene results with literature trends, validates the robustness of our computational framework. This concordance confirms that the adopted simulation protocol provides a reliable representation of protein–nanomaterial interactions, capable of capturing both the dominant interaction mechanisms and their experimental manifestations.
+
+4 Conclusion
+
+In this study, we investigated the interactions between the West Nile virus (WNV) E-protein and two nanomaterials, namely graphene and phosphorene, using a multi-level computational approach. By analyzing residue-surface contacts across multiple simulations, we identified preferential binding regions in both cases.
+
+On graphene, residues in the C–D loop and C-terminal segment predominantly mediate adsorption, involving both charged and hydrophobic residues. On phosphorene, interactions are concentrated in the D–E loop and the N-terminal region, primarily involving polar and hydrophobic residues. Free energy calculations indicate that adsorption onto both surfaces is thermodynamically favorable, with van der Waals interactions being the main contributor. Phosphorene binding clusters exhibit higher stabilization energies compared to graphene, despite greater variability in contact residues.
+
+Analyses of hydrogen bonding, solvent-accessible surface area, radius of gyration, and β-strand content reveal that surface adsorption does not disrupt the protein's internal hydrogen-bond network or overall solvent exposure. However, graphene induces stronger but more disruptive interactions, leading to a partial loss of β-strand content, whereas phosphorene better preserves structural integrity.
+
+Comparison with available experimental data supports the computational findings, indicating that phosphorene provides a favorable balance between adsorption strength and structural preservation. Overall, these results demonstrate that phosphorene achieves an optimal equilibrium of binding affinity and integrity, making it a promising candidate for applications where protein functionality must be retained. In contrast, graphene exhibits stronger adsorption but at the expense of secondary structure stability. These atomistic insights clarify the molecular mechanisms underlying protein–nanomaterial recognition and establish a generalizable computational framework for the rational design of biosensors. Beyond WNV detection, this methodology can be extended to a broad range of flaviviruses and viral biomarkers, supporting One Health objectives in next-generation diagnostic development and pandemic preparedness.
+
+Author contributions
+
+A. Papalini: molecular dynamics (MD) investigation, analysis of MD data, and writing of the initial draft. G. Brancolini: conceptualization, supervision, revision of the initial draft, and funding acquisition.
+
+Conflicts of interest
+
+There are no conflicts to declare.
+
+Supplementary Material
+
+NA-008-D5NA00988J-s001
+
+The authors gratefully acknowledge A. Sgarbossa and E. Passaglia for their valuable discussions and insights derived from their experimental experience on phosphorene nanoparticles. This research was supported by EU funding within the NextGenerationEU-MUR PNRR Extended Partnership initiative on Emerging Infectious Diseases (Project no. PE00000007, INF-ACT). GB and AP acknowledge the CINECA award under the ISCRA initiative, for the availability of high-performance computing resources on Leonardo and support.
+
+Data availability
+
+The data supporting this article have been included as part of the supplementary information (SI). Supplementary information: the topology and mdp files are available in the SI for reproducibility purposes. See DOI: https://doi.org/10.1039/d5na00988j.
+
+
+References
+
+Habarugira G. Suen W. W. Hobson-Peters J. Hall R. A. Bielefeldt-Ohmann H. Pathogens 2020 9 589 10.3390/pathogens9070589 32707644 PMC7400489
+Campbell G. L. Marfin A. A. Lanciotti R. S. Gubler D. J. Lancet Infect. Dis. 2002 2 519 529 10.1016/S1473-3099(02)00368-7 12206968
+Petersen L. R. Brault A. C. Nasci R. S. JAMA 2013 310 308 315 23860989 10.1001/jama.2013.8042 PMC4563989
+Mukhopadhyay S. Kim B.-S. Chipman P. R. Rossmann M. G. Kuhn R. J. Science 2003 302 248 10.1126/science.1089316 14551429
+Campos J. L. S. Mongkolsapaya J. Screaton G. R. Nat. Immunol. 2018 19 1189 1198 10.1038/s41590-018-0210-3 30333606
+Chung K. M. Liszewski M. K. Nybakken G. Davis A. E. Townsend R. R. Fremont D. H. Atkinson J. P. Diamond M. S. Proc. Natl. Acad. Sci. U. S. A. 2006 103 19111 19116 17132743 10.1073/pnas.0605668103 PMC1664712
+Davis R. Urbanowski R. A. Gaharwar A. K. Curr. Opin. Biomed. Eng. 2021 20 100319 10.1016/j.cobme.2021.100319 35814330 PMC9262334
+Akhtar M. Anderson G. Zhao R. Alruqi A. Mroczkowska J. E. Sumanasekera G. Jasinski J. B. npj 2D Mater. Appl. 2017 1 5
+Peruzzini M. Bini R. Bolognesi M. Caporali M. Ceppatelli M. Cicogna F. Coiai S. Heun S. Ienco A. Benito I. I. Kumar A. Manca G. Passaglia E. Scelta D. Serrano-Ruiz M. Telesio F. Toffanin S. Vanni M. Eur. J. Inorg. Chem. 2018 2018 4842 4858 10.1002/ejic.201801415 PMC6472490 31007576
+Roy D. Pal P. Pal T. Doong R.-A. Appl. Mater. Today 2023 35 101944 10.1016/j.apmt.2023.101944
+Zeng Y. Guo Z. iScience 2021 24 103116 34646981 10.1016/j.isci.2021.103116 PMC8497852
+Monica P. Roberto D. Inorganics 2020 8 29
+Benini F. Bassoli N. Restuccia P. Ferrario M. Righi M. C. Molecules 2023 28 3570 10.3390/molecules28083570 37110804 PMC10141136
+Zhang C. Wang Y. Ma J. Zhang Q. Wang F. Liu X. Xia T. Sci. Total Environ. 2020 721 137740 32163736 10.1016/j.scitotenv.2020.137740
+Passaglia E. Sgarbossa A. Pharmaceutics 2023 15 2748 38140089 10.3390/pharmaceutics15122748 PMC10747032
+Wang H. Yang X. Shao W. Chen S. Xie J. Zhang X. Wang J. Xie Y. J. Am. Chem. Soc. 2015 137 11376 11382 10.1021/jacs.5b06025 26284535
+Peng X. Copple A. Wei Q. J. Appl. Phys. 2014 116 144301 10.1063/1.4897461
+Wei Q. Peng X. Appl. Phys. Lett. 2014 104 251915 10.1063/1.4885215
+Cheng J. Gao L. Li T. Mei S. Wang C. Wen B. Huang W. Li C. Zheng G. Wang H. Zhang H. Nano-Micro Lett. 2020 12 179 10.1007/s40820-020-00510-5 34138158 PMC7770910
+Tuteja S. K. Neethirajan S. Nanotechnology 2018 29 135101 10.1088/1361-6528/aaab15 29443694
+Ishikawa F. N. Chang H.-K. Curreli M. Liao H.-I. Olson C. A. Chen P.-C. Zhang R. Roberts R. W. Sun R. Cote R. J. Thompson M. E. Zhou C. ACS Nano 2009 3 1219 1224 10.1021/nn900086c 19422193 PMC2765574
+Sengupta J. Hussain C. M. Carbon Trendss 2021 2 100011 10.1016/j.cartre.2020.100011 38620735 PMC7834279
+Salama A. M. Yasin G. Zourob M. Lu J. Biosensors 2022 12 460 10.3390/bios12070460 35884263 PMC9312944
+Khoris I. M. Nasrin F. Chowdhury A. D. Park E. Y. Anal. Chim. Acta 2022 1207 339817 10.1016/j.aca.2022.339817 35491045
+Khavani M. Izadyar M. Samadian S. J. Mol. Liq. 2021 336 116865 10.1016/j.molliq.2021.116865
+Rubio-Pereda P. Cocoletzi G. H. Appl. Surf. Sci. 2018 427 1227 1234 10.1016/j.apsusc.2017.08.198
+Snehha P. Nagarajan V. Chandiramouli R. J. Inorg. Organomet. Polym. Mater. 2019 29 954 963 10.1007/s10904-018-01070-3
+Giberti S. Dutta S. Corni S. Frasconi M. Brancolini G. Nanoscale 2025 17 4389 4399 10.1039/D4NR04199B 39831436
+Dutta S. Gagliardi M. Bellucci L. Agostini M. Corni S. Cecchini M. Brancolini G. Front. Mol. Biosci. 2022 1 12 10.3389/fmolb.2022.1006525 PMC9742443 36518849
+Dutta S. Corni S. Brancolini G. Int. J. Mol. Sci. 2022 23 1484 10.3390/ijms23031484 35163407 PMC8835741
+Jian C. Hong W. Cai Q. Li J. Liu W. Appl. Catal., B 2020 266 118649 10.1016/j.apcatb.2020.118649
+Gao X. Zhou Q. Wang J. Xu L. Zeng W. Nanomaterials 2020 10 299 10.3390/nano10020299 32050612 PMC7075213
+Harper A. Anderson M. R. Sensors 2010 10 8248 8274 10.3390/s100908248 22163652 PMC3231221
+Ghoshdastider U. Wu R. Trzaskowski B. Mlynarczyk K. Miszta P. Gurusaran M. Viswanathan S. Renugopalakrishnan V. Filipek S. RSC Adv. 2015 5 13570 10.1039/C4RA16852F
+Badhe Y. Gupta R. Rai B. RSC Adv. 2021 11 3816 3826 10.1039/D0RA09123E 35424358 PMC8694220
+Mehranfar A. Khavani M. Izadyar M. J. Mol. Liq. 2022 345 117852 10.1016/j.molliq.2021.117852 34690390 PMC8520178
+Mukhopadhyay T. K. Ghosh A. Datta A. ACS Appl. Nano Mater. 2021 4 3095 3107 10.1021/acsanm.1c00271
+Raffaini G. Fabio G. Langmuir 2010 26 5679 5689 10.1021/la903769c 20041676
+Mücksch C. Urbassek H. M. Langmuir 2011 27 12938 12943 10.1021/la201972f 21877733
+Li J. Zeng H. Zeng Z. Zeng Y. Xie T. ACS Biomater. Sci. Eng. 2021 7 5363 5396 10.1021/acsbiomaterials.1c00875 34747591
+Chung D. D. L. J. Mater. Sci. 2002 37 1475 1489 10.1023/A:1014915307738
+Hummer G. Rasaiah J. C. Noworyta J. P. Nature 2001 414 188 190 10.1038/35102535 11700553
+Zhang X. Jia R. Shen H. Wang M. Yin Z. Cheng A. Viruses 2017 9 338 10.3390/v9110338 29137162 PMC5707545
+Cherrier M. V. Kaufmann B. Nybakken G. E. Lok S. Warren J. T. Chen B. R. Nelson C. A. Kostyuchenko V. A. Holdaway H. A. Chipman P. R. Kuhn R. J. Diamond M. S. Rossmann M. G. Fremont D. H. EMBO J. 2009 28 3269 3276 10.1038/emboj.2009.245 19713934 PMC2771083
+Rinaldi S. Grigoras A. M. Caporali M. Serrano-Ruiz M. Peruzzini M. Ienco A. Latterini L. FlatChem 2024 48 100752 10.1016/j.flatc.2024.100752
+H++, http://biophysics.cs.vt.edu/H++, Accessed: October 9, 2012
+Jurrus E. Engel D. Star K. Monson K. Brandi J. Felberg L. E. Brookes D. H. Wilson L. Chen J. Liles K. Chun M. Li P. Gohara D. W. Dolinsky T. Konecny R. Koes D. R. Nielsen J. E. Head-Gordon T. Geng W. Krasny R. Wei G.-W. Holst M. J. McCammon J. A. Baker N. A. Protein Sci. 2018 27 1 112 128 10.1002/pro.3280 28836357 PMC5734301
+Ballone P. Jones R. O. J. Chem. Phys. 2004 121 8147 8157 10.1063/1.1801271 15485279
+Yamacli S. Avci M. Phys. B 2023 648 414438 10.1016/j.physb.2022.414438 36281340 PMC9582926
+Kwon O. K. Kim J. M. Kim H. W. J. Electr. Eng. Technol. 2023 18 663 668 10.1007/s42835-022-01302-0
+Amaro-Gahete J. Benítez A. Otero R. Esquivel D. Jiménez-Sanchidrián C. Morales J. Caballero Á. Romero-Salguero F. J. Nanomaterials 2019 9 152 10.3390/nano9020152 30691102 PMC6409618
+Caponio C. Costanzo A. Coiai S. Cicogna F. Pitzalis E. Borsacchi S. Lorenzetti G. Bramanti E. Papalini A. Battisti A. Sgarbossa A. Passaglia E. FlatChem 2024 45 100665 10.1016/j.flatc.2024.100665
+Gabdoulline R. R. Wade R. C. Biophys. J. 1997 72 1917 1929 10.1016/S0006-3495(97)78838-6 9129797 PMC1184389
+Martinez M. Bruce N. J. Romanowska J. Kokh D. B. Ozboyaci M. Yu X. Öztürk M. A. Richter S. Wade R. C. J. Comput. Chem. 2015 36 1631 1645 10.1002/jcc.23971 26123630 PMC4755232
+Kokh D. B. Corni S. Winn P. J. Hoefling M. Gottschalk K. E. Wade R. C. J. Chem. Theory Comput. 2010 6 1753 1768 10.1021/ct100086j 26615704
+Ortega A. Amorós D. de la Torre J. G. Biophys. J. 2011 101 892 898 10.1016/j.bpj.2011.06.046 21843480 PMC3175065
+Elcock A. H. Gabdoulline R. R. Wade R. C. McCammon J. A. J. Mol. Biol. 1999 291 149 162 10.1006/jmbi.1999.2919 10438612
+Brancolini G. Kokh D. B. Calzolai L. Wade R. C. Corni S. ACS Nano 2012 6 9863 9878 10.1021/nn303444b 23033917
+Spoel D. V. D. Lindahl E. Hess B. Groenhof G. Mark A. E. Berendsen H. J. C. J. Comput. Chem. 2005 26 1701 1718 10.1002/jcc.20291 16211538
+Bekker H. , Berendsen H. J. C. and Van Der Spoel D. , Physics Computing 92, 1993, pp. 252–256
+Robertson M. J. Tirado-Rives J. Jorgensen W. L. J. Chem. Theory Comput. 2015 11 3499 3509 10.1021/acs.jctc.5b00356 26190950 PMC4504185
+Berendsen H. J. C. Grigera J. R. Straatsma T. P. J. Phys. Chem. 1987 91 6269 6271 10.1021/j100308a038
+Darden T. York D. Pedersen L. J. Chem. Phys. 1993 98 10089 10092 10.1063/1.464397
+Hess B. Bekker H. Berendsen H. J. C. Fraaije J. G. E. M. J. Comput. Chem. 1997 18 1463 1472 10.1002/(SICI)1096-987X(199709)18:12<1463::AID-JCC4>3.0.CO;2-H
+Berendsen H. J. C. Postma J. P. M. van Gunsteren W. F. DiNola A. Haak J. R. J. Chem. Phys. 1984 81 3684 3690 10.1063/1.448118
+Bussi G. Donadio D. Parrinello M. J. Chem. Phys. 2007 126 014101 10.1063/1.2408420 17212484
+Giannozzi P. Andreussi O. Brumme T. Bunau O. Buongiorno Nardelli M. Calandra M. Car R. Cavazzoni C. Ceresoli D. Cococcioni M. Colonna N. Carnimeo I. Dal Corso A. de Gironcoli S. Delugas P. DiStasio Jr. R. A. Ferretti A. Floris A. Fratesi G. Fugallo G. Gebauer R. Gerstmann U. Giustino F. Gorni T. Jia J. Kawamura M. Ko H. S. Kokalj A. Küçükbenli E. Lazzeri M. Marsili M. Marzari N. Mauri F. Nguyen H.-V. Nguyen T.-L. Paulatto L. Poncé S. Rocca D. Sabatini R. Santra B. Schlipf M. Seitsonen A. P. Smogunov A. Timrov I. Thonhauser T. Umari P. Vast N. Wu X. Baroni S. J. Phys.: Condens. Matter 2017 29 465901 10.1088/1361-648X/aa8f79 29064822
+Humphrey W. Dalke A. Schulten K. J. Mol. Graphics 1996 14 33 38 10.1016/0263-7855(96)00018-5 8744570
+Martínez-Sotres C. Rutiaga-Quiñones J. G. Herrera-Bucio R. Gallo M. López-Albarrán P. Wood Sci. Technol. 2015 49 857 868 10.1007/s00226-015-0734-8
+Ozboyaci M. Kokh D. B. Corni S. Wade R. C. Q. Rev. Biophys. 2016 49 e4 10.1017/S0033583515000256 26821792
+Penna M. J. Mijajlovic M. Biggs M. J. J. Am. Chem. Soc. 2014 136 5323 5331 10.1021/ja411796e 24506166
+Valdés-Tresanco M. S. Valdés-Tresanco M. E. Valiente P. A. Moreno E. J. Chem. Theory Comput. 2021 17 6281 6291 10.1021/acs.jctc.1c00645 34586825
+III B. R. M. Jr T. D. M. Swails J. M. Homeyer N. Gohlke H. Roitberg A. E. J. Chem. Theory Comput. 2012 8 3314 3321 10.1021/ct300418h 26605738
+Genheden S. Ryde U. Expert Opin. Drug Discovery 2015 10 449 461 10.1517/17460441.2015.1032936 25835573 PMC4487606
+Wang C. Greene D. A. Xiao L. Qi R. Luo R. Front. Mol. Biosci. 2018 4 87 10.3389/fmolb.2017.00087 29367919 PMC5768160
+Massova I. Kollman P. A. Perspect. Drug Discovery Des. 2000 18 113 135 10.1023/A:1008763014207
+Penna M. J. Mijajlovic M. Tamerler C. Biggs M. J. Soft Matter 2015 11 5192 5203 10.1039/C5SM00123D 25920450
+Raffaini G. Ganazzoli F. Langmuir 2003 19 3403 3412 10.1021/la026853h

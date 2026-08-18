@@ -1,0 +1,469 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Vaccines (Basel)
+Journal ID: Vaccines (Basel)
+NLM Journal ID: 101629355
+Journal ID: vaccines
+
+Vaccines
+
+EISSN: 2076-393X
+Publisher: Multidisciplinary Digital Publishing Institute (MDPI)
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13307576
+PMID: 42347620
+DOI: 10.3390/vaccines14060499
+Article ID: vaccines-14-00499
+Article version: 1
+Subjects: Review
+
+Advances and Challenges in Vaccine Development for West Nile Virus (WNV) Infection
+
+Gupta Anjali 1 †
+Tripathi Aarti 2 3 †
+Jha Kirtika 4
+Rawat Yogita 5
+Bhardwaj Urvashi 5
+Khasa Renu 6 *
+Chauhan Shailendra 2 3 *
+De Simone Salvatore Giovanni Academic Editor
+1 New Jersey Medical School, Rutgers University, Newark, NJ 07103, USA
+2 Department of Pathology, University of Texas Medical Branch, Galveston, TX 77555, USA
+3 Galveston National Laboratory, Galveston, TX 77555, USA
+4 Tata Institute for Genetics and Society, Bengaluru 560065, India
+5 Department of Biochemistry, School of Chemical and Life Sciences, Jamia Hamdard University, New Delhi 110062, India
+6 Department of Cellular and Molecular Medicine, Herbert Wertheim College of Medicine, Florida International University, Miami, FL 33199, USA
+* Correspondence: rkhasa@fiu.edu (R.K.); shailuujjn@gmail.com (S.C.)† These authors contributed equally to this work.
+
+Electronic publication date: 2026 Jun 2
+Publication date: 2026 Jun
+Volume: 14
+Issue: 6
+Electronic Location ID: 499
+Received 2026 Mar 18; Revised 2026 Apr 30; Accepted 2026 May 20
+Copyright: © 2026 by the authors.
+Copyright year: 2026
+License: Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile Virus, vaccine, bird vaccine, equine vaccine, human vaccine
+
+Funding: This research received no external funding.
+
+==============================
+West Nile Virus (WNV) belongs to the orthoflavivirus genus and is part of the Flaviviridae family, which includes the Japanese encephalitis virus, Dengue virus, Zika virus, and yellow fever virus. WNV circulates among birds and mosquitoes, posing infection risks to humans and mammals. The significant rise in WNV’s geographic spread and infection rates over the past five decades has prompted urgent public health concerns, driving the need for accelerated vaccine research. The development of a vaccine for WNV infection presents several challenges, primarily due to the virus’s complex biology, the risk of cross-reactivity with other flaviviruses, safety concerns such as antibody-dependent enhancement (ADE), and the economic and logistical hurdles in vaccine production. Despite significant research efforts, no human vaccine has been approved, although several candidates are in various stages of development. The current review offers a comprehensive summary of the latest progress and the concomitant challenges in the development of vaccines. It also discusses the role of host–pathogen interaction, host immunity, viral immune evasion, and disease pathogenesis in facilitating the advancement of vaccines.
+
+1. Introduction
+
+WNV is a flavivirus that is spread by mosquitoes. It was first found in Uganda in 1937. It has since become a major global public health issue because it is now widespread and can cause severe neuroinvasive disease in both humans and animals. After the virus was introduced into North America in 1999 [1], it rapidly spread and became endemic, contributing to repeated seasonal outbreaks across multiple continents. These outbreaks continue to create substantial health and economic pressures on affected regions. Although extensive research efforts have been made over the past two decades, there is still no licensed vaccine available for human use, even though several candidates have demonstrated promising results in preclinical studies and early clinical trials [2]. The development of a safe and effective WNV vaccine has been slowed by scientific, regulatory, and economic barriers. One major challenge is the complex immunopathogenesis of WNV, which involves both protective and potentially harmful immune responses [3]. The development of vaccines must balance minimizing safety issues like ADE, which has been observed in some related flaviviruses, with achieving high protective immunity. Cross-reactive immune responses among flaviviruses, including Dengue, Zika, and Japanese encephalitis viruses, further complicate vaccine research [4]. This review discusses the wide range of challenges that have slowed progress in developing a human vaccine for WNV, along with the vaccines available for birds and equines. Earlier studies have found that progress in this area is still slowed by several challenges. These include the host’s complex immune responses, the relatively small market demand for certain vaccines, and technical difficulties involved in designing them. By examining current vaccine strategies and identifying the main gaps that remain, this review aims to highlight the directions for future research that could help to produce a safe and effective WNV vaccine for human use.
+
+2. WNV Structure, Replication, Geographical Distribution, Diagnosis and Treatment
+
+2.1. WNV Genome
+
+WNV is an enveloped virus with a single-stranded, positive-sense RNA genome. The genome is approximately 11 kb in length and contains a single open reading frame without a polyadenylated tail at the 3′ end. Highly conserved stem loop structures located at both the 5′ and 3′ untranslated regions play essential roles in viral replication, translation, transcription, and genome packaging [5,6,7].
+
+The viral genome encodes three structural proteins: capsid (C), premembrane/membrane (prM/M) and envelope (E) along with seven non-structural proteins including NS1, NS2A, NS2B, NS3, NS4A, NS4B, and NS5. These proteins are initially synthesized as a single polyprotein, which is subsequently cleaved co-translationally by both viral and host proteases. The structural proteins encoded at the 5′ end of the genome are critical for viral attachment, membrane fusion, entry into host cells and encapsidation of the viral RNA during virion assembly [8]. The limited coding capacity of the viral genome necessitates that non-structural proteins perform multiple functions during infection. Among these, NS1 exists in both intracellular and secreted forms and is also highly immunogenic. Although NS1 is not directly involved in virion assembly, exsting evidence suggests that it contributes to viral replication and may affect host immune responses [9]. NS3 is the viral protease that cleaves non-structural proteins from the viral polyprotein and encodes enzyme activities, functions that have been widely characterized [10,11]. NS5 functions as the viral RNA-dependent RNA polymerase and also contains a methyltransferase domain. Both of these are essential for viral genome replication and RNA capping [8,12]. In addition, several non-structural proteins including NS2A, NS2B, NS4A, and NS4B contribute to immune evasion by interfering with key components of the host innate antiviral response [13,14,15,16] (Figure 1).
+
+2.2. WNV Replication
+
+WNV can replicate in various cell types from many species, including mammals, birds, amphibians, and insects. The virus enters cells by binding its E protein to specific receptors [17]. Key co-receptors include DC-SIGN and DC-SIGN-R in dendritic cells [18], as well as integrin αvβ3, which interacts with the RGD/RGE sequence in domain III of the E protein [19]. However, some cell types do not require integrin αvβ3 for entry, indicating that receptor usage may vary by strain and cell type [20]. WNV can sneak into cells even without a normal entry receptor by displaying phosphatidylserine (PS) on its surface, making it look like a dying cell. Because of this disguise, the cell mistakes the virus for harmless debris and pulls it inside using PS-recognition systems like the TIM and TAM protein families. This clever “apoptotic mimicry” allows the virus to enter through pathways such as macropinocytosis or clathrin-mediated endocytosis, where it then fuses inside the acidic endosome. By posing as something the body should clear away rather than fight, WNV is able to infect many different cell types and avoid early immune detection [21,22,23]. Rab5 GTPase is essential for the entry of both WNV and Dengue virus [24]. The laminin-binding protein has also been identified as a specific receptor for WNV, with high efficiency in binding to domain II of the E protein [25,26]. Following entry into the host cell, WNV releases its RNA genome through a tightly regulated process. After endocytosis, acidification of the endosome induces a conformational change in the viral envelope (E) protein, enabling fusion of the viral and endosomal membrane. This fusion event releases the nucleocapsid into the cytoplasm. The genomic RNA dissociates from the capsid and becomes immediately available for translation by host ribosome thereby initiating the viral replication cycle [27]. The resulting viral polyprotein is subsequently cleaved by the viral NS3 serine protease and host signal peptidases within the endoplasmic reticulum. Concurrently, the viral RNA-dependent RNA polymerase synthesizes complementary negative-sense RNA intermediates from the positive-sense genomic RNA. These negative-sense strands serve as templates to produce multiple new positive-sense genomic RNAs. Notably, RNA replication can occur independently of ongoing protein synthesis. Typically, a single positive-sense RNA template gives rise to only one negative-sense strand at a time. Each negative-sense intermediate can generate multiple positive-sense RNA molecules simultaneously [28,29]. In contrast, virion assembly is highly dependent on adequate protein synthesis. Each mature virion requires one copy of genomic RNA along with 180 copies each of the E and prM structural proteins for proper particle formation.
+
+WNV builds new viral particles inside the endoplasmic reticulum, where they first form as immature, non-infectious virions. These particles travel through the cell’s normal secretory pathway moving from the ER to the Golgi like ordinary cargo. Inside the acidic trans-Golgi network, a host enzyme called furin cuts the prM protein, reshaping the particle into a fully infectious virus. The mature virions are then packed into vesicles and carried toward the surface of the cell. Finally, the vesicles fuse with the plasma membrane and release the virus by exocytosis, allowing infection to continue without killing the host cell [27,30,31].
+
+2.3. Transmission Cycle
+
+WNV is most commonly transmitted to humans through the bite of an infected mosquito. Mosquitoes acquire the virus when they feed on infected birds which serve as the primary amplifying hosts. The natural transmission cycle of the virus is therefore maintained predominantly between birds and mosquitoes especially species belonging to the genus Culex [32,33,34]. Infected birds often develop high levels of viremia allowing feeding mosquitoes to readily acquire the virus and perpetuate the transmission cycle. Around a week later, these mosquitoes can transmit the virus to more birds. Mosquitoes can also infect humans, horses, and other mammals which are the “dead-end” host [35] (Figure 2).
+
+2.4. Geographical Distribution
+
+The first recognized WNV epidemic occurred in Haifa, Israel, in 1951, presenting symptoms like febrile illness, rash, lymphadenopathy, and angina [36]. At the same time, WNV was isolated from febrile children and Culex mosquitoes in Egypt [37]. In 1953, the virus was found in hooded crows and rock pigeons [38]. During the 1957 outbreak in Israel, neurological symptoms were seen in 33 percent of patients, with a four percent mortality rate among elderly nursing home residents [39]. Subsequent outbreaks followed in France and South Africa in the 1960s and 1970s. The virus spread to Europe, China, and Australia, and the first human case in South America was reported in Colombia in 2005, with Argentina recording its first encephalitis case in 2006 [40]. From 2015 to 2016, WNV neuroinvasive disease cases were noted in Sindh, Pakistan, while protective antibodies in the population explained the delayed emergence of these cases. Sri Lanka recorded its first WNV infection in 2013 [41]. In India, antibodies against West Nile virus were first detected in human serum samples collected in Mumbai in 1952 indicating that the virus has been circulating in the country for several decades. Since then, multiple reports have documented severe neuroinvasive diseases associated with WNV particularly among children. In 1980 and 1981, the virus was isolated from the brain tissue of three children who died from encephalitis in southern India.
+
+In addition to encephalitis, WNV has also been associated with acute flaccid paralysis (AFP), an uncommon but important neurological manifestation. In Kerala, laboratory-confirmed cases of WNV-associated AFP were reported in 2014 [42]. This finding was notable because AFP in India has historically been most strongly associated with poliovirus infection. Molecular characterization of WNV positive samples collected during the 2011 outbreak in Kerala demonstrated the circulation of lineage I strains. Similar lineage I infections were later identified among pediatric patients with acute encephalitis syndrome in Madhya Pradesh in 2015. Subsequent reports also documented WNV activity in West Bengal in 2017 suggesting an expanding geographic distribution of the virus within India [43].
+
+2.5. Disease Manifestation
+
+WNV infection can range from a self-limiting febrile illness to severe neurological disease including meningitis, encephalitis and acute flaccid myelitis [44]. The incubation period is typically 2–6 days, although it may range from 2 to 14 days and can be longer in immunocompromised individuals [45]. Among patients with neuroinvasive disease, the overall case fatality rate is approximately 10% and survivors frequently experience persistent neurological sequelae particularly after encephalitis or acute flaccid myelitis [46,47].
+
+WNV meningitis is clinically similar to other forms of viral meningitis and commonly presents with fever, headache and nuchal rigidity [48]. In contrast, WNV encephalitis is generally more severe and is characterized by fever, altered mental status, seizures, focal neurological deficits and movement disorders such as tremor or parkinsonian features [49].
+
+Acute flaccid myelitis associated with WNV closely resembles poliomyelitis both clinically and pathologically. The disease primarily affects anterior horn cells in the spinal cord, resulting in asymmetric limb weakness or paralysis. In severe cases, respiratory muscle involvement can lead to respiratory failure requiring mechanical ventilation [50,51]. Notably, WNV-associated acute flaccid myelitis may occur in the absence of fever or other overt viral symptoms. In addition, WNV infection has also been linked to neurological complications such as Guillain–Barré syndrome and radiculopathy which can usually be distinguished from acute flaccid myelitis based on their distinct clinical features [48].
+
+2.6. Diagnosis and Treatment
+
+Diagnosis of WNV focuses on identifying either the immune response to infection or the virus itself. The most widely used approach is detecting WNV-specific IgM antibodies in serum or cerebrospinal fluid (CSF), which typically appear within the first few days of illness and indicate a recent infection. Because IgM can persist for months, results are often confirmed using plaque-reduction neutralization tests (PRNTs), which help distinguish WNV from other flaviviruses that may cause false-positive results. In patients with neurological symptoms, IgM in CSF is particularly valuable because it normally does not cross the blood–brain barrier, so its presence strongly supports neuroinvasive disease. Direct viral detection methods, such as RT-PCR, can identify WNV RNA in blood or CSF early in infection, although sensitivity decreases as viremia declines after antibody production begins. In severe or fatal cases, immunohistochemistry or PCR on tissue samples can also be used to confirm infection. Because clinical symptoms alone are not reliable for diagnosis, combining serology, molecular testing, and PRNT confirmation when needed provides the most accurate results. Timely and reliable WNV diagnosis not only guides patient management but also supports outbreak monitoring and public health interventions [52,53,54].
+
+The current therapeutic approach for WNV involves several treatments, including corticosteroids, immune γ-globulin, monoclonal antibodies, interferon α-2b, antisense oligomers, and anticonvulsants or osmotic agents [55,56]. However, there have been no controlled studies to establish the therapeutic efficacy of these treatments [55]. Various antiviral agents have been investigated either in vitro using WNV-infected cell lines or in vivo with laboratory animals. Additionally, natural compounds such as isoflavones have shown strong antiviral activity against a range of RNA viruses [57]. Some antibiotics have demonstrated anti-flavivirus activities in vitro [58]. Interestingly, an experimental study found that administering oral doses of vancomycin, neomycin, ampicillin, and metronidazole in mice worsened the disease severity associated with multiple flavivirus infections [59].
+
+At present, there are no licensed vaccines or specific antiviral treatments available for human infection with West Nile virus. Several vaccines have been developed for equine use. These include three inactivated whole-virus vaccines: WN Innovator, Vetera WNV and Prestige WNV as well as one live chimeric vaccine, Recombitek Equine WNV. Most of these vaccines are derived from the NY99 strain with the exception of Vetera WNV, which is based on a different viral isolate. Collectively, these vaccines provide protective immunity in horses for approximately one year [60].
+
+Several vaccine candidates for human use are currently under preclinical development, and a few have advanced to phase II clinical trials. However, none of them have progressed to phase III efficacy studies. This is largely due to the sporadic and unpredictable nature of WNV outbreaks which makes large-scale efficacy trials difficult to conduct as well as concerns regarding the limited commercial market for such vaccines [55,61,62,63]. Additionally, humans are dead-end hosts for the virus, raising questions about the cost-effectiveness of a human vaccine [2]. Researchers are also developing a vaccine targeting mosquito saliva proteins, which could protect against multiple mosquito-borne pathogens [55,64].
+
+2.7. Preventive Measures
+
+At present, prevention remains the most effective strategy for reducing the burden of West Nile virus infection as no licensed human vaccine or specific antiviral therapy is available. Public health efforts rely heavily on surveillance, early warning systems and vector control measures. The development of comprehensive monitoring programs for mosquito populations, bird reservoirs, and human cases is essential for identifying outbreaks early and limiting viral transmission to humans [65]. Effective surveillance programs for WNV mosquito vectors are crucial because they help detect when viral activity is increasing long before people start getting sick. By regularly monitoring mosquito populations, virus infection rates, and bird mortality, public health teams can identify hotspots where transmission is likely to intensify. This early warning system allows authorities to respond proactively rather than reactively by increasing mosquito control measures, alerting communities, and preparing healthcare services. Surveillance also shows whether prevention strategies are working or need adjustment, rather than waiting for human cases to appear. Overall, strong vector surveillance protects communities by turning silent environmental signals into timely action that reduces the risk of a human outbreak.
+
+3. WNV Vaccine Development and Challenges in Birds
+
+WNV circulates in a wide range of hosts, including mammals and birds; however, their host competence in virus transmission differs substantially. Mammals such as humans and horses, when exposed to WNV, may develop severe diseases, but they typically generate low and transient viremia that is insufficient to infect mosquitoes, thus serving as dead-end hosts [66]. In contrast, birds play a pivotal role in the natural transmission cycle of WNV, as they develop high and sustained viremia following infection, allowing efficient transmission to mosquitoes. Among birds, members of the order Passeriformes, especially family Corvidae, including crows, jays, and magpies, are particularly susceptible and serve as potent amplifying hosts. These species often develop extremely high viral titers in blood [67]. Experimental studies have shown that viremia in birds can be detected as early as one day post-infection and may persist for 7–11 days, a window during which mosquitoes readily acquire the virus [68].
+
+3.1. Ecological Impact on Birds and Disease Severity
+
+Since the introduction of WNV into the United States in 1999, virus-associated morbidity and mortality have been documented in nearly 300 avian species, including endangered species and synanthropic birds that live in proximity to humans. Corvid populations, in particular, experienced dramatic declines during early outbreaks, underscoring their importance in WNV epidemiology and surveillance [1]. In addition to mosquito-mediated transmission, birds can also contract WNV by oral exposure, ingestion of infected prey, and direct bird-to-bird contact. Viral shedding via oral and fecal routes promotes transmission in communal roosting and nesting environments. Both wild and domestic birds can develop severe diseases following WNV infection. The virus disseminates to multiple organs, including the liver, spleen, kidneys, heart, and central nervous system. Neuro invasion of the virus may result in encephalitis, neurological dysfunction, and death, often occurring within 24–48 h in highly susceptible species [68].
+
+3.2. Immune Responses and Rationale for Avian Vaccination
+
+Infected birds that survive WNV infection typically develop long-lasting neutralizing antibodies, and maternal antibodies can be transferred to chicks. These findings have encouraged efforts to develop vaccines aimed at reducing avian viremia and disrupting the mosquito–bird transmission cycle [69]. Several vaccination platforms have been evaluated in birds, including inactivated whole-virus vaccines, live attenuated vaccines, recombinant subunit vaccines, chimeric viral vaccines, and DNA-based vaccines. Many of these candidates were initially developed for equine use and later adapted for avian studies [69,70].
+
+3.3. Performance of Equine-Derived Vaccines in Birds
+
+Formalin-inactivated WNV vaccines originally developed for horses have been tested in birds such as geese. In controlled studies, laboratory-vaccinated geese showed approximately 86.6% protection, while farm-vaccinated birds achieved about 75.3% protection. Although these vaccines reduced mortality and disease severity, their efficacy has not yet been widely tested across diverse avian species [70].
+
+3.4. DNA and Recombinant Vaccine Approaches
+
+Initially licensed for horses in 2004 as West Nile-Innovator, a DNA vaccine by Fort Dodge was evaluated for safety and effectiveness in falcons. Vaccinated falcons developed immunity more quickly, had shorter viremia, and shed less virus than unvaccinated controls after WNV exposure. Additionally, vaccinated birds displayed milder brain lesions, suggesting protection against WNV-induced encephalitis. With no observed adverse effects and reduced infection severity, this vaccine is recommended for falcons, while studies continue to evaluate its use in chicks [71]. DNA vaccines encoding WNV prM and E proteins, including constructs such as pCBWN and plasmids developed by Aldevron, have demonstrated immunogenicity in birds. These vaccines reduce viremia and disease severity, although complete protection has not been consistently achieved [72].
+
+A recombinant subunit protein vaccine produced in genetically modified HeLa-3 cells showed promising results in magpies, a natural WNV amplifier host. A single intramuscular dose significantly reduced viremia, decreased viral shedding from feathers, and improved survival rates to approximately 71.4%. The findings suggest that this vaccine could be used effectively and safely to limit the WNV spread in avians, particularly in communal bird populations like magpies and crows [73] (Table 1). The chimeric ChimeriVax-WN vaccine, based on the yellow fever 17D backbone, was tested in fish crows. Intramuscular administration provided partial protection and reduced viremia to levels less likely to infect mosquitoes, whereas oral vaccination was ineffective. The limited durability of the immune response highlights the need for booster strategies [74]. Birds’ WNV vaccine candidates are shown in Table 1.
+
+3.5. Challenges and Future Directions
+
+Despite encouraging experimental data, significant challenges remain in developing and deploying WNV vaccines for birds. Commercial equine vaccines such as Duvaxyn® and Recombitek® have also been evaluated in raptors, including falcons. Three-dose vaccination regimens reduced clinical disease severity and viral shedding but did not provide complete sterilizing immunity. Notably, incomplete suppression of viremia following two doses raised concerns about residual transmission risk to mosquitoes. Testing of Duvaxyn® in flamingos and red-tailed hawks failed to develop a humoral response after immunization with this vaccine [73]. Extensive necrotic lesions were documented in the pectoral muscle at the site of vaccine inoculation of western scrub-jays (Aphelocoma californica) vaccinated with the RECOMBITEK® [75]. The canarypox-vectored vaccine expressing WNV prM/E proteins (marketed as Recombitek® in the U.S. and Proteq WNV in Europe) showed slightly improved efficacy in reducing clinical signs and viral shedding. However, occasional adverse local inflammatory reactions limited its suitability for widespread avian application.
+
+Beyond species-specific immune variability, economic constraints, logistical difficulties in vaccinating wild populations, storage conditions for certain vaccine types, and interference with serological surveillance all limit large-scale implementation. Oral vaccines have shown poor performance compared with intramuscular administration. Nevertheless, continued efforts to vaccinate high-risk and captive bird populations, especially potent amplifiers such as corvids and raptors, may play an important role in reducing viral amplification and spillovers to humans and horses.
+
+vaccines-14-00499-t001_Table 1 Table 1 Bird WNV vaccine candidates evaluated in clinical trials.
+
+Vaccine/Platform	Species	Quantitative
+Efficacy	References	
+DNA vaccine (prM-E-genes)	Crow	~40–60% survival (partial protection)	[76]	
+DNA vaccine (prM-E-genes)	American robin	~80–100% survival	[77]	
+Recombinant WNV E-protein subunit (WN-80E)	Domestic geese	~100% protection (no viremia)	[78]	
+Fowlpox/Canarypox-vectored WNV constructs	Domestic geese	~85–87% survival	[79]	
+Recombinant subviral particle (RSP) WNV vaccine	Eurasian magpies	~70–71% survival	[73]	
+
+4. Equine Vaccine Development, Clinical Trials, and Successful Vaccine
+
+Like humans, WNV infection can cause serious disease in horses, most often involving the nervous system and leading to substantial illness and death. After infection, horses develop only low and short-lived viremia, which is not sufficient to infect mosquitoes. As a result, horses cannot contribute to continued virus transmission and are therefore considered incidental, dead-end hosts in the WNV transmission cycle. Despite this, horses play an important role in WNV surveillance. Increases in equine WNV cases often occur before or at the same time as outbreaks in humans, reflecting shared exposure to infected mosquitoes and similar environmental conditions. This close timing highlights the value of monitoring WNV infections in horses as an early warning system that links veterinary surveillance with public health efforts [80]. More recently, a notable increase in WNV activity was reported in Spain during 2021–2022, with higher case numbers, wider geographic spread, and more severe disease observed in both humans and horses. These observations raise concern that future WNV outbreaks may occur more frequently and affect broader regions, potentially driven by climate change, changes in land use, and the ongoing expansion of mosquito vectors capable of transmitting the virus across southern and western Europe [81].
+
+At present, there are no approved antiviral therapies available for the treatment of WNV infection in either humans or horses, and clinical management remains largely limited to supportive and symptomatic care. The absence of targeted therapeutics underscores the importance of preventive approaches, particularly vaccination, which remains the most effective strategy to reduce the risk of neurological disease, decrease mortality, and limit the overall burden of WNV infection. As a result, sustained efforts have focused on the development and optimization of vaccines for equine populations, with the goal of preventing viremia and reducing the severity of clinical disease following infection [82]. These vaccination strategies have proven effective in lowering disease incidence in horses and serve as an important model for preventive approaches against WNV in the absence of licensed antiviral treatments.
+
+Vaccination takes advantage of the immune system’s natural ability to generate long-lasting protection without causing active infection or disease [83]. After intramuscular injection, vaccine antigens are captured by dendritic cells, which become activated and migrate to nearby lymph nodes where immune responses are initiated [84]. In these secondary lymphoid organs, antigen-presenting cells stimulate naïve CD4+ and CD8+ T cells and support B cell activation, leading to antibody production and immune maturation [85]. Activated B cells undergo affinity maturation and immunoglobulin class switching, processes that improve antibody quality and antiviral function [86]. This coordinated response results in the rapid generation of short-lived plasma cells and the appearance of high affinity neutralizing antibodies, often detectable within one to two weeks following vaccination. Long-term protection is maintained by the formation of memory B cells and long-lived plasma cells that persist in the bone marrow and continue to produce protective antibodies over extended periods [87]. Together, these mechanisms allow vaccination to provide durable immunity while minimizing the risk of disease.
+
+Optimal protection against West Nile virus in horses requires the coordinated engagement of both humoral and cellular arms of the immune system. To date, four vaccines have received approval for equine use in the United States by the U.S. Food and Drug Administration, three of which remain commercially available. Among these, the Recombitek Equine West Nile Virus Vaccine, developed and licensed in the United States, employs a recombinant canarypox virus vector engineered to express the WNV prM and envelope (E) proteins, allowing for robust activation of antibody-mediated immunity alongside virus-specific T cell responses. This platform has been shown to elicit strong neutralizing antibody titers as well as interferon-γ–producing T cells, illustrating the advantages of vaccine strategies that stimulate complementary immune pathways [88].
+
+In contrast, inactivated whole-virus vaccines such as West Nile-Innovator (widely used in the United States and North America) and Vetera WNV (licensed in the United States and used in selected international markets) primarily confer protection through the induction of high-titer serum-neutralizing antibodies. These formulations provide protection for up to one year following booster immunization and are generally well tolerated, with a low incidence of adverse effects. Notably, West Nile-Innovator® has demonstrated protective efficacy approaching 94% against clinical disease in field and experimental studies conducted in North America, underscoring the effectiveness of antibody-focused vaccine approaches in preventing severe outcomes [89].
+
+The first FDA-approved DNA plasmid vaccine for equine WNV encoded the viral prM and E proteins and incorporated the metastim adjuvant to enhance immunogenicity. This vaccine successfully induced neutralizing antibody responses and detectable cell-mediated immunity, establishing proof-of-concept for nucleic acid-based vaccination in veterinary medicine [90]. However, high production costs, regulatory hurdles, limited market demand, and unresolved questions regarding long-term durability ultimately led to its withdrawal from commercial use. As a result, no DNA-based WNV vaccines are currently available for veterinary application, despite their demonstrated immunological potential [90].
+
+Historically, much of WNV vaccine development has relied on empirical strategies centered on viral isolation, inactivation, and administration, often with limited integration of mechanistic immunological insight during early design stages. The consequences of this approach were exemplified by the withdrawal of the PreveNile® vaccine in 2010, an inactivated yellow fever 17D-based chimeric vaccine that initially showed strong immunogenicity in pre-licensure studies. Post-marketing surveillance, however, revealed rare but severe adverse events, including acute anaphylaxis, colic, respiratory distress, and death, ultimately necessitating its recall. These outcomes exposed critical deficiencies in pre-clinical immune profiling and safety prediction, particularly in identifying vaccine-associated reactogenicity and immune-mediated toxicities before widespread use [91]. Equines’ WNV vaccine candidates evaluated in clinical trials are shown in Table 2.
+
+5. Human Vaccine Development, Clinical Trials, and Successful Vaccine
+
+Currently, extensive research utilizing several vaccine platforms including live attenuated, inactivated, DNA, and subunit-based approaches have advanced into clinical and preclinical evaluation. Vaccine development has been complicated by multiple biological and practical challenges, including the predominant risk in older adults, unpredictable outbreak patterns, limited commercial incentives, and the absence of a clearly established immune correlate of protection. Thus, despite spanning more than two decades, no licensed human vaccine is currently available for WNV, even though the virus continues to cause seasonal outbreaks and neuroinvasive disease worldwide. This section critically reviews major human WNV vaccine candidates (Table 3), summarizes clinical findings, and discusses key scientific and translational obstacles impeding their successful development and licensure.
+
+5.1. Live Attenuated Vaccine Candidates
+
+One of the two main live attenuated vaccines that have undergone clinical trials is the chimeric virus made from the yellow fever (YF) 17D vaccine virus as a vector in which the prM-E protein genes are replaced with prM-E sequence of a strain WN NY99 isolated from the brain of a flamingo with fatal encephalitis from New York in 1999. The first version was ChimeriVax-WN01, which was developed as a vaccine for use in horses. Further, a more attenuated vaccine candidate designated as ChimeriVax-WN02 was developed for human use by changing three amino acid changes in the E protein of ChimeriVax-WN01 at residues 107, 316 and 440 [93]. In phase I clinical trial, healthy adults aged 18–40 years administered with the lower dose of ChimeriVax-WN02 had statistically higher viremia than those receiving a 100 times higher dose [94]. Further, two phase II trials were performed focusing safety of the vaccine particularly in the older age group. The first phase II trial was divided into two parts and included adults aged 18–40 years (part 1, n = 112) or ≥41 years (part 2, n = 96) [95]. Approximately ∼96% of subjects in part 2 achieved seroconversion at day 28 of the active treatment. However, the occurrence of treatment-emergent adverse events (TEAEs) was higher in the higher age group treated with a 3.7 × 105 PFU dose of ChimeriVax-WN02 than the lower-age subjects from part 1 study. In the second phase II clinical trials, a total of 480 subjects (120 subjects per group) provided immunogenicity data, particularly to identify common AEs [96]. Similar to the first phase II trial, the most common systemic AEs reported were general body symptoms such as headache and malaise, and also, the seroconversion rates were dose-dependent; however, the differences were not statistically significant. The neutralizing antibody titer was calculated through a PRNT50 and found to be increased by day 28 in the active vaccine groups, ranging between 600 and 688, but not in the placebo group (5.93). The neutralizing antibody titer was found to be a PRNT50 titer of ≥10, considered protective against other flavivirus diseases such as Japanese encephalitis and YF [97]. However, PRNT50 in this study used the ChimeriVax-WN02 vaccine strain as the challenge virus instead of the wild-type virus. The changes in antigenic domain II of the E protein with mutations at position 107 in other flaviviruses were shown to have less binding with monoclonal antibodies targeting the highly conserved fusion loop of E protein [98]. Therefore, it is premature to conclude that titers ≥ 10 are protective against WNV infection. In addition, the immune response kinetics were not recorded before and after 28 days of vaccination. Thus, more studies must be done to confirm the true protection conferred by the vaccine, as no antibody correlate of protection has been established.
+
+The second live attenuated vaccine candidate “rWN/DEN4Δ30” was evaluated in three phase I clinical trials. In this chimeric vaccine, the prM and E structural protein genes of the DEN4Δ30 virus have been replaced by those of WNV NY99 [99]. Attenuation of the rWN/DEN4Δ30 virus was achieved by deleting the 30-nucleotide 3′ untranslated region (UTR) and by antigenic chimerization of WNV with non-neuroinvasive dengue virus serotype 4 (DENV-4). In the first two phase I trials including 82 (n = 82), subjects of age 19–50 years received a single or two doses of rWN/DEN4Δ30 of different pfu [100]. The third clinical phase I trial was performed with two doses of 104 PFU rWN/DEN4Δ30 in 50–65 year-old adults (n = 28). The booster dose was given post-180 days of the first 0.5 mL subcutaneous injection. A single dose of rWN/DEN4Δ30 was able to achieve an acceptable balance of immunogenicity and attenuation [101]. However, the duration of this protection or neutralizing antibody from a single vaccination needs to be examined in further studies.
+
+5.2. Safety Concerns with Live Attenuated Vaccines
+
+Prolonged viremia and adverse events: Live attenuated vaccines for WNV are engineered to maintain immunogenicity while reducing pathogenicity. However, in populations most at risk such as older adults or individuals with pre-existing health conditions these vaccines pose a potential risk for prolonged viremia (extended circulation of the virus in the bloodstream). This increases the likelihood of adverse reactions, including systemic inflammation or severe illness. Although ADE is a well-documented concern for other flavivirus vaccines (e.g., dengue), it has not been conclusively observed with WNV vaccines. ADE occurs when non-neutralizing antibodies from previous flavivirus infections enhance subsequent viral entry into cells, potentially worsening the infection [102,103]. While WNV infections have not demonstrated this phenomenon, the theoretical risk remains a significant barrier to broader vaccine adoption and clinical trials.
+
+5.3. Inactivated Vaccine Candidate
+
+The first clinical trial of an inactivated WNV vaccine was based on a naturally attenuated strain, such as WNV Kunjin (WNV-KUNV). WNV-KUNV was first isolated in Australia in 1960 with no documented fatal human infection [104,105]. WNV KUNV is genetically similar to WNV New York (WNV-NY) (98% amino acid identity), which initiated the WNV epidemic in the United States. This might be one of the reasons behind the complete protection by the live and infectious WNV-KUNV strain against the lethal infection of North American WNV isolates in mice. Even H2O2-inactivated WNV-KUNV protected against lethal WNV challenge by inducing a robust polyfunctional antigen-specific CD8+ T cell response in human HLA-A2 transgenic and wild-type C57BL/6 and BALB/c adult mice [106]. This hydrogen peroxide-inactivated whole virion adjuvanted with aluminum hydroxide was termed as HydroVax-001 WNV.
+
+In preclinical trial in monkeys, neutralizing antibody titers were analyzed against lineage 1 and lineage 2 WNV strains. Two months after a HydroVax-001 WNV booster dose, the amount of neutralizing antibodies was fairly consistent across the different lineage 1 strains, with geometric mean titers (GMTs) ranging from 190 to 453 compared to a low GMT range between 57 and 113 for lineage 2 strains [107]. Nevertheless, neutralizing antibody responses from HydroVax-001 WNV vaccination were comparable to a group of human subjects (n = 11) who had been infected with WNV during a 2003 outbreak in Colorado.
+
+Given these promising results, a two-dose intramuscular (IM) injection was scheduled at a 28-day interval to assess safety and immunogenicity in phase I clinical trials in humans. At a 1 mcg dose, HydroVax-001 was not immunogenic by PRNT50 but elicited up to 41% seroconversion by WNV-specific ELISA after the second dose. At a 4 mcg dose and added complement, seroconversion rates increased to 50%, and 75% as observed by PRNT50 and WNV-specific ELISA, respectively [61]. HydroVax-001 performed averagely and was not efficient in eliciting durable neutralizing antibody responses against WNV. The clinical study suggests that the inactivated vaccine approach could be improved by the third dose of vaccine administration. In addition, an alternate inactivation approach can be employed to retain maximum neutralizing epitopes. One study described using an oxidation approach for the development of inactivated vaccines that utilizes reduced concentrations of H2O2 in combination with copper and methisazone (MZ). Further, the addition of formaldehyde provided a robust two-pronged approach that led to more efficient virus inactivation with improved retention of neutralizing epitopes [62].
+
+5.4. Safety Concerns with Inactivated Vaccines
+
+Inactivated WNV vaccines are considered safer than live attenuated vaccines because they are non-replicating and cannot revert to virulence, making them suitable for immunocompromised and elderly individuals [108]. However, chemical inactivation methods such as formaldehyde or hydrogen peroxide can alter viral protein structure, potentially reduce the quality of neutralizing antibody responses and raise theoretical concerns about immune enhancement [109]. The use of adjuvants like aluminum hydroxide improves immunogenicity but is associated with mild local and systemic reactogenicity [110]. In addition, incomplete viral inactivation remains a theoretical manufacturing risk, requiring stringent validation and quality control. Furthermore, repeated booster doses may increase cumulative reactogenicity and affect tolerability. Additionally, while candidates such as HydroVax-001 are generally well tolerated, their relatively modest and short-lived neutralizing antibody responses highlight the need for improved formulations that balance safety with durable immunogenicity [61].
+
+5.5. DNA Vaccine Candidate
+
+A total of two DNA vaccine candidates, VRC-WNVDNA017-00-VP and VRC–WNVDNA020-00-VP, have been tested in two separate clinical phase I trials. Both of these DNA vaccine candidates were closed, circular plasmids encoding prM and E proteins identical to those of the WN NY99 human isolate. In the first DNA vaccine candidate VRC-WNVDNA017-00-VP, a modified signal sequence from JEV was added upstream of the WNV prM and E coding sequences and cloned into the expression vector with a CMV promoter, whereas in the second DNA vaccine construct VRC–WNVDNA020-00-VP, a modified CMV/R promoter was constructed adding a regulatory sequence for the R region of the long terminal repeat from the HTLV-1, known to enhance the transcription and post-transcriptional events [111,112].
+
+A total of 15 human subjects were tested for the phase I clinical trial (VRC 302), administering a 4 mg dose of DNA vaccine (VRC-WNVDNA017-00-VP) with a CMV promoter via intramuscular injection [111]. Vaccine-induced neutralizing antibodies were detected by ELISA at weeks 8, 12, and 32. At week 12, among 15 subjects, six, three, and one subject exhibited reciprocal antibody titers of 480, 1920, and 7680, respectively. Moreover, enhanced CD4+ T cell responses were elicited against the WNV-E-specific antigen and were more frequent than CD8+ T cell responses.
+
+The second phase I trial (VRC303), evaluated a WNVDNA020-00-VP vaccine with a vector construct having the CMV/R promoter. The study included 30 healthy adults (n = 30) of age 18–50 years in one group and age 51–65 years in the second group [112]. Three doses of the vaccine regime were administered on study days 0, 28, and 56. The frequency and magnitude of T cell responses to the prM protein were significantly increased compared to the VRC302 trial. In earlier reports, DNA vaccines have been shown to elicit vaccine-specific antibodies and not been known to elicit neutralizing antibodies [113,114]. But, the VRC-WNVDNA017-00-VP and VRC–WNVDNA020-00-VP WNV DNA vaccines induced neutralizing antibody production, which might be possible due to the expression of prM and E gene products resulting in the formation of non-infectious virus-like particles called “subviral particles”. Secondly, the delivery of these DNA vaccines using Biojector might have enhanced augmentation in aged skin. Needle-free immunization has been shown to deposit antigen in a cone like distribution into the epidermis and dermis, directly to the sites of dendritic cells that migrate to draining lymph nodes after activation [115]. In these studies, neutralizing antibody peak responses were measured at around week 12 but remained positive at relatively lower magnitude by the end of the year-long study. Secondly, it is important to complete three-dose regimes to gain an effective long-term antibody response.
+
+5.6. Safety Concerns with DNA Vaccines
+
+DNA vaccines for WNV have shown a favorable safety profile in early-phase clinical trials, largely due to their non-infectious and non-replicating nature, eliminating risks of reversion or viral spread. However, several safety considerations have been discussed in the literature. A theoretical concern is the potential integration of plasmid DNA into the host genome, although this has not been observed at significant levels in clinical studies. Additionally, DNA vaccines can trigger innate immune activation, which may lead to mild local or systemic reactions such as injection-site pain or transient inflammation [111,116]. The use of delivery systems like needle-free injectors (e.g., Biojector) may further contribute to local tissue irritation [117]. Another concern is the requirement for multiple high-dose administrations (e.g., three-dose regimens), raising questions about long-term tolerability and cumulative immune stimulation. Despite these considerations, clinical trials (VRC302 and VRC303) reported that the vaccines were generally well tolerated, with no serious adverse events, supporting their overall safety while highlighting the need for continued monitoring in larger populations [112].
+
+5.7. Subunit Vaccines
+
+Subunit vaccine strategies for WNV mainly target the envelope (E) protein and its domain III (EDIII), as these regions contain important neutralizing epitopes. In preclinical studies, recombinant E protein vaccines produced in insect or mammalian systems have shown strong neutralizing antibody responses and protective efficacy in mice and non-human primates, although they typically require adjuvants such as aluminum salts or other immunostimulants to enhance their effectiveness [118,119,120]. EDIII-based vaccines, including recombinant and nanoparticle-linked forms, provide greater antigen specificity and may reduce non-neutralizing responses, but they often show lower immunogenicity when used alone [91]. Virus-like particle (VLP) vaccines composed of prM and E proteins represent a more advanced approach, as they closely resemble the native virus structure and induce both antibody and T cell responses in animal models [121].
+
+5.8. Challenges with Subunit Vaccines and Advancement in Adjuvants and Immunoinformatics
+
+Despite encouraging preclinical findings, the clinical development of WNV subunit vaccines has been limited. Only a few candidates have entered early-stage or phase I trials, where they have shown good safety but variable immune responses. Overall, improving antigen design, adjuvant use, and dosing strategies will be important to achieve stronger and longer-lasting protection in humans. Subunit vaccines are often not immunogenic and must be paired with an immune-stimulating adjuvant to improve efficacy. Recently, there has been interest in molecules that activate mast cells (MCs) as potential vaccine adjuvants. MCs are innate immune cells that contain intracellular secretory granules, which in turn are loaded with inflammatory mediators such as prostaglandins, histamine, cytokines, and leukotrienes [122]. MC activators (MCAs) result in enhanced adaptive immune responses through the production of protective antibodies, but not IgE antibodies [123,124]. Different MCAs encapsulated in acetylated dextran microparticles are combined with the WNV Envelope III protein (EDIII) and their vaccine adjuvant activities are compared in vivo. Some of the MCAs produced a robust antibody response against EDIII protein [125]. These results emphasized the advantages of exploring better microparticle delivery platforms for the poorly soluble MCAs.
+
+When screening novel adjuvant technologies, scientists are utilizing state-of-the-art immunoinformatic techniques. B cell and T cell epitopes of immunogenic proteins are identified and docked with B cell receptors, MHC-I, and MHC-II through computational models. The prominent affinity against T cell epitope NAYYVMTVGTKTFLV is observed with MHC II during molecular docking simulation analysis; hence, it needs to be verified as a potential candidate for a WNV epitope-based vaccine in future studies [126]. Furthermore, multi-epitope-based vaccine designs integrated the selected epitopes via GPGPG linkers, and a Cholera Toxin B subunit adjuvant with the help of another linker EAAAK, to enhance immunogenicity [127].
+
+5.9. Other Challanges to Effective WNV Vaccine Development
+
+5.9.1. Cost and Feasibility
+
+Economic constraints of vaccine programs: WNV is geographically focal and outbreak-prone, with variable incidence rates. Cost-effectiveness models have questioned the economic viability of national vaccination campaigns, suggesting that a targeted approach focusing on high-incidence regions or at-risk age groups might be more practical. This strategy has been successfully applied in other vaccine programs, such as hepatitis A vaccination.
+
+5.9.2. Technology Transfer
+
+Challenges in vaccine uptake: Beyond production costs, uptake of WNV vaccines could be limited by concerns over long-term immunity and the potential requirement for multiple booster doses. For example, veterinary WNV vaccines involve two primary doses and annual boosters, a model that could deter human use due to logistical and economic barriers. Difficulty in conducting phase III trials: The sporadic and unpredictable nature of WNV outbreaks complicates the design and implementation of large-scale efficacy trials. Identifying regions with consistent outbreaks and enrolling sufficient participants poses significant logistical hurdles. Moreover, evaluating endpoints such as the prevention of neuroinvasive disease or infection requires precise monitoring and differentiation between vaccine-induced and infection-induced immunity.
+
+5.9.3. Shift in Circulating WNV Lineage Strains
+
+Currently, WNV isolates are classified into nine different genetic lineages, with lineages 1 and 2 being associated with severe (neurological) disease in humans [128]. While lineage 1 WNV strains were previously considered to be more pathogenic compared to lineage 2, the recent outbreaks in Europe have been the result of the explosive spread of neuroinvasive lineage 2 rather than lineage 1 isolates [129]. Some of the WNV vaccines, which are primarily based on lineage 1 strains, have demonstrated immunogenicity against diverse strains of the virus, but limited numbers of these have been studied against lineage 2 viruses [130]. These studies are confined to animal models and, thus, can provide relevant immune protection in animals, but the protection against lineage 2 virus in humans is yet to be confirmed. Thus, at present, there is no licensed human WNV vaccine available. One study examined the lineage 2 strains, namely SHUA-1 and SHUA-3, isolated from the blood and saliva respectively of the same patient diagnosed with neuroinvasive West Nile disease in Moscow, 2021, respectively [131]. The inactivated SHUA-3 strain provides 100% seroconversion and immunogenicity against SHUA-1 and 100% protection from morbidity and mortality in mice.
+
+vaccines-14-00499-t003_Table 3 Table 3 Human WNV vaccine candidates evaluated in clinical trials.
+
+Vaccine Candidate	Clinical Trial Phase	Study Population	Year	References	
+ChimeriVax-WN02	Phase I	Age 18–40 years, n = 80	2006	[94]	
+Phase II	Age 18–40 years (part 1, n = 112);
+Age ≥ 41 years (part 2, n = 96)	2011	[95]	
+Phase II	Age ≥ 50 years, n = 480	2012	[96]	
+rWN/DEN4Δ30	Phase I	Age 9–50 years, n = 82	2013	[100]	
+Phase I	Age 50–65 years, n = 28	2016	[101]	
+HydroVax-001 WNV	Preclinical	Non-human primates	2017	[107]	
+Phase I	Age 18–49 years, n = 51	2019	[61]	
+DNA Vaccine (VRC-WNVDNA017-00-VP)	Phase I	Age 18–50 years, n = 15	2007	[111]	
+DNA Vaccine (VRC–WNVDNA020-00-VP)	Phase I	Age 18–65 years, n = 30	2011	[112]	
+
+6. Conclusions
+
+WNV continues to be an important public health threat, but developing an effective human vaccine has been challenging. Several vaccine platforms, including live attenuated, inactivated, DNA, subunit, and recombinant vaccines, have shown encouraging immune responses in animal models and early clinical trials. Despite this progress, each approach has important limitations. Key challenges include safety concerns in high-risk populations, incomplete understanding of immune protection, limited durability of immune responses, cross-reactivity with other flaviviruses, and the potential risk of antibody-dependent enhancement. Inactivated and DNA-based vaccines are generally safe but often require multiple doses or stronger adjuvants to produce long-lasting immunity. Live attenuated vaccines tend to induce stronger immune responses; however, their use raises safety concerns, especially in older adults and immunocompromised individuals. In addition to these biological challenges, vaccine development is further hindered by economic limitations, unpredictable outbreak patterns, and difficulties in conducting large-scale efficacy trials. Overcoming these obstacles will require improved vaccine designs, better adjuvant strategies, and carefully targeted vaccination approaches to support the development of a safe, effective, and practical human vaccine against WNV.
+
+Author Contributions
+
+Conceptualization, S.C., R.K. and A.T.; data curation, S.C. and R.K.; writing—original draft preparation, A.G., A.T., K.J., Y.R., U.B., R.K. and S.C.; writing—review and editing, A.G., A.T., K.J., Y.R., U.B., R.K. and S.C.; visualization, S.C. and A.T.; supervision, S.C. and R.K. All authors have read and agreed to the published version of the manuscript.
+
+Institutional Review Board Statement
+
+Not applicable.
+
+Informed Consent Statement
+
+Not applicable.
+
+Data Availability Statement
+
+No new data were created or analyzed in this study.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+Abbreviations
+
+ADE	Antibody-Dependent Enhancement	
+AES	Acute Encephalitis Syndrome	
+AFM	Acute Flaccid Myelitis	
+AFP	Acute Flaccid Paralysis	
+AE	Adverse Events	
+ALT	Alanine Aminotransferase	
+CD	Cluster of Differentiation	
+CMV	Cytomegalovirus	
+CNS	Central Nervous System	
+COPD	Chronic Obstructive Pulmonary Disease	
+CSF	Cerebrospinal Fluid	
+DC	Dendritic Cell	
+DC-SIGN	Dendritic Cell-Specific Intercellular Adhesion Molecule-3-Grabbing Non-Integrin	
+DENV	Dengue Virus	
+DNA	Deoxyribonucleic Acid	
+E	Envelope Protein	
+EAAAK	Glutamic Acid-Alanine-Alanine-Alanine-Lysine (Linker)	
+EDIII	Envelope Domain III	
+ELISA	Enzyme-Linked Immunosorbent Assay	
+ER	Endoplasmic Reticulum	
+FDA	Food and Drug Administration	
+GMT	Geometric Mean Titer	
+GPGPG	Glycine-Proline-Glycine-Proline-Glycine Linker	
+H2O2	Hydrogen Peroxide	
+HCA	Hierarchical Clustering Analysis	
+HLA	Human Leukocyte Antigen	
+HTLV-1	Human T Cell Leukemia Virus Type 1	
+IgE	Immunoglobulin E	
+IgG	Immunoglobulin G	
+IgM	Immunoglobulin M	
+IM	Intramuscular	
+JEV	Japanese Encephalitis Complex	
+MC	Mast Cell	
+MCA	Mast Cell Activator	
+MHC	Major Histocompatibility Complex	
+MZ	Methisazone	
+NS	Non-Structural Protein	
+PCR	Polymerase Chain Reaction	
+PFU	Plaque-Forming Units	
+PRNT	Plague Reduction Neutralization Test	
+PS	Phosphatidylserine	
+RGD	Arginine-Glycine-Aspartic Acid	
+RGE	Ariginine-Glycine-Glutamic Acid	
+RNA	Ribonucleic Acid	
+RT-PCR	Reverse Transcription Polymerase Chain Reaction	
+SAE	Serious Adverse Event	
+TAM	TYRO3-AXL-MERTK Receptor Family	
+TEAE	Treatment-Emergent Adverse Event	
+TIM	T Cell Immunoglobulin and Mucin-Domain	
+UTR	Untranslated Region	
+VLP	Virus-Like Particle	
+WNV	West Nile Virus	
+WNV-KUNV	West Nile Virus-Kunjin Stain	
+WNV-NY	West Nile Virus New York Strain	
+YF	Yellow Fever	
+YF-17D	Yellow Fever 17D Vaccine Strain	
+
+Figure 1 WNV and genome structure.
+
+Figure 2 Virus transmission cycle.
+
+vaccines-14-00499-t002_Table 2 Table 2 Equine WNV vaccine candidates evaluated in clinical trials.
+
+S.No.	Vaccine Name	Viral Antigen	Licensed	References	
+1	West Nile-Innovator	Whole killed virus	YES	[89]	
+2	Vetera West Nile vaccine (Boehringer Ingelheim)	Killed virus	YES	[91]	
+3	West Nile-Innovator DNA (Discontinue)	Plasmid DNA prM/E	YES	[91]	
+4	Recombitek WNV	Recombinant canary pox vaccine	YES	[88,92]	
+5	PreveNile (Recalled)	WNV prm-E in yellow fever backbone	YES	[91]	
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+References
+
+1. Lanciotti R.S. Roehrig J.T. Deubel V. Smith J. Parker M. Steele K. Crise B. Volpe K.E. Crabtree M.B. Scherret J.H. Origin of the West Nile virus responsible for an outbreak of encephalitis in the northeastern United States Science 1999 286 2333 2337 10.1126/science.286.5448.2333 10600742
+2. Amanna I.J. Slifka M.K. Current trends in West Nile virus vaccine development Expert Rev. Vaccines 2014 13 589 608 10.1586/14760584.2014.906309 24689659 PMC4279923
+3. Ulbert S. West Nile virus vaccines—Current situation and future directions Hum. Vaccines Immunother. 2019 15 2337 2342 10.1080/21645515.2019.1621149 PMC6816401 31116691
+4. Flores H.E. Pinzon Burgos E.F. Camacho Ortega S. Heredia A. Chua J.V. From Antibodies to Immunity: Assessing Correlates of Flavivirus Protection and Cross-Reactivity Vaccines 2025 13 449 10.3390/vaccines13050449 40432061 PMC12115660
+5. Friebe P. Harris E. Interplay of RNA elements in the dengue virus 5′ and 3′ ends required for viral RNA replication J. Virol. 2010 84 6103 6118 10.1128/JVI.02042-09 20357095 PMC2876622
+6. Khromykh A.A. Meka H. Guyatt K.J. Westaway E.G. Essential role of cyclization sequences in flavivirus RNA replication J. Virol. 2001 75 6719 6728 10.1128/JVI.75.14.6719-6728.2001 11413342 PMC114398
+7. Shi P.Y. Brinton M.A. Veal J.M. Zhong Y.Y. Wilson W.D. Evidence for the existence of a pseudoknot structure at the 3′ terminus of the flavivirus genomic RNA Biochemistry 1996 35 4222 4230 10.1021/bi952398v 8672458
+8. Brinton M.A. The molecular biology of West Nile Virus: A new invader of the western hemisphere Annu. Rev. Microbiol. 2002 56 371 402 10.1146/annurev.micro.56.012302.160654 12142476
+9. Westaway E.G. Mackenzie J.M. Khromykh A.A. Replication and gene function in Kunjin virus Curr. Top. Microbiol. Immunol. 2002 267 323 351 12082996 10.1007/978-3-642-59403-8_16
+10. Wengler G. Czaya G. Farber P.M. Hegemann J.H. In vitro synthesis of West Nile virus proteins indicates that the amino-terminal segment of the NS3 protein contains the active centre of the protease which cleaves the viral polyprotein after multiple basic amino acids J. Gen. Virol. 1991 72 851 858 10.1099/0022-1317-72-4-851 1826736
+11. Wengler G. Wengler G. The NS 3 nonstructural protein of flaviviruses contains an RNA triphosphatase activity Virology 1993 197 265 273 10.1006/viro.1993.1587 8212562
+12. Lindenbach B.D. Rice C.M. Molecular biology of flaviviruses Adv. Virus Res. 2003 59 23 61 14696326 10.1016/s0065-3527(03)59002-9
+13. Lin C.W. Cheng C.W. Yang T.C. Li S.W. Cheng M.H. Wan L. Lin Y.J. Lai C.H. Lin W.Y. Kao M.C. Interferon antagonist function of Japanese encephalitis virus NS4A and its interaction with DEAD-box RNA helicase DDX42 Virus Res. 2008 137 49 55 10.1016/j.virusres.2008.05.015 18588927
+14. Liu W.J. Chen H.B. Wang X.J. Huang H. Khromykh A.A. Analysis of adaptive mutations in Kunjin virus replicon RNA reveals a novel role for the flavivirus nonstructural protein NS2A in inhibition of beta interferon promoter-driven transcription J. Virol. 2004 78 12225 12235 10.1128/jvi.78.22.12225-12235.2004 15507609 PMC525072
+15. Liu W.J. Wang X.J. Clark D.C. Lobigs M. Hall R.A. Khromykh A.A. A single amino acid substitution in the West Nile virus nonstructural protein NS2A disables its ability to inhibit alpha/beta interferon induction and attenuates virus virulence in mice J. Virol. 2006 80 2396 2404 16474146 10.1128/JVI.80.5.2396-2404.2006 PMC1395377
+16. Munoz-Jordan J.L. Laurent-Rolle M. Ashour J. Martinez-Sobrido L. Ashok M. Lipkin W.I. Garcia-Sastre A. Inhibition of alpha/beta interferon signaling by the NS4B protein of flaviviruses J. Virol. 2005 79 8004 8013 10.1128/JVI.79.13.8004-8013.2005 15956546 PMC1143737
+17. Smit J.M. Moesker B. Rodenhuis-Zybert I. Wilschut J. Flavivirus cell entry and membrane fusion Viruses 2011 3 160 171 10.3390/v3020160 22049308 PMC3206597
+18. Davis C.W. Nguyen H.Y. Hanna S.L. Sanchez M.D. Doms R.W. Pierson T.C. West Nile virus discriminates between DC-SIGN and DC-SIGNR for cellular attachment and infection J. Virol. 2006 80 1290 1301 10.1128/JVI.80.3.1290-1301.2006 16415006 PMC1346927
+19. Chu J.J. Ng M.L. Interaction of West Nile virus with alpha v beta 3 integrin mediates virus entry into cells J. Biol. Chem. 2004 279 54533 54541 15475343 10.1074/jbc.M410208200
+20. Medigeshi G.R. Hirsch A.J. Streblow D.N. Nikolich-Zugich J. Nelson J.A. West Nile virus entry requires cholesterol-rich membrane microdomains and is independent of alphavbeta3 integrin J. Virol. 2008 82 5212 5219 18385233 10.1128/JVI.00008-08 PMC2395215
+21. Moller-Tank S. Maury W. Phosphatidylserine receptors: Enhancers of enveloped virus entry and infection Virology 2014 468–470 565 580 10.1016/j.virol.2014.09.009 PMC4252826 25277499
+22. Meertens L. Carnec X. Lecoin M.P. Ramdasi R. Guivel-Benhassine F. Lew E. Lemke G. Schwartz O. Amara A. The TIM and TAM families of phosphatidylserine receptors mediate dengue virus entry Cell Host Microbe 2012 12 544 557 10.1016/j.chom.2012.08.009 23084921 PMC3572209
+23. Savidis G. McDougall W.M. Meraner P. Perreira J.M. Portmann J.M. Trincucci G. John S.P. Aker A.M. Renzette N. Robbins D.R. Identification of Zika Virus and Dengue Virus Dependency Factors using Functional Genomics Cell Rep. 2016 16 232 246 10.1016/j.celrep.2016.06.028 27342126
+24. Krishnan M.N. Sukumaran B. Pal U. Agaisse H. Murray J.L. Hodge T.W. Fikrig E. Rab 5 is required for the cellular entry of dengue and West Nile viruses J. Virol. 2007 81 4881 4885 10.1128/JVI.02210-06 17301152 PMC1900185
+25. Thepparit C. Smith D.R. Serotype-specific entry of dengue virus into liver cells: Identification;of the 37-kilodalton/67-kilodalton high-affinity laminin receptor as a dengue virus serotype 1 receptor J. Virol. 2004 78 12647 12656 10.1128/JVI.78.22.12647-12656.2004 15507651 PMC525075
+26. Bogachek M.V. Protopopova E.V. Loktev V.B. Zaitsev B.N. Favre M. Sekatskii S.K. Dietler G. Immunochemical and single molecule force spectroscopy studies of specific interaction between the laminin binding protein and the West Nile virus surface glycoprotein E domain II J. Mol. Recognit. 2008 21 55 62 10.1002/jmr.866 18061925
+27. Chu J.J. Ng M.L. Infectious entry of West Nile virus occurs through a clathrin-mediated endocytic pathway J. Virol. 2004 78 10543 10555 10.1128/JVI.78.19.10543-10555.2004 15367621 PMC516396
+28. Duan Y. Zeng M. Jiang B. Zhang W. Wang M. Jia R. Zhu D. Liu M. Zhao X. Yang Q. Flavivirus RNA-Dependent RNA Polymerase Interacts with Genome UTRs and Viral Proteins to Facilitate Flavivirus RNA Replication Viruses 2019 11 929 10.3390/v11100929 31658680 PMC6832647
+29. Ng M.L. Chu J.H. Interaction of West Nile and Kunjin viruses with cellular components during morphogenesis Curr. Top. Microbiol. Immunol. 2002 267 353 372 12082997 10.1007/978-3-642-59403-8_17
+30. Foo K.Y. Chee H.Y. Interaction between Flavivirus and Cytoskeleton during Virus Replication BioMed Res. Int. 2015 2015 427814 10.1155/2015/427814 26347881 PMC4546964
+31. Zhang Y. Gao W. Li J. Wu W. Jiu Y. The Role of Host Cytoskeleton in Flavivirus Infection Virol. Sin. 2019 34 30 41 10.1007/s12250-019-00086-4 30725318 PMC6420528
+32. Hamer G.L. Kitron U.D. Goldberg T.L. Brawn J.D. Loss S.R. Ruiz M.O. Hayes D.B. Walker E.D. Host selection by Culex pipiens mosquitoes and West Nile virus amplification Am. J. Trop. Med. Hyg. 2009 80 268 278 10.4269/ajtmh.2009.80.268 19190226
+33. Reisen W.K. Fang Y. Martinez V.M. Vector competence of Culiseta incidens and Culex thriambus for West Nile virus J. Am. Mosq. Control Assoc. 2006 22 662 665 10.2987/8756-971X(2006)22[662:VCOCIA]2.0.CO;2 17304934
+34. Vitek C.J. Richards S.L. Mores C.N. Day J.F. Lord C.C. Arbovirus transmission by Culex nigripalpus in Florida, 2005 J. Med. Entomol. 2008 45 483 493 10.1093/jmedent/45.3.483 18533444 PMC2770802
+35. Hamer G.L. Kitron U.D. Brawn J.D. Loss S.R. Ruiz M.O. Goldberg T.L. Walker E.D. Culex pipiens (Diptera: Culicidae): A bridge vector of West Nile virus to humans J. Med. Entomol. 2008 45 125 128 10.1093/jmedent/45.1.125 18283952
+36. Bernkopf H. Levine S. Nerson R. Isolation of West Nile virus in Israel J. Infect. Dis. 1953 93 207 218 10.1093/infdis/93.3.207 13109233
+37. Melnick J.L. Paul J.R. Riordan J.T. Barnett V.H. Goldblum N. Zabin E. Isolation from human sera in Egypt of a virus apparently identical to West Nile virus Proc. Soc. Exp. Biol. Med. 1951 77 661 665 10.3181/00379727-77-18884 14891830
+38. Work T.H. Hurlbut H.S. Taylor R.M. Isolation of West Nile virus from hooded crow and rock pigeon in the Nile delta Proc. Soc. Exp. Biol. Med. 1953 84 719 722 10.3181/00379727-84-20764 13134268
+39. Spigland I. Jasinska-Klingberg W. Hofshi E. Goldblum N. Clinical and laboratory observations in an outbreak of West Nile fever in Israel in 1957 Harefuah 1958 54 275 280 13562703
+40. Artsob H. Gubler D.J. Enria D.A. Morales M.A. Pupo M. Bunning M.L. Dudley J.P. West Nile Virus in the New World: Trends in the spread and proliferation of West Nile Virus in the Western Hemisphere Zoonoses Public Health 2009 56 357 369 10.1111/j.1863-2378.2008.01207.x 19486320
+41. Lohitharajah J. Malavige G.N. Chua A.J.S. Ng M.L. Arambepola C. Chang T. Emergence of human West Nile Virus infection in Sri Lanka BMC Infect. Dis. 2015 15 305 10.1186/s12879-015-1040-7 26227390 PMC4521480
+42. Maramattom B.V. Philips G. Sudheesh N. Arunkumar G. Acute flaccid paralysis due to West nile virus infection in adults: A paradigm shift entity Ann. Indian Acad. Neurol. 2014 17 85 88 10.4103/0972-2327.128561 24753667 PMC3992778
+43. Tandel K. Sharma S. Dash P.K. Shukla J. Parida M. Emergence of human West Nile Virus infection among pediatric population in Madhya Pradesh, India J. Med. Virol. 2019 91 493 497 10.1002/jmv.25325 30257043
+44. Granwehr B.P. Lillibridge K.M. Higgs S. Mason P.W. Aronson J.F. Campbell G.A. Barrett A.D. West Nile virus: Where are we now? Lancet Infect. Dis. 2004 4 547 556 10.1016/S1473-3099(04)01128-4 15336221
+45. Rhee C. Eaton E.F. Concepcion W. Blackburn B.G. West Nile virus encephalitis acquired via liver transplantation and clinical response to intravenous immunoglobulin: Case report and review of the literature Transpl. Infect. Dis. 2011 13 312 317 10.1111/j.1399-3062.2010.00595.x 21235711
+46. Watson J.T. Pertel P.E. Jones R.C. Siston A.M. Paul W.S. Austin C.C. Gerber S.I. Clinical characteristics and functional outcomes of West Nile Fever Ann. Intern. Med. 2004 141 360 365 10.7326/0003-4819-141-5-200409070-00010 15353427
+47. Sejvar J.J. Clinical manifestations and outcomes of West Nile virus infection Viruses 2014 6 606 623 10.3390/v6020606 24509812 PMC3939474
+48. Nash D. Mostashari F. Fine A. Miller J. O’Leary D. Murray K. Huang A. Rosenberg A. Greenberg A. Sherman M. The outbreak of West Nile virus infection in the New York City area in 1999 N Engl. J. Med. 2001 344 1807 1814 10.1056/NEJM200106143442401 11407341
+49. Asnis D.S. Conetta R. Teixeira A.A. Waldman G. Sampson B.A. The West Nile Virus outbreak of 1999 in New York: The Flushing Hospital experience Clin. Infect. Dis. 2000 30 413 418 10.1086/313737 10722421
+50. Weiss D. Carr D. Kellachan J. Tan C. Phillips M. Bresnitz E. Layton M. West Nile Virus Outbreak Response Working, Clinical findings of West Nile virus infection in hospitalized patients, New York and New Jersey, 2000 Emerg. Infect. Dis. 2001 7 654 658 10.3201/eid0704.017409 11589170 PMC2631758
+51. Sejvar J.J. The long-term outcomes of human West Nile virus infection Clin. Infect. Dis. 2007 44 1617 1624 10.1086/518281 17516407
+52. Lanciotti R.S. Kerst A.J. Nasci R.S. Godsey M.S. Mitchell C.J. Savage H.M. Komar N. Panella N.A. Allen B.C. Volpe K.E. Rapid detection of west nile virus from human clinical specimens, field-collected mosquitoes, and avian samples by a TaqMan reverse transcriptase-PCR assay J. Clin. Microbiol. 2000 38 4066 4071 10.1128/JCM.38.11.4066-4071.2000 11060069 PMC87542
+53. Vilibic-Cavlek T. Bogdanic M. Savic V. Hruskar Z. Barbic L. Stevanovic V. Antolasic L. Milasincic L. Sabadi D. Miletic G. Diagnosis of West Nile virus infections: Evaluation of different laboratory methods World J. Virol. 2024 13 95986 10.5501/wjv.v13.i4.95986 39722752 PMC11551685
+54. McDonald E. Mathis S. Martin S.W. Staples J.E. Fischer M. Lindsey N.P. Surveillance for West Nile virus disease—United States, 2009–2018 Am. J. Transpl. 2021 21 1959 1974 10.1111/ajt.16595 33939278
+55. Petersen L.R. Brault A.C. Nasci R.S. West Nile virus: Review of the literature JAMA 2013 310 308 315 10.1001/jama.2013.8042 23860989 PMC4563989
+56. Beasley D.W. Vaccines and immunotherapeutics for the prevention and treatment of infections with West Nile virus Immunotherapy 2011 3 269 285 10.2217/imt.10.93 21322763
+57. Bedard K.M. Wang M.L. Proll S.C. Loo Y.M. Katze M.G. Gale M. Jr. Iadonato S.P. Isoflavone agonists of IRF-3 dependent signaling have antiviral activity against RNA viruses J. Virol. 2012 86 7334 7344 10.1128/JVI.06867-11 22532686 PMC3416323
+58. Topno R. Khan S.A. Chowdhury P. Mahanta J. Pharmacodynamics of aminoglycosides and tetracycline derivatives against Japanese encephalitis virus Asian Pac. J. Trop. Med. 2016 9 241 246 10.1016/j.apjtm.2016.01.033 26972394
+59. Thackray L.B. Handley S.A. Gorman M.J. Poddar S. Bagadia P. Briseno C.G. Theisen D.J. Tan Q. Hykes B.L. Jr. Lin H. Oral Antibiotic Treatment of Mice Exacerbates the Disease Severity of Multiple Flavivirus Infections Cell Rep. 2018 22 3440 3453.e6 10.1016/j.celrep.2018.03.001 29590614 PMC5908250
+60. Seino K.K. Long M.T. Gibbs E.P. Bowen R.A. Beachboard S.E. Humphrey P.P. Dixon M.A. Bourgeois M.A. Comparative efficacies of three commercially available vaccines against West Nile Virus (WNV) in a short-duration challenge trial involving an equine WNV encephalitis model Clin. Vaccine Immunol. 2007 14 1465 1471 10.1128/CVI.00249-07 17687109 PMC2168174
+61. Woods C.W. Sanchez A.M. Swamy G.K. McClain M.T. Harrington L. Freeman D. Poore E.A. Slifka D.K. Poer DeRaad D.E. Amanna I.J. An observer blinded, randomized, placebo-controlled, phase I dose escalation trial to evaluate the safety and immunogenicity of an inactivated West Nile virus Vaccine, HydroVax-001, in healthy adults Vaccine 2019 37 4222 4230 10.1016/j.vaccine.2018.12.026 30661836 PMC6640644
+62. Quintel B.K. Thomas A. Poer DeRaad D.E. Slifka M.K. Amanna I.J. Advanced oxidation technology for the development of a next-generation inactivated West Nile virus vaccine Vaccine 2019 37 4214 4221 10.1016/j.vaccine.2018.12.020 30606462 PMC6599721
+63. Kaiser J.A. Barrett A.D.T. Twenty Years of Progress Toward West Nile Virus Vaccine Development Viruses 2019 11 823 10.3390/v11090823 31491885 PMC6784102
+64. Barningham L. Carr I.M. Jossi S. Cole M. Ponce A. Short M. Meneses C. Lacsina J.R. Valenzuela J.G. Oliveira F. AGS-v PLUS, a Mosquito Salivary Peptide Vaccine, Modulates the Response to Aedes Mosquito Bites in Humans Vaccines 2025 13 1026 10.3390/vaccines13101026 41150413 PMC12567680
+65. Gubler D.J. Campbell G.L. Nasci R. Komar N. Petersen L. Roehrig J.T. West Nile virus in the United States: Guidelines for detection, prevention, and control Viral Immunol. 2000 13 469 475 10.1089/vim.2000.13.469 11192293
+66. Campbell G.L. Marfin A.A. Lanciotti R.S. Gubler D.J. West Nile virus Lancet Infect. Dis. 2002 2 519 529 10.1016/S1473-3099(02)00368-7 12206968
+67. Chang G.J. Davis B.S. Stringfield C. Lutz C. Prospective immunization of the endangered California condors (Gymnogyps californianus) protects this species from lethal West Nile virus infection Vaccine 2007 25 2325 2330 10.1016/j.vaccine.2006.11.056 17224209
+68. Komar N. Langevin S. Hinten S. Nemeth N. Edwards E. Hettler D. Davis B. Bowen R. Bunning M. Experimental infection of North American birds with the New York 1999 strain of West Nile virus Emerg. Infect. Dis. 2003 9 311 322 10.3201/eid0903.020628 12643825 PMC2958552
+69. Olsen G.H. Miller K.J. Docherty D.E. Bochsler V.S. Sileo L. Pathogenicity of West Nile virus and response to vaccination in sandhill cranes (Grus canadensis) using a killed vaccine J. Zoo Wildl. Med. 2009 40 263 271 10.1638/2008-0017.1 19569472
+70. Samina I. Khinich Y. Simanov M. Malkinson M. An inactivated West Nile virus vaccine for domestic geese-efficacy study and a summary of 4 years of field application Vaccine 2005 23 4955 4958 10.1016/j.vaccine.2005.03.052 16023273
+71. Fischer D. Angenvoort J. Ziegler U. Fast C. Maier K. Chabierski S. Eiden M. Ulbert S. Groschup M.H. Lierz M. DNA vaccines encoding the envelope protein of West Nile virus lineages 1 or 2 administered intramuscularly, via electroporation and with recombinant virus protein induce partial protection in large falcons (Falco spp.) Vet. Res. 2015 46 87 10.1186/s13567-015-0220-1 26282836 PMC4538736
+72. Davis M.R. Langan J.N. Johnson Y.J. Ritchie B.W. Van Bonn W. West Nile virus seroconversion in penguins after vaccination with a killed virus vaccine or a DNA vaccine J. Zoo Wildl. Med. 2008 39 582 589 10.1638/2008-0029.1 19110700
+73. Jimenez de Oya N. Escribano-Romero E. Camacho M.C. Blazquez A.B. Martin-Acebes M.A. Hofle U. Saiz J.C. A Recombinant Subviral Particle-Based Vaccine Protects Magpie (Pica pica) Against West Nile Virus Infection Front. Microbiol. 2019 10 1133 10.3389/fmicb.2019.01133 31231320 PMC6560071
+74. Langevin S.A. Arroyo J. Monath T.P. Komar N. Host-range restriction of chimeric yellow fever-West Nile vaccine in fish crows (Corvus ossifragus) Am. J. Trop. Med. Hyg. 2003 69 78 80 10.4269/ajtmh.2003.69.78 12932102
+75. Wheeler S.S. Langevin S. Woods L. Carroll B.D. Vickers W. Morrison S.A. Chang G.J. Reisen W.K. Boyce W.M. Efficacy of three vaccines in protecting Western Scrub-Jays (Aphelocoma californica) from experimental infection with West Nile virus: Implications for vaccination of Island Scrub-Jays (Aphelocoma insularis) Vector Borne Zoonotic Dis. 2011 11 1069 1080 10.1089/vbz.2010.0173 21438693 PMC3151624
+76. Bunning M.L. Fox P.E. Bowen R.A. Komar N. Chang G.J. Speaker T.J. Stephens M.R. Nemeth N. Panella N.A. Langevin S.A. DNA vaccination of the American crow (Corvus brachyrhynchos) provides partial protection against lethal challenge with West Nile virus Avian Dis. 2007 51 573 577 10.1637/0005-2086(2007)51[573:DVOTAC]2.0.CO;2 17626486
+77. Kilpatrick A.M. Dupuis A.P. Chang G.J. Kramer L.D. DNA vaccination of American robins (Turdus migratorius) against West Nile virus Vector Borne Zoonotic Dis. 2010 10 377 380 10.1089/vbz.2009.0029 19874192 PMC2883478
+78. Jarvi S.I. Lieberman M.M. Hofmeister E. Nerurkar V.R. Wong T. Weeks-Levy C. Protective efficacy of a recombinant subunit West Nile virus vaccine in domestic geese (Anser anser) Vaccine 2008 26 5338 5344 10.1016/j.vaccine.2008.08.011 18723064
+79. Sa E.S.M. Ellis A. Karaca K. Minke J. Nordgren R. Wu S. Swayne D.E. Domestic goose as a model for West Nile virus vaccine efficacy Vaccine 2013 31 1045 1050 10.1016/j.vaccine.2012.12.044 23277093
+80. Schwarz E.R. Long M.T. Comparison of West Nile Virus Disease in Humans and Horses: Exploiting Similarities for Enhancing Syndromic Surveillance Viruses 2023 15 1230 10.3390/v15061230 37376530 PMC10303507
+81. Ruiz-Lopez M.J. Aguilera-Sepulveda P. Cebrian-Camison S. Figuerola J. Magallanes S. Varona S. Cuesta I. Cano-Gomez C. Sanchez-Mora P. Camacho J. Re-Emergence of a West Nile Virus (WNV) Variant in South Spain with Rapid Spread Capacity Viruses 2023 15 2372 10.3390/v15122372 38140614 PMC10747266
+82. Naveed A. Eertink L.G. Wang D. Li F. Lessons Learned from West Nile Virus Infection: Vaccinations in Equines and Their Implications for One Health Approaches Viruses 2024 16 781 10.3390/v16050781 38793662 PMC11125849
+83. Montero D.A. Vidal R.M. Velasco J. Carreno L.J. Torres J.P. Benachi O.M. Tovar-Rosero Y.Y. Onate A.A. O’Ryan M. Two centuries of vaccination: Historical and conceptual approach and future perspectives Front. Public Health 2023 11 1326154 10.3389/fpubh.2023.1326154 38264254 PMC10803505
+84. Steinman R.M. Cohn Z.A. Identification of a novel cell type in peripheral lymphoid organs of mice. I. Morphology, quantitation, tissue distribution J. Exp. Med. 1973 137 1142 1162 10.1084/jem.137.5.1142 4573839 PMC2139237
+85. Hong S. Zhang Z. Liu H. Tian M. Zhu X. Zhang Z. Wang W. Zhou X. Zhang F. Ge Q. B Cells Are the Dominant Antigen-Presenting Cells that Activate Naive CD4(+) T Cells upon Immunization with a Virus-Derived Nanoparticle Antigen Immunity 2018 49 695 708.e4 10.1016/j.immuni.2018.08.012 30291027
+86. Frasca D. Riley R.L. Blomberg B.B. Humoral immune response and B-cell functions including immunoglobulin class switch are downregulated in aged mice and humans Semin. Immunol. 2005 17 378 384 10.1016/j.smim.2005.05.005 15996480
+87. Turner J.S. O’Halloran J.A. Kalaidina E. Kim W. Schmitz A.J. Zhou J.Q. Lei T. Thapa M. Chen R.E. Case J.B. SARS-CoV-2 mRNA vaccines induce persistent human germinal centre responses Nature 2021 596 109 113 10.1038/s41586-021-03738-2 34182569 PMC8935394
+88. El Garch H. Minke J.M. Rehder J. Richard S. Edlund Toulemonde C. Dinic S. Andreoni C. Audonnet J.C. Nordgren R. Juillard V. A West Nile virus (WNV) recombinant canarypox virus vaccine elicits WNV-specific neutralizing antibodies and cell-mediated immune responses in the horse Vet. Immunol. Immunopathol. 2008 123 230 239 10.1016/j.vetimm.2008.02.002 18372050
+89. Ng T. Hathaway D. Jennings N. Champ D. Chiang Y.W. Chu H.J. Equine vaccine for West Nile virus Dev. Biol. 2003 114 221 227 14677692
+90. Davis B.S. Chang G.J. Cropp B. Roehrig J.T. Martin D.A. Mitchell C.J. Bowen R. Bunning M.L. West Nile virus recombinant DNA vaccine protects mouse and horse from virus challenge and expresses in vitro a noninfectious recombinant antigen that can be used in enzyme-linked immunosorbent assays J. Virol. 2001 75 4040 4047 10.1128/JVI.75.9.4040-4047.2001 11287553 PMC114149
+91. Brandler S. Tangy F. Vaccines in development against West Nile virus Viruses 2013 5 2384 2409 10.3390/v5102384 24084235 PMC3814594
+92. Karaca K. Bowen R. Austgen L.E. Teehee M. Siger L. Grosenbaugh D. Loosemore L. Audonnet J.C. Nordgren R. Minke J.M. Recombinant canarypox vectored West Nile virus (WNV) vaccine protects dogs and cats against a mosquito WNV challenge Vaccine 2005 23 3808 3813 10.1016/j.vaccine.2005.02.020 15893618
+93. Arroyo J. Miller C. Catalan J. Myers G.A. Ratterree M.S. Trent D.W. Monath T.P. ChimeriVax-West Nile virus live-attenuated vaccine: Preclinical evaluation of safety, immunogenicity, and efficacy J. Virol. 2004 78 12497 12507 10.1128/JVI.78.22.12497-12507.2004 15507637 PMC525070
+94. Monath T.P. Liu J. Kanesa-Thasan N. Myers G.A. Nichols R. Deary A. McCarthy K. Johnson C. Ermak T. Shin S. A live, attenuated recombinant West Nile virus vaccine Proc. Natl. Acad. Sci. USA 2006 103 6694 6699 10.1073/pnas.0601932103 16617103 PMC1436023
+95. Biedenbender R. Bevilacqua J. Gregg A.M. Watson M. Dayan G. Phase II, randomized, double-blind, placebo-controlled, multicenter study to investigate the immunogenicity and safety of a West Nile virus vaccine in healthy adults J. Infect. Dis. 2011 203 75 84 10.1093/infdis/jiq003 21148499 PMC3086439
+96. Dayan G.H. Bevilacqua J. Coleman D. Buldo A. Risi G. Risi, Phase II, dose ranging study of the safety and immunogenicity of single dose West Nile vaccine in healthy adults ≥ 50 years of age Vaccine 2012 30 6656 6664 10.1016/j.vaccine.2012.08.063 22959989
+97. Hombach J. Solomon T. Kurane I. Jacobson J. Wood D. Report on a WHO consultation on immunological endpoints for evaluation of new Japanese encephalitis vaccines Vaccine 2005 23 5205 5211 10.1016/j.vaccine.2005.07.002 16055233
+98. Allison S.L. Schalich J. Stiasny K. Mandl C.W. Heinz F.X. Mutational evidence for an internal fusion peptide in flavivirus envelope protein E J. Virol. 2001 75 4268 4275 10.1128/JVI.75.9.4268-4275.2001 11287576 PMC114172
+99. Pletnev A.G. Claire M.S. Elkins R. Speicher J. Murphy B.R. Chanock R.M. Molecularly engineered live-attenuated chimeric West Nile/dengue virus vaccines protect rhesus monkeys from West Nile virus Virology 2003 314 190 195 10.1016/S0042-6822(03)00450-1 14517072
+100. Durbin A.P. Wright P.F. Cox A. Kagucia W. Elwood D. Henderson S. Wanionek K. Speicher J. Whitehead S.S. Pletnev A.G. The live attenuated chimeric vaccine rWN/DEN4Delta30 is well-tolerated and immunogenic in healthy flavivirus-naive adult volunteers Vaccine 2013 31 5772 5777 10.1016/j.vaccine.2013.07.064 23968769 PMC3833717
+101. Pierce K.K. Whitehead S.S. Kirkpatrick B.D. Grier P.L. Jarvis A. Kenney H. Carmolli M.P. Reynolds C. Tibery C.M. Lovchik J. A Live Attenuated Chimeric West Nile Virus Vaccine, rWN/DEN4Delta30, Is Well Tolerated and Immunogenic in Flavivirus-Naive Older Adult Volunteers J. Infect. Dis. 2017 215 52 55 10.1093/infdis/jiw501 28077583 PMC5225253
+102. Rodenhuis-Zybert I.A. Moesker B. da Silva Voorham J.M. van der Ende-Metselaar H. Diamond M.S. Wilschut J. Smit J.M. A fusion-loop antibody enhances the infectious properties of immature flavivirus particles J. Virol. 2011 85 11800 11808 10.1128/JVI.05237-11 21880758 PMC3209313
+103. Bardina S.V. Bunduc P. Tripathi S. Duehr J. Frere J.J. Brown J.A. Nachbagauer R. Foster G.A. Krysztof D. Tortorella D. Enhancement of Zika virus pathogenesis by preexisting antiflavivirus immunity Science 2017 356 175 180 10.1126/science.aal4365 28360135 PMC5714274
+104. Doherty R.L. Carley J.G. Mackerras M.J. Marks E.N. Studies of arthropod-borne virus infections in Queensland. III. Isolation and characterization of virus strains from wild-caught mosquitoes in North Queensland Aust. J. Exp. Biol. Med. Sci. 1963 41 17 39 10.1038/icb.1963.2 14028387
+105. Gray T.J. Burrow J.N. Markey P.G. Whelan P.I. Jackson J. Smith D.W. Currie B.J. West nile virus (Kunjin subtype) disease in the northern territory of Australia—A case of encephalitis and review of all reported cases Am. J. Trop. Med. Hyg. 2011 85 952 956 10.4269/ajtmh.2011.11-0165 22049056 PMC3205648
+106. Pinto A.K. Richner J.M. Poore E.A. Patil P.P. Amanna I.J. Slifka M.K. Diamond M.S. A hydrogen peroxide-inactivated virus vaccine elicits humoral and cellular immunity and protects against lethal West Nile virus infection in aged mice J. Virol. 2013 87 1926 1936 10.1128/JVI.02903-12 23221549 PMC3571480
+107. Poore E.A. Slifka D.K. Raue H.P. Thomas A. Hammarlund E. Quintel B.K. Torrey L.L. Slifka A.M. Richner J.M. Dubois M.E. Pre-clinical development of a hydrogen peroxide-inactivated West Nile virus vaccine Vaccine 2017 35 283 292 10.1016/j.vaccine.2016.11.080 27919629 PMC5191926
+108. Muraki Y. Fujita T. Matsuura M. Fuke I. Manabe S. Ishikawa T. Okuno Y. Morita K. The efficacy of inactivated West Nile vaccine (WN-VAX) in mice and monkeys Virol. J. 2015 12 54 10.1186/s12985-015-0282-8 25889682 PMC4403780
+109. Amanna I.J. Raue H.P. Slifka M.K. Development of a new hydrogen peroxide-based vaccine platform Nat. Med. 2012 18 974 979 10.1038/nm.2763 22635006 PMC3506259
+110. Zhao T. Cai Y. Jiang Y. He X. Wei Y. Yu Y. Tian X. Vaccine adjuvants: Mechanisms and platforms Signal Transduct. Target. Ther. 2023 8 283 10.1038/s41392-023-01557-7 37468460 PMC10356842
+111. Martin J.E. Pierson T.C. Hubka S. Rucker S. Gordon I.J. Enama M.E. Andrews C.A. Xu Q. Davis B.S. Nason M. A West Nile virus DNA vaccine induces neutralizing antibody in healthy adults during a phase 1 clinical trial J. Infect. Dis. 2007 196 1732 1740 10.1086/523650 18190252 PMC2714735
+112. Ledgerwood J.E. Pierson T.C. Hubka S.A. Desai N. Rucker S. Gordon I.J. Enama M.E. Nelson S. Nason M. Gu W. A West Nile virus DNA vaccine utilizing a modified promoter induces neutralizing antibody in younger and older healthy adults in a phase I clinical trial J. Infect. Dis. 2011 203 1396 1404 10.1093/infdis/jir054 21398392 PMC3080891
+113. Graham B.S. Koup R.A. Roederer M. Bailer R.T. Enama M.E. Moodie Z. Martin J.E. McCluskey M.M. Chakrabarti B.K. Lamoreaux L. Phase 1 safety and immunogenicity evaluation of a multiclade HIV-1 DNA candidate vaccine J. Infect. Dis. 2006 194 1650 1660 10.1086/509259 17109336 PMC2428069
+114. Catanzaro A.T. Roederer M. Koup R.A. Bailer R.T. Enama M.E. Nason M.C. Martin J.E. Rucker S. Andrews C.A. Gomez P.L. Phase I clinical evaluation of a six-plasmid multiclade HIV-1 DNA candidate vaccine Vaccine 2007 25 4085 4092 10.1016/j.vaccine.2007.02.050 17391815
+115. Holland D. Booy R. De Looze F. Eizenberg P. McDonald J. Karrasch J. McKeirnan M. Salem H. Mills G. Reid J. Intradermal influenza vaccine administered using a new microinjection system produces superior immunogenicity in elderly adults: A randomized controlled trial J. Infect. Dis. 2008 198 650 658 10.1086/590434 18652550
+116. Kayesh M.E.H. Kohara M. Tsukiyama-Kohara K. Innate immune sensing and vaccine strategies against West Nile virus: Role of Toll-like receptors and viral evasion mechanisms Front. Microbiol. 2025 16 1711088 10.3389/fmicb.2025.1711088 41267809 PMC12627018
+117. Ravi A.D. Sadhna D. Nagpaal D. Chawla L. Needle free injection technology: A complete insight Int. J. Pharm. Investig. 2015 5 192 199 10.4103/2230-973X.167662 PMC4675000 26682189
+118. Lieberman M.M. Nerurkar V.R. Luo H. Cropp B. Carrion R. Jr. de la Garza M. Coller B.A. Clements D. Ogata S. Wong T. Immunogenicity and protective efficacy of a recombinant subunit West Nile virus vaccine in rhesus monkeys Clin. Vaccine Immunol. 2009 16 1332 1337 10.1128/CVI.00119-09 19641099 PMC2745014
+119. Zlatkovic J. Stiasny K. Heinz F.X. Immunodominance and functional activities of antibody responses to inactivated West Nile virus and recombinant subunit vaccines in mice J. Virol. 2011 85 1994 2003 10.1128/JVI.01886-10 21147919 PMC3067796
+120. Friedrich B.M. Beasley D.W.C. Rudra J.S. Supramolecular peptide hydrogel adjuvanted subunit vaccine elicits protective antibody responses against West Nile virus Vaccine 2016 34 5479 5482 10.1016/j.vaccine.2016.09.044 27670075
+121. Spohn G. Jennings G.T. Martina B.E. Keller I. Beck M. Pumpens P. Osterhaus A.D. Bachmann M.F. A VLP-based vaccine targeting domain III of the West Nile virus E protein protects from lethal infection in mice Virol. J. 2010 7 146 10.1186/1743-422X-7-146 20604940 PMC2914671
+122. Levy D.A. Frondoza C. Immunity to intestinal parasites: Role of mast cells and goblet cells Fed. Proc. 1983 42 1750 1755 6832397
+123. Gwinn W.M. Johnson B.T. Kirwan S.M. Sobel A.E. Abraham S.N. Gunn M.D. Staats H.F. A comparison of non-toxin vaccine adjuvants for their ability to enhance the immunogenicity of nasally-administered anthrax recombinant protective antigen Vaccine 2013 31 1480 1489 10.1016/j.vaccine.2013.01.012 23352329 PMC3622208
+124. St John A.L. Abraham S.N. Innate immunity and its regulation by mast cells J. Immunol. 2013 190 4458 4463 10.4049/jimmunol.1203420 23606723 PMC3645001
+125. Hendy D.A. Johnson-Weaver B.T. Batty C.J. Bachelder E.M. Abraham S.N. Staats H.F. Ainslie K.M. Delivery of small molecule mast cell activators for West Nile Virus vaccination using acetalated dextran microparticles Int. J. Pharm. 2023 634 122658 10.1016/j.ijpharm.2023.122658 36731641 PMC9975031
+126. Windah A.L.L. Tallei T.E. AlShehail B.M. Suoth E.J. Fatimawali Alhashem Y.N. Halwani M.A. AlShakhal M.M. Aljeldah M. Alissa M. Immunoinformatics-Driven Strategies for Advancing Epitope-Based Vaccine Design for West Nile Virus J. Pharm. Sci. 2024 113 906 917 10.1016/j.xphs.2023.11.025 38042341
+127. Karkashan A. Immunoinformatics assisted profiling of West Nile virus proteome to determine immunodominant epitopes for the development of next-generation multi-peptide vaccine Front. Immunol. 2024 15 1395870 10.3389/fimmu.2024.1395870 38799422 PMC11116617
+128. Papa A. Bakonyi T. Xanthopoulou K. Vazquez A. Tenorio A. Nowotny N. Genetic characterization of West Nile virus lineage 2, Greece, 2010 Emerg. Infect. Dis. 2011 17 920 922 10.3201/eid1705.101759 21529413 PMC3321789
+129. Veo C. Della Ventura C. Moreno A. Rovida F. Percivalle E. Canziani S. Torri D. Calzolari M. Baldanti F. Galli M. Evolutionary Dynamics of the Lineage 2 West Nile Virus That Caused the Largest European Epidemic: Italy 2011–2018 Viruses 2019 11 814 10.3390/v11090814 31484295 PMC6784286
+130. Venter M. van Vuren P.J. Mentoor J. Paweska J. Williams J. Inactivated West Nile Virus (WNV) vaccine, Duvaxyn WNV, protects against a highly neuroinvasive lineage 2 WNV strain in mice Vaccine 2013 31 3856 3862 10.1016/j.vaccine.2013.06.059 23820079
+131. Vorovitch M.F. Tuchynskaya K.K. Kruglov Y.A. Peunkov N.S. Mostipanova G.F. Kholodilov I.S. Ivanova A.L. Fedina M.P. Gmyl L.V. Morozkin E.S. An Inactivated West Nile Virus Vaccine Candidate Based on the Lineage 2 Strain Vaccines 2024 12 1398 10.3390/vaccines12121398 39772058 PMC11680355

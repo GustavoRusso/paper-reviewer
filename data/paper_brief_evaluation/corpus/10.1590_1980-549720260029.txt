@@ -1,0 +1,410 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Rev Bras Epidemiol
+Journal ID: Rev Bras Epidemiol
+NLM Journal ID: 100954576
+Journal ID: rbepid
+
+Revista Brasileira de Epidemiologia (Brazilian Journal of Epidemiology)
+
+ISSN: 1415-790X
+EISSN: 1980-5497
+Publisher: Associação Brasileira de Saúde Coletiva
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13440505
+PMID: 42525017
+DOI: 10.1590/1980-549720260029
+Article ID: 01029
+Article version: 1
+Subjects: Original Article
+
+Epidemiological investigation of a confirmed case of West Nile virus in Campo Novo do Parecis, Mato Grosso, Brazil, 2025–2026
+
+https://orcid.org/0009-0004-8624-6593 Nogueira João Pedro Rocha I Conceptualization Data curation Formal analysis Investigation Methodology Software Validation Visualization writing – original draft Writing – review & editing
+https://orcid.org/0009-0009-4626-4654 dos Reis Cecilia Cintra I Data curation Formal analysis Investigation Methodology Validation Visualization writing – original draft Writing – review & editing
+https://orcid.org/0000-0002-2511-9185 de Melo Alba Valeria Gomes I Data curation Formal analysis Investigation Methodology Validation Visualization writing – original draft Writing – review & editing
+https://orcid.org/0000-0003-1920-2713 Pauli Janaina I Data curation Formal analysis Investigation Methodology Validation Visualization writing – original draft Writing – review & editing
+https://orcid.org/0000-0003-2823-7459 de Oliveira Ruberlei Godinho I II Conceptualization Data curation Formal analysis Investigation Methodology Project Administration Resources Software Supervision Validation Visualization writing – original draft Writing – review & editing
+I Secretaria de Estado de Saúde de Mato Grosso – Cuiabá (MT), Brazil.
+II Hospital Universitário Júlio Müller – Cuiabá (MT), Brazil.
+CORRESPONDING AUTHOR: Ruberlei Godinho de Oliveira. Rua Nova Iguaçu, 293, Coxipó, ZIP: 78085-118, Cuiabá (MT), Cuiabá, Brasil. E-mail: ruberlei_godinho@hotmail.com.CONFLICT OF INTERESTS: Nothing to declare.
+
+SCIENTIFIC EDITOR: Antonio Fernando Boing https://orcid.org/0000-0001-9331-1550
+
+Electronic publication date: 2026 Jul 27
+Publication date: 2026
+Volume: 29
+Electronic Location ID: e260029
+Received 2026 Mar 23; Revised 2026 Apr 9; Accepted 2026 Apr 13
+Copyright: © 2026 | Epidemio is a publication of Associação Brasileira de Saúde Coletiva - ABRASCO
+Copyright year: 2026
+Copyright holder: Epidemio is a publication of Associação Brasileira de Saúde Coletiva - ABRASCO
+License: This is an open article distributed under the CC-BY 4.0 license, which allows copying and redistribution of the material in any format and for any purpose as long as the original authorship and publication credits are maintained.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, Epidemiological surveillance, Arboviruses, Reverse Transcriptase Polymerase Chain Reaction, Public health
+
+Funding: FINANCIAL SUPPORT: none.
+
+Figure count: 02
+Table count: 04
+Reference count: 12
+
+==============================
+ABSTRACT
+
+Objective
+
+To describe the epidemiological investigation following laboratory confirmation of West Nile virus in an infant residing in Mato Grosso, Brazil.
+
+Methods:
+
+Descriptive study conducted between February 11 and 13, 2026, following notification and diagnostic confirmation by molecular biology. Passive and active surveillance were implemented.
+
+Results:
+
+The index case had symptom onset on December 18, 2025, confirmed by molecular biology in a cerebrospinal fluid sample collected on December 20, 2025. In the active investigation, 112 residents were interviewed, identifying 29 symptomatic individuals (25.9%), of whom eight reported neurological manifestations. Environmental conditions favorable to vector proliferation were observed.
+
+Conclusion:
+
+The findings suggest possible viral circulation and reinforce the need to intensify integrated human-animal-environmental surveillance, with expanded laboratory and entomological investigation in our territory.
+
+INTRODUCTION
+
+The West Nile virus (WNV) is an arbovirus of the genus Flavivirus, transmitted mainly by mosquitoes of the genus Culex, with birds serving as natural amplifying reservoirs. Humans and equids are considered accidental and terminal hosts. Human infection is predominantly asymptomatic, although about 20% of those infected develop a nonspecific febrile syndrome and less than 1% progress to neuroinvasive disease, manifesting as meningitis, encephalitis, or acute flaccid paralysis 1 .
+
+WNV was first identified in Brazil in 2009, with serological and molecular evidence in humans, birds, and equids. The first confirmed human case occurred in 2014, in the state of Piauí. Between 2014 and 2024, approximately 110 human cases were recorded across different locations nationwide, suggesting wide geographic dispersion. Recent studies demonstrate active circulation of the virus, including detection in patients with febrile and neurological syndromes, with positivity rates of up to 12.1% in specific investigations. Environmental factors, such as the presence of water bodies, birds, and favorable climatic conditions, contribute to the maintenance of the viral cycle 1,2 .
+
+In Brazil, the occurrence of human cases of West Nile Fever (WNF) is considered an event of epidemiological importance, requiring timely investigation and coordination between epidemiological, environmental, and laboratory surveillance 1 . The confirmation of the first case of WNF in an infant in Mato Grosso, on February 6, 2026, prompted a field investigation aimed at identifying possible additional cases among contacts, as well as characterizing the local epidemiological scenario and assessing environmental factors associated with transmission risk. Despite evidence of viral circulation in Brazil, there is a scarcity of detailed descriptions of investigations with comprehensive field methodologies following the confirmation of human cases. The occurrence of human cases is considered an event of public health relevance, requiring timely investigation and coordination of health surveillance actions 3 .
+
+This is the first confirmed case of WNF in the state of Mato Grosso, constituting an unprecedented event for state surveillance and requiring an immediate response from health teams. Due to the epidemiological importance of this case, this study aimed to describe the course from the onset of symptoms of the index case to the diagnosis and the investigation actions carried out by the Mato Grosso State Health Department in partnership with the Municipal Health Department and the Ministry of Health.
+
+METHODS
+
+This is a descriptive cross-sectional study with a territorial basis and epidemiological investigation conducted between February 11 and 13, 2026, following the notification of a confirmed case of WNF in the Notifiable Diseases Information System (SINAN) in Campo Novo do Parecis, a municipality in the Southwest Region of Mato Grosso.
+
+Laboratory confirmation
+
+The index case was a female infant residing in a peri-urban area of Campo Novo do Parecis, with symptom onset on 18/12/2025 and neurological manifestations that led to hospitalization. The first cerebrospinal fluid sample was collected on December 20, 2025 and received at the laboratory on January 19, 2026.
+
+The diagnosis was confirmed by molecular biology through reverse transcription polymerase chain reaction (real-time RT-PCR), with a detectable result for WNV. The reactions were performed in duplicate, with no disagreement between replicates, according to the protocol of the Arbovirology Laboratory of the Evandro Chagas Institute.
+
+The first case of WNF in Mato Grosso considered the contributions and rapid responses, but also the novelty of this case in our territory, with criteria for detection and the absence of clinical suspicion during the hospitalization of the index case. Gaps in the capacity to recognize emerging arboviruses are evident, especially in scenarios where the virus is not considered endemic.
+
+Based on the symptoms presented by the patient, the initial diagnosis was concluded as meningitis, status epilepticus, and difficult-to-control epilepsy, with meningitis being ruled out by laboratory criteria on 22/12/2025, through culture and RT-PCR of cerebrospinal fluid by the Central Laboratory of Mato Grosso (LACEN). There was no suspicion of WNF during the hospitalization period, which occurred between 19/12/2025 and 09/02/2026, and therapeutic management was conducted considering the neurological manifestations, with emphasis on seizure episodes.
+
+After receipt of the cerebrospinal fluid sample, and following the negative results for meningitis, dengue, Chikungunya, and Zika, LACEN forwarded the cerebrospinal fluid sample to the Evandro Chagas Institute (IEC), which expanded the investigation to other arboviruses, including WNV, which showed a reactive result, confirming the unprecedented case in Mato Grosso.
+
+The extended time between the collection of the cerebrospinal fluid (20/12/2025) and the receipt of the sample by IEC (19/01/2026) was due to the time taken by LACEN to carry out investigations of endemic pathogens in Mato Grosso. After obtaining negative results, the sample was forwarded to the reference laboratory (IEC) to expand the laboratory investigation. Until this case was recorded, LACEN did not perform investigations for WNV.
+
+After the case was confirmed, the Health Department of the State of Mato Grosso, with support from the Ministry of Health, deployed a multidisciplinary technical team to conduct a situational assessment, provide guidance on health surveillance actions for the municipality, and begin investigations. An epidemiological survey was carried out, considering the vector behavior ofthe disease and the possibility of vertical transmission, and based on the collected data, a serological survey was subsequently initiated in humans, birds, and vectors.
+
+The Ministry of Health communicated the case to the State Health Department of Mato Grosso, based on the result detectable through RT-PCR for WNF, issued by the IEC. After confirmation, the case was entered into the Notifiable Diseases Information System (Sinan), being the first recorded human case in Mato Grosso. The Ministry of Health is monitoring the entire investigation process and the actions being carried out.
+
+Epidemiological investigation
+
+Two complementary strategies were adopted:
+
+Passive surveillance: a retrospective search was carried out in the municipal health system for the period from 01/10/2025 to 11/02/2026. Clinical filters compatible with WNF were used, including fever, headache, myalgia, arthralgia, rash, nausea, asthenia, and neurological manifestations (neck stiffness, seizures, altered level of consciousness) to screen for possible infection with WNV.
+
+Active surveillance: territorial delimitation was carried out considering environmental and vector-related characteristics, with home visits within a 10-block radius of the index case’s residence. A structured script was applied to identify symptomatic individuals and collect environmental information, including the presence of breeding sites, domestic animals, birds, and proximity to water bodies. There was direct participation of epidemiological surveillance professionals, environmental surveillance staff, community health agents, and endemic disease control agents in all stages of the field investigation.
+
+The study area corresponded to the neighborhood of residence of the index case, with delimitation based on the dispersal capacity of mosquitoes of the genus Culex. This study territory is a planned grid-style development with relatively standardized blocks, comprising approximately 42 blocks. The delimitation was carried out considering the flight range of mosquitoes of the genus Culex, the main vectors of WNV, totaling approximately 23.8% of the neighborhood’s territory. Community health agents and vector control agents participated in the investigations, serving as essential actors in the passive and active surveillance process.
+
+Considering the active investigation method, a structured interview script was used containing identification information, contact characterization, clinical investigation, general symptoms, neurological symptoms, exposure, risk conditions, and referrals. The script was developed by the author, based on the West Nile Fever notification form from DATASUS/Ministry of Health. For data organization, the scripts were numbered with questions from 1 to 112.
+
+The Quantum Geographic Information System software (version 2.18.26) was used for the spatial description of the index case in Mato Grosso.
+
+Data availability statement
+
+All the data set supporting the results of this study was published in the article itself.
+
+RESULTS
+
+The index case, an infant residing in a peri-urban area of the municipality of Campo Novo do Parecis (Figure 1), presented onset of symptoms on December 18, 2025, with neurological manifestations and need for hospitalization. Laboratory confirmation was obtained by RT-PCR in a cerebrospinal fluid sample collected on December 20, 2025, with a detectable result (cycle threshold=35.9; cutoff≤38), performed in duplicate without disagreement. The event was characterized as the first confirmed case of WNF in the state of Mato Grosso.
+
+Figure 1 Spatial distribution of the first case of West Nile Fever in Campo Novo do Parecis, Mato Grosso, Brazil, 2025–2026.
+
+In the active investigation, conducted within a 10-block radius of the case’s residence, 112 residents were interviewed. Twenty-nine symptomatic individuals were identified, corresponding to 25.9% of those interviewed. The symptomatic individuals were distributed across different age groups, including children, adults, and older adults. Among the 29 symptomatic individuals, 8 (27.6%) reported neurological manifestations, such as neck stiffness, muscle weakness, or excessive drowsiness (Table 1). The remaining individuals presented an unspecific clinical picture, mainly characterized by headache, myalgia, severe fatigue, nausea, diarrhea, and eye pain. Some of the individuals reported having sought medical care, with no record of specific etiological investigation for WNV during the evaluated period (Chart 1).
+
+Table 1 Sociodemographic, clinical, and environmental exposure profile of symptomatic individuals identified in active surveillance (n=29). Campo Novo do Parecis, Mato Grosso, 2026.
+
+Variables	n	%	
+Sex	
+Female	21	72.4	
+Male	8	27.6	
+Age range	
+< 1 year	1	3.4	
+1 to 14 years	6	20.7	
+15 to 59 years old	21	72.4	
+≥ 60 years	1	3.4	
+General symptoms	
+Headache	18	62.1	
+Myalgia	14	48.3	
+Nausea and/or vomiting	10	34.5	
+Intense fatigue	8	27.6	
+Diarrhea	7	24.1	
+Retro-orbital pain	7	24.1	
+Flu-like syndrome (runny nose/cough)	3	10.3	
+Neurological manifestations	
+Muscle weakness	9	31	
+Neck stiffness	2	6.9	
+Excessive sleepiness	2	6.9	
+Environmental exposure	
+Proximity to vacant lots	14	48.3	
+Home-based poultry farming	13	44.8	
+Presence of stagnant water	10	34.5	
+Report of mosquito bites	4	13.8	
+Exhibition in a rural area	3	10.3	
+
+Chart 1 Data obtained through active investigation in the area of residence of the first confirmed case of West Nile Fever in Campo Novo do Pareci, Mato Grosso, 2025-2026
+
+  	Nº	Address	Sex	Age	Is (onset of symptoms)	General symptoms	Neurological symptoms	Medical care	Environment	
+1	15	Curió 889	f	67	-	-	Stiff neck	No	Mosquito bite; vacant lot; poultry farming; sparrows in the ceiling.	
+2	17	Arara Azul 689	f	12	-	Headache	-	-	Mosquito bite; vacant lot	
+3	18	Urapuru 1830	f	59	 	Headache; muscle pain	-	-	Stagnant water; vacant lot; poultry farming	
+4	19	Arara Azul 689	f	5	-	Headache	-	-	Wasteland	
+5	20	Arara Azul 689	m	36	Jan.	Flu-like syndrome and headache	-	-	Wasteland	
+6	21	Arara Azul 689	f	15	Fev.	Headache	-	-	Wasteland	
+7	22	Arara Azul 689	f	36	Fev.	Headache	-	-	Wasteland	
+8	29	Beija Flor 715	m	1	-	-	-	yes	Poultry farming	
+9	30	Beija Flor 715	f	41	-	Headache; muscle pain; nausea; vomiting and eye pain	-	yes	Stagnant water; Wasteland; Poultry farming	
+10	31	Beija Flor 715	f	19	05/Fev.	Headache and nausea	-	05/02/2026	Stagnant water; Wasteland; Poultry farming	
+11	32	Beija Flor 715	f	5	25/Dec.	Headache and nausea	Muscle weakness	25/12/2025	Stagnant water; Wasteland; Poultry farming	
+12	33	Beija Flor 715	f	40	-	Headache; intense fatigue; nausea; vomiting and diarrhea.	-	yes	Stagnant water; Wasteland; Poultry farming	
+13	34	-	f	27	-	Headache; muscle pain; intense fatigue; diarrhea and eye pain	Excessive sleepiness; muscle weakness muscular	-	Poultry farming	
+14	35	Beija Flor 610	f	20	-	Headache; muscle pain; intense fatigue; nausea and vomiting	Stiff neck; Muscle weakness	-	Stagnant water	
+15	36	Garças 1902	f	15	08/Fev.	Muscle pain; intense fatigue; nausea and chills.	-	-	Symptoms after a walk in a rural area	
+16	37	Garças 1902	f	35	08/Fev.	Headache; muscle pain; intense fatigue; nausea; vomiting; diarrhea and eye pain	Excessive sleepiness; muscle weakness muscular	-	Symptoms after a walk in a rural area (river). Reports contact with dead birds.	
+17	38	Ceará 554	f	49	-	Intense fatigue; nausea, vomiting; diarrhea	-	27 and 28/12/2025	Mosquito bite; Poultry farming and horses; residence in a rural area	
+18	39	Ceará 554	m	6	-	Eye pain	-	yes	-	
+19	40	Juriti 1734	f	29	-	Flu-like syndrome	-	-	Stagnant water, Poultry farming	
+20	52	Garças 1787	f	42	Oct.	Headache; muscle pain; intense fatigue; nausea; diarrhea; rash; eye pain	Muscle weakness	yes	Case neighbor; stagnant water; Wastelands; Poultry farming	
+21	61	Beija Flor 769	m	6 months	-	Runny nose	-	-	-	
+22	62	Beija Flor 769	m	28	-	Headache; runny nose	-	-	Wasteland	
+23	75	Juriti 2525	f	55	-	Muscle pain	-	-	-	
+24	90	Canarinho 950	f	2	-	Muscle pain; nausea; vomiting; diarrhea; runny nose and cough.	Muscle weakness	yes	Mosquito bite; Wasteland	
+25	92	Garças 105	f	19	-	Headache; muscle pain	Muscle weakness	yes	Stagnant water; Poultry farming	
+26	93	Juriti 1933	m	43	-	Muscle pain; headache and eye pain	Muscle weakness	-	-	
+27	101	Papagaio121	f	50	17/Jan.	Headache; muscle pain	-	-	-	
+28	103	João de Barro 1646	m	41	-	Muscle pain; intense fatigue; diarrhea and eye pain	-	yes	-	
+29	105	João de Barro 1726	m	38	-	Muscle pain	Muscle weakness	-	Stagnant water	
+(-): unreported information; f: female; m: male.
+
+Source: Authors, 2026.
+
+The territorial analysis indicated the distribution of symptomatic individuals at different points within the defined area, including residences near the index case’s household. No reports of group travel or a common event outside the investigated territory were identified. At the hospital where the patient first received care, healthcare professionals who had direct clinical contact with the case were identified. One professional reported a self-limited febrile episode in the subsequent weeks, consistent with the expanded clinical definition adopted in the investigation.
+
+The environmental assessment showed frequent presence of containers with standing water in the external areas of residences, vacant lots with accumulated waste, and inadequate drainage (Table 1). Domestic poultry farming was observed on several properties, as well as pigs in adjacent areas. The region is close to rural areas and natural water bodies. Residents reported a high density of mosquitoes, especially during the nighttime period (Chart 1).
+
+DISCUSSION
+
+The molecular confirmation of this case of WNF in a female infant, recorded in Mato Grosso, reinforces the hypothesis of silent circulation of the virus in the territory, already indicated by studies in sentinel animals such as horses and birds, which play a key role in viral amplification, as well as the need for syndromic surveillance in our territory. The occurrence in infants raises additional concerns due to the immaturity of the immune system and the possibility of atypical neurological clinical progression, which indicates the consolidation of the virus in transitional biomes in Brazil 4,5 .
+
+Evidence of viral circulation in multiple states, including the North, Northeast, and Central-West regions, points to a pattern of spread possibly associated with ecological and environmental factors. The transmission dynamics of WNV involve an enzootic cycle between birds and mosquitoes of the genus Culex, with humans acting as incidental hosts 1 . The identification of 29 symptomatic individuals in the municipality of Campo Novo do Pareci, including individuals with neurological manifestations, raises the hypothesis of possible silent circulation of WNV, evidenced by the diagnostic window of this case, which prevents vector control and transmission-blocking measures, allowing the virus to become established in the local enzootic cycle 6 .
+
+Although there is still no additional laboratory confirmation from the contacts and the infant’s mother, the clinical and environmental context suggests a favorable scenario for transmission. The presence of potential breeding sites and the raising of birds in the household environment may contribute to the maintenance of the enzootic cycle of WNV 4 . The interface between peri-urban and rural areas increases the complexity of surveillance, requiring integration between human, animal, and environmental components 5 .
+
+The first confirmed case of WNV in Mato Grosso in an infant reflects the importance of intersectoral communication within health services. The coordination among care, surveillance, and laboratory services is essential for the speed of responses to unprecedented events 2 . The expansion of laboratory testing, in addition to the endemic pathogens of Mato Grosso, allowed the detection of the case with the collaboration of IEC. New laboratory studies are being conducted in order to understand the epidemiological impact of WNV in the municipality of Campo Novo do Parecis, considering the human-animal-environment characteristics of the condition.
+
+The identification of this case demonstrates the importance of active surveillance of arboviruses, illustrating the risk of transmission and outbreaks due to the synanthropic characteristics related to arthropod vectors. Environmental characteristics must also be considered. When analyzed together with the natural history of WNF, it can be inferred that Mato Grosso, located in the Central-West region, is considered an ecological corridor for migratory birds, specifically the Pantanal region, with the presence of arbovirus vectors in all municipalities of the state. Syndromic surveillance actions in relation to other non-endemic arboviruses in Mato Grosso highlight the importance of research and the possible underreporting of WNV in humans in Brazilian territory 6 . The One Health concept illustrates the unprecedented response to this case of WNF, being an integrated approach that recognizes and acts on the inseparable interconnection between human, animal, and environmental health 7 .
+
+The detection of WNV associated with the identification of symptomatic cases and the presence of environmental risk factors indicates the need to intensify epidemiological, entomological, and laboratory surveillance in health services. WNF presents a higher frequency of severe clinical manifestations in elderly and immunocompromised individuals, with cases in infants rarely described in the literature, which highlights a possible additional risk factor for WNV transmissibility in the region, as well as the proximity of risk involving the territorial base of the municipality of this first WNF case, along with the report of the first case of WNV in animals in the Pantanal 8,9,10 . Although it is considered of low incidence in humans in the country, WNV shows consistent evidence of silent circulation in Brazil, with potential for expansion, through the strengthening of integrated human-animal-environmental surveillance and the expansion of diagnostic capacity essential for early detection and prevention of severe cases 11 . The climatic conditions in Mato Grosso, with a hot and dry climate, may have negative impacts on vector abundance and mosquito viral dynamics in our territory 12 . It is also noteworthy that clinical overlap with other arboviruses may hinder differential diagnosis, making the use of serological and molecular laboratory methods essential in the investigation of non-endemic arboviruses in Mato Grosso 2 .
+
+Among the limitations, the absence of laboratory confirmation in symptomatic individuals identified with possible underdiagnosis stands out, as well as the reliance on self-reported information in household interviews. However, the findings are consistent with the scenario described in recent literature and contribute to the advancement of knowledge about the epidemiology of WNV in Brazil.
+
+In summary, the findings of this study reinforce the importance of conducting serological surveys, entomological monitoring, and strengthening timely diagnostic capacity, with an emphasis on differential diagnosis among endemic arboviruses in Mato Grosso. The need for intersectoral and interdisciplinary actions coordinated among health services is highlighted, aiming at the early detection of WNV circulation.
+
+ETHICS COMMITTEE
+
+This is an epidemiological investigation conducted within the scope of health surveillance actions, in accordance with the institutional responsibilities of the State Health Department, exempt from review by a Research Ethics Committee, in accordance with current national regulations.
+
+DOI: 10.1590/1980-549720260029.2
+Article ID: 01029
+Subjects: Artigo Original
+
+Investigação epidemiológica de caso confirmado de vírus do Nilo Ocidental em Campo Novo do Parecis, Mato Grosso, Brasil, 2025–2026
+
+https://orcid.org/0009-0004-8624-6593 Nogueira João Pedro Rocha I Conceituação Curadoria de Dados Análise Formal Investigação Metodologia Software Validação Visualização Escrita – Primeira Redação Escrita – Revisão e Edição
+https://orcid.org/0009-0009-4626-4654 Reis Cecilia Cintra dos I Curadoria de Dados Análise Formal Investigação Metodologia Validação Visualização Escrita – Primeira Redação Escrita – Revisão e Edição
+https://orcid.org/0000-0002-2511-9185 Melo Alba Valeria Gomes de I Curadoria de Dados Análise Formal Investigação Metodologia Validação Visualização Escrita – Primeira Redação Escrita – Revisão e Edição
+https://orcid.org/0000-0003-1920-2713 Pauli Janaina I Curadoria de Dados Análise Formal Investigação Metodologia Validação Visualização Escrita – Primeira Redação Escrita – Revisão e Edição
+https://orcid.org/0000-0003-2823-7459 Oliveira Ruberlei Godinho de I II Conceituação Curadoria de Dados Análise Formal Investigação Metodologia Administração do Projeto Recursos Software Supervisão Validação Visualização Escrita – Primeira Redação Escrita – Revisão e Edição
+I Secretaria de Estado de Saúde de Mato Grosso – Cuiabá (MT), Brasil.
+II Hospital Universitário Júlio Müller – Cuiabá (MT), Brasil.
+AUTOR CORRESPONDENTE: Ruberlei Godinho de Oliveira. Rua Nova Iguaçu, 293, Coxipó, CEP: 78085-118, Cuiabá (MT), Cuiabá, Brasil. E-mail: ruberlei_godinho@hotmail.com.
+Keywords: Vírus do Nilo Ocidental, Vigilância epidemiológica, Arboviroses, Reação em Cadeia da Polimerase Via Transcriptase Reversa, Saúde pública
+
+INTRODUÇÃO
+
+O vírus do Nilo Ocidental (VNO) é um arbovírus do gênero Flavivírus, transmitido principalmente por mosquitos do gênero Culex, tendo aves como reservatórios amplificadores naturais. Humanos e equídeos são considerados hospedeiros acidentais e terminais. A infecção humana é predominantemente assintomática, embora cerca de 20% dos infectados desenvolvam síndrome febril inespecífica e menos de 1% evoluam para doença neuroinvasiva, manifestando-se como meningite, encefalite ou paralisia flácida aguda 1 .
+
+O VNO foi identificado no Brasil pela primeira vez em 2009, com evidências sorológicas e moleculares em humanos, aves e equídeos. O primeiro caso humano confirmado ocorreu em 2014, no estado do Piauí. Entre 2014 e 2024, foram registrados aproximadamente 110 casos humanos distribuídos em diferentes localidades nacionais, sugerindo ampla dispersão geográfica. Estudos recentes demonstram circulação ativa do vírus, incluindo detecção em pacientes com síndrome febril e neurológica, com positividade de até 12,1% em investigações específicas. Fatores ambientais, como presença de coleções hídricas, aves e condições climáticas favoráveis, contribuem para a manutenção do ciclo viral 1,2 .
+
+No Brasil, a ocorrência de casos humanos da Febre do Nilo Ocidental (FNO) é considerada evento de importância epidemiológica, demandando investigação oportuna e articulação entre vigilância epidemiológica, ambiental e laboratorial 1 . A confirmação do primeiro caso de FNO em uma lactente em Mato Grosso, em 06 de fevereiro de 2026, motivou a realização de investigação de campo com o objetivo de identificar possíveis casos adicionais entre os contatos, bem como a caracterização do cenário epidemiológico local, e avaliar fatores ambientais associados ao risco de transmissão. Apesar de evidências de circulação viral no Brasil, há escassez de descrições detalhadas de investigações com metodologias detalhadas de campo após confirmação de casos humanos. A ocorrência de casos humanos é considerada evento de relevância em saúde pública, exigindo investigação oportuna e articulação das ações de vigilância em saúde 3 .
+
+Trata-se do primeiro caso confirmado de FNO no estado de Mato Grosso, configurando evento inédito para a vigilância estadual e demandando resposta imediata das equipes de saúde. Devido à importância epidemiológica deste caso, este estudo pretende descrever o percurso entre o início de sintomas do caso-índice, até o diagnóstico e as ações de investigações executadas pela Secretaria de Estado de Saúde de Mato Grosso em parceria com a Secretaria Municipal e o Ministério da Saúde.
+
+MÉTODOS
+
+Trata-se de estudo transversal descritivo de base territorial com investigação epidemiológica realizada entre 11 e 13 de fevereiro de 2026, após notificação de caso confirmado de FNO no Sistema de Informação de Agravos de Notificação (SINAN) em Campo Novo do Parecis, município da Região Sudoeste de Mato Grosso.
+
+Confirmação laboratorial
+
+O caso-índice foi um lactente do sexo feminino, residente em área periurbana de Campo Novo do Parecis, com início dos sintomas em 18/12/2025 e manifestações neurológicas que motivaram hospitalização. A primeira amostra de líquor foi coletada em 20 de dezembro de 2025 e recebida no laboratório em 19 de janeiro de 2026.
+
+O diagnóstico foi confirmado por biologia molecular por meio da reação em cadeia da polimerase via transcriptase reversa (RT-PCR em tempo real), com resultado detectável do VNO. As reações foram realizadas em duplicata, sem discordância entre replicatas, conforme protocolo do Laboratório de Arbovirologia do Instituto Evandro Chagas.
+
+O primeiro caso de FNO no Mato Grosso considerou as contribuições e as respostas rápidas, mas também o ineditismo desse caso em nosso território, com critérios para a detecção e a ausência de suspeição clínica durante a internação do caso-índice. Evidenciam-se lacunas na capacidade de reconhecimento de arboviroses emergentes, especialmente em cenários onde o vírus não é considerado endêmico.
+
+A partir da sintomatologia apresentada pela paciente, o diagnóstico inicial foi fechado em meningite, mal convulsivo e epilepsia de difícil controle, sendo meningite descartada por critério laboratorial em 22/12/2025, por meio de cultura e RT-PCR em líquor pelo Laboratório Central de Mato Grosso (LACEN). Não houve suspeição de FNO durante o período de internação, que ocorreu entre 19/12/2025 e 09/02/2026, e o manejo terapêutico foi conduzido considerando as manifestações neurológicas, com destaque para as crises convulsivas. Após recebimento da amostra de líquor, e a partir do resultado negativo para meningites, dengue, Chikungunya e Zika, o LACEN encaminhou a amostra de líquor para o Instituto Evandro Chagas (IEC), que ampliou a pesquisa para outros arbovírus, incluindo VNO, que apresentou resultado reagente, confirmando o caso inédito em Mato Grosso.
+
+O tempo prolongado entre a coleta do líquor (20/12/2025) até o recebimento da amostra pelo IEC (19/01/2026) se deu devido ao tempo em que o LACEN levou para realizar as pesquisas de patógenos endêmicos em Mato Grosso, e a partir dos resultados negativos, encaminhou-se a amostra ao laboratório de referência (IEC) para ampliar a investigação laboratorial. Até o registro desse caso, o LACEN não realizava pesquisas de VNO.
+
+Após a confirmação do caso, a Secretaria do Estado de Saúde de Mato Grosso, com o apoio do Ministério da Saúde, deslocou uma equipe técnica multiprofissional para a realização do diagnóstico situacional, orientações das ações de vigilância em saúde para o município e início das investigações. Foi realizado um levantamento epidemiológico, considerando o comportamento vetorial da doença e a possibilidade de transmissão vertical, e, a partir dos dados levantados, com posterior início do inquérito sorológico em humanos, aves e vetores.
+
+O Ministério da Saúde comunicou o caso à Secretaria do Estado de Saúde de Mato Grosso, a partir do resultado detectável por meio de RT-PCR para FNO, emitido pelo IEC. Após confirmação, o caso foi inserido no Sistema de Informação de Agravos de Notificação (Sinan), sendo o primeiro caso registrado em humano em Mato Grosso. O Ministério da Saúde acompanha todo o processo de investigação e as ações executadas.
+
+Investigação epidemiológica
+
+Foram adotadas duas estratégias complementares:
+
+Vigilância passiva: realizou-se busca retrospectiva no sistema municipal de saúde no período de 01/10/2025 a 11/02/2026. Utilizaram-se filtros clínicos compatíveis com FNO, incluindo febre, cefaleia, mialgia, artralgia, exantema, náuseas, astenia e manifestações neurológicas (rigidez de nuca, convulsões, alterações do nível de consciência) para rastreio de possível infecção pelo VNO.
+
+Vigilância ativa: realizou-se delimitação territorial considerando características ambientais e vetoriais, com visitas domiciliares em raio de 10 quarteirões da residência do caso-índice. Aplicou-se roteiro estruturado para identificação de sintomáticos e levantamento de informações ambientais, incluindo presença de criadouros, animais domésticos, aves e proximidade com coleções hídricas. Houve participação direta de profissionais de vigilância epidemiológica, vigilância ambiental, agentes comunitários de saúde e agentes de combate a endemias em todas as etapas da pesquisa de campo.
+
+A área de estudo correspondeu ao bairro de residência do caso-índice, com delimitação baseada na capacidade de dispersão de mosquitos do gênero Culex. Esse território do estudo é um loteamento planejado em grade com quadras relativamente padronizadas, com aproximadamente 42 quadras. A delimitação se deu considerando a capacidade de voo dos mosquitos do gênero Culex, principais vetores do VNO, totalizando aproximadamente 23,8% do território do bairro. Os agentes comunitários de saúde e os agentes de combate às endemias participaram das investigações, sendo atores imprescindíveis no processo de vigilância passiva e ativa.
+
+Considerando o método de investigação ativa, utilizouse um roteiro de entrevista estruturado contendo informações de identificação, caracterização de contato, investigação clínica, sintomas gerais, sintomas neurológicos, exposição, condições de risco e encaminhamentos. O roteiro foi elaborado pelo autor, baseado na ficha de notificação de Febre do Nilo Ocidental do DATASUS/Ministério da Saúde. Para a organização dos dados, os roteiros foram enumerados com perguntas de 1 a 112.
+
+Utilizou-se o software Quantum Geographic Information System (versão 2.18.26) para a descrição espacial do caso-índice em Mato Grosso.
+
+Declaração de Disponibilidade de Dados
+
+Todo o conjunto de dados que dá suporte aos resultados deste estudo foi publicado no próprio artigo.
+
+RESULTADOS
+
+O caso-índice, de lactente residente em área periurbana do município de Campo Novo do Parecis (Figura 1), apresentou início dos sintomas em 18 de dezembro de 2025, com manifestações neurológicas e necessidade de hospitalização. A confirmação laboratorial ocorreu por RT-PCR em amostra de líquor coletada em 20 de dezembro de 2025, com resultado detectável (ciclo limiar=35,9; ponto de corte≤38), realizado em duplicata sem discordância. O evento foi caracterizado como o primeiro caso confirmado de FNO no estado de Mato Grosso.
+
+Figura 1 Distribuição espacial do primeiro caso de Febre do Nilo Ocidental em Campo Novo do Parecis, Mato Grosso, Brasil, 2025–2026.
+
+Na investigação ativa, realizada em raio de 10 quarteirões da residência do caso, foram entrevistados 112 moradores. Identificaram-se 29 indivíduos sintomáticos, correspondendo a 25,9% dos entrevistados. Os sintomáticos estavam distribuídos em diferentes faixas etárias, incluindo crianças, adultos e idosos. Entre os 29 sintomáticos, 8 (27,6%) relataram manifestações neurológicas, como rigidez de nuca, fraqueza muscular ou sonolência excessiva (Tabela 1). Os demais apresentaram quadro clínico inespecífico, caracterizado principalmente por cefaleia, mialgia, fadiga intensa, náuseas, diarreia e dor ocular. Parte dos indivíduos referiu ter procurado atendimento médico, sem registro de investigação etiológica específica para VNO no período avaliado (Quadro 1).
+
+Tabela 1 Perfil sociodemográfico, clínico e de exposição ambiental dos sintomáticos identificados na investigação ativa (n=29). Campo Novo do Parecis, Mato Grosso, 2026
+
+Variáveis	n	%	
+Sexo	
+Feminino	21	72,4	
+Masculino	8	27,6	
+Faixa etária	
+< 1 ano	1	3,4	
+1 a 14 anos	6	20,7	
+15 a 59 anos	21	72,4	
+≥ 60 anos	1	3,4	
+Sintomas gerais	
+Cefaleia	18	62,1	
+Mialgia	14	48,3	
+Náuseas e/ou vômitos	10	34,5	
+Fadiga intensa	8	27,6	
+Diarreia	7	24,1	
+Dor retro-ocular	7	24,1	
+Síndrome gripal (coriza/tosse)	3	10,3	
+Manifestações neurológicas	
+Fraqueza muscular	9	31	
+Rigidez de nuca	2	6,9	
+Sonolência excessiva	2	6,9	
+Exposição ambiental	
+Proximidade com terrenos baldios	14	48,3	
+Criação domiciliar de aves	13	44,8	
+Presença de água parada	10	34,5	
+Relato de picadas de mosquitos	4	13,8	
+Exposição em área rural	3	10,3	
+
+Quadro 1 Dados obtidos por meio da investigação ativa no território de residência do primeiro caso confirmado de Febre do Nilo Ocidental em Campo Novo do Pareci, Mato Grosso, 2025-2026
+
+  	Nº	Endereço	Sexo	Idade	Is (início dos sintomas)	Sintomas gerais	Sintomas neurológicos	Atendimento médico	Ambiente	
+1	15	Curió 889	f	67	-	-	Rigidez na nuca	Não	Picada de mosquito; terreno baldio, criação de aves; pardais no forro	
+2	17	Arara Azul 689	f	12	-	Cefaleia	-	-	Picada de mosquito; terreno baldio	
+3	18	Urapuru 1830	f	59	 	Cefaleia; mialgia	-	-	Água parada; terreno baldio; criação de aves	
+4	19	Arara Azul 689	f	5	-	Cefaleia	-	-	Terreno baldio	
+5	20	Arara Azul 698	m	36	jan	Síndrome gripal e cefaleia	-	-	Terreno baldio	
+6	21	Arara Azul 689	f	15	fev	Cefaleia	-	-	Terreno baldio	
+7	22	Arara Azul 689	f	36	fev	Cefaleia	-	-	Terreno baldio	
+8	29	Beija Flor 715	m	1	-	-	-	sim	Criação de aves	
+9	30	Beija Flor 715	f	41	-	Cefaleia; mialgia; náusea; vômito e dor ocular	-	sim	Água parada; terreno baldio; criação de aves	
+10	31	Beija Flor 715	f	19	05/fev	Cefaleia e náusea	-	05/02/2026	Água parada; terreno baldio; criação de aves	
+11	32	Beija Flor 715	f	5	25/dez	Cefaleia e náusea	Fraqueza muscular	25/12/2025	Água parada; terreno baldio; criação de aves	
+12	33	Beija Flor 715	f	40	-	Cefaleia; fadiga intensa; náusea; vômitos e diarreia	-	sim	Água parada; terreno baldio; criação de aves	
+13	34	-	f	27	-	Cefaleia; mialgia; fadiga intensa; diarreia e dor ocular	Sonolência excessiva; fraqueza muscular	-	Criação de aves	
+14	35	Beija Flor 610	f	20	-	Cefaleia; mialgia; fadiga intensa; náusea e vômito	Rigidez na nuca; fraqueza muscular	-	Água parada	
+15	36	Garças 1902	f	15	08/fev	Mialgia; fadiga intensa; náusea e calafrio	-	-	Sintomas após passeio em área rural	
+16	37	Garças 1902	f	35	08/fev	Cefaleia; mialgia; fadiga intensa; náusea; vômito; diarreia e dor ocular	Sonolência excessiva; fraqueza muscular	-	Sintomas após passeio em área rural (rio). Relata contato com aves mortas	
+17	38	Ceará 554	f	49	-	Fadiga intensa; náusea, vômitos; diarreia	-	27 e 28/12/2025	Picada de mosquito; criação de aves e equinos; residência em área rural	
+18	39	Ceará 554	m	6	-	Dor ocular	-	sim	-	
+19	40	Juriti 1734	f	29	-	Síndrome gripal	-	-	Água parada, criação de aves	
+20	52	Garças 1787	f	42	out	Cefaleia; mialgia; fadiga intensa; náuseas; diarreia, exantema; dor ocular	Fraqueza muscular	sim	Vizinho do caso; água parada; terreno baldio; criação de aves	
+21	61	Beija Flor 769	m	6 meses	-	Coriza	-	-	-	
+22	62	Beja Flor 769	m	28	-	Cefaleia; coriza	-	-	Terreno baldio	
+23	75	Juriti 2525	f	55	-	Mialgia	-	-	-	
+24	90	Canarinho 950	f	2	-	Mialgia; náusea; vômito; diarreia; coriza e tosse	Fraqueza muscular	sim	Picada de mosquito; terreno baldio	
+25	92	Garças 105	f	19	-	Cefaleia; mialgia	Fraqueza muscular	sim	Água parada; criação de aves	
+26	93	Juriti 1933	m	43	-	Mialgia; cefaleia e dor ocular	Fraqueza muscular	-	-	
+27	101	Papagaio 121	f	50	17/jan	Cefaleia; mialgia	-	-	-	
+28	103	João de Barro 1646	m	41	-	Mialgia; fadiga intensa; diarreia e dor ocular	-	sim	-	
+29	105	João de Barro 1726	m	38	-	Mialgia	Fraqueza muscular	-	Água parada	
+(-): informações não relatadas; f: feminino; m: masculino.
+
+Fonte: Autores, 2026.
+
+A análise territorial indicou distribuição dos sintomáticos em diferentes pontos da área delimitada, incluindo residências próximas ao domicílio do caso-índice. Não foi identificado relato coletivo de viagem ou evento comum fora do território investigado. No hospital onde ocorreu o primeiro atendimento da paciente foram identificados profissionais que tiveram contato assistencial direto com o caso. Um profissional relatou episódio febril autolimitado nas semanas subsequentes, compatível com definição clínica ampliada adotada na investigação.
+
+A avaliação ambiental evidenciou presença frequente de recipientes com água parada nas áreas externas das residências, terrenos baldios com acúmulo de resíduos e drenagem inadequada (Tabela 1). Observou-se criação domiciliar de aves em diversas propriedades, além de suínos em áreas adjacentes. A região apresenta proximidade com áreas rurais e coleções hídricas naturais. Os moradores relataram elevada densidade de mosquitos, especialmente no período noturno (Quadro 1).
+
+DISCUSSÃO
+
+A confirmação molecular desse caso de FNO em uma lactente do sexo feminino, registrado em Mato Grosso, reforça a hipótese de circulação silenciosa do vírus no território, já apontada por estudos em animais sentinelas, como equinos e aves, que desempenham papel fundamental na amplificação viral, bem como da necessidade de vigilância sindrômica em nosso território. A ocorrência em lactentes suscita preocupações adicionais devido à imaturidade do sistema imunológico e à possibilidade de evolução clínica neurológica atípica que indica a consolidação do vírus em biomas de transição no Brasil 4,5 .
+
+A evidência de circulação viral em múltiplos estados, incluindo as regiões Norte, Nordeste e Centro-Oeste, aponta para um padrão de disseminação possivelmente associado a fatores ecológicos e ambientais. A dinâmica de transmissão do VNO envolve um ciclo enzoótico entre aves e mosquitos do gênero Culex, com humanos atuando como hospedeiros incidentais 1 . A identificação de 29 sintomáticos no município de Campo Novo do Pareci, incluindo indivíduos com manifestações neurológicas, levanta a hipótese de possível circulação silenciosa do VNO, evidenciada pela janela diagnóstica desse caso que impede medidas de controle vetorial e bloqueio de transmissão, permitindo que o vírus se estabeleça no ciclo enzoótico local 6 .
+
+Embora ainda não haja confirmação laboratorial adicional dos contatos e da mãe da lactente, o contexto clínico e ambiental sugere cenário favorável à transmissão. A presença de criadouros potenciais e a criação de aves no ambiente domiciliar podem contribuir para a manutenção do ciclo enzoótico do VNO 4 . A interface entre áreas periurbanas e rurais amplia a complexidade da vigilância, exigindo integração entre os componentes humano, animal e ambiental 5 .
+
+O primeiro caso de FNO confirmado em Mato Grosso em uma lactente reflete, ainda, a importância da comunicação intersetorial nos serviços de saúde. A interlocução dos serviços de atenção, vigilância e laboratório é fundamental para a agilidade em respostas a eventos inéditos 2 . A ampliação da pesquisa laboratorial, além dos patógenos endêmicos de Mato Grosso, permitiu a detecção do caso com a colaboração do IEC. Novas pesquisas laboratoriais estão sendo realizadas a fim de compreender o impacto epidemiológico do VNO no município de Campo Novo do Parecis, considerando as características humano-animal-ambiental do agravo.
+
+A identificação desse caso demonstra a importância da vigilância ativa frente às arboviroses, ilustrando o risco de transmissões e surtos devido às características sinantrópicas relativas aos vetores artrópodes. As características ambientais também devem ser consideradas. Quando analisadas em conjunto com a história natural da FNO, infere-se que o Mato Grosso, por localizar-se na região Centro-Oeste, é considerado um corredor ecológico de aves migratórias, especificamente a região do Pantanal, com a presença de vetores das arboviroses em todos os municípios do estado. As ações de vigilância sindrômica em relação às outras arboviroses não endêmicas em Mato Grosso mostram a importância da pesquisa e a possível subnotificação do VNO em humanos em nosso território 6 . O conceito de Saúde Única (One Health) ilustra a resposta inédita desse caso de FNO, sendo uma abordagem integrada que reconhece e atua sobre a interconexão inseparável entre saúde humana, animal e ambiental 7 .
+
+A detecção do VNO associado à identificação de sintomáticos e à presença de fatores ambientais de risco indica a necessidade de intensificação da vigilância epidemiológica, entomológica e laboratorial nos serviços de saúde. A FNO apresenta maior frequência de manifestações clínicas graves em idosos e em indivíduos imunocomprometidos, sendo os casos em lactentes raramente descritos na literatura, o que evidencia um possível fator de risco adicional da transmissibilidade do VNO na região, bem como a proximidade do risco envolvendo a base territorial do município desse primeiro caso de FNO, com o relato do primeiro caso de VNO em animais no Pantanal 8,9,10 . Embora seja considerada de baixa incidência no país em humanos, a VNO apresenta evidências consistentes de circulação silenciosa no Brasil, com potencial de expansão, por meio do fortalecimento da vigilância integrada humano-animal-ambiental e da ampliação da capacidade diagnóstica essencial para detecção precoce e prevenção de casos graves 11 . As condições climáticas em Mato Grosso, com clima quente e seco, podem ter impactos negativos na abundância de vetores e na dinâmica viral do mosquito em nosso território 12 . Ressalta-se, ainda, que a sobreposição clínica com outras arboviroses pode dificultar o diagnóstico diferencial, tornando essencial o uso de métodos laboratoriais sorológicos e moleculares na pesquisa de arbovírus não endêmicos em Mato Grosso 2 .
+
+Entre as limitações, destacam-se a ausência de confirmação laboratorial nos sintomáticos identificados com possíveis subdiagnóstico e a dependência de informações autorreferidas nas entrevistas domiciliares. No entanto, os achados são consistentes com o cenário descrito na literatura recente e contribuem para o avanço do conhecimento sobre a epidemiologia do VNO no país.
+
+Em síntese, os achados deste estudo reforçam a importância da realização de inquéritos sorológicos, do monitoramento entomológico e do fortalecimento da capacidade diagnóstica oportuna, com ênfase no diagnóstico diferencial entre arboviroses endêmicas em Mato Grosso. Destaca-se a necessidade de ações intersetoriais e interdisciplinares articuladas entre os serviços de saúde, visando à detecção precoce da circulação do VNO.
+
+COMITÊ DE ÉTICA:
+
+Trata-se de investigação epidemiológica realizada no âmbito das ações de vigilância em saúde, conforme atribuições institucionais da Secretaria de Estado de Saúde, dispensada de apreciação por Comitê de Ética em Pesquisa, conforme normativas nacionais vigentes.
+
+FINANCIAL SUPPORT: none.
+
+CONFLITO DE INTERESSES: nada a declarar.
+
+EDITOR CIENTÍFICO: Antonio Fernando Boing https://orcid.org/0000-0001-9331-1550
+
+FONTE DE FINANCIAMENTO: nenhuma
+
+
+REFERENCES
+
+1. de Lima STS Claro IM Hua X de Jesus R Serres K Mello LMS Active West Nile virus transmission in Brazil: an epidemiological study. Lancet Reg Health Am 2025 51 101229 10.1016/j.lana.2025.101229 40978564 PMC12448031
+2. Ometto T Durigon EL de Araujo J Aprelon R de Aguiar DM Cavalcante GT West Nile virus surveillance, Brazil, 2008-2010. Trans R Soc Trop Med Hyg 2013 107 11 72330 10.1093/trstmh/trt081 24008895
+3. Brasil. Ministério da Saúde. Secretaria de Vigilância em Saúde e Ambiente. Guia de Vigilância em Saúde. 6 Brasília Ministério da Saúde 2023
+4. Habarugira G Suen WW Hobson-Peters J Hall RA Bielefeldt-Ohmann H West Nile Virus: An Update on Pathobiology, Epidemiology, Diagnostics, Control and “One Health” Implications. Pathogens 2020 9 7 589 10.3390/pathogens9070589 32707644 PMC7400489
+5. Vieira MACS Romano APM Borba AS Silva EVP Chiang JO Eulálio KD West Nile Virus Encephalitis: The First Human Case Recorded in Brazil. Am J Trop Med Hyg 2015 93 2 377 9 10.4269/ajtmh.15-0170 26055749 PMC4530764
+6. Martins LC Silva EVP da Casseb LMN Silva SP da Cruz ACR Pantoja JA de S First isolation of West Nile virus in Brazil. Mem Inst Oswaldo Cruz 2019 114 e180332 10.1590/0074-02760180332 30672980 PMC6343470
+7. Brasil. Lei nº 14.792, de 5 de janeiro de 2024. Institui o Dia Nacional da Saúde Única. Diário Oficial da União [Internet]. Brasília, 08 jan. 2024 [Cited on 09 set. 9, 2024] Available at: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L14792.htm
+8. Lima PC Lustosa R Romano APM Araújo PC Passos PHO Ramos DG Serological evidence of West Nile virus infection in wild birds in the area of the first confirmed human case of West Nile fever in Brazil. Rev Pan-Amaz Saude 2024 15 e202401483 10.5123/s2176-6223202401483
+9. Martins MM Prata-Barbosa A Cunha AJLA da Arboviral diseases in pediatrics. J Pediatr 2020 96 1 2 11 10.1016/j.jped.2019.08.005 PMC9432121 31605670
+10. David MR Ribeiro GS Freitas RM de Bionomics of Culex quinquefasciatus within urban areas of Rio de Janeiro, Southeastern Brazil. Rev Saúde Pública 2012 46 5 85865 10.1590/S0034-89102012000500013 23128263
+11. Bruno L Nappo MA Frontoso R Perrotta MG Di Lecce R Guarnieri C West Nile Virus (WNV): One-Health and Eco-Health Global Risks. Vet Sci 2025 12 3 288 10.3390/vetsci12030288 40266979 PMC11945822
+12. Lorenz C de Azevedo TS Chiaravalloti-Neto F Impact of climate change on West Nile virus distribution in South America. Trans R Soc Trop Med Hyg 2022 116 11 104353 10.1093/trstmh/trac044 35640005

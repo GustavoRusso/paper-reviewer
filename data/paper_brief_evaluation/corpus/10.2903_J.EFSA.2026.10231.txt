@@ -1,0 +1,100 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: EFSA J
+Journal ID: EFSA J
+NLM Journal ID: 101642076
+Journal ID: EFS2
+
+EFSA Journal
+
+EISSN: 1831-4732
+Publisher: Wiley
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13370323
+PMID: 42459448
+DOI: 10.2903/j.efsa.2026.10231
+Article ID: EFS210231
+Article ID: EFSA-2026-0389
+Article version: 1
+Subjects: Anim7316, Scientific Report, Scientific Report
+
+Surveillance of West Nile virus infections in humans and animals in Europe, monthly report – data submitted up to 24 June 2026
+
+Surveillance of West Nile virus infections in humans and animals in Europe, monthly report – data submitted up to 24 June 2026
+
+European Centre for Disease Prevention and Control (ECDC)
+European Food Safety Authority (EFSA)
+Electronic publication date: 2026 Jul 15
+Publication date: 2026 Jul
+Volume: 24
+Issue: 7
+Electronic Location ID: e10231
+Copyright: © European Centre for Disease Prevention and Control, European Food Safety Authority, 2026
+License: This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, humans, birds, equids, outbreak.
+Figure count: 0
+Table count: 0
+Page count: 2
+
+source-schema-version-number: 2.0
+cover-date: July 2026
+details-of-publishers-convertor: Converter:WILEY_ML3GV2_TO_JATSPMC version:6.8.4 mode:remove_FC converted:15.07.2026
+
+Suggested citation: European Centre for Disease Prevention and Control, European Food Safety Authority , 2026. Surveillance of West Nile virus infections in humans and animals in Europe, monthly report – data submitted up to 24 June 2026. Available online: https://www.ecdc.europa.eu/en/infectious-disease-topics/west-nile-virus-infection/surveillance-and-diseasedata/monthly-updates
+
+Approved: 30 June 2026
+
+July 2026
+
+Produced on 30 June 2026 based on data submitted up to 24 June 2026
+
+1Locally acquired cases refer to cases acquired within the reporting country.
+
+In this report, Europe refers to EU/EEA countries and EU‐neighbouring countries (Albania, Bosnia and Herzegovina, Kosovo*, Montenegro, North Macedonia, Serbia and Türkiye).
+
+*This designation is without prejudice to positions on status and is in line with UNSCR 1244/1999 and the ICJ Opinion on the Kosovo declaration of independence.
+
+Requestor: European Commission
+
+Question number: EFSA‐Q‐2025‐00335
+
+Correspondence: Ask a Question
+
+The full automated report is available online at the following link: https://www.ecdc.europa.eu/en/infectious-disease-topics/west-nile-virus-infection/surveillance-and-disease-data/monthly-updates
+
+EFSA staff consulted (in alphabetical order): Giusi Amore, Inmaculada Aznar Asensio, Frank Verdonck.
+
+This article was originally published on the EFSA website www.efsa.europa.eu on 1 July 2026 as part of EFSA's urgent publication procedures.
+
+==============================
+Abstract
+
+Epidemiological summary
+
+As of 24 June, two countries in Europe reported three locally acquired1 human cases of WNV infection: Italy reported two cases and North Macedonia one case. Dates of onset ranged from 12 to 27 May 2026. No deaths have been reported.
+
+The cases were reported from three regions across the two countries. Although no cases had been reported by this time in 2025, some cases with onset dates in May and June were subsequently notified with a delay. Therefore, the current situation remains consistent with the early phase of the seasonal reporting pattern observed in previous years.
+
+This year, human cases of WNV infection were reported for the first time ever in one affected area: North Macedonia in Vardarski (MK001).
+
+Among the three cases reported this year, one person was aged 65 years or older, one was aged under 65 years, and the age of one person was unknown. All three cases were hospitalised. Neurological manifestations were reported in two individuals; information on clinical presentation was unavailable for the remaining case. As only three cases have been reported to date, comparisons with demographic or severity patterns observed over the previous decade are not yet meaningful. Further updates will be provided in subsequent monthly reports.
+
+From the veterinary perspective, five WNV outbreaks have been reported in Europe in 2026: one among equids and four among birds. The equid outbreak was reported by France and started on 30 March 2026. The four bird outbreaks were reported by Italy, with start dates ranging from 31 March to 4 May 2026.
+
+No information was available on the equid species involved in the outbreak reported in France in the Animal Disease Information System (ADIS). For birds, species information indicated that the four outbreaks reported in Italy involved hooded crows (three outbreaks) and a golden eagle (one outbreak).
+
+Outbreaks in birds and/or equids have been reported in three regions across two countries. Both countries that reported outbreaks in 2026 had previously reported WNV outbreaks in birds and/or equids in the same regions, indicating that WNV is endemic in these areas.
+
+The number of outbreaks in birds and equids reported during this first period of 2026 is similar to the mean monthly outbreak count for the same time of year, calculated for 2022–2025 for birds and for 2016–2025 for equids.
+
+Italy reported both locally acquired human WNV cases and WNV outbreaks in birds; however, the human cases and bird outbreaks were reported from different regions.
+
+Owing to delays in diagnosis and reporting, and because most WNV infections are asymptomatic or subclinical, the reported case numbers likely underestimate the true number of infections. Seasonal surveillance in humans primarily captures laboratory‐confirmed cases, which may further contribute to reporting delays.
+
+Given the favourable weather conditions for WNV transmission in Europe, ECDC and EFSA expect further human cases and outbreaks in equids and birds to be reported in the coming weeks and months. In previous years, transmission has typically peaked in August and September.
+
+ECDC and EFSA will continue to closely monitor the situation in Europe.

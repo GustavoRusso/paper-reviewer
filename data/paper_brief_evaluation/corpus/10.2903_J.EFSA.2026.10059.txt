@@ -1,0 +1,774 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: EFSA J
+Journal ID: EFSA J
+NLM Journal ID: 101642076
+Journal ID: EFS2
+
+EFSA Journal
+
+EISSN: 1831-4732
+Publisher: Wiley
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13168934
+PMID: 42137220
+DOI: 10.2903/j.efsa.2026.10059
+Article ID: EFS210059
+Article ID: EFSA-2026-0193
+Article version: 1
+Subjects: Anim7316, Scientific Report, Scientific Report
+
+Potential entry pathways for 25 vector‐borne disease agents
+
+Potential entry pathways for 25 vector‐borne disease agents
+
+European Food Safety Authority (EFSA)
+Dhollander Sofie
+Baltusyte Ieva
+Bigoni Fabio
+Broglia Alessandro
+Figuerola Jordi
+Thulke Hans‐Hermann
+Chueca Miranda Miguel Angel
+Electronic publication date: 2026 May 13
+Publication date: 2026 May
+Volume: 24
+Issue: 5
+Electronic Location ID: e10059
+Copyright: © 2026 European Food Safety Authority. EFSA Journal published by Wiley‐VCH GmbH on behalf of European Food Safety Authority.
+License: This is an open access article under the terms of the http://creativecommons.org/licenses/by-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited and no modifications or adaptations are made.
+License URL: https://creativecommons.org/licenses/by-nd/4.0/
+
+Keywords: animal movements, European Union, non‐vectorial pathways, risk assessment support, risk for introduction, vector‐borne diseases, vector‐related pathways
+Figure count: 3
+Table count: 34
+Page count: 30
+
+source-schema-version-number: 2.0
+cover-date: May 2026
+details-of-publishers-convertor: Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.6 mode:remove_FC converted:13.05.2026
+
+EFSA (European Food Safety Authority) , Dhollander, S. , Baltusyte, I. , Bigoni, F. , Broglia, A. , Figuerola, J. , Thulke, H.‐H. , & Chueca Miranda, M. A. (2026). Potential entry pathways for 25 vector‐borne disease agents. EFSA Journal, 24(5), e10059. 10.2903/j.efsa.2026.10059
+
+Approved: 27 March 2026
+
+Correspondence: Ask a Question
+
+The declarations of interest of all scientific experts active in EFSA's work are available at https://open.efsa.europa.eu/experts.
+
+==============================
+Abstract
+
+This Scientific Report identifies the potential entry pathways for 25 selected vector‐borne diseases (VBDs) into currently free EU Member States. The diseases comprise 12 listed under the Animal Health Law (AHL) and 13 non‐listed diseases, selected using predefined eligibility criteria. The report represents a preparatory step supporting subsequent EU‐level risk assessments of disease introduction, spread and impact, with emphasis on pathway identification rather than risk estimation. Evidence was collected through structured narrative literature reviews, complemented by expert judgement. Entry pathways were classified as vector‐related or non‐vectorial. A conservative, inclusion‐based approach was applied, whereby only pathways considered with high certainty to be epidemiologically irrelevant were excluded. For tick‐borne pathogens, the only potential vector‐related entry pathway is the movement of ticks attached to livestock, wildlife or pets. For sandfly‐borne pathogens, entry may occur through local dispersal and gradual expansion of established vector populations. For Culicoides‐borne pathogens, wind‐borne dispersal of adult midges, including over long distances, is considered a potential entry pathway, while active flight and vehicle‐associated transport are relevant only over short distances. For mosquito‐borne pathogens, the introduction of adult mosquitoes via aircraft is considered a potential entry pathway for all pathogens addressed. For West Nile virus, additional potential pathways include active flight from neighbouring affected areas, expansion of mosquito populations and wind‐assisted dispersal. For pathogens mechanically transmitted by biting flies (lumpy skin disease virus, Besnoitia besnoiti and equine infectious anaemia virus), vector‐related entry pathways are limited to active movement and short‐distance wind dispersal within areas where the pathogens are already present in the EU, with passive transport via land vehicles considered a plausible additional pathway. Non‐vectorial pathways mainly involve the movement of live animals via livestock trade, companion animal movements or wildlife migration when infected hosts enter areas with competent vectors. Germinal products are considered only for pathogens with demonstrated vertical transmission, while products of animal origin are relevant for a limited subset of pathogens. Overall, the report provides a structured framework to support EU‐level assessment of VBD introduction pathways.
+
+SUMMARY
+
+This Scientific Report addresses Term of Reference (ToR) 1.4 by identifying and structuring the potential entry pathways for of 25 selected vector‐borne diseases (VBDs) into free EU Member States. The VBDs include 12 listed under the Animal Health Law (AHL) and 13 non‐listed diseases selected based on predefined eligibility criteria, including absence or uncertain status in more than half of EU Member States, presence of competent vectors in the EU, relevance for domestic animals and data availability. This report represents a preparatory step for the subsequent Scientific Opinion addressing the risk of introduction, spread and impact under ToR 2.1–2.3.
+
+The assessment focuses on pathway identification, rather than risk estimation or ranking. Evidence was gathered through structured narrative reviews of the scientific and grey literature, complemented by expert judgement. Pathways were grouped into two main categories: vector‐related pathways, involving natural or human‐mediated movement of infected vectors, and non‐vectorial pathways, involving the movement of infected animals, germinal products or products of animal origin. A conservative, inclusion‐based approach was applied, whereby only pathways considered with high certainty to be epidemiologically irrelevant were excluded at this stage. Uncertainty is addressed in the subsequent quantitative risk assessment.
+
+The results show that vector‐related entry pathways differ by vector group. For tick‐borne pathogens addressed in this report (including Borrelia burgdorferi s.l., Coxiella burnetii, Crimean–Congo haemorrhagic fever virus and tick‐borne encephalitis virus), transmitted by hard ticks (family Ixodidae), the movement of ticks attached to livestock, wildlife or pets represents the only relevant vector‐related entry pathway. For sandfly‐borne pathogens, notably Leishmania infantum, entry is potentially associated with local dispersal and gradual expansion of established sandfly populations. For Culicoides‐borne pathogens (including African horse sickness virus, bluetongue virus, epizootic haemorrhagic disease virus and Schmallenberg virus), wind‐borne dispersal of adult midges, including over long distances, is considered a potential entry pathway, while active flight and passive transport in vehicles are relevant only over short distances. For mosquito‐borne pathogens, the introduction of adult mosquitoes via aircraft is considered a potential entry pathway for all pathogens assessed; for West Nile virus, already present in Europe, additional mosquito‐related pathways include active flight, population expansion and wind‐assisted dispersal. For pathogens mechanically transmitted by biting flies, such as lumpy skin disease virus and Besnoitia besnoiti, and equine infectious anaemia virus vector‐related entry is limited to active movement and short‐distance wind dispersal, with passive transport via land vehicles considered plausible.
+
+Regarding non‐vectorial pathways, the movement of live animals represents a potential entry pathway for most pathogens, when infected domestic or wildlife hosts enter areas where competent vectors are present. Movements of companion animals may contribute to the introduction of L. infantum and Trypanosoma vivax. The relevance of animal species as entry pathways depends on their role as main hosts and their capacity to contribute to further spread. Germinal products may represent a potential entry pathway for pathogens with demonstrated vertical transmission, while products of animal origin may constitute a pathway for a limited number of pathogens, notably C. burnetii, Crimean–Congo haemorrhagic fever virus, lumpy skin disease virus and T. evansi. Overall, this report provides a structured framework to support the subsequent EU‐level risk assessment of VBD introduction pathways.
+
+1 INTRODUCTION
+
+1.1 Background as provided by the requestor
+
+In the last two decades, the EU has been significantly affected by various diseases of animals transmitted by arthropod vectors (‘vector‐borne diseases’), such as mosquitoes (e.g. West Nile fever), flies (e.g. lumpy skin disease), ticks (e.g. Crimean‐Congo haemorrhagic fever) or biting midges/Culicoides (e.g. bluetongue, epizootic haemorrhagic disease). The EU is also at risk of a wide range of serious vector‐borne diseases such as Rift Valley fever or African horse sickness.
+
+Recent data and epidemiological events show the increase of such vector‐borne diseases (VBDs) either in the vicinity of the EU, in EU trading partners, or within the EU, concomitant with the progressive widening of the geographical extent of competent vectors such as Culicoides and mosquitoes, some of them being able to transmit zoonotic pathogenic agents (e.g. Aedes and sandflies).
+
+In April 2017, at the request of DG SANTE, EFSA published a scientific opinion on 36 VBDs, assessing their risk of introduction into the EU through movement of livestock or pets. This was considered a first screening, and it was already at that time recommended in the assessment that it should be updated.
+
+In January 2020, also at the request of DG SANTE, and following reports of occurrence of the disease in North Africa, EFSA published a scientific opinion on epidemiological update and risk of introduction of Rift Valley fever (RVF) into Europe.
+
+Since 2018, twelve VBDs have been listed under the Animal Health Law and categorised by Commission Implementing Regulation (EU) 2018/1882 1 under various categories of listed diseases, depending on the level of intervention and the measures taken at EU level, and with reference to their vector species.
+
+Those diseases largely differ one from another, in terms of pathogenic agents, host species, vector species, as well as in terms of impact and zoonotic potential. However, it is relevant to consider them together as regards their specificity of being vector‐borne and what this entails in terms of risk assessment and risk management, in view of the relative rapid evolution of the geographic distribution of vectors concerned.
+
+It is relevant to ask support from EFSA and the relevant EU Reference Laboratories, to analyse the situation and get scientific advice assessing animal health risks linked with VBDs. The scientific advice should address in particular the likelihood of introduction of new VBDs in the EU and of spread of VBDs currently affecting the EU, the role of climate evolution in this introduction or spread, and the potential evolution of the virulence or transmissibility of those VBDs. Considering the zoonotic nature of some of these VBDs, work in cooperation with ECDC appears relevant too.
+
+1.2 Terms of Reference as provided by the requestor
+
+In the light of the above:
+
+1 In accordance with Article 31 of Regulation (EC) No 178/2002, the Commission requests EFSA to provide scientific and technical assistance on the epidemiology of VBDs; the following aspects are of particular relevance for the scientific reports:
+
+1.1 provide a mapping/horizon scanning/compilation/description of the VBDs that are currently listed in the EU AHL (hereafter ‘listed VBDs’), as well as other VBDs not listed but formerly assessed and deemed to have a potential impact and therefore deserving attention (hereafter ‘non‐listed VBDs’), including their geographic distribution in the EU, neighbouring regions or other regions presenting a particular risk due to epidemiological considerations.
+
+1.2 provide a mapping/horizon scanning/compilation/description in the EU and neighbouring countries of the currently known, as well as potential new, vectors competent for ‘listed VBDs’ and ‘non‐listed VBDs.
+
+1.3 provide a mapping/horizon scanning/compilation/description of the currently available surveillance, prevention and control measures for listed and non‐listed VBDs in the EU; this includes the collection of data on the efficacy of these measures (e.g. vaccination efficacy, efficacy of biocidal treatments or repellents, animal treatments or insect nets or other husbandry practices);
+
+1.4 describe the potential pathways for listed and non‐listed VBDs currently present in the EU to spread, and those not currently present in the EU to be introduced, including via intra EU movements or entry into the EU of animals, products animal origin, plant material or means of transport, equipment, packaging materials, transport water and feed and fodder and other material, carrying viruses and/or vectors; and
+
+1.5 monitor the geographic spread and potential impact of listed and non‐listed VBDs already circulating in the EU, considering among others their transmissibility (per se or linked to vector activity), virulence and zoonotic potential. The monitoring will include:
+
+1.5.1 Yearly update of the mapping requested in 1.1, 1.2 and 1.3;
+
+1.5.2 Six‐monthly newsletter with important highlights about possible changes in distribution, transmissibility, virulence, or zoonotic potential of listed and non‐listed VBDs inside or outside the EU;
+
+1.5.3 Contribution to monthly automated West Nile Fever monitoring reports in collaboration with ECDC.
+
+2 In accordance with Article 29 of Regulation (EC) No 178/2002, the Commission requests EFSA to provide a scientific opinion on the risk posed by VBDs for the EU; the following aspects are of particular relevance for the scientific opinion:
+
+2.1 Assess the probability of introduction (i.e., the probability of entry of the pathogen from extra or intra EU origin, exposure and establishment) of listed and non‐listed VBDs identified in 1.1, into previously free EU Member States, considering the relevant pathways identified in 1.4; describe possible options to prevent such introduction.
+
+2.2 Assess the extent of spread of listed and non‐listed VBDs in the previously free EU Member States, after local transmission has taken place, with a potential expected timespan for this spread.
+
+2.3 Assess the impact of the introduction and potential further spread of listed and non‐listed VBDs during one year after the introduction.
+
+2.4 Critically assess the currently available risk mitigation measures for VBDs in the EU, in particular different biosecurity and surveillance systems, regionalisation, and vaccination tools; and
+
+2.5 Assess the need for the development of these and further measures within the EU, notably to enable safe intra‐EU movements of animals from affected or non‐affected areas.
+
+Consider and describe the uncertainty related to any of the above.
+
+1.3 Interpretation of the Terms of Reference
+
+This report addresses Term of Reference (ToR) 1.4 by outlining the pathways by which listed and not listed vector‐borne diseases (VBDs), whether already present in the EU or not, could be introduced into free EU Member States (MS). Possible pathways include the movement of animals and animal products, as well as the entry of food and feed, plants, transport vehicles, equipment, packaging, water and other materials that might carry the pathogenic agent or their vectors. Listed VBDs are laid down by Regulation (EU) 2016/429 and Regulation (EU) 2020/687 (collectively referred to as the Animal Health Law, AHL) and not listed VBDs identified as having potential relevance due to their potential epidemiological impact (‘non‐listed VBDs’). Non‐listed diseases were included if they met all the following conditions: The pathogen is absent or of unknown status in more than 50% of EU Member States.
+
+A competent vector is present in the EU.
+
+The pathogen has been proven to infect domestic animal species present in the EU.
+
+Clinical signs are present in animals or, if animals are asymptomatic, the disease causes severe disease in humans.
+
+Sufficient data are available, i.e. primary data on pathogen distribution, pathogenesis in animals, epidemiology and competent vectors.
+
+The resulting 25 VBDs that fulfilled the criteria provided above (12 listed by Regulation (EU) 2016/429 and Regulation (EU) 2020/687; 13 not listed) are summarised in Table 1. Information used to address these criteria was gathered through an initial scoping review of the scientific literature and complemented by expert judgement provided by the EFSA Working Group on Vector‐Borne Diseases. During the drafting of the report, the tables were further updated based on the outcomes of the literature reviews. The results were subsequently updated during report drafting based on findings from the systematic literature reviews conducted for ToR 1, including the classification of data availability (Appendix B).
+
+To address ToR 1.4, this report outlines the initial phase of a risk assessment process focused on identifying potential relevant risk pathways for the 25 selected VBDs. The purpose is to establish which pathways should be considered in a subsequent, more detailed risk assessment. The current report focuses on gathering evidence and applying expert judgement to rule out epidemiologically implausible pathways, e.g. those that do not involve the primary amplifying animal hosts or that rely on irrelevant modes of transmission.
+
+The evidence collection is divided into two primary categories: Pathways related to vector movement: This involves gathering information on how vectors carrying infectious disease agents inside or on their bodies can actively or passively move between locations, potentially spreading diseases.
+
+Non‐vectorial pathways: This focuses on pathways for introduction of the disease agent other than vector movement, applicable to VBDs that can spread through different transmission modes. This may include direct contact, environmental transmission or other modes relevant to specific VBDs.
+
+This stage of the assessment does not evaluate the actual risk score associated with each pathway; instead, it prepares the groundwork for the subsequent Scientific Opinion (SO), which will conduct a risk assessment based on the identified relevant pathways for the 25 VBDs. Only those pathways deemed epidemiologically irrelevant are excluded from further consideration at this stage. This report will not be updated annually, as requested in ToR 1.5.1, as the pathways are thought not to change frequently. However, possible highlights or changes in the epidemiological behaviours of any of the 25 VBDs will be captured in a six‐monthly newsletter (ToR 1.5.2), and monthly monitoring reports on West Nile virus will be provided as part of the regular monitoring activities (ToR 1.5.3).
+
+To address ToR 1.1, 1.2 and 1.3, three other dedicated Scientific Reports (SR) have been prepared. These reports summarise the current knowledge on: Structured overview of the main characteristics of the 25 selected VBDs (ToR 1.1) (EFSA, 2026c),
+
+Competent vectors of the 25 VBDs and their geographic distribution in the EU and neighbouring countries (ToR 1.2) (EFSA, 2026a), and
+
+Effectiveness of risk mitigation measures of the 25 VBDs (ToR 1.3) (EFSA, 2026b).
+
+These three SRs (EFSA, 2026a, 2026b, 2026c), together with the present report on the risk pathways of the VBDs, serve as the evidence base (dossier) for two SOs (see Figure 1). In the first SO mentioned above, the risk of introduction, spread and impact of the selected 25 VBDs will be assessed, thereby addressing ToR 2.1, 2.2 and 2.3 of the mandate. In addition, an expert knowledge elicitation will be carried out to: Review and digest the compiled evidence,
+
+Critically assess the current risk mitigation strategies in the EU,
+
+Identify the most appropriate mitigation measures for the 25 selected VBDs under various epidemiological scenarios and
+
+Evaluate the need for further development or adaptation of these and other mitigation measures, especially to support safe intra‐EU movements of animals from affected or unaffected areas.
+
+The outcomes of the workshop will be summarised and form the basis of the second Scientific Opinion that will address ToR 2.4 and 2.5 of the mandate (Figure 1).
+
+FIGURE 1 VBDs mandate workflow and outputs periodical update.
+
+TABLE 1 Vector‐borne diseases that met the eligibility criteria to be included in ToR 1.
+
+	
+	
+	
+	
+* Listed disease categories and definition as described in Regulation (EU) 2016/429.
+
+** Data availability based on the systematic literature reviews available on the Disease Profiles (https://animal‐diseases.efsa.europa.eu/) and VectorNet for vector competence and geographic distribution: +++well documented (> 100 publications), ++some papers available (51–100 publications), + only few papers available (0–50 publications);
+
+*** Mechanical transmission.
+
+**** EEEV and WEEV will be summarised together in this report, in line with the AHL and the WOAH terrestrial code. However, their risk will be assessed separately in the Scientific Opinion addressing ToR 2.1–2.3.
+
+2 METHODOLOGY
+
+This Scientific Report addresses Term of Reference (ToR) 1.4 by identifying and structuring the potential pathways for the introduction of 25 selected VBDs into previously free EU Member States. The diseases include 12 listed under the Animal Health Law (AHL) and 13 non‐listed diseases selected based on predefined eligibility criteria, including absence or uncertain status in more than half of EU Member States, presence of competent vectors in the EU, relevance for domestic animals and data availability. The report represents a preparatory step for the subsequent Scientific Opinion addressing the risk of introduction, spread and impact under ToR 2.1–2.3.
+
+The assessment focuses on pathway identification, rather than on estimating or ranking risk. Evidence was gathered through structured narrative reviews of the scientific and grey literature, complemented by expert judgement. Pathways were grouped into two main categories: vector‐related pathways, involving natural or human‐mediated movement of infected vectors, and non‐vectorial pathways, involving the movement of infected animals, germinal products or products of animal origin. A conservative, inclusion‐based approach was applied, whereby only pathways considered with high certainty to be epidemiologically irrelevant were excluded at this stage. Uncertainty is addressed in the subsequent quantitative risk assessment.
+
+To support the identification of relevant entry pathways, separate evidence reviews were conducted for pathways related to vector movement and for non‐vectorial pathways. These reviews are reported in two dedicated supporting documents, which systematically summarise the available evidence for the involvement of specific pathways across vectors and pathogens, including situations where evidence is scarce or indirect. To maintain clarity and readability of this report, detailed literature citations and supporting evidence are not reproduced but are fully documented in the supporting documents (Braks et al., 2026; Cobbold et al., 2026).
+
+The results show that vector‐related entry pathways differ by vector group. For tick‐borne pathogens, movement of ticks attached to livestock, wildlife or pets is the only relevant vector pathway. For Culicoides‐borne pathogens, wind‐borne dispersal is a key entry mechanism, with short‐distance vehicle transport also considered relevant. For mosquito‐borne pathogens, aircraft‐mediated transport of adult mosquitoes is a consistent potential entry pathway, while for West Nile virus additional pathways include active flight, population expansion and wind‐assisted dispersal. For mechanically transmitted pathogens, only short‐distance movement of biting flies is relevant.
+
+Regarding non‐vectorial pathways, the movement of live animals represents a potential entry pathway for most pathogens, depending on host competence and epidemiological relevance. Germinal products and products of animal origin are relevant only for a limited number of pathogens where biological plausibility and evidence of transmission exist. Overall, this report provides a structured and transparent framework to support the subsequent EU‐level risk assessment of VBD introduction pathways.
+
+3 ASSESSMENT
+
+3.1 Classification of entry pathways
+
+The introduction of VBD agents into previously free areas can occur through a variety of mechanisms. For the purposes of the risk assessment requested in ToR 2.1 to 2.3, entry pathways are grouped into two main categories: vector‐related pathways, where pathogens are carried by vectors into new areas, and non‐vector pathways, where the pathogen is introduced through infected animals, germinal products or products of animal origin. The following subsections describe the classification framework used to organise and assess these pathways across the 25 selected VBDs.
+
+3.1.1 Vector‐related entry pathways
+
+Vector‐related pathways encompass all mechanisms through which competent vectors may enter or be introduced into a new geographic area while carrying an infectious pathogen. These pathways are subdivided into naturally occurring processes and human‐mediated transport mechanisms.
+
+3.1.1.1 Naturally occurring pathways
+
+Naturally occurring pathways describe movements of vectors that take place without direct human involvement. These processes are particularly relevant for vector species capable of dispersal across ecological boundaries or those influenced by environmental or climatic drivers.
+
+3.1.1.1.1 Active movement
+
+Natural range expansion (population dispersal): Vector populations may expand their distributional range over time due to ecological pressures such as climate suitability, habitat availability, changes in host distribution or long‐term environmental trends. This type of dispersal occurs gradually and often reflects shifts in vector survival, reproduction or competitiveness in new areas.
+
+Local dispersal from bordering regions (individual dispersal): Individual vectors can move short distances during normal behaviours such as host‐seeking, breeding or oviposition. Although small in scale, such movements may allow infectious vectors to cross into neighbouring regions, especially where habitats are continuous.
+
+3.1.1.1.2 Passive movement
+
+Wind‐borne dispersal: Certain vector groups, particularly small flying insects such as Culicoides midges, can be passively transported over long distances by prevailing winds. Wind‐borne dispersal may result in rapid introduction events and has been documented as a major driver of long‐distance spread for several arboviruses.
+
+On wild hosts: Vectors may passively disperse by attaching to, − or feeding on migratory or roaming wildlife species. Movement of infected vectors on wild birds, mammals or other hosts can facilitate long‐distance spread, especially when hosts travel across ecological regions or between countries.
+
+3.1.1.2 Human‐mediated
+
+Human‐mediated pathways include all vector movements resulting from transportation systems, trade or anthropogenic activities. Although unintended, these pathways can enable vectors to travel far beyond their natural dispersal capacity.
+
+3.1.1.2.1 In vehicle space
+
+Air transport: Vectors may be transported accidentally on aircraft, entering cargo holds, passenger cabins or luggage compartments. Air transport can facilitate rapid intercontinental movement and introduce vectors from distant regions in a matter of hours.
+
+Maritime transport: Ships and boats can carry vectors in cargo, containers, storage areas or accumulated water. Maritime transport represents a potential route for both short‐ and long‐distance introduction of infected vectors.
+
+Land transport (private and commercial): Road vehicles, trains and personal transport can inadvertently move vectors contained within goods, livestock vehicles or even inside passenger compartments. Cross‐border road traffic represents a frequent and often under‐reported mechanism of vector displacement.
+
+3.1.1.2.2 In ‐ or on commodities
+
+Animal trade: Movement of live animals for slaughter, breeding or fattening, which may carry attached vectors.
+
+Pet travel (dogs and cats): Private or commercial pet transport may introduce pathogens via infected animals, their crates, bedding or associated fomites.
+
+Plant/soil/tire trade: Potted plants, nursery stock, soil and especially used tires can act as reservoirs for vector eggs, larvae or resting adults, and have been documented as important routes for introduction of some mosquito species.
+
+3.1.2 Entry pathways not related to vectors
+
+Non‐vector pathways involve the introduction of the pathogen through animal hosts, germinal products or products of animal origin (POAO), without requiring the presence or movement of a competent vector.
+
+3.1.2.1 Live animal movements
+
+Movement of infected live animals may introduce a pathogen into new areas when the species involved acts as a main amplifying host.
+
+3.1.2.1.1 Livestock, companion animals (cats and dogs only) and horses
+
+The movement of infected animals – via trade, translocation or relocation – may facilitate the introduction of the pathogen even in the absence of vectors. Only main amplifying hosts should be considered.
+
+3.1.2.1.2 Wildlife
+
+Wildlife species can contribute to pathogen introduction when they act as main amplifying hosts and move naturally across borders or are transported intentionally (e.g. conservation programmes, game trade).
+
+3.1.2.2 Germinal products
+
+Germinal products are considered only when the pathogen has been shown to survive, replicate or be transmitted through matrices such as germplasms or fertilised eggs.
+
+3.1.2.2.1 Germplasm
+
+This includes semen and embryos from livestock or equine species that serve as main hosts. Germplasm represents a relevant pathway only when transmission through these products has been scientifically demonstrated.
+
+3.1.2.2.2 Fertilised eggs
+
+This pathway applies exclusively to poultry. Fertilised eggs are considered relevant only when the pathogen has been proven to be transmissible through the egg contents or shell.
+
+3.1.2.3 Products of animal origin (POAO)
+
+Products of animal origin (POAO) encompass matrices such as meat, milk, dairy products, eggs, hides and other tissues derived from livestock or equine species identified as main amplifying hosts. A POAO pathway is considered relevant only when infectious pathogen has been detected or shown to persist in such matrices under conditions compatible with trade or use.
+
+Examples of scenarios include: meat or offal containing viable pathogen,
+
+milk or colostrum harbouring infectious agents,
+
+hides or skins containing infectious pathogen.
+
+This category does not include non‐animal matrices (e.g. plants, soil, tyres), which are instead captured under commodity movement because their epidemiological role relates to vector carriage rather than pathogen contamination within the product itself.
+
+3.2 Disease‐based summaries
+
+The following sections provide a concise narrative summary for each pathogen, describing potential entry pathways to be considered for the risk assessment and which were excluded, together with the biological justification for these decisions. The assessment of vector‐related pathways builds on the VectorNet supporting publication on the ‘Risk of Entry via Vectors’ (Braks et al., 2026), which evaluates the feasibility of natural and human‐assisted dispersal of arthropod vectors to the EU. The assessment of non‐vector pathways (live animals, wildlife, germinal products and products of animal origin) draws on the L'ORA pathway analysis' supporting documentation (Cobbold et al., 2026). Rather than repeating the detailed explanations from these two technical reports, each pathogen‐specific summary synthesises the key biological factors determining pathway relevance, including host competence, tissue tropism, vector behaviour, environmental persistence and known transmission routes.
+
+3.2.1 African horse sickness virus (AHSV)
+
+Vector pathways:	
+A potential route of entry is believed to be through wind‐borne Culicoides . Active flight and on host movement are not relevant, because midges have a very short active fly range and do not remain attached to hosts during or after feeding.	
+Non‐vector pathways:	
+Only movement of live equids are considered to be a potential entry pathway for AHSV introduction. POAO are excluded, as ingestion of contaminated products is not a recognised transmission route in equids. Although infection following ingestion has been reported in canids, this does not represent a plausible livestock introduction pathway. Germinal products are also excluded, as transmission via semen or embryos has not been demonstrated for AHSV.	
+
+3.2.2 Akabane virus (AKAV)
+
+Vector pathways:	
+A potential entry pathway is through wind‐borne Culicoides ; active flight and on host movement are not relevant, because midges have a very short active fly range and do not remain attached to hosts during or after feeding.	
+Non‐vector pathways:	
+Movement of cattle, sheep and goats are potential entry pathways. POAO can be excluded because transmission is strictly vector‐mediated since there is no evidence of animal infection via meat, milk or hides. Also, entry via germplasm can be excluded as semen/embryo transmission has not been shown for AKAV.	
+
+3.2.3 Besnoitia besnoiti (B. besnoiti)
+
+Vector pathways:	
+There is no evidence for long‐distance wind‐borne transport of horse and deer flies (Tabanidae). Conversely, stable flies (Muscidae) have been shown to be transported by wind over distances exceeding 13 km. Furthermore, land‐vehicle movement of adult insects, which are the only stage relevant for mechanical transmission, is considered a potential pathway from affected areas within the EU.	
+Non‐vector pathways:	
+A potential entry is via movement of cattle, especially subclinical infected animals can spread between herds. POAO are excluded: although cysts occur in skin and connective tissue, ingestion of meat/milk does not infect cattle and hides do not act as a transmission vehicle. Germinal products are excluded because seminal or embryo transmission has not been demonstrated. Movement of wildlife is excluded because no competent reservoir with a role in long‐range spread is identified.	
+
+3.2.4 Bluetongue virus (BTV)
+
+Vector pathways:	
+Potential entry pathways include active local movement of midges, population dispersal (both through population expansion and wind‐borne), as well as introduction via land vehicles from neighbouring infected areas.	
+Non‐vector pathways:	
+The movement of live ruminants or camelids is considered a potential entry pathway. Entry via germinal products is likewise regarded a potential pathway, as strain‐dependent seminal shedding has been demonstrated (e.g. BTV‐8), and transmission via artificial insemination has been confirmed experimentally. In contrast, POAO are excluded: although BTV may be detectable in meat or milk, post‐mortem pH decline and processing substantially reduce viral viability and no livestock infections attributable to product‐borne exposure through consumption have been demonstrated.	
+
+3.2.5 Borrelia burgdorferi s.l. (B. burgdorferi)
+
+Vector pathways:	
+Entry can occur via ticks transported on wild hosts and via movement of infested livestock or pets. Transstadial transmission of B. burgdorferi is common but transovarial transmission in ticks or transmission by co‐feeding of competent I. ricinus ticks are considered irrelevant pathways. Wind dispersal and active tick movement are considered irrelevant.	
+Non‐vector pathways:	
+Movement of cattle and hares is considered a potential pathway. Although rodents play a major role in transmission and maintenance of Borrelia, these were not considered a relevant introduction pathway due to limited movement range. POAO and germinal products can be excluded because Borrelia are not foodborne pathogens and there is no evidence of their transmission via semen/embryos.	
+
+3.2.6 Bovine ephemeral fever virus (BEFV)
+
+Vector pathways:	
+A potential route of entry is via wind‐borne Culicoides . Active flight and host‐associated movement are not relevant, as midges have a very limited active flight range and do not remain on the host during or after feeding.	
+Non‐vector pathways:	
+Movement of cattle is considered a potential entry pathway. There is no evidence supporting the relevance of other non‐vector‐related pathways.	
+
+3.2.7 Cache Valley virus (CVV)
+
+Vector pathways:	
+A potential vector‐related entry pathway is mosquitoes transported in airplanes from affected areas. All other entry pathways are irrelevant considering the long distance to the currently affected areas.	
+Non‐vector pathways:	
+Movement of deer are considered a potential entry pathway as these are potential amplifying hosts. Domestic livestock are excluded, as there is no evidence of amplifying domestic hosts. POAO and germinal products are excluded, as transmission via consumption or via semen or embryos has not been demonstrated.	
+
+3.2.8 Coxiella burnetii (C. burnetii)
+
+Vector pathways:	
+Ticks play a limited role in transmission compared to direct transmission between vertebrate hosts, although entry through passive movement via animal trade, pet or wildlife movement is possible. The epidemiological relevance of the vertical transmission pathway of C. burnetii is considered irrelevant in Dermacentor, Riphicephalus and Hyalomma species, and so is transmission through co‐feeding of ticks considered relevant.	
+Non‐vector pathways:	
+Movement of cattle, sheep and goats is considered a potential entry pathway. Germinal products are considered a potential pathway due to detection of C. burnetii in semen and transmission via artificial insemination. POAO are considered a potential entry pathway due to persistence in tissues, shedding in placenta and milk, and documented contamination of meat, dairy products and hides.	
+
+3.2.9 Crimean–Congo haemorrhagic fever virus (CCHFV)
+
+Vector pathways:	
+Ticks moved on wild hosts and via animal trade are considered potential pathways. Infected larvae and nymphs of Hyalomma spp. are considered a potential entry pathway of the pathogen as they can infect other hosts after their next moult. Infected attached adults will not contribute directly, as they do not feed on another host upon arrival, but indirectly by infecting the next generation of ticks through transovarial transmission. Wind dispersal and active tick movement are not relevant.	
+Non‐vector pathways:	
+Movements of domestic ruminants, wildlife (hares, deer or wild boar) and certain POAO (chilled and frozen meat and skins, hides and leather) are considered potential pathways. Other wildlife, companion animals and dairy products are excluded due to insufficient or inconclusive evidence of transmission.	
+
+3.2.10 Eastern equine encephalitis virus (EEEV) and Western equine encephalitis virus (WEEV)
+
+Vector pathways:	
+A potential vector‐related entry pathway is mosquitoes transported in airplanes from affected areas. All other entry pathways are irrelevant, considering the long distance to the currently affected areas.	
+Non‐vector pathways:	
+Entry via migratory birds is considered a potential entry pathway. In addition, hares are considered a potential wildlife entry pathway. Domestic livestock are irrelevant, as equids are considered dead‐end hosts for onward animal transmission. POAO are also irrelevant, as equine products are not ingested by susceptible animals. Germinal products are irrelevant, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.11 Epizootic haemorrhagic disease virus (EHDV)
+
+Vector pathways:	
+Potential entry pathways include active local movement of midges, population dispersal (both through population expansion and wind‐borne entry), as well as introduction via land vehicles from neighbouring infected areas.	
+Non‐vector pathways:	
+Movement of cattle and deer is considered a potential entry pathway. POAO are excluded, as EHDV transmission is vector‐borne and meat, milk and hides are considered safe commodities. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.12 Equine infectious anaemia virus (EIAV)
+
+Vector pathways:	
+There is evidence that stable flies (Muscidae) can be transported by wind for more than 13 Km. Also land ‐ vehicle movement of adults (only adult stages relevant for mechanical transmission) are considered potential pathways, from affected areas on the European continent. Long distance air/maritime/commodity entry pathways are not considered relevant.	
+Non‐vector pathways:	
+Movement of equids is considered a potential entry pathway. Germinal products are also considered a potential pathway, as EIAV can be present in semen and venereal transmission has been reported, albeit rarely. POAO are excluded, as meat and skins are not recognised vehicles for animal infection and equine milk is rarely traded; milk‐borne infection is uncommon and not considered a relevant entry pathway.	
+
+3.2.13 Japanese encephalitis virus (JEV)
+
+Vector pathways:	
+A potential vector‐related entry pathway is mosquitoes transported in airplanes from affected areas. All other entry pathways are irrelevant considering the long distance to the currently affected areas.	
+Non‐vector pathways:	
+Movement of pigs and entry via migratory birds are considered potential entry pathways. POAO are considered irrelevant, as ingestion of meat or milk is not a recognised livestock transmission route. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.14 Leishmania infantum (L. infantum)
+
+Vector pathways:	
+Sandflies are considered weak flyers, with short flight range generally under 100 m and therefore entry through local movement is only relevant near already affected areas. Also, the expansion of their known population distribution range is considered a potential pathway of entry into new areas. There is no evidence of sandfly adult long‐distance transportation by wind or passive movement in vehicles or commodities, thus they are unlikely to be relevant entry pathways of the pathogen.	
+Non‐vector pathways:	
+Movement of dogs (and cats) is considered a potential entry pathway, and entry via red foxes and hares is considered a potential pathway entry pathway where data exist, reflecting their reservoir roles. POAO are considered irrelevant as L. infantum is strictly vector‐borne and not transmitted by ingestion of products. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.15 Lumpy skin disease virus (LSDV)
+
+Vector pathways:	
+There is evidence that stable flies (Muscidae) can introduce LSDV via wind for more than 13 km. Also land‐vehicle movement of adults (only adult stages relevant for mechanical transmission) are considered potential pathways, from affected areas on the European continent. Long distance air/maritime/commodity entry pathways are not considered relevant.	
+Non‐vector pathways:	
+Movement of cattle is considered a potential entry pathway. POAO are considered potential pathways, as LSDV persists in skin, can be shed in milk and hides/skins, dairy products and meat close to affected skin may carry the virus. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated. Wildlife is excluded, as a reservoir role has not been established.	
+
+3.2.16 Rift Valley fever virus (RVFV)
+
+Vector pathways:	
+A potential vector‐related entry pathway is mosquitoes transported in airplanes from affected areas. All other entry pathways are irrelevant considering the long distance to the currently affected areas.	
+Non‐vector pathways:	
+Movement of cattle, sheep and goats is considered a potential entry pathway. Germinal products are considered potential pathways, as RVFV RNA has been detected in semen. Animal products are potentially relevant because viruses may persist in raw milk, fresh meat and contaminated hides or skins, making meat, dairy and hides/skins key potential entry pathways.	
+
+3.2.17 Schmallenberg virus (SBV)
+
+Vector pathways:	
+Potential entry pathways include active local movement of midges, population dispersal (both through population expansion and wind‐borne entry), as well as introduction via land vehicles from neighbouring infected areas.	
+Non‐vector pathways:	
+Movement of cattle, sheep, goats and roe and red deer is considered a potential entry pathway. Germinal products are considered potential pathways, as SBV can be present in semen and can cross the placenta. POAO are excluded, as vector transmission or in utero exposure is required and infection via consumption of animal products has not been demonstrated.	
+
+3.2.18 Shuni virus (SHUV)
+
+Vector pathways:	
+Potential entry pathways can be via wind‐borne Culicoides as well as is mosquitoes transported in airplanes from affected areas; active flight and on host movement are not relevant, because midges have a very short active fly range and do not remain attached to hosts during or after feeding.	
+Non‐vector pathways:	
+Movement of domestic ruminants and horses is considered a potential entry pathway. POAO are excluded, as SHUV is maintained via vector feeding and there is no evidence of animal infection via meat, milk or hides. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.19 St. Louis encephalitis virus (SLEV)
+
+Vector pathways:	
+A potential vector‐related entry pathway is mosquitoes transported in airplanes from affected areas. All other entry pathways are irrelevant considering the long distance to the currently affected areas.	
+Non‐vector pathways:	
+Entry via migratory birds is considered a potential entry pathway. Domestic livestock are not relevant, as mammals and poultry are considered dead‐end hosts. POAO are excluded, as infection of animals via meat, milk or hides has not been demonstrated. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.20 Tick‐borne encephalitis virus (TBEV)
+
+Vector pathways:	
+Potential pathways are ticks moved on wild hosts and animal trade or pet movement. There is evidence of vertical TBEV transmission in I. ricinus, I. persulcatus and D. reticulatus and it is considered epidemiologically relevant. All other vector‐related pathways are considered irrelevant.	
+Non‐vector pathways:	
+No animal‐to‐animal non‐vector entry pathway is considered relevant. Although rodents play a major role in transmission and maintenance of TBEV, these were not considered a potential entry pathway due to limited movement range. POAO are excluded, as although TBEV can be present in raw milk and cause human infection, livestock‐to‐livestock introduction via animal products has not been demonstrated. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated	
+
+3.2.21 Trypanosoma evansi (T. evansi)
+
+Vector pathways:	
+No vector entry pathways are relevant from outside the European continent. Transmission is purely mechanical by local biting flies, which do not survive long‐distance transport, do not remain on hosts and require fresh blood contact to transmit infection. Therefore, wind‐borne, active flight, wild‐host or vehicle/commodity transport entry pathways are excluded.	
+Non‐vector pathways:	
+Movement of equids, camelids and cattle is considered a potential entry pathway. Germinal products are considered a potential pathway, as T. evansi DNA or parasites can be present in semen. POAO are considered a potential entry pathway, as carnivores can be infected through ingestion of infected tissues and trypanosomes have been detected in milk or colostrum; therefore meat, dairy products and hides or skins, including unregistered products, are included.	
+
+3.2.22 Trypanosoma vivax (T. vivax)
+
+Vector pathways:	
+No vector entry pathways are relevant from outside the European continent. Transmission is purely mechanical by local biting flies, which do not survive long‐distance transport, do not remain on hosts and require fresh blood contact to transmit infection. Therefore, wind‐borne, active flight, wild‐host or vehicle/commodity transport entry pathways are excluded.	
+Non‐vector pathways:	
+Movement of cattle, sheep, goats, pigs, horses, donkeys and dogs is considered a potential entry pathway. POAO are excluded, as although carnivore infection following ingestion of infected tissues has been shown experimentally, trypanosomes rapidly disappear from carcasses and natural product‐mediated introduction has not been demonstrated. Germinal products are excluded, as only nucleic acids and not viable parasites, have been detected in semen and transmission via semen or embryos has not been demonstrated.	
+
+3.2.23 Venezuelan equine encephalitis virus (VEEV)
+
+Vector pathways:	
+A potential vector‐related entry pathway is mosquitoes transported in airplanes from affected areas. All other entry pathways are irrelevant considering the long distance to the currently affected areas.	
+Non‐vector pathways:	
+Movement of equids is considered a potential entry pathway, as equids act as amplifying hosts for epidemic strains. Wildlife reservoirs are not considered relevant entry pathways considering that the distance to affected areas and that the main reservoirs are rodents. Although rodents play a major role in transmission and maintenance of VEEV, these are not considered a relevant introduction pathway due to limited movement range. POAO are excluded, as consumption of or contact with equine products is not a recognised transmission route for equids. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.2.24 Vesicular stomatitis virus (VSV)
+
+Vector pathways:	
+A potential entry pathway is considered to be via wind‐borne Culicoides ; active flight and on host movement are not relevant, because midges have a very short active fly range and do not remain attached to hosts during or after feeding.	
+Non‐vector pathways:	
+Movement of equids, cattle and pigs is considered a potential entry pathway. POAO are partly considered potential entry pathway: hides/skins are considered potentially relevant, whereas meat is excluded as virus has not been detected in muscle tissue. Dairy products are excluded as it is not reported that the virus is shed in milk. Germinal products are excluded, as transmission via semen has not been demonstrated.	
+
+3.2.25 West Nile virus (WNV)
+
+Vector pathways:	
+Besides entry of infected mosquitoes transported in airplanes from affected areas active; active flight from neighbouring affected areas, expansion of mosquito populations and dispersal via wind are considered potential entry pathways.	
+Non‐vector pathways:	
+Entry via migratory birds is considered a potential entry pathway. Entry via domestic livestock is considered irrelevant, as equids are considered dead‐end hosts and so are chickens, turkeys and geese. POAO are excluded, as WOAH considers poultry meat and eggs and equine products safe commodities. Germinal products are excluded, as transmission via semen or embryos has not been demonstrated.	
+
+3.3 Pathway‐based summaries
+
+3.3.1 Vector‐related entry pathways
+
+Table 2 summarises all the relevant entry pathways related to vectors which should be considered in the risk assessment to be performed for ToR 2.1 to 2.3.
+
+3.3.1.1 Ticks
+
+A potential vector entry pathway for the tick‐borne pathogens dealt with in this report (B. burgdorferi, C. burnetii, Crimean–Congo haemorrhagic fever virus and tick‐borne encephalitis virus, which are all transmitted by hard ticks of the family of Ixodidae, is the movement of ticks attached to livestock, wild hosts or pets, as most life stages can remain attached to hosts during prolonged feeding. Transport of detached ticks via vehicles (air, land or water) is considered irrelevant because hard ticks rarely survive long or travel unnoticed without the hosts.
+
+3.3.1.2 Sandflies
+
+For L. infantum, the only sandfly‐borne pathogen considered in this report, vector‐related entry into new areas is mainly driven by short‐range local dispersal from nearby affected zones and by the progressive expansion of established sandfly populations. Long‐distance pathways, particularly dispersal through wind‐borne transport of sandflies or passive movement in vehicles or commodities are unlikely to be relevant entry pathways of the pathogen.
+
+3.3.1.3 Biting midges
+
+Wind‐borne dispersal over longer distances is considered a potential entry pathway for all Culicoides‐borne pathogens dealt with in this report (African horse sickness, Akabane virus, bluetongue virus, bovine ephemeral fever virus, epizootic haemorrhagic disease virus, Schmallenberg virus, vesicular stomatitis virus and Shuni virus). Active flight of Culicoides is considered relevant nearby already affected areas in the EU (i.e. for BTV, SBV, EHDV). Transport of adult Culicoides in vehicles, particularly animal transport vehicles, is considered a potential pathway, but only for short distances. Transport of immature stages via commodities is considered irrelevant due to unsuitable substrates and absence of transovarial transmission in midges.
+
+3.3.1.4 Mosquitoes
+
+Introduction of adult mosquitoes via aircrafts is a potential pathway for all mosquito‐borne pathogens dealt with in this report (Shuni virus, Cache Valley virus, Eastern equine encephalitis virus and Western equine encephalitis virus, Japanese encephalitis virus, Rift Valley fever virus, St. Louis encephalitis virus, Venezuelan equine encephalitis virus, West Nile virus). This is supported by evidence of repeated introductions and airport‐associated transmission events. For the only mosquito‐borne pathogen already present in the EU (WNV), flight from neighbouring affected areas, expansion of mosquito populations and dispersal via wind are considered potential entry pathways.
+
+3.3.1.5 Biting flies (other than Culicoides)
+
+For pathogens transmitted mechanically by biting flies, potential vector‐related entry pathways are limited to the active movement of flies or short‐distance wind dispersal within areas where the pathogens are already present in the EU, specifically for lumpy skin disease virus, B. besnoiti and equine infectious anaemia virus. In addition, the passive transport of stable flies via land vehicles represents a plausible entry pathway for these two diseases, potentially facilitating their spread beyond the range achievable by natural fly movement alone.
+
+TABLE 2 Vector pathways relevant for entry of the pathogen.
+
+		Vector group	T	T	T	T	Sf	C	C	C	C	C	C	C	C/M	M	M	M	M	M	M	M	M	Bf	Bf	Bf	Bf	Bf	
+Pathogen:	B. burgdorferi	C. burnetii	CCHFV	TBEV	L. infantum	AHSV	AKAV	BTV	BEFV	EHDV	SBV	VSV	SHUV	CVV	EEEV	JEV	RVF	SLEV	VEEV	WNV	WEEV	EIAV	LSDV	T. evansi	T. vivax	B. besnoiti	
+Natural	Active	Natural range	o	o	o	o	●	o	o	●	o	●	●	o	o	o	o	o	o	o	o	●	o	●	●	o	o	●	
+Local	o	o	o	o	●	o	o	●	o	●	●	o	o	o	o	o	o	o	o	●	o	●	●	o	o	●	
+Passive	Wind	o	o	o	o	o	●	●	●	●	●	●	●	●	o	o	o	o	o	o	●	o	●	●	o	o	●	
+Wild host	●	●	●	●	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	
+Human‐mediated	Vehicles	Air	o	o	o	o	o	o	o	o	o	o	o	o	●	●	●	●	●	●	●	●	●	o	o	o	o	o	
+Water	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	
+Land	o	o	o	o	o	o	o	●	o	●	●	o	o	o	o	o	o	o	o	o	o	●	●	o	o	●	
+Commodities	Animal Trade	●	●	●	●	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	
+Pets	●	●	o	●	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	
+Plants/Tires/Soil	o	o	o	O	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	o	
+Note: Pathogen abbreviations used in this report are provided in the Disease glossary. Potential pathways for the risk assessment for a given pathogen are marked with ‘●’.
+
+Abbreviation: C/M, Culicoides and mosquitoes; M, Mosquitoes; T, Ticks; Sf, Sandflies.
+
+3.3.2 Non‐vector‐related entry pathways
+
+Table 3 summarises all the potential entry pathways not related to vectors which should be considered in the risk assessment to be performed for ToR 2.1 to 2.3.
+
+3.3.2.1 Live animal movements
+
+All pathogens included in this report, with the exception of TBEV, have at least one domestic or wildlife main host that can enter an area while infected and therefore represent a potential pathway for pathogen introduction. In addition, two pathogens (L. infantum and T. vivax) may also enter through the movement of companion animals.
+
+Tables 4 and 5 provide an overview of the specific domestic and wildlife animal species that are considered potential main hosts for each pathogen and, as such, represent transmission pathways that should be considered in the risk assessment requested under ToR 2.1–2.3. If a species is not listed for a given disease, this does not necessarily imply that the species is not susceptible. Rather, it may be because the species is considered unlikely to contribute to further spread (e.g. classified as a dead‐end host) or because it has been excluded due to limited available data.
+
+A more comprehensive overview of main domestic hosts and dead‐end hosts is provided in the knowledge‐mapping report on vector‐borne diseases (EFSA , 2026c).
+
+3.3.2.2 Germinal products
+
+For those VBDs where vertical transmission has been demonstrated, germinal products may represent a potential pathway for introduction. This is the case for C. burnetii, bluetongue virus, Schmallenberg virus, Rift Valley fever virus, T. evansi and equine infectious anaemia virus (Table 4).
+
+3.3.2.3 Products of animal origin
+
+Chilled and frozen meat, processed meat, hides and dairy products derived from ruminants may constitute potential pathways for the entry of C. burneti i, Crimean–Congo haemorrhagic fever virus, lumpy skin disease virus and T. evansi. For T. evansi, horses may also represent a potential source (Table 6). Except for hides, POAO pathways may encompass both registered and unregistered movements, which broadly correspond to legal and illegal routes of entry.
+
+TABLE 3 Non‐vector‐related pathways considered for for each disease agent in the risk assessment using the L'ORA tool.
+
+Commodity Category	Vector group	T	T	T	T	Sf	C	C	C	C	C	C	C	C/M	M	M	M	M	M	M	M	M	Bf	Bf	Bf	Bf	Bf	
+Pathway	B. burgdorferi	C. burnetii	CCHFV	TBEV	L. infantum	AHSV	AKAV	BTV	BEFV	EHDV	SBV	VSV	SHUV	CVV	EEEV	JEV	RVFV	SLEV	VEEV	WNV	WEEV	EIAV	LSDV	T. evansi	T. vivax	B. besnoiti	
+Live Animal	Legal trade of livestock and horses	●	●	●			●	●	●	●	●	●	●	●			●	●		●			●	●	●	●	●	
+Companion animals 1					●																				●		
+Wildlife migration2	●		●		●						●			●	●	●		●		●	●						
+Germinal Product	Legal trade of germplasm		●						●			●						●					●		●			
+Legal trade of fertilised eggs																											
+POAO	Legal trade of products for human consumption3		●	●														●						●	●			
+Legal trade of other animal products4		●	●									●					●						●	●			
+Unregistered imports5		●	●														●						●	●			
+Note: 1: Commercial and travelling with their owners; 2: Birds, terrestrial mammals; 3: Meat, dairy products, eggs; 4: Hides; 5: products for human consumption carried by travellers. Relevant pathways for the risk assessment for a given pathogen are marked with ‘●’. Pathogen abbreviations used in this report are provided in the Disease glossary.
+
+TABLE 4 Animal species considered as domestic main hosts for each disease agent.
+
+Vector group	T	T	T	T	Sf	C	C	C	C	C	C	C	C/M	M	M	M	M	M	M	M	M	Bf	Bf	Bf	Bf	Bf	
+Species	B. burgdorferi	C. burnetii	CCHFV	TBEV	L. infantum	AHSV	AKAV	BTV	BEFV	EHDV	SBV	VSV	SHUV	CVV	EEEV	JEV	RVFV	SLEV	VEEV	WNV	WEEV	EIAV	LSDV	T. evansi	T. vivax	B. besnoiti	
+Bovines		●	●				●	●	●	●	●	●	●				●						●	●	●	●	
+Sheep & goats		●	●				●	●			●		●				●								●		
+Pigs												●				●									●		
+Poultry																											
+Horses						●						●	●						●			●		●	●		
+Donkeys						●						●							●			●			●		
+Dogs					●																				●		
+Cats					●																						
+Alpacas and Llamas								●																●			
+Germplasm (semen, ova, embryos)		●						●			●						●					●		●			
+Fertilised ebggs (for hatching)																											
+Note: Main amplifying hosts species to be included in the risk assessment for a given pathogen are marked with ‘●’. Pathogen abbreviations used in this report are provided in the Disease glossary.
+
+TABLE 5 Animal species considered as wildlife main hosts for each disease agent (only if data were available to estimate the number of animals moving).
+
+Vector group	T	T	T	T	Sf	C	C	C	C	C	C	C	C/M	M	M	M	M	M	M	M	M	Bf	Bf	Bf	Bf	Bf	
+Species	B. burgdorferi	C. burnetii	CCHFV	TBEV	L. infantum	AHSV	AKAV	BTV	BEFV	EHDV	SBV	VSV	SHUV	CVV	EEEV	JEV	RVF	SLEV	VEEV	WNV	WEEV	EIAV	LSDV	T. evansi	T. vivax	B. besnoiti	
+Birds															●	●		●		●	●						
+Wild boar			●																								
+Common Racoon Dogs																											
+Red Foxes					●																						
+European Hare	●		●		●														●								
+Eurasian/Grey Wolves																											
+Deer (red deer, roe deer, fallow deer)			●							●	●			●													
+Note: Species included in the tool for a given disease are marked with ‘●’. Pathogen abbreviations used in this report are provided in the Disease glossary.
+
+TABLE 6 Products of animal origin (POAO) included in the L'ORA tool for each disease agent.Vector group	T	T	T	T	Sf	C	C	C	C	C	C	C	C/M	M	M	M	M	M	M	M	M	Bf	Bf	Bf	Bf	Bf	
+Species	B. burgdorferi	C. burnetii	CCHFV	TBEV	L. infantum	AHSV	AKAV	BTV	BEFV	EHDV	SBV	VSV	SHUV	CVV	EEEV	JEV	RVFV	SLEV	VEEV	WNV	WEEV	EIAV	LSDV	T. evansi	T. vivax	B. besnoiti	
+Chilled & frozen meat		●	●														●						●	●			
+Processed meat		●	●														●						●	●			
+Hides (registered only)		●	●									●					●						●	●			
+Dairy products		●															●						●	●			
+Eggs																											
+Note: POAO included in the tool for a given disease are marked with ‘●’. Pathogen abbreviations used in this report are provided in the Disease glossary.
+
+4 CONCLUSIONS
+
+4.1 Vector‐related entry pathways
+
+For tick‐borne pathogens (B. burgdorferi, C. burnetii, Crimean–Congo haemorrhagic fever virus, tick‐borne encephalitis virus), the only potential vector‐related entry pathway is the movement of ticks attached to livestock, wildlife or pets.
+
+For sandfly‐borne pathogens, i.e. L. infantum, vector‐related entry is potentially associated with local dispersal and gradual expansion of established sandfly populations.
+
+For Culicoides‐borne pathogens (African horse sickness virus, Akabane virus, bluetongue virus, bovine ephemeral fever virus, epizootic haemorrhagic disease virus, Schmallenberg virus, vesicular stomatitis virus and Shuni virus), wind‐borne dispersal of adult midges, including over long distances, is considered a potentially entry pathway. Active flight and passive transport of adult Culicoides in vehicles, particularly animal transport vehicles, are considered potential entry pathways only over short distances
+
+For mosquito‐borne pathogens, the introduction of adult mosquitoes via aircraft is considered a potential entry pathway for all pathogens addressed in this report, based on documented evidence of repeated introductions and airport‐associated transmission. For West Nile virus, already present on the European continent, additional potential vector‐related entry pathways include flight from neighbouring affected areas, expansion of mosquito populations and wind‐assisted dispersal.
+
+For pathogens mechanically transmitted by biting flies (lumpy skin disease virus, B. besnoiti and equine infectious anaemia virus), potential vector‐related entry pathways are limited to active movement and short‐distance wind dispersal within areas where the pathogens are already present in the EU, with passive transport via land vehicles considered a plausible additional pathway.
+
+4.2 Non‐vectorial entry pathways
+
+The movement of live animals represents a potential entry pathway for all pathogens assessed, with the exception of tick‐borne encephalitis virus, when infected domestic or wildlife hosts enter new areas where competent vectors are present
+
+Movements of companion animals may potentially contribute to the introduction of L. infantum and T. vivax.
+
+The relevance of animal species as entry pathways depends on their role as main hosts and their capacity to contribute to further spread, rather than on susceptibility alone.
+
+Germinal products may represent a potential entry pathway for vector‐borne diseases for which vertical transmission has been demonstrated, including C. burnetii, bluetongue virus, Schmallenberg virus, Rift Valley fever virus, T. evansi and equine infectious anaemia virus.
+
+Products of animal origin, such as chilled and frozen meat, processed meat, hides and dairy products, may constitute a potential entry pathway for a limited number of pathogens, notably C. burnetii, Crimean–Congo haemorrhagic fever virus, lumpy skin disease virus and T. evansi.
+
+DISEASE GLOSSARY
+
+Causative agent	Abbreviation	Disease	Abbreviation	
+African horse sickness virus	AHSV	African horse sickness	AHS	
+Akabane virus	AKAV	Akabane	AKA	
+Besnoitia besnoiti	B. besnoiti	Besnoitiosis	Besno	
+Bluetongue virus	BTV	Bluetongue	BT	
+Borrelia burgdorferi s.l.	B. burgdorferi	Lyme disease	Lyme	
+Bovine ephemeral fever virus	BEFV	Bovine ephemeral fever	BEF	
+Cache Valley virus	CVV	Cache valley/Bunyamwera disease	Cache	
+Coxiella burnetii	C. burnetii	Q‐fever	Q‐fever	
+Crimean–Congo haemorrhagic fever virus	CCHFV	Crimean–Congo haemorrhagic fever	CCHF	
+Eastern equine encephalitis virus	EEEV	Eastern equine encephalitis	EEE	
+Epizootic haemorrhagic disease virus	EHD V	Epizootic haemorrhagic disease	EHD	
+Equine infectious anaemia virus	EIA	Equine infectious anaemia	EIA	
+Japanese encephalitis virus	JEV	Japanese encephalitis	JEV	
+Leishmania infantum	L. infantum	Leishmaniosis	Leishmania	
+Lumpy skin disease virus	LSDV	Lumpy skin disease	LSD	
+Rift Valley fever virus	RVFV	Rift Valley fever	RVF	
+Schmallenberg virus	SBV	Schmallenberg	SB	
+Shuni virus	SHUV	Shuni	Shuni	
+St. Louis encephalitis virus	SLE	St. Louis encephalitis	SLE	
+Tick‐borne encephalitis virus	TBEV	Tick‐borne encephalitis	TBE	
+Trypanosoma vivax	T. vivax	Trypanosomiasis	Tryp	
+Trypanosoma evansi	T. evansi	Surra	Surra	
+Venezualan equine encephalitis virus	VEEV	Venezualan equine encephalitis	VEE	
+Vesicular stomatitis virus	VSV	Vesicular stomatitis	VS	
+West Nile virus	WNV	West Nile fever	WNF	
+Western equine encephalitis virus	WEEV	Western equine encephalitis	WEE	
+
+ABBREVIATIONS
+
+AHL Animal Health Law
+
+C/M Culicoides and mosquitoes
+
+M mosquitoes
+
+POAO products of animal origin
+
+Sf sandflies
+
+SO Scientific Opinion
+
+T ticks
+
+ToR Terms of Reference
+
+VBDs vector‑borne diseases
+
+REQUESTOR
+
+European Commission
+
+QUESTION NUMBER
+
+EFSA‐Q‐2025‐00182
+
+COPYRIGHT FOR NON‐EFSA CONTENT
+
+EFSA may include images or other content for which it does not hold copyright. In such cases, EFSA indicates the copyright holder and users should seek permission to reproduce the content from the original source.
+
+ACKNOWLEDGEMENTS
+
+EFSA wishes to thank the hearing experts of VectorNet who attended the working group meetings – Cedric Marsboom, Wim Van Bortel and Marieta Braks – for their valuable feedback and expert contributions. EFSA also thanks Fernanda Dórea for attending the working group as hearing expert as coordinator of the Disease Profiles, for providing valuable feedback, and for facilitating alignment between the work of the consortium and the working group, in particular with the Scientific Report on the knowledge mapping of vector‐borne diseases (EFSA‐Q‐2025‐00179). EFSA further acknowledges Clazien de Vos for attending the working group meetings as hearing expert in her role as coordinator of the Living One Health Risk Assessment (LORA) Consortium, and for her valuable feedback supporting consistency between this report and the risk assessment to be carried out under Terms of Reference 2 (EFSA‐Q‐2025‐00185). Beyond the hearing experts participating in the working group meetings, EFSA would like to particularly thank the VectorNet experts who contributed to the supporting document assessing potential vector‐related entry pathways of the pathogens, namely Pauline de Best and Maria Goffredo. EFSA also acknowledges the LORA consortium members, in addition to Clazien de Vos, who supported the assessment of potential non‐vector‐related pathways: Cobbold Claire, Patel Jay, Horigan Verity, Snary Emma, Counotte Michel, Swanenburg Manon, Simons Robin and Evans Daniel. Both supporting documents constituted an essential foundation for this report. Finally, EFSA thanks Soren Nielsen and Anette Boklund for their careful review of the report.
+
+Note
+
+APPENDIX A Protocol: translation of ToR 1.4 into sub‐questions, evidence needs and assessment methods
+
+TABLE A.1 Protocol for the assessment of ToR 1.4.
+
+ToR 1.4.	Question	Evidence needs	Data collection method	Assessment methods	Links to updated information	
+1.4.1 Pathways related to vector movement	
+	Which pathways are potentially relevant for introduction of the 25 VBDs related to: Active movement of competent vectors
+
+Passive movements of competent vectors
+
+	List of potential competent vectors (provided by SR 2)
+
+Relevant life stages and sex of vectors transmitting the VBD agents
+
+Evidence of vertical transmission in vectors
+
+Ranges of active vector movement
+
+Evidence of passive movement of vectors (i.e. transport of goods, animals, wind, …)
+
+	SLR vector competence
+
+Extensive literature review
+
+Extensive literature review
+
+Extensive literature review
+
+Extensive e literature review
+
+	Expert judgement based on info found in SLR and narrative reviews	External report on introduction through Vectors
+
+External report on Risk introduction through vectors/Vectornet
+
+	
+1.4.2. Non‐vectorial pathways	
+	Which animal species are hosts of the 25 VBDs?	Evidence of infection in different animal species, including domestic and wild animals	SLR experimental infections
+
+	Expert judgement based on information found in SLR	Disease profiles: https://animal‐diseases.efsa.europa.eu/
+
+Version: dd/mm/yyyy
+
+	
+	Which pathways other than vector movement (host and matrices movement) can be relevant for the introduction/spread of the 25 VBDs?	Evidence of transmission modes of VBDs	SLR experimental infections
+
+	Expert judgement based on information found in SLR	Disease profiles: https://animal‐diseases.efsa.europa.eu/
+
+Version: dd/mm/yyyy
+
+	
+	Which matrices can possibly contain infectious disease agents of the 25 VBDs?	Evidence of infectious virus in matrices	SLR survival in matrices
+
+	Expert judgement based on information found in SLR	Disease profiles: https://animal‐diseases.efsa.europa.eu/
+
+Version: dd/mm/yyyy
+
+	
+
+APPENDIX B Classification of data availability for selected vector‐borne diseases
+
+TABLE B.1 Number of publications identified through systematic literature reviews for select pathogens.
+
+VBD	Publication count	Data availability	
+AHSV	66	++	
+AKAV	77	++	
+B. besnoiti	82	++	
+B. burgdorferi	486	+++	
+BEFV	67	++	
+BTV	380	+++	
+C. burnetii	217	+++	
+CCHFV	73	++	
+CVV	24	+	
+EEEV	31	+	
+EHDV	72	++	
+EIAV	55	++	
+JEV	79	++	
+L. infantum	560	+++	
+LSDV	87	++	
+RVFV	317	+++	
+SBV	84	++	
+SHUV	16	+	
+SLEV	212	+++	
+T. evansi	72	++	
+T. vivax	121	+++	
+TBEV	98	++	
+VEEV	31	+	
+VSV	33	+	
+WEEV	18	+	
+WNV	191	+++	
+Note: +: 0–50; ++: 51–100 +++: > 100.
+
+FIGURE B.1 Available evidence by category for the 25 vector‐borne diseases (WEEV and EEEV are considered together). Y‐axis refers to the publications that were considered eligible in the SLRs.
+
+1 Commission Implementing Regulation (EU) 2018/1882 on the application of certain disease prevention and control rules to categories of listed diseases and establishing a list of species and groups of species posing a considerable risk for the spread of those listed diseases. OJ L 308, 4.12.2018, p. 21.
+
+
+REFERENCES
+
+Braks, M. , de Best, P. , Goffredo, M. , & Marsboom, C. (2026). Assessment of risk of introduction of 25 vector‐borne disease agents through active or passive movement of vectors. EFSA Supporting Publications, EN‑10094. 10.2903/sp.efsa.2026.EN-10094
+Cobbold, C. , Patel, J. , De Vos, C. . J. , Horigan, V. , Snary, E. , Counotte, M. . J. , Swanenburg, M. , Simons, R. . R. . L. , & Evans, D. (2026). Assessment of non‐vector pathways of introduction of 25 vector‐borne diseases in the L'ORA tool. EFSA Supporting Publications, EN‑10095. 10.2903/sp.efsa.2026.EN-10095
+EFSA (European Food Safety Authority) , Dhollander, S. , Baltusyte, I. , Bigoni, F. , Broglia, A. , Figuerola, J. , Thulke, H. H. , & Miranda Chueca, M. Á. (2026a). Identification and mapping of potential and highly likely vectors for selected vector‐borne diseases in the EU and neighbouring countries. EFSA Journal, 24(5), 10061. 10.2903/j.efsa.2026.10061
+EFSA (European Food Safety Authority) , Baltusyte, I. , Bigoni, F. , Broglia, A. , Dhollander, S. , Tampach, S. , Figuerola, J. , Thulke, H. H. , & Miranda Chueca, M. Á. (2026b). Knowledge mapping of risk mitigation measures against vector‐borne diseases. EFSA Journal, 24(5), 10060. 10.2903/j.efsa.2026.10060
+EFSA (European Food Safety Authority) , Dhollander, S. , Baltusyte, I. , Bigoni, F. , Broglia, A. , Figuerola, J. , Thulke, H. H. , & Miranda Chueca, M. Á. (2026c). Vector‐borne diseases‐knowledge maps. EFSA Journal, 24(5), 10062. 10.2903/j.efsa.2026.10062

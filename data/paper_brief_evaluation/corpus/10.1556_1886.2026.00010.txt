@@ -1,0 +1,327 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Eur J Microbiol Immunol (Bp)
+Journal ID: Eur J Microbiol Immunol (Bp)
+NLM Journal ID: 101569896
+Journal ID: EUJMI
+
+European Journal of Microbiology & Immunology
+
+ISSN: 2062-509X
+EISSN: 2062-8633
+Publisher: Akadémiai Kiadó
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13338768
+PMID: 41842950
+DOI: 10.1556/1886.2026.00010
+Article version: 1
+Subjects: Article
+
+Endemic progression of autochthonous West Nile virus infections in Europe
+
+Heinrich Paul D.
+Bereswill Stefan
+https://orcid.org/0000-0001-6399-651X Heimesaat Markus M. * markus.heimesaat@charite.de
+Institute of Microbiology, Infectious Diseases and Immunology, Gastrointestinal Microbiology Research Group, Charité - University Medicine Berlin, corporate member of Freie Universität Berlin, Humboldt-Universität zu Berlin, and Berlin Institute of Health , Berlin , Germany
+* Corresponding author. Institute of Microbiology, Infectious Diseases and Immunology, Charité - University Medicine Berlin, Campus Benjamin Franklin, Hindenburgdamm 30, 12203 Berlin, Germany. Tel.: +49-30-450524318. E-mail: markus.heimesaat@charite.de
+Electronic publication date: 2026 Mar 17
+Publication date: 2026 Jun
+Volume: 16
+Issue: 2
+First page: 81
+Last page: 91
+Received 2026 Feb 9; Accepted 2026 Mar 4
+Copyright: © 2026 The Author(s)
+Copyright year: 2026
+Copyright holder: The Author(s)
+License: Open Access statement. This is an open-access article distributed under the terms of the Creative Commons Attribution-NonCommercial 4.0 International License (https://creativecommons.org/licenses/by-nc/4.0/), which permits unrestricted use, distribution, and reproduction in any medium for non-commercial purposes, provided the original author and source are credited, a link to the CC License is provided, and changes – if any – are indicated.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Keywords: West Nile virus, West Nile neuroinvasive disease, One Health surveillance, autochthonous infections in Europe, climate change, transfusion safety, serological flaviviral monitoring
+
+Funding: Funding: None.
+
+Figure count: 1
+Equation count: 0
+Reference count: 45
+Page count: 11
+
+==============================
+Abstract
+
+Arthropod-borne West Nile virus (WNV) infections are highly prevalent under warm climate conditions. Our systematic review summarizes recent evidence on autochthonous human WNV infections in Europe considering increasing temperatures due to climate changes, and focuses on geographic expansion, reported drivers, and implications for One Health surveillance, diagnostics, and blood safety. The analysis of 27 included studies published since 2015 revealed progressive geographic expansion of autochthonous WNV infections including outbreaks, in several regions supported by phylogenetic data consistent with sustained local circulation. In selected integrated surveillance settings, detection of WNV in mosquito pools and birds preceded detection of human infections. Rising temperatures were the most consistently reported meteorological correlate of WNV infection incidence and were associated with earlier seasonal onset and prolonged transmission. Across surveillance and case-series data, West Nile neuroinvasive disease (WNND) was disproportionately reported among older male individuals, and patients with distinct comorbidities. The over-representation of WNND among reported cases was compatible with under-ascertainment of mild and asymptomatic infections. In conclusion, given increasing incidences of WNV infections in Europe due to climate changes, awareness and preparedness are pivotal and should prioritize integrated surveillance, blood donor screening, and confirmatory diagnostics with improved serological discrimination in regions with flaviviral co-circulation.
+
+1 Introduction
+
+1.1 West Nile virus taxonomy
+
+The West Nile virus (WNV) is an arthropod-borne arbovirus of the genus Flavivirus within the family Flaviviridae, a group of small-enveloped viruses with positive-sense, non-segmented RNA genomes of approximately 9.2 to 11 kb [1, 2]. Serologically, WNV belongs to the Japanese encephalitis virus complex and can be classified into multiple phylogenetic lineages; notably, lineage 1 and lineage 2 are most consistently associated with major outbreaks of human WNV infections [2].
+
+1.2 Transmission cycle of WNV
+
+In enzootic settings, WNV is sustained primarily through transmission between birds and mosquitoes [2]. Many passerine species reach viremia levels sufficient to infect feeding mosquitoes, whereas humans typically do not develop viremia high enough to contribute meaningfully to onward transmission and are therefore considered epidemiological dead-end hosts [2]. Mosquito-borne transmission accounts for the vast majority of human WNV infections. Rare non-vector transmission has been described, including via blood products and organ transplantation, as well as occasional perinatal and occupational exposures [2].
+
+1.3 Epidemiology of WNV infections in Europe
+
+Whereas the first described human WNV infection dates back to 1937 and occurred in Uganda, warmer temperatures are associated with higher incidences of WNV-induced morbidities [2]. An early illustration of epidemic potential in Europe was the 1996 outbreak in Romania, described as the first major WNV epidemic in Europe [3]. Since then, routine surveillance has shown that autochthonous WNV infections recur seasonally in distinct parts of Europe, typically during the warmer months. Of note, recent surveillance summaries describe a broader geographic distribution, with an expanding number of areas in Europe reporting autochthonous transmission [4].
+
+1.4 Clinical spectrum of WNV infections
+
+Clinically apparent WNV infections are relatively infrequent given that most infections are asymptomatic, and approximately 20–40% of infected humans develop a self-limited febrile syndrome after an incubation period of about 2–14 days. This “West Nile fever” (WNF) is characterized by non-specific systemic symptoms such as headache, myalgias, and fatigue, with skin rash or gastrointestinal symptoms reported in some patients. Progression to neuroinvasive disease occurs in less than 1% of infections but drives much of the severe disease burden. West Nile neuroinvasive disease (WNND) encompasses meningitis, encephalitis, and acute flaccid paralysis, whereas encephalitis in particular is linked to altered mental status, focal neurological deficits, and poorer in-hospital outcomes in cohort studies [5].
+
+1.5 Laboratory diagnosis of WNV infections
+
+In suspected WNV infection, laboratory confirmation combines direct detection (i.e., virus isolation or amplification of viral RNA) and serological evidence of a WNV-specific humoral host response in serum or cerebrospinal fluid (CSF) [4]. By applying reverse transcriptase polymerase chain reaction (RT-PCR) WNV RNA can be measured in patient-derived matrices such as whole blood or plasma, CSF, urine, or distinct tissues. Following human infection viremia is typically of rather short duration (approximately 8 to 10 days) and of low magnitude, which constrains the usefulness of RNA detection in blood, however. Consequently, where available, alternative specimen types (including urine) may complement testing, since RNA detectability varies with both specimen and infection stage [4]. In practice, most human infections are confirmed serologically. Whereas WNV-specific IgM generally appears in serum samples around days 3–9 after infection, associated serum IgG levels are detectable from roughly days 4–16 post-infection. For neuroinvasive disease, IgM detection in CSF supports the diagnosis of acute central nervous system (CNS) infection since IgM does not cross the blood-brain barrier [4]. Given known flavivirus antibody cross-reactivity, confirmatory virus neutralization testing against related flaviviruses is recommended to assess specificity [4].
+
+1.6 Aim of the study
+
+Given increasing temperatures due to climate changes, our systematic review aimed to summarize most recent evidence on autochthonous human WNV infections in Europe even in countries with considered milder climatic conditions. In our survey we further focused on geographic expansion of WNV infections, reported drivers, and implications for One Health surveillance, diagnostics, and blood donation/transfusion safety measures.
+
+2 Methods
+
+2.1 Search strategy
+
+This review is based on a structured literature search conducted on January 3rd, 2026 using the PubMed data base provided by the U.S. National Library of Medicine. The initial search included the terms “autochthonous West Nile virus infection” AND “humans” AND “Europe”, yielding 64 records. Review articles were excluded using a publication-type filter (“review”), resulting in 51 records. To focus on recent evidence, we limited eligibility to primary studies published from 2015 up to the search date; after applying the publication-date filter, 39 records remained for screening (Fig. 1).
+
+Fig. 1. Search strategy (PRISMA 2020 flow diagram)
+
+2.2 Inclusion and exclusion criteria
+
+We included primary research reporting on autochthonous human WNV infections in Europe (clinical, epidemiological/surveillance, or One Health studies). Records were screened by title/abstract and, where potentially eligible, by full text analysis. Of 39 screened records, six publications were excluded for insufficient relevance to the research question, four because the full text was not available in English or German, and further two papers given that they were not primary research articles. Finally, the selection process yielded 27 studies that were included in further detailed analyses (Fig. 1).
+
+2.3 Data extraction
+
+Included studies were categorized as (i) clinical case reports/series, (ii) epidemiological/surveillance studies, or (iii) One Health studies addressing human-animal-vector interactions. Key information extracted included study setting (country/region), design, population, and the main outcomes relevant to spread/emergence, reported drivers, and prevention/preparedness implications.
+
+3 Results
+
+3.1 Spread and emergence of WNV infections in Europe
+
+Over the past decade, WNV has progressively expanded its geographic distribution in Europe, with increasing reports of autochthonous human infections in previously unaffected regions. In August 2014, Jungbauer et al. provided the first molecular evidence of an autochthonous human WNV infection in Vienna, Austria, detected through nucleic acid testing (NAT) performed as part of a blood donor screening program [6]. Shortly thereafter, the first autochthonous human WNND case was reported in Sicily in 2016 [7]. In the following years, WNV was detected in mosquito pools in Slovakia during entomological surveillance in 2018, which was later accompanied by the first autochthonous, laboratory-confirmed human case of WNF in 2019 [8]. By 2020, Extremadura (Spain) reported its first documented human WNV outbreak, comprising six confirmed cases [9].
+
+In parallel, the largest autochthonous WNV outbreak reported in Germany to date was described in August 2020. The case series comprised nine patients, five of whom fulfilled the European Union (EU) criteria for an autochthonous WNV infection [10]. These findings indicated an endemic and seasonal circulation of WNV lineage 2 in Leipzig and the surrounding regions. This assessment was further supported by the phylogenetic stability of locally circulating WNV lineage 2 strains across multiple transmission seasons [10]. Around the same period, a study from Berlin covering the years 2019–2020 reported a WNND case in a kidney transplant recipient. Phylogenetic sequence analysis revealed a close relationship between the patient's WNV strain and contemporaneous German WNV lineage 2 sequences, indicating local circulation and persistence of the virus in the Berlin area [11]. Subsequently, three additional autochthonous human WNV infections that had been detected in Berlin in 2021 were linked to locally circulating viruses. Phylogenetic analyses demonstrated that human- and Culex pipiens–derived WNV lineage 2 sequences clustered within a Berlin-specific monophyletic clade, with closely related viruses detected at probable exposure sites in 2021 and again, in 2022. Collectively, these findings provide evidence for sustained local transmission, overwintering, and the establishment of an endemic urban WNV maintenance cycle [12].
+
+In July and August 2020, the first autochthonous human WNV infections were identified in the Netherlands, suggesting a northward expansion of WNV circulation in Europe [13]. Two years later, the first two autochthonous human WNND cases were reported in Catalonia, Spain [14]. Most recently, in the summer of 2025, the first two autochthonous cases of WNND were identified in the Paris metropolitan area, raising concern about further northward expansion of WNV circulation in France [15]. During the same period, another example of WNV emergence was observed in the Lazio region of central Italy, where a large autochthonous outbreak occurred between July and August 2025 in an area without previous human WNV infection cases. Remarkably, the outbreak comprised 171 infections, including 57 WNND cases [16].
+
+Taken together, these regional observations are consistent with EU–level surveillance data from 2010 to 2018, which indicate an expanding geographic spread of WNV, with the number of affected countries increasing from seven in 2010 to 15 in 2018, accompanied by a marked rise in newly affected areas in 2018 [17].
+
+3.2 Ecological and climatic factors affecting WNV transmission and human infection
+
+3.2.1 Sentinel animals
+
+Evidence from multiple European settings supports the role of animals as early indicators of local WNV circulation, often preceding the detection of autochthonous human infections. Ziegler et al. demonstrated the sentinel value of animal surveillance in Germany by documenting an epizootic increase of WNV infections in birds and horses in 2019, followed by spillover into humans, which finally resulted in five confirmed autochthonous cases occurring in the same geographic focus [18].
+
+Comparable temporal patterns have been reported in other European regions, including Extremadura and Catalonia (Spain), as well as in the Netherlands, where WNV circulation was documented in animal reservoirs and/or mosquito vectors prior to the occurrence of the first autochthonous human infections [9, 13, 14]. In Sicily, increased serological evidence of WNV infection was detected in dogs and horses in the same area where the first autochthonous human WNND case was reported; notably, WNV RNA could not be detected in any of the collected mosquito pools, underscoring the value of non-vector sentinel surveillance [7]. In another outbreak in Southern Italy, WNV was detected not only in humans and mosquito vectors but also in horses, highlighting concurrent circulation across multiple host species [19].
+
+Further support for animal-based virus surveillance comes from a large serological survey from Southeastern France that assessed dogs and horses as potential sentinel species for assessing circulations of WNV besides Usutu virus comprising another flavivirus. Seropositive animals were predominantly detected in regions classified as epidemiologically exposed, and the spatial distribution of seropositive dogs largely overlapped with areas reporting autochthonous human infections, suggesting that animal sero-surveillance may provide valuable complementary information on local virus circulation [20].
+
+Integrated surveillance data from Italy further illustrates the temporal relationship between animal, vector, and human infections. Within this framework, WNV circulation was detected in mosquito pools prior to the occurrence of the first human infections, with a mean lead time of 22 days, while WNV-positive birds were identified approximately 35 days earlier. Notably, WNV detection in animals and vectors was not consistently followed by human cases, highlighting a limitation of surveillance data in predicting human infections [21]. Consistent with this limitation, evidence from Germany indicates that although WNV circulation in animals was documented, it was not accompanied by a detectable increase in unrecognized human infections. In 2019, despite widespread detection of WNV in birds, horses, and mosquito pools, targeted screening of blood donors and a serological survey among zoo employees in Berlin failed to identify additional previously undetected human WNV infection [22].
+
+3.2.2 Increased temperatures as climatic drivers of WNV transmission and human infections
+
+Rising temperatures were the most consistently identified meteorological driver of WNV incidence, with significant effects detectable up to nine weeks before case detection and the highest impact one week prior to diagnosis. Precipitation was also associated with WNV incidence in a lag-dependent manner; while inverse associations were observed in univariable models, multivariable analyses revealed positive effects at longer lags (approximately six to nine weeks before diagnosis), indicating a complex and time-dependent influence on transmission dynamics [23].
+
+A study from Greece describes an exceptionally long (>5 months) and intense WNV transmission season in 2018. The first laboratory-confirmed human WNV case occurred as early as late May that year, marking the earliest onset of a WNV season ever documented in the country, while the last cases were reported in November. Notably, WNND cases from 2018 alone accounted for approximately 34% of all WNND cases reported in Greece since 2010. The authors suggested that unusually mild winter conditions, exceptionally warm spring and summer temperatures, and markedly increased precipitation–reaching up to 200% above long-term averages–may have contributed to the extraordinary magnitude and duration of the WNV infection outbreak [24]. These observations are further supported by EU-wide surveillance data indicating that the unusually early onset and prolonged transmission season in 2018 may have been associated with favorable ecological conditions for WNV circulation. Elevated spring and summer temperatures are thought to have accelerated mosquito population growth and shortened the extrinsic incubation period of the virus, while increased precipitation had likely promoted mosquito breeding and higher vector abundance. In addition, climatic factors influencing bird migration, breeding patterns, and host availability may have further facilitated virus amplification and geographic spread during the 2018 season [17].
+
+A German study demonstrated that exceptionally high summer temperatures in 2018–2019 facilitated WNV transmission by shortening the extrinsic viral incubation period, thereby triggering the first WNV epidemic in Germany and promoting viral establishment [18]. Building on these findings, a spatiotemporally explicit model for Germany demonstrated that temperature, precipitation, and relative humidity jointly determine ecological suitability for WNV transmission across spatial and temporal scales. Based on the strong climate-transmission coupling observed, the authors proposed that such modelling approaches could support the development of early warning systems for WNV outbreaks [25].
+
+3.2.3 Viral lineage dynamics
+
+Integrated surveillance data from Italy documented a shift in circulating WNV lineages, with lineage 1 predominating during the early years of surveillance (2008–2010), followed by a period of co-circulation (2011–2012), and a predominance of lineage 2 during the later surveillance period up to 2015 [21]. Experimental evidence from Spain indicates that lineage- and strain-specific differences can influence transmission dynamics. In red-legged partridges, a competent avian reservoir host, a lineage 1 strain (SPA20-02) induced a more pronounced and longer viremia and a markedly higher host competence index than a co-circulating lineage 2 strain (AC924). These differences in avian host competence were proposed to partially explain the contrasting human outbreak intensity observed between Southern and Northeastern Spain during the 2020 transmission season [26].
+
+3.3 Clinical manifestations and individual risk factors for WNND
+
+3.3.1 Sex distribution among WNND patients
+
+In a Greek surveillance study, a total of 317 autochthonous WNV infections were documented. Of note, the incidence of WNND was almost twice as high in men compared to women [24]. A marked sex imbalance was also reported in an Italian surveillance study, which analyzed 173 cases of WNND. Overall, 69% of affected patients were male. Among the 18 fatal cases recorded during the study period, 14 occurred in men, suggesting a higher disease burden among male patients [21]. In a Europe-wide epidemiological study including EU and EU enlargement countries, a total of 3,849 human WNV cases reported between 2010 and 2018 were analyzed. The overall male-to-female ratio was 1.5:1, increasing to 1.6:1 among patients with WNND, suggesting a higher disease impact among men. [17].
+
+3.3.2 Age patterns in WNND patients
+
+In a study including both EU and EU enlargement countries, the median age of the patients with WNV infection between 2010 and 2018 was 66 years, while the median age among patients with WNND was higher (i.e., 69 years) [17]. A recent outbreak investigation from Lazio region (Italy) covering July to August 2025 reported marked age differences between clinical presentations, with a median age of 53 years among patients with WNF and 76 years among those with WNND. In total, 171 autochthonous WNV infections were identified during the outbreak, including 57 cases of WNND [16]. Earlier Italian surveillance data from 2008 to 2015 also reported a relatively high median age among patients with WNND, which was 73 years overall, and increased to 82 years among fatal cases [21]. Greek surveillance data from 2018 indicated a similar age-related pattern, with a median age of 65 years among patients with WNF. In contrast, patients who developed WNND were significantly older, with a median age of 75 years [24].
+
+3.3.3 Underlying comorbidities in WNND patients
+
+In an Italian case series, 8 out of 9 hospitalized patients suffering from WNND had (potentially immune-compromising) comorbidities, most commonly vascular disease (77.7%), followed by other cardiovascular conditions (33.3%) and diabetes mellitus or onco-hematological diseases (33.3%) [27].
+
+In support, all fatal WNND cases recorded in Italy through the national surveillance system between 2008 and 2015 (n = 18) occurred in patients with underlying chronic morbidities [21]. In addition, a surveillance study from Greece covering the period 2010–2018 reported that 83% of patients with WNND exhibited at least one underlying chronic disease; the most frequently reported comorbidities were cardiovascular disease (62%), followed by heart disease (60%) and arterial hypertension (45%) [24]. Furthermore, in a case series from Leipzig, 3 of 7 patients with WNND were reported to receive immunosuppressive therapy at the time of infection [10].
+
+3.3.4 Interferon I autoantibodies
+
+A recent German case series (2023–2024) revealed three autochthonous WNND cases, of which two patients displayed neutralizing autoantibodies against type I interferons. These findings raise the hypothesis that impaired type I interferon responses may contribute to severe clinical manifestations of WNND [28].
+
+3.4 Public health relevance and diagnostic challenges
+
+3.4.1 Underdiagnosis of human WNV infections
+
+At a large diagnostic center in Berlin, WNV-specific testing was rarely requested in 2019 and 2020, with only 19 and 22 CSF samples having been analyzed by WNV PCR per year, respectively, despite approximately 1,000 annual CSF samples undergoing routine multiplex diagnostics. This suggests limited clinical consideration for WNV in cases of encephalitis [11]. These findings are in line with other observations from Berlin, where one autochthonous WNV infection was identified only through retrospective screening of CSF from patients with encephalitis of unknown etiology, suggesting underdiagnosis of human WNV infections [12].
+
+3.4.2 Diagnostic challenges
+
+A study from Slovakia highlights a key diagnostic limitation in regions with co-circulating flaviviruses. In horses, screening ELISAs may be difficult to interpret due to cross-reactivity, and even neutralization testing may not always reliably differentiate infections (e.g., WNV vs. Tick-borne encephalitis virus) [29]. These findings are corroborated by a human study from northern Italy, which demonstrated that Usutu virus infections can closely mimic WNV infection at both the clinical and laboratory level. Of note, cross-reactivity affected screening ELISAs, WNV nucleic acid testing used for blood donor screening, and even neutralization assays, such that a definitive differentiation between WNV and Usutu virus infections was not always possible in regions with co-circulating flaviviruses [30].
+
+Similar diagnostic challenges were observed in the context of blood donor screening in Germany, where suspected WNV-positive donations could not always be confirmed as true WNV infections. Metagenomic sequencing analyses revealed that a relevant proportion of reactive samples was attributable to other flaviviruses, underscoring the impact of cross-reactivity on molecular screening and the need for confirmatory testing in areas with co-circulation flaviviruses [31].
+
+3.4.3 Blood donation and transfusion safety
+
+The endemic circulation of WNV across large parts of Europe highlights the critical role of early surveillance and preparedness measures, particularly to ensure timely blood safety interventions and reduce the risk of transfusion-related transmission [17]. A case report from Vienna describing a blood donor who tested positive for WNV underscores the importance of routine blood donor screening programs. The case further illustrates that reliance on clinical surveillance alone might be rather insufficient, given that the donor was asymptomatic at the time of donation. Nevertheless, NAT detected a viral load of 6.4 × 107 copies/mL [6].
+
+To prevent transfusion-associated transmission, Italy's integrated human, animal, and vector surveillance direct informed transfusion safety measures. Detection of WNV circulation in affected provinces triggered mandatory NAT screening of blood and organ donations, leading to the identification of asymptomatic WNV-positive donors [21]. In Germany, the implementation of NAT-based donor screening was proven central for transfusion safety. Between 2020 and 2021, NAT screening identified 19 WNV-positive blood donors, underscoring its ability to detect asymptomatic infections [32]. Consistent with this, no WNV transfusion-transmitted infections were reported up to 2023, supporting the effectiveness of the current risk minimization measures [31].
+
+3.4.4 Clinical relevance: long-term sequelae and mortality
+
+In an Italian case series, all 9 patients with WNND survived, whereas 3 of 9 affected individuals developed persistent long-term neurological sequelae. During follow-up assessments of up to 18 months, these patients exhibited residual neurological deficits, including dysmetria, cognitive and motor impairment, dysphagia, ambulation difficulties, and epilepsy [27]. In addition, a recent German case series describing three autochthonous WNND cases reported persistent long-term neurological sequelae, such as motor weakness, gait instability, fatigue, and cognitive impairment [28].
+
+Beyond this substantial burden of long-term neurological collateral damages reported in individual case series, population-level surveillance data from Greece underscore the clinical severity of WNV infection. In 2018, the largest WNV outbreak recorded in the country to date resulted in 51 deaths during hospitalization, with a case fatality rate of 20% among WNND cases, emphasizing the substantial public health impact of WNV infections. However, the authors noted that the comparatively high case fatality observed among WNND cases in Greece may be partly influenced by the surveillance methodology, as all deaths occurring during prolonged hospitalization were recorded, including fatalities not directly attributable to WNV infection [24].
+
+4 Discussion
+
+4.1 Spread and emergence of WNV infections in Europe
+
+Overall, the data synthesized in this review are consistent with a shift from sporadic emergence to sustained endemic WNV circulation in several European regions [17, 21, 24]. Recurrent autochthonous human infections, together with phylogenetic evidence of local viral persistence, support the establishment of stable transmission cycles [10–12]. Early epidemiological reviews proposed that WNV introduction into Europe occurred primarily via migratory birds and in most settings resulted in sporadic transmission events. In a limited number of settings, evidence of viral overwintering involving local birds and mosquitoes supported the hypothesis that endemic transmission cycles could emerge under favorable conditions [33]. More recent frameworks emphasize that the recurrent detection of genetically related WNV strains over successive transmission seasons can be suggestive of local persistence, although bird-mediated dispersal complicates a clear distinction from intermittent reintroductions and underlines the need for long-term genomic data [34]. This aligns with the repeated autochthonous human infections and evidence of local circulation identified in this review.
+
+As a focal-scale illustration, molecular surveillance data from Italy are consistent with local WNV lineage 2 circulation and potential establishment. The detection of lineage 2 in indigenous mosquito vectors and a resident avian host within the same surveillance period is compatible with ongoing local transmission, although the sampling sites were geographically distinct [35]. Identical or near-identical lineage 2 sequences were identified in Culex pipiens pools and a resident collared dove, with no detectable sequence variation among local samples [35]. While limited in geographic scope, detection across different hosts and sites is compatible with short-term genetic stability and supports the interpretation of local establishment and circulation of lineage 2 in the region.
+
+Beyond individual studies, the technical report of the European Center for Disease Prevention and Control (ECDC) describes WNV endemic in several EU/EEA countries. During 2012–2021, nine countries reported autochthonous human infections in consecutive years and/or annual incidence ≥0.1/100,000 in affected areas. In affected countries, human cases were generally reported alongside animal cases and, in some settings, virus detection in vectors [4].
+
+4.2 Ecological and climatic factors
+
+4.2.1 Integrated One Health surveillance as early warning
+
+Across several studies, animal- and vector-based surveillance often detected WNV circulation before the first reported autochthonous human infections, supporting its utility as an early indicator of local viral activity [13, 18, 21].
+
+A well-documented example is the Italian 2018 WNV transmission season, where integrated One Health surveillance detected viral circulation in mosquito vectors and animal hosts before the first confirmed autochthonous human cases [36]. This early detection allowed timely implementation of blood and transplant safety measures [36]. At province level, human infections were reported only where viral circulation had also been demonstrated in animals and/or mosquitoes, supporting the value of integrated surveillance [36]. Overall, the Italian experience is consistent with the interpretation that coordinated surveillance across human, animal, and vector sectors may function as an operational early-warning component under favorable structural conditions.
+
+From a broader public health perspective in the EU/EEA (European Union/European Economic Area), integrated One Health surveillance approaches such as the Italian model may not be uniformly transferable across all countries, as surveillance systems and practices differ depending on national policies and implementation. European assessments highlight substantial heterogeneity across surveillance structures, diagnostic pathways, and note that data collection and reporting are not harmonized between countries and sectors, which limits trend attribution and constrains cross-country comparisons [4]. In addition, mosquito-based surveillance has been implemented only in some settings, and its benefits and costs should be assessed before broader adoption; laboratory capacity considerations can further constrain confirmatory workflows, particularly for large-scale testing [4]. Accordingly, these findings support the interpretation that implementation and interpretation should remain context-specific, and best-case national experiences should not be extrapolated without accounting for structural and methodological differences.
+
+4.2.2 Climate as modifier of WNV transmission
+
+While integrated surveillance enables early detection of WNV circulation, the findings of this review permit the interpretation that climatic conditions modulate the timing and intensity of transmission rather than acting as a solitary upstream driver. Across several studies, elevated temperatures-and to a lesser extent precipitation-were associated with earlier seasonal onset and prolonged transmission periods, with effects detectable weeks before case recognition [23, 25]. The exceptional 2018 transmission season observed in multiple European countries illustrates how favorable climatic conditions may amplify viral circulation in suitable ecological settings [17, 18, 24].
+
+Paz and Semenza conceptualize WNV transmission in Europe as the result of interacting abiotic and biotic determinants rather than a single upstream driver [37]. Within this framework, ambient temperature is highlighted as a key abiotic modulator that influences vector dynamics and viral development in mosquitoes, thereby shaping the timing and intensity of transmission. Precipitation is described as a more indirect and context-dependent factor, with effects that vary with local ecology and vector habitats. This supports the interpretation that climate acts as a contextual modifier that can shift and amplify transmission where competent vectors and ecological conditions are already present, while remaining insufficient on its own to explain observed epidemiological patterns [37].
+
+At a mechanistic level, Kilpatrick et al. demonstrated in Culex pipiens mosquitoes that WNV transmission accelerates sharply with increasing temperature, with non-linear increases at higher temperatures, consistent with faster transmission kinetics [38]. The authors further identified a temperature-dependent selective advantage of specific viral genotypes and showed that the WN02 genotype was transmitted more efficiently than the previously dominant NY99 genotype under warmer conditions, highlighting that climatic conditions may interact with viral evolutionary dynamics rather than simply scaling transmission uniformly [38].
+
+However, attribution remains constrained by regional and context-specific variability and by limited availability of high-quality, long-term data. As emphasized by Rocklöv and Dubrow, a suitable climate is necessary but often not sufficient to explain vector-borne disease patterns in isolation, and multiple non-climate drivers including globalization-related factors such as travel and trade as well as public health systems (e.g., surveillance and vector control) can substantially influence observed incidence [39]. Accordingly, climatic effects should be interpreted cautiously as one component of a multi-factorial system rather than as a dominant explanatory variable.
+
+4.2.3 Viral genetics
+
+Beyond environmental factors, viral genetic factors provide an additional layer of complexity in WNV epidemiology. Yet translating sequence variation into consistent predictions of virulence or outbreak severity remains challenging [40, 41]. Hence, attribution of virulence differences or outbreak impact to single genetic substitutions should be made cautiously. Multiple genetic determinants across structural and non-structural proteins have been proposed, and experimental data suggest that the phenotypic effects of individual mutations can be context- and host-dependent [40]. Building on the broader caution that single substitution rarely explains outbreak impact in isolation, European lineage 2 observations provide a concrete example: the frequently discussed NS3-249Pro substitution appears neither necessary nor sufficient for increased virulence in experimental avian models and is therefore not consistently predictive of epidemiological impact [41]. Accordingly, lineage 2 outbreaks underscore that proposed virulence markers should not be over-interpreted as drivers of outbreak magnitude without supporting phenotypic and epidemiological evidence [41].
+
+4.3 Individual risk factors for WNND
+
+4.3.1 Epidemiological risk profile
+
+Across European surveillance and case series, WNND is disproportionately observed in older individuals, males, and patients with underlying conditions [13, 16, 17, 21, 24, 27].This epidemiological profile is further supported by a large U.S. electronic health record-based cohort (2013–2024) providing multivariable evidence that increasing age, chronic kidney disease, and cerebrovascular morbidities were independently associated with WNND and mortality, whereas male sex, hematologic malignancies, immunosuppressive therapy as well as distinct chronic morbidities were associated with an increased risk of WNND [42]. These findings suggest that the risk of WNND concentrates in vulnerable host groups, but the authors also emphasized that limitations of the study include ICD-10-based case identification and potential misclassification [42].
+
+Furthermore, one needs to note that the transferability of the U.S. data to settings in Europe may additionally be hampered by differences in testing practices, healthcare utilization, and notification criteria.
+
+4.3.2 Immunological susceptibility and type I interferon pathways
+
+Recent clinical case series summarized in this review also suggest that impaired type I interferon responses may contribute to susceptibility towards severe WNND [28]. Murine knockout studies provide mechanistic support for a protective role of type I interferon signaling in WNV infection [43]. In IFN-α/β receptor-deficient mice, for instance, peripheral WNV inoculation led to rapidly fatal disease accompanied by early high viral loads, widespread dissemination, and rapid CNS involvement, suggesting that intact IFN-I responses restrict both viral burden and tissue tropism [43]. Complementary neuronal culture experiments further point towards a neuroprotective component given that IFN-β enhanced neuronal survival at least partially independent of its effect on WNV replication [43]. Collectively, these findings provide a mechanistic rationale for clinical observations that impaired IFN-I activity may predispose to severe WNND, while interpretation should remain cautious, because receptor knockout models represent an extreme phenotype and may overestimate effect sizes relative to partial or context-dependent impairment of IFN-I signaling in patients.
+
+Building on these mechanistic and clinical insights, evidence from other arboviral infections is consistent with a broader role of type I interferon neutralization being associated with severe disease. Neutralizing autoantibodies against IFN-I were detected in the severe Powassan, Usutu and Ross River virus cases, but not in individuals with silent or mild infection as shown by Gervais and colleagues [44]. Considered alongside analogous observations in WNV and tick-borne encephalitis, these data support the hypothesis that impaired IFN-I activity may predispose to severe neuroinvasive disease in a subset of patients but may not explain interindividual variability in overall outcomes [44].
+
+4.4 Public health implications
+
+4.4.1 Under-ascertainment of WNV infections
+
+Some reviewed studies suggest that human WNV infections may be under-recognized. In Berlin, for instance, WNV-specific diagnostic tests were infrequently requested in patients with encephalitis, and one autochthonous WNV infection was detected only upon retrospective cerebrospinal fluid analysis [11, 12]. However, these observations are based on small case numbers and derive from a single metropolitan setting, limiting their generalizability. Consistent with these local observations, an analysis of surveillance notifications from EU and EU enlargement countries between 2010 and 2018 reported that, on average, 73% of notified cases with known clinical manifestation and known place of infection were classified as WNND [17]. This contrasts with the widely cited estimate that less than 1% of all WNV infections progress to neuroinvasive disease [2]. The discrepancy is compatible with notification systems preferentially capturing severe disease, consistent with substantial under-ascertainment of mild and asymptomatic WNV infections in case-based surveillance [17].
+
+4.4.2 Diagnostic challenges in flavivirus co-circulation
+
+Confirmatory viral testing remains important given that particularly in regions with co-circulating flaviviruses, etiological attribution can remain uncertain even within multi-step workflows, as diagnostic interpretability depends strongly on sampling time, pre-existing flavivirus immunity (infection or vaccination), and the locally available confirmatory pathway [29–31]. Most routine serological workflows for WNV still rely on assays that primarily capture envelope (E) protein-directed antibody responses, which are often prone to cross-reactivity in regions with co-circulating flaviviruses. As a pragmatic second-tier option, NS1-targeted serology could strengthen discrimination between closely related viruses such as WNV and Usutu virus particularly when standard E-based screening and even neutralization testing can be inconclusive due to cross-neutralization, while low-titer signals should prompt cautious interpretation and follow-up sampling where feasible [45].
+
+4.4.3 Blood donation and transfusion safety
+
+These findings reinforce that transfusion safety cannot rely on clinical surveillance alone, as infectious blood donations may occur in the absence of symptoms and with high viremia [6, 32]. Accordingly, NAT-based blood donor screening is a key intervention to mitigate transfusion-associated risk and to detect infections that could otherwise remain unrecognised [32]. In Germany, the absence of reported transfusion-transmitted WNV infections up to 2023 is consistent with the effectiveness of current risk-mitigation measures [31, 32].
+
+4.4.4 Long-term sequelae of WNV infection
+
+Beyond acute case counts, the public health impact of WNV infection is amplified by the potential for persistent neurological morbidity following WNND. European case series report long-term sequelae months after infection, including motor deficits, gait instability, fatigue, and cognitive impairment, suggesting that WNND may translate into sustained healthcare needs [27, 28]. Outbreak surveillance data further suggest that WNND may be associated with substantial in-hospital mortality, underscoring the need for preparedness that encompasses acute care capacity as well as structured follow-up and rehabilitation pathways; mortality estimates should, however, be interpreted in light of surveillance and attribution practices [24]. At the same time, the evidence base for long-term outcomes in Europe is still largely derived from small case series with heterogeneous follow-up, limiting comparability and precise burden estimates.
+
+5 Limitations
+
+This review is subject to language and availability constraints, as studies not accessible in English or German were excluded, which may have led to the omission of relevant evidence. In addition, the scope was restricted to Europe and to primary studies published between 2015 and the search date (3 January 2026), which may not capture earlier evidence or publications appearing after the cut-off, or patterns in other regions. The evidence base is further shaped by our search strategy and the use of a single database (PubMed); therefore, relevant studies indexed elsewhere may have been missed. Finally, included studies were heterogeneous in design, case definitions, diagnostic pathways, and surveillance intensity, thus limiting comparability across settings and precluding quantitative synthesis. Surveillance-derived findings should be interpreted cautiously because testing practices, awareness, and notification procedures vary across time and between European countries, and well-characterized regions may be overrepresented in the available literature.
+
+6 Conclusion
+
+The findings of this review support that WNV is no longer a sporadic imported infectious event in Europe but increasingly reflects established transmission in several regions. Against a backdrop of warming temperatures that may prolong seasonal suitability and intensify transmission where competent vectors are present, public health strategies should emphasize anticipatory preparedness rather than reactive case detection. This includes strengthening integrated One Health surveillance for early warning, maintaining NAT-based donor screening and confirmatory pathways for transfusion safety, and improving diagnostic discrimination in settings with co-circulating flaviviruses. Given that WNND risk concentrates in older and immunocompromised individuals and may entail long-term morbidity, preparedness should also incorporate targeted risk communication and accessible rehabilitation pathways.
+
+List of abbreviations
+
+CNS central nervous system
+
+CSF cerebrospinal fluid
+
+ECDC European Center for Disease Prevention and Control
+
+EU/EEA European Union/European Economic Area
+
+NAT nucleic acid testing
+
+RT-PCR reverse transcriptase polymerase chain reaction
+
+TBEV Tick-borne encephalitis virus
+
+WNF West Nile fever
+
+WNND West Nile neuroinvasive disease
+
+WNV West Nile virus
+
+Ethics statement: Not applicable (literature survey).
+
+Conflict of interests: SB and MMH are members of the Editorial Board of the journal, therefore they did not take part in the review process in any capacity and the submission was handled by a different member of the editorial board. The submission was subject to the same process as any other manuscript and editorial board membership had no influence on editorial consideration and the final decision.
+
+Authors' contribution: PDH conceived and designed the survey, wrote the paper. SB provided critical advice in design of the survey, edited paper. MMH supervised the survey, co-wrote the paper.
+
+
+References
+
+1. Simmonds P, Becher P, Bukh J, Gould EA, Meyers G, Monath T, et al. ICTV virus taxonomy profile: Flaviviridae. J Gen Virol. 2017;98(1):2–3.28218572 10.1099/jgv.0.000672 PMC5370391
+2. Petersen LR, Brault AC, Nasci RS. West Nile virus: review of the literature. Jama. 2013;310(3):308–15.23860989 10.1001/jama.2013.8042 PMC4563989
+3. Tsai TF, Popovici F, Cernescu C, Campbell GL, Nedelcu NI. West Nile encephalitis epidemic in southeastern Romania. Lancet. 1998;352(9130):767–71.9737281 10.1016/s0140-6736(98)03538-7
+4. European Centre for Disease Prevention and Control EFSA. Surveillance, prevention and control of West Nile virus and Usutu virus infections in the EU/EEA; Stockholm: 2023.
+5. Kramer LD, Li J, Shi PY. West Nile virus. Lancet Neurol. 2007;6(2):171–81.17239804 10.1016/S1474-4422(07)70030-3
+6. Jungbauer C, Hourfar MK, Stiasny K, Aberle SW, Cadar D, Schmidt-Chanasit J, et al. West Nile virus lineage 2 infection in a blood donor from Vienna, Austria, August 2014. J Clin Virol. 2015;64:16–9.25728073 10.1016/j.jcv.2015.01.003
+7. Macaluso G, Gucciardi F, Guercio A, Blanda V, La Russa F, Torina A, et al. First neuroinvasive human case of West Nile Disease in Southern Italy: results of the ‘One Health’ approach. Vet Med Sci. 2021;7(6):2463–72.34505400 10.1002/vms3.591 PMC8604128
+8. Čabanová V, Tichá E, Bradbury RS, Zubriková D, Valentová D, Chovancová G, et al. Mosquito surveillance of West Nile and Usutu viruses in four territorial units of Slovakia and description of a confirmed autochthonous human case of West Nile fever, 2018 to 2019. Euro Surveill. 2021;26(19):2000063.33988125 10.2807/1560-7917.ES.2021.26.19.2000063 PMC8120799
+9. Macias A, Martín P, Pérez-Olmeda M, Fernández-Martínez B, Gómez-Barroso D, Fernández E, et al. West Nile virus emergence in humans in Extremadura, Spain 2020. Front Cell Infect Microbiol. 2023;13:1155867.37469597 10.3389/fcimb.2023.1155867 PMC10352655
+10. Pietsch C, Michalski D, Münch J, Petros S, Bergs S, Trawinski H, et al. Autochthonous West Nile virus infection outbreak in humans, Leipzig, Germany, August to September 2020. Euro Surveill. 2020;25(46):2001786.33213686 10.2807/1560-7917.ES.2020.25.46.2001786 PMC7678033
+11. Schneider J, Bachmann F, Choi M, Kurvits L, Schmidt ML, Bergfeld L, et al. Autochthonous West Nile virus infection in Germany: increasing numbers and a rare encephalitis case in a kidney transplant recipient. Transbound Emerg Dis. 2022;69(2):221–6.34850584 10.1111/tbed.14406 PMC8969181
+12. Ruscher C, Patzina-Mehling C, Melchert J, Graff SL, McFarland SE, Hieke C, et al. Ecological and clinical evidence of the establishment of West Nile virus in a large urban area in Europe, Berlin, Germany, 2021 to 2022. Euro Surveill. 2023;28(48):2300258.38037727 10.2807/1560-7917.ES.2023.28.48.2300258 PMC10690859
+13. Vlaskamp DR, Thijsen SF, Reimerink J, Hilkens P, Bouvy WH, Bantjes SE, et al. First autochthonous human West Nile virus infections in the Netherlands, July to August 2020. Euro Surveill. 2020;25(46):2001904.33213687 10.2807/1560-7917.ES.2020.25.46.2001904 PMC7678035
+14. García-Cervera C, Iftimie SM, Martínez MJ, Vázquez González A, Parra-Pérez S, Revuelta-López-Cordón L, et al. Report on the first two confirmed autochthonous cases of West Nile virus encephalitis in Catalonia, Spain. Infect Dis (Lond). 2023;55(11):798–802.37471287 10.1080/23744235.2023.2236703
+15. Hassold-Rugolino N, Jaquet P, Da Silva D, Papa E, Calmettes J, Henry C, et al. Two cases of autochthonous West Nile Virus encephalitis, Paris, France, 2025. Emerg Infect Dis. 2025;31(11):2172–4.40833786 10.3201/eid3111.251220 PMC12704537
+16. Mussetto I, Bongiovanni A, Colavita F, Giambi C, Sala MG, Del Borgo C, et al. Outbreak of autochthonous West Nile virus infection in Lazio region, Italy, July to August 2025: preliminary investigation. Euro Surveill. 2025;30(35): 2500634.40910225 10.2807/1560-7917.ES.2025.30.35.2500634 PMC12413602
+17. Young JJ, Haussig JM, Aberle SW, Pervanidou D, Riccardo F, Sekulić N, et al. Epidemiology of human West Nile virus infections in the European Union and European Union enlargement countries, 2010 to 2018. Euro Surveill. 2021;26(19):2001095.33988124 10.2807/1560-7917.ES.2021.26.19.2001095 PMC8120798
+18. Ziegler U, Santos PD, Groschup MH, Hattendorf C, Eiden M, Höper D, et al. West Nile virus epidemic in Germany triggered by epizootic emergence, 2019. Viruses. 2020;12(4):448.32326472 10.3390/v12040448 PMC7232143
+19. Loconsole D, Centrone F, Sallustio A, Casulli D, Colella V, Mongelli O, et al. Abrupt increase in detection of locally acquired West-Nile-Virus-Lineage-2-Mediated neuroinvasive disease in a previously non-endemic area of Southern Italy (2023). Viruses. 2023;16(1):53.38257753 10.3390/v16010053 PMC10819189
+20. Laidoudi Y, Durand G, Watier-Grillot S, Dessimoulie AS, Labarde C, Normand T, et al. Evidence of antibodies against the West Nile Virus and the usutu Virus in dogs and horses from the Southeast of France. Transbound Emerg Dis. 2023;2023:8779723.40303666 10.1155/2023/8779723 PMC12016972
+21. Rizzo C, Napoli C, Venturi G, Pupella S, Lombardini L, Calistri P, et al. West Nile virus transmission: results from the integrated surveillance system in Italy, 2008 to 2015. Euro Surveill. 2016;21(37):30340.27684046 10.2807/1560-7917.ES.2016.21.37.30340 PMC5032855
+22. Lachmann R, Domingo C, Frank C, Ochs A, Pauly AK, Weber-Schehl M, et al. West Nile virus emergence in Germany 2019: looking for hidden human West Nile virus infections. Vector Borne Zoonotic Dis. 2024;24(6):396–401.38573211 10.1089/vbz.2023.0103
+23. De Angelis L, Ancona A, Moirano G, Oradini-Alacreu A, Bella A, Fabiani M, et al. Case-time series study on the short-term impact of meteorological factors on West Nile Virus incidence in Italy at the local administrative unit level, 2012 to 2021. Environ Res. 2025;264(Pt 1):120320.39521261 10.1016/j.envres.2024.120320
+24. Pervanidou D, Vakali A, Georgakopoulou T, Panagiotopoulos T, Patsoula E, Koliopoulos G, et al. West Nile virus in humans, Greece, 2018: the largest seasonal number of cases, 9 years after its emergence in the country. Euro Surveill. 2020;25(32):1900543.32794446 10.2807/1560-7917.ES.2020.25.32.1900543 PMC7427301
+25. Mbaoma OC, Thomas SM, Beierkuhnlein C. Spatiotemporally explicit epidemic model for West Nile virus outbreak in Germany: an inversely calibrated approach. J Epidemiol Glob Health. 2024;14(3):1052–70.38965178 10.1007/s44197-024-00254-0 PMC11442818
+26. Gutiérrez-López R, Fernández-Delgado R, Aguilera-Sepúlveda P, Dafouz-Bustos D, Jiménez-Clavero M, Llorente F. Spanish West Nile virus isolates of lineages 1 and 2 elicit different patterns of infection in red-legged partridges. J Gen Virol. 2025;106(12):002186.41342525 10.1099/jgv.0.002186 PMC12677311
+27. Lupia T, Libanore V, Corcione S, Fornari V, Rizzello B, Bosio R, et al. Autochthonous West Nile virus infection outbreak in humans (Asti, Piedmont, Italy, August-October 2018) and long-term sequelae Follow-Up. Trop Med Infect Dis. 2022;7(8):185.36006277 10.3390/tropicalmed7080185 PMC9412690
+28. Braune J, Pechstein L, Meisel C, Meyer T, Melchert J, Corman VM, et al. Detection of autoantibodies against Interferon type I in patients with autochthonous West Nile Virus encephalitis. Brain Behav Immun Health. 2025;48:101085.40799617 10.1016/j.bbih.2025.101085 PMC12340550
+29. Csank T, Drzewnioková P, Korytár Ľ, Major P, Gyuranecz M, Pistl J, et al. A serosurvey of flavivirus infection in horses and birds in Slovakia. Vector Borne Zoonotic Dis. 2018;18(4):206–13.29437548 10.1089/vbz.2017.2216
+30. Pacenti M, Sinigaglia A, Martello T, De Rui ME, Franchin E, Pagni S, et al. Clinical and virological findings in patients with Usutu virus infection, northern Italy, 2018. Euro Surveill. 2019;24(47):1900180.31771697 10.2807/1560-7917.ES.2019.24.47.1900180 PMC6885746
+31. Orru S, Reissinger A, Filomena A, Heitmann A, Funk MB, Schmidt-Chanasit J, et al. Assessment of the effectiveness of West Nile virus screening by analysing suspected positive donations among blood donors, Germany, 2020 to 2023. Euro Surveill. 2025;30(8):2400373.40017391 10.2807/1560-7917.ES.2025.30.8.2400373 PMC11869365
+32. Frank C, Schmidt-Chanasit J, Ziegler U, Lachmann R, Preußel K, Offergeld R. West Nile virus in Germany: an emerging infection and its relevance for transfusion safety. Transfus Med Hemother. 2022;49(4):192–204.36159956 10.1159/000525167 PMC9421668
+33. Calistri P, Giovannini A, Hubalek Z, Ionescu A, Monaco F, Savini G, et al. Epidemiology of west nile in Europe and in the mediterranean basin. Open Virol J. 2010;4:29–37.20517490 10.2174/1874357901004010029 PMC2878979
+34. Simonin Y. Circulation of West Nile Virus and usutu Virus in Europe: overview and challenges. Viruses. 2024;16(4):599.38675940 10.3390/v16040599 PMC11055060
+35. Savini G, Capelli G, Monaco F, Polci A, Russo F, Di Gennaro A, et al. Evidence of West Nile virus lineage 2 circulation in Northern Italy. Vet Microbiol. 2012;158(3–4):267–73.22406344 10.1016/j.vetmic.2012.02.018
+36. Riccardo F, Monaco F, Bella A, Savini G, Russo F, Cagarelli R, et al. An early start of West Nile virus seasonal transmission: the added value of one heath surveillance in detecting early circulation and triggering timely response in Italy, June to July 2018. Euro Surveill. 2018;23(32):1800427.30107870 10.2807/1560-7917.ES.2018.23.32.1800427 PMC6092914
+37. Paz S, Semenza JC. Environmental drivers of West Nile fever epidemiology in Europe and Western Asia--a review. Int J Environ Res Public Health. 2013;10(8):3543–62.23939389 10.3390/ijerph10083543 PMC3774453
+38. Kilpatrick AM, Meola MA, Moudy RM, Kramer LD. Temperature, viral genetics, and the transmission of West Nile virus by Culex pipiens mosquitoes. Plos Pathog. 2008;4(6):e1000092.18584026 10.1371/journal.ppat.1000092 PMC2430533
+39. Rocklöv J, Dubrow R. Climate change: an enduring challenge for vector-borne disease prevention and control. Nat Immunol. 2020;21(5):479–83.32313242 10.1038/s41590-020-0648-y PMC7223823
+40. Papa A, Bakonyi T, Xanthopoulou K, Vázquez A, Tenorio A, Nowotny N. Genetic characterization of West Nile virus lineage 2, Greece, 2010. Emerg Infect Dis. 2011;17(5):920–2.21529413 10.3201/eid1705.101759 PMC3321789
+41. Dridi M, Van Den Berg T, Lecollinet S, Lambrecht B. Evaluation of the pathogenicity of West Nile virus (WNV) lineage 2 strains in a SPF chicken model of infection: NS3-249Pro mutation is neither sufficient nor necessary for conferring virulence. Vet Res. 2015;46:130.26518144 10.1186/s13567-015-0257-1 PMC4628354
+42. Judson SD, Dowdy D. Risk factors for West Nile Neuroinvasive disease and mortality in the US, 2013-2024. JAMA Netw Open. 2025;8(12):e2548229.41370077 10.1001/jamanetworkopen.2025.48229 PMC12696598
+43. Samuel MA, Diamond MS. Alpha/beta interferon protects against lethal West Nile virus infection by restricting cellular tropism and enhancing neuronal survival. J Virol. 2005;79(21):13350–61.16227257 10.1128/JVI.79.21.13350-13361.2005 PMC1262587
+44. Gervais A, Bastard P, Bizien L, Delifer C, Tiberghien P, Rodrigo C, et al. Auto-Abs neutralizing type I IFNs in patients with severe Powassan, Usutu, or Ross River virus disease. J Exp Med. 2024;221(12):e20240942.39485284 10.1084/jem.20240942 PMC11533500
+45. Roßbacher L, Taschler S, Cecchettin E, Popovitsch A, Aberle SW, Aberle JH, et al. Differentiation of West Nile and usutu virus infections by antibodies directed to the non-structural protein 1. Viruses. 2025;17(10):1357.41157627 10.3390/v17101357 PMC12567941

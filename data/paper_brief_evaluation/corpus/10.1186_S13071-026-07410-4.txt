@@ -1,0 +1,368 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Parasit Vectors
+Journal ID: Parasit Vectors
+NLM Journal ID: 101462774
+
+Parasites & Vectors
+
+EISSN: 1756-3305
+Publisher: BMC
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13162510
+PMID: 42116173
+DOI: 10.1186/s13071-026-07410-4
+Article ID: 7410
+Article version: 1
+Subjects: Research
+
+A process-based model simulating the life-cycle of Culex pipiens s.s./Cx. torrentium (Diptera: Culicidae) in Germany
+
+Rauhöft Leif leif.rauhoeft@bnitm.de
+
+Duve Pride
+Martins-Afonso Sara M.
+Hanna Jöst
+Şuleşco Tatiana
+Sauer Felix Gregor
+Lühken Renke
+https://ror.org/01evwfd48 grid.424065.1 0000 0001 0701 3136 Bernhard Nocht Institute for Tropical Medicine, Bernhard-Nocht-Straße 74, 20359 Hamburg, Hamburg Germany
+Electronic publication date: 2026 May 11
+Publication date: 2026
+Volume: 19
+Electronic Location ID: 207
+Received 2025 Dec 5; Accepted 2026 Apr 8
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Funding: https://doi.org/10.13039/501100002347 Bundesministerium für Bildung und Forschung 01Kl2022 Rauhöft Leif
+
+Funding: https://doi.org/10.13039/501100001659 Deutsche Forschungsgemeinschaft JO 1276/5-1 Hanna Jöst
+
+Funding: Federal Ministry for the Environment, Nature Con- servation, Nuclear Safety and Consumer Protection 3721484020 Şuleşco Tatiana
+
+Funding: Guidance, Skills & Opportunities e.V. and Klaus Tschira Stiftung
+
+Funding: Bernhard-Nocht-Institut für Tropenmedizin (3424) Open Access funding enabled and organized by Projekt DEAL.
+
+issue-copyright-statement: © BioMed Central Ltd., part of Springer Nature 2026
+
+==============================
+Background
+
+Mosquitoes are well known for their ability to transmit pathogens, including various arthropod-borne viruses (arboviruses) of veterinary and medical interest. In Europe, the increasing public health relevance of mosquito-borne pathogens highlights the need to understand how environmental drivers shape mosquito population dynamics relevant to transmission risk. Culex pipiens sensu stricto (s.s.) and Culex torrentium (collectively referred to here as Cx. pipiens s.s./Cx. torrentium) are the primary vectors of Usutu virus and West Nile virus in Europe and are commonly found in and around human settlements. The prediction of their spatial-temporal abundance supports early assessment of arbovirus transmission risk and the planning of effective intervention methods, such as vector control.
+
+Methods
+
+A process-based model was developed to simulate the spatial-temporal occurrence of Cx. pipiens s.s./Cx. torrentium in Germany, with a particular focus on depicting realistic overwintering behaviour, including, diapause induced through photoperiod and temperature in the larval stage. The model output is driven by local temperature and rainfall data provided by the European re-analysis and observations for monitoring data set and evaluated with field data from 106 sampling sites in Germany.
+
+Results
+
+A significant association between relative simulated and observed mosquito abundance was found for 75% of the sampling sites, using site-specific beta regression models. An overall beta mixed-effects model across all sites was also significant (estimate = 2.17, standard error = 0.062, Z-value = 35.03, p-value < 0.0001, marginal R2 = 0.4).
+
+Conclusions
+
+This model offers a robust framework for the depiction of the mosquito population dynamics of Cx. pipiens s.s./Cx. torrentium under current and future climate scenarios, thereby supporting vector surveillance and control strategies across Europe.
+
+Graphical abstract
+
+Supplementary Information
+
+The online version contains supplementary material available at 10.1186/s13071-026-07410-4.
+
+Background
+
+Mosquitoes (Culicidae) are small dipteran insects of global importance due to their role as vectors of numerous pathogens affecting humans and animals. Their life-cycle consists of four distinct stages: egg, larva, pupa and adult. The immature stages develop in aquatic habitats. Female mosquitoes depend on blood meals for egg production, and thus pathogens can be ingested and subsequently transmitted during the next gonotrophic cycle. Male mosquitoes do not feed on blood under natural field conditions. Following a blood meal, female mosquitoes undergo a resting period during which they digest the ingested blood to develop eggs [1], which are then laid in standing water bodies. Culex pipiens sensu stricto (Cx. pipiens s.s.) and Culex torrentium (collectively referred to here as Cx. pipiens s.s./Cx. torrentium) are very important mosquito vectors of aboviruses of medical and veterinary relevance [2], with a high vector competence for Usutu virus and West Nile virus (WNV) [3, 4]. Since their initial emergence in Germany, where Usutu virus was first detected in 2011 and WNV in 2018, these pathogens have been detected each year in birds, mosquitoes and humans [5–8]. WNV and Usutu virus are mosquito-borne flaviviruses that are maintained in enzootic transmission cycles between mosquitoes and avian hosts, with humans and other mammals acting as incidental dead-end hosts. While most human infections are asymptomatic, both viruses can cause neuroinvasive disease, particularly in elderly and immunocompromised individuals, and they have emerged as significant public health concerns in several European countries. Culex pipiens s.s./Cx. torrentium are widely distributed and have broad host-feeding patterns, including birds, non-human mammals and humans, making them suitable bridge vectors [9]. These characteristics have resulted in these two mosquito species being a main target for surveillance and risk assessment efforts [10, 11]. However, although Cx. pipiens s.s./Cx. torrentium are separate species, the females cannot be morphologically differentiated. They are sibling species that frequently occur in sympatry across Europe, with Cx. pipiens s.s. being ubiquitous throughout Europe while Cx. torrentium abundances increase in more northern and cooler regions. However, each of these species has distinct biological and ecological characteristics. For example, Cx. pipiens s.s. is easily captured with CO2-baited traps, while Cx. torrentium seems to be disproportionately underrepresented in such captures [12]. In addition, Cx. torrentium has a higher vector competence for WNV compared to Cx. pipiens s.s. [3]. Also, these two species use different overwintering sites, with Cx. pipiens s.s. predominant in anthropogenic sites, such as cellars, and Cx. torrentium more frequently found in abandoned animal burrows [13].
+
+Entomological monitoring through systematic mosquito collections provides the foundation for identifying the spatial-temporal risk of mosquito-borne pathogen transmission. Field-based mosquito surveillance, including collection using CO2-baited traps and subsequent taxonomic identification and arbovirus screening, is logistically demanding and difficult to sustain at high spatial and temporal resolution. Process-based (mechanistic) models describe dynamic systems by representing the biological processes that determine system behaviour rather than relying on statistical correlations. Building on the foundations laid by Lotka [14], these models provide a framework linking environmental drivers to population dynamics. In the study reported here, we used a process-based model to simulate the life-cycle of Cx. pipiens s.s./Cx. torrentium, using temperature-, precipitation- and photoperiod-dependent equations to capture developmental and mortality rates. This type of model enables the spatial-temporal mosquito abundance to be estimated while at the same time allowing the simulation of changing conditions, such as control measures [15]. Several process-based models for mosquitoes have been published for Europe, with a focus on the Mediterranean region (southern France or Italy [15–18]). These models showed a high level of performance in terms of estimating the temporal mosquito abundance, but they were generally only validated with field data from a few sampling sites or relatively small areas. Consequently, a process-based model for Cx. pipiens s.s./Cx. torrentium, two of the most important vectors in Central Europe, and a large-scale, site-specific evaluation is missing.
+
+In this work, we developed and validated a process-based model for Cx. pipiens s.s./Cx. torrentium in Germany. To achieve this, we adjusted the generic model for Aedes albopictus originally proposed by Cailly et al. [15] and later extended to further species, including “Culex pipiens”, by Ezanno et al. [16]. We extend the model by replacing predefined seasonal start and end dates with explicit, photoperiod- and temperature-driven diapause dynamics. The model further incorporates sex-differentiated life stages and revised temperature-dependent transition and mortality functions, allowing realistic representation of overwintering behaviour under temperate European conditions.
+
+The aim of this study was to develop and validate, for the first time in Germany, a process-based model for Cx. pipiens s.s./Cx. torrentium, perform site-specific validation to capture local population dynamics, compare the performance of this process-based model to that of a temperature-dependent correlative model and assess the relative importance of model parameters on overall mosquito dynamics using a sensitivity analysis.
+
+Methods
+
+Mathematical model for the life cycle of Cx. pipiens s.s./Cx. torrentium
+
+The model consists of different compartments (Fig. 1) for mosquito abundance in aquatic stages. These are male and female eggs (EM, EF); larvae (LM, LF); pupae (PM, PF) and diapause-conditioned pupae (PD); and adult stages: emerging males and females (AMEm; AFEm), nulliparous host-seeking females (AFH); nulliparous resting females (AFR) and nulliparous oviposition site-seeking females (AFO); parous host-seeking females (AFPH); parous resting females (AFPR) and parous oviposition site-seeking females (AFPO); and diapausing stages: emerging adult females (AFD1) and overwintering adult females (AFD2; Eq. 1).Fig. 1 Flow chart of the process-based model for the life-cycle of mosquitoes Culex pipiens sensu stricto and Culex torrentium (Cx. pipiens s.s./Cx. torrentium). Boxes represent compartments or different life stages. Solid lines represent the development from one stage to another and dashed lines represent the interactions between the different compartments. Previously published compartments, transition and mortality rates are highlighted in blue. For specific definitions, see Table 1 and section Mathematical model for the life cycle of Cx. pipiens s.s./Cx. torrentium
+
+The transition between the aquatic stages is temperature-dependent (ϕ1(T), ϕ2(T), ϕ3(T); Eq. 2; Fig. 2a). Previous laboratory and semi-field studies suggest that diapause is induced at photoperiods < 15 h of light and temperatures lower than 20 °C [19, 20]. This is represented in our temperature- and photoperiod-dependent function ϕ8(P,T) inducing diapause (Fig. 2b; Eq. 3). Adult females that do not enter diapause remain in the reproductive (non-diapausing) state, which is governed by the temperature- and photoperiod-dependent non-diapause maintenance rate ϕ9(P,T). The rate of diapause termination is also temperature- and photoperiod-dependent (ϕ10(P,T); Eq. 4; [21]). The development of eggs begins at temperatures exceeding TAg. Development is over when the cumulative daily temperatures exceeds TDDAg. Additionally, temperature-dependent mortality rates were utilised for larvae and pupae (μL(T), μP(T); Eq 5; Fig. 3). Rainfall increases the environmental carrying capacity for larvae (KL) and pupae (KP) by increasing the standard environmental carrying capacities (κl, κp) using the normalised rainfall over a period of 14 days (Eq 6). The competition for resources within the breeding site is taken into account by the density-dependent larval mortality of μL(T)1+μL(T)KL [16, 22, 23]. Fig. 2 A Newly developed temperature-dependent transition rates. B Newly developed photoperiod-dependent transition rates
+
+The pupal density dependence was previously combined in an exponential decay function using the mortality at emergence (μem) as scaling factor. We propose that the mortality at emergence (μem) is not a matter of resources since pupae do not take up any nutrients. Consequently, the mortality at emergence can only be a stochastic event or a matter of actual space restriction by density. We thereby replaced the scaling factor with β and strongly reduced it compared to μem. The mortality at emergence was kept outside of the exponential decay function.
+
+A proportion α of mosquito eggs are female while a proportion of (1-α) are male. Based on the assumption that all female mosquitoes mate before seeking a host, emerging females (AFEm) and emerging diapausing females (AFD1) mate before the females progress either to the host-seeking stage (AFH) or the overwintering stage (AFD2). As also implemented by Ezanno et al. [16], it is assumed that females mate only once. In contrast, males can mate several times. Asman [24] showed that under laboratory conditions male Cx. tarsalis mosquitoes can inseminate up to eight females over 21 days. Thereby, the number of females which get fertilised by males is highly dependent on the population density of sexually active male mosquitoes [25]. When sexually active males are scarce in the environment, the number of inseminated females that progress to the host-seeking stage is proportional to the number of available males multiplied by the number of females each male can inseminate. This is denoted as n0AMEm, where n0 is the number of females each male inseminates. After mating, female mosquitoes progress to the host-seeking stage at a rate of ϕ4. Blood-feeding induces the resting stage at a rate of ϕ5 before females start seeking an oviposition site to lay eggs at a rate of ϕ6(T) (Eq 7). Female mosquitoes become parous after depositing eggs at a rate of ϕ7. The cycle repeats until the mosquitoes die and are removed from the population. During the diapausing stage, the overwintering females die at a rate of μD. Female adult mosquitoes in general die at a rate of μAF(T) (Eq 5), while for host-seeking females AFH and AFPH, an additional host seeking mortality μr is added. Adult males are shown to have shorter longevity especially during the highest and lowest temperatures [26]. Therefore, an additional mortality rate for males μAM(T) (Eq. 8) was generated based on the general adult mortality rate but was more constrained in the temperature range (Fig. 3).1 dEFdt=α·ϕ7nPAFPO+nNAFO-ϕ1(T)+μE(T)EF,dEMdt=(1-α)ϕ7nPAFPO+nNAFO-ϕ1(T)+μE(T)EM,dLFdt=ϕ1(T)·EF-ϕ2(T)+μL(T)1+LF+LMKLLF,dLMdt=ϕ1(T)·EM-ϕ2(T)+μL(T)1+LF+LMKLLM,dPFdt=ϕ2(T)·ϕ9(P,T)·LF-[ϕ3(T)+μP(T)]PF,dPMdt=ϕ2(T)·LM-[μP(T)+ϕ3(T)]PM,dPDdt=ϕ2(T)·ϕ8(P,T)·LF-[μP(T)+ϕ3(T)]PD,dAMEmdt=ϕ3(T)·PM·(1-μem)·e-β1+PM+PD+PFKP-μAM(T)·AMEm,dAFEmdt=ϕ3(T)·PF·(1-μem)·e-β1+PM+PD+PFKP-ϕ4minn0AMEmAFEmAFD1+AFEm,AFEm-μAF(T)·AFEm,dAFD1dt=ϕ3(T)·PD·(1-μem)·e-β1+PM+PD+PFKP-minn0AMEmAFD1AFD1+AFEm,AFD1-μAF(T)·AFD1,dAFD2dt=minn0AMEmAFD1AFD1+AFEm,AFD1-[ϕ4·ϕ10(P,T)+μD]AFD2,dAFHdt=ϕ4minn0AMEmAFEmAFD1+AFEm,AFEm+ϕ4·ϕ10(P,T)·AFD2-[ϕ5+μr+μAF(T)]AFH,dAFRdt=ϕ5·AFH-ϕ6(T)+μAF(T)AFR,dAFOdt=ϕ6(T)·AFR-ϕ7+μAF(T)AFO,dAFPHdt=ϕ7·[AFO+AFPO]-ϕ5+μr+μAF(T)AFPH,dAFPRdt=ϕ5·AFPH-ϕ6(T)+μAF(T)AFPR,dAFPOdt=ϕ6(T)·AFPR-ϕ7+μAF(T)AFPO.
+
+2 ϕ1(T),ϕ2(T),ϕ3(T)=0.51+e0.1(10-T)
+
+3 ϕ8(P,T)=11+e12.5-P-0.5ifT<15∘C0otherwise
+
+4 ϕ10(P,T)=eP-110.51+eP-110.5ifT>6∘C0otherwise
+
+5 μL(T),μP(T),μAF(T)=0.86111+e0.2(45-T)ifT>20∘C0.86111+e5+T5otherwise
+
+6 KL(R),KP(R)=κX·Rnorm(R)+1X∈{l,p}
+
+7 ϕ6(T)=T-TAgTDDAgifT>TAg0otherwise
+
+8 μAM(T)=1111+e0.2(40-T)ifT>20∘C1111+e-T5otherwise
+
+Fig. 3 Temperature-dependent mortality rates
+
+Model initialisation and parameterisation
+
+Following previous implementations of climate-driven mosquito population models, simulations were initialised with 106 male and female eggs each (EM, EF) to avoid numerical extinction at the start of the simulation period [17]. In addition, small non-zero numbers (1000 specimens each) of emerging females (AFEm) and emerging diapausing females (AFD1) were assigned at initialisation to ensure that all coupled stage transitions in the model equations were defined from the first time step. The remaining compartments initially contain zero specimens, allowing population dynamics to develop from temperature-, rainfall-, and photoperiod-driven processes. Simulations from each sampling site were initialised using site-specific environmental data starting from 1 January 2015, which is 1 year prior to the first mosquito field sampling, to ensure that model outputs at the time of validation were not influenced by the choice of initial conditions. The simulations ended on 31 December 2023.
+
+The majority of model parameters were derived from published literature (Table 1). Existing temperature-dependent development and mortality functions from studies conducted in Mediterranean regions led to unrealistic population collapse under temperate climatic conditions and were therefore unsuitable for Central and Northern Europe.
+
+To address limitations of temperature-dependent mortality and developmental functions derived primarily from Mediterranean studies, biologically plausible functions were reformulated for temperate climatic conditions. The functional shape and range of the temperature–mortality relationship were informed by published experimental studies on Cx. pipiens s.s./Cx. torrentium (e.g. [27, 28]) and supported by independent survival (Additional file 1: Figure S1) and development (Additional file 1: Figure S2) experiments conducted by the authors under fluctuating temperature regimes in a climate chamber. These sources were used to define biologically realistic response shapes, while the viable temperature range was broadened to reflect survival under Europe-wide climatic conditions and heterogeneous environments.
+
+This approach is consistent with recent assessments highlighting the limited transferability of temperature-dependent parameters derived under restricted climatic conditions and the need for biologically plausible extrapolation when applying mechanistic models across broader environmental gradients [29]. Model parameters were defined a priori to ensure biologically plausible seasonal timing, without reliance on calibration to field-derived abundance data. Table 1 Table of all model parameters, their definitions, values or functional forms, and biological origin
+
+Parameter	Definition	Value	Reference	Origin	
+ϕ1(T)	Egg development rate	Eq. 2	[16]a	Cx. pipiens s.s.	
+ϕ2(T)	Larval development rate	Eq. 2	[16]a	Cx. pipiens s.s.	
+ϕ3(T)	Pupal development rate	Eq. 2	[16]a	Cx. pipiens s.s.	
+ϕ4	Host-seeking rate	0.143	[16]	Cx. pipiens s.s./Cx. torrentium	
+ϕ5	Resting rate	0.885	[16]	Cx. pipiens s.s./Cx. torrentium	
+ϕ6(T)	Oviposition site-seeking rate	Eq. 7	[16]	Cx. pipiens s.s./Cx. torrentium	
+ϕ7	Egg-laying rate	0.2	[16]	Cx. pipiens s.s./Cx. torrentium	
+ϕ8(P,T)	Diapause induction rate	Eq. 3	[19, 20]	Cx. pipiens s.l.	
+ϕ9(P,T)	Non-diapause maintenance rate	1-ϕ8(P,T)	[19, 20]	Cx. pipiens s.l.	
+ϕ10(P,T)	Diapause termination rate	Eq. 4	[21]	Cx. pipiens s.l.	
+μE	Egg mortality rate	0.0262	[16]	Cx. pipiens s.s./Cx. torrentium	
+μL(T)	Larval mortality rate	Eq. 5	[27, 28]a	Cx. pipiens s.s.	
+μP(T)	Pupal mortality rate	Eq. 5	[27, 28]a	Cx. pipiens s.s.	
+μAF(T)	Mortality rate of female adult mosquito	Eq. 5	[27, 28]	Cx. pipiens s.s.	
+μr(T)	Host-seeking mortality	0.08	[16]	Cx. pipiens s.s./Cx. torrentium	
+μAM(T)	Mortality rate of male adult mosquito	Eq. 8	[27, 28 ]	Cx. pipiens s.s.	
+μD(T)	Mortality rate of diapausing female mosquito	0.02	[30]	Cx. pipiens s.s.	
+α	Sex ratio at emergence stage	0.5	[16]	Cx. pipiens s.s./Cx. torrentium	
+β	Strength of pupal density dependence	0.003	[a]	Cx. pipiens s.s.	
+TE	Minimal temperature for egg maturation (∘C)	9.8	[16, 31, 32]	Cx. pipiens s.l.	
+TDDAg	Degree-days for egg maturation (∘C)	64.4	[16, 31, 32]	Cx. pipiens s.l.	
+κl	Larval standard environmental carrying capacity	8 × 108	[16, 31, 32]	Cx. pipiens s.l.	
+κp	Pupal standard environmental carrying capacity	107	[16, 31, 32]	Cx. pipiens s.l.	
+Cx. Culex, s.l. sensu lato, s.s. sensu stricto
+
+a Functional forms or parameter magnitudes were informed by laboratory experiments conducted under fluctuating temperature regimes and supported by published studies
+
+Validation
+
+Data for the validation of the process-based model were collected with CO2-baited mosquito traps on a weekly, bi-weekly or daily basis from April to October in 2016–2017 and 2021–2023 (Fig. 4). In 2016, 41 sites were sampled; in subsequent years, 33 (2017), 22 (2021), eight (2022) and seven (2023) sites were sampled. All traps were run for approximately 24 h. For the 347 traps (of 3365 sampling events) that ran for > 24 h, the daily average was calculated. Five sampling sites were active across multiple years. All mosquitoes were identified by morphology using the taxonomic key by Becker et al. [1]. The blood-fed status of the caught mosquitoes was assessed using the Sella score [33], with mosquitoes categorised as unfed (Sella score 1) or as blood-fed (from freshly engorged to gravid; Sella score 2–7). Only female mosquitoes with a Sella score of 1 were used for validation, since these are the specimens considered to be host-seeking. Data from sampling sites were included in the analysis only if: the sites were sampled on at least six dates over 6 months per year, a total number of > 30 Cx. pipiens s.s./Cx. torrentium females were captured per year and > 10 mosquitoes were captured during the seasonal peak; this threshold was considered to be the minimum necessary to catch a representative seasonal dynamic. The final validation data set consisted of 106 sampling sites (Additional file 2: Tables S1, S2) with 73,540 Cx. pipiens s.s./Cx. torrentium females (mean per day = 26.69; 95% confidence interval [95% CI] 21.31−32.08). Culex pipiens s.s./Cx. torrentium females cannot be reliably distinguished by their morphology. Due to the ubiquitous distribution of Cx. pipiens s.s. and the fact that Cx. torrentium is less frequently captured using CO2-baited traps, the potential inclusion of Cx. torrentium is expected to have little effect. However, to account for this uncertainty, we refer to these specimens collectively as Cx. pipiens s.s./Cx. torrentium throughout this manuscript.
+
+Mean daily temperature and daily rainfall data (European Reanalysis and Observations for Monitoring [EURO4M] E-OBS v29 dataset; https://www.ecmwf.int/en/forecasts/dataset/european-reanalysis-and-observations-monitoring) were obtained from the ECA&D project (http://www.ecad.eu, [34]) and extracted for each sampling site for the period 2015–2023. For each sampling site and sampling date, the sum of simulated nulliparous and parous host-seeking females was compared with data from the field-caught samples. Therefore, smoothed rolling means were calculated for the captured mosquito counts, the process-based model output and the temperature-only baseline, using a rolling window length of 4 days to reduce short-term fluctuations. For each sampling site, all smoothed time series were subsequently normalised to relative values to remove differences in absolute magnitude and to focus on temporal dynamics. Because the response variable was bounded between 0 and 1, site-level inference was based on beta regression. Two beta regression models were fitted per site, with one model relating relative observed mosquito abundance to mechanistic model output and a second model relating relative observed abundance to daily mean temperature as a baseline comparison. Temperature-only models were included to assess how well temporal patterns could be explained without an explicit population model.
+
+A Student’s t-test was used to determine whether the correlation between the model’s simulations and actual mosquito counts from field data was significantly different from the correlation between temperature alone and field data. Validation for all available data was conducted with a beta mixed-effects model, which analysed the relative number of simulated host-seeking female mosquitoes from the model and the relative number of field-collected female mosquitoes with a Sella score of 1. Hereby, the sampling site was used as a random effect. Again, we used an additional beta mixed-effects model to examine whether the process-based model provided any advantage over simply quantifying mosquito phenology based solely on temperature data. Model performance was quantified using regression coefficients, pseudo-R2, and mean squared error (MSE) for site-specific analyses. For the pooled analysis across all sites, regression coefficients together with MSE and marginal and conditional R2 from beta mixed-effects models were used to assess model performance. A complementary scatterplot analysis of observed versus modelled relative abundance was performed at different levels of aggregation (Additional file 1: S3). Specifically, values were first analysed at the original site-specific temporal resolution, then aggregated across sites within each year by calendar week and finally aggregated across sites and years by calendar week.Fig. 4 Map of Germany showing all sampling sites used to validate the process-based model
+
+Consecutive generations per season
+
+To account for the importance of the length of the mosquito biting season, we evaluated temperature- and photoperiod-dependent developmental transition rates within the process-based model to estimate generation turnover. For each life stage, the developmental time was calculated as the inverse of the corresponding transition rate, τi(T)=1ϕi(T), where ϕi(T) denotes the temperature-dependent developmental rate of each life stage. Total generation time was obtained by summing the developmental times across all life stages.
+
+Developmental rates were evaluated using a 7-day mean temperature at the onset of each life stage. Based on the resulting total generation time, the maximum number of consecutive generations that could be completed within a season was calculated for each raster cell; these served as a proxy for the effective length of the mosquito season.
+
+This model-based calculation was performed for each grid cell of the Europe-wide E-OBS raster for the time period 2021–2024. Due to known artefacts in the E-OBS dataset near the domain boundaries [35], maps were visually inspected and regions with implausible high or low values were excluded prior to calculating area-weighted minimum, mean and maximum numbers of consecutive generations for Europe as a whole. In addition, a buffer zone of 50 km inside national borders was applied before calculating country-level summaries for Sweden, Germany and Spain, which represent northern, central and southern European regions, respectively.
+
+Sensitivity analysis
+
+We conducted a sensitivity analysis to gain insights into factors that influenced the general phenology of the population of host-seeking females (sum of nulliparous and parous females) throughout the simulation period. To this end, parameters were resampled using the Latin Hypercube Sampling, which is an efficient stratified Monte Carlo sampling method that allows for simultaneous sampling of the multidimensional parameter space [36, 37]. The simulation was carried out for 1 year, with 1000 simulations per run. Partial rank correlation coefficients (PRCCs) were computed for each selected input parameter and for the output variables (phenology of host-seeking females) for the entire simulation period.
+
+Software
+
+All analysis was performed in R (version: 4.5.2) using the RStudio IDE (version: 2026.01.04) [38]. Additionally, functions from the following packages were used for data preparation, visualisation and analysis: betareg [39], DHARMa [40], performance [41], dplyr [42], tidyr [43], ggplot2 [44], scales [45], rstatix [46], stringr [47], deSolve [48], sensitivity [49], lhs [50], knitr [51], plyr [52], ggpubr [53], zoo [54], raster [55], geosphere [56], lubridate [57] and xtable [58].
+
+Results
+
+Validation
+
+The process-based model depicted a seasonal dynamic for every life stage for each sampling site (Fig. 5b, c). With an average pseudo-R2-value of 0.54 (95% CI 0.49–0.59), site-specific beta regression demonstrated a significant positive association between the field data and model output for 79 sampling sites (Fig. 6; Additional file 2: Table S1); the remaining 21 sites showed no significant correlation. In contrast, site-specific beta regressions only correlating temperature with mosquito field data had an average pseudo-R2-value of 0.37 (95% CI 0.32 - 0.41). The process-based model accounts for significantly more variation in the field data than does the daily average temperature alone (t() = 5.05, p < 0.0001) and showed similar model error on the relative scale (MSEmodel = 0.012; MSEtemperature = 0.016). The beta mixed-effects model over all sites, which relates relative field captures to relative model predictions was significant (estimate [E] = 2.17, standard error [SE] = 0.062, Z = 35.03, p < 0.0001) and explained 40.42% of the variation for the fixed effect only (marginal [marg.] R2 = 0.4) and 262.06% accounting for random variation among sampling sites (conditional [cond.] R2 = 0.62). Again, the association between temperature and the field data was significant (E = 2.14, SE = 0.07, Z = 29.55, p < 0.0001), but explained less variation: 32.41% for the fixed effect (marg. R2 = 0.32) and 56.71% accounting for random variation among sampling sites (cond. R2 = 0.57). The process-based model showed a similar model error on the relative scale compared to the temperature (MSEmodel = 0.02; MSEtemperature = 0.02).Fig. 5 Model output for a single sampling site in Hamburg, Germany, between 2020 and 2023, with corresponding environmental data (A), aquatic life stages (males and females summarised) (B) and adult life stages (nulliparous and parous females summarised; the Y-axis was square-root transformed for visualisation) (C)
+
+Fig. 6 Daily model output of the relative number of host-seeking Culex pipiens s.s./Culex torrentium (blue) and relative weekly averaged field data (red) for all sampling sites in 2021. Sampling site codes indicate trap types: PG = BG-Trap Station (Gravid), PR = BG-Trap Station, SE = BG-Sentinel 2, SE = VectorCube
+
+Consecutive generations per season
+
+Calculation of the theoretical maximum number of consecutive generations per year for Cx. pipiens s.s./Cx. torrentium resulted in a range of one to 10 generations per year across Europe, with an average of seven generations (Fig. 7). For example, in Spain, six to 10 generations were possible, with an average of nine generations; in Sweden, three to eight generations per year were calculated, with an average of six generations; and in Germany, the number of generations ranged from five to nine, with an average of eight generations.Fig. 7 Raster map of maximum number of consecutive generations per year for Cx. pipiens s.s./Cx. torrentium over Europe
+
+Sensitivity analysis
+
+In the sensitivity analysis, we observed that, in particular, the egg, larval and pupal development rates as well as the host-seeking, diapause entering rate and the number of females each male inseminates are positively correlated to the phenology of the population of host-seeking adults (PRCCs > 0.2; Fig. 8). A strong negative impact (PRCCs < − 0.2) on the phenology was found for the larval and pupal mortality rate and the mortality of adult females. The egg development rate contributed the most to the phenology (PRCCs = 0.52), followed by the larval development rate (PRCCs = 0.51). The strongest negative impact on the phenology was shown for the mortality rate of adult female mosquitoes (PRCCs = − 0.71).Fig. 8 Sensitivity analysis for the phenology of host-seeking females
+
+Discussion
+
+Our updated model with adapted temperature-dependent mortality and transition rates and overwintering compartment was able to depict the seasonal dynamics of Cx. pipiens s.s./Cx. torrentium for a temperate region. Although we observed strong site-specific differences in mosquito phenology, the developed process-based model was able to capture a large proportion of the observed variability. The newly added compartments, designed to integrate the overwintering period of the mosquitoes, successfully captured the mosquitoes’ behaviours observed in the field. Female Cx. pipiens s.s./Cx. torrentium overwinter, while the males do not survive [13, 30]. The inseminated females overwinter in burrows, barns and cellars and are the ones that start the new population by laying eggs in the beginning of the favourable season, after successfully feeding on a host. Photoperiod is considered to be the main trigger for the induction of the diapause [19, 20]. However, only during low temperatures was the threshold of < 15 h daylight found to induce diapause under laboratory conditions. Previous publications either relied on predefined favourable and unfavourable seasons to simulate overwintering behaviour [16] or, when diapause was explicitly modeled, it was triggered during a nulliparous stage rather than the larval stage [59]. To the authors’ knowledge, this study represents the first process-based modelling approach that explicitly captures biologically realistic overwintering dynamics in Culex mosquitoes. However, characterisation of the overwintering ecology of Culex mosquitoes still contains important knowledge gaps, particularly regarding the termination of diapause at the end of the unfavourable season; in this context, more research is needed to fully grasp the relationship between temperature and photoperiod, and the termination of diapause [21, 60]. The inclusion of the overwintering stage allowed for a dynamic start and end of the season. Since natural photoperiod variations remain constant from year to year, only temperature thresholds can postpone the induction or termination of diapause, thereby shortening or extending favourable and unfavourable seasons. The temperature-dependent transition rates were designed to produce biologically meaningful values across the entire viable temperature range, with sigmoid functions reaching an upper plateau around the temperature optima. Previously used transition rates only delivered meaningful rates in a temperature range suitable to the respective study area. On this basis, the calculated maximum number of consecutive mosquito generations has the advantage that it does not only consider the beginning and ending of the favourable season but also incorporates meteorological data of the entire season. Previous studies have also highlighted the importance of the seasonal length in disease transmission risk [61]: a longer biting season is associated with a higher transmission risk. Also, the vertical transmission of a pathogen by an infected mosquito to its offspring plays a role in the persistence of WNV in temperate regions [62]. Therefore, this process-based model and the extracted maximum number of consecutive generations provides a framework for a more realistic assessment of the local virus transmission risk.
+
+Although not all sampling sites showed a significant association in the site-specific beta regression models, the beta mixed-effects model across all sampling sites demonstrated a significant association between relative simulated and observed host-seeking female mosquito abundance. At the same time, mosquito phenology was shown to be strongly temperature-dependent, although temperature alone explained less variation in the data set than the process-based model. The MSE differed only marginally between the process-based model and the temperature-only baseline, reflecting the strong temperature dependence of mosquito phenology, which largely determines the timing of seasonal dynamics. In contrast, the higher explained variance of the process-based model indicates that incorporating mechanistic life-cycle processes improves the representation of population structure and variability beyond temperature alone. The absence of a significant association at some sites likely reflects local heterogeneity in habitat structure, sampling intensity and microclimatic conditions that are not explicitly resolved by gridded environmental inputs, rather than a systematic failure of the model framework.
+
+It should be noted that mosquito data collected from the field can be easily biased by various factors, such as sampling rhythms, weather conditions, trap position or errors by the volunteers running the trap, possibly leading to additional challenges in the validation of process-based models. Previous publications addressed such issues by averaging the mosquito collection data over several traps sampled on a weekly or biweekly basis and then using these data for validation on a regional scale [16–18]. In our study, we validated the model based on a large-scale data set from 106 sampling sites across Germany. We did not average the data from different sampling sites, thereby preserving the full variability of the mosquito collection data, allowing a detailed assessment of the model accuracy. Consistent with this, the scatterplot analysis (Additional file 1: Figure S3) shows that agreement between observed and modelled abundance increases with increasing levels of aggregation across sites, suggesting that discrepancies at fine temporal and spatial resolution are primarily driven by variability in the observational data rather than by structural limitations of the model. While stronger aggregation would likely improve apparent model performance, it would also mask site-specific variability and short-term dynamics. In addition, part of the mismatch at daily resolution likely arises from intrinsic oscillations of the model around the environmental carrying capacity that emerge from density-dependent processes. The remaining discrepancies therefore reflect a combination of model-inherent dynamics and environmental and sampling-related noise, including weather conditions (e.g. wind, rainfall) and variation in trap performance. Incorporating such processes explicitly, for example through an observation model or by accounting for trap success and environmental constraints, represents an important direction for future model development.
+
+A process-based mosquito population model can be a very useful tool as it can provide valuable ecological insights, e.g. seasonal dynamics of the population or the potential maximum number of consecutive generations per season. Several parameters need further investigation to improve the accuracy of our process-based model. On the one hand, factors such as host-seeking rate or environmental carrying capacities rely on expert estimation, in contrast to temperature-dependent transition rates and mortality rates during the aquatic life stages, which could be at least experimentally measured in climate chambers. The sensitivity analysis indicates that mosquito phenology in the model is primarily driven by temperature-dependent development and mortality processes, while parameters related to host-seeking behaviour and density dependence introduce additional variability, highlighting both the biological realism of the model and key targets for future empirical refinement. Future work could explore Bayesian calibration approaches for selected parameters, potentially using reduced-form or surrogate versions of the model, to formally quantify parameter uncertainty while retaining the mechanistic structure [63]. Additional compartments for process-based mosquito population models could be considered, i.e. life stages such as resting adult male mosquitoes, however, we still lack the necessary ecological knowledge.
+
+While precipitation was represented in the model through its effect on aquatic habitat availability, heavy rainfall events can also negatively affect immature mosquito stages through the flushing or washout of breeding sites [64]. The magnitude of such effects depend strongly on the characteristics of the breeding site (e.g. size of container habitats) and the intensity of short-term rainfall, which cannot be captured by daily mean gridded precipitation data. Incorporating rainfall-induced flushing effects therefore represents an important direction for future model development, particularly in the context of increasing rainfall variability and extreme precipitation events under climate change scenarios.
+
+In addition, the model does not differentiate between Cx. pipiens s.s. and Cx. torrentium, two closely related sibling species which probably have different temperature dependencies [65]. Knowledge of the thermal biology of Cx. torrentium, in particular, is scarce, and it is not yet possible to separate these two species in our model approach. In Central and Northern Europe, these species occur sympatrically and females can only be reliably distinguished using molecular methods, as morphological characteristics alone are insufficient for female identification [1], which limits the availability of species-specific field data for model validation. Although not stated as such, previous modelling approaches for “Culex pipiens” in Europe treated both species collectively as Cx. pipiens s.s./Cx. torrentium because field collections were based on CO2-baited traps targeting females that can not be distinguished by morphological means [16, 18]. Given the predominance of Cx. pipiens s.s. in most regions, the potential inclusion of Cx. torrentium is expected to have little influence on model outcomes. This expectation is also supported by the fact that Cx. torrentium is disproportionately less captured by CO2-baited traps compared to Cx. pipiens s.s. [12]. Nonetheless, this simplification introduces uncertainty, especially in regions such as Northern Europe where Cx. torrentium occurs in high abundance [66]. Future versions of this model could benefit from integrating species-specific thermal and developmental parameters once sufficient experimental and field data become available. Such data would enable a more accurate assessment of the species’ respective ecological niches, overwintering behaviour and vector competence. Currently, however, the scarcity of field data on Cx. torrentium remains a major constraint for parameter differentiation and model validation..
+
+Conclusions
+
+Overall, this work shows that process-based models grounded in mechanistic thermal biology, and explicitly driven by temperature, photoperiod and rainfall, can meaningfully approximate seasonal Cx. pipiens s.s. and Cx. torrentium dynamics in temperate regions, and therefore provide a useful basis for more realistic assessments of local arbovirus transmission risk.
+
+Supplementary Information
+
+Additional file 1.
+
+Additional file 2.
+
+Additional file 3.
+
+Acknowledgements
+
+We gratefully acknowledge the voluntary helpers who supported the field work, and Lisa J. Winter for her help during laboratory work.
+
+Author contributions
+
+Conceptualisation: LR, PD, FGS, RL. Data collection: LR, PD, SMMA, HJ, TŞ, FGS, RL. Data analysis: LR, PD, FGS, RL. First draft: LR, FGS, RL. Writing and editing: all authors. All authors read and approved the final manuscript.
+
+Funding
+
+Open Access funding enabled and organized by Projekt DEAL. This work was supported by the Federal Ministry for the Environment, Nature Conservation, Nuclear Safety and Consumer Protection (Grant Number 3721484020), the Federal Ministry of Education and Research (Grant Number 01Kl2022), and the German Research Foundation (Grant Number JO 1276/5-1).
+
+Data availability
+
+Validation data and a minimal reproducible example are available under https://github.com/Silence1490/A-process-based-model-simulating-the-life-cycle-of-Culex-pipiens-s.s.-Cx. -torrentium-in-Germany
+
+Declarations
+
+Ethics approval and consent to participate
+
+Not applicable.
+
+Consent for publication
+
+Not applicable.
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher's Note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+Leif Rauhöft and Pride Duve contributed equally to this work.
+
+
+References
+
+1. Becker N, Petrić D, Zgomba M, Boase C, Madon MB, Dahl C, et al. Mosquitoes: identification, ecology and control. 3rd ed. Berlin, London: Springer Nature; 2020.
+2. Brugman VA Hernández-Trian LM Medlock JM Fooks AR Carpenter S Johnson N The role of Culex pipiens L. (Diptera: Culicidae) in virus transmission in Europe Int J Environ Res Public Health. 2018 15 389 10.3390/ijerph15020389 29473903 PMC5858458
+Brugman VA, Hernández-Triana LM, Medlock JM, Fooks AR, Carpenter S, Johnson N. The role of Culex pipiens L. (Diptera: Culicidae) in virus transmission in Europe. Int J Environ Res Public Health. 2018;15:389.29473903 10.3390/ijerph15020389 PMC5858458
+3. Jansen S Heitmann A Lühken R Leggewie M Helms M Badusche M Culex torrentium: a potent vector for the transmission of West Nile virus in Central Europe Viruses. 2019 11 492 10.3390/v11060492 31146418 PMC6630772
+Jansen S, Heitmann A, Lühken R, Leggewie M, Helms M, Badusche M, et al. Culex torrentium: a potent vector for the transmission of West Nile virus in Central Europe. Viruses. 2019;11:492.31146418 10.3390/v11060492 PMC6630772
+4. Fros JJ Miesen P Vogels CBF Gaibani P Sambri V Martina BEE Comparative Usutu and West Nile virus transmission potential by local Culex pipiens mosquitoes in north-western Europe One Health. 2015 1 31 6 10.1016/j.onehlt.2015.08.002 28616462 PMC5441354
+Fros JJ, Miesen P, Vogels CBF, Gaibani P, Sambri V, Martina BEE, et al. Comparative Usutu and West Nile virus transmission potential by local Culex pipiens mosquitoes in north-western Europe. One Health. 2015;1:31–6.28616462 10.1016/j.onehlt.2015.08.002 PMC5441354
+5. Becker N Jöst H Ziegler U Eiden M Höper D Emmerich P Epizootic emergence of Usutu virus in wild and captive birds in Germany PLoS ONE. 2012 7 e32604 10.1371/journal.pone.0032604 22389712 PMC3289667
+Becker N, Jöst H, Ziegler U, Eiden M, Höper D, Emmerich P, et al. Epizootic emergence of Usutu virus in wild and captive birds in Germany. PLoS ONE. 2012;7:e32604.22389712 10.1371/journal.pone.0032604 PMC3289667
+6. Ziegler U Santos PD Groschup MH Hattendorf C Eiden M Höper D West Nile virus epidemic in Germany triggered by epizootic emergence, 2019 Viruses. 2020 12 448 10.3390/v12040448 32326472 PMC7232143
+Ziegler U, Santos PD, Groschup MH, Hattendorf C, Eiden M, Höper D, et al. West Nile virus epidemic in Germany triggered by epizootic emergence, 2019. Viruses. 2020;12:448.32326472 10.3390/v12040448 PMC7232143
+7. Ziegler U Jöst H Müller K Fischer D Rinder M Tietze DT Epidemic spread of Usutu virus in southwest Germany in 2011 to 2013 and monitoring of wild birds for Usutu and West Nile viruses Vector-Borne Zoonotic Dis. 2015 15 481 8 10.1089/vbz.2014.1746 26273809
+Ziegler U, Jöst H, Müller K, Fischer D, Rinder M, Tietze DT, et al. Epidemic spread of Usutu virus in southwest Germany in 2011 to 2013 and monitoring of wild birds for Usutu and West Nile viruses. Vector-Borne Zoonotic Dis. 2015;15:481–8.26273809 10.1089/vbz.2014.1746
+8. Orru S Reissinger A Filomena A Heitmann A Funk MB Schmidt-Chanasit J Kreß J Assessment of the effectiveness of West Nile virus screening by analysing suspected positive donations among blood donors, Germany, 2020 to 2023 Eurosurveillance. 2025 30 2400373 10.2807/1560-7917.ES.2025.30.8.2400373 40017391 PMC11869365
+Orru S, Reissinger A, Filomena A, Heitmann A, Funk MB, Schmidt-Chanasit J, et al. Assessment of the effectiveness of West Nile virus screening by analysing suspected positive donations among blood donors, Germany, 2020 to 2023. Eurosurveillance. 2025;30:2400373.40017391 10.2807/1560-7917.ES.2025.30.8.2400373 PMC11869365
+9. Wehmeyer ML Jaworski L Jöst H Şuleşco T Rauhöft L Afons SMM Host attraction and host feeding patterns indicate generalist feeding of Culex pipiens s.s. and Cx. torrentium Parasit Vectors. 2024 17 369 10.1186/s13071-024-06439-7 39215365 PMC11363403
+Wehmeyer ML, Jaworski L, Jöst H, Şuleşco T, Rauhöft L, Afonso SMM, et al. Host attraction and host feeding patterns indicate generalist feeding of Culex pipiens s.s. and Cx. torrentium. Parasit Vectors. 2024;17:369.39215365 10.1186/s13071-024-06439-7 PMC11363403
+10. Rosà R Marini G Bolzoni L Neteler M Metz M Delucchi L Early warning of West Nile virus mosquito vector: climate and land use models successfully explain phenology and abundance of Culex pipiens mosquitoes in north-western Italy Parasit Vectors. 2014 7 269 10.1186/1756-3305-7-269 24924622 PMC4061321
+Rosà R, Marini G, Bolzoni L, Neteler M, Metz M, Delucchi L, et al. Early warning of West Nile virus mosquito vector: climate and land use models successfully explain phenology and abundance of Culex pipiens mosquitoes in north-western Italy. Parasit Vectors. 2014;7:269.24924622 10.1186/1756-3305-7-269 PMC4061321
+11. Rudolf M Czajka C Börstler J Melaun C Jöst H von Thien H First nationwide surveillance of Culex pipiens complex and Culex torrentium mosquitoes demonstrated the presence of Culex pipiens biotype pipiens/molestus hybrids in Germany PLoS ONE. 2013 8 e71832 10.1371/journal.pone.0071832 24039724 PMC3770594
+Rudolf M, Czajka C, Börstler J, Melaun C, Jöst H, von Thien H, et al. First nationwide surveillance of Culex pipiens complex and Culex torrentium mosquitoes demonstrated the presence of Culex pipiens biotype pipiens/molestus hybrids in Germany. PLoS ONE. 2013;8:e71832.24039724 10.1371/journal.pone.0071832 PMC3770594
+12. Hesson JC Ignell R Hill SR Östman O Lundström JO Trapping biases of Culex torrentium and Culex pipiens revealed by comparison of captures in CDC traps, ovitraps, and gravid traps J Vector Ecol. 2015 40 158 63 10.1111/jvec.12145 26047196
+Hesson JC, Ignell R, Hill SR, Östman O, Lundström JO. Trapping biases of Culex torrentium and Culex pipiens revealed by comparison of captures in CDC traps, ovitraps, and gravid traps. J Vector Ecol. 2015;40:158–63.26047196 10.1111/jvec.12145
+13. Sauer FG Lange U Schmidt-Chanasit J Kiel E Wiatrowska B Myczko Ł Overwintering Culex torrentium in abandoned animal burrows as a reservoir for arboviruses in Central Europe One Health. 2023 16 100572 10.1016/j.onehlt.2023.100572 37363228 PMC10288133
+Sauer FG, Lange U, Schmidt-Chanasit J, Kiel E, Wiatrowska B, Myczko Ł, et al. Overwintering Culex torrentium in abandoned animal burrows as a reservoir for arboviruses in Central Europe. One Health. 2023;16:100572.37363228 10.1016/j.onehlt.2023.100572 PMC10288133
+14. Lotka AJ. Elements of physical biology. Philadelphia: Williams & Wilkins; 1925.
+15. Cailly P Tran A Balenghien T L’Ambert G Toty C Ezanno P A climate-driven abundance model to assess mosquito control strategies Ecol Modell. 2012 227 7 17 10.1016/j.ecolmodel.2011.10.027
+Cailly P, Tran A, Balenghien T, L’Ambert G, Toty C, Ezanno P. A climate-driven abundance model to assess mosquito control strategies. Ecol Modell. 2012;227:7–17.
+16. Ezanno P Aubry-Kientz M Arnoux S Cailly P L’Ambert G Toty C A generic weather-driven model to predict mosquito population dynamics applied to species of Anopheles, Culex and Aedes genera of southern France Prev Vet Med. 2015 120 39 50 10.1016/j.prevetmed.2014.12.018 25623972
+Ezanno P, Aubry-Kientz M, Arnoux S, Cailly P, L’Ambert G, Toty C, et al. A generic weather-driven model to predict mosquito population dynamics applied to species of Anopheles, Culex and Aedes genera of southern France. Prev Vet Med. 2015;120:39–50.25623972 10.1016/j.prevetmed.2014.12.018
+17. Tran A L’Ambert G Lacour G Benoît R Demarchi M Cros M A rainfall-and temperature-driven abundance model for Aedes albopictus populations Int J Environ Res Public Health. 2013 10 1698 719 10.3390/ijerph10051698 23624579 PMC3709343
+Tran A, L’Ambert G, Lacour G, Benoît R, Demarchi M, Cros M, et al. A rainfall-and temperature-driven abundance model for Aedes albopictus populations. Int J Environ Res Public Health. 2013;10:1698–719.23624579 10.3390/ijerph10051698 PMC3709343
+18. Marini G Poletti P Giacobini M Pugliese A Merler S Rosà R The role of climatic and density-dependent factors in shaping mosquito population dynamics: the case of Culex pipiens in northwestern Italy PLOS ONE. 2016 11 e0154018 10.1371/journal.pone.0154018 27105065 PMC4841511
+Marini G, Poletti P, Giacobini M, Pugliese A, Merler S, Rosà R. The role of climatic and density-dependent factors in shaping mosquito population dynamics: the case of Culex pipiens in northwestern Italy. PLoS ONE. 2016;11:e0154018.27105065 10.1371/journal.pone.0154018 PMC4841511
+19. Spielman A Wong J Environmental control of ovarian diapause in Culex pipiens Ann Entomol Soc Am. 1973 66 905 7 10.1093/aesa/66.4.905
+Spielman A, Wong J. Environmental control of ovarian diapause in Culex pipiens. Ann Entomol Soc Am. 1973;66:905–7.
+20. Field EN Shepard JJ Clifton ME Price KJ Witmier BJ Johnson K Semi-field and surveillance data define the natural diapause timeline for Culex pipiens across the United States Commun Biol. 2022 5 1300 10.1038/s42003-022-04276-x 36435882 PMC9701209
+Field EN, Shepard JJ, Clifton ME, Price KJ, Witmier BJ, Johnson K, et al. Semi-field and surveillance data define the natural diapause timeline for Culex pipiens across the United States. Commun Biol. 2022;5:1300.36435882 10.1038/s42003-022-04276-x PMC9701209
+21. Nelms BM Fechter-Leggett E Carroll BD Macedo P Kluh S Reisen WK Overwintering biology of Culex (Diptera: Culicidae) mosquitoes in the Sacramento Valley of California J Med Entomol. 2013 50 773 90 10.1603/ME12280 23926775 PMC3920460
+Nelms BM, Fechter-Leggett E, Carroll BD, Macedo P, Kluh S, Reisen WK. Overwintering biology of Culex (Diptera: Culicidae) mosquitoes in the Sacramento Valley of California. J Med Entomol. 2013;50:773–90.23926775 10.1603/me12280 PMC3920460
+22. Legros M Lloyd AL Huang Y Gould F Density-dependent intraspecific competition in the larval stage of Aedes aegypti (Diptera: Culicidae): revisiting the current paradigm J Med Entomol. 2009 46 409 19 10.1603/033.046.0301 19496407 PMC2702140
+Legros M, Lloyd AL, Huang Y, Gould F. Density-dependent intraspecific competition in the larval stage of Aedes aegypti (Diptera: Culicidae): revisiting the current paradigm. J Med Entomol. 2009;46:409–19.19496407 10.1603/033.046.0301 PMC2702140
+23. Lutambi AM Penny MA Smith T Chitnis N Mathematical modelling of mosquito dispersal in a heterogeneous environment Math Biosci. 2013 241 198 216 10.1016/j.mbs.2012.11.013 23246807
+Lutambi AM, Penny MA, Smith T, Chitnis N. Mathematical modelling of mosquito dispersal in a heterogeneous environment. Math Biosci. 2013;241:198–216.23246807 10.1016/j.mbs.2012.11.013
+24. Asman M Observations of mating behavior in Culex tarsalis Ann Entomol Soc Am. 1975 68 777 8 10.1093/aesa/68.5.777
+Asman M. Observations of mating behavior in Culex tarsalis. Ann Entomol Soc Am. 1975;68:777–8.
+25. Anguelov R Dufourd C Dumont Y Mathematical model for pest–insect control using mating disruption and trapping Appl Math Modell. 2017 52 437 57 10.1016/j.apm.2017.07.060
+Anguelov R, Dufourd C, Dumont Y. Mathematical model for pest–insect control using mating disruption and trapping. Appl Math Modell. 2017;52:437–57.
+26. Andreadis SS Dimotsiou OC Savopoulou-Soultani M Variation in adult longevity of Culex pipiens f. pipiens, vector of the West Nile Virus Parasitol Res. 2014 113 4315 9 10.1007/s00436-014-4152-x 25284257
+Andreadis SS, Dimotsiou OC, Savopoulou-Soultani M. Variation in adult longevity of Culex pipiens f. pipiens, vector of the West Nile Virus. Parasitol Res. 2014;113:4315–9.25284257 10.1007/s00436-014-4152-x
+27. Moser SK Barnard M Frantz RM Spencer JA Rodarte KA Crooker IK Scoping review of Culex mosquito life history trait heterogeneity in response to temperature Parasit Vectors. 2023 16 200 10.1186/s13071-023-05792-3 37316915 PMC10265793
+Moser SK, Barnard M, Frantz RM, Spencer JA, Rodarte KA, Crooker IK, et al. Scoping review of Culex mosquito life history trait heterogeneity in response to temperature. Parasit Vectors. 2023;16:200. 10.1186/s13071-023-05792-3.37316915 10.1186/s13071-023-05792-3 PMC10265793
+28. Rinehart JP Robich RM Denlinger DL Enhanced cold and desiccation tolerance in diapausing adults of Culex pipiens, and a role for Hsp70 in response to cold shock but not as a component of the diapause program J Med Entomol. 2006 43 713 722 10.1093/jmedent/43.4.713 16892629
+Rinehart JP, Robich RM, Denlinger DL. Enhanced cold and desiccation tolerance in diapausing adults of Culex pipiens, and a role for Hsp70 in response to cold shock but not as a component of the diapause program. J Med Entomol. 2006;43:713–22. 10.1093/jmedent/43.4.713.16892629 10.1603/0022-2585(2006)43[713:ECADTI]2.0.CO;2
+29. de Wit MM Martins AD Delecroix C Heesterbeek H ten Bosch QA Mechanistic models for West Nile virus transmission: a systematic review of features, aims and parametrization Proc Biol Sci. 2024 291 20232432 10.1098/rspb.2023.2432 38471554 PMC10932716
+de Wit MM, Martins AD, Delecroix C, Heesterbeek H, ten Bosch QA. Mechanistic models for West Nile virus transmission: a systematic review of features, aims and parametrization. Proc Biol Sci. 2024;291:20232432. 10.1098/rspb.2023.2432.38471554 10.1098/rspb.2023.2432 PMC10932716
+30. Sauer FG Timmermann E Lange U Lühken R Kiel E Effects of hibernation site, temperature, and humidity on the abundance and survival of overwintering Culex pipiens pipiens and Anopheles messeae (Diptera: Culicidae) J Med Entomol. 2022 59 2013 21 10.1093/jme/tjac139 36130183 PMC9667720
+Sauer FG, Timmermann E, Lange U, Lühken R, Kiel E. Effects of hibernation site, temperature, and humidity on the abundance and survival of overwintering Culex pipiens pipiens and Anopheles messeae (Diptera: Culicidae). J Med Entomol. 2022;59:2013–21.36130183 10.1093/jme/tjac139 PMC9667720
+31. Ahumada JA LaPointe DA Samuel MD Modeling the population dynamics of Culex quinquefasciatus (Diptera: Culicidae), along an elevational gradient in Hawaii J Med Entomol. 2004 41 1157 70 10.1603/0022-2585-41.6.1157 15605655
+Ahumada JA, LaPointe DA, Samuel MD. Modeling the population dynamics of Culex quinquefasciatus (Diptera: Culicidae), along an elevational gradient in Hawaii. J Med Entomol. 2004;41:1157–70.15605655 10.1603/0022-2585-41.6.1157
+32. Balenghien T Vazeille M Grandadam M Schaffner F Zeller H Reiter P Vector competence of some French Culex and Aedes mosquitoes for West Nile virus Vector-Borne Zoonotic Dis. 2008 8 589 96 10.1089/vbz.2007.0266 18447623
+Balenghien T, Vazeille M, Grandadam M, Schaffner F, Zeller H, Reiter P, et al. Vector competence of some French Culex and Aedes mosquitoes for West Nile virus. Vector-Borne Zoonotic Dis. 2008;8:589–96.18447623 10.1089/vbz.2007.0266
+33. Detinova TS. Age-grouping methods in Diptera of medical importance with special reference to some vectors of malaria. Monogr Ser World Health Organ. 1962:47:13–191.13885800
+34. Cornes RC van der Schrier G van den Besselaar EJM Jones PD An ensemble version of the E-OBS temperature and precipitation data sets J Geophys Res Atmos. 2018 123 9391 409 10.1029/2017JD028200
+Cornes RC, van der Schrier G, van den Besselaar EJM, Jones PD. An ensemble version of the E-OBS temperature and precipitation data sets. J Geophys Res Atmos. 2018;123:9391–409.
+35. Copernicus—Climate Change Service. Known issues in E-OBS. 2024. https://surfobs.climate.copernicus.eu/userguidance/known_issues_eobs.php. Accessed 30 Apr 2024.
+36. Blower SM Dowlatabadi H Sensitivity and uncertainty analysis of complex models of disease transmission: an HIV model, as an example Int Stat Rev/Rev Int Stat. 1994 62 229 43 10.2307/1403510
+Blower SM, Dowlatabadi H. Sensitivity and uncertainty analysis of complex models of disease transmission: an HIV model, as an example. Int Stat Rev/Rev Int Stat. 1994;62:229–43.
+37. Hoare A Regan DG Wilson DP Sampling and sensitivity analyses tools (SaSAT) for computational modelling Theor Biol Med Modell. 2008 5 1 18 10.1186/1742-4682-5-4 PMC2292159 18304361
+Hoare A, Regan DG, Wilson DP. Sampling and sensitivity analyses tools (SaSAT) for computational modelling. Theor Biol Med Modell. 2008;5:1–18.10.1186/1742-4682-5-4 PMC2292159 18304361
+38. R Core Team. R: a language and environment for statistical computing. 2024. Vienna: R Foundation for Statistical Computing. https://www.R-project.org/.
+39. Cribari-Neto F Zeileis A Beta regression in R J Stat Softw. 2010 34 1 24 10.18637/jss.v034.i02
+Cribari-Neto F, Zeileis A. Beta regression in R. J Stat Softw. 2010;34:1–24.
+40. Hartig F. DHARMa: residual diagnostics for hierarchical (multi-level / mixed) regression models; 2024. R package version 0.4.7. Available from: https://CRAN.R-project.org/package=DHARMa.
+41. Lüdecke D Ben-Shachar MS Patil I Waggoner P Makowski D performance: an R package for assessment, comparison and testing of statistical models J Open Source Softw. 2021 6 3139 10.21105/joss.03139
+Lüdecke D, Ben-Shachar MS, Patil I, Waggoner P, Makowski D. performance: an R package for assessment, comparison and testing of statistical models. J Open Source Softw. 2021;6:3139.
+42. Wickham H, François R, Henry L, Müller K, Vaughan D. dplyr: a grammar of data manipulation. 2026. R package version 1.2.1. https://CRAN.R-project.org/package=dplyr.
+43. Wickham H, Vaughan D, Girlich M. tidyr: tidy messy data; 2025. R package version 1.3.2. https://CRAN.R-project.org/package=tidyr.
+44. Wickham H. ggplot2: elegant graphics for data analysis. New York: Springer; 2016. https://ggplot2.tidyverse.org.
+45. Wickham H, Pedersen TL, Seidel D. scales: scale functions for visualization. 2023. R package version 1.3.0. https://CRAN.R-project.org/package=scales.
+46. Kassambara A. rstatix: pipe-friendly framework for basic statistical tests. 2025. R package version 0.7.3. https://CRAN.R-project.org/package=rstatix.
+47. Wickham H. stringr: simple, consistent wrappers for common string operations. 2025. R package version 1.6.0. https://CRAN.R-project.org/package=stringr.
+48. Soetaert K Petzoldt T Setzer RW Solving differential equations in R: package deSolve J Stat Softw. 2010 33 1 25 10.18637/jss.v033.i09
+Soetaert K, Petzoldt T, Setzer RW. Solving differential equations in R: package deSolve. J Stat Softw. 2010;33:1–25.20808728
+49. Pujol G, Iooss B, Janon A, Sobieczky F, Da Veiga S, Delage T, et al. sensitivity: an R package for sensitivity analysis. J Stat Softw. 2008;62:1–25.
+50. Carnell R lhs: an R package for Latin hypercube sampling J Stat Softw. 2012 46 1 7
+Carnell R. lhs: an R package for Latin hypercube sampling. J Stat Softw. 2012;46:1–7.22837731
+51. Xie Y. knitr: a general-purpose package for dynamic report generation in R. 2025. R package version 1.51. https://yihui.org/knitr/.
+52. Wickham H plyr: tools for splitting, applying and combining data R J. 2011 3 29 32
+Wickham H. plyr: tools for splitting, applying and combining data. R J. 2011;3:29–32.27942416
+53. Kassambara A. ggpubr: ’ggplot2’-based publication-ready plots. R package version 0.6.3. 2026. https://CRAN.R-project.org/package=ggpubr.
+54. Zeileis A Grothendieck G zoo: S3 infrastructure for regular and irregular time series J Stat Softw. 2005 14 6 1 27 10.18637/jss.v014.i06
+Zeileis A, Grothendieck G. zoo: S3 infrastructure for regular and irregular time series. J Stat Softw. 2005;14:1–27.
+55. Hijmans RJ. raster: geographic data analysis and modeling. R package version 3.6-32. 2025. https://CRAN.R-project.org/package=raster.
+56. Hijmans RJ. geosphere: spherical trigonometry. R package version 1.6-8. 2026. https://CRAN.R-project.org/package=geosphere.
+57. Grolemund G, Wickham H. Dates and times made easy with lubridate. J Stat Softw. 2011;40:1–25. https://www.jstatsoft.org/v40/i03/.
+58. Dahl DB, Scott D, Roosen C, Magnusson A, Swinton J. xtable: export tables to LaTeX or HTML. 2019. R package version 1.8-4. https://CRAN.R-project.org/package=xtable.
+59. Andrade R White SM Cobbold CA Incorporating adult age into mosquito population models: implications for predicting abundances in changing climates J Theor Biol. 2025 604 112084 10.1016/j.jtbi.2025.112084 40032142
+Andrade R, White SM, Cobbold CA. Incorporating adult age into mosquito population models: implications for predicting abundances in changing climates. J Theor Biol. 2025;604:112084.40032142 10.1016/j.jtbi.2025.112084
+60. Onyeka JOA, Boreham PFL. Population studies, physiological state and mortality factors of overwintering adult populations of females of Culex pipiens L. (Diptera: Culicidae). Bull Entomol Res. 1987;77:99–111.
+61. Ewing DA Cobbold CA Purse BV Nunn MA White SM Modelling the effect of temperature on the seasonal population dynamics of temperate mosquitoes J Theor Biol. 2016 400 65 79 10.1016/j.jtbi.2016.04.008 27084359
+Ewing DA, Cobbold CA, Purse BV, Nunn MA, White SM. Modelling the effect of temperature on the seasonal population dynamics of temperate mosquitoes. J Theor Biol. 2016;400:65–79.27084359 10.1016/j.jtbi.2016.04.008
+62. Anderson JF Main AJ Importance of vertical and horizontal transmission of West Nile virus by Culex pipiens in the Northeastern United States J Infect Dis. 2006 194 1577 9 10.1086/508754 17083043
+Anderson JF, Main AJ. Importance of vertical and horizontal transmission of West Nile virus by Culex pipiens in the Northeastern United States. J Infect Dis. 2006;194:1577–9.17083043 10.1086/508754
+63. Kennedy MC, O’Hagan A. Bayesian calibration of computer models. J R Stat Soc Series B Stat Methodol. 2001;63:425–64. 10.1111/1467-9868.00294.
+64. Koenraadt CJM Harrington LC Flushing effect of rain on container-inhabiting mosquitoes Aedes aegypti and Culex pipiens (Diptera: Culicidae) J Med Entomol. 2008 45 28 35 10.1093/jmedent/45.1.28 18283939
+Koenraadt CJM, Harrington LC. Flushing effect of rain on container-inhabiting mosquitoes Aedes aegypti and Culex pipiens (Diptera: Culicidae). J Med Entomol. 2008;45:28–35. 10.1093/jmedent/45.1.28.18283939 10.1603/0022-2585(2008)45[28:feoroc]2.0.co;2
+65. Zittra C Flechl E Kothmayer M Vitecek S Rossiter H Zechmeister T Ecological characterization and molecular differentiation of Culex pipiens complex taxa and Culex torrentium in eastern Austria Parasit Vectors. 2016 9 1 9 10.1186/s13071-016-1495-4 27067139 PMC4828795
+Zittra C, Flechl E, Kothmayer M, Vitecek S, Rossiter H, Zechmeister T, et al. Ecological characterization and molecular differentiation of Culex pipiens complex taxa and Culex torrentium in eastern Austria. Parasit Vectors. 2016;9:1–9.27067139 10.1186/s13071-016-1495-4 PMC4828795
+66. Hesson JC Rettich F Merdić E Vignjević G Östman O Schäfer M The arbovirus vector Culex torrentium is more prevalent than Culex pipiens in northern and central Europe Med Vet Entomol. 2014 28 179 186 10.1111/mve.12024 23947434
+Hesson JC, Rettich F, Merdić E, Vignjević G, Östman O, Schäfer M, et al. The arbovirus vector Culex torrentium is more prevalent than Culex pipiens in northern and central Europe. Med Vet Entomol. 2014;28:179–86.23947434 10.1111/mve.12024

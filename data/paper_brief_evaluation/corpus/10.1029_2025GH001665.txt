@@ -1,0 +1,399 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Geohealth
+Journal ID: Geohealth
+NLM Journal ID: 101706476
+Journal ID: GH2
+
+GeoHealth
+
+EISSN: 2471-1403
+Publisher: Wiley
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13072058
+PMID: 41982801
+DOI: 10.1029/2025GH001665
+Article ID: GH270137
+Article ID: 2025GH001665
+Article version: 1
+Subjects: Geohealth; Impacts of Climate Change: Human Health,; Public Health; Vector Born Diseases; Atmospheric Composition and Structure; Biosphere/Atmosphere Interactions; Atmospheric Composition and Structure; Evolution of the Atmosphere; Biogeosciences; Biosphere/Atmosphere Interactions; Computational Geophysics; Global Change; Atmosphere; Mathematical Geophysics; Natural Hazards; Mathematical and Computer Modeling; Tectonophysics; Evolution of the Earth; Research Article; Research Article
+
+West Nile Virus Transmission Suitability Modeling for Culex pipiens via Temperature and Humidity
+
+Jones et al.
+
+Jones H. M. https://orcid.org/0000-0003-4588-3911 1 hunter.jones@unmc.edu
+
+Brett‐Major D. M. 2 3
+Fauver J. R. 2
+Gwon Y. https://orcid.org/0000-0001-6974-337X 4
+Bell J. E. https://orcid.org/0000-0001-5011-9614 5 6 7
+1 Medical Sciences Interdepartmental Area University of Nebraska Medical Center Silver Spring MD USA
+2 Department of Epidemiology College of Public Health University of Nebraska Medical Center Omaha NE USA
+3 Division of Infectious Diseases College of Medicine University of Nebraska Medical Center Omaha NE USA
+4 Department of Biostatistics College of Public Health University of Nebraska Medical Center Omaha NE USA
+5 Department of Environmental Agricultural and Occupational Health, College of Public Health University of Nebraska Medical Center Omaha NE USA
+6 Daugherty Water for Food Global Institute University of Nebraska Lincoln NE USA
+7 School of Natural Resources University of Nebraska ‐ Lincoln Lincoln NE USA
+* Correspondence to:
+H. M. Jones,
+hunter.jones@unmc.edu
+
+Electronic publication date: 2026 Apr 13
+Publication date: 2026 Apr
+Volume: 10
+Issue: 4
+Electronic Location ID: e2025GH001665
+Revised 2026 Feb 25; Received 2025 Sep 20; Accepted 2026 Mar 10
+Copyright: © 2026 The Author(s). GeoHealth published by Wiley Periodicals LLC on behalf of American Geophysical Union.
+License: This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Keywords: west nile virus, Culex pipiens, disease modeling, transmission suitability, vapor pressure deficit (VPD), species‐specific traits
+
+Funding: Claire M. Hubbard Foundation
+Figure count: 6
+Table count: 5
+Page count: 18
+
+source-schema-version-number: 2.0
+cover-date: April 2026
+details-of-publishers-convertor: Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:13.04.2026
+
+==============================
+Abstract
+
+West Nile Virus (WNV) is the leading cause of mosquito‐borne disease in the United States, yet predicting its transmission remains a significant challenge for public health officials. Many studies use correlative statistical models to predict disease cases using temperature and humidity, but accessible mechanistic approaches that simulate mosquito behavior traits can capture more of the transmission process. This study adapts an existing R‐language package, the Mosquito‐borne Viral Suitability Estimator (MVSE), which was created to model Aedes aegypti mosquito transmission of dengue, and tunes it to Culex pipiens transmission of WNV. Equations for mortality, biting rate, and incubation period were updated, and Vapor Pressure Deficit (VPD) was used in place of Relative Humidity to better approximate dehydration stress on mosquitos. Our Culex‐specific customizations of the model improved correlations with annual disease cases at the county level, particularly in locations with higher Culex pipiens habitat suitability. For West Nile Neuroinvasive Disease (WNND), the correlation between MVSE performance (Spearman's rho for WNND incidence and our custom Index P) and probability of Culex pipiens presence was 0.48 (p = 0.03). These results demonstrate that incorporating trait sensitivity to temperature and VPD results in species‐specific models that may be effective in informing WNV disease prevention efforts.
+
+Plain Language Summary
+
+West Nile virus disease is a serious health threat in the United States that can cause severe brain inflammation in extreme (neuroinvasive) cases and has historically been difficult to predict. How mosquitos spread it from birds to people is complex. Weather conditions like temperature and humidity affect the behavior of mosquitos. However, many computer models used to predict outbreaks do not account for the unique ways different mosquito species react to these environmental cues. We updated an existing model framework that was originally created for a different mosquito and disease to specifically reflect how the Culex pipiens mosquito—a prime carrier of WNV—survives and transmits the virus. When we tested this custom model against the original version in 20 U.S. cities with high disease incidence, our updated version performed better in locations that had more Culex pipiens mosquitos. This shows that fine‐tuning models to the specific traits of the local mosquito can lead to more accurate predictions, which helps public health officials take steps to better protect communities.
+
+Key Points
+
+Transmission suitability indices for arboviruses can be well‐correlated with disease cases when tuned to specific mosquito species traits
+
+Culex pipiens‐specific traits like seasonal diapause and sensitivity to humidity are important factors to represent in model logic
+
+Model improvements were most apparent at the county‐annual scale, but model performance was best at the state‐monthly scale
+
+1 Introduction
+
+1.1 Challenges of Skillful Prediction of West Nile Virus Disease Cases
+
+West Nile Virus (WNV) is the largest cause of domestic arboviral disease (Sutter et al., 2024). Since its introduction to the United States in 1999, WNV disease (WND) has caused at least 61,013 human disease cases, 29,077 hospitalizations (since 2004), and 3,144 deaths through 2024 as of 16 January 2026 according to the U.S. Centers for Disease Control and Prevention (CDC) (2026). There are two types of WND cases, with roughly half of those reported being of the milder West Nile Fever (WNF) form and half being the severe neuroinvasive (WNND) form. It is widely held that cases of WNF are far more prevalent but underreported compared to the severe WNND cases because WNF often manifests as a febrile illness common to many other maladies, while the severity of WNND drives patients to seek treatment (Petersen et al., 2013). WND deaths are primarily from WNND (U.S. CDC, 2026).
+
+Improving the ability of health authorities to predict when and where outbreaks of WNV disease (WND) disease may occur to support prevention and control is a strategic priority of the CDC (U.S. DHHS & CDC, 2024). While many modeling teams have attempted to forecast disease cases using environmental, sociodemographic, and other variables, case counts have exhibited great interannual and spatial variability that has often defied skillful prediction. An analysis of CDC's 2020 WNV Forecasting Challenge found that no models at the regional (or even smaller ∼34,640 km2 hexagon) scale significantly outperformed a simple negative binomial model in forecasting challenges (Holcomb et al., 2023). In the 2022 WNV Forecasting Challenge, models had improved overall, with the ensemble outperforming the simple model. However, more complex models using climate and other factors had less skill than regression‐based models (Harp et al., 2025).
+
+Retrospective regression analyses of WNF and WNND cases via correlative statistical models have revealed similar challenges in predicting disease outcomes. Studies have generally identified positive associations between temperature and WNV disease cases, while findings for precipitation and humidity are variable (Davis et al., 2018; Karki et al., 2020; Soverow et al., 2009). Coarse correlative models mask complex interactions between disease vectors, hosts, and the environment. Many vector behavior and life history traits, such as biting rate and vector competence, are maximized at an optimal temperature and humidity level (Brown et al., 2023; Di Pol et al., 2022). This complicates what can be understood from statistical modeling that does not explicitly represent these relationships. For example, Ukawuba and Shaman (2018) report that increased specific humidity in June in Texas increases the risk of WNV transmission, whereas further increases in temperature and specific humidity in July and August decreased risk of WNV transmission. Hess et al. (2018) also report on the relative importance of temperature, humidity, and precipitation at different times of year.
+
+A relatively new class of ento‐epidemiological models attempts to predict R0, the basic reproduction number, as a transmission index driven by temperature. Compared to correlative statistical approaches, these models more directly simulate the effect of temperature on mosquito behavioral traits such as biting rate and mortality rate and are thus better able to represent their unimodal relationship with temperature. For example, Muñoz et al. (2020) built an ensemble of four of these models to predict the overall environmental suitability for Aedes‐borne diseases from air temperatures. While these models do not predict disease cases as outcomes, by mechanistically simulating environmental suitability for transmission they may outperform correlative models in representing how changes in temperature influence disease case outcomes. Mordecai et al. (2017) showed that temperature‐driven R0 models effectively predicted incidence of dengue, chikungunya, and Zika viruses.
+
+There are several barriers preventing wider use of ento‐epidemiological models for predicting WNV disease. Existing literature has often focused on Aedes‐vectored diseases. The corresponding model code is often not packaged for accessibility and reuse. The transmission pathway for WND is complicated by the involvement of avian amplifying hosts that extend the effective range and rate of spread of the disease. Birds also serve as reservoirs that experience high viremia, which could dampen the relative importance of environmental suitability in predicting overall disease cases. Finally, laboratory and field data on Culex species that inform mechanistic models simulating transmission is limited.
+
+1.2 Tailoring an Existing Ento‐Epidemiological Model for Culex Transmission Modeling
+
+In 2019, Obolski et al. published an accessible R‐language package, Mosquito‐borne Viral Suitability Estimator (MVSE) that allows users to estimate a transmission suitability index, IndexP, that is simplified from an R0 model and is tuned to Aedes mosquitos. MVSE applies established temperature‐ and humidity‐based formulas for mosquito traits and can be adapted to estimate transmission suitability for other disease vectors, such as Culex mosquitos. Studies focused on WND in Israel (Lourenço et al., 2020) and Portugal (Lourenço et al., 2022) have shown promising results by driving MVSE with user‐specified parameters, but they did not adapt the underlying model to use Culex‐specific models of trait sensitivity to environmental parameters.
+
+In 2023, Nakase et al., published an update to MVSE with source code for the package shared on GitHub. The new package included a variety of updates to the functions that estimate mosquito traits from temperature and humidity—but the model remained tuned to Aedes mosquito traits. Given the demonstrated success by Lourenço et al. (2020), Lourenço et al. (2022) in using this package that was tuned for Aedes mosquitos in predicting transmission for Culex‐vectored diseases, we hypothesize that reformulating the internal weather‐dependent functions in MVSE to fit Culex mosquito dynamics using newly available modeling and laboratory studies will improve the correlation between Index P and cases of WND. We focus our study on the United States because MVSE has not yet been applied to studying WNV there, and because robust data on both WND and WNND are available from CDC's ArboNet to correlate with Index P.
+
+In this study, we modify the MVSE package to update the formulas used to calculate Culex adult mosquito lifespan (1μ(u,t)v), biting rate (a(u,t)v), and Extrinsic Incubation Period (EIP) (γ(t)v) with Culex‐specific formulations. We also introduce a new approach to incorporating the influence of humidity that is based on vapor pressure deficit (VPD) rather than relative humidity (RH) that was informed by Brown et al. (2023). We then use weather station observations from the 20 U.S. counties with the largest case counts of WND and WNND to retrospectively estimate Index P using both the old and new formulations of the package. Finally we correlate the transmission indices with common forecasting targets, observed incidence of WNND and WNF, to determine if the updates to the model could improve predictions of WND cases. The reporting of this modeling study was structured to follow recommended reporting items for epidemic forecasting and prediction research (EPIFORGE) guidelines (Pollett et al., 2021).
+
+2 Materials and Methods
+
+2.1 Updates to Index P Trait Models
+
+The theory and methodological details for Index P were first described in Obolski et al. (2019) and later updated with the release of a new version of the MVSE package detailed in Nakase et al. (2023). In this study, we report on further updates to the theory and methodological details of the MVSE package to improve its utility in modeling transmission potential for Culex pipiens mosquitos and the diseases they transmit, such as WNV disease. We chose to focus on Cx. pipiens specifically because it is one of the most common vectors for WNV (Ciota et al., 2013) and because there were several studies examining sensitivity of life history traits to temperature and humidity that we could use to update the MVSE package. We update the equations used to fit vector‐specific variables (Table 1) to Culex‐appropriate versions: biting rate is reformulated to also be sensitive to temperature a(u)v→a(u,t)v and to use VPD instead of RH; mortality rate (μ(u,t)v) is also reformulated to use VPD, and EIP (1/γ(t)v) is updated based on Culex pipiens studies. The probability of transmission from host to vector (ϕ(t)h→v) and transmission from vector to host (ϕ(t)v→h) are not modified in this study because the package by Nakase et al. (2023) is based on work by Lambrechts et al. (2011) whose vector competence models were based on empirical data from studies on WNV and other encephalitis‐inducing viruses, so they are well (perhaps even better) suited to a Culex‐tuned model.
+
+Table 1 Probability Distributions for the Required Parameters of a Customized WND IndexP, Used to Estimate Scaling Coefficients During the MCMC Process as Well as to Generate Stochasticity for Bootstrapping the Confidence Intervals for Index P
+
+Parameter	Symbol	Dist.	Mean (SD)	Modification in custom MVSE	Sources	
+Cx. pipiens lifespan (days)	1/μ(u,t)v	normal	30.37 (3.91)	Adopted ramp model from Di Pol et al. (2022) and replaced RH with VPD	Moser et al. (2023)	
+Cx. pipiens biting rate (bites per mosquito per day)	a(u,t)v	normal	0.14 (0.02)	Adapted a Briére function from Shocket et al. (2020) and replaced RH with VPD	Lourenço et al. (2020)	
+Avian lifespan (years)	1/μh	normal	12.0 (2.0)	Unchanged	Lourenço et al. (2020)	
+Avian Intrinsic Incubation Period (days)	1/γh	normal	1.5 (1.0)	Unchanged	Lourenço et al. (2020)	
+Avian WNV Infectious Period (days)	1/σh	normal	6.0 (1.0)	Unchanged	Lourenço et al. (2020)	
+Cx. pipiens Extrinsic Incubation Period (Original MVSE only) (days)	1/γ(t)v	normal	4.0 (1.0)	See below	Lourenço et al. (2020)	
+Cx. pipiens Extrinsic Incubation Period (Custom MVSE only) (days)	1/γ(t)v	Weibull	145.1, 106.2 (∞,15°C)
+
+85.9, 61.5 [15°C, 17.5°C)
+
+49.4, 36.1 [17.5°C, 20°C)
+
+29.0, 21.2 [20°C, 22.5°C)
+
+17.0, 12.4 [22.5°C, 25°C)
+
+9.9, 7.2 [25°C, 27.5°C)
+
+5.8, 4.2 [27.5°C, 30°C)
+
+3.4, 2.5 [30°C, 32.5°C)
+
+0.1, 0.1 [32.5°C, ∞)
+
+	Replaced normal distribution with Weibull distribution as described in Vollans et al. (2024)	Vollans et al. (2024)	
+Probability of transmission from vector to host	ϕ(t)v→h	N/A	N/A	Unchanged	N/A	
+Probability of transmission from host to vector	ϕ(t)h→v	N/A	N/A	Unchanged	N/A	
+
+2.2 Relative Humidity (RH) Versus Vapor Pressure Deficit (VPD)
+
+Relative humidity is likely the most commonly measure of the concentration of water vapor in air for disease modeling studies. It is a widely reported variable, readily available in many meteorological and climatological data sets. It represents the ratio of water vapor pressure in ambient air (i.e., the pressure exerted by water vapor molecules as a function of temperature and density) to the vapor pressure at full saturation. It is an indication of how much moisture is in the air relative to how much could be held by the air (Davis et al., 2016). A significant, and often unstated and violated, assumption made when using RH is that temperature is held constant. Saturation vapor pressure is only sensitive to temperature, but the vapor pressure of air is sensitive to both temperature and the density of water vapor (absolute humidity). If a parcel of dry air were to be rapidly cooled, its RH would increase even though the moisture content of the air is the same. This means that RH cannot be interpreted without considering temperature, and the sensitivity of RH to temperature means that it also exhibits temperature‐driven swings diurnally and seasonally (Davis et al., 2016).
+
+Mosquitos are not sensitive to RH, per se; they are sensitive to vapor pressure. Mosquitos are under near constant dehydration stress from the environment (evaporation), and they must alter their behavior to maintain homeostasis to function properly (Holmes & Benoit, 2019). While differences in RH can reasonably approximate differences in vapor pressure under constant temperature, studies that examine mosquito behavior in time or in space (nearly all), violate this assumption of constant temperature. Brown et al. (2023) posit a better variable for use in such studies that more directly represents the evaporative stress faced by mosquitos: Vapor Pressure Deficit (VPD). This variable is closely related to RH, but its derivation marginalizes temperature to focus on how differences in the density of water vapor between the air that was measured versus that of the density of fully saturated air. The higher the VPD, the faster the rate of water loss to the environment (Holmes & Benoit, 2019) and thus the more dehydration stress experienced by a mosquito.
+
+Fortunately, VPD is easy to calculate given RH and T, and we use the Tetens approximation for saturation vapor pressure in this study (Monteith & Unsworth, 2013). We calculate VPD from daily mean RH and mean temperature because these variables are already in use in both versions of the package. While use of daily max and min temperature to calculate VPD rather than mean temperature is the preferred method, since we are further scaling the effect of VPD on mosquito behavior traits, the use of mean temperature should be adequate for our purposes. Unfortunately, as Brown et al. (2023) point out, studies in which careful joint consideration of the interaction between temperature and humidity are few, and effectively incorporating a humidity variable (either RH or VPD) into a mechanistic model is still challenged by a lack of empirical studies. In MVSE, while many behavioral traits are modeled explicitly using temperature‐based equations, the application of RH is indirectly applied. RH (u) is first normalized to a value between zero and one and then its effect is multiplied with the effect of temperature (in the case of mosquito mortality). The effects of temperature and humidity on mortality (μˇ(t)v and μˇ(u)v) are modified by fitting scaling coefficients (using MCMC) so that the posterior distribution of each roughly approximates the specified distribution. This fitting process is further detailed in Nakase et al. (2023). We continue to use this approach (Equation 1), but we replace RH with VPD. This is a fair substitute because both variables are aiming to measure evaporative stress on mosquitos, but we must flip the sign with VPD to maintain meaning since an increase in RH (assuming constant temperature) would decrease stress, but an increase in VPD increases stress. (1) μˇ(VPD)v=−VPD−VPD_/1+VPD−VPD_2
+
+2.3 Mortality Rate
+
+The MVSE package of Nakase et al., 2023 models the effect of temperature on Aedes mosquito mortality rate (and its inverse, mosquito lifespan) using a quartic polynomial equation that maximizes the lifespan of Aedes aegypti to roughly 38 days at 29°C as shown in Figure 1.
+
+Figure 1 A comparison of the models for the effect of temperature on Aedes aegypti versus Culex pipiens mosquito lifespan.
+
+We source the model for Culex pipiens mosquito lifespan from Di Pol et al. (2022) who use a simpler linear ramp model where temperatures above 34°C are lethal, but survival improves linearly as temperatures drop (Equation 2). It is possible that Cx. pipiens mosquitos may survive at higher temperatures (Loetti et al., 2011), but we use Di Pol's estimates as the research is more recent and based on three source papers. One modification we make to the equation from Di Pol is capping lifespan at 120 days. We make this choice because, practically speaking, the other traits (e.g., infection and biting rate) modeled in Index P reach zero at such cold temperatures so the effect of a longer lifespan on transmission would be nullified at such low temperatures. (2) fμˇ(t)v=120,t<11.13−5.24∗t+178.32,11.13≤t≤34.030,t>34.03
+
+2.4 Biting Rate
+
+The biting rate of many mosquito species, to include Culex pipiens, is sensitive to both temperature and humidity (Hagan et al., 2018; Shocket et al., 2020). Yet, MVSE only models biting rate as a function of humidity, and rather than using a deterministic function (as in the case of the effect of temperature on mortality (1/μ(t)v)), the package uses the mean biting rate as its baseline, moderating it with the effect of normalized RH shown in Equation 3, scaled using (ρ) as shown in Equation 4, respectively reproduced from Equations 6 and 11 in Nakase et al. (2023)). (3)
+
+(4)
+
+In our update to the methodology, we incorporate a deterministic estimate of biting rate given temperature (α(t)v) from Shocket et al. (2020) who fit a Briére function to four prior observational studies to arrive at the following Equation 5: (5) α(t)v=1.7t∗10−4(t−9.4)(39.6−t)
+
+This new mechanistic form of (α(t)v) replaces (α¯) in Equation 6 and we again replace RH with VPD to arrive at our updated model for biting rate: (6) α(VPD,t)v=α(t)v1+αˇ(VPD)vρ
+
+Because empirical laboratory studies that explicitly quantify the functional response of Culex life‐history traits to Vapor Pressure Deficit (VPD) are currently unavailable in the literature, we maintained the theoretical scaling approach from Nakase et al. (2023), but swap in VPD for RH given the rationale described above and in Brown et al. (2023). Thus, we estimate the effect of humidity on biting rate and mortality using the shared scaling coefficient (ρ) that is simulated by MCMC to bridge the gap between the traits' responses to humidity in a lab versus in the field. This approach is also used in the original MVSE model and is described further in Lourenço and Recker (2014). While this is a demonstrated theoretical framework for estimating the effect of a humidity parameter on mosquito traits, future studies should be done to validate it with empirical data. Figure 2 shows the theoretical effect of temperature and VPD on Biting Rate and Lifespan for Culex pipiens. In this example we set the scaling coefficients based on a model fit to temperatures from Chicago, IL (ρ=2.28 and η=4.22).
+
+Figure 2 Theoretical joint effect of Temperature and Vapor Pressure Deficit on (a) Biting Rate and (b) Lifespan of Culex pipiens.
+
+2.5 Incubation Period
+
+In the original MVSE package by Obolski et al. (2019), the EIP is modeled as a function of temperature and scaled using a coefficient (α) that is set using MCMC in the same way that mortality is scaled using (η). Nakase et al. (2023) dispense with the scaling coefficient and instead adopt a series of lognormally distributed random variables that represent estimated EIP at different temperature ranges based on an empirical study by Chan and Johansson (2012). We adopt the latter approach, taking advantage of a new study by Vollans et al. (2024) where the empirical data for EIP in Cx. pipiens from Kilpatrick et al. (2008) was reanalyzed using Bayesian time delay models to produce Weibull distributed estimates of the effect of temperature on EIP. We modified the MVSE package to accept Weibull distributed data and coded pre‐defined distributions at set temperature thresholds ranging from 15°C to 50°C, using the moment matching approach from Justus et al. (1978) to estimate the parameters of the distribution from the moments provided in Vollans et al. (2024). Figure 3 shows the resulting distributions for EIP at various temperatures.
+
+Figure 3 The Weibull distribution of Culex pipiens Extrinsic Incubation Period by Temperature, adopted from Vollans et al. (2024).
+
+2.6 Analysis of Original and Modified MVSE Output
+
+Using the same time series of environmental data from each county‐based observing station, as well as the same priors established in Table 1, both the original (Nakase et al., 2023) and custom (this paper) MVSE packages were used to generate daily Index P. The daily Index P values were aggregated to monthly and annual means per location to fit the available case data from ArboNet. In the case of monthly Index P values, we use a 1‐month lag in our analysis because it better fits these data and is reasonable to assume human cases lag suitable environmental conditions due to both the delay in reporting cases (Parker, 2024) and transmission cycle (Moirano et al., 2025). Because we sampled environmental variables in counties with the highest incidence of WNND in each state, we assume they receive the plurality of cases in the state and are the best single location to represent environmental conditions for both the county and state. Though other papers calculate the Area Under the Curve for MVSE by summing daily values, we chose to take the mean (dividing by the number of days after summing) to account for 5 stations missing a small number of days.
+
+For each location and time interval, Spearman's Rank Correlations (rS) and p‐values (α = 0.05) were calculated between the annual mean Index P for each package (original and custom) and the WNND and WNF incidence, with results summarized in Table 2, Tables 3, and 4. In general, an rS of 0.4 or higher is considered modestly‐well correlated, with values of 0.6 or higher considered strong and 0.8 or higher very strong. As for the correlation difference, any positive value suggests the custom model is an improvement over the original model in terms of Index P correlation with WNND or WNF. Small values indicate they are similarly correlated and negative values suggest the original is better correlated.
+
+Table 2 Comparison of the Correlations Between Index P From the Two MVSE Packages (Original and Custom) and Incidence of WNND
+
+State	City	Custom IndexP versus WNND spearman correlation (p‐value)	Original IndexP versus WNND spearman correlation (p‐value)	Correlation
+
+Difference (rounded)
+
+	Cx. Pipiens probability	Population (mil.)	
+IL	Chicago	0.73 (0.00)	−0.02 (0.94)	0.75	0.92	5.37	
+MI	Detroit	0.71 (0.00)	0.22 (0.41)	0.49	0.99	2.06	
+NY	Hempstead	0.67 (0.01)	−0.05 (0.84)	0.73	0.98	1.34	
+NE	Omaha	0.58 (0.03)	−0.44 (0.09)	1.02	0.77	0.46	
+CA	Los Angeles	0.55 (0.04)	0.58 (0.04)	−0.03	0.86	9.54	
+TX	Dallas and Ft. Worth	0.47 (0.13)	0.03 (0.91)	0.44	0.56	2.22	
+MI	Grand Rapids	0.45 (0.15)	0.08 (0.78)	0.38	0.97	0.58	
+OK	Tulsa	0.34 (0.39)	0.26 (0.39)	0.08	0.68	0.56	
+AZ	Phoenix	0.32 (0.45)	−0.00 (0.99)	0.32	0.32	3.09	
+TX	Houston	0.32 (0.45)	−0.10 (0.72)	0.42	0.52	3.41	
+CA	Modesto	0.31 (0.47)	0.17 (0.53)	0.15	0.94	0.45	
+TX	El Paso	0.25 (0.69)	0.05 (0.85)	0.20	0.26	0.68	
+OH	Cleveland	0.22 (0.41)	−0.34 (0.41)	0.56	0.87	1.39	
+CO	Denver	0.18 (0.51)	0.31 (0.47)	−0.13	0.92	0.35	
+OK	Oklahoma City	0.17 (0.80)	−0.23 (0.80)	0.39	0.47	0.66	
+NM	Albuquerque	0.06 (1.00)	−0.14 (1.00)	0.20	0.76	0.56	
+AZ	Tucson	−0.14 (0.61)	0.29 (0.54)	−0.43	0.15	0.85	
+TN	Memphis	−0.14 (0.60)	−0.56 (0.05)	0.42	0.75	0.90	
+CA	Fresno	−0.15 (0.94)	0.19 (0.94)	−0.35	0.71	0.80	
+CA	Bakersfield	−0.33 (0.43)	0.00 (0.99)	−0.33	0.59	0.66	
+Note. P‐values are in parentheses. Bolded rows show statistically significant correlation (95% CI) between WNND incidence and custom Index P. Red text indicates where the WNND incidence correlation with the custom Index P is worse than with the original Index P. The primary city is shown in this table in lieu of county since cities are usually more recognizable.
+
+Table 3 Comparison of the Correlations Between Index P From the Two MVSE Packages (Original and Custom) and Incidence of WNF
+
+State	City	Custom IndexP versus WNF spearman correlation (p‐value)	Original IndexP versus WNF spearman correlation (p‐value)	Correlation
+
+Difference (rounded)
+
+	Cx. Pipiens probability	Population (mil.)	
+NE	Omaha	0.69 (0.01)	−0.11 (0.67)	0.81	0.77	0.46	
+IL	Chicago	0.68 (0.01)	0.13 (0.63)	0.55	0.92	5.37	
+NY	Hempstead	0.63 (0.02)	−0.46 (0.08)	1.09	0.98	1.34	
+TX	Dallas and Ft. Worth	0.51 (0.09)	0.08 (0.76)	0.43	0.56	2.22	
+OK	Oklahoma City	0.43 (0.19)	−0.04 (0.88)	0.47	0.47	0.66	
+MI	Detroit	0.41 (0.22)	−0.05 (0.85)	0.47	0.99	2.06	
+OK	Tulsa	0.39 (0.28)	−0.04 (0.87)	0.43	0.68	0.56	
+CA	Los Angeles	0.38 (0.15)	0.49 (0.11)	−0.11	0.86	9.54	
+TX	Houston	0.30 (0.52)	−0.02 (0.93)	0.32	0.52	3.41	
+MI	Grand Rapids	0.24 (0.76)	−0.18 (0.76)	0.42	0.97	0.58	
+OH	Cleveland	0.21 (0.85)	−0.08 (0.85)	0.29	0.87	1.39	
+TX	El Paso	0.21 (0.88)	0.06 (0.88)	0.15	0.26	0.68	
+NM	Albuquerque	0.10 (0.71)	−0.37 (0.33)	0.47	0.76	0.56	
+AZ	Phoenix	0.05 (1.00)	0.03 (1.00)	0.02	0.32	3.09	
+AZ	Tucson	0.04 (0.89)	0.27 (0.63)	−0.23	0.15	0.85	
+TN	Memphis	0.03 (0.90)	−0.55 (0.06)	0.58	0.75	0.90	
+CO	Denver	−0.02 (1.00)	0.10 (1.00)	−0.12	0.92	0.35	
+CA	Modesto	−0.03 (1.00)	−0.11 (1.00)	0.09	0.94	0.45	
+CA	Fresno	−0.10 (1.00)	−0.13 (1.00)	0.04	0.71	0.80	
+CA	Bakersfield	−0.31 (0.47)	0.06 (0.84)	−0.37	0.59	0.66	
+Note. P‐values are in parentheses. Bolded rows show statistically significant correlation (95% CI) between WNF incidence and custom Index P. Red text indicates where the WNF incidence correlation with the custom Index P is worse than with the original Index P. The primary city is shown in this table in lieu of county since cities are usually more recognizable.
+
+Table 4 Correlations Between MVSE Performance and Probability of Culex ipiens Presence, Human Population
+
+Variables	Rho for WNND (p‐value)	Rho for WNF (p‐value)	
+MVSE package	Custom Index P	Original Index P	Diff.	Custom Index P	Original Index P	Diff.	
+Cx. pipiens habitat	0.48 (0.03)	0.09 (0.72)	0.39	0.20 (0.41)	−0.38 (0.10)	0.58	
+Pop.	0.37 (0.11)	−0.05 (0.85)	0.42	0.31 (0.18)	0.35 (0.13)	−0.04	
+
+To investigate variables that may influence the strength of correlation between disease outcome and the MVSE packages in the county‐annual analysis, we also computed the Spearman's rS for the per‐location correlations above and each of: population (max of any year), and habitat suitability for Culex pipiens (from Gorris et al., 2021). In the case of the latter, the habitat suitability was extracted from the netCDF files provided from Maxent models of habitat suitability using the Center of Population for the county with bilinear interpolation. The Culex pipiens complex includes Cx. qinquefeasciatus and Cx. pipiens molestus that do not enter an overwintering dormancy or diapause, and Cx. pipiens pipiens that does (Aardema et al., 2022). This difference causes the habitat suitability for these species to vary by latitude (due to temperature differences), but the species can hybridize where their range overlaps. This likely makes our model better tuned to Cx. pipiens in northern latitudes, but we test it for a variety of geographies in the U.S. to determine if this is the case.
+
+3 Data
+
+Both annual, county‐level data and monthly, state‐level data for WNND and WNF cases were obtained from CDC's ArboNET for the years 2004–2019. These spatio‐temporal pairings are the two aggregation levels available from CDC, designed to protect patient confidentiality, so we work with both pairings rather than choosing one. This range was chosen to capture the interval of time after WNV had spread across the US but before the COVID‐19 pandemic to avoid the conditions that may have had an outsized impact on transmission such as lockdowns altering human behavior and exposure. West Nile Neuroinvasive Disease became a nationally notifiable disease in the United States in 2001, and WNF was added to the list in 2004 (Petersen, 2019), further justifying 2004 as a reasonable starting year for this analysis. WNF and WNND incidence rates were calculated annually using estimated county‐ or state‐level intercensal population estimates from the US Census Bureau. We use both disease severity types in our analysis to be comprehensive, though many authors choose to focus on WNND because its cases are more reliably reported. The top 20 counties chosen for our analysis (see Table 2) were the highest ranked according to WNND incidence, provided that they had a population of at least 500,000 people in any year during our period of interest and were not adjacent to each other. In the case of multiple adjacent counties with high rates, we selected the county nearest the climate observing station used.
+
+Daily climate observing station data on air temperature at two m above the ground and RH were obtained using the R package GSODR (Sparks et al., 2017) to retrieve NOAA's Global Summary of the Day primarily from airport Automated Surface Observing System stations serving our counties of interest. In the case of multiple station options, the station within 40 km of the US Census Bureau's Center of Population for the county and with the fewest missing days was used. Five of the stations (Bakersfield, CA; Grand Rapids, MI; Modesto, CA; Phoenix, AZ; Tucson, AZ) were missing data on a small fraction (<0.2%) of days, but we consider this acceptable for in situ observations.
+
+4 Results—Custom MVSE Outperforms Original at County‐Annual, But Not State‐Monthly Scale
+
+4.1 General Differences in MVSE Outcomes When Employing Cx. Pipiens Parameters
+
+To demonstrate the differences in the original and custom MVSE packages, a complete grid of all temperature (15–35C) and RH (0–100) combinations was fed to each package to produce heatmaps of key variables as shown in Figure 4. Relative humidity is shown rather than VPD because that is the input to both packages, and because the original package does not use VPD. It is important to caveat this approach to running MVSE by noting that the MCMC process fits the scaling coefficients using both the distributions of the mosquito behavior parameters and the available environmental data, so calibrating MVSE to a data set representing such extreme ranges of temperature and humidity will not perfectly exemplify its performance when fit with more appropriate observed environmental inputs.
+
+Figure 4 Heatmaps of simulated mean Index P, lifespan, biting rate, and Extrinsic Incubation Period using the two Mosquito‐borne Viral Suitability Estimator packages: original (a) and custom (b). Each package was fed a filled grid of temperatures ranging from 15to35°C and relative humidities ranging from 1 to 100.
+
+The original package in panel A shows a clear bias toward higher Index P values at high humidity while the custom package shows a more moderate bias toward higher Index P values at low humidity. This suggests that the switch from RH to VPD made the effect of humidity on transmission suitability less extreme. The difference in ideal temperatures for transmission was much less different between packages, with 28°C being optimum in each case.
+
+The remaining plots in Figure 4 show how the joint effect of temperature and humidity affect mosquito lifespan, biting rate, and EIP. As expected, lifespan is longest at low temperatures in the custom package, whereas it is longest at high temperatures in the original package—traits better suited to Culex spp. in the custom package and Aedes spp. in the original package. The importance of biting rate increasing at higher VPD appears to have had a major effect on how humidity influences Index P. Biting rate is most frequent at high temperatures and low humidity in the custom package but is most frequent at high humidity and temperature agnostic in the original package. The general pattern of the effect of temperature on EIP is the same in both packages. However, the custom package displays much more stochasticity as a result of its values being sampled from the pre‐specified Weibull distribution (Figure 3) rather than deterministically calculated using a set formula as in the original package.
+
+4.2 The Custom MSVE Package Outperforms the Original in Associations With WNND in a Majority of Counties
+
+In the county‐annual analysis, the original package Index P was significantly correlated (95% CI, n = 16 years) with incidence of WNND in Los Angeles. The custom Index P package was significantly correlated with WNND incidence in Chicago (Cook County), Detroit (Wayne County), Hempstead (Nassau County), Omaha (Douglas County), and Los Angeles (Los Angeles County). It was an improvement over the original package in 15 of 20 locations (positive correlation differences indicate a stronger fit to the cases), though slightly worse in Los Angeles compared to the original model (Table 2). In the case of WNF incidence, the original package's Index P was not significantly correlated with the incidence of WNF in any location. The custom Index P was significantly correlated in Omaha (Douglas County), Chicago (Cook County), and Hempstead (Nassau County) and was an improvement over the original package in 16 of 20 locations (Table 3).
+
+The stronger positive correlations of the custom package compared to the original package in most locations confirms that the modifications made to better simulate the temperature‐ and humidity‐sensitive traits of Cx. pipiens mosquitos were effective in improving the simulation of WNV transmission suitability. To understand why the improvements were not more consistent, we examined the correlation between the above correlations (between Index P and WNND/WNF incidence)—referred to as performance—and the habitat suitability for Culex pipiens. We also considered the maximum human population of any year for each location as a point of comparison since locations with a greater at‐risk population may have more robust surveillance data. We find that the performance of the package is moderately well correlated with Culex pipiens habitat suitability (WNND:rs=.48,p=.03;WNF:rs=.20,p=.41), and human population is slightly correlated with performance (WNND:rs=.37,p=.11;WNF:rs=.31,p=.18) as reported in Table 4.
+
+We provide Index P correlations with both WNND and WNF incidence because either or both are used in much of the literature on WNV. While WNF cases are much more common than WNND cases, they are less likely to be detected due to milder symptoms, so WNND incidence is likely more accurately estimated (Holcomb et al., 2023). West Nile Neuroinvasive Disease represents a small but severe portion of the full burden of WNV, and it is less prone to zero‐inflation, so WNF is helpful to examine as well. As can be seen in Tables 2 and 3, there can be large differences in performance depending on which disease outcome we are considering. West Nile Neuroinvasive Disease is our preferred indicator of performance.
+
+The improved performance in locations more likely to have Cx. pipiens present again underscores the importance of tuning models of transmission suitability to specific species. For example, while Cx. pipiens diapauses through the winter, Cx. quinquefasciatus does not (Meuti et al., 2015), so our assumption that lifespan increases linearly as temperatures cool does not apply to all Cx. spp. One caveat to our approach using modeled habitat suitability, however, is that this does not always correspond to observed mosquito distribution. For example, Los Angeles has a high Cx. pipiens habitat suitability (0.86) according to the study by Gorris et al. (2021), but field studies indicate that Cx. tarsalis and quinquefasciatus are the more dominant Cx. species (Barker et al., 2010). In the case of population versus performance, it may be that locations with larger populations will have more robust surveillance data (missing a few cases matters more if overall case counts are small).
+
+Zooming in on one of the best‐fit locations for both WNND and WNF incidence, Chicago (Cook County), we see in Figure 5 (panel a) that the scaled time series of Index P from the custom package better fits the scaled WNND incidence than the original package. This mismatch is also clear when comparing the correlation of Index P from the two packages (panel b), which is very low (rs=.14,p=.59). In panel (c), we see that the variation of mean annual Index P values in the custom package (median = 0.46) is much lower than in the original package (median = 1.63).
+
+Figure 5 Diagnostic plots for the highest‐correlated location of Chicago, IL (Cook County). (a) the timeseries showing West Nile Neuroinvasive Disease incidence as bars with the corresponding Index P estimates for the custom and original Mosquito‐borne Viral Suitability Estimator (MVSE) packages. (b) A correlation plot comparing the two MVSE package estimates of Index P. (c) Violin plots showing the distribution of Index P per MVSE package.
+
+4.3 The Custom and Original MVSE Packages Perform Similarly in Association With Monthly, State‐Level West Nile Virus Cases
+
+The performance of the original and custom MVSE packages for WNND and WNF incidence is much more similar at the monthly‐state scale than it was for the annual‐county scale. At the monthly‐state scale all but one location performed well (rs> 0.4) in both MVSE packages: Phoenix (Maricopa County) (Table 5). The much stronger overall correlations between Index P and WNF or WNND incidence for most locations is likely the result of the strong seasonal variability in WNND and WNF cases, which is well captured in both the original and custom packages.
+
+Table 5 Comparison of the Spearman's Rank Correlation Between State‐Wide WNND and WNF Cases and the Index P (Lagged by One Month) of the Original and Custom MVSE Models
+
+State	City	WNND Incidence	WNF Incidence	
+rs (p‐value) for lagged custom indexP versus WNND	rs (p‐value) for lagged original indexP versus WNND	Diff. (Rounded)	rs (p‐value) for lagged customindexP versus WNF	rs (p‐value) for lagged original indexP versus WNF	Diff. (Rounded)	
+TX	Houston	0.82 (0.00)	0.67 (0.00)	0.15	0.77 (0.00)	0.64 (0.00)	0.14	
+IL	Chicago	0.80 (0.00)	0.77 (0.00)	0.03	0.69 (0.00)	0.66 (0.00)	0.03	
+NE	Omaha	0.77 (0.00)	0.73 (0.00)	0.03	0.85 (0.00)	0.81 (0.00)	0.04	
+NY	Hempstead	0.76 (0.00)	0.73 (0.00)	0.03	0.67 (0.00)	0.61 (0.00)	0.06	
+CO	Denver	0.75 (0.00)	0.77 (0.00)	−0.01	0.82 (0.00)	0.84 (0.00)	−0.01	
+MI	Detroit	0.73 (0.00)	0.71 (0.00)	0.02	0.55 (0.00)	0.52 (0.00)	0.03	
+CA	Los Angeles	0.72 (0.00)	0.84 (0.00)	−0.12	0.64 (0.00)	0.81 (0.00)	−0.17	
+OH	Cleveland	0.70 (0.00)	0.66 (0.00)	0.04	0.56 (0.00)	0.55 (0.00)	0.01	
+NM	Albuquerque	0.70 (0.00)	0.72 (0.00)	−0.02	0.56 (0.00)	0.59 (0.00)	−0.04	
+OK	Oklahoma City	0.68 (0.00)	0.63 (0.00)	0.04	0.58 (0.00)	0.49 (0.00)	0.09	
+TN	Memphis	0.61 (0.00)	0.61 (0.00)	0.01	0.52 (0.00)	0.47 (0.00)	0.05	
+AZ	Phoenix	0.13 (0.07)	0.27 (0.00)	−0.14	0.15 (0.04)	0.26 (0.00)	−0.11	
+Note. Values in red indicate where the custom package performed worse than the original.
+
+In four locations, the custom package performed slightly worse than the original package: Denver (Adams County), Los Angeles (Los Angeles County), Albuquerque (Bernalillo County), and Phoenix (Maricopa County). Notably, these poorer performing locations are all relatively arid and western (where Culex pipiens are less common). When the correlation between performance and mean VPD was investigated, the correlation for WNND incidence was moderately negative for the custom package (rs=−.51,p−value=.22) and the original package (rs=−.43,p−value=.22), while the correlation for WNF incidence was nearly identical for both the custom package (rs=−.32,p−value=.65) and the original package (rs=−.33,p−value=.65). These moderate to slight negative correlations suggest that lower VPDs (places that tend to be more humid) have better performance with both packages rather than being a clear difference between packages. This may be due to the scaling approach taken in both packages, which would tend to magnify daily changes in VPD in locations with lower overall VPD.
+
+The notably poor performance of the model in Phoenix can be best assessed using the time series plot in Figure 6. The best performing location of Houston (Harris County) in panel (a) shows a relatively good fit between the time series of Index P from both packages (lagged by 1 month) and the case counts of WNND (log transformed for better fit). Meanwhile in panel (b), Phoenix (Maricopa County) evinces a poor fit, with spring and fall showing increased Index P, but with cases peaking in the hottest months of summer. There may be many reasons for this, such as human behavior potentially creating refugia and breeding locations for mosquitos seeking cooler temperatures at rest (Reinhold et al., 2022). It is also likely that other crepuscular species such as Cx. quinquefasciatus and Cx. tarsalis are driving transmission of WNV in Phoenix (Wilke et al., 2023) rather than Cx. pipiens (Jobe et al., 2024).
+
+Figure 6 Annual time series of log‐transformed West Nile Neuroinvasive Disease and West Nile Fever cases in Texas (a) and Arizona (b) overlaid by Index P from both the custom and original Mosquito‐borne Viral Suitability Estimator (MVSE) packages for Harris County and Maricopa County respectively, each lagged by 1 month to better align with cases. Since the original MVSE package produced larger estimates of Index P, its values are represented on the secondary y‐axis which is doubled. The subset of years 2005–2015 was chosen as a representative sample of all years to make the figure more manageable.
+
+5 Discussion
+
+The custom MVSE package performed better than the original package in correlating with WND cases in the case of the annual‐county scale model, especially in locations with a high habitat suitability for Culex pipiens mosquitos, demonstrating the importance of considering the species‐specific influence of environmental parameters on the behavior of mosquitos at these scales. The custom and original packages performed similarly in the monthly‐state scale model, suggesting that the customizations were less relevant to performance at those scales. Thus, the effect of the model changes was more apparent at a coarser temporal scale with a finer spatial scale. This is likely due to several factors. Many states are large enough to maintain a variety of climates, such as California which spans approximately 760 miles from north to south. Meanwhile Colorado varies in elevation by more than 11,000 feet. Given that the flight range of Culex mosquitos is generally less than one mile (Proença & Rebelo, 2024), refinements in spatial resolution for epidemiological, entomological, and environmental data would likely shrink observational error and improve correlations by more closely matching cases with their corresponding climate and mosquito species and behavior.
+
+The performance of our custom model in California warrants specific consideration. We assessed model performance in Modesto, Fresno, Bakersfield, and Los Angeles, ordered here according to decreasing latitude. As Table 2 demonstrates, annual‐county model performance also declines with latitude in Modesto (0.31), Fresno (−0.15), and Bakersfield (−0.33) as would be expected with decreasing relative abundance of Cx. pipiens mosquitos. However, Los Angeles (0.55), the lowest latitude, performs well. It is possible that the tuning performed for Cx. pipiens made it a better fit for Cx. tarsalis which exhibit greater tolerance of low temperatures than Cx. quinquefasciatus (Moser et al., 2023), but this would be inconsistent with our explanation of poor model performance in Phoenix, which also contains populations of Culex tarsalis and quinquefasciatus. Phoenix does see much higher maximum temperatures than Los Angeles, which may contribute to the difference in performance. Other factors such as the ocean's influence on Los Angeles' climate versus the monsoon climate of Phoenix may also contribute to the differences. In both locations, Cx. tarsalis are present and do diapause, so future model studies that incorporate this mechanism would allow for further exploration of its importance in species‐specific tuning of Culex models.
+
+We considered updating the package to include a diapause mechanism but did not for several reasons. The original MVSE package did not include this mechanism in the equation for Index P nor is it commonly included in formulations of R0. Index P is focused on the behavior of adult female mosquitos, but diapause‐induced developmental changes are initially triggered earlier in Culex pipiens development (Sanburg & Larsen, 1973). While photoperiod length is relatively easy to calculate given latitude, Armbruster (2016) reports that the Critical Photoperiod (when 50% of individuals enter diapause) for Culex pipiens can vary at the same latitude due to genetic differences. There are other complexities that would need to be better understood to properly include it in a model, including the interaction between photoperiod length and temperature (Field et al., 2022) and the influence of artificial light in urban environments (Fyie et al., 2021). Thus, while diapause is an important mechanism for understanding transmission of disease by Culex pipiens, more research under natural (not laboratory) conditions and an expanded mechanistic framework would be needed to properly accommodate this trait.
+
+The poor performance of the custom model in arid regions of the U.S. overall could also be further investigated in future studies. While the replacement of RH with VPD presents a potential improvement to the mechanics of the model and its fit with biophysical reality (Brown et al., 2023), the assumption that mortality and biting rate are identically influenced by atmospheric moisture in scale, though opposite in direction, detracts from such an improvement. Further field studies exploring these traits, and the combined effect of temperature and VPD, are needed to test this assumption. Once complete, the custom model and the original MVSE framework it builds on, offer a starting point for subsequent model studies that can take advantage of future field work.
+
+The similar model performance (original and custom) at the monthly scale could be due in part to the clear seasonal cycle in transmission that both models capture well month over month, which may be drowning out more subtle differences in model performance. Also, while we chose a 1‐month lag, it is possible that if we had weekly case data a lag of 3 or 4 weeks would have been more appropriate, in which case a 1‐month lag (effectively weeks 5–8) would not be the best choice for correlation. While we did not test weekly Index P against monthly case data, this would be a potential next step for diagnosing this issue.
+
+Our choice of human cases as the outcome to test model predictions against also likely led to lower correlations. Index P, as a transmission suitability index, is capturing only one segment of the overall process of vectoring a virus. This transmission probability model does not incorporate mosquito breeding or density parameters, human behaviors such as engaging in mosquito control or creating refugia, population immunity, avian migration and distribution, or factors that may have influenced detection of cases such as population health and demographics that may influence the likelihood of a case becoming neuroinvasive (Jean et al., 2007).
+
+The MVSE package is subject to several more limitations and assumptions. The distributions specified for species‐specific behavior (e.g., biting rate) upfront in the model are understood to represent the observations of traits under all environmental conditions throughout the year, but as the annual distribution of conditions (e.g., temperature) differs by climatic zone, the transferability of the distributions across large distances is questionable. The model also does not explicitly capture any autoregressive characteristics, such as behaviors that are sensitive to trait values in previous time steps. The current modeling framework, being tailored to one mosquito species, could be further enhanced by including a wider range of parameterizations for mosquito species known to transmit the focal disease (WND in this case). Finally, as is often noted in the literature on models of WNV, further disambiguation of the role of the avian host on transmission and incorporation into mechanistic models may lead to prediction skill gains.
+
+The accessibility of an R package like MVSE makes Index P an easy component to incorporate in a variety of future studies, but the lack of a directly observable outcome for transmission makes it difficult to assess its skill. While we did not directly compare the mechanistic MVSE model to statistical models of the influence of environmental variables on disease outcomes in this study, we believe these results suggest Index P could be a useful component of such models. In locations where this custom MVSE model appears to perform well (e.g., Chicago, Omaha), comparing it to more spatiotemporally refined WNV case data sets such as weekly‐county scale data could be a next step.
+
+6 Conclusions
+
+By systematically adapting a mechanistic framework to the environmental sensitivity of Culex pipiens and integrating the robust metric of VPD, this study demonstrates that greater biological realism can yield a significantly improved model of WNV transmission suitability. Our findings show that these species‐specific customizations are supportive of explaining interannual variability in disease patterns at the county scale, and that integrating consideration of the sensitivity of life history traits to environmental factors into models can directly enhance tools for public health surveillance. This work also suggests needed research to improve the next generation of WNV models, which should now move beyond environmental drivers to incorporate the dynamic complexities of the vector community and critical life‐history strategies like photoperiod‐driven diapause. Achieving this will be an important next step in transitioning from retrospective explanation to the ultimate goal of skillful, preventative forecasting of WNV risk.
+
+Conflict of Interest
+
+The authors declare no conflicts of interest relevant to this study.
+
+Acknowledgments
+
+This work was supported by the Claire M. Hubbard Foundation. The authors acknowledge the use of Google's Gemini (13 September 2025 version) to assist with final manuscript editing, such as citation and readability checking. The authors reviewed and edited all content and take full responsibility for the final text.
+
+Availability Statement
+
+The analysis for this study was conducted using the R statistical computing environment (R Core Team, 2025). The custom MVSE R package (Jones, 2026) modified for this research, along with the analysis code, is openly available via a Zenodo archive and GitHub (https://github.com/hunterjonesm/MVSE‐wnv‐public). This package is an adaptation of the original MVSE package (Nakase et al., 2023), which is also available on GitHub (https://github.com/TaishiNakase/MVSE). West Nile virus disease case data are available upon request from the U.S. Centers for Disease Control and Prevention's ArboNet (U.S. Centers for Disease Control and Prevention, 2026). The environmental data used in this study were obtained from the National Oceanic and Atmospheric Administration's Global Summary of the Day database via the GSODR R package (Sparks et al., 2017).
+
+
+References
+
+Aardema, M. L. , Olatunji, S. K. , & Fonseca, D. M. (2022). The enigmatic Culex pipiens (diptera: Culicidae) species complex: Phylogenetic challenges and opportunities from a notoriously tricky mosquito group. Annals of the Entomological Society of America, 115(1), 95–104. 10.1093/aesa/saab038
+Armbruster, P. A. (2016). Photoperiodic diapause and the establishment of Aedes albopictus (diptera: Culicidae) in North America. In Journal of Medical Entomology (Vol. 53(5), pp. 1013–1023). Entomological Society of America. 10.1093/jme/tjw037 27354438 PMC5013814
+Barker, C. M. , Eldridge, B. F. , & Reisen, W. K. (2010). Seasonal abundance of Culex tarsalis and Culex pipiens complex mosquitoes (Diptera: Culicidae) in California. Journal of Medical Entomology, 47(5), 759–768. 10.1603/ME09139 20939368 PMC2965637
+Brown, J. J. , Pascual, M. , Wimberly, M. C. , Johnson, L. R. , & Murdock, C. C. (2023). Humidity – The overlooked variable in the thermal biology of mosquito‐borne disease. Ecology Letters, 26(7), e142281049. 10.1111/ele.14228 PMC10299817 37349261
+Chan, M. , & Johansson, M. A. (2012). The incubation periods of dengue viruses. PLoS One, 7(11), e50972. 10.1371/journal.pone.0050972 23226436 PMC3511440
+Ciota, A. T. , Chin, P. A. , & Kramer, L. D. (2013). The effect of hybridization of Culex pipiens complex mosquitoes on transmission of west Nile virus. Parasites & Vectors, 6(1), 305. 10.1186/1756-3305-6-305 24499581 PMC4029739
+Davis, J. K. , Vincent, G. P. , Hildreth, M. B. , Kightlinger, L. , Carlson, C. , & Wimberly, M. C. (2018). Improving the prediction of arbovirus outbreaks: A comparison of climate‐driven models for west Nile virus in an endemic region of the United States. Acta Tropica, 185, 242–250. 10.1016/j.actatropica.2018.04.028 29727611
+Davis, R. E. , McGregor, G. R. , & Enfield, K. B. (2016). Humidity: A review and primer on atmospheric moisture and human health. Environmental Research, 144, 106–116. 10.1016/j.envres.2015.10.014 26599589
+Di Pol, G. , Crotta, M. , & Taylor, R. A. (2022). Modelling the temperature suitability for the risk of west Nile virus establishment in european Culex pipiens populations. Transboundary and Emerging Diseases, 69(5), e1787–e1799. 10.1111/tbed.14513 35304820 PMC9790397
+Field, E. N. , Shepard, J. J. , Clifton, M. E. , Price, K. J. , Witmier, B. J. , Johnson, K. , et al. (2022). Semi‐field and surveillance data define the natural diapause timeline for Culex pipiens across the United States. Communications Biology, 5(1), 1300. 10.1038/s42003-022-04276-x 36435882 PMC9701209
+Fyie, L. R. , Gardiner, M. M. , & Meuti, M. E. (2021). Artificial light at night alters the seasonal responses of biting mosquitoes. Journal of Insect Physiology, 129, 104194. 10.1016/j.jinsphys.2021.104194 33482172
+Gorris, M. E. , Bartlow, A. W. , Temple, S. D. , Romero‐Alvarez, D. , Shutt, D. P. , Fair, J. M. , et al. (2021). Updated distribution maps of predominant culex mosquitoes across the Americas. Parasites and Vectors, 14(1), 547. 10.1186/s13071-021-05051-3 34688314 PMC8542338
+Hagan, R. W. , Didion, E. M. , Rosselot, A. E. , Holmes, C. J. , Siler, S. C. , Rosendale, A. J. , et al. (2018). Dehydration prompts increased activity and blood feeding by mosquitoes. Scientific Reports, 8(1), 6804. 10.1038/s41598-018-24893-z 29717151 PMC5931509
+Harp, R. D. , Holcomb, K. M. , Retkute, R. , Prusokiene, A. , Prusokas, A. , Ertem, Z. , et al. (2025). Evaluation of the 2022 west Nile virus forecasting challenge, USA. Parasites and Vectors, 18(1), 152. 10.1186/s13071-025-06767-2 40269898 PMC12020065
+Hess, A. , Davis, J. K. , & Wimberly, M. C. (2018). Identifying environmental risk factors and mapping the distribution of west Nile virus in an endemic region of North America. GeoHealth, 2(12), 395–409. 10.1029/2018GH000161 32159009 PMC7007078
+Holcomb, K. M. , Staples, J. E. , Nett, R. J. , Beard, C. B. , Petersen, L. R. , Benjamin, S. G. , et al. (2023). Multi‐model prediction of west Nile virus neuroinvasive disease with machine learning for identification of important regional climatic drivers. GeoHealth, 7(11), e2023GH000906. 10.1029/2023GH000906 PMC10654557 38023388
+Holmes, C. J. , & Benoit, J. B. (2019). Biological adaptations associated with dehydration in mosquitoes. Insects, 10(11), 375. 10.3390/insects10110375 31661928 PMC6920799
+Jean, C. M. , Honarmand, S. , Louie, J. K. , & Glaser, C. A. (2007). Risk factors for West Nile virus neuroinvasive disease, California, 2005. Emerging Infectious Diseases, 13(12), 1918–1920. 10.3201/eid1312.061265 18258047 PMC2876738
+Jobe, N. B. , Franz, N. M. , Johnston, M. A. , Malone, A. B. , Ruberto, I. , Townsend, J. , et al. (2024). The mosquito fauna of Arizona: Species composition and public health implications. Insects, 15(6), 432. 10.3390/insects15060432 38921147 PMC11203593
+Jones, H. M. (2026). MVSE‐wnv: Updates to an R package for modeling west nile virus transmission suitability (Release 8ba4346) [Software]. Zenodo. 10.5281/zenodo.19357918
+Justus, C. G. , Hargraves, W. R. , Mikhail, A. , & Graber, D. (1978). Methods for estimating wind speed frequency distributions. Journal of Applied Meteorology, 17(3), 350–353. 10.1175/1520-0450(1978)017<0350:MFEWSF>2.0.CO;2
+Karki, S. , Brown, W. M. , Uelmen, J. , Ruiz, M. O. , & Smith, R. L. (2020). The drivers of west Nile virus human illness in the Chicago, Illinois, USA area: Fine scale dynamic effects of weather, mosquito infection, social, and biological conditions. PLoS One, 15(5), e0227160. 10.1371/journal.pone.0227160 32437363 PMC7241786
+Kilpatrick, A. M. , Meola, M. A. , Moudy, R. M. , & Kramer, L. D. (2008). Temperature, viral genetics, and the transmission of west Nile virus by Culex pipiens mosquitoes. PLoS Pathogens, 4(6), e1000092. 10.1371/journal.ppat.1000092 18584026 PMC2430533
+Lambrechts, L. , Paaijmans, K. P. , Fansiri, T. , Carrington, L. B. , Kramer, L. D. , Thomas, M. B. , & Scott, T. W. (2011). Impact of daily temperature fluctuations on dengue virus transmission by Aedes aegypti. Proceedings of the National Academy of Sciences, 108(18), 7460–7465. 10.1073/pnas.1101377108 PMC3088608 21502510
+Loetti, V. , Schweigmann, N. , & Burroni, N. (2011). Development rates, larval survivorship and wing length of Culex pipiens (diptera: Culicidae) at constant temperatures. Journal of Natural History, 45(35–36), 2203–2213. 10.1080/00222933.2011.590946
+Lourenço, J. , Barros, S. C. , Zé‐Zé, L. , Damineli, D. S. C. , Giovanetti, M. , Osório, H. C. , et al. (2022). West Nile virus transmission potential in Portugal. Communications Biology, 5(1), 6. 10.1038/s42003-021-02969-3 35013546 PMC8748923
+Lourenço, J. , & Recker, M. (2014). The 2012 madeira dengue outbreak: Epidemiological determinants and future epidemic potential. PLoS Neglected Tropical Diseases, 8(8), e3083. 10.1371/journal.pntd.0003083 25144749 PMC4140668
+Lourenço, J. , Thompson, R. N. , Thézé, J. , & Obolski, U. (2020). Characterising west Nile virus epidemiology in Israel using a transmission suitability index. Euro Surveillance, 25(46). 10.2807/1560-7917.ES.2020.25.46.1900629 PMC7678037 33213688
+Meuti, M. E. , Stone, M. , Ikeno, T. , & Denlinger, D. L. (2015). Functional circadian clock genes are essential for the overwintering diapause of the northern house mosquito, Culex pipiens. Journal of Experimental Biology, 218(3), 412–422. 10.1242/jeb.113233 25653422 PMC4317241
+Moirano, G. , Fletcher, C. , Semenza, J. C. , & Lowe, R. (2025). Short‐term effect of temperature and precipitation on the incidence of west Nile neuroinvasive disease in Europe: A multi‐country case‐crossover analysis. The Lancet Regional Health ‐ Europe, 48, 101149. 10.1016/j.lanepe.2024.101149 39717226 PMC11665362
+Monteith, J. L. , & Unsworth, M. H. (2013). Micrometeorology. Elsevier. 10.1016/B978-0-12-386910-4.00016-0
+Mordecai, E. A. , Cohen, J. M. , Evans, M. V. , Gudapati, P. , Johnson, L. R. , Lippi, C. A. , et al. (2017). Detecting the impact of temperature on transmission of zika, dengue, and chikungunya using mechanistic models. PLoS Neglected Tropical Diseases, 11(4), e0005568. 10.1371/journal.pntd.0005568 28448507 PMC5423694
+Moser, S. K. , Barnard, M. , Frantz, R. M. , Spencer, J. A. , Rodarte, K. A. , Crooker, I. K. , et al. (2023). Scoping review of Culex mosquito life history trait heterogeneity in response to temperature. Parasites and Vectors, 16(1), 200. 10.1186/s13071-023-05792-3 37316915 PMC10265793
+Muñoz, Á. G. , Chourio, X. , Cinnamond, A. R. , Diuk‐Wasser, M. A. , Kache, P. A. , Mordecai, E. A. , et al. (2020). AeDES: A next‐generation monitoring and forecasting system for environmental suitability of Aedes‐borne disease transmission. Scientific Reports, 10(1), 12640. 10.1038/s41598-020-69625-4 32724218 PMC7387552
+Nakase, T. , Giovanetti, M. , Obolski, U. , & Lourenço, J. (2023). Global transmission suitability maps for dengue virus transmitted by Aedes aegypti from 1981 to 2019 [Software]. Scientific Data, 10(1), 275. 10.1038/s41597-023-02170-7 37173303 PMC10182074
+Obolski, U. , Perez, P. N. , Villabona‐Arenas, C. J. , Thézé, J. , Faria, N. R. , & Lourenço, J. (2019). MVSE: An R‐package that estimates a climate‐driven mosquito‐borne viral suitability index. Methods in Ecology and Evolution, 10(8), 1357–1370. 10.1111/2041-210X.13205 32391139 PMC7202302
+Parker, N. (2024). Exploring the role of temperature and other environmental factors in west Nile virus incidence and prediction in California counties from 2017–2022 using a zero‐inflated model. PLoS Neglected Tropical Diseases, 18(6), e0012051. 10.1371/journal.pntd.0012051 38913741 PMC11226093
+Petersen, L. R. (2019). Epidemiology of west Nile virus in the United States: Implications for arbovirology and public health. Journal of Medical Entomology, 56(6), 1456–1462. 10.1093/jme/tjz085 31549728
+Petersen, L. R. , Carson, P. J. , Biggerstaff, B. J. , Custer, B. , Borchardt, S. M. , & Busch, M. P. (2013). Estimated cumulative incidence of west nile virus infection in US adults, 1999–2010. Epidemiology and Infection, 141(3), 591–595. 10.1017/S0950268812001070 22640592 PMC9151873
+Pollett, S. , Johansson, M. A. , Reich, N. G. , Brett‐Major, D. , del Valle, S. Y. , Venkatramanan, S. , et al. (2021). Recommended reporting items for epidemic forecasting and prediction research: The EPIFORGE 2020 guidelines. PLoS Medicine, 18(10), e1003793. 10.1371/journal.pmed.1003793 34665805 PMC8525759
+Proença, M. d. C. , & Rebelo, M. T. (2024). On the range of action of adult Culex pipiens s.l. Journal of Biosciences and Medicines, 12(3), 113–121. 10.4236/jbm.2024.123009
+R Core Team . (2025). R: A language and environment for statistical computing (Version 4.5.1) [Software]. R Foundation for Statistical Computing. Retrieved from https://www.R‐project.org/
+Reinhold, J. M. , Chandrasegaran, K. , Oker, H. , Crespo, 2 J. E. , Vinauger, C. , & Lahondère, C. (2022). Species‐specificity in thermopreference and CO2‐Gated heat‐seeking in culex mosquitoes. Insects, 13(1), 92. 10.3390/insects13010092 35055936 PMC8779787
+Sanburg, L. L. , & Larsen, J. R. (1973). Effect of photoperiod and temperature on ovarian development in Culex pipiens pipiens. Journal of Insect Physiology, 19(6), 1173–1190. 10.1016/0022-1910(73)90202-3 4708144
+Shocket, M. S. , Verwillow, A. B. , Numazu, M. G. , Slamani, H. , Cohen, J. M. , El Moustaid, F. , et al. (2020). Transmission of west Nile and five other temperate mosquito‐borne viruses peaks at temperatures between 23°C and 26°C. eLife, 9, e58511. 10.7554/eLife.58511 32930091 PMC7492091
+Soverow, J. E. , Wellenius, G. A. , Fisman, D. N. , & Mittleman, M. A. (2009). Infectious disease in a warming world: How weather influenced west Nile virus in the United States (2001–2005). Environmental Health Perspectives, 117(7), 1049–1052. 10.1289/ehp.0800487 19654911 PMC2717128
+Sparks, A. , Hengl, T. , & Nelson, A. (2017). GSODR: Global summary daily weather data in R [Software; Data]. Journal of Open Source Software, 2(10), 177. 10.21105/joss.00177
+Sutter, R. A. , Lyons, S. , Gould, C. V. , Staples, J. E. , & Lindsey, N. P. (2024). West Nile virus and other nationally notifiable arboviral diseases — United States, 2022. MMWR. Morbidity and Mortality Weekly Report, 73(21), 484–488. 10.15585/mmwr.mm7321a2 38814815 PMC11152368
+Ukawuba, I. , & Shaman, J. (2018). Association of spring‐summer hydrology and meteorology with human west Nile virus infection in west Texas, USA, 2002–2016. Parasites and Vectors, 11(1), 224. 10.1186/s13071-018-2781-0 29618375 PMC5885460
+U.S. Centers for Disease Control and Prevention . (2026). ArboNET, arboviral diseases branch, division of vector‐borne diseases [Dataset]. U.S. Department of Health and Human Services, CDC. Retrieved from https://www.cdc.gov/mosquitoes/php/arbonet/index.html
+U.S. Department of Health and Human Services and the U.S. Centers for Disease Control and Prevention . (2024). The national public health strategy to prevent and control vector‐borne diseases in people. U.S. DHHS. CDC.
+Vollans, M. , Day, J. , Cant, S. , Hood, J. , Kilpatrick, A. M. , Kramer, L. D. , et al. (2024). Modelling the temperature dependent extrinsic incubation period of west Nile virus using Bayesian time delay models. Journal of Infection, 89(6), 106296. 10.1016/j.jinf.2024.106296 39343246
+Wilke, A. B. B. , Damian, D. , Litvinova, M. , Byrne, T. , Zardini, A. , Poletti, P. , et al. (2023). Spatiotemporal distribution of vector mosquito species and areas at risk for arbovirus transmission in Maricopa county, Arizona. Acta Tropica, 240, 106833. 10.1016/j.actatropica.2023.106833 36736524

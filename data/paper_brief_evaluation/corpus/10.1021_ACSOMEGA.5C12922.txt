@@ -1,0 +1,369 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: ACS Omega
+Journal ID: ACS Omega
+NLM Journal ID: 101691658
+Journal ID: ao
+
+ACS Omega
+
+EISSN: 2470-1343
+Publisher: American Chemical Society
+http://pubs.acs.org/journal/acsodf
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13280836
+PMID: 42326625
+DOI: 10.1021/acsomega.5c12922
+Article version: 1
+Subjects: Article
+
+Usambarensine from Strychnos usambarensis: Revisiting a Bis-Indole Alkaloid for Antiviral Repositioning
+
+8004628 https://orcid.org/0000-0003-4595-4193 Leka Kristi
+8004668 Mamede Lucia
+7381575 Lesenfants Cindy
+8004683 Robbiano Sofia
+8202146 Vandeberg Elyn
+7283478 Hamann Carla
+4882878 https://orcid.org/0000-0002-0770-9990 Frédérich Michel
+8004658 Garigliany Mutien-Marie
+4338152 https://orcid.org/0009-0004-9372-5875 Ledoux Allison
+† 37471 University of Liège Faculty of Medicine , Laboratory of Pharmacognosy, CIRM , Building B36 Quartier Hôpital , 4000 Liege , Belgium
+‡ University of Liège Faculty of Medicine , Laboratory of Medicinal Chemistry, CIRM , Avenue Hippocrate 15 (B36) , Liège B-4000 , Belgium
+§ University of Liège Laboratory of Veterinary Pathology, FARAH CIRM INDEEP , Building B43a Avenue de Cureghem 6 , 4000 Liege , Belgium
+* Email: allison.ledoux@uliege.be.
+Electronic publication date: 2026 Jun 4
+Publication date: 2026 Jun 16
+Volume: 11
+Issue: 23
+First page: 33609
+Last page: 33618
+Received 2025 Dec 9; Accepted 2026 May 21; Revised 2026 May 18; 2026 Jun 4
+Copyright: © 2026 The Authors. Published by American Chemical Society
+Copyright year: 2026
+Copyright holder: The Authors
+
+License: This article is licensed under CC-BY-NC-ND 4.0
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Funding: Fonds De La Recherche Scientifique - FNRS 10.13039/501100002661 40021286
+
+Funding: Fonds pour la Formation ? i la Recherche dans l?Industrie et dans l?Agriculture 10.13039/501100003134 40009257
+
+Funding: Fonds L?on Fredericq 10.13039/501100006673 NA
+document-id-old-9: ao5c12922
+document-id-new-14: ao5c12922
+production-flag-MathML-config-version: 3
+production-flag-journal-citation-display-style: acs-titles
+production-flag-journal-date-display-style: dates-used-rcd-rvd-acc
+production-flag-si-avail: yes
+document-id-alt-64: a30b185f6064208b48cfadd82cf0d00528496b6902cbf2c53fab084433fc311d
+
+==============================
+Emerging RNA viruses continue to pose major global health threats, underscoring the urgent need for broad-spectrum antiviral agents. Usambarensine, a bis-indole alkaloid isolated from Strychnos usambarensis, has historically been investigated for its antimalarial and antihelminthic properties, but its antiviral potential has remained unexplored. In this study, usambarensine was isolated through bioguided fractionation and structurally confirmed by HPTLC, HPLC-UV, FT-IR, MS/MS, and NMR. The compound was first evaluated against representatives of three major RNA virus families: Coronaviridae (SARS-CoV-2), Flaviviridae (West Nile virus), and Orthomyxoviridae (Influenza A) using Vero E6 cells. Antiviral activity was quantified by RT-qPCR at 24, 48, and 72 h postinfection. Usambarensine showed strong, dose-dependent inhibition of SARS-CoV-2, achieving ∼4log10 reduction at 72 h, transient inhibition of West Nile virus and no significant activity against Influenza A. Based on the robust activity observed against SARS-CoV-2, screening was expanded within the Coronaviridae family to include SARS-CoV-1 and MERS-CoV, both of which yielded similar results. This selective antiviral profile, as well as the observation that viral RNA levels remain similar to the initial viral inoculum, suggests that usambarensine interferes with a coronavirus-specific early entry or fusion process, potentially involving a shared entry pathway in Vero E6 cells. These findings identify usambarensine as a promising natural product with selective antiviral activity against coronaviruses. Further mechanistic studies, including determining the specific stage of the viral replication cycle affected, elucidating the molecular target, and performing structure–activity relationship optimization, are needed to assess its potential as a lead scaffold for coronavirus entry inhibitors.
+
+Introduction
+
+The 21st century has witnessed the emergence and re-emergence of several RNA viruses with major global health implications. Previous large-scale outbreaks caused by Influenza A virus (IAV), Human immunodeficiency virus (HIV), Ebola virus (EBOV), Severe Acute Respiratory Syndrome Coronavirus (SARS-CoV-1), Middle East Respiratory Syndrome Coronavirus (MERS-CoV), Zika virus (ZIKV), Chikungunya virus (CHIKV) and Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2) virus share the common feature of being RNA viruses.
+
+West Nile virus (family Flaviviridae), first isolated in Uganda in 1937, spread rapidly after its introduction into North America in 1999 and more recently across Europe, causing severe neuroinvasive disease. , Influenza A virus (Orthomyxoviridae) remains a persistent pandemic threat, with multiple pandemics over the last century, including the devastating 1918 H1N1 pandemic. − In 2002, Severe Acute Respiratory Syndrome Coronavirus (SARS-CoV-1) emerged in China following zoonotic transmission from bats through civet cats, causing a global outbreak. A decade later, Middle East Respiratory Syndrome Coronavirus (MERS-CoV) was identified in Saudi Arabia, with dromedary camels as intermediate hosts, leading to severe outbreaks in the Middle East and South Korea. , More recently, in late 2019, Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2) emerged in Wuhan, China, sparking the COVID-19 pandemic and causing more than seven million deaths worldwide. −
+
+A key reason these viruses are so often associated with outbreaks is their exceptionally high mutation rate, which allows rapid adaptation to new hosts and changing environments, as observed during the COVID-19 pandemic. This stems from the low fidelity of RNA-dependent RNA polymerases, the enzymes responsible for replicating their genomes. As a consequence, RNA viruses can quickly evade immune responses, but also antiviral treatments, thereby reducing their effectiveness.
+
+Another important characteristic of many RNA viruses is their zoonotic origin. Deforestation, urbanization, climate change, and increasing human–wildlife interactions contribute to the rising frequency of spillover events. Judging from recent decades, the likelihood that the next major public health threat will be caused by an RNA virus is extremely high, and Orthomyxoviridae, Coronaviridae and Flaviviridae appear as the top candidates.
+
+Despite the ongoing and rising threat posed by the ever-more frequent emergence of RNA viruses, effective broad-spectrum antivirals remain scarce. The COVID-19 pandemic exposed the consequences of inadequate antiviral preparedness, including overwhelmed health systems, high mortality and morbidity as well as major socioeconomic disruption. Until now, antiviral strategy has largely followed a “one bug-one drug” model, leaving humanity unprepared for new viral threats. Although vaccines helped control and limit the COVID-19 pandemic, their development and distribution required time, and recent evidence indicates that their long-term protection is limited. Booster doses are required, and older individuals as well as immunocompromised patients exhibit weaker immune responses compared to the general population.
+
+Altogether, these observations highlight the urgent need for broad-spectrum antiviral approaches targeting conserved viral mechanisms, which could enable a rapid response to both current and future emerging viruses.
+
+Alkaloids represent a structurally diverse class of nitrogen-containing compounds with a long history of medicinal use. Their structural diversity and chemical complexity are associated with a wide range of biological and pharmacological activities, including analgesic, antitussive, antimuscarinic, antimalarial, antiarrhythmic, anti-inflammatory, and anticancer effects. Indeed, many natural alkaloids, semisynthetic derivatives, and alkaloid-inspired compounds remain in clinical use worldwide, including morphine (analgesic) and codeine (antitussive); atropine and scopolamine (antimuscarinics); quinine (antimalarial) and quinidine (antiarrhythmic); colchicine (for gout); and vincristine and vinblastine (anticancer agents).
+
+Many alkaloids show antiviral effects by disrupting viral entry, replication, or protein synthesis, or by modulating host immunity through pathways such as NF-κB and MAPK/ERK. In this context, a comprehensive mechanistic review of the antiviral activity of natural alkaloids against RNA viruses has recently been published. Compounds such as tetrandrine, oxymatrine, and berberine exemplify this dual antiviral and immunomodulatory action. Several alkaloids, including emetine, quinine, berberine, tetrandrine, fangchinoline, and cepharanthine, have been studied against SARS-CoV-2. Cepharanthine progressed to a Phase I/II trial for mild to moderate COVID-19, where it was well tolerated but did not significantly shorten viral clearance times. Alkaloids, with their structural diversity and potential multimodal activity, represent a rich and underexplored resource for such drug discovery.
+
+The African tree or liana Strychnos usambarensis Gilg (Loganiaceae) has been the subject of extensive phytochemical and pharmacological investigations owing to its remarkable diversity of indole alkaloids. While early work by Angenot and colleagues focused primarily on the leaves, reporting numerous bis-indole alkaloids of the Corynanthe type, subsequent studies established a clear chemical distinction between aerial and subterranean organs. , In particular, the roots and root bark, traditionally used by the Banyambo tribe as the principal ingredient of a curarizing arrow poison, contain a chemically heterogeneous mixture of tertiary, hybrid, and quaternary alkaloids. The lethal activity of these preparations is largely attributed to bis-quaternary ammonium alkaloids such as C-dihydrotoxiferine, C-calebassine, C-curarine, and afrocurarine. Alongside these neuromuscular blocking agents, the roots also yield an array of tertiary indole alkaloids, including usambarensine, 3,4-dihydrousambarensine, harman, and akagerine, as well as hybrid structures such as 6,7-dihydroflavopereirine and N’b-methyl derivatives of usambarensine. , Spectroscopic analyses, particularly 13C NMR, have played a central role in refining the structural characterization of these alkaloids and their derivatives.
+
+Among these metabolites, usambarensine stands out as a structurally distinctive bis-indole alkaloid. Although Strychnos alkaloids are often associated with neuromuscular blocking activity, usambarensine itself is not curarizing. , Its pharmacological profile was nonetheless long investigated for its anticancer potential, which tempered interest in other therapeutic potentials. With long-standing expertise in this compound, our laboratory is now re-evaluating its properties in light of contemporary therapeutic challenges.
+
+Recently, our group evaluated 28 Strychnos extracts for antiviral activity against SARS-CoV-2. At that stage, crude extracts of S. usambarensis did not show significant effects, likely due to the low abundance of usambarensine in the methanol crude extract. This highlights the limitations of extract-based screenings, in which minor yet active compounds may remain undetected, and emphasizes the need for more advanced techniques to improve screening sensitivity.
+
+Interest in usambarensine was unexpectedly rekindled when, during a systematic screen of structurally distinctive alkaloids in our in-house library, the bis-indole compound showed an unanticipated antiviral response. This finding prompted us to revisit a molecule long regarded primarily for its cytotoxic properties from a fresh therapeutic perspective.
+
+In this study, we tested usambarensine against three important viral families responsible for previous epidemics and pandemics, such as the SARS-CoV-2 virus from the Coronaviridae family, the Influenza A virus (H5N1) from the Orthomyxoviridae family and the West Nile virus from the Flaviviridae family. In light of the observed antiviral activity, the screening was further enlarged to include the SARS-CoV-1 virus and the MERS-CoV virus.
+
+The observation that usambarensine, historically regarded primarily for its cytotoxicity, exhibits antiviral properties is of particular interest. While its narrow therapeutic index has traditionally restricted its consideration for drug development, its newly identified activity positions it as a potential molecular probe or lead structure for further derivatization. Here, we report the antiviral properties of usambarensine, thereby reframing a compound once viewed mainly through the lens of cell toxicity and ethnopharmacology as a candidate with selective antiviral activity against Coronaviridae family.
+
+Materials and Methods
+
+1. Bioguided fractionation
+
+Root bark of S. usambarensis (HB 3777) collected in October 1988 in the Luki region (Republic of the Congo) and preserved at the University of Liège (Belgium) was ground into fine powder and the methanolic extracts were prepared using a SpeedExtractor E-914 (Büchi, Hendrik-Ido-Ambacht, Netherlands). The crude extract was fractionated by normal-phase flash chromatography (dichloromethane–methanol, 9:1, v/v), with 10% ammonium hydroxide added to methanol as a modifier. Alkaloid profiling was conducted using TLC and HPTLC with Dragendorff’s reagent for detection, and reference compounds available in the Pharmacognosy Laboratory (University of Liège) were used for comparative identification. Samples were further analyzed by HPLC-UV, and usambarensine was structurally confirmed using high-resolution ESI-MS/MS LTQ FT Ultra (Thermo Finnigan) equipped with an Ion Max ESI source (+2.5 kV), and NMR spectroscopy. 1H and 13C NMR spectra were recorded in CDCl3 and DMSO-d 6 on a Bruker AVANCE I 500 MHz spectrometer equipped with a cryoprobe. HSQC and COSY experiments were acquired in CDCl3 using standard Bruker pulse sequences. The resulting fractions were dissolved in DMSO and tested at 1.6–50.0 μg/mL for antiviral activity against SARS-CoV-2 in Vero E6 cells. The final DMSO concentration in the assay ranged from 0.33% to 0.37% (v/v), and a vehicle control containing the highest DMSO concentration used (0.37% v/v) was included in all experiments. Experiments were conducted in a biosafety level 3 (BSL-3) laboratory according to institutional biosafety protocols. Additional information can be found in the Supporting Information.2. In vitro assays
+
+Virus and Cells
+
+Chlorocebus sp. kidney epithelial cells (Vero E6; ATCC VERO C1008) were maintained in Dulbecco’s Modified Eagle Medium (DMEM, High Glucose, with Stable Glutamine and Sodium Pyruvate; Gibco, Belgium), supplemented with 2% (v/v) heat-inactivated fetal bovine serum (FBS; Gibco, Belgium) and 1% (v/v) penicillin–streptomycin (Gibco, Belgium). Cultures were incubated at 37 °C in a humidified atmosphere containing 5% CO2. Cells were routinely subcultured upon reaching confluence using Trypsin (Gibco, Belgium) to detach as well as PBS for rinsing purposes (phosphate buffer saline, Sigma) and used up to passage 15.
+
+SARS-CoV-2 (strain BetaCov/Belgium/Sart-Tilman/2020/1, passage 5) was isolated in-house and propagated in Vero E6 cells. West Nile virus strain NY 99 (ATCC VR-1977) was similarly propagated. Influenza A virus strain A/pheasant/Havelange/1/2022 (H5N1) was also isolated in-house. Whereas the SARS-CoV-1 and MERS-CoV were provided by Professor Piet Maes (Rega Institute, KU Leuven). Experiments were conducted in a BSL-3 laboratory according to institutional biosafety protocols.
+
+RNA Extraction and RT-qPCR
+
+Reverse transcription quantitative polymerase chain reaction (RT-qPCR) was selected as the reference method for viral RNA detection and quantification.
+
+Total RNA was extracted automatically using TANBead OptiPure Viral Auto Plates (TANBead, Taiwan) on a Maelstrom 9600 system (TANBead), according to the manufacturer’s protocol. Reverse transcription and quantitative amplification were performed in a single step using the Luna Universal Probe One-Step RT-qPCR Kit (New England BioLabs, USA).
+
+For coronaviruses, RT-qPCR targeted the N2 gene for SARS-CoV-2, the E gene for SARS-CoV-1 and the upE gene for MERS-CoV. RT-qPCR targeted the human influenza hemagglutinin gene sequence and the NS2A region of genome for the West Nile virus.
+
+Viral RNA was quantified by RT-qPCR using absolute quantification, based on a standard curve generated from synthetic RNA standards of known concentration. Amplification of β-actin mRNA was used solely as an internal control for sample quality and RT-qPCR performance, following the conditions described by Piorkowski et al. (2014) and was not used for relative quantification. Reactions were run for up to 45 cycles, and samples showing amplification before cycle 45 were considered positive, consistent with the assay conditions of the previously described protocol.
+
+Cytotoxicity Using Cells and Zebrafish Embryos
+
+Cytotoxicity of alkaloid-enriched fractions (1.6–50.0 μg/mL) and purified compounds (1.0–3.0 μg/mL) was assessed in Vero E6 cells using a PrestoBlue metabolic assay. Cells were seeded in 96-well plates and incubated with test samples for 72 h at 37 °C under 5% CO2 prior to addition of PrestoBlue and fluorescence measurement on a FlexStation 3 reader. Assays were performed in triplicate and repeated independently to ensure reproducibility.
+
+Toxicity of usambarensine was assessed in a zebrafish (Danio rerio) embryo model. Adult fish were maintained at the University of Liège under standard conditions (28 °C; 14 h light/10 h dark) in accordance with institutional ethical guidelines. Fertilized eggs were collected, rinsed, and incubated in Petri dishes for 24 h. Usambarensine was dissolved in DMSO and diluted in zebrafish medium to a final DMSO concentration of 0.4%. Fifteen embryos per condition were placed in 6-well plates. Control medium and usambarensine-supplemented medium were renewed daily over the 3 day exposure period. Exposure to 1.5–3.0 μg/mL usambarensine was monitored daily for effects on survival and early developmental parameters up until 96 h postfertilization.
+
+Direct Antiviral Assay by Viral Titration
+
+Titration of residual infectious virions was performed on Vero E6 cells. 10-fold serial dilutions were prepared in 96-well plates, transferred onto preseeded monolayers, and incubated for 5 days at 37 °C. Cytopathic effects were visually assessed by light microscopy, and viral titers were calculated according to the Reed–Muench method and expressed as log (TCID50). All procedures were performed under BSL-3 containment.
+
+Kinetic Viral Replication Assay at 24/48/72 h
+
+VERO E6 cells were seeded at a concentration of 10,000 cells per well using DMEM medium with 2% FBS and incubated for 24 h at 37 °C and 5% CO2. The following day, the fractions/molecules were added at concentrations ranging from 1.6–50.0 μg/mL for fractions and 1.0–3.0 μg/mL for purified molecules. The viruses were prepared at a multiplicity of infection MOI: 0.01. and added to the cells. The next 3 days sampling consisting of 20 μL of supernatant was performed at the timestamps of 24/48/72 h and added to a plate containing 180 μL/well of PBS. At 72 h, the plates were examined microscopically to evaluate the bioactivity of the tested molecules, to verify cell viability, and to exclude potential cytotoxic effects. The most promising experimental conditions were subsequently subjected to RT-qPCR analysis. Plates were then inactivated at 70 °C for 30 min. Each sample was tested in triplicates. All experiments related to the virus were performed in a Biosafety level 3 laboratory according to the safety regulations.
+
+Statistical Analysis
+
+The half-maximal inhibitory concentration (IC50) of molecule was determined, and statistical analysis was carried out using one-way analysis of variance (ANOVA) followed by Dunnett’s multiple comparisons test in GraphPad Prism version 9.1.0.221 (GraphPad Software, San Diego, CA, USA).
+
+Results
+
+1. Bioguided fractionation validated through RT-qPCR at 72 h and active molecule identification
+
+Starting from the methanolic extract (m = 700 mg) of the root bark of S. usambarensis, 12 fractions were obtained by flash chromatography. All fractions were screened for antiviral activity against SARS-CoV-2 by RT-qPCR at 72 h in Vero E6 cells (Table ). Fractions were considered active when their IC50 values were ≤3.0 μg/mL. Based on activity and purity, fraction B7 (m = 10.41 mg) was selected for characterization by HPTLC, HPLC-UV, FT-IR, MS/MS, and NMR.
+
+1 Evaluation of the Antiviral Activity per Fraction
+
+The table presents the SARS-CoV-2 log reduction factors determined for each numbered fraction, together with the corresponding tested concentrations assessed by RT-qPCR. The log reduction factor was calculated as the difference in log10 viral RNA concentration (copies/mL) between the positive control (cells with virus only) and each experimental condition (cells with virus in the presence of the respective fraction).
+
+The major constituent of B7 was identified as usambarensine (purity >95% based on NMR and HPLC profile) based on agreement of HPTLC profile, HPLC-UV retention time and UV spectra, HR-ESI-MS/MS mass (m/z 433.23847 [M + H]+), and NMR data with a laboratory reference standard. For in-depth data please consult the Supplementary document. Proton and carbon spectra of B7 were superimposable with both the authentic reference and the literature, further confirming the identity of the compound as usambarensine. ,
+
+To further support this assignment and ensure precise structural consistency, a complete NMR analysis was undertaken, as described below and illustrated in Table and Figure . The numbering of the structure was established in accordance with the literature on azepino­[4,3-b] quinolinic alkaloids and follows the corynane nucleus convention, enabling direct comparison with previously published data for usambarensine (sample 2b in ref ). The 13C NMR spectrum (126 MHz, DMSO-d 6) displayed three characteristic downfield signals at δC 144.33, 140.28, and 137.44 ppm, corresponding to C-3(=17′), C-2 and C-5, respectively. All other aromatic carbons were found within an acceptable margin relative to the reported values, and the aliphatic carbons of the lateral chain (including C-14(=16′), C-14′, C-15′, C-18′ and C-6′) were observed in their expected regions. These elements support the preservation of the azepino­[4,3-b] quinolinic core.
+
+2 Comparison of the 13C NMR Data of Fraction B7 with Previously Reported Values for Usambarensine (Sample 2b from Claude A. Coune et al.), Reproduced for Comparison Purposes
+
+carbon	δC (lit., 2b-CDCl3)	δC (B7-DMSO-d6)	
+2	140.2	140.28	
+3 (=17′)	144.1	144.33	
+5	137.3	137.44	
+6	113.9	112.54	
+7	119.8	118.98	
+8	127.6	127.66	
+9	121.4	121.50	
+10	118.9	118.98	
+11	128.1	127.12	
+12	113.9	112.54	
+13	134.1	134.48	
+14 (=16′)	35.1	35.18	
+2′	136.6	135.88	
+3′	53.2	54.37	
+5′	51.1	50.20	
+6′	17.6	19.55	
+7′	106.8	105.88	
+8′	128.9	127.66	
+9′	117.6	117.44	
+10′	120.2	120.33	
+11′	118.9	118.20	
+12′	111.5	111.84	
+13′	134.1	134.48	
+14′	28.7	33.13	
+15′	32.9	32.19	
+18′	12.5	12.38	
+19′	120.9	120.93	
+20′	134.6	134.48	
+21′	52.1	50.20	
+
+1 Chemical structure and numbering scheme of usambarensine (compound B7), used for NMR assignments.
+
+A particular observation was made concerning solvent influence on proton spectra. While the 13C spectrum was acquired in DMSO-d 6, all 1H-based experiments (1H NMR, HSQC and COSY) were recorded in CDCl3. In CDCl3, the deshielded signal of H-3′ at δH 4.50 ppm was clearly detected and matched both the published spectrum and our laboratory reference material. This deshielded signal was due to the spatial influence of the lone pair of the neighboring nitrogen N-4. When the authentic reference standard of usambarensine and our compound were examined in DMSO-d 6, we observed the disappearance of this δH 4.50 ppm signal for both samples. This behavior indicates that the absence of this resonance originates from a solvent effect that does not allow to observe that configurational or structural difference. The 13C data remain unaffected, whereas proton-based experiments appear more sensitive to the solvent environment in this system.
+
+The HSQC spectrum recorded in CDCl3 confirmed all protonated carbons, including C-14(=16′). Quaternary positions such as δC 144.33 and 105.88 ppm were correctly observed as lacking HSQC cross-peaks. COSY analysis revealed distinct spin systems in the aromatic region (δH 8.59/7.94, 8.13/7.31 and 7.45/7.11/7.10 ppm) and a two-spin system at δH 5.55/1.74 ppm in the side-chain region, in accordance with the substitution pattern described for usambarensine. Altogether, these data confirm the identity of the isolated compound as usambarensine and draw attention to the influence of solvent choice on the detectability of specific proton signals within this family of alkaloids. Cross-validation of spectra in CDCl3 may therefore prevent misinterpretations related to solvent-induced signal suppression in DMSO-d 6.2. In vitro assays
+
+Antiviral Activity
+
+Viral titration was performed using the TCID50 method to determine the infectious viral load of each viral stock. The calculated viral titers were 1.64 × 108 TCID50/mL for SARS-CoV-2, 6.81 × 107 TCID50/mL for H5N1, 7.5 × 108 TCID50/mL for West Nile virus, 9.09 × 107 TCID50/mL for SARS-CoV-1, and 4.56 × 107 TCID50/mL for MERS-CoV. These titers were used to calculate the MOI applied in the subsequent antiviral assays.
+
+To assess whether usambarensine has broad antiviral activity we selected three viruses representing major RNA virus families with epidemic/pandemic relevance: SARS-CoV-2, West Nile virus, and Influenza A virus using Vero E6 cells. Viral replication was monitored at 24, 48, and 72 h postinfection by RT-qPCR, with infected and uninfected controls included for comparison.
+
+Usambarensine showed potent antiviral activity against SARS-CoV-2 (Figure A). Replication was inhibited in a concentration-dependent manner with a 3.7 log10 reduction at 2.5 μg/mL and a 2.1 log10 reduction at 2.0 μg/mL after 72 h.
+
+2 Effects of usambarensine from 1.5 to 2.5 μg/mL on the replication of SARS-CoV-2 (2.A), West Nile virus (2.B), Influenza virus (2.C), SARS-CoV-1 (2.D) and MERS-CoV (2.E). The effect on the replication of viruses was assessed by incubating usambarensine with each virus respectively and VERO E6 cells for 72 h and taking aliquots every 24 h before quantifying the viral RNA concentration via RT-qPCR. The positive control corresponds to the RNA concentration per milliliter obtained with VERO E6 cells infected with the appropriated virus at an MOI of 0.01 (infected cells), and the light dashed line “residual viral RNA” corresponds to each virus at an MOI of 0.01 in medium without cells. DMSO at the same concentration used to dissolve the molecule was used as a negative control. Each point corresponds to the mean of a triplicate with the standard deviation. Statistical significance (ns, P > 0.05; *, P ≤ 0.05; **, P ≤ 0.01; ***, P ≤ 0.001; ****, P ≤ 0.0001) was calculated for each condition versus “infected cells” by one-way ANOVA followed by Dunnett’s multiple comparisons test.
+
+Against West Nile virus, usambarensine demonstrated partial antiviral activity. As can be observed in Figure B the antiviral efficiency of usambarensine is present during the first 48 h. However, by 72 h, the viral inhibition was completely lost, as viral RNA levels were comparable to the positive control.
+
+For Influenza A virus (H5N1), usambarensine had no significant effect at all the concentrations tested against the viral replication at any time point over 72 h as shown in Figure C.
+
+Since usambarensine was able to inhibit SARS-CoV-2 replication over 72 h, we extended the screening to additional members of the Coronaviridae family. Usambarensine was therefore tested against SARS-CoV-1 and MERS-CoV using the same protocol. In SARS-CoV-1-infected cells, concentrations of 1.5–2.5 μg/mL resulted in an approximately 4 log10 reduction in viral RNA copies/mL after 72 h relative to infected controls, with viral RNA levels remaining close to the input inoculum (Figure D). For MERS-CoV, treatment with 2.0 μg/mL produced a 3.6 log10 reduction, while 1.5 μg/mL resulted in a more modest 1.7 log10 decrease, indicating dose dependence (Figure E).
+
+Cytotoxicity Using Cells and Zebra Fish Embryos
+
+The cytotoxicity assay performed on Vero E6 cells showed that the molecule usambarensine had a half-maximal inhibitory concentration (IC50) of 2.5 ± 0.087 μg/mL.
+
+In addition, toxicity was evaluated in zebrafish embryos (D. rerio), using three parameters: survival, nonhatching percentage, and malformation percentage. Across the tested concentrations of usambarensine (1.5–3.0 μg/mL), zebrafish embryos displayed high survival rates comparable to the control group. However, the hatching of the embryos is different when compared to the control group, with a higher percentage of nonhatching in the control group. Malformation rates, including cardiac, vascular, morphological, and movement defects, remained low and similar between treated and control groups, with no dose-dependent increase observed. Overall, these data do not indicate overt developmental toxicity at the concentrations tested (Figure ). Each condition was evaluated in technical triplicates within a single preliminary run, as this study aimed only to perform a basic toxicity assessment. This approach is appropriate given the very low intra-assay variability typically observed in zebrafish embryo assays and, in line with ethical considerations, reduces unnecessary embryo use. The results suggest that the toxicity observed in Vero E6 cells does not directly correlate with that observed in zebrafish embryos and other assays models are needed in order to determine a safety profile for usambarensine.
+
+3 Zebra fish embryos toxicity test of usambarensine at a range of concentrations from 1.5 μg/mL to 3.0 μg/mL compared to the control (which contains the same percentage of DMSO as the amount used to dilute usambarensine). Three parameters were taken into account: the rate of survival rate, nonhatching and malformation (cardiac, blood vessels, form, movement) in percentage.
+
+Usambarensine displayed clear and dose-dependent antiviral activity across all three coronaviruses tested, with concentrations of 1.5–2.5 μg/mL maintaining inhibition over the full 72 h period. In contrast, only transient inhibition was observed for West Nile virus at the same concentrations, with activity detectable during the first 24–48 h but lost by 72 h. No significant antiviral effect was observed against Influenza A virus throughout the 72 h evaluation. Together, these findings suggest that usambarensine acts preferentially against coronaviruses, prompting further consideration of potential mechanisms underlying this selective activity.
+
+Discussion
+
+This study shows for the first time that usambarensine, a bis-indole alkaloid isolated from S. usambarensis, possesses antiviral activity. A key strength of this work is the use of RT-qPCR, a sensitive and widely used method for quantifying viral RNA, which enabled precise measurement of viral inhibition.
+
+Because the IC50 of usambarensine (2.5 μg/mL) lies near the concentrations at which antiviral effects are observed, we considered whether cytotoxicity could account for the antiviral effects. Several observations argue against this interpretation. If the antiviral effect merely a result of cytotoxicity, inhibition would be anticipated across all viruses tested and consistently over time. Instead, the antiviral activity was restricted to coronaviruses and only transient for West Nile virus. Vero E6 cell confluency remained >90% at active concentrations, indicating preserved viability. Previous FACScan (Fluorescence-Activated Cell Scanning) analysis (Dassonneville et al., 1999) showed that usambarensine behaved like the negative control at 5 μM, whereas apoptosis (sub-G1 population) was observed only at 10 μM. Our active antiviral range (1.5–2.5 μg/mL or 3.5–5.8 μM) approaches 5 μM, supporting the notion that cytotoxicity is not yet triggered, though cell-type differences must be considered. Variable IC50 values in other cell lines such as for B16 melanoma at 1.4 μg/mL; for HL-60 leukemia at 7.5 μM (3.2 μg/mL), further suggest a cell-type-dependent effect rather than inherent high cytotoxicity. , No hemolytic effect was observed in red blood cells at the tested concentrations, arguing against membrane-mediated toxicity. Even though both cell types share a typical eukaryotic lipid bilayer, they differ in many other aspects. In vivo testing in zebrafish embryos indicated no developmental toxicity.
+
+The selective antiviral profile may provide preliminary insight into the mechanism of action. SARS-CoV-1, SARS-CoV-2, and MERS-CoV use different primary receptors (ACE2 for SARS-CoV-1/2; DPP4 for MERS-CoV), yet all can initiate entry via TMPRSS2 or cathepsin-dependent pathways. − Vero E6 cells express very low TMPRSS2 but high cathepsin L, favoring endosomal cathepsin-mediated entry. The sustained inhibition observed for all three coronaviruses therefore is consistent with interference with an early step of infection, potentially involving a cathepsin-linked process, possibly at the membrane fusion stage. This is further supported by the observation that viral RNA levels under treatment remained close to inoculum levels, consistent with interference early in the viral replication cycle. Notably, a clear cytopathic effect was observed in infected untreated control cells at 72 h postinfection, supporting productive infection under our experimental conditions. However, because antiviral activity was assessed by RT-qPCR and no plaque assay was performed, the present study does not directly determine whether usambarensine affects the production, maturation, or release of infectious viral particles.
+
+Comparison with noncoronavirus models further supports the possibility. West Nile virus (Flaviviridae) enters cells via clathrin-mediated endocytosis and does not require cathepsins for productive replication. However, cathepsins play a crucial role in the entry of the related Japanese encephalitis virus, from the same family and genus as West Nile virus, in the processing of the Capsid protein in neural and macrophage cells. , This might account for the transient antiviral activity observed against West Nile virus. Whereas Influenza A virus depends on clathrin-mediated entry via sialic-acid receptors and displayed no sensitivity to usambarensine.
+
+This interpretation is in line with previous reports on other antiviral alkaloids active against RNA viruses. For instance, cepharanthine has been described as a broad-spectrum inhibitor of SARS-CoV, MERS-CoV, and SARS-CoV-2 spike-mediated entry in pseudotyped-particle assays, and it also showed antiviral activity in both Vero E6 cells and primary human lung tissue models. − Similarly, tetrandrine has been reported as a pan-coronavirus inhibitor that appears to act mainly at the viral entry stage by interfering with spike-dependent membrane fusion. Among structurally related Strychnos alkaloids, 10′-hydroxyusambarensine, another bis-indole alkaloid isolated from S. usambarensis, has so far been noted mainly in in silico studies predicting interactions with coronavirus-related targets such as 3CLpro and TMPRSS2. Together, these findings place usambarensine within a broader group of alkaloids that may interfere with early stages of coronavirus infection. However, for usambarensine itself, direct evidence of an effect on cathepsins or other host factors involved in viral entry is still lacking and will require dedicated mechanistic studies.
+
+The reduced SARS-CoV-2 inhibition at 2.0 μg/mL after 72 h, while inhibition persisted at 2.5 μg/mL or earlier time points, may reflect reversible or partial cathepsin inhibition, compensatory use of cathepsin B, or compound instability at prolonged incubation. − Adaptation toward TMPRSS2-mediated entry is theoretically possible but unlikely within the experimental time frame. Further mechanistic work will be needed to discriminate among these hypotheses.
+
+If cathepsin L/B targeting is confirmed, usambarensine may serve as the basis for a broad anticoronavirus strategy. Because all three coronaviruses tested rely on these enzymes for cellular entry, inhibiting this pathway could confer cross-species antiviral activity. − Moreover, unlike direct antivirals targeting viral proteins, where escape mutants frequently arise, host-directed inhibition of cathepsin L/B would be comparatively difficult for viruses to circumvent. , Complementary blockade of the TMPRSS2 pathway using camostat in combination could further enhance efficacy by inhibiting the two major coronavirus entry routes. Extension of this strategy to other cathepsin-dependent viruses, including Ebola, may offer therapeutic potential against pathogens for which treatment options are limited, though evaluation of such viruses requires BSL-4 containment. ,,
+
+Taken together, these findings identify usambarensine as a selective antiviral compound active against coronaviruses and support the hypothesis that it may act at an early stage of infection. However, the present data do not allow definitive assignment of its mechanism of action or molecular target. Definitive confirmation will require elucidating the mechanism of action of usambarensine, including understanding its molecular target and its precise impact on the viral replication cycle. This will involve enzymatic studies on cathepsins L and B, evaluation in TMPRSS2-dependent cell lines such as Calu-3, an epithelial lung adenocarcinoma line commonly used for SARS-CoV-2 propagation, and comparative profiling against established cathepsin inhibitors. , Structure–activity optimization will also be essential to refine potency and safety. Overall, usambarensine emerges as a promising antiviral scaffold that warrants further mechanistic and pharmacological investigation.
+
+Conclusion
+
+In this study, we demonstrate for the first time that usambarensine possesses selective antiviral activity against SARS-CoV-1, SARS-CoV-2, and MERS-CoV. The compound’s efficacy, together with minimal cytotoxicity at active concentrations, supports a genuine antiviral effect rather than nonspecific toxicity. Its selective activity against coronaviruses, compared with West Nile and Influenza A viruses, suggests interference with a coronavirus-specific entry process, and is consistent with the possibility that usambarensine interferes with an early step of coronavirus infection.
+
+These findings position usambarensine as a promising antiviral scaffold with potential applicability across multiple pathogenic coronaviruses. To advance its development, it will be essential to determine the specific step of the viral replication cycle at which usambarensine acts, as this will be critical for identifying the potential molecular target involved. Future work should therefore focus on elucidating the mechanism of action, defining the precise molecular target, and assessing whether cathepsin L/B inhibition contributes directly to its antiviral activity through dedicated enzymatic assays. In addition, evaluation in TMPRSS2-dependent cell systems will help clarify the relevance of its activity across distinct coronavirus entry pathways. Structural optimization to improve the toxicity profile, together with expanded profiling against other cathepsin-dependent viruses, will further establish its therapeutic potential. Collectively, these results support continued exploration of usambarensine and its derivatives as potential candidate antiviral scaffolds against coronaviruses.
+
+Supplementary Material
+
+Our sincere thanks go to the Pharmacognosy and Pathology teams for their generous support. We are especially grateful to Sophie Vroomen, Germain Bonhomme, Pauline Desdemoustier for their technical support. This study would not have been possible without the help of Professor Piet Maes from the Laboratory of Clinical and Epidemiological Virology (Rega Institute) for isolating the strains of SARS-CoV-1 and MERS-CoV. We also thank the GIGA-Zebrafish Facility for technical support.
+
+The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acsomega.5c12922.The Supporting Information is available and includes details of the bioguided fractionation procedure, alkaloid identification methods (HPTLC, HPLC-UV, FT-IR, ESI-MS/MS, and NMR analyses), chromatographic and spectroscopic characterization of fraction B7, as well as supplementary figures supporting the identification of usambarensine (PDF)
+
+∥ M.M.G. and A.L. are contributed equally. The manuscript was written through contributions of all authors. All authors have given approval to the final version of the manuscript. The authors disclose no conflicts of interest.
+
+This research could not have been possible without the support of National Fund for Scientific Research (FNRS/FRIA) [grant number: 40009257] and Foundation Léon Frédéricq.
+
+The authors declare no competing financial interest.
+
+Abbreviations
+
+SARS-CoV-1 severe acute respiratory syndrome coronavirus 1
+
+MERS middle east respiratory syndrome coronavirus
+
+SARS-CoV-2 severe acute respiratory syndrome coronavirus 2
+
+TMPRSS2 transmembrane serine protease 2
+
+ACE2 angiotensin-converting enzyme 2
+
+COVID-19 coronavirus disease 2019
+
+WHO world health organization
+
+RNA ribonucleic acid
+
+NF-κB nuclear factor kappa-light-chain-enhancer of activated B cells
+
+MAPK/ERK mitogen-activated protein kinase/extracellular signal-regulated kinase
+
+DMSO dimethyl sulfoxide
+
+TLC thin-layer chromatography
+
+HPTLC high-performance thin-layer chromatography
+
+HPLC high-performance liquid chromatography
+
+ESI MS/MS electrospray ionization tandem mass spectrometry
+
+NMR nuclear magnetic resonance
+
+FT-IR Fourier transform infrared spectroscopy
+
+FBS fetal bovine serum
+
+RT-qPCR reverse transcription quantitative polymerase chain reaction
+
+DMEM Dulbecco’s modified eagle medium
+
+E3 ubiquitin–protein ligase E3
+
+BSL-3 biosafety level 3
+
+MOI multiplicity of infection
+
+PBS phosphate-buffered saline
+
+IC50 half-maximal inhibitory concentration
+
+
+Tyagi S. RNA Viruses: A Review on Rapid Adaptation Potential and Globally Emerged Pandemics Acta sci. microbiol 2023 6 57 72 10.31080/ASMI.2023.06.1285
+Kramer L. D. Li J. Shi P. Y. West Nile virus Lancet Neurol. 2007 6 171 181 10.1016/S1474-4422(07)70030-3 17239804
+Pierson T. C. Diamond M. S. The continued threat of emerging flaviviruses Nat. Microbiol. 2020 5 796 812 10.1038/s41564-020-0714-0 32367055 PMC7696730
+Lycett S. J. Duchatel F. Digard P. A brief history of bird flu Phil. Trans. Biol. Sci. 2019 374 20180257 10.1098/rstb.2018.0257 PMC6553608 31056053
+Reid A. H. Taubenberger J. K. The origin of the 1918 pandemic influenza virus: A continuing enigma J. Gen. Virol. 2003 84 2285 2292 10.1099/vir.0.19302-0 12917448
+Petersen E. Comparing SARS-CoV-2 with SARS-CoV and influenza pandemics Lancet Infect. Dis. 2020 20 e238 e244 10.1016/S1473-3099(20)30484-9 32628905 PMC7333991
+Liu J. A comparative overview of COVID-19, MERS and SARS: Review article Int. J. Surg. 2020 81 1 8 10.1016/j.ijsu.2020.07.032 32730205 PMC7382925
+Coleman C. M. Frieman M. B. Coronaviruses: Important Emerging Human Pathogens J. Virol. 2014 88 5209 5212 10.1128/JVI.03488-13 24600003 PMC4019136
+Zhu Z. Lian X. Su X. Wu W. Marraro G. A. Zeng Y. From SARS and MERS to COVID-19: A brief summary and comparison of severe acute respiratory infections caused by three highly pathogenic human coronaviruses Respir. Res. 2020 21 224 10.1186/s12931-020-01479-w 32854739 PMC7450684
+World Health Organization (WHO) COVID-19 dashboard. https://data.who.int/dashboards/covid19/deaths?n=c.
+Yesudhas D. Srivastava A. Gromiha M. M. COVID-19 outbreak: history, mechanism, transmission, structural studies and therapeutics Infection 2021 49 199 213 10.1007/s15010-020-01516-2 32886331 PMC7472674
+Bchetnia M. Girard C. Duchaine C. Laprise C. The outbreak of the novel severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2): A review of the current global status J. Infect. Public Health 2020 13 1601 1610 10.1016/j.jiph.2020.07.011 32778421 PMC7402212
+Gebreyes W. A. Dupouy-Camet J. Newport M. J. Oliveira C. J. B. Schlesinger L. S. Saif Y. M. Kariuki S. Saif L. J. Saville W. Wittum T. The Global One Health Paradigm: Challenges and Opportunities for Tackling Infectious Diseases at the Human, Animal, and Environment Interface in Low-Resource Settings PLoS Neglected Trop. Dis. 2014 8 e3257 10.1371/journal.pntd.0003257 PMC4230840 25393303
+Ludwig B. Kraus F. B. Allwinn R. Doerr H. W. Preiser W. Viral zoonoses - A threat under control? Intervirology 2003 46 71 78 10.1159/000069749 12684545
+Zheng C. International Journal of Infectious Diseases Real-world effectiveness of COVID-19 vaccines: a literature review and Int. J. Infect. Dis. 2022 114 252 260 10.1016/j.ijid.2021.11.009 34800687 PMC8595975
+Bhambhani S. Kondhare K. R. Giri A. P. Diversity in Chemical Structures and Biological Properties of Plant Alkaloids Molecules 2021 26 3374 10.3390/molecules26113374 34204857 PMC8199754
+Heinrich M. Mah J. Amirkia V. Alkaloids Used as Medicines: Structural Phytochemistry Meets Biodiversity An Update and Forward Look Molecules 2021 26 1836 10.3390/molecules26071836 33805869 PMC8036335
+Abookleesh F. L. Al-Anzi B. S. Ullah A. Potential Antiviral Action of Alkaloids Molecules 2022 27 903 10.3390/molecules27030903 35164173 PMC8839337
+Leka K. Mamede L. Vandeberg E. Garigliany M. Natural Alkaloids as Antiviral Agents Against RNA Viruses: A Comprehensive and Mechanistic Review Molecules 2026 33 539 10.3390/molecules31030539 PMC12899901 41683516
+Kim D. E. Min J. Jang M. Lee J. Shin Y. Park C. Song J. Kim H. Kim S. Jin Y. H. Natural bis-benzylisoquinoline alkaloids-tetrandrine, fangchinoline, and cepharanthine, inhibit human coronavirus oc43 infection of mrc-5 human lung cells Biomolecules 2019 9 696 10.3390/biom9110696 31690059 PMC6921063
+Bechlem H. Benayache F. Benouchenne D. Labed A. DNA intercalators alkaloids as Potential candidates to fight COVID-19 disease: Systematic review J. Res. Pharm. 2022 26 5 1102 1111 10.29228/jrp.206
+Wei J. Liu S. Bian Y. Li L. Qian B. Shen Z. Zhang Y. Abuduaini A. Dong F. Zhang X. Safety and efficacy of oral administrated cepharanthine in non-hospitalized, asymptomatic or mild COVID-19 patients: a Double-blind, randomized, placebo-controlled trial: Author detials Sci. Rep. 2025 15 3875 10.1038/s41598-024-75891-3 39890847 PMC11785718
+Cao M. Muganga R. Tits M. Angenot L. Frédérich M. 17-O-acetyl,10-hydroxycorynantheol, a selective antiplasmodial alkaloid isolated from strychnos usambarensis leaves Planta Med. 2011 77 2050 2053 10.1055/s-0031-1280124 21870325
+Philippe G. Angenot L. Recent developments in the field of arrow and dart poisons J. Ethnopharmacol. 2005 100 85 91 10.1016/j.jep.2005.05.022 15993556
+Angenot L. Dubois M. Ginion C. van Dorsser W. Dresse A. Chemical structure and pharmacological (curarizing) properties of various indole alkaloids extracted from an African Strychnos Arch. Int. Pharmacodyn. Ther. 1975 215 246 258 126050
+Angenot L. Dubois M. Ginion C. van Dorsser W. Dresse A. Chemical structure and pharmacological (curarizing) properties of various indole alkaloids extracted from an African Strychnos Arch Int Pharmacodyn Ther. 1975 215 2 246 258 126050
+PMID: 126050.
+
+Angenot L. Why further investigation of brazilian Strychnos? Acta Amazonica 1988 18 241 254 10.1590/1809-43921988185254
+Wright C. W. Antiamoebic and antiplasmodial activities of alkaloids isolated from Strychnos usambarensis Planta Med. 1991 57 337 340 10.1055/s-2006-960112 1775573
+Ledoux A. In vitro antiviral activity against SARS-CoV-2 of 28 Strychnos extracts Phytother. Res. 2022 36 1061 1063 10.1002/ptr.7394 35080280
+Misset B. Hoste E. Donneau A. F. Grimaldi D. Meyfroidt G. Moutschen M. Compernolle V. Gothot A. Desmecht D. Garigliany M. A multicenter randomized trial to assess the efficacy of CONvalescent plasma therapy in patients with Invasive COVID-19 and acute respiratory failure treated with mechanical ventilation: the CONFIDENT trial protocol BMC Pulm. Med. 2020 20 317 319 10.1186/s12890-020-01361-x 33287790 PMC7719725
+Lu X. US CDC real-time reverse transcription PCR panel for detection of severe acute respiratory syndrome Coronavirus 2 Emerg. Infect. Dis. 2020 26 1654 1665 10.3201/eid2608.201246 32396505 PMC7392423
+Yu B. Xu C. Huang S. Ni J. Zhou J. Zhang Y. Wu M. Zhang J. Fang L. Development of a universal real-time RT-PCR assay for detection of pan-SARS-coronaviruses with an RNA-based internal control Front. Microbiol. 2023 14 1181097 10.3389/fmicb.2023.1181097 37275136 PMC10232947
+Corman V. M. Eckerle I. Bleicker T. Zaki A. Landt O. Eschbach-Bludau M. van Boheemen S. Gopal R. Ballhause M. Bestebroer T. M. Detection of a novel human coronavirus by real-time reverse-transcription polymerase chain reaction Eurosurveillance 2012 17 1 10.2807/ese.17.39.20285-en 23041020
+Vries E. V. D. Molecular Assays for Quantitative and Qualitative Detection of In fl uenza Virus and Oseltamivir Resistance Mutations J. Mol. Diagn. 2013 15 347 354 10.1016/j.jmoldx.2012.11.007 23597879
+Steven, E. OIE Terrestrial Manual 2018; World Organisation for Animal Health 2018.
+Piorkowski G. Development of generic Taqman PCR and RT-PCR assays for the detection of DNA and mRNA of β-actin-encoding sequences in a wide range of animal species J. Virol. Methods 2014 202 101 105 10.1016/j.jviromet.2014.02.026 24642236
+Hoste A. C. R. Smeralda W. Cugnet A. Brostaux Y. Deleu M. Garigliany M. Jacques P. The structure of lipopeptides impacts their antiviral activity and mode of action against SARS-CoV-2 in vitro Appl. Environ. Microbiol. 2024 90 e01036-24 10.1128/aem.01036-24 39445780 PMC11577759
+Reed L. J. Muench H. A simple method of estimating fifty percent endpoint Am. J. Hyg. 1938 27 493 497 10.1093/oxfordjournals.aje.a118408
+Claude A.C. Luc J.G. A. José D. 13C NMR of Strychnos Alkaloids: Harmane and Usambarensine Derivatives Phytochemistry 2009 19 2009 2011 10.1016/0031-9422(80)83024-X
+Grigoriev D. A. Semenov V. A. Angenot L. Krivdin L. B. Configurational and Conformational Studies of Quinolizidine and Beta-Carboline Moieties in the Corynanthe-Tryptamine Alkaloids Int. J. Quantum Chem. 2025 125 e70008 e70011 10.1002/qua.70008
+Dassonneville L. The plant alkaloid usambarensine intercalates into DNA and induces apoptosis in human HL60 leukemia cells Anticancer Res. 1999 19 5245 5250 10697543
+Bonjean K. A. P. M. De Pauw-Gillet M. C. A. J. Quetin-Leclercq J. Angenot L. Bassleer R. J. B. In vitro cytotoxic activity of two potential anticancer drugs isolated from Strychnos: Strychnopentamine and usambarensine Anticancer Res. 1996 16 1129 1137 8702224
+Letko M. Marzi A. Munster V. Functional assessment of cell entry and receptor usage for SARS-CoV-2 and other lineage B betacoronaviruses Nat. Microbiol. 2020 5 562 569 10.1038/s41564-020-0688-y 32094589 PMC7095430
+Wang N. Structure of MERS-CoV spike receptor-binding domain complexed with human receptor DPP4 Cell Res. 2013 23 986 993 10.1038/cr.2013.92 23835475 PMC3731569
+Magrone T. Magrone M. Jirillo E. Focus on Receptors for Coronaviruses with Special Reference to Angiotensin- Converting Enzyme 2 as a Potential Drug Target - A Perspective Endocr. Metab. Immune Disord.:Drug Targets 2020 20 807 811 10.2174/1871530320666200427112902 32338224
+Mori Y. Yamashita T. Tanaka Y. Tsuda Y. Abe T. Moriishi K. Matsuura Y. Processing of Capsid Protein by Cathepsin L Plays a Crucial Role in Replication of Japanese Encephalitis Virus in Neural and Macrophage Cells J. Virol. 2007 81 8477 8487 10.1128/jvi.00477-07 17553875 PMC1951360
+Chu J. J. H. Ng M. L. Infectious Entry of West Nile Virus Occurs through a Clathrin-Mediated Endocytic Pathway J. Virol. 2004 78 10543 10555 10.1128/JVI.78.19.10543-10555.2004 15367621 PMC516396
+Sieben C. Sezgin E. Eggeling C. Manley S. Influenza a viruses use multivalent sialic acid clusters for cell binding and receptor activation PLoS Pathog. 2020 16 e1008656 10.1371/journal.ppat.1008656 32639985 PMC7371231
+Xia B. Zheng L. Li Y. Sun W. Liu Y. Li L. Pang J. Chen J. Li J. Cheng H. The brief overview, antivirus and anti-SARS-CoV-2 activity, quantitative methods, and pharmacokinetics of cepharanthine: a potential small-molecule drug against COVID-19 Front. Pharmacol. 2023 14 1098972 10.3389/fphar.2023.1098972 37583901 PMC10423819
+Leng L. Xu Z. Hong B. Zhao B. Tian Y. Wang C. Yang L. Zou Z. Li L. Liu K. Cepharanthine analogs mining and genomes of Stephania accelerate anti-coronavirus drug discovery Nat. Commun. 2024 15 1537 10.1038/s41467-024-45690-5 38378731 PMC10879537
+Liu K. Hong B. Wang S. Lou F. You Y. Hu R. Shafqat A. Fan H. Tong Y. Pharmacological Activity of Cepharanthine Molecules 2023 28 5019 10.3390/molecules28135019 37446681 PMC10343550
+Liu J. Wang F. Wang X. Fan S. Li Y. Xu M. Hu H. Liu K. Zheng B. Wang L. Antiviral effects and tissue exposure of tetrandrine against SARS-CoV-2 infection and COVID-19 MedComm 2023 4 e206 e216 10.1002/mco2.206 36699286 PMC9851407
+Ogunyemi O. M. Gyebi G. A. Elfiky A. A. Afolabi S. O. Ogunro O. B. Adegunloye A. P. Ibrahim I. M. Alkaloids and flavonoids from African phytochemicals as potential inhibitors of SARS-Cov-2 RNA-dependent RNA polymerase: an in silico perspective Antivir. Chem. Chemother. 2020 28 204020662098407 10.1177/2040206620984076 PMC7783895 33372806
+Diederich S. Activation of the Nipah Virus Fusion Protein in MDCK Cells Is Mediated by Cathepsin B within the Endosome-Recycling Compartment J. Virol. 2012 86 3736 3745 10.1128/JVI.06628-11 22278224 PMC3302499
+Chandran K. Sullivan N. J. Felbor U. Whelan S. P. Cunningham J. M. Virology: Endosomal proteolysis of the ebola virus glycoprotein is necessary for infection Science 2005 308 1643 1645 10.1126/science.1110656 15831716 PMC4797943
+Sanchez A. Analysis of filovirus entry into Vero E6 cells, using inhibitors of endocytosis, endosomal acidification, structural integrity, and cathepsin (B and L) activity J. Infect. Dis. 2007 196 251 258 10.1086/520597 17940957
+Pager C. T. Dutch R. E. Cathepsin L Is Involved in Proteolytic Processing of the Hendra Virus Fusion Protein J. Virol. 2005 79 12714 12720 10.1128/JVI.79.20.12714-12720.2005 16188974 PMC1235853
+Starr T. N. Prospective mapping of viral mutations that escape antibodies used to treat COVID-19 Science 2021 371 850 854 10.1126/science.abf9302 33495308 PMC7963219
+van Egeren D. Novokhodko A. Stoddard M. Tran U. Zetter B. Rogers M. Pentelute B. L. Carlson J. M. Hixon M. Joseph-McCarthy D. Risk of rapid evolutionary escape from biomedical interventions targeting SARS-CoV-2 spike protein PLoS One 2021 16 e0250780 10.1371/journal.pone.0250780 33909660 PMC8081162
+Breining P. Camostat mesylate against SARS-CoV-2 and COVID-19 Rationale, dosing and safety Basic Clin. Pharmacol. Toxicol. 2021 128 204 212 10.1111/bcpt.13533 33176395
+Zhou Y. Protease inhibitors targeting coronavirus and filovirus entry Antiviral Res. 2015 116 76 84 10.1016/j.antiviral.2015.01.011 25666761 PMC4774534
+Aiewsakun P. Phumiphanjarphak W. Ludowyke N. Purwono P. B. Manopwisedjaroen S. Srisaowakarn C. Ekronarongchai S. Suksatu A. Yuvaniyama J. Thitithanyanont A. Systematic Exploration of SARS-CoV-2 Adaptation to Vero E6, Vero E6/TMPRSS2, and Calu-3 Cells Genome Biol. Evol. 2023 15 evad035 10.1093/gbe/evad035 36852863 PMC10078795
+Flury P. Cathepsin-Targeting SARS-CoV-2 Inhibitors: Design, Synthesis, and Biological Activity ACS Pharmacol. Transl. Sci. 2024 7 493 514 10.1021/acsptsci.3c00313 38357286 PMC10863444

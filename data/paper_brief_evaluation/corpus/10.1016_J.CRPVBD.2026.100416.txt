@@ -1,0 +1,357 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Curr Res Parasitol Vector Borne Dis
+Journal ID: Curr Res Parasitol Vector Borne Dis
+NLM Journal ID: 9918226380706676
+
+Current Research in Parasitology & Vector-borne Diseases
+
+EISSN: 2667-114X
+Publisher: Elsevier
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13445509
+PMID: 42564944
+DOI: 10.1016/j.crpvbd.2026.100416
+Article ID: S2667-114X(26)00072-5
+Article ID: 100416
+Article version: 1
+Subjects: Research Article
+
+Monitoring vector-borne diseases: A study in Italy and Greece
+
+Falcinelli Monica a 1
+Damiani Claudia b 1
+Mavridis Konstantinos c
+Cappelli Alessia b
+Khorramnejad Ayda a
+Currà Chiara d
+Gavaudan Stefano e
+Antognini Elisa e
+Ricci Irene b
+Vontas John f c
+Favia Guido guido.favia@unicam.it b ⁎
+a School of Biosciences and Veterinary Medicine, University of Camerino, Camerino, Italy
+b School of Biosciences and Veterinary Medicine, University of Camerino, CIRM Italian Malaria Network, Camerino, Italy
+c Institute of Molecular Biology and Biotechnology of the Foundation for Research and Technology Hellas, Heraklion, Greece
+d Department of Infectious Diseases, Istituto Superiore di Sanità, Roma, Italy
+e Istituto Zooprofilattico Sperimentale dell’Umbria e delle Marche “T. Rosati”, Ancona, Italy
+f Department of Crop Science, Agricultural University of Athens, Athens, Greece
+⁎ Corresponding author. guido.favia@unicam.it1 Monica Falcinelli and Claudia Damiani contributed equally to this work
+
+Publication date: 2026
+Electronic publication date: 2026 Jul 21
+Volume: 10
+Electronic Location ID: 100416
+Received 2026 Apr 21; Revised 2026 Jul 20; Accepted 2026 Jul 20
+Copyright: © 2026 The Authors
+Copyright year: 2026
+License: This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Keywords: West Nile virus, Usutu virus, Filariasis, Culex pipiens, Aedes albopictus, Surveillance
+
+==============================
+Rapid urbanisation and environmental changes are reshaping mosquito population dynamics and the transmission of vector-borne pathogens. Culex pipiens and Aedes albopictus have successfully adapted to anthropogenic environments, becoming key vectors of emerging and re-emerging arboviruses and filarial parasites. This study conducted a comparative entomological and pathogen surveillance between 2022 and 2023 in central Italy and Crete to assess species composition, population dynamics, and circulation of arboviruses and filarial nematodes across different ecological contexts. In Italy, a total of 22,757 mosquitoes were collected, with Cx. pipiens (∼86%) and Ae. albopictus (∼12%) being the predominant species. Significant temporal variations in mosquito diversity and frequency were observed. In 2022, molecular screening detected Usutu virus (USUV) in Cx. pipiens in central Italy, with the first report of co-circulation of USUV and Setaria nematodes. In 2023, co-circulation of West Nile virus (WNV Lineage 2) and USUV was identified in Cx. pipiens from the Marche region. In Crete, 791 mosquitoes were collected, with Culex species dominating the assemblages. The highest mosquito biodiversity was recorded in peri-urban areas, exhibiting temporal variation. Molecular screening detected Dirofilaria repens in Ae. albopictus. No evidence of WNV or USUV circulation was found. We provide the first integrated, regional-scale assessment of mosquito vectors and vector-borne pathogens across two ecologically distinct Mediterranean regions. By combining complementary surveillance components, including mosquito species composition, biodiversity, seasonal abundance, habitat characteristics, and molecular detection of arboviruses and filarial nematodes, our study provides a comprehensive understanding of vector-pathogen dynamics across contrasting ecological settings. Our findings demonstrate that environmental and ecological drivers strongly influence mosquito community structure and pathogen circulation, highlighting the value of integrated, region-specific surveillance as a foundation for evidence-based vector control and public health decision-making.
+
+Graphical abstract
+
+Highlights
+
+• Comparative mosquito surveillance conducted in Italy and Crete.
+
+• Co-circulation of Usutu virus (USUV) and West Nile virus (WNV) in central Italy.
+
+• First report of USUV and Setaria spp. co-circulation in Culex pipiens in Italy.
+
+• Detection of Dirofilaria repens in Aedes albopictus in Crete.
+
+• Ecological drivers shape vector-pathogen dynamics across regions.
+
+1 Introduction
+
+Vector-borne diseases (VBDs) pose a significant public health threat worldwide, driven by rapid urbanisation, climate change, and the increasing adaptability of mosquito vectors to anthropogenic environments (Caminade et al., 2019). Among the most important mosquito vectors, Culex pipiens and Aedes albopictus thrive in urban and peri-urban areas, where they facilitate the transmission of emerging and re-emerging arboviruses, including the flaviviruses West Nile virus (WNV) and Usutu virus (USUV), as well as filarial parasites like Dirofilaria spp. (Capelli et al., 2018; Simonin, 2024). The dynamics of these pathogens are influenced by environmental and ecological factors, which determine vector population density, host availability, and pathogen persistence (Brugueras et al., 2020). The co-circulation of multiple vector-borne pathogens in the same environmental niches has raised concerns about the complexity of transmission dynamics and the potential for spillover events to new hosts, including humans (Alves and Amorim, 2023).
+
+Evidence indicates that Cx. pipiens plays a primary role as a vector of WNV and USUV in Europe, with seasonal variation in infection rates and associations between mosquito abundance and virus circulation (Seechurn et al., 2024). Similarly, Ae. albopictus, an invasive species with an expanding distribution, has been identified as a vector of various VBDs, including dengue and dirofilariasis, further compounding the threat posed by VBDs (Medlock et al., 2012).
+
+WNV and USUV are widely reported in Italy, with transmission cycles involving avian reservoirs and Cx. pipiens as the main vector (Scaramozzino et al., 2021). WNV has a considerably greater impact on human health compared to USUV. In Italy, West Nile disease is considered endemic, and in recent years, multiple outbreaks have occurred, resulting in the development of severe neurological disease and hundreds of deaths (Frasca et al., 2024). In addition to WNV Lineage 1 (L1), the circulation of WNV Lineage 2 (L2) has also been documented over the past decades (Koch et al., 2023). WNV L1 is widely distributed across Africa, Europe, Asia, the Middle East, Australia, and the Americas. In contrast, WNV L2, historically restricted to sub-Saharan Africa and Madagascar, was first detected in Europe, Hungary, in 2004. Since its introduction, L2 has spread to several European countries, including Italy, Greece, and Serbia (Koch et al., 2023). In Italy, its emergence has been associated with a significant increase in human cases since 2017. In 2022, both L1 and L2 co-circulated in northern Italy, with L2 being the predominant lineage (Lu et al., 2024). In contrast, data on arbovirus circulation in Crete remain limited. While Cx. pipiens and Ae. albopictus are present, no significant evidence of arbovirus transmission has been found in local mosquito populations. Previous entomological surveys detected WNV L2 only in sentinel chickens (Fotakis et al., 2022). Additionally, no comprehensive surveillance studies have assessed USUV circulation in Crete Island (Panagopoulou et al., 2024), and filarial nematode circulation in local mosquitoes remains unexplored (Markakis et al., 2024).
+
+Surveillance programmes are crucial for monitoring the spread and impact of mosquito-borne pathogens. However, significant challenges remain in ensuring comprehensive surveillance in different ecological settings. This is particularly true in regions where vector populations and pathogen prevalence fluctuate due to climate variability, land use changes, and human activities (Vieira et al., 2024). Comparative studies analysing vector composition, population dynamics, and pathogen circulation in distinct areas provide valuable insights into the ecological mechanisms shaping vector-pathogen interactions. Some regions of central Italy (Marche and Umbria) and Crete (the districts of Heraklion and Rethymno) represent Mediterranean areas with different climatic conditions, land use patterns, and vector control strategies, making them ideal for a comparative analysis of mosquito-borne disease dynamics. Consequently, our study aimed to compare entomological and pathogen surveillance data from the two selected areas to assess differences in mosquito species composition, temporal abundance, and prevalence of WNV, USUV, and filarial nematodes.
+
+2 Materials and methods
+
+2.1 Surveyed areas
+
+2.1.1 The Marche and umbria regions (Italy)
+
+The Marche region is located along central Italy’s eastern coast (43°23′57.84″N, 13°1′30.36″E), spans approximately 936,600 ha, with 11% plains, 36% mountains, and 53% rolling hills. Home to over 1.5 million inhabitants across 239 municipalities, it features a diverse landscape ranging from sandy beaches and cliffs along the Adriatic Sea to the Apennine Mountains in the west. The climate varies from Mediterranean along the coast to sub-Mediterranean and oceanic in the inland areas, influencing its vegetation of Mediterranean flora, oak forests, vineyards, and olive groves (Regione Marche, 2025).
+
+Umbria (42°56′18″N, 12°37′18″E), a landlocked region in central Italy, is characterised by rolling hills, fertile valleys, and the Apennine Mountains. The River Tiber runs through its western part, shaping agricultural landscapes. The terrain includes mountains (27%), high hills (34%), low hills (21%), plains (16%), and plateaus (2%). The climate is predominantly Mediterranean, with variations due to altitude, and moderate, evenly distributed rainfall sustaining rich vegetation, including olive trees, vineyards, and dense forests of oak, chestnut, and beech (Regione Umbria, 2025).
+
+2.1.2 Crete Island (Greece)
+
+Crete, Greece’s largest island and the fifth largest in the Mediterranean (35°14′24″N, 24°48′33″E), spans 8303 km2 with a 1046 km coastline. Surrounded by the Aegean, Libyan, Ionian, and Karpathian Seas, its diverse landscape includes fertile coastal plains, rugged mountains, and deep gorges. The island is highly mountainous, with three main ranges: Ida (Psiloritis) (2456 m), the White Mountains (2454 m), and Dikti (2148 m).
+
+The Mediterranean climate features hot, dry summers (often exceeding 30 °C on the coast) and mild, wet winters, with snow common in the mountains. Vegetation consists of olive groves, citrus orchards, vineyards, and inland forests of pine, cypress, and oak. Agriculture (19.4% of the workforce), tourism, and trade (35.4%) dominate the economy, with much of its production aimed at international markets. However, livestock farming threatens local flora (Region of Crete, 2025).
+
+2.2 Mosquito sampling and processing
+
+2.2.1 Italy
+
+Mosquitoes were collected during 2022–2023 by the Istituto Zooprofilattico Sperimentale dell’Umbria e delle Marche (IZSUM) in the provinces of Pesaro Urbino (PU), Ancona (AN), Macerata (MC), Fermo (FM), and Ascoli Piceno (AP) in the Marche region, and in the provinces of Perugia (PG) and Terni (TR) in the Umbria region, as part of the National Prevention, Surveillance, and Response Plan for Arboviral Diseases (PNA) 2020–2025 (see details in Supplementary Table S1) (Ministero della Salute, 2020).
+
+Surveillance occurred from May to October at 72 fixed sites: 54 in Marche and 19 in Umbria (Fig. 1). Sampling sites were selected within 10 km2 (Marche) and 20 km2 (Umbria) grid cells according to the regional West Nile virus surveillance plan, which forms part of the PNA 2020–2025. In accordance with national guidelines, traps were placed in environments considered suitable for the presence of Cx. pipiens and wild avifauna, including coastal areas, major river valleys, sites located near rivers, drainage ditches and other wetlands, as well as green, sheltered areas protected from wind. CDC CO2 traps (PeP, Jamal Wehbe, San Giuliano Milanese, Italy) were deployed at elevations below 300 m a.s.l. across urban, peri-urban, rural and wetland environments (Supplementary Table S1). Ecological settings were classified according to the Degree of Urbanisation (DEGURBA) framework, which categorises Local Administrative Units (LAUs) by combining population density and spatial contiguity information derived from 1 km2 population grid cells (OECD, European Commission, FAO, UN-Habitat, World Bank, 2021). Specifically, each sampling site was assigned to one of the three DEGURBA classes (“cities”, “towns and suburbs”, and “rural areas”). For clarity, these categories are referred to throughout this study as urban areas (cities), peri-urban areas (towns and suburbs), and rural areas, respectively. In addition, a fourth ecological category, wetlands, was defined for sampling sites located in close proximity to lakes, marshes and other wetland habitats.Fig. 1 Mosquito collection sites and land cover classification of the Italian and Greek sampling areas. On the left are the maps of the monitored areas within the countries, and on the right mosquito collection sites in the Marche and Umbria regions and the island of Crete. The sites are classified according to land cover, as shown in the legend. Abbreviations: AN, Ancona; AP, Ascoli Piceno; FM, Fermo; MC, Macerata; HE, Heraklion; PG, Perugia; PU, Pesaro Urbino; RE, Rethymno; TR, Terni.
+
+Traps operated bimonthly overnight (18:00–08:00 h), and samples were georeferenced, placed on dry ice, and transported to the laboratory. Females were identified morphologically (Becker et al., 2020); Cx. pipiens females were stored at −80 °C for Flavivirus detection, while other mosquito species were kept at −20 °C until processing. Genomic DNA (gDNA) was extracted from Italian aedines (Ae. albopictus, Ae. caspius, and Ae. vexans) using the JetFlex™ Genomic DNA Purification Kit (Invitrogen, Thermo Fisher Scientific, Waltham, USA) following the manufacturer’s instructions. DNA concentration and purity were assessed with a NanoDrop 1000 spectrophotometer.
+
+2.2.2 Crete Island
+
+Entomological surveillance was carried out from May to October 2023 across the Regional Units of Heraklion (HE) and Rethymno (RE) on the island of Crete (Supplementary Table S1). Sampling locations were selected according to the framework proposed by Fotakis et al. (2022), integrating four main criteria: (i) the distribution of major tourist destinations and accommodation facilities; (ii) human population density; (iii) areas previously identified as having high mosquito abundance; and (iv) previous records of vector-borne diseases and the occurrence of productive breeding habitats. Seven sites per regional unit were sampled across urban, peri-urban, rural, and wetland areas (Fig. 1, Supplementary Table S1).
+
+Habitat classification followed the same DEGURBA-based scheme adopted for the Italian sampling sites. BG-Sentinel 2 traps (Biogents GmbH, Regensburg, Germany; https://www.biogents.com) were deployed at two-week intervals and operated overnight (18:00–08:00 h). Carbon dioxide (CO2) was generated using a yeast-based fermentation mixture consisting of 17.5 g of dry instant yeast (Allatini Dry Yeast, Elbisco S.A., Pikermi, Greece), 250 g of granulated sugar, and 2 L of tap water contained in a 5-L plastic bottle, following the protocol described by Möhlmann et al. (2017). Because mosquito collections in Crete and Italy were performed using different trap types (BG-Sentinel 2 and CDC CO2 traps, respectively), potential differences in trap-specific capture efficiency and species-specific attraction should be considered when comparing abundance estimates between the two study areas. Accordingly, comparisons between the two regions should be interpreted with caution, particularly for abundance estimates, whereas presence/absence and species composition are expected to be less affected by trap-related biases.
+
+Samples were georeferenced, morphologically identified, and stored as previously described. Culex pipiens females were stored at −80 °C for Flavivirus detection, while other mosquito species were kept at −20 °C until processing.
+
+Greek aedines (Ae. albopictus and Ae. cretinus) were processed as described above. To distinguish the morphologically similar Ae. cretinus and Ae. albopictus, molecular analysis was performed through ITS2 gene amplification (Patsoula et al., 2006).
+
+2.3 Analysis of mosquito biodiversity and spatiotemporal abundance
+
+Diversity analyses were performed to evaluate alpha and beta diversity across urban, peri-urban, rural, and wetland sites from May to October 2022–2023. Alpha diversity was quantified using the Shannon index (H′). Beta diversity, representing community dissimilarity, was assessed using the Bray-Curtis index.
+
+Statistical analyses were conducted using JASP 0.19.1 and PAST 4.16. Given the non-normal distribution of mosquito abundance data, the Kruskal-Wallis test was applied to examine temporal (monthly) and spatial variations (among site types) in alpha diversity, followed by a Dunn’s post-hoc test for pairwise comparisons. Differences in mosquito community composition (Bray-Curtis index) across site typologies and study periods were evaluated using one-way PERMANOVA and non-metric multidimensional scaling (NMDS) analysis (ChiPlot online tool available at https://www.chiplot.online/). Homogeneity of multivariate dispersions was tested using PERMDISP implemented in R (package vegan, function “betadisper”).
+
+Differences in the abundance of Ae. albopictus and Cx. pipiens were analysed separately for the Italian and Cretan datasets using Generalized Linear Mixed Models (GLMMs) fitted with a negative binomial error distribution. For the Italian dataset, a global model was fitted to the combined 2022–2023 data, followed by separate models for 2022, 2023, and individual provinces to assess temporal and interannual variation. For the Cretan dataset, separate models were applied to evaluate the effects of habitat type and month. Habitat type and month were included as fixed effects in all models. Region and year were additionally included as fixed effects in the Italian global model, whereas sampling site was included as a random intercept to account for repeated observations at the same locations. Model assumptions were assessed using simulation-based residual diagnostics implemented in the DHARMa package (Hartig, 2026), including tests for overdispersion and zero inflation. The significance of fixed effects was evaluated using Type II Wald chi-square tests, and estimated marginal means (EMMs) with pairwise comparisons were obtained using the emmeans package with adjustment for multiple comparisons. All statistical analyses were performed in R version 4.5.2 using the glmmTMB (Brooks et al., 2017), DHARMa, car, and emmeans packages (Lenth and Piaskowski, 2026).
+
+2.4 Detection of USUV and WNV in Cx. pipiens
+
+RNA extractions from Cx. pipiens pools (up to 200 mosquitoes) were performed by homogenising specimens in 250 μl PBS with two steel beads using a Tissue Lyser at 15 Hz for 1–2 min (single specimens were analysed individually). Pool size followed standard WNV surveillance procedures (Ministero della Salute, 2020), and RT-PCR allows reliable detection of WNV in mosquito pools of up to 500/1000 individuals (Sutherland and Nasci, 2007; Tang et al., 2020). After centrifugation at 10,000× g for 10 min at 4 °C, 140 μl of the supernatant was transferred to a new 1.5-ml tube. Viral RNA was then extracted using the QIAamp Viral RNA Extraction Kit (Qiagen, Hilden, Germany) according to the manufacturer’s protocol. RNA concentration and purity were assessed using a NanoDrop 1000 spectrophotometer (Thermo Fisher Scientific, Waltham, MA, US). A multiplex real-time one-step RT-PCR TaqMan assay was performed using the QuantiTect Probe RT-PCR kit (Qiagen) to simultaneously detect WNV lineages 1 and 2 and USUV in Cx. pipiens pools, as described in Del Amo et al. (2013). Reactions were carried out on a CFX96TM Real-Time PCR Detection System (Bio-Rad, Hercules, USA) and analysed with CFX Maestro Software 2.3 (Bio-Rad). Each run included a non-template and positive control (Catalogue No. NR-9573 Genomic RNA from WNV, Bird 114; BEI Resources, Manassas, USA). The maximum likelihood infection rate (MLE-IR) and its 95% confidence interval (95% CI) were calculated accounting for mosquito pool size using the package epitools in R (Aragon, 2020).
+
+2.5 Detection of filarial nematodes in Cx. pipiens and aedine mosquitoes
+
+Filarial nematodes were detected by amplifying the 5S ribosomal spacer region using the primers S2 and S16 (Xie et al., 1994). In Cx. pipiens, molecular diagnosis was carried out using RNA of Cx. pipiens pools described above, which were reverse-transcribed using the PrimeScript cDNA Synthesis Kit (Takara Bio, Kusatsu, Japan). In aedines, diagnosis was performed on DNA from pools of Aedes spp. Amplicons were purified with the NucleoSpin® Gel and PCR Clean-up Kit (Macherey-Nagel, Dueren, Germany), subsequently re-amplified, and subjected to sequencing. The resulting sequences were analysed via BLASTN (Altschul et al., 1990) against the NCBI database for homology with known nematode 5S rDNA sequences.
+
+3 Results
+
+3.1 Species composition and mosquito population trend from wetland to urban setting
+
+In Italy, a total of 22,757 adult mosquitoes were collected across the regions Marche and Umbria between 2022 and 2023, during 896 sampling events. Of these, 80% (18,225 specimens) were collected in Marche and 20% (4532 specimens) in Umbria. Fourteen species belonging to four genera were identified (Supplementary Table S2). The most frequently collected genus was Culex (85.67%), followed by Aedes (12.62%), Anopheles (1.69%), and Culiseta (0.02%) (Supplementary Table S3). In both regions, the mosquito communities were predominantly composed of two species: the Cx. pipiens complex, comprising 86.50% and 81.47% of the total collections, respectively, and Ae. albopictus, accounting for 12.31% and 10.02% (Supplementary Table S3; Fig. 2A). Anopheles maculipennis and An. plumbeus were primarily detected in Umbria, whereas less commonly encountered species such as Ae. berlandi, Ae. pulcritarsis, Ae. vexans, and additional species of Culex and Culiseta were exclusively observed in the Marche region (Supplementary Table S3).Fig. 2 Geographical and ecological patterns in adult female mosquito diversity. A Species composition of adult female mosquitoes across regional units expressed as percentages. B Species richness of adult female mosquitoes collected across site typologies in the Marche and Umbria regions (Italy) and on the island of Crete (Greece).
+
+In Greece, a total of 791 adult mosquitoes were collected on the island of Crete between May and September 2023 (85 sampling events). Six species belonging to three genera were identified (Supplementary Table S3). Culex was the most abundant genus (71.56%), followed by Aedes (26.42%) and Culiseta (2.02%). The dominant species was the Cx. pipiens complex (71.18%), followed by Ae. albopictus (25.79%) (Fig. 2A; Supplementary Table S3). Less frequently detected species included Cu. longiareolata (2.02%), Ae. cretinus (0.63%), and Culex sp. (0.38%) (Fig. 2A; Supplementary Table S3).
+
+In Italy, the highest mosquito species richness during 2022–2023 was recorded in rural areas (14 species), followed by peri-urban (9 species), wetland (6 species), and urban environments (3 species) (Fig. 2B). Alpha diversity did not differ significantly among these environmental settings (Kruskal-Wallis test, P > 0.05) (Table 1). However, significant temporal variation in alpha diversity was observed within individual settings (Kruskal-Wallis test, P < 0.05) (Table 2). Specifically, Shannon’s diversity index peaked in August in rural areas and in September in both wetland and urban environments (Supplementary Fig. S1 and Supplementary Table S4). Bray-Curtis dissimilarity analysis revealed significant differences in mosquito community composition among environmental settings and over time (one-way PERMANOVA, P < 0.05) (Table 3, Supplementary Fig. S2). Notably, rural communities differed significantly from those in wetland (P = 0.0012) and urban (P = 0.015) settings (Supplementary Table S5). Temporal variation in beta diversity was also significant in May and September (P < 0.05) (Supplementary Fig. S2 and Supplementary Table S5). Homogeneity of multivariate dispersions was not significant for either habitat or month (habitat: P = 0.57; month: P = 0.78), indicating that observed differences in community composition were not driven by differences in within-group variability.Table 1 Kruskal-Wallis test assessing differences in Shannon diversity index among settings within each study area.
+
+Table 1Area	Factor	Statistic	df	P	Rank ε2	95% CI for Rank ε2	
+Lower	Upper	
+Marche-Umbria, Italy	Setting	24.063	3	0.848	0.002	7.018 E-04	0.037	
+Crete, Greece	Setting	4.282	3	0.111	0.087	0.024	0.313	
+
+Table 2 Kruskal-Wallis test assessing monthly variation in Shannon diversity index within each setting.
+
+Table 2Area	Setting	Factor	Statistic	df	P	Rank ε2	95% CI for Rank ε2	
+Lower	Upper	
+Marche-Umbria, Italy	Rural	Month	24.063	4	<0.001***	0.138	0.064	0.269	
+Wetland	Month	13.366	4	0.010*	0.304	0.263	0.549	
+Peri-urban	Month	10.504	4	0.033*	0.125	0.063	0.311	
+Urban	Month	15.541	4	0.004**	0.263	0.142	0.486	
+Crete, Greece	Rural	Month	0.629	4	0.177	0.333	0.185	0.879	
+Wetland	Month	2.642	4	0.619	0.294	0.294	1.000	
+Peri-urban	Month	2.012	4	0.175	0.334	0.259	0.787	
+Urban	Month	8.792	4	0.042*	0.522	0.464	0.888	
+Note: *P < 0.05; **P < 0.01; ***P < 0.001.
+
+Table 3 One-way PERMANOVA results (9999 permutations) testing the effects of setting and month on beta diversity based on Bray-Curtis dissimilarity.
+
+Table 3Area	Source	Total SS	Within-group SS	F	Pa	
+Marche-Umbria, Italy	Setting	111.4	108.5	3.163	0.041*	
+Crete, Greece	Setting	13.47	11.53	3.082	0.0020**	
+Marche-Umbria, Italy	Month	111.4	102.1	8.218	0.0010**	
+Crete, Greece	Month	13.47	12.24	1.354	0.1490	
+Abbreviation: SS, sum of squares.
+
+aP-value for the null hypothesis that groups have the same multivariate community composition based on Bray-Curtis dissimilarity (*P < 0.05 and **P < 0.01).
+
+In Greece, mosquito species richness was relatively uniform across environmental settings, with wetland, rural, and peri-urban areas hosting four species, and urban areas hosting three (Fig. 2B). Alpha diversity, measured by the Shannon index, did not differ significantly across levels of urbanization (Kruskal-Wallis test, P = 0.111; Table 1), with the highest values observed in urban areas and the lowest in rural areas (Supplementary Fig. S1). Significant correlation was found between alpha diversity and temporal variation only in urban environment (P < 0.05) (Table 2). No temporal effect on beta diversity was detected (one-way PERMANOVA, Bray-Curtis index, P > 0.05; Table 3). However, beta diversity differed significantly among levels of urbanization (one-way PERMANOVA, Bray-Curtis index, P = 0.002; Table 3), with peri-urban areas differing significantly from urban, rural, and wetland habitats (P < 0.05; Supplementary Fig. S2 and Supplementary Table S5). PERMDISP analyses indicated no significant differences in multivariate dispersion among habitats or months (habitat: P = 0.20; month: P = 0.13).
+
+3.2 Temporal and site-dependent variations in mosquito abundance across Italy and Crete
+
+The species-specific GLMM fitted to the combined Italian mosquito collection dataset (2022–2023) identified significant effects of year (χ2 = 19.78, P < 0.001) and month (χ2 = 134.87, P < 0.001) on Cx. pipiens abundance, whereas region, province, and habitat type were not significant variables in the overall model (Table 4).Table 4 Type II Wald χ2 tests of fixed effects from GLMMs fitted to mosquito collections from Italy (2022–2023) for Cx. pipiens and Ae. albopictus.
+
+Table 4Species	Variable	χ2	df	P	
+Cx. pipiens	Region	0.0001	1	0.992	
+Province	1.74	5	0.942	
+Year	19.78	1	8.65E-06	
+Month	134.87	4	3.52E-28	
+Habitat	7.13	3	0.068	
+Ae. albopictus	Region	1.14	1	0.285	
+Province	20.50	5	0.001	
+Year	10.98	1	0.001	
+Month	51.69	4	1.60E-10	
+Habitat	6.13	3	0.106	
+Notes: χ2-values represent Type II Wald tests of fixed effects included in the GLMMs. Models were fitted separately for each species. Significant P-values indicate a significant effect of the corresponding explanatory variable on mosquito abundance.
+
+Separate year-specific GLMMs, including month and habitat type as explanatory variables, confirmed a significant seasonal pattern in both years (Fig. 3). Estimated marginal means indicated the highest abundance in June and July in 2022, whereas in 2023 the peak was restricted to June (Supplementary Table S6).Fig. 3 Temporal dynamics of Cx. pipiens and Ae. albopictus in the monitoring areas of Marche-Umbria (Italy) and the island of Crete (Greece). The y-axis shows mosquito abundance, and the x-axis represents the monitoring areas. Abbreviations: AN, Ancona; AP, Ascoli Piceno; FM, Fermo; MC, Macerata; HE, Heraklion; PG, Perugia; PU, Pesaro Urbino; RE, Rethymno; TR, Terni.
+
+Province-level analyses of interannual variation, based on separate GLMMs and post-hoc pairwise comparisons between years within each sampling month, revealed significantly higher Cx. pipiens abundance in 2023 than in 2022 for several province-month combinations (Supplementary Table S7). Significant increases were detected in June in AN (P < 0.001), FM (P < 0.001), and MC (P = 0.005), in May in FM (P = 0.003), AP (P < 0.001), and MC (P = 0.039), and in August in FM (P = 0.002) and TR (P = 0.020).
+
+The association between habitat type and Cx. pipiens abundance differed between years: habitat was not significant in 2022 (χ2 = 5.51, P > 0.05) but showed a significant effect in 2023 (χ2 = 9.51, P = 0.023) (Fig. 4). Pairwise comparisons revealed higher abundances in wetland habitats (P < 0.05) than in peri-urban and rural habitats (Supplementary Table S8), consistent with the observed abundance patterns shown in Fig. 4.Fig. 4 Spatial dynamics of Cx. pipiens and Ae. albopictus in the monitoring areas of Marche-Umbria (Italy) and the island of Crete (Greece). The y-axis shows mosquito abundance, and the x-axis represents the analysed habitat categories. Statistical significance of explanatory variables was assessed using Type II Wald χ2 tests of fixed effects from species-specific, year-specific GLMMs fitted to mosquito collections from Italy (2022 and 2023) and the island of Crete (2023).
+
+For Ae. albopictus, the overall GLMM identified significant effects of province (χ2 = 20.50, P = 0.001), year (χ2 = 10.98, P = 0.001), and month (χ2 = 51.69, P < 0.001) on abundance, whereas region and habitat type were not significant variables (Table 4). Year-specific models confirmed a significant seasonal effect of month in both years (Fig. 3; 2022: χ2 = 37.69, P < 0.001; 2023: χ2 = 20.11, P < 0.001), while habitat type was not significant (Fig. 4). Estimated marginal means highlighted different seasonal patterns: in 2022, abundance remained relatively consistent from June to September, with significantly lower values only in May, whereas in 2023 a pronounced peak occurred in July and August (Supplementary Table S6).
+
+Interannual province-level comparisons showed limited differences between years. A significant increase in Ae. albopictus abundance was detected only in July in FM (P = 0.034), while significant decreases occurred in May and June in PU (P = 0.038 and P = 0.002, respectively), in July in MC (P = 0.016) and PG (P = 0.026), and in August in PG (P = 0.005). No other province-month comparisons differed significantly between 2022 and 2023 (Supplementary Table S7).
+
+Species-specific GLMMs fitted to mosquito collections in 2023 from Crete revealed contrasting temporal and habitat-related patterns between Cx. pipiens and Ae. albopictus. For Cx. pipiens, month was not a significant factor (χ2 = 6.16, P > 0.05), although the highest observed abundance occurred in August (Fig. 3), whereas habitat type showed a significant effect (χ2 = 13.94, P = 0.003; Fig. 4). Pairwise comparisons indicated higher abundances in peri-urban than wetland habitats (P = 0.003), with no significant differences among the remaining habitat types (Supplementary Table S8). For Ae. albopictus, month was significant, with the highest observed abundance occurring in July (χ2 = 54.21, P < 0.001; Fig. 3) whereas habitat type was not significant (χ2 = 4.76, P > 0.05; Fig. 4).
+
+3.3 Detection of USUV, WNV and filarial nematodes in mosquitoes
+
+In Italy (May-September 2022–2023), 19,121 Cx. pipiens mosquitoes were collected and grouped into 863 pools based on sampling date and site (Supplementary Table S2) and tested for WNV and USUV. Additionally, 525 Aedes spp. were collected and organised into 151 pools.
+
+From May to September 2022, 14 out of 362 Cx. pipiens pools in the Marche region tested positive for USUV, with positive pools in PU (n = 5), AN (n = 4), MC (n = 4), and AP (n = 1) provinces (Table 5, Fig. 5; Supplementary Table S9). In Umbria, 5 out of 81 pools tested positive between June and August, in the provinces of PG (n = 4) and TR (n = 1) (Table 5, Fig. 5, Supplementary Table S9). No pools tested positive for WNV across the two regions (Table 5, Supplementary Table S9). For the first time in the Marche region, co-circulation of USUV and Setaria sp. was detected in a pool of 50 Cx. pipiens mosquitoes from Terre Roveresche (Table 5, Fig. 5, Supplementary Table S9). A pool consisting of two Cx. pipiens from Orvieto in Umbria also tested positive for Setaria sp. (Table 5, Fig. 5, Supplementary Table S9). None of the Aedes spp. pools tested for filarial infection in the Marche (40 pools) and Umbria (6 pools) regions were positive (Table 5, Fig. 5, Supplementary Table S10).Table 5 WNV, USUV, and filarial nematode detection and maximum-likelihood infection rate (MLE-IR) estimates in Cx. pipiens and Ae. albopictus mosquito pools from Italy (Marche and Umbria) and Greece (Crete), 2022–2023.
+
+Table 5Regional unit (Country)/Year	Province	Species	No. of individuals tested	WNV (n/N)	USUV (n/N)	Filarial nematodes (n/N)	WNV MLE-IR (95% CI)	USUV MLE-IR (95% CI)	Filarial nematodes MLE-IR (95% CI)	
+Marche (Italy)/2022	PU	Cx. pipiens	1989	0/56	5/56	1/56		2.7 (1.0-5.8)	0.5 (0.0–2.2)	
+PU	Ae. albopictus	24			0/3				
+AN	Cx. pipiens	1493	0/133	4/133	0/133		2.7 (0.90–6.30)		
+AN	Ae. albopictus	49			0/14				
+MC	Cx. pipiens	1683	0/73	4/73	0/73		2.5 (0.8–5.9)		
+MC	Ae. albopictus	18			0/5				
+FM	Cx. pipiens	316	0/52	0/52	0/52				
+FM	Ae. albopictus	18			0/6				
+AP	Cx. pipiens	932	0/48	1/48	0/48		1.2 (0.1–5.3)		
+AP	Ae. albopictus	12			0/8				
+Umbria (Italy)/2022	PG	Cx. pipiens	1338	0/48	4/48	0/48		3.2 (1.0–7.3)		
+PG	Ae. albopictus	12			0/2				
+TR	Cx. pipiens	212	0/33	1/33	1/33		4.8 (0.3–20.9)	4.7 (0.3–20.3)	
+TR	Ae. albopictus	42			0/4				
+Marche (Italy)/2023	PU	Cx. pipiens	1167	0/56	2/56	0/56		1.8 (0.3–5.5)		
+PU	Ae. albopictus	38			0/16				
+AN	Cx. pipiens	2274	0/105	1/105	0/105		0.4 (0.0–1.9)		
+AN	Ae. albopictus	90			0/25				
+MC	Cx. pipiens	3026	1/81(WNV2)	2/81	0/81	0.3 (0.0–1.5)	0.7 (0.1–2.1)		
+MC	Ae. albopictus	39			0/14				
+FM	Cx. pipiens	991	0/46	0/46	0/46				
+FM	Ae. albopictus	54			0/20				
+AP	Cx. pipiens	1662	0/50	0/50	0/50				
+AP	Ae. albopictus	34			0/13				
+Umbria (Italy)/2023	PG	Cx. pipiens	917	0/36	0/36	0/36				
+PG	Ae. albopictus	0			0/0				
+TR	Cx. pipiens	1118	0/46	0/46	0/46				
+TR	Ae. albopictus	77			0/17				
+Crete (Greece)/2023	HE	Cx. pipiens	191	0/44	0/44	0/44				
+HE	Ae. albopictus	55			0/20				
+RE	Cx. pipiens	137	0/41	0/41	0/41				
+RE	Ae. albopictus	61			1/28			16.7 (1.0–71.3)	
+Abbreviations: n/N, number of positive pools/number of pools tested; AN, Ancona; AP, Ascoli Piceno; FM, Fermo; MC, Macerata; HE, Heraklion; PG, Perugia; PU, Pesaro Urbino; RE, Rethymno; TR, Terni.
+
+Note: Positive pools are indicated in bold.
+
+Fig. 5 USUV, WNV and filarial nematodes detection in mosquitoes collected in the Italian and Greek sampling areas. Abbreviations: AN, Ancona; AP, Ascoli Piceno; FM, Fermo; MC, Macerata; HE, Heraklion; PG, Perugia; PU, Pesaro Urbino; RE, Rethymno; TR, Terni.
+
+From May to September 2023, 5 out of 338 Cx. pipiens pools in the Marche region tested positive for USUV, with positives in PU (n = 2), AN (n = 1) and MC (n = 2) (Table 5, Fig. 5, Supplementary Table S9). Co-circulation of WNV Lineage 2 and USUV was detected in one pool of 32 mosquitoes from Porto Recanati (Table 5, Fig. 5, Supplementary Table S9). In the Umbria region, no viruses were detected in a total of 82 pools.
+
+Culex pipiens (420 pools) and Aedes spp. (105 pools) across the Marche and Umbria were negative for filarial infections (Table 5, Supplementary Tables S9 and S10).
+
+Concerning the collection in Crete (2023), 328 Cx. pipiens were grouped into 85 pools and tested for WNV and USUV (Supplementary Table S2), together with 121 Aedes spp. grouped into 48 pools. No WNV or USUV was detected in any of the 85 Cx. pipiens pools analysed (Table 5, Fig. 5, Supplementary Table S9). In contrast, a single Ae. albopictus specimen from Violi Charaki (RE) tested positive for Dirofilaria repens among the 48 Aedes spp. pools analysed (Table 5, Fig. 5, Supplementary Table S10).
+
+3.4 Study limitations
+
+The findings of this study should be interpreted in light of several methodological considerations. First, mosquito collections in Italy and Crete were performed using different trap types, namely CDC CO2 traps in Italy and BG-Sentinel 2 traps in Crete. These trapping systems differ in their sampling efficiency and species-specific attractiveness, with BG-Sentinel 2 traps generally showing higher efficiency for Aedes mosquitoes than CDC CO2 traps (Ngape et al., 2021). Consequently, trap-related biases may have influenced the relative abundance of some mosquito species. Secondly, the sampling design differed between the two study areas in terms of sampling effort and spatial coverage, which may have affected mosquito abundance estimates and the probability of pathogen detection. Thirdly, the relatively limited number of sampling sites within some habitat categories in Crete may have reduced the statistical power of habitat-specific comparisons. Finally, variation in mosquito pool size among sampling sites may have influenced the sensitivity of pathogen detection, particularly for filarial nematodes, whose prevalence is generally low in mosquito populations. Taken together, these methodological differences do not support direct quantitative comparisons between Italy and Crete. Accordingly, the results have not been interpreted as formal inter-regional comparisons but rather as complementary descriptions of mosquito community composition, ecological patterns, and pathogen circulation within two Mediterranean regions characterised by distinct environmental and epidemiological settings.
+
+Despite these limitations, the harmonised sampling strategy, the integration of entomological and molecular surveillance, and the consistent analytical framework adopted across both study areas provide a robust basis for describing regional ecological patterns and supporting future harmonised surveillance programmes in the Mediterranean basin.
+
+4 Discussion
+
+Comparative analyses of entomological and pathogen surveillance data across different geographical regions provide valuable insights into mosquito community composition, seasonal population dynamics, and the circulation of mosquito-borne pathogens (Zardini et al., 2024). Within this framework, our study demonstrates that mosquito population dynamics are driven not only by seasonal variation but also by the ecological characteristics of the investigated environments.
+
+In Italy, the greater species richness observed in rural habitats agrees with previous studies showing that mosquito diversity generally declines along increasing urbanisation gradients (Ferraguti et al., 2016). Despite these differences in species richness, alpha diversity remained relatively stable across habitat types, suggesting that the widespread occurrence of generalist species, particularly Cx. pipiens and Ae. albopictus, contributes to maintaining comparable levels of community evenness (Möhlmann et al., 2017). Likewise, the temporal variation observed in both alpha and beta diversity, together with habitat-specific differences in mosquito community composition, confirms that mosquito assemblages are strongly influenced by seasonal climatic conditions, breeding-site availability, landscape structure, and local environmental characteristics (Marini et al., 2016; Westby et al., 2021).
+
+In Crete, the predominance of Cx. pipiens and Ae. albopictus was consistent with previous surveys conducted on the island. More importantly, the detection of Ae. cretinus in Heraklion extends its known distribution within Crete (Fotakis et al., 2022). Although its vector competence remains largely unknown (Becker et al., 2020), its ecological characteristics and close phylogenetic relationship with Ae. albopictus warrant continued surveillance to better assess its potential epidemiological significance (Valappil et al., 2011; Giatropoulos et al., 2012). Comparison with the study by Fotakis et al. (2022) also suggests temporal differences in the seasonal activity of Cx. pipiens, possibly reflecting environmental variability between sampling periods. Furthermore, our findings expand current knowledge on habitat associations of Cx. pipiens and the seasonal dynamics of Ae. albopictus, contributing to a more comprehensive understanding of mosquito ecology on the island.
+
+Beyond mosquito ecology, the simultaneous investigation of mosquito-borne pathogens provides additional insights into the complexity of pathogen circulation. The detection of both USUV and WNV further supports their co-circulation in central Italy, in agreement with recent studies documenting the expansion of USUV towards central regions and the comparatively lower WNV activity outside northern Italy (Riccò et al., 2021; Scaramozzino et al., 2021; Zecchin et al., 2021). Although natural co-infections of USUV and WNV have not yet been demonstrated in field-collected mosquitoes, the simultaneous circulation of multiple flaviviruses within the same vector populations may complicate surveillance programmes and diagnostic interpretation, reinforcing the need for integrated pathogen-vector-host surveillance (Vilibic-Cavlek et al., 2014).
+
+The concurrent detection of USUV and Setaria spp. further illustrates the complexity of mosquito-associated pathogen communities. In Italy, Setaria spp. are commonly found in both wild and domestic ungulates, with S. tundra and S. labiatopapillosa representing the most frequently reported species (Cancrini et al., 1997; Favia et al., 2003; Macchioni et al., 2023). Although Aedes mosquitoes are generally regarded as the principal vectors, the epidemiological role of Cx. pipiens remains controversial because experimental and field studies have produced conflicting evidence regarding its competence (Cancrini, 1998; Tung et al., 2004). These observations highlight the value of integrated surveillance programmes capable of simultaneously detecting different pathogen groups and identifying emerging zoonotic threats that could remain undetected using pathogen-specific monitoring alone.
+
+The absence of WNV and USUV in mosquito pools collected in Crete should be interpreted with caution, given the marked temporal and spatial variability that characterises arbovirus circulation. Previous evidence of WNV activity confirms that ecological conditions on the island remain suitable for virus transmission (Mavrouli et al., 2019; Fotakis et al., 2022). Conversely, the detection of D. repens in Ae. albopictus represents, to our knowledge, the first report of this parasite in a mosquito vector from Crete, providing novel information on its transmission ecology and vector associations within the Mediterranean basin (Cancrini et al., 2007).
+
+5 Conclusions
+
+Overall, our findings demonstrate that mosquito community composition, seasonal dynamics, and pathogen circulation are strongly shaped by local ecological and environmental conditions. Rather than supporting a uniform surveillance strategy, these results emphasise the importance of region-specific monitoring programmes capable of accounting for local ecological variability. A better understanding of the environmental determinants influencing vector competence and pathogen transmission will facilitate the development of more targeted and effective mosquito control strategies, optimising surveillance and intervention efforts according to local climatic conditions, land-use patterns, and public health priorities. Ultimately, integrating ecological, entomological, and molecular surveillance will contribute to the implementation of more efficient, evidence-based, and sustainable vector control programmes.
+
+Ethical approval
+
+Not applicable.
+
+CRediT authorship contribution statement
+
+Monica Falcinelli: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Validation, Writing - original draft, Writing - review & editing. Claudia Damiani: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Validation, Writing - original draft, Writing - review & editing. Kostas Mavridis: Data curation, Formal analysis, Writing - review & editing. Alessia Cappelli: Data curation, Formal analysis, Methodology, Writing - review & editing. Ayda Khorramnejad: Data curation, Validation, Formal analysis, Writing - review & editing. Chiara Currà: Writing - review & editing. Stefano Gavaudan: Methodology, Writing - review & editing. Elisa Antognini: Formal analysis, Writing - review & editing. Irene Ricci: Writing - review & editing. John Vontas: Writing - review & editing. Guido Favia: Conceptualization, Funding acquisition, Supervision, Writing - original draft, Writing - review & editing.
+
+Funding
+
+This work was supported by the grant PRIN 2022 PNRR MUR to Guido Favia (grant number P20225TJWB).
+
+Declaration of competing interests
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+Appendix A Supplementary data
+
+The following is/are the supplementary data to this article.Multimedia component 1
+
+Data availability
+
+All data generated or analyzed during this study are included in this published article and its supplementary file.
+
+Appendix A Supplementary data to this article can be found online at https://doi.org/10.1016/j.crpvbd.2026.100416.
+
+
+References
+
+Altschul S.F. Gish W. Miller W. Myers E.W. Lipman D.J. Basic local alignment search tool J. Mol. Biol. 215 1990 403 410 10.1016/S0022-2836(05)80360-2 2231712
+Alves R.P.D.S. Amorim J.H. Editorial: Arboviruses: co-circulation, co-transmission, and co-infection Front. Microbiol. 14 2023 1321166 10.3389/fmicb.2023.1321166 PMC10660266 38029187
+Aragon T. Epitools: epidemiology tools R package version 0 2020 5 10.1 https://CRAN.R-project.org/package=epitools
+Becker N. Petrić D. Zgomba M. Boase C. Madon M.B. Dahl C. Kaiser A. Mosquitoes: Identification, Ecology and Control 3rd ed. 2020 Springer Berlin 10.1007/978-3-030-11623-1
+Brooks M.E. Kristensen K. van Benthem K.J. Magnusson A. Berg C.W. Nielsen A. glmmTMB balances speed and flexibility among packages for zero-inflated generalized linear mixed modeling R J 9 2017 378 400 10.32614/RJ-2017-066
+Brugueras S. Fernández-Martínez B. Martínez-de la Puente J. Figuerola J. Porro T.M. Rius C. Environmental drivers, climate change and emergent diseases transmitted by mosquitoes and their vectors in southern Europe: a systematic review Environ. Res. 191 2020 110038 10.1016/j.envres.2020.110038 32810503
+Caminade C. McIntyre K.M. Jones A.E. Impact of recent and future climate change on vector-borne diseases Ann. N. Y. Acad. Sci. 1436 2019 157 173 10.1111/nyas.13950 30120891 PMC6378404
+Cancrini G. Development of Setaria labiatopapillosa in Aedes caspius Med. Vet. Entomol. 12 1998 391 393 10.1016/s0020-7519(97)00081-7 9513947
+Cancrini G. Pietrobelli M. Frangipane Di Regalbono A. Tampieri M.P. Mosquitoes as vectors of Setaria labiatopapillosa Int. J. Parasitol. 27 1997 1061 1064 10.1016/s0020-7519(97)00081-7 9363488
+Cancrini G. Scaramozzino P. Gabrielli S. Di Paolo M. Toma L. Romi R. Aedes albopictus and Culex pipiens implicated as natural vectors of Dirofilaria repens in central Italy J. Med. Entomol. 44 2007 1064 1066 10.1603/0022-2585(2007)44[1064:aaacpi]2.0.co;2 18047207
+Capelli G. Genchi C. Baneth G. Bourdeau P. Brianti E. Cardoso L. Recent advances on Dirofilaria repens in dogs and humans in Europe Parasites Vectors 11 2018 663 10.1186/s13071-018-3205-x 30567586 PMC6299983
+Del Amo J. Sotelo E. Fernández-Pinero J. Gallardo C. Llorente F. Agüero M. Jiménez-Clavero M.A. A novel quantitative multiplex real-time RT-PCR for the simultaneous detection and differentiation of West Nile virus lineages 1 and 2, and of Usutu virus J. Virol. Methods 189 2013 321 327 10.1016/j.jviromet.2013.02.019 23499258
+Favia G. Cancrini G. Ferroglio E. Casiraghi M. Ricci I. Rossi L. Molecular assay for the identification of Setaria tundra Vet. Parasitol. 117 2003 139 145 10.1016/s0304-4017(03)00210-3 14597287
+Ferraguti M. Martínez-de la Puente J. Roiz D. Ruiz S. Soriguer R. Figuerola J. Effects of landscape anthropization on mosquito community composition and abundance Sci. Rep. 6 2016 29002 10.1038/srep29002 PMC4931447 27373794
+Fotakis E.A. Mavridis K. Kampouraki A. Balaska S. Tanti F. Vlachos G. Mosquito population structure, pathogen surveillance and insecticide resistance monitoring in urban regions of Crete, Greece PLoS Negl. Trop. Dis. 16 2022 e0010186 10.1371/journal.pntd.0010186 PMC8890720 35176020
+Frasca F. Sorrentino L. Fracella M. D’Auria A. Coratti E. Maddaloni L. An update on the entomology, virology, pathogenesis, and epidemiology status of West Nile and dengue viruses in Europe (2018–2023) Trop. Med. Infect. Dis. 9 2024 166 10.3390/tropicalmed9070166 39058208 PMC11281579
+Giatropoulos A. Michaelakis A. Pontikakos C. Records of Aedes albopictus and Aedes cretinus (Diptera: Culicidae) in Greece from 2009 to 2011 Hell. Plant Prot. J. 5 2012 49 56
+Hartig F. DHARMa: residual diagnostics for hierarchical (multi-level/mixed) regression models R package version 0.5.0 2026 https://github.com/florianhartig/dharma
+Koch R.T. Erazo D. Folly A.J. Johnson N. Dellicour S. Grubaugh N.D. Vogels C.B.F. Genomic epidemiology of West Nile virus in Europe One Health 18 2023 100664 10.1016/j.onehlt.2023.100664 PMC10772404 38193029
+Lenth R. Piaskowski J. Emmeans: estimated marginal means, aka least-squares means R package version 2.0.4 2026 https://rvlenth.github.io/emmeans/
+Lu L. Zhang F. Oude Munnink B.B. Munger E. Sikkema R.S. Pappa S. West Nile virus spread in Europe: phylogeographic pattern analysis and key drivers PLoS Pathog. 20 2024 e1011880 10.1371/journal.ppat.1011880 PMC10810478 38271294
+Macchioni F. Vallone F. Lenzi C. Monni G. Matiacic A. Cecchi F. Romeo G. Helminth fauna in roe deer (Capreolus capreolus Linnaeus, 1758) in the province of Grosseto (Central Italy) Helminthologia 60 2023 134 140 10.2478/helm-2023-0013 37745223 PMC10516473
+Marini G. Poletti P. Giacobini M. Pugliese A. Merler S. Rosa R. The role of climatic and density-dependent factors in shaping mosquito population dynamics: the case of Culex pipiens in northwestern Italy PLoS One 1 2016 e0154018 10.1371/journal.pone.0154018 PMC4841511 27105065
+Markakis G. Sioutas G. Bitchava D. Komnenou A. Ganoti M. Papadopoulos E. Is the European badger a new host for Dirofilaria Immitis? The first records in Greece Parasitol. Res. 123 2024 118 10.1007/s00436-024-08141-0 38296850 PMC10830752
+Mavrouli M. Vrioni G. Kapsimali V. Tsiamis C. Mavroulis S. Pervanidou D. Reemergence of West Nile virus infections in southern Greece, 2017 Am. J. Trop. Med. Hyg. 100 2019 420 426 10.4269/ajtmh.18-0339 30526732 PMC6367598
+Medlock J.M. Hansford K.M. Schaffner F. Versteirt V. Hendrickx G. Zeller H. Van Bortel W. A review of the invasive mosquitoes in Europe: ecology, public health risks, and control options Vector Borne Zoonotic Dis. 12 2012 435 447 10.1089/vbz.2011.0814 22448724 PMC3366101
+Möhlmann T.W.R. Wennergren U. Tälle M. Favia G. Damiani C. Bracchetti L. Koenraadt C.J.M. Community analysis of the abundance and diversity of mosquito species (Diptera: Culicidae) in three European countries at different latitudes Parasites Vectors 10 2017 510 10.1186/s13071-017-2481-1 29061177 PMC5653988
+Ministero della Salute Piano nazionale di prevenzione, sorveglianza e risposta alle arbovirosi (PNA) 2020–2025 2020 Italian Ministry of Helath Roma https://www.salute.gov.it/imgs/C_17_pubblicazioni_2947_allegato.pdf
+Ngape D. Steele C.H. McDermott E.G. A comparison of BG sentinel and CDC trap attractants for mosquito surveillance in urban and suburban areas of Montgomery and Prince George’s counties, Maryland, USA J. Vector Ecol. 46 2021 186 199 10.52707/1081-1710-46.2.186 35230023
+OECD, European Commission, FAO, UN-Habitat, World Bank Applying the degree of urbanisation: a methodological manual to define cities, towns and rural areas for international comparisons OECD Regional Development Studies 2021 OECD Publishing Paris/European Union, Brussels 10.1787/4bc1c502-en
+Panagopoulou A. Tegos N. Beleri S. Mpimpa A. Balatsos G. Michaelakis A. Molecular detection of Usutu virus in pools of Culex pipiens mosquitoes in Greece Acta Trop. 258 2024 107330 10.1016/j.actatropica.2024.107330 39043331
+Patsoula E. Samanidou-Voyadjoglou A. Spanakos G. Kremastinou J. Nasioulas G. Vakalis N.C. Molecular and morphological characterization of Aedes albopictus in northwestern Greece and differentiation from Aedes cretinus and Aedes aegypti J. Med. Entomol. 43 2006 40 54 10.1093/jmedent/43.1.40 16506446
+Region of Crete Official website of the region of Crete https://www.crete.gov.gr/perifereia/ 2025
+Regione Marche Infrastruttura verde (I.Ve.M.) https://www.regione.marche.it/Regione-Utile/Ambiente/Natura/Infrastruttura-verde#Ambiente-Naturale 2025
+Regione Umbria I caratteri fondamentali dell’Umbria http://www.umbriageo.regione.umbria.it/pagine/il-siat 2025
+Riccò M. Peruzzi S. Balzarini F. Epidemiology of West Nile virus infections in humans, Italy, 2012–2020: a summary of available evidences Trop. Med. Infect. Dis. 6 2021 61 10.3390/tropicalmed6020061 33923347 PMC8167603
+Scaramozzino P. Carvelli A. Bruni G. Cappiello G. Censi F. Magliano A. West Nile and Usutu viruses co-circulation in central Italy: outcomes of the 2018 integrated surveillance Parasites Vectors 14 2021 243 10.1186/s13071-021-04736-z 33962673 PMC8103664
+Seechurn N. Herdman M.T. Hernandez-Colina A. Vaux A.G.C. Johnston C. Berrell M. Field-based assessments of the seasonality of Culex pipiens sensu lato in England: an important enzootic vector of Usutu and West Nile viruses Parasites Vectors 17 2024 61 10.1186/s13071-024-06143-6 38342888 PMC10859028
+Simonin Y. Circulation of West Nile virus and Usutu virus in Europe: overview and challenges Viruses 16 2024 599 10.3390/v16040599 38675940 PMC11055060
+Sutherland G.L. Nasci R.S. Detection of West Nile virus in large pools of mosquitoes J. Am. Mosq. Control Assoc. 23 2007 389 395 10.2987/5630.1 18240515
+Tang Z. Yamada H. Kraupa C. Canic S. Busquets N. Talavera S. High sensitivity of one-step real-time reverse transcription quantitative PCR to detect low virus titers in large mosquito pools Parasites Vectors 13 2020 460 10.1186/s13071-020-04327-4 32907625 PMC7488135
+Tung K.C. Cheng F.P. Lai C.H. Wang K.S. Wang J.S. Lee W.M. Demonstration of vector competence of Culex quinquefasciatus (Diptera: Culicidae) for Setaria digitata Vet. Parasitol. 123 2004 279 284 10.1016/j.vetpar.2004.07.001 15325055
+Valappil A. Pillai M.M. Vishwambhar V. Phylogenetic studies on ITS-2, 5.8S and 28S rRNA genes in dengue virus vector mosquito variants Int. J. Environ. Sci. Res. 73 2011 1 9
+Vieira R.F.C. Muñoz-Leal S. Faulkner G. Şuleşco T. André M.R. Pesapane R. Global climate change impacts on vector ecology and vector-borne diseases McNabb S.J.N. Shaikh A.T. Haley C.J. Modernizing Global Health Security to Prevent, Detect, and Respond 2024 Academic Press Cambridge, Massachusetts, USA 155 173 10.1016/B978-0-323-90945-7.00026-9
+Vilibic-Cavlek T. Kaic B. Barbic L. Pem-Novosel I. Slavic-Vrzic V. Lesnikar V. First evidence of simultaneous occurrence of West Nile virus and Usutu virus neuroinvasive disease in humans in Croatia during the 2013 outbreak Infection 42 2014 689 695 10.1007/s15010-014-0625-1 24793998
+Westby K.M. Adalsteinsson S.A. Biro E.G. Beckermann A.J. Medley K.A. Aedes albopictus populations and larval habitat characteristics across the landscape: significant differences exist between urban and rural land use types Insects 12 2021 196 10.3390/insects12030196 33668917 PMC7996563
+Xie H. Bain O. Williams S.A. Molecular phylogenetic studies on filarial parasites based on 5S ribosomal spacer sequences Parasite 1 1994 141 151 10.1051/parasite/1994012141 9140481
+Zardini A. Menegale F. Gobbi A. Manica M. Guzzetta G. D’Andrea V. Estimating the potential risk of transmission of arboviruses in the Americas and Europe: a modelling study Lancet Planet. Health 8 2024 e30 e40 10.1016/S2542-5196(23)00252-8 38199719
+Zecchin B. Fusaro A. Milani A. Schivo A. Ravagnan S. Ormelli S. The central role of Italy in the spatial spread of Usutu virus in Europe Virus Evol. 7 2021 e048 10.1093/ve/veab048 PMC8427344 34513027

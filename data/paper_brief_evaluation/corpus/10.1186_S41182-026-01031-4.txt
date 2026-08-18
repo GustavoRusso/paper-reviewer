@@ -1,0 +1,453 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Trop Med Health
+Journal ID: Trop Med Health
+NLM Journal ID: 101215093
+
+Tropical Medicine and Health
+
+ISSN: 1348-8945
+EISSN: 1349-4147
+Publisher: BMC
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13410870
+PMID: 42522003
+DOI: 10.1186/s41182-026-01031-4
+Article ID: 1031
+Article version: 1
+Subjects: Research
+
+Study of the circulation of dengue, yellow fever, and West Nile viruses in Guinea: implications for achieving the health objectives of the Simandou 2040 program
+
+Bah Mamadou Boundoukhoura 1
+Diallo Mariama 1
+Konkon Alphonse Keller 1
+Barry Mamadou Morou 1
+Boiro Aissatou 1
+Diallo Ibrahima Baϊlo 1
+Sow Ibrahima Sory 1
+Balde Thierno Amadou Labe 1
+Bangoura Salifou Talasson 3
+Zakharov Kirill 1
+Onivogui Gbago 1
+Boumbaly Sanaba 2
+Naidenova Ekaterina 1
+Traore Mohamed Sahar dg@irbag.edu.gn
+1
+1 Institut de Recherche en Biologie Appliquée de Guinée (IRBAG), Kindia, Guinée
+2 Centre de Recherche Virologique de Guinée, Conakry, Guinée
+3 Centre de Recherche Et de Formation en Infectiologie de Guinée, Conakry, Guinée
+Electronic publication date: 2026 Jul 28
+Publication date: 2026
+Volume: 54
+Electronic Location ID: 133
+Received 2026 May 16; Accepted 2026 Jul 13
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Keywords: Arbovirus, Simandou 2040 program, Guinea
+issue-copyright-statement: © Japanese Society of Tropical Medicine 2026
+
+==============================
+Background
+
+Diseases such as dengue, yellow fever and West Nile virus, which are transmitted by arthropods, pose public health problems in tropical and subtropical regions. Like many West African countries, Guinea possesses all the conditions conducive to the circulation of these viruses. These include local ecology and climate, as well as the presence of vectors that transmit these viruses. Despite their medical importance, these viruses have received limited study, and up-to-date information on their circulation remains scarce. In this context, the present study examined the prevalence of these three arboviruses (DENV, YFV and WNV) in human and vector populations.
+
+Methodology
+
+This study covered 18 Guinea prefectures, which are spread across the country's four ecological zones. The study was conducted from 27 May to 27 November 2024. In health centers selected in each prefecture, 5 ml samples of venous blood were collected from asymptomatic patients aged 1–90 years who had visited for consultations and had given their consent. Additionally, mosquitoes were collected via an "AMPLECTA MOSQUITO TRAP" light trap. Two ELISA tests were performed on the blood samples: the first for detection and the second for confirmation of the presence of these viruses in human serum. The mosquito samples were analyzed to determine diversity, and real-time PCR was employed to check for viral infection in the vectors following viral RNA extraction via the RIBO-prep AmpliSens® Kit.
+
+Results
+
+Serological evidence of exposure to all three viruses in the eighteen surveyed prefectures indicates their widespread distribution across the country. The highest seroprevalence of dengue virus antibodies was observed in N’Zerekore (43.9% [38.5–49.4%]), whereas the highest seroprevalence of yellow fever virus antibodies was recorded in Kankan Prefecture (54.7%; 95% CI: 41.5–67.3). In Forecariah, up to 53.0% (95% CI: 42.4–63.4) of participants were seropositive for West Nile virus antibodies. Seropositivity for these arboviruses was more frequently observed among adults. Higher seroprevalence of dengue and yellow fever antibodies was also observed among farmers and livestock breeders. Higher seroprevalence of dengue and yellow fever antibodies was also observed among farmers and livestock breeders. No dengue or yellow fever infections were detected in the vectors, whereas the Culex quinquefasciatus population was found to be infected with WNV.
+
+Conclusion
+
+This study provides serological evidence of exposure to dengue, yellow fever, and West Nile viruses across all the ecological regions of the Republic of Guinea. In addition, antibodies against these viruses were detected in human populations, and arbovirus-positive mosquito pools were identified during entomological investigations. Evidence of West Nile virus was also detected in mosquito pools containing Culex quinquefasciatus, suggesting a possible role of this species in the local transmission cycle. Adult farmers and livestock breeders appear to be at the greatest risk of contracting dengue and yellow fever. These results highlight the need for an integrated arbovirus surveillance system in Guinea. This system must combine serological surveillance with entomological surveys to support the public health objectives of the Simandou 2040 program.
+
+Introduction
+
+Arboviral diseases, including dengue, yellow fever, chikungunya, West Nile virus, and Zika, pose a global threat to public health [1, 2]. These diseases are classified as emerging and reemerging; they are transmitted by mosquitoes, have spread to new geographic areas and have intensified in recent decades [3, 4]. The viruses responsible for these diseases belong to the Flavivirus and Alphavirus genera and are spread by blood-feeding arthropods, primarily mosquitoes of the Aedes and Culex genera [4, 5]. Notable viruses in these genera include dengue virus (DENV), yellow fever virus (YFV), West Nile virus (WNV), Zika virus (ZIKV), and chikungunya virus (CHIKV), which are of major medical importance in humans [2]. Dengue fever typically presents as a simple fever, but it can progress to hemorrhagic fever. Yellow fever causes severe liver damage. West Nile virus can lead to severe neurological disorders, and Zika is often associated with neurological and congenital disorders [6]. On the other hand, chikungunya causes severe joint pain that can sometimes become chronic [7]. These diseases are characterized by high epidemic potential, rapid geographic spread, and increasing pressure on health systems worldwide [8].
+
+Furthermore, global statistics rank dengue as the most significant arbovirus disease. More than 100 to 400 million cases are reported worldwide each year, including 3.18 million cases and 28,000 deaths in 2019 [2]. Moreover, chikungunya and Zika account for 693,000 and 500,000 cases per year, respectively. Yellow fever accounts for an estimated 130,000 cases and 30,000 deaths per year. Although less well documented, the West Nile virus causes an estimated 2,588 severe cases each year [2]. These arboviruses are present in Africa and often manifest as recurrent epidemics [9, 10]. In Africa, a total of 245,176 suspected dengue cases were reported in 2023, including 18,697 confirmed cases and 771 deaths [11]. The majority of fatalities were recorded in Burkina Faso, which alone accounted for 688 dengue-related deaths. In the same year, 104 confirmed cases of yellow fever and 39 associated deaths were reported. Nigeria was the most affected country, with 21 deaths, followed by Cameroon (6 deaths), the Central African Republic and Guinea (4 deaths each), and Congo (2 deaths). Regarding West Nile virus, 12 confirmed cases and 2 deaths were reported across Africa. Tunisia accounted for 10 cases and one death, whereas Namibia and Senegal, the two other affected countries, each reported a single case [11]. Most epidemics linked to these diseases occur in West Africa [12]. These findings demonstrate why this region deserves special attention when addressing this issue. Furthermore, dengue outbreaks have frequently been reported in countries bordering Guinea, such as Senegal and Côte d'Ivoire, which significantly contribute to the regional burden [13, 14]. The intensification of the transmission of these arboviruses, as well as the increased risk of epidemics, is driven by several factors. These include rapid urbanization, strong population growth, and environmental changes. These changes have contributed to the abundance and spread of vectors, such as Aedes aegypti, Aedes albopictus, and Culex quinquefasciatus [15–19].
+
+The circulation of arboviruses in Guinea has been documented for several decades through clinical surveys and serological studies conducted in various regions [20, 21]. Between 2000 and 2024, up to 947 confirmed cases of yellow fever and 284 related deaths were reported in Guinea. Regarding dengue, two confirmed cases, including one death, were recorded between 2023 and 2024 [21]. To date, no study has documented the circulation of West Nile virus in Guinea. However, these data are often incomplete and rarely address the distribution of infection among mosquito vectors, leaving national epidemiological data on arbovirus circulation incomplete. Increased deforestation in the Republic of Guinea creates climatic conditions conducive to vector proliferation, leaving the country vulnerable to recurrent viral epidemics [22]. Strengthening integrated arbovirus surveillance is a priority. In this context, this study was designed on the basis of a combined approach integrating human serological investigations and entomological surveillance. This study assessed the circulation of dengue, yellow fever, and West Nile viruses in the human population and among the vectors involved in their transmission. This work fully aligns with the “One Health” approach, which recognizes the interdependence of environmental factors, vector ecology, and human health. In this context, seroprevalence is a crucial indicator for evaluating the population's cumulative exposure and identifying silent or underdiagnosed viral circulation. This study aimed to investigate the circulation of dengue, yellow fever, and West Nile viruses in Guinea in both human populations and mosquito vectors to elucidate their transmission dynamics. The findings are expected to generate evidence that will guide public health authorities and contribute to the objectives of the Simandou 2040 program, particularly those related to strengthening health systems, improving disease surveillance, and enhancing the prevention and control of arboviral diseases in the Republic of Guinea.
+
+Methodology
+
+Study design and site
+
+This cross-sectional study was conducted over a seven-month period, from May 27 to November 27, 2024. This study incorporated sero-epidemiological and entomological components and assessed the circulation of arboviruses among the human population and vectors. Investigations were conducted in 18 prefectures spread across four ecological zones: Lower Guinea (Conakry, Coyah, Dubreka, Forecariah, Kindia, and Telemele); Middle Guinea (Dalaba, Labe, Mamou, Pita, and Koubia); Upper Guinea (Kankan, Siguiri, Kouroussa, and Dabola); and Forest Guinea (N’Zerekore, Gueckedou, and Kissidougou) in the Republic of Guinea (Fig. 1).Fig. 1 Map of the study site
+
+Study population
+
+The prefectures were selected through random sampling from the national database of prefectures. Furthermore, within the selected prefectures, prefectural hospitals were designated as sampling sites for data collection. This study included asymptomatic patients (i.e., presenting with neither fever nor signs of acute infection) who were seen in prefectural hospitals during the study period and had never been vaccinated against yellow fever. Participants who reported not having been vaccinated against yellow fever were verified based on their medical records or vaccination cards before being included in the study. Eligible patients were those who agreed to participate after receiving detailed information about the study’s objectives and procedures. They also had to reside in the study area, be between one and 90 years of age, and never have received a yellow fever vaccine.
+
+Sampling and processing of vector mosquitoes
+
+Vector mosquito sampling was conducted in six prefectures distributed across the country’s major ecological zones. Specifically, Lower Guinea was represented by Conakry and Kindia, Middle Guinea by Mamou and Labe, Upper Guinea by Kankan, and Forest Guinea by N’Zerekore. Four "AMPLECTA MOSQUITO TRAP" light traps were installed outside selected households in each prefecture from 7:00 p.m. to 7:00 a.m. After collection, the samples were identified with Huang [23] and Coetzee et al.[24] morphological keys. The identified species were placed in labeled tubes according to their species, collection site, and collection date. The samples were stored on dry ice at temperatures below − 20 °C and transported to the laboratory while maintaining the cold chain.
+
+Laboratory analysis of mosquito samples
+
+Pools of 30 individuals were created by species and collection site. The nucleic acids were isolated using a set of “RIBO-Prep” reagents, and the reverse transcription reaction was performed with “REVERTA-L” (both drugs manufactured by the Central Research Institute of Epidemiology, Russia). The obtained material was tested by reverse transcription polymerase chain reaction (RT-PCR) using reagent kits to identify the RNAs of the following pathogens: DENV ("AmpliSens® Dengue virus type –Fl"), YFV ("AmpliSens® YFV -FL") and "AmpliSens® WNV-FL" (Central Research Institute of Epidemiology, Russia).
+
+Blood sample collection and processing in humans
+
+Blood collection
+
+A 5 mL venous blood sample was collected by qualified healthcare personnel under strict biosafety conditions. Steriles, single-use supplies and appropriate personal protective equipment were used. After the samples were allowed to acclimate at room temperature, they were centrifuged at 10 to 3,000 rpm to obtain the serum. The serum was then divided into labeled tubes for subsequent analysis.
+
+Laboratory analysis of blood samples
+
+Serum samples were tested for the presence of virus-specific IgG antibodies via indirect ELISA performed according to the manufacturer’s instructions (‘BIOSERVIS”, Russia). Optical density values were interpreted via predefined cutoff criteria to determine seropositivity. Owing to the known serological cross-reactivity among flaviviruses, all samples that were initially positive for IgG against dengue virus (DENV), West Nile virus (WNV), or yellow fever virus (YFV) were retested via commercial ELISA kits (EUROIMMUN, Germany) that were specific to each virus to validate the results.
+
+Statistical analyses
+
+The data were analyzed via R software (version 4.5.2). A descriptive analysis was conducted on the basis of both the quantitative and qualitative variables of the study. These variables were described in terms of counts and proportions. To improve the robustness of the estimates, we calculated 95% confidence intervals for each proportion via the Wilson method, which is recognized for its superior performance, particularly for small sample sizes or proportions close to 0 or 1. To assess cases of coinfection, we calculated the proportion of coinfected individuals across all samples. Confidence intervals (95% CI) were calculated via the binomial approximation (Wald type). Species richness (S) was determined by prefecture and corresponds to the number of mosquito species collected per site. A principal component analysis (PCA) was performed to examine the relationship between occupation and infection with the three viruses studied.
+
+For the study of vector mosquito diversity, the relative abundance (Pi) of each species was calculated for each site via the following formula: Pi = ni/N, where ni is the number of individuals of species i, N is the total number of individuals encountered, and i ranges from 1 to S for each study site. The results are presented in summary tables and graphs that incorporate both the observed proportions and their confidence intervals. This facilitated the interpretation and comparison of indicators.
+
+Results
+
+Overall distribution of seroreactivity to dengue virus, yellow fever virus, and West Nile virus in the human population
+
+The overall seroprevalence rates of antibodies reactive to dengue, yellow fever, and West Nile virus infections in the human population were 18.22%, 23.86% and 25.36%, respectively (Fig. 2).Fig. 2 Overall distributions of the prevalence rates of antibodies reactive to dengue virus, yellow fever virus, and West Nile virus in the Republic of Guinea
+
+Distribution of seroreactivity to dengue virus, yellow fever virus, and West Nile virus by prefecture in the human population
+
+Analysis of ELISA-based seroreactivity to dengue virus, yellow fever virus, and West Nile virus in the human population revealed marked geographical heterogeneity across prefectures (Table 1). The seroprevalence of antibodies reactive to dengue virus ranged from 0% [0–4.4] in Forecariah to 43.9% [38.5–49.4] in N'Zerekore. Elevated seroreactivity was also observed in the prefectures of Siguiri (22.9% [12.1%-39%]), Kissidougou (24.3% [17.9%-32%]), Kankan (35.8% [24.3%-49.3%]), and Gueckedou (27.6% [19.3%-37.8%]). For the West Nile virus, seroprevalence ranged from 5.7% [3.4–9.3] in Conakry to 53% [42.4–63.4] in Forecariah. Prefectures with seroprevalence estimates above 30% included Kankan (35.8% [24.3–49.3]), Koubia (37.1% [23.2–53.7]), Kouroussa (30.8% [12.7–57.6]), Labe (37.9% [28.8–47.9]), Mamou (34.9% [26.5–44.4]), and Siguiri (34.3% [20.8–50.8]). These rates are evidence of the circulation of this virus, which has long been overlooked. Seroreactivity to yellow fever virus ranged from 5.7% (1.6–18.6) in Koubia to 54.7% (41.5–67.3) in Kankan. Overall, these findings suggest widespread exposure to, or circulation of the three viruses across the 18 surveyed prefectures.Table 1 Seroprevalence of ELISA-reactive antibodies to dengue virus, yellow fever virus, and West Nile virus by prefecture
+
+Prefectures	Virus	N_tested	Positive	Proportions (%) [IC 95%]	
+	Dengue	247	14	5.7 [3.4–9.3]	
+Conakry	WNV	247	14	5.7 [3.4–9.3]	
+	Yellow_Fever	247	80	32.4 [26.9–38.5]	
+	Dengue	117	11	9.4 [5.3–16.1]	
+Coyah	WNV	117	7	6 [2.9–11.8]	
+	Yellow_Fever	117	42	35.9 [27.8–44.9]	
+	Dengue	20	1	5 [0.9–23.6]	
+Dabola	WNV	20	9	45 [25.8–65.8]	
+	Yellow_Fever	20	10	50 [29.9–70.1]	
+	Dengue	60	6	10 [4.7–20.1]	
+Dalaba	WNV	60	25	41.7 [30.1–54.3]	
+	Yellow_Fever	60	5	8.3 [3.6–18.1]	
+	Dengue	98	2	2 [0.6–7.1]	
+Dubreka	WNV	98	30	30.6 [22.4–40.3]	
+	Yellow_Fever	98	35	35.7 [26.9–45.6]	
+	Dengue	83	0	0 [0–4.4]	
+Forecariah	WNV	83	44	53 [42.4–63.4]	
+	Yellow_Fever	83	29	34.9 [25.6–45.7]	
+	Dengue	87	24	27.6 [19.3–37.8]	
+Gueckedou	WNV	87	25	28.7 [20.3–39]	
+	Yellow_Fever	87	5	5.7 [2.5–12.8]	
+	Dengue	53	19	35.8 [24.3–49.3]	
+Kankan	WNV	53	19	35.8 [24.3–49.3]	
+	Yellow_Fever	53	29	54.7 [41.5–67.3]	
+	Dengue	178	30	16.9 [12.1–23]	
+Kindia	WNV	178	39	21.9 [16.5–28.5]	
+	Yellow_Fever	178	88	49.4 [42.2–56.7]	
+	Dengue	140	34	24.3 [17.9–32]	
+Kissidougou	WNV	140	26	18.6 [13–25.8]	
+	Yellow_Fever	140	14	10 [6.1–16.1]	
+	Dengue	35	6	17.1 [8.1–32.7]	
+Koubia	WNV	35	13	37.1 [23.2–53.7]	
+	Yellow_Fever	35	2	5.7 [1.6–18.6]	
+	Dengue	13	2	15.4 [4.3–42.2]	
+Kouroussa	WNV	13	4	30.8 [12.7–57.6]	
+	Yellow_Fever	13	7	53.8 [29.1–76.8]	
+	Dengue	95	11	11.6 [6.6–19.6]	
+Labe	WNV	95	36	37.9 [28.8–47.9]	
+	Yellow_Fever	95	16	16.8 [10.6–25.6]	
+	Dengue	106	20	18.9 [12.6–27.4]	
+Mamou	WNV	106	37	34.9 [26.5–44.4]	
+	Yellow_Fever	106	18	17 [11–25.3]	
+	Dengue	310	136	43.9 [38.5–49.4]	
+N_Zerekore	WNV	310	71	22.9 [18.6–27.9]	
+	Yellow_Fever	310	30	9.7 [6.9–13.5]	
+	Dengue	46	4	8.7 [3.4–20.3]	
+Pita	WNV	46	13	28.3 [17.3–42.5]	
+	Yellow_Fever	46	6	13 [6.1–25.7]	
+	Dengue	35	8	22.9 [12.1–39]	
+Siguiri	WNV	35	12	34.3 [20.8–50.8]	
+	Yellow_Fever	35	17	48.6 [33–64.4]	
+	Dengue	83	1	1.2 [0.2–6.5]	
+Telemele	WNV	83	7	8.4 [4.1–16.4]	
+	Yellow_Fever	83	25	30.1 [21.3–40.7]	
+
+Distribution of seroreactivity to arboviruses across ecological zone
+
+An analysis of the distributions of ELISA-reactive antibodies to dengue, West Nile, and yellow fever viruses in Guinea’s four ecological zones (Lower Guinea, Forest Guinea, Upper Guinea, and Middle Guinea) revealed the presence of all three viruses. The seroprevalence of antibodies reactive to dengue virus was 13.7% [10.5–17.8], 24.8% [18–33.2], 36.1% [32.2–40.3], and 7.2% [5.6–9.2] in Middle Guinea, Upper Guinea, Forest Guinea, and Lower Guinea, respectively. Elevated seroprevalence estimates were observed in Upper Guinea and Forest Guinea. Seroprevalence estimates for yellow fever virus ranged from 9.1% [7–11.9] in Forest Guinea to 52.1% [43.2–60.8] in Upper Guinea, whereas those for WNV ranged from 17.5% [15–20.3] in Lower Guinea to 36.4% [28.3–45.2] in Upper Guinea. These results demonstrate the heterogeneity in the patterns of seroreactivity to these three viruses across Guinea’s ecological zones (Table 2).Table 2 Proportion of ELISA-reactive samples to dengue virus, yellow fever virus, and West Nile virus by ecological zone
+
+Ecological zone	Virus	N_tested	Positive	Proportions (%) [IC 95%]	
+Lower Guinea	Dengue	806	58	7.2 [5.6–9.2]	
+WNV	806	141	17.5 [15–20.3]	
+Yellow_Fever	806	299	37.1 [33.8–40.5]	
+Forest Guinea	Dengue	537	194	36.1 [32.2–40.3]	
+WNV	537	122	22.7 [19.4–26.4]	
+Yellow_Fever	537	49	9.1 [7–11.9]	
+Upper Guinea	Dengue	121	30	24.8 [18–33.2]	
+WNV	121	44	36.4 [28.3–45.2]	
+Yellow_Fever	121	63	52.1 [43.2–60.8]	
+Middle Guinea	Dengue	342	47	13.7 [10.5–17.8]	
+WNV	342	124	36.3 [31.3–41.5]	
+Yellow_Fever	342	47	13.7 [10.5–17.8]	
+
+Distribution of seroprevalence by age group for dengue virus, yellow fever virus, and West Nile virus
+
+The distribution of seroprevalence estimates by age group revealed variations in patterns of seroreactivity to arboviruses across age categories (Fig. 3). The highest seroprevalence of antibodies reactive to dengue virus was observed among people aged 25–64 years (22.4% [19.8–25.3%]). The seroprevalence of antibodies reactive to the seroprevalence of antibodies reactive to West Nile virus is relatively high among children aged 0–14 years (28.6% [23.5–34.3%]). Furthermore, seroprevalence estimates for antibodies reactive to yellow fever ranged from 18.8% [11.4–29.6] among adults aged 65 and older to 27.3% [24.5–30.3] among adults aged 25–64. These findings suggest age-related differences in exposure to, or seroreactivity against, these arboviruses.Fig. 3 Proportion of samples reactive to dengue virus, yellow fever virus, and West Nile virus by age group
+
+Patterns of multiple seroreactivity to dengue virus, yellow fever, and West Nile virus
+
+Analysis of the serological data revealed patterns of multiple reactivity to arboviruses in the human population (Fig. 4).The most frequently observed dual seroreactivity patterns involved yellow fever virus and West Nile virus, and dengue virus and yellow fever virus, with proportions of 17.1% [13.6–21.0] and 10.3% [7.4–13.8], respectively. Furthermore, concurrent seroreactivity to dengue virus and West Nile virus was less common, accounting for 3.0% [1.6–5.2]. Additionally, simultaneous seroreactivity to dengue virus, yellow fever virus and West Nil virus was observed in 2.3% [1.0–4.3%] of samples.Fig. 4 Patterns of multiple seroreactivity to dengue virus, yellow fever virus, and West Nile virus in the human population
+
+Variation in seroprevalence by occupational category
+
+The Chi-square (χ2) analysis revealed a statistically significant association between cluster membership and all categorical variables examined, including occupation (p < 0.0001), professional group (p < 0.0001), age category (p = 1.35 × 10⁻3⁰⁷), sex (p = 1.54 × 10⁻11⁷), and locality (p = 4.67 × 10⁻5⁷), as well as serological markers such as dengue IgG (p = 1.55 × 10⁻14) and yellow fever IgG (p = 7.22 × 10⁻5).
+
+In cluster 3, the most represented occupations were homemakers (35.6%; p < 10⁻115), healthcare workers (18.7%), administrative staff (16.6%), and traders (13.5%). This cluster was predominantly associated with urban and peri-urban areas, including Conakry, Kindia, Mamou, and Labé. These localities also exhibited a relatively high seroreactivity to yellow fever (29.5%; p < 0.001).
+
+Cluster 4 was characterized by occupational groups such as farmers (38.4%; p < 10⁻11⁷), manual laborers (34.6%; p < 10⁻4⁰), and livestock breeders (13.6%; p < 10⁻3⁸). This group, composed predominantly of males (86.2%; p < 10⁻⁹⁸) and adults (mean age = 36.0 years; p < 10⁻2⁹), showed the highest seroreactivity to dengue (31.5%; p < 10⁻15). The highest seroreactivity estimates were observed in the prefectures of N’Zerekore (33.0%), Kissidougou (17.2%), and Gueckedou (9.4%).
+
+Clusters 1, 2, and 5 were characterized by a predominance of students, schoolchildren, and retirees, with comparatively lower seroreactivity to the studied viruses. These clusters were associated mainly with the prefectures of Siguiri, Dabola, Kankan, Kouroussa, and Dubreka (Figs. 5, 6, and 7).Fig. 5 Cluster characterization
+
+Fig. 6 Distribution of sex and seroprevalence by cluster
+
+Fig. 7 Distribution of prefectures and socioprofessional categories by cluster
+
+Mosquito species diversity in Guinea
+
+A total of 3946 mosquitoes were collected. Analysis of species diversity revealed five Culicidae species in all prefectures (Conakry, Kindia, Kankan, Mamou, Labé, and N’Zerekore). The relative abundances of the different species varied by prefecture. The highest proportion of Aedes aegypti was found in N’Zerekore (16.27%), whereas the lowest proportion was found in Mamou (3.17%). Similarly, N'Zerekore recorded the highest proportion of the forest species Aedes vittatus (33.49%). Furthermore, Kankan is characterized by an abundance of Anopheles pharoensis, whereas Conakry is characterized by an abundance of Culex quinquefasciatus (44.22%). Additionally, Anopheles funestus was relatively more abundant in Kindia (32.56%). Overall, Culex quinquefasciatus was the most abundant species, followed by Anopheles funestus, Anopheles pharoensis, Aedes vittatus, and Aedes aegypti, with proportions of 32.36% [30.92–33.84], 24.84% [23.51–26.21], 18.12% [16.95–19.35], 16.22% [15.1–17.4], and 8.46% [7.64–9.37], respectively (Table 3).Table 3 Mosquito diversity in selected prefectures of the Republic of Guinea
+
+Species	Conakry ni (Pi)	Kindia ni (Pi)	Mamou
+ni (Pi)	Labe ni (Pi)	Kankan
+ni (Pi)	N’Zerekore
+ni (Pi)	Pi (CI 95%)	
+Aedes aegypti	40 (5.41)	90 (10.98)	18 (3.17)	30 (6.12)	54 (7.7)	102(16.27)	8.46
+
+[7.64–9.37]
+
+	
+Aedes vittatus	68 (9.19)	115 (14.02)	87 (15.32)	70 (14.29)	90 (12.84)	210(33.49)	16.22
+
+[15.1–17.4]
+
+	
+Anopheles pharoensis	146 (19.73)	129 (15.73)	98 (17.25)	82 (16.73)	206 (29.39)	54 (8.61)	18.12
+
+[16.95 -19.35]
+
+	
+Culex quinquefasciatus	305 (41.22)	219 (26.71)	270 (47.54)	183 (37.35)	144 (20.54)	156 (24.88)	32.36
+
+[30.92–33.84]
+
+	
+Anopheles funestus	181 (24.46)	267 (32.56)	95 (16.73)	125 (25.51)	207 (29.53)	105 (16.75)	24.84
+
+[23.51–26.21]
+
+	
+Total	740 (100)	820 (100)	568 (100)	490 (100)	701 (100)	627 (100)	3 946	
+Taxa (S)	5	5	5	5	5	5	NA	
+ni number, Pi proportion, CI confidence interval
+
+Assessment of arbovirus circulation in the vector mosquito population
+
+The results revealed infection in Culex quinquefasciatus at all locations. Kankan and N’Zerekore presented the highest infection rates, at 75% and 100%, respectively. Moreover, 33.3% and 50% of the collected Anopheles funestus specimens were also found to be infected with West Nile virus. No cases of infection were detected in Aedes aegypti, Aedes vittatus and Anopheles pharoensis (Table 4).Table 4 Distribution of WNV infection rates within vector populations
+
+Species	Conakry
+% (n/N)	Kindia
+%(n/N)	Mamou
+%(n/N)	Labe
+%(n/N)	Kankan
+% (n/N)	N_Zerekore % (n/N)	
+Aedes aegypti	0 (0/1)	0(0/3)	0 (0/1)	0(0/1)	0 (0/1)	0 (0/3)	
+Aedes vittatus	0 (0/2)	0(0/3)	0(0/2)	0(0/2)	0(0/3)	0(0/7)	
+Anopheles pharoensis	0 (0/4)	0(0/4)	0(0/3)	0(0/2)	0(0/6)	0(0/1)	
+Culex quinquefasciatus	40 (4/10)	28.6 (2/7)	22.2 (2/9)	16.7(1/6)	75 (3/4)	100 (5/5)	
+Anopheles funestus	33.3 (2/6)	50 (3/6)	0(0/3)	0(0/4)	0(0/6)	(0/3)	
+N: total number of pools tested at each location, n: number of pools in which the West Nile virus (WNV) was detected
+
+Discussion
+
+This study highlights the circulation of arboviruses across several prefectures in Guinea. It integrates serological and human entomological data to characterize the circulation of DENV, YFV, and WNV. Given the emergence and re-emergence of these arboviruses, these findings are essential for informing surveillance strategies.
+
+The serological findings suggest previous exposure to three arboviruses (DENV, YFV, and WNV) in the human population. Previous studies [25] have documented the circulation of arboviruses, including dengue and West Nile virus, in Guinea. In addition, more recent investigations by [26] have further confirmed the circulation of both dengue and West Nile virus within the human population in the Republic of Guinea. These results confirm the circulation of these viruses in the context of West Africa. Indeed, seroprevalence studies conducted in West Africa, particularly in Senegal, Burkina Faso, Togo, and Nigeria, have reported dengue virus circulation, and these countries are considered endemic [27–29]. The results suggest regular exposure rather than sporadic epidemic transmission.
+
+Furthermore, serological evidence of exposure to all three viruses was detected in the eighteen surveyed prefectures, suggesting a broad geographic distribution across Guinea. Higher seroprevalence was observed in Upper Guinea and Forest Guinea, which are broken down by the ecological zone. The broad geographic distribution of seropositivity may be partly related to the widespread distribution of competent vectors, particularly Aedes aegypti, throughout the country. The ability of these vectors to adapt and proliferate in humid tropical environments may contribute to the maintenance of arbovirus transmission in Guinea [19, 30–32].
+
+The highest seroprevalence of dengue and yellow fever antibodies was observed among individuals aged 25–64 years. This pattern may be related to greater occupational and outdoor exposure among adults, given that the vectors responsible for these diseases are primarily diurnal [33]. These findings are consistent with those of Sautereau et al. [34], who demonstrated that most infections caused by these viruses occur in adults. Serological reactivity to more than one arbovirus was observed among some participants. Concurrent seropositivity for dengue and yellow fever virus, as well as yellow fever and West Nile virus may be related to the fact that both viruses share common mosquito vectors [35].
+
+A significant association between dengue fever and yellow fever seropositivity was observed. Furthermore, higher seroprevalence was also found among livestock farmers, farmers and civil engineers than among healthcare workers and merchants. This trend can be explained by the fact that these diseases are transmitted by the same vectors and that the socioprofessional groups most affected are the ones most exposed to them. Livestock farmers, farmers and civil engineers often work outdoors, which increases their exposure to these exophagous, diurnal vectors and increases the risk of receiving an infectious bite [36]. Other studies have also shown that occupation can be a risk factor for arbovirus infection [37, 38].
+
+The results regarding the diversity and abundance of vector species revealed that Culex quinquefasciatus was the most abundant, followed by Anopheles funestus, Anopheles pharoensis, Aedes vittatus, and Aedes aegypti. This diversity can be explained by the country’s ecological diversity, which is characterized by forested areas that are favorable to forest species, such as Aedes vittatus, and urban and densely populated environments that are favorable to Aedes aegypti. However, Culex can adapt to any environment, although it prefers polluted environments that provide it with organic matter [39–41].
+
+This study investigated the seroprevalence and circulation of these viruses within the vector population to improve the understanding of the source of infections. The results demonstrated the circulation of VNV within the vector population. The simultaneous detection of VNV in humans and in the vector population is evidence of active, likely endemic, viral circulation in Guinea that has gone undetected owing to a lack of surveillance. These results highlight significant gaps in surveillance, as WNV is rarely considered in routine diagnostic algorithms for acute febrile illnesses in many African settings [42, 43].
+
+The exclusive detection of WNV in Culex quinquefasciatus and Anopheles funestus further highlights the pivotal role of Culex species in WNV transmission. This phenomenon has been documented in certain African countries, including Senegal, Mauritania and South Africa [44, 45].
+
+The particularly high detection rate of WNV in N’Zérékoré is also ecologically plausible [46, 47].
+
+This forested region has environmental conditions conducive to the proliferation of vectors, including abundant rainfall, permanent wetlands, and dense bird populations. These characteristics are similar to those described in WNV circulation foci in Uganda, the Democratic Republic of the Congo, and southern Nigeria [48, 49].
+
+The presence of the WNO virus in Anopheles funestus vectors, even in small proportions, warrants particular attention. Studies on this finding have been reported [50–52], suggesting that transient infection results from a contaminated blood meal or a potential secondary vector role.
+
+This study suggests widespread exposure to dengue, yellow fever, and West Nile viruses across the different regions of Guinea. These findings represent a significant public health concern, particularly in a context characterized by rapid ecological transformation and accelerated urban development in several cities driven by the Simandou 2040 program. The present work aligns with the strategic priorities of the Simandou 2040 program, which emphasizes disease prevention and control, as well as the strengthening of early warning systems for epidemic detection. Within this framework, arboviral diseases and emerging zoonotic infections are recognized as critical areas requiring sustained attention. Furthermore, ongoing environmental changes associated with mining activities, urban expansion, and consequent ecosystem alterations underscore the urgent need to establish robust surveillance systems to mitigate the risk of outbreaks. In this regard, the current study supports the objectives of the Simandou 2040 program by contributing to arbovirus surveillance efforts, with the aim of informing public health authorities about potential health risks and guiding the implementation of region-specific prevention strategies across the country.
+
+The absence of DENV and YFV in mosquitoes, despite their presence in the human population, may reflect seasonal dynamics. Continuous longitudinal surveillance would be necessary to characterize viral seasonality better.
+
+Overall, our results highlight the need to establish an integrated surveillance system that combines human serological monitoring, entomological surveillance, and environmental risk assessment. This would enhance our ability to detect threats early, guide targeted vector control interventions, and improve our preparedness against emerging and reemerging arboviral threats in West Africa.
+
+This study has several limitations that should be acknowledged. First, serological confirmation of positive samples using the Plaque Reduction Neutralization Test (PRNT), which is considered the reference method for differentiating arboviral infections, could not be performed. The use of this assay would have reduced the risk of cross-reactivity inherent to serological methods. In addition, the relatively limited number of serological samples available in some prefectures reduced the statistical power of geographic comparisons and may have affected the representativeness of seroprevalence estimates. Furthermore, entomological surveillance was not conducted in all prefectures included in the serological survey and did not account for seasonal variations, particularly between the dry and rainy seasons. These limitations may have led to an underestimation of the diversity and spatiotemporal dynamics of vector populations. This study could have enabled the identification of the viral lineages of West Nile virus circulating within mosquito vector populations, provided insights into potential introduction events, and facilitated comparisons between the detected strains and those circulating in other regions of West Africa.
+
+Conclusion
+
+This study highlights the significant exposure of the population of the Republic of Guinea to dengue virus (DENV), yellow fever virus (YFV) and West Nile virus (WNV). The detection of WNV RNA in mosquito vectors, particularly Culex quinquefasciatus, confirmed active viral circulation. Adult farmers and livestock keepers appear to be at the greatest risk of contracting dengue and yellow fever. These findings highlight the need to strengthen integrated arbovirus surveillance in Guinea by linking human serological monitoring with entomological investigations in order to enhance the timeliness of detection and response, thereby effectively supporting the public health objectives of the Simandou 2040 program.
+
+Abbreviations
+
+DENV Dengue virus
+
+YFV Yellow fever virus
+
+WNV West Nile virus
+
+Acknowledgements
+
+We thank our colleagues and the authorities of IRBAG for facilitating the completion of this work.
+
+Author contributions
+
+Conceptualization: M.B.B. and S.B.; methodology: M.D., K.Z., I.B.D. and M.B.B.; data curation: M.B.B., M.M.B. and I.S.S.; formal analysis: A.K.K., S.T.B., M.M.B., M.B.B. and I.S.S.; visualization: S.B., E.N. and M.S.T.; writing original draft: M.D., T.A.L.B., A.B. and M.B.B.; writing reviewing and editing: A.K.K., M.M.B., T.A.L.B., A.B., G.O., M.B.B. and M.S.T. All authors reviewed the manuscript.
+
+Funding
+
+Not applicable.
+
+Data availability
+
+No datasets were generated or analyzed during the current study.
+
+Declarations
+
+Ethics approval and consent to participate
+
+The study was conducted in accordance with the Declaration of Helsinki. The protocol was reviewed and approved by the Institutional Ethics Committee of the Institute of Applied Biology Research of Guinea (authorization no. 002/IRBAG/ED/ED/DG/2024). It was also submitted to and approved by the National Ethics Committee for Health Research of the Republic of Guinea (authorization No. 129/CNERS/2024). All participants provided written informed consent prior to enrollment. For illiterate participants, the consent procedure followed national ethical guidelines. All the data were anonymized, and access was restricted to authorized study personnel.
+
+Consent for publication
+
+Not applicable.
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher's Note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+
+References
+
+1. Brown JJ Pascual M Wimberly MC Johnson LR Murdock CC Humidity—the overlooked variable in the thermal biology of mosquito-borne disease Ecol Lett 2023 26 1 1029 1049 10.1111/ele.14228 37349261 PMC10299817
+Brown JJ, Pascual M, Wimberly MC, Johnson LR, Murdock CC. Humidity—the overlooked variable in the thermal biology of mosquito-borne disease. Ecol Lett. 2023;26(1):1029–49. 10.1111/ele.14228.37349261 10.1111/ele.14228 PMC10299817
+2. WHO Report on the global arbovirus surveillance and response capacity survey 2021–2022 2025 Geneva World Health Organization
+WHO. Report on the global arbovirus surveillance and response capacity survey 2021–2022. Geneva: World Health Organization; 2025.
+3. Kraemer MUG Brady OJ Messina JP Gilbert M Pigott DM Past and future spread of the arbovirus vectors Aedes aegypti and Aedes albopictus Nat Microbiol 2019 4 5 854 863 10.1038/s41564-019-0376-y 30833735 PMC6522366
+Kraemer MUG, Brady OJ, Messina JP, Gilbert M, Pigott DM, et al. Past and future spread of the arbovirus vectors Aedes aegypti and Aedes albopictus. Nat Microbiol. 2019;4(5):854–63. 10.1038/s41564-019-0376-y.30833735 10.1038/s41564-019-0376-y PMC6522366
+4. Abbasi E Global epidemiology and evolutionary dynamics of arboviruses: a systematic review of surveillance, control strategies, and emerging threats Dialogues Health 2026 8 1 100280 10.1016/j.dialog.2026.100280 41648049 PMC12870790
+Abbasi E. Global epidemiology and evolutionary dynamics of arboviruses: a systematic review of surveillance, control strategies, and emerging threats. Dialogues Health. 2026;8(1):100280. 10.1016/j.dialog.2026.100280.41648049 10.1016/j.dialog.2026.100280 PMC12870790
+5. Logiudice J Alberti M Ciccarone A Rossi B Tiecco G De Francesco MA Introduction of vector-borne infections in Europe: emerging and re-emerging viral pathogens with potential impact on one health Pathogens 2025 14 1 63 10.3390/pathogens14010063 39861024 PMC11768692
+Logiudice J, Alberti M, Ciccarone A, Rossi B, Tiecco G, De Francesco MA, et al. Introduction of vector-borne infections in Europe: emerging and re-emerging viral pathogens with potential impact on one health. Pathogens. 2025;14(1):63. 10.3390/pathogens14010063.39861024 10.3390/pathogens14010063 PMC11768692
+6. Lim A Shearer FM Sewalk K Pigott DM Clarke J Ghouse A The overlapping global distribution of dengue, chikungunya, Zika and yellow fever Nat Commun 2025 16 1 3418 10.1038/s41467-025-58609-5 40210848 PMC11986131
+Lim A, Shearer FM, Sewalk K, Pigott DM, Clarke J, Ghouse A, et al. The overlapping global distribution of dengue, chikungunya, Zika and yellow fever. Nat Commun. 2025;16(1):3418. 10.1038/s41467-025-58609-5.40210848 10.1038/s41467-025-58609-5 PMC11986131
+7. Paixão ES Teixeira MG Rodrigues LC Zika, chikungunya and dengue: the causes and threats of new and re-emerging arboviral diseases BMJ Glob Health 2018 3 1 e000530 10.1136/bmjgh-2017-000530 29435366 PMC5759716
+Paixão ES, Teixeira MG, Rodrigues LC. Zika, chikungunya and dengue: the causes and threats of new and re-emerging arboviral diseases. BMJ Glob Health. 2018;3(1):e000530. 10.1136/bmjgh-2017-000530.29435366 10.1136/bmjgh-2017-000530 PMC5759716
+8. Tiozzo G, de Roo AM, Gurgel do Amaral GS, Hofstra H, Vondeling GT, Postma MJ. Assessing chikungunya’s economic burden and impact on health-related quality of life: Two systematic literature reviews. PLoS Negl Trop Dis. 2025; 19(5): e0012990. 10.1371/journal.pntd.0012990.10.1371/journal.pntd.0012990 PMC12074603 40323984
+9. Manigart O Ouedraogo I Ouedraogo HS Sow A Lokossoua VK Dengue epidemic in Burkina Faso: how can the response improve? Lancet 2024 403 10425 434 435 10.1016/S0140-6736(23)02803-9 38272051
+Manigart O, Ouedraogo I, Ouedraogo HS, Sow A, Lokossoua VK. Dengue epidemic in Burkina Faso: how can the response improve? Lancet. 2024;403(10425):434–5. 10.1016/S0140-6736(23)02803-9.38272051 10.1016/S0140-6736(23)02803-9
+10. Wang X Li B He B Yan X Huang L Li J The incidence and trends of yellow fever from 1990 to 2021 in major endemic regions: a systematic analysis based on the 2021 global burden of disease study Pathogens 2025 14 6 594 10.3390/pathogens14060594 40559602 PMC12195785
+Wang X, Li B, He B, Yan X, Huang L, Li J, et al. The incidence and trends of yellow fever from 1990 to 2021 in major endemic regions: a systematic analysis based on the 2021 global burden of disease study. Pathogens. 2025;14(6):594. 10.3390/pathogens14060594.40559602 10.3390/pathogens14060594 PMC12195785
+11. Bangoura ST Keita AK Diaby M Sidibé S Le-Marcis F Camara SC Arbovirus Epidemics as Global Health Imperative, Africa, 2023 Emerg Infect Dis 2025 31 2 1 8 10.3201/eid3102.240754 39983695 PMC11845133
+Bangoura ST, Keita AK, Diaby M, Sidibé S, Le-Marcis F, Camara SC, et al. Arbovirus Epidemics as Global Health Imperative, Africa, 2023. Emerg Infect Dis. 2025;31(2):1–8. 10.3201/eid3102.240754.39983695 10.3201/eid3102.240754 PMC11845133
+12. Tinto B Kania D Kagone TS Dicko A Traore I de Rekeneire N Circulation du virus de la dengue en Afrique de l’Ouest: Une problématique émergente de santé publique Med Sci 2022 38 2 152 158 10.1051/medsci/2022007 35179469
+Tinto B, Kania D, Kagone TS, Dicko A, Traore I, de Rekeneire N, et al. Circulation du virus de la dengue en Afrique de l’Ouest: Une problématique émergente de santé publique. Med Sci. 2022;38(2):152–8. 10.1051/medsci/2022007.10.1051/medsci/2022007 35179469
+13. Ano AKMN Coulibaly D Bénie VJ Akani BC Douba A Ahoussou EM Situation épidémiologique de la dengue en Côte d‘Ivoire de 2017 à 2020 Rev Epidemiol Sante Publique 2022 70 1 S146 10.1016/j.respe.2022.06.048
+Ano AKMN, Coulibaly D, Bénie VJ, Akani BC, Douba A, Ahoussou EM, et al. Situation épidémiologique de la dengue en Côte d‘Ivoire de 2017 à 2020. Rev Epidemiol Sante Publique. 2022;70(1):S146. 10.1016/j.respe.2022.06.048.
+14. Gadiaga T Bassoum O Ba MF Ba MS Ndiaye M Diao PM Investigation et riposte face à un cas de fièvre hémorragique virale positif aux immunoglobulines des virus Zika, West Nile, fièvre jaune et dengue dans le District Sanitaire de Tambacounda (Sénégal) PAMJ-OH 2023 12 1 9 10.11604/pamj-oh.2023.12.9.41632
+Gadiaga T, Bassoum O, Ba MF, Ba MS, Ndiaye M, Diao PM, et al. Investigation et riposte face à un cas de fièvre hémorragique virale positif aux immunoglobulines des virus Zika, West Nile, fièvre jaune et dengue dans le District Sanitaire de Tambacounda (Sénégal). PAMJ-OH. 2023;12(1):9. 10.11604/pamj-oh.2023.12.9.41632.
+15. Ngouanet SA Wanji S Yadouleton A Demanou M Djouaka R Nanfack-Minkeu F Factors enhancing the transmission of mosquito-borne arboviruses in Africa Virusdisease 2022 33 4 477 488 10.1007/s13337-022-00795-7 36278029 PMC9579656
+Ngouanet SA, Wanji S, Yadouleton A, Demanou M, Djouaka R, Nanfack-Minkeu F. Factors enhancing the transmission of mosquito-borne arboviruses in Africa. Virusdisease. 2022;33(4):477–88. 10.1007/s13337-022-00795-7.36278029 10.1007/s13337-022-00795-7 PMC9579656
+16. Makeda D Joshua E Tague C Yokolo H Akilimali A Emerging arboviruses in DRC: climate and mobility impacts on dengue, chikungunya, and Zika Ann Med Surg (Lond) 2025 87 10 6259 6260 10.1097/MS9.0000000000003812 41181512 PMC12577890
+Makeda D, Joshua E, Tague C, Yokolo H, Akilimali A. Emerging arboviruses in DRC: climate and mobility impacts on dengue, chikungunya, and Zika. Ann Med Surg (Lond). 2025;87(10):6259–60. 10.1097/MS9.0000000000003812.41181512 10.1097/MS9.0000000000003812 PMC12577890
+17. Garrido M, Parra P, Veiga J, Garrigós M, Panisse G, Martínez-de la Puente J. Mosquitoes and the city: effects of urbanization on Aedes albopictus and Culex pipiens captures in southern Spain. Parasit Vectors. 2025; 18(1): 456. 10.1186/s13071-025-07094-2.10.1186/s13071-025-07094-2 PMC12606909 41220021
+18. Abbasi E Global expansion of Aedes mosquitoes and their role in the transboundary spread of emerging arboviral diseases: a comprehensive review IJID One Health 2025 6 1 100058 10.1016/j.ijidoh.2025.100058
+Abbasi E. Global expansion of Aedes mosquitoes and their role in the transboundary spread of emerging arboviral diseases: a comprehensive review. IJID One Health. 2025;6(1):100058. 10.1016/j.ijidoh.2025.100058.
+19. Konkon AK Zoungbédji DM Aïkpon R Hoyochi I Salako AS Konkon C Bionomics of the primary arbovirus vectors Aedes aegypti and Aedes albopictus in southeastern Benin Trop Med Health 2025 53 1 113 10.1186/s41182-025-00794-6 40847427 PMC12372330
+Konkon AK, Zoungbédji DM, Aïkpon R, Hoyochi I, Salako AS, Konkon C, et al. Bionomics of the primary arbovirus vectors Aedes aegypti and Aedes albopictus in southeastern Benin. Trop Med Health. 2025;53(1):113. 10.1186/s41182-025-00794-6.40847427 10.1186/s41182-025-00794-6 PMC12372330
+20. Butenko AM Arbovirus circulation in the Republic of Guinea Med Parazitol (Mosk). 1996 2 1 40 45 8926934
+Butenko AM. Arbovirus circulation in the Republic of Guinea. Med Parazitol (Mosk). 1996;2(1):40–5.8926934
+21. Bangoura ST Keita AK Sidibé S Camara SC Diaby M Kadio KJO Arboviruses circulation in Guinea: Overview and perspectives for public health PLoS Negl Trop Dis 2026 20 1 e0013904 10.1371/journal.pntd.0013904 41511969 PMC12788658
+Bangoura ST, Keita AK, Sidibé S, Camara SC, Diaby M, Kadio KJO, et al. Arboviruses circulation in Guinea: Overview and perspectives for public health. PLoS Negl Trop Dis. 2026;20(1):e0013904. 10.1371/journal.pntd.0013904.41511969 10.1371/journal.pntd.0013904 PMC12788658
+22. Kolie D Van De Pas R Fofana TO Delamou A Put WVD Van Damme W Guinea’s response to syndemic hotspots BMJ Glob Health 2021 6 1 e006550 10.1136/bmjgh-2021-006550.A 34607893 PMC8491297
+Kolie D, Van De Pas R, Fofana TO, Delamou A, Put WVD, Van Damme W. Guinea’s response to syndemic hotspots. BMJ Glob Health. 2021;6(1):e006550. 10.1136/bmjgh-2021-006550.A.34607893 10.1136/bmjgh-2021-006550 PMC8491297
+23. Huang YM Rueda LM pictorial key to the species of Aedes (Mucidus) (Diptera: Culicidae) in the Afrotropical Region Proc Entomol Soc Wash 2018 120 4 798 806 10.4289/0013-8797.120.4.798
+Huang YM, Rueda LM. pictorial key to the species of Aedes (Mucidus) (Diptera: Culicidae) in the Afrotropical Region. Proc Entomol Soc Wash. 2018;120(4):798–806. 10.4289/0013-8797.120.4.798.
+24. Coetzee M Key to the females of Afrotropical Anopheles mosquitoes (Diptera: Culicidae) Malar J 2020 19 1 70 10.1186/s12936-020-3144-9 32054502 PMC7020601
+Coetzee M. Key to the females of Afrotropical Anopheles mosquitoes (Diptera: Culicidae). Malar J. 2020;19(1):70. 10.1186/s12936-020-3144-9.32054502 10.1186/s12936-020-3144-9 PMC7020601
+25. Naidenova EV Kartashov MY Zakharov KS Shevtsova AP Diallo MG Bah MB Study of the prevalence of antibodies to some arboviruses in the population of the Republic of Guinea Probl Virol 2021 66 5 346 353 10.36233/0507-4088-74 34738450
+Naidenova EV, Kartashov MY, Zakharov KS, Shevtsova AP, Diallo MG, Bah MB, et al. Study of the prevalence of antibodies to some arboviruses in the population of the Republic of Guinea. Probl Virol. 2021;66(5):346–53. 10.36233/0507-4088-74.10.36233/0507-4088-74 34738450
+26. Krivosheina EI, Kartashov MYu, Naydenova EV, Ushkalenko ND, Svirin KA, Bah MB, et al. Identification of specific IgG antibodies directed against certain flaviviruses in the population of the Republic of Guinea. Infektsiya i immunitet. 2024; 14(2): 381–386. 10.15789/2220-7619-IOS-15081.
+27. Bawe LD, Kotosso A, Kpegba KA, Hilim M, Kozon D, Abaltou B, et al. Aspects cliniques de la dengue dans la région des Savanes au Togo en 2023. Med Trop Sante Int. 2025; 5(4): mtsi.v5i4.2025.788. 10.48327/mtsi.v5i4.2025.788.10.48327/mtsi.v5i4.2025.788 PMC12957991 41788872
+28. García-Carrasco J Muñoz AR Olivero J Segura M Real R Mapping the Risk for West Nile Virus Transmission Africa Emerg Infect Dis 2022 28 4 777 785 10.3201/eid2804.211103 35318911 PMC8962882
+García-Carrasco J, Muñoz AR, Olivero J, Segura M, Real R. Mapping the Risk for West Nile Virus Transmission. Africa Emerg Infect Dis. 2022;28(4):777–85. 10.3201/eid2804.211103.35318911 10.3201/eid2804.211103 PMC8962882
+29. Mencattelli G Ndione MHD Silverj A Diagne MM Curini V Teodori L Spatial and temporal dynamics of West Nile virus between Africa and Europe Nat Commun 2023 14 1 6440 10.1038/s41467-023-42185-7 37833275 PMC10575862
+Mencattelli G, Ndione MHD, Silverj A, Diagne MM, Curini V, Teodori L, et al. Spatial and temporal dynamics of West Nile virus between Africa and Europe. Nat Commun. 2023;14(1):6440. 10.1038/s41467-023-42185-7.37833275 10.1038/s41467-023-42185-7 PMC10575862
+30. Egid BR Coulibaly M Dadzie SK Kamgang B McCall PJ Sedda L Review of the ecology and behaviour of Aedes aegypti and Aedes albopictus in Western Africa and implications for vector control CRPVBD 2022 2 1 100074 10.1016/j.crpvbd.2021.100074 35726222 PMC7612875
+Egid BR, Coulibaly M, Dadzie SK, Kamgang B, McCall PJ, Sedda L, et al. Review of the ecology and behaviour of Aedes aegypti and Aedes albopictus in Western Africa and implications for vector control. CRPVBD. 2022;2(1):100074. 10.1016/j.crpvbd.2021.100074.35726222 10.1016/j.crpvbd.2021.100074 PMC7612875
+31. Montgomery MJ Harwood JF Yougang AP Wilson-Bahun TA Tedjou AN Keumeni CR The effects of urbanization, temperature, and rainfall on Aedes aegypti and Aedes albopictus mosquito abundance across a broad latitudinal gradient in Central Africa Parasit Vectors 2025 18 1 135 10.1186/s13071-025-06764-5 40189559 PMC11972486
+Montgomery MJ, Harwood JF, Yougang AP, Wilson-Bahun TA, Tedjou AN, Keumeni CR, et al. The effects of urbanization, temperature, and rainfall on Aedes aegypti and Aedes albopictus mosquito abundance across a broad latitudinal gradient in Central Africa. Parasit Vectors. 2025;18(1):135. 10.1186/s13071-025-06764-5.40189559 10.1186/s13071-025-06764-5 PMC11972486
+32. Babalola AS Adeogun AO Thabet HS TagEldin RA Oyeniyi T Adekunle O Geospatial modeling of geographical spread of Aedes species, in relation to climatic and topographical factors in Lagos State, Nigeria PLoS Negl Trop Dis 2025 19 2 e0012860 10.1371/journal.pntd.0012860 39913605 PMC11825102
+Babalola AS, Adeogun AO, Thabet HS, TagEldin RA, Oyeniyi T, Adekunle O, et al. Geospatial modeling of geographical spread of Aedes species, in relation to climatic and topographical factors in Lagos State, Nigeria. PLoS Negl Trop Dis. 2025;19(2):e0012860. 10.1371/journal.pntd.0012860.39913605 10.1371/journal.pntd.0012860 PMC11825102
+33. Bonnet C Niaré D Debin M Blanchon T Aedes albopictus (moustique tigre) et arboviroses: à quoi s’attendre dans les années à venir? Rev Med Interne 2025 46 4 229 235 10.1016/j.revmed.2025.02.005 40021407
+Bonnet C, Niaré D, Debin M, Blanchon T. Aedes albopictus (moustique tigre) et arboviroses: à quoi s’attendre dans les années à venir? Rev Med Interne. 2025;46(4):229–35. 10.1016/j.revmed.2025.02.005.40021407 10.1016/j.revmed.2025.02.005
+34. Sautereau N Randriamalala F Eychène J Maillard O Bertolotti A Particularités de la dengue chez le sujet âgé Méd Mal Infect Form 2022 1 2 S116 S117 10.1016/j.mmifmc.2022.03.253
+Sautereau N, Randriamalala F, Eychène J, Maillard O, Bertolotti A. Particularités de la dengue chez le sujet âgé. Méd Mal Infect Form. 2022;1(2):S116–7. 10.1016/j.mmifmc.2022.03.253.
+35. Brown JE Evans BR Zheng WOV Barrera-Martinez L Egizi A Powell JR Human impacts have shaped historical and recent evolution in Aedes aegypti, the dengue and yellow fever mosquito Evolution 2014 68 2 514 525 10.1111/evo.12281 24111703 PMC3946797
+Brown JE, Evans BR, Zheng WOV, Barrera-Martinez L, Egizi A, Powell JR, et al. Human impacts have shaped historical and recent evolution in Aedes aegypti, the dengue and yellow fever mosquito. Evolution. 2014;68(2):514–25. 10.1111/evo.12281.24111703 10.1111/evo.12281 PMC3946797
+36. Ahebwa A Hii J Neoh KB Chareonviriyaphap T Aedes aegypti and Aedes albopictus (Diptera: Culicidae) ecology, biology, behaviour, and implications on arbovirus transmission in Thailand One Health 2023 16 1 100555 10.1016/j.onehlt.2023.100555 37363263 PMC10288100
+Ahebwa A, Hii J, Neoh KB, Chareonviriyaphap T. Aedes aegypti and Aedes albopictus (Diptera: Culicidae) ecology, biology, behaviour, and implications on arbovirus transmission in Thailand. One Health. 2023;16(1):100555. 10.1016/j.onehlt.2023.100555.37363263 10.1016/j.onehlt.2023.100555 PMC10288100
+37. Rahman MS Mehejabin F Rahman MA Rashid R A case-control study to determine the risk factors of dengue fever in Chattogram, Bangladesh Public Health Pract (Oxf) 2022 4 1 100288 10.1016/j.puhip.2022.100288 36570397 PMC9773045
+Rahman MS, Mehejabin F, Rahman MA, Rashid R. A case-control study to determine the risk factors of dengue fever in Chattogram, Bangladesh. Public Health Pract (Oxf). 2022;4(1):100288. 10.1016/j.puhip.2022.100288.36570397 10.1016/j.puhip.2022.100288 PMC9773045
+38. Ottay RI Sapulete IM Sapulete MR Sumampouw OJ Nelwan JE The demographic and socioeconomic factors in dengue hemorrhagic fever incidence: a cross-sectional analysis in Manado Indonesia IJASR 2025 3 8 755 764 10.59890/ijasr.v3i8.94
+Ottay RI, Sapulete IM, Sapulete MR, Sumampouw OJ, Nelwan JE. The demographic and socioeconomic factors in dengue hemorrhagic fever incidence: a cross-sectional analysis in Manado. Indonesia IJASR. 2025;3(8):755–64. 10.59890/ijasr.v3i8.94.
+39. Aliaga-Samanez A Romero D Murray K Segura M Real R Olivero J Potential climate change effects on the distribution of urban and sylvatic dengue and yellow fever vectors Pathog Glob Health 2024 118 5 397 407 10.1080/20477724.2024.2369377 38972071 PMC11338215
+Aliaga-Samanez A, Romero D, Murray K, Segura M, Real R, Olivero J. Potential climate change effects on the distribution of urban and sylvatic dengue and yellow fever vectors. Pathog Glob Health. 2024;118(5):397–407. 10.1080/20477724.2024.2369377.38972071 10.1080/20477724.2024.2369377 PMC11338215
+40. Lepore L Vanlerberghe V Verdonck K Metelo E Diallo M Bortel WV Vector control for Aedes aegypti and Aedes albopictus mosquitoes implemented in the field in sub-Saharan Africa: a scoping review PLoS Negl Trop Dis 2025 19 7 e0013203 10.1371/journal.pntd.0013203 40632827 PMC12240363
+Lepore L, Vanlerberghe V, Verdonck K, Metelo E, Diallo M, Bortel WV. Vector control for Aedes aegypti and Aedes albopictus mosquitoes implemented in the field in sub-Saharan Africa: a scoping review. PLoS Negl Trop Dis. 2025;19(7):e0013203. 10.1371/journal.pntd.0013203.40632827 10.1371/journal.pntd.0013203 PMC12240363
+41. Hoyochi I Padonou GG Tokponnon TF Konkon AK Zoungbédji DM Salako AS Influence of the physicochemical characteristics of mosquito breeding sites in domestic environments on the distributions of Anopheles, Aedes and Culex mosquitoes in Benin Trop Med Health 2025 53 1 100 10.1186/s41182-025-00786-6 40739592 PMC12308970
+Hoyochi I, Padonou GG, Tokponnon TF, Konkon AK, Zoungbédji DM, Salako AS, et al. Influence of the physicochemical characteristics of mosquito breeding sites in domestic environments on the distributions of Anopheles, Aedes and Culex mosquitoes in Benin. Trop Med Health. 2025;53(1):100. 10.1186/s41182-025-00786-6.40739592 10.1186/s41182-025-00786-6 PMC12308970
+42. Habarugira G Yuen NKY Suen WW Moran J Hobson-Peters J Hall RA Tissue tropism, pathology, and pathogenesis of West Nile virus infection in saltwater crocodile (Crocodylus porosus) PLoS Negl Trop Dis 2025 19 8 e0013385 10.1371/journal.pntd.0013385 40758745 PMC12331170
+Habarugira G, Yuen NKY, Suen WW, Moran J, Hobson-Peters J, Hall RA, et al. Tissue tropism, pathology, and pathogenesis of West Nile virus infection in saltwater crocodile (Crocodylus porosus). PLoS Negl Trop Dis. 2025;19(8):e0013385. 10.1371/journal.pntd.0013385.40758745 10.1371/journal.pntd.0013385 PMC12331170
+43. Ndione MHD Ndiaye EH Dieng M Diouf B Sankhé S Diallo D Mosquito-based detection of retroviruses and arboviruses in Senegal: expanding the scope of xenosurveillance One Health Outlook 2025 7 1 32 10.1186/s42522-025-00155-7 40495233 PMC12153165
+Ndione MHD, Ndiaye EH, Dieng M, Diouf B, Sankhé S, Diallo D, et al. Mosquito-based detection of retroviruses and arboviruses in Senegal: expanding the scope of xenosurveillance. One Health Outlook. 2025;7(1):32. 10.1186/s42522-025-00155-7.40495233 10.1186/s42522-025-00155-7 PMC12153165
+44. Mencattelli G Ndione MHD Rosà R Marini G Diagne CT Diagne MM Epidemiology of West Nile virus in Africa: An underestimated threat PLoS Negl Trop Dis 2022 16 1 e0010075 10.1371/journal.pntd.0010075 35007285 PMC8789169
+Mencattelli G, Ndione MHD, Rosà R, Marini G, Diagne CT, Diagne MM. Epidemiology of West Nile virus in Africa: An underestimated threat. PLoS Negl Trop Dis. 2022;16(1):e0010075. 10.1371/journal.pntd.0010075.35007285 10.1371/journal.pntd.0010075 PMC8789169
+45. McCann RS Ochomo E Bayoh MN Vulule JM Hamel MJ Gimnig JE Reemergence of Anopheles funestus as a vector of Plasmodium falciparum in western Kenya after long-term implementation of insecticide-treated bed nets Am J Trop Med Hyg 2014 90 4 597 604 10.4269/ajtmh.13-0614 24470562 PMC3973499
+McCann RS, Ochomo E, Bayoh MN, Vulule JM, Hamel MJ, Gimnig JE, et al. Reemergence of Anopheles funestus as a vector of Plasmodium falciparum in western Kenya after long-term implementation of insecticide-treated bed nets. Am J Trop Med Hyg. 2014;90(4):597–604. 10.4269/ajtmh.13-0614.24470562 10.4269/ajtmh.13-0614 PMC3973499
+46. Santos DTP Invasion d’Aedes albopictus dans les milieux forestiers tropicaux et potential pour l’émergence de virus zoonotiques au Brésil [PhD dissertation] 2019 Montpellier Université de Montpellier 199
+Santos DTP. Invasion d’Aedes albopictus dans les milieux forestiers tropicaux et potential pour l’émergence de virus zoonotiques au Brésil [PhD dissertation]. Montpellier: Université de Montpellier; 2019. p. 199.
+47. Fournet F Les maladies vectorielles, facteurs de structuration socio-spatiale des paysages ruraux et urbains [PhD dissertation] 2025 Paris Université de Versailles Saint-Quentin en Yvelines 101
+Fournet F. Les maladies vectorielles, facteurs de structuration socio-spatiale des paysages ruraux et urbains [PhD dissertation]. Paris: Université de Versailles Saint-Quentin en Yvelines; 2025. p. 101.
+48. Hamel R Sofonea MT Pompon J Un nouveau mode de transmission du virus du Nil occidental dans les populations de moustiques mis à jour Virologie 2025 29 3 219 223 10.1684/vir.2025.1093 40621852
+Hamel R, Sofonea MT, Pompon J. Un nouveau mode de transmission du virus du Nil occidental dans les populations de moustiques mis à jour. Virologie. 2025;29(3):219–23. 10.1684/vir.2025.1093.40621852 10.1684/vir.2025.1093
+49. Donnang S Yokolo H Makeda D Ekouo J Shams Z Kaptso JAD Triple Burden in the Democratic Republic of Congo: climate change, armed conflict, and the silent spread of arboviruses. A narrative review Health Sci Rep 2026 9 4 e72188 10.1002/hsr2.72188 42005632 PMC13087625
+Donnang S, Yokolo H, Makeda D, Ekouo J, Shams Z, Kaptso JAD, et al. Triple Burden in the Democratic Republic of Congo: climate change, armed conflict, and the silent spread of arboviruses. A narrative review. Health Sci Rep. 2026;9(4):e72188. 10.1002/hsr2.72188.42005632 10.1002/hsr2.72188 PMC13087625
+50. Nanfack Minkeu F Vernick KD A systematic review of the natural virome of anopheles mosquitoes Viruses 2018 10 5 222 10.3390/v10050222 29695682 PMC5977215
+Nanfack Minkeu F, Vernick KD. A systematic review of the natural virome of anopheles mosquitoes. Viruses. 2018;10(5):222. 10.3390/v10050222.29695682 10.3390/v10050222 PMC5977215
+51. Hernandez-Valencia JC Muñoz-Laiton P Gómez GF Correa MM A systematic review on the viruses of Anopheles mosquitoes: the potential importance for public health Trop Med Infect Dis 2023 8 10 459 10.3390/tropicalmed8100459 37888587 PMC10610971
+Hernandez-Valencia JC, Muñoz-Laiton P, Gómez GF, Correa MM. A systematic review on the viruses of Anopheles mosquitoes: the potential importance for public health. Trop Med Infect Dis. 2023;8(10):459. 10.3390/tropicalmed8100459.37888587 10.3390/tropicalmed8100459 PMC10610971
+52. Wanjiru T, Langat S, Koka H, Yalwala S, Kerich G, Ambale J, et al. Detection and Characterization of West Nile Virus with evidence of Transovarial Transmission in the Coastal region, Kenya [Preprint]. bioRxiv. 2025. 10.64898/2025.12.01.691525.

@@ -1,0 +1,54 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: PLoS Negl Trop Dis
+Journal ID: PLoS Negl Trop Dis
+NLM Journal ID: 101291488
+Journal ID: plos
+
+PLOS Neglected Tropical Diseases
+
+ISSN: 1935-2727
+EISSN: 1935-2735
+Publisher: PLOS
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13229324
+PMID: 42228640
+DOI: 10.1371/journal.pntd.0014400
+Article ID: PNTD-D-26-01002
+Article version: 1
+Subjects: Correction
+
+Correction: Association of avian biodiversity and West Nile Virus circulation in Culex mosquitoes in Emilia-Romagna, Italy
+
+The PLOS Neglected Tropical Diseases Staff
+Electronic publication date: 2026 Jun 2
+Publication date: 2026 Jun
+Volume: 20
+Issue: 6
+Electronic Location ID: e0014400
+Copyright: © 2026 The PLOS Neglected Tropical Diseases Staff
+Copyright year: 2026
+Copyright holder: The PLOS Neglected Tropical Diseases Staff
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Erratum for: Association of avian biodiversity and West Nile Virus circulation in Culex mosquitoes in Emilia-Romagna, Italy 20 3 6 3 2026 e0014076 PLOS Neglected Tropical Diseases 10.1371/journal.pntd.0014076 PMC12978567 41790846
+Figure count: 0
+Table count: 0
+Page count: 1
+
+==============================
+There are errors in the author affiliations. The correct affiliations are as follows:
+
+Yiran Wang 1,2, Mattia Calzolari3, Gianpiero Calvi4, Victoria M. Cox1, Paola Angelini5, Michele Dottori3, William Wint6, Sally Jahn1, Giovanni Marini7, Ilaria Dorigatti1
+
+1 MRC Centre for Global Infectious Disease Analysis, School of Public Health, Imperial College London, London, United Kingdom, 2 Grantham Research Institute on Climate Change and the Environment, Imperial College London, London, United Kingdom, 3 Istituto Zooprofilattico Sperimentale della Lombardia e dell’Emilia Romagna “Bruno Ubertini”, Brescia, Italy, 4 Studio Pteryx, Basiano, Italy, 5 Settore Prevenzione collettiva e Sanità pubblica, Regione Emilia-Romagna, Bologna, Italy, 6 Environmental Research Group Oxford, Oxford, United Kingdom, 7 Research and Innovation Centre, Fondazione Edmund Mach, San Michele all’Adige Trento, Italy.
+
+The publisher apologizes for the error.
+
+
+Reference
+
+1 Wang Y , Calzolari M , Calvi G , Cox VM , Angelini P , Dottori M , et al. Association of avian biodiversity and West Nile Virus circulation in Culex mosquitoes in Emilia-Romagna, Italy. PLoS Negl Trop Dis. 2026;20(3):e0014076. doi: 10.1371/journal.pntd.0014076 41790846 PMC12978567

@@ -1,0 +1,525 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Sci Rep
+Journal ID: Sci Rep
+NLM Journal ID: 101563288
+
+Scientific Reports
+
+EISSN: 2045-2322
+Publisher: Nature Publishing Group
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13315263
+PMID: 42049893
+DOI: 10.1038/s41598-026-46448-3
+Article ID: 46448
+Article version: 1
+Subjects: Article
+
+Determining factors of the blood feeding behaviour of mosquito vectors of West Nile and Rift Valley fever viruses in Madagascar
+
+Tantely Luciano Michaël lucinambi@pasteur.mg
+1
+Guis Hélène 2 3 4
+Raharinirina Manou Rominah 1
+Ambinintsoa Fidelis Maminirina 1
+Miharisoa Sylviane 1
+Andriamiarimanana Mandaniaina Radotiana 1
+Rakotoarivony Ignace 4 5
+Andrianandrasana Miora Felaniaina 1
+Nepomichene Thiery Nirina 1
+Razafiarimanga Zara Nomentsoa 6
+Ayala Diego 1 7
+Garros Claire 5 8
+Cêtre-Sossah Catherine 5 8
+Héraud Jean-Michel 9
+Tran Annelise 10 11
+Walker Thomas 12
+Girod Romain 1
+1 https://ror.org/03fkjvy27 grid.418511.8 0000 0004 0552 7303 Medical Entomology Unit, Institut Pasteur de Madagascar, Antananarivo, Madagascar
+2 CIRAD, UMR ASTRE, Antananarivo, Madagascar
+3 https://ror.org/03fkjvy27 grid.418511.8 0000 0004 0552 7303 Epidemiology and Clinical Research Unit, Institut Pasteur de Madagascar, Antananarivo, Madagascar
+4 https://ror.org/05kpkpg04 grid.8183.2 0000 0001 2153 9871 CIRAD, UMR ASTRE, Montpellier, France
+5 https://ror.org/051escj72 grid.121334.6 0000 0001 2097 0141 CIRAD, INRAE, ASTRE, Université de Montpellier, Montpellier, France
+6 https://ror.org/02w4gwv87 grid.440419.c 0000 0001 2165 5629 Department of Biochemistry, University of Antananarivo, Antananarivo, Madagascar
+7 https://ror.org/05q3vnk25 grid.4399.7 0000000122879528 UMR 224, MIVEGEC/BEES, IRD, Montpellier, France
+8 CIRAD, UMR ASTRE, Sainte-Clotilde, La Réunion, France
+9 https://ror.org/03fkjvy27 grid.418511.8 0000 0004 0552 7303 Virology Unit, Institut Pasteur de Madagascar, Antananarivo, Madagascar
+10 https://ror.org/05kpkpg04 grid.8183.2 0000 0001 2153 9871 CIRAD, UMR TETIS, Montpellier, F-34398 France
+11 https://ror.org/051escj72 grid.121334.6 0000 0001 2097 0141 TETIS, Université de Montpellier, CIRAD, INRAE, AgroParisTech, Montpellier, France
+12 https://ror.org/01a77tt86 grid.7372.1 0000 0000 8809 1613 School of Life Sciences, University of Warwick, Coventry, UK
+Electronic publication date: 2026 Apr 28
+Publication date: 2026
+Volume: 16
+Electronic Location ID: 19685
+Received 2025 Oct 20; Accepted 2026 Mar 25
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: Mosquito vectors, Arboviruses, Blood feeding patterns, Climatic and environmental drivers, Multiple-site model, Madagascar
+Keywords: Ecology, Ecology, Zoology
+
+Funding: https://doi.org/10.13039/100010269 Wellcome Trust 209344/Z/17/Z 101285 Tantely Luciano Michaël Walker Thomas
+
+Funding: https://doi.org/10.13039/100013276 Interreg
+issue-copyright-statement: © Springer Nature Limited 2026
+
+==============================
+In Madagascar, the health burdens caused by West Nile virus (WNV) and Rift Valley Fever virus (RVFV) vary across regions, likely resulting from the variations of their vector capacity. This study aimed to assess the degree of vector-hots contact and to develop statistical models to identify factors influencing host preferences. Bimonthly mosquito collections were performed in 25 sites of Madagascar from February to October 2019. Engorged mosquitoes were collected from indoors and outdoors resting locations within each site. Blood meal identification was performed using host-specific PCRs. Generalised linear models were developed to explain host preferences of the two most abundant species. The origin of the blood meal of 1,177 engorged females belonging to ten species was analysed. Human and cattle were the dominant vertebrate hosts identified (respectively 44.86% and 44.52%), and pigs were rarely detected (< 1%). Models were developed for Culex antennatus and Culex quinquefasciatus. For these two species, host preference was driven by climatic and environmental factors, type of habitat, indoor/outdoor location, and number of available vertebrate hosts. This study provides an essential step towards an evidence-based determination of arbovirus transmission risk and suggests to explore the use of other tools to supplement indoor vector control in Madagascar.
+
+Supplementary Information
+
+The online version contains supplementary material available at 10.1038/s41598-026-46448-3.
+
+Introduction
+
+The dissemination of mosquito-borne viruses relies on the bite of mosquito on a vertebrate host to obtain a blood meal1. The presence, abundance and diversity of vertebrate hosts have an impact on mosquito feeding behaviour2,3. This is the case for generalist feeders, but also for specialist feeders (anthropophilic, ornithophilic or zoophilic). Mosquito feeding behaviour is influenced by intrinsic determinants of mosquito host preferences, and by numerous external factors linked to the host, climatic and environmental factors4,5.
+
+Host-related factors impacting mosquito feeding behaviour include abundance, host species, host relative body heat, body mass, color and gender6. Amount of carbon dioxide and (S)-lactic released, specific skin microbial profile, blood quality, defensive behaviour against insect bites, infection by pathogens are also reported to impact mosquito feeding behaviour4. Climatic factors such as relative humidity and precipitation are important factors3,4. Specifically, in Madagascar, the effects of both intrinsic and extrinsic factors on mosquito feeding behaviour have only been mentioned in descriptive studies7,8 so further studies are warranted to quantify these associations.
+
+Currently, only 55 out of the 237 mosquito species recorded in Madagascar are known to be specialist feeders or generalist feeders7,9. Among these 55 species, some are considered as potential, candidates or major vectors of human pathogens such as malaria parasites or arboviruses7.
+
+Twelve arboviruses have been confirmed to occur in Madagascar10–12. Among them, RVFV and WNV are the most abundant, most widespread and best studied10,13,14. They are both zoonotic12,15, with the former displaying an epizootic and epidemic circulations and the latter an enzootic silent but widespread circulation10,11,14,16. Cattle, sheep and goats are the primary vertebrate hosts for RVFV while wild and domestic birds are the primary vertebrate hosts for WNV17. The burden of WNV and RVFV vary across different regions within Madagascar13,14,18–20. This is likely due to the difference in mosquito species composition and difference in mosquito abundance between regions10, host abundance13, trade routes19 and the level of vector-host (humans and/or other animals) contacts.
+
+However, In Madagascar, numerous data on the feeding preferences of mosquito vectors of WNV and RVFV are limited in time and space and does not allow to evaluate feeding variations among populations and species10,21–23.
+
+This large-scale study aimed at: (i) assessing the degree of contact between RVFV and WNV mosquito vector species and their host in Madagascar, (ii) providing the first insights on the influence of climatic and environmental factors on the variability in mosquito feeding behaviours, and (iii) developing statistical models to identify factors influencing the presence/absence of blood in human, cattle, bird, and small ruminant (sheep and goat combined) (SRu) in blood-fed mosquitoes, serving as a proxy for human and household exposure to mosquito bites. A better understanding of mosquito feeding behaviour could contribute to better target vector control strategies (by guiding the choice between sprays, mosquito nets or larval control) to specific species that are most likely to be responsible for the widespread transmission of arboviruses.
+
+Methods
+
+Mosquito collection locations and periods
+
+This study was conducted as part of a larger entomological monitoring survey undertaken at a national scale and over two years24. This larger entomological monitoring survey included four types of mosquito collection methods: the use of light traps, human-baited double net traps, and mosquito collection from indoor pyrethrum spray catches (PSCs) and Muirhead-Thomson pit traps (MTPTs). In this present study, we present only results from engorged females obtained from PSCs and MTPTs. Collected mosquitoes were obtained from 25 villages, located in 24 districts distributed across the entire country and covering the six climatic zones of Madagascar defined by Brunhes et al9. (Fig. 1, Supplementary Table S1). They were collected in February, April, June, August and October 2019.
+
+Fig. 1 Map showing the five climatic zones and the locations of the 25 study sites (grey circle, numbered S01 to S25) investigated from February to December 2019. This map was created using QGIS Version 3.38.1 and using Microsoft Powerpoint (2019).
+
+Mosquito collection methods
+
+Endophilic engorged mosquitoes were collected indoor, using commercial insecticide aerosol sprays applied to the inner walls and roofs (indoor pyrethrum spray catches, PSC) (Fig. 2A) and exophilic engorged mosquitoes using improved Muirhead-Thomson pit traps (MTPT) (Fig. 2B and C).
+
+Fig. 2 Mosquito collection settings and methods. A Michaël Luciano Tantely performing indoor mosquito collection, B Muirhead Thomson pit trap before mosquito collection; C Michaël Luciano Tantely performing mosquito collection in the improved Muirhead Thomson pit trap (the net was used to cover the MTPT to prevent mosquitoes from escaping during collection); D–F: Typical housing in Madagascar (C = Ravinala made wall and roofs; D = mud walls and roofs made of palms leaves sometimes combined with corrugated metal sheets; E = brick walls with thatched, metal or tiled roofs).
+
+The PSC consists of indoor spraying of a commercial insecticide aerosol spray (Ramp Aik Extra®) to collect mosquitoes resting inside houses. It was performed in three houses per site and located: one near a cattle park, one in the centre of the study site (and not close to a cattle park) and one near a water source (rice field and large permanent water body). Firstly, all windows and doors were closed and white sheets were laid on the floor of the room. Then, insecticide was sprayed for 45–60 s. After 10 min of insecticide exposure, the immobilized mosquitoes were recovered from the white sheet using forceps. Mosquitoes were collected once per day (between 07:00 and 08:00 every morning) during two consecutive days.
+
+MTPTs are cube-shaped pits with small cavities in the walls. To collect the exophilic engorged mosquitoes, six MTPTs were dug from each of the three houses where PSCs were performed. The opening of each MTPT was recovered with nets placed over support stakes just before the start of the mosquito collection (at around 07:30) to prevent resting mosquitoes from escaping. Resting mosquitoes were sampled in each pit using a mouth aspirator. As for PSC, mosquitoes were collected in MTPT once per day during two consecutive days. For the MTPT, the total sampling effort was 6 MTPT sampled × 2 days × 25 sites × 5 field work session, corresponding to a total of 1500 MTPTs sampled. For PSC, the total sampling effort was 3 houses sampled × 2 days × 25 sites × 5 field work session, corresponding to a total of 750 houses sampled.
+
+Mosquito identification and processing
+
+In the field, adult mosquitoes were killed with chloroform vapor and morphologically identified using the unpublished Fontenille keys. After identification, mosquitoes were counted, pooled according to species, sex, blood feeding status (engorged or non-engorged), date of capture, type of traps, study site and location of traps. Mosquito pools were stored in liquid nitrogen in the field before being stored in the laboratory at −80 °C pending further analysis.
+
+DNA extraction and amplification for blood meal source identification
+
+Engorged females of species reported to be associated with RVFV and WNV transmission25,26 were used for blood meals identification. DNA from whole body of engorged mosquitoes was extracted individually using Qiagen DNeasy blood and tissue kit (Qiagen, Germany). Extracted DNA was eluted in 200 µL of AE elution buffer according to the manufacturer’s instructions and stored at −20 °C until use. Host primers (targeting cytochrome b polymorphism of humans, cattle, sheep, goats, Galliformes and Passeriformes)27–29 were used (Table 1), as they are involved in the transmission cycles of WNV and RVFV. Primers to detect pig27 blood was used as they were abundant in our study sites.
+
+Table 1 Primer sets used for the identification of blood meal origin in engorged female mosquitoes.
+
+Target	Reverse: 5’−3’ sequence	Forward 5’−3’ sequence	Product sizes	References	
+Cattle	AGTGGGYGRAATATT
+
+ATGC
+
+	TTATCATCATAGCAA
+
+TTGCC
+
+	400	29	
+Sheep	GGCGTGAATAGTACT
+
+AGTAGCATGAGGATGA
+
+	TGAGGACAAATATCA
+
+TTYTGAGGRGC
+
+	336	27	
+Goat	TTAGAACAAGAATTA
+
+GTAGCATGGCG
+
+	TGAGGACAAATATCA
+
+TTYTGAGGRGC
+
+	313	27	
+Human	AGTGGGYGRAATATT
+
+ATGC
+
+	CTCGGCTTACTTCTC
+
+TTCC
+
+	272	29	
+Passeriformes	AAYGGGTGTTCKACT
+
+GGTTGGCT
+
+	RGCMCTRGCHGCCTC
+
+MRTCCTAG
+
+	165	28	
+Galliformes	GTCCGATGTGAAGGA
+
+AGATACAGATGAAGAAGAA
+
+	ATTTCGGCTCCCTAT
+
+TAGCAG
+
+	210	28	
+Pig	TCTGATGTGTAATGT
+
+ATTGCTAAGAAC
+
+	GACCAATGATATGAA
+
+AAACCATCGTTGT
+
+	219	27	
+
+PCR reactions were performed using GoTaq Hot Start Green Master Mix (Promega, Madison, Wisconsin, USA) 1X final concentration, forward and reverse primers with a 1µM final concentration, 2µL of 1/10 diluted DNA in a final reaction volume of 25 µL. PCR amplifications were done using two types of thermocyclers depending on availability: Applied Biosystems Veriti 96-well thermal cycler (Applied Biosystems, Foster City, CA) or Thermo Scientific Arktik Thermal Cycler (Thermo Fisher Scientific Oy). PCR products were visualized on 2% agarose gels using Bio-Rad scanner (Bio‐Rad Universal Hood II).
+
+Host, environmental and climatic data
+
+The number of cattle, chicken, SRu (number of sheep and goat combined) and pig per 10 km² was determined using the 2020 gridded livestock of the world map (https://dataverse.harvard.edu/dataverse/glw). The number of inhabitants per district was obtained from The Humanitarian Data Exchange30. Daily records of meteorological parameters (wind speed, precipitation, temperature and relative humidity [RH]) from January to December 2019 were obtained from NASA Langley Research Centre (LaRC)31. Rescaled (initial values divided by 100) mean daily values of Normalized Difference Vegetation Index (NDVI) and Normalized Difference Water Index (NDWI) were downloaded from the most recent Sentinel-2 image (originally at 10 m spatial resolution and 5-day frequency) of Sen2Extract web application32 before the mosquito collection date. Rescaled average values of NDVI and NDWI obtained during the week prior to sampling were then computed. The insecticide treated nets (ITN) use-to-access ratio (percentage of people with access to an ITN who actually slept under one the previous night) were from the United States President’s Malaria Initiative report33. The variables related to the environment were based on field observation: biotope (near cattle park, near water body and in the village far of water body and free of cattle park), and the type of house [Ravinala (Fig. 2D), mud-made (Fig. 2E) and brick-made (Fig. 2F)].
+
+Statistical analyses
+
+Data analyses were performed in R version 4.2.234. Stacked bar plots with the ggplot2 packages were created to visualize the percentage and numbers of mosquito species with simple and mixed blood meals combined. To show the detailed types of single and mixed blood meals found in tested engorged females, an interactive chord diagram was created using the chorddiag package35.
+
+Cattle, sheep, goat, Galliformes, Passeriformes and pig blood indices (BIs) were calculated using a similar method to determine the HBI36. To compare the BIs among mosquito species and among study sites, the chi-square test of independence was performed using the “chisq.test” function Pearson residuals were visualized using the corrplot package37. Waffle plots showing the number and distribution of engorged females tested were created using the ggplot238 and waffle R packages39. The “fviz_pca_biplot()” function from the factoextra package40 was used to visualize the relationships between blood index and indoor/outdoor resting habitat and between the three trap locations.
+
+To identify the drivers of presence/absence of human, cattle, bird and SRu blood in mosquito females, a binomial logistic classification model (binomial response with logit link) was developed for each of the two most abundant mosquito species. Univariable models followed by multivariable models were developed to explain the presence/absence of each given blood. The outcome of the model, which is the presence/absence of blood of a given host in engorged females of the two most abundant species, was classified as a binary variable: y = 1 if the individual had taken a blood meal on that host (i.e. tested positive by PCR for that host) and y = 0 if not (PCR-negative result for that host).
+
+In the first step, for each mosquito species, an univariable model tested the association of the outcome with 30 explanatory variables (tested one by one) by applying a generalized linear model. These 30 explanatory variables including trap location (near cattle park, near water body and in the village-far of water body and free of cattle), resting habitat (indoor by PSC versus outdoor by MTPT), domain (southern, northern, western, central and eastern domains), four variables concerning the type of house (Ravinala-made/non-Ravinala-made, brick-made/non-brick-made, mud-made/non-mud-made, all type of house), seasons (dry or wet). human and animal densities (5 variables), 13 climatic variables (which included wind speed on the day of the trapping (1 variable), as well as precipitation (4 variables), temperature (4 variables) and relative humidity (4 variables), environmental variables (NDVI and NDWI the week prior the sampling), built-up surfaces area per fokontany (smallest administrative division in Madagascar, functioning like a neighbourhood or local village, forming part of a larger municipality), and ITNs use-to-access ratio were included as continuous variables.
+
+For this purpose, the variables of average temperature, average relative humidity and cumulative precipitation were calculated for the following four lag periods: day 1 (sampling day), 1–2 (sampling days and first day before the sampling period combined), 2–3 (first and second days before the sampling period combined) and 1–3 (sampling days, first and second days before the sampling period combined).
+
+In the second step, a multivariable generalised linear model (GLM) using the “glm” function for binomial distribution was constructed using the same outcome variable but with 18 explanatory covariates. This last include human and animal densities (5 variables), trap location, resting habitat, domain, seasons (dry or wet), wind speed, NDVI and NDWI, built-up surfaces per fokontany, ITNs use-to-access ratio, and also also temperature, precipitation and humidity lag yielding the univariate model with the lowest AICc and one type of house (Ravinala-made/non-Ravinala-made, brick-made/non-brick-made, mud-made/non-mud-made, all type of house) yielding the univariate model with the lowest AICc. The Variance Inflation Factor (VIF) of each covariate was checked by using the “check_collinearity” function from the performance package. After excluding covariates with the VIF values greater than 10, the “dredge” function from R MuMIn package41 was run to output all possible combinations of covariates. This function displays the best fit model with the smallest AIC. The performance of these best fit model for predicting the presence/absence of given blood are measured using the evaluation metric root mean squared error (RMSE)42. RMSE close to zero means that the model’s predictions are very close to the actual values, with a low average error. The final model was used to calculate the Odds ratio (OR) of variables associated to the presence/absence of blood indices of the different hosts for two most abundant mosquito species.
+
+Results
+
+Engorged females collected
+
+In total, 1,703 blood-fed females of ten species involved in RVFV and WNV transmission in the literature25,26 were collected (Table 2). Cx. antennatus (53.36%) and Cx. quinquefasciatus (29.13%) were species with the greatest number of blood-fed females. No blood-fed Cx. antennatus females were collected from the four most southernly collection sites of the southern domain (S22, S23, S24 and S25). A total of 1,177/1,703 blood-fed females (68.7%) was used for blood meal source identification (Table 2). No blood-fed females were collected in S11.
+
+Table 2 Number of blood-fed females (N) collected from the 25 sites with indoor and outdoor collection methods combined, number of females tested for blood meal source identification (n) and 90% of margin of Error (MoE) per species and per collection site.
+
+Sites	An. coustani	An. maculipalpis	An. pauliani	An. squamosus	Cx. antennatus	Cx. decens	Cx. quinquefasciatus	Cx. tritaeniorhynchus	Cx. univittatus	Ma. uniformis	Total	
+N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	MoE	N	n	
+S01				3	3	–							2	2	–				12	9	12.4				4	2	47.5	1	1	–	22	17	
+S02	1	1	–	12	5	28.9													2	1	82.3							3	3	–	18	10	
+S03	1	1	–										24	9	21.4	4	3	23.7	24	15	12.9	6	4	24.5	14	11	9.8	5	3	32.9	78	46	
+S04													132	110	2.4				209	145	3.5	37	36	0.7				3	2	38.8	381	293	
+S05				3	3	–	2	2	–				1	1	–																6	6	
+S06	4	4	–							20	7	24.5	50	38	5.6				3	3	-				7	1	57.6	8	6	15.5	92	59	
+S07	3	3	–										160	142	1.5				51	48	1.4	33	9	21.2	5	5	71.2	4	1	71.2	256	208	
+S08	4	3	23.7							1	1	–	72	63	2.4				10	4	32.9							1	1	–	88	72	
+S09										3	1	77.6	74	53	5.5	4	4	–	2	2	–	4	2	47.5				3	2	38.8	90	64	
+S10	2	2	–							1	1	–	104	94	1.6				8	6	15.5	3	3	–							118	106	
+S11																															0	0	
+S12				23	11	18.3							8	1	54.4				24	7	24.3										55	19	
+S13																			7	1	57.6										7	1	
+S14													59	51	2.9				12	6	24.8										71	57	
+S15													109	22	12.6				36	24	9.3				1	1	–				146	47	
+S16													4	1	71.2				6	6	–	2	2	-	1	1	–				13	10	
+S17	1	1	–										19	2	34.7				1	1	–				1	1	–	3	2	38.8	25	7	
+S18													23	22	1.5				35	3	25.8							2	2	–	60	27	
+S19	3	2	38.8							1	1	–	28	28	–				16	3	34.5	3	3	38.8	4	1	71.2	1	1	–	56	39	
+S20	10	3	38.4							1	1	–	34	22	10.1				17	17	–	3	2	–	4	4	–	2	1	82.3	71	50	
+S21	2	1	82.3							1	1	–	11	11	–				4	4	–										18	17	
+S22																			2	2	–										2	2	
+S23																			4	3	23.7										4	3	
+S24																			12	4	33.1	1	1	–							13	5	
+S25				11	10	4.73													2	2	–										13	12	
+	31	21	9.7	52	32	8.9	2	2	-	28	13	17.0	914	672	1.4	8	7	7.8	499	316	2.7	92	62	5.6	41	27	8.9	36	25	8.5	1703	1177	
+
+Blood meal identification
+
+Among the 1,177 blood-fed females tested, DNA from 110 (9,3%) failed (PCR-negative) to identify the blood meal source and 1067 are PCR-positive.
+
+When aggregating the results from single and mixed-blood meals, human and cattle were the dominant vertebrate hosts, with identical proportions: 528 blood-fed females (44.86%) for humans and 524 (44.52%) for cattle and Passeriformes (6 blood-fed females, 0.51%) and pigs (5 blood-fed females, 0.42%) were rarely detected. The species with the greatest number of blood meals identified were Cx. antennatus (610/672) and Cx. quinquefasciatus (281/316) (Fig. 3).
+
+Fig. 3 Total number (A) and percentage (B) of mosquito species in which blood meal sources were identified. Pi : pigs, Ca : cattle, Go: Goat, Hu: Human, Pa: Passeriformes, Ga: Galliformes, Sh: sheep. The number indicated in parentheses after the host species corresponds to the number of female mosquitoes for which this blood meal source was identified. The number indicated in parentheses after the mosquito species name corresponds to the number of mosquitoes for which a blood meal source was identified.
+
+A total of 718 blood-fed females (67.38%) had a single blood meal taken on cattle (n = 336, 28.55% of tested blood-fed females), human (n = 284, 24.13%), Galliformes (n = 77, 6.54%), sheep (n = 16, 1.36%) and pig (n = 5, 0.42%). Twenty types of mixed blood sources were identified within 349 females. Mixed human and Galliformes blood sources were the most frequent combination observed (n = 96, 8.16% of tested blood-fed females, 27.51% of mixed blood sources) (Fig. 4). For Cx. antennatus and Cx. quinquefasciatus, mixed blood meals accounted for 26.19% (176/672) and 35.44% (112/316) of blood fed females tested respectively (Fig. 4).
+
+Fig. 4 Chord diagram showing the different types of single and mixed blood meals found in tested engorged females of ten mosquito species. Pi: pigs, Ca: cattle, Go: Goat, Hu: Human, Pa: Passeriformes, Ga: Galliformes, Sh: sheep are the blood meals sources. Text in black on the left of the figure corresponds to single blood meal source. Text in blue corresponds to the mixture of two blood sources, in red mixture of three blood sources and in green mixture of four blood sources.
+
+When combining goat and sheep as SRu (SRu) and Galliformes and Passeriformes as bird (Bi), the chi-square test revealed statistically significant differences in the distribution of blood meals type in the various species (X-squared = 185.09, df = 27, p-value < 2.2e-16).
+
+According to the Pearson residuals of the test (Fig. 5), the SRu (SRuBI) and bird (BiBI) blood indices were less associated with Cx. antennatus (−3.18 < ri < −2.20) while cattle blood index (CaBI) was more associated with this species (ri = 3.83). Inversely, SRuBI and BiBI were more associated with Cx. quinquefasciatus (3.50 < ri < 5.8) while cattle blood index negatively associated with this species (ri = −7.32). CaBI was more associated with An. maculipalpis (ri = 2.41) and Cx. tritaeniorhynchus (ri = 3.79). Human blood index (HBI) was negatively associated with An. maculipalpis (ri = −2.29) while BiBI was negatively associated with Cx. tritaeniorhynchus (ri = −2.77). For Cx. antennatus and Cx. quinquefasciatus, the same results were obtained when the remaining eight species were removed from the analysis.
+
+Fig. 5 Mosaic plot of human (HBI), cattle (CaBI), bird (BiBI) and small ruminant (SRuBI) blood indices distribution in the ten tested species. Blue indicates a higher value than expected and red indicates a lower value than expected. The size of each cell is proportional to the frequency of elements in the contingency table.
+
+Effect of collection methods and trap location
+
+Out of a total of 843 tested females collected outdoor using MTPT, the origin of the blood meal source was identified for 770 of them (Fig. 6). The 770 females were composed of 509 Cx. antennatus, 96 Cx. quinquefasciatus, 59 Cx. tritaeniorhynchus, 32 An. maculipalpis, 19 Ma. unformis, 19 Cx. univittatus, 16 An. coustani, 12 An. squamosus/An. cydippis, 7 Cx. decens and one An. pauliani. When using PSCs, blood meals were tested for 334 females and the origin of the blood meal source was identified for 297. Among them, 185 females belonged to Cx. quinquefasciatus and 101 to Cx. antennatus. The remaining 11 females belonged to Cx. univittatus (5), An. coustani (3), Ma. uniformis (2) and An. squamosus/An. cydippis (1). The origin of the blood meal source was identified in 392, 355and 320 from centre of village, sites near water body and sites near cattle park respectively (Fig. 6).
+
+Fig. 6 Waffle plots showing the number and distribution of engorged females tested. MTPT: Muirhead Thomson pit traps, PSC: indoor insecticide sprays catch.
+
+According to the PCA plot (Fig. 7), indoor collection was negatively associated with CaBI and positively associated with HBI of both species (Fig. 7A and B). Indoor collection of Cx. antennatus was also positively associated to a lesser extent with BiBI (Fig. 7A). For Cx. quinquefasciatus, indoor collection was negatively associated CaBI and SRuBI was negatively associated with outdoor collection (Fig. 7B). Cattle park and water body were more associated with HBI of Cx. antennatus (Fig. 7C). Cattle park was negatively associated with CaBI and water body was significantly associated with HBI for Cx. quinquefasciatus (Fig. 7D). SRuBI and CaBI of Cx. quinquefasciatus was also negatively associated with cattle park (Fig. 7D).
+
+Fig. 7 Principal Component Analysis plot showing the distribution of human (HBI), cattle (CaBI), bird (BiBI) and small ruminant (SRuBI) bloods indices between the indoor and outdoor resting sites of Cx. antennatus (B) and Cx. quinquefasciatus (C), and between the three trap locations (WB: near water body, Park: near cattle park and Centre: free of cattle park and far of WP) of Cx. antennatus (D) and Cx. quinquefasciatus (E).
+
+According to the national scale characterization of Cx. antennatus and Cx. quinquefasciatus (supplementary Figure S1), the frequency of detecting human, cattle, bird and SRu bloods in engorged females varied among the sites for Cx. antennatus (X-squared = 267.74, df = 54, p-value < 2.2e-16) and Cx. quinquefasciatus (X-squared = 120.38, df = 66, p-value = 4.997e-05).
+
+Drivers of blood index
+
+From the univariable analysis (supplementary Table S2), eighteen explanatory variables per type of blood were used in the basic multivariable model. Among these eighteen variables, basic multivariable model includes also one lag period of each of climatic factor (temperature, RH and precipitation), type of house on the basis of smallest AIC (supplementary Table S2). Covariates with strong collinearity (VIF > 10) (supplementary Table S3) were excluded from the subsequent models.
+
+After running the “dredge” function on the subsequent models, eight best fit for presence/absence of human, cattle, bird and SRu blood meals for Cx. antennatus and Cx. quinquefasciatus were obtained (Table 2). Only presence model of SRu blood did not retained resting habitat (inside versus outside) for both species. Among the eight models, only presence model of Human, Cattle and SRu blood of Cx. antennatus retained trap location. Wind speed was retained in presence model of human and bird blood for both species and in presence model of cattle blood for Cx. quinquefasciatus. The presence model of SRu blood of both species retained NDVI. This last was also retained in the presence model of human blood for Cx. antennatus. RH was retained in the presence model of human and bird blood for Cx. antennatus and in presence of SRu blood for Cx. quinquefasciatus. Only the presence model of bird and SRu blood for Cx. quinquefasciatus retained the population size and NDWI. Only presence model of SRu blood for Cx. quinquefasciatus did not retained precipitation. Temperature, number of cattle, pigs and small ruminant was only retained SRu models of both species. Number of chickens was only retained in the presence model of human blood meal for Cx. quinquefasciatus. RMSE value shown in Table 3 are close to zero (> 0.5), indicating that the eight models are high-performing models to predict the presence/absence of given blood. The odds ratios associated with all retained variables for each fitted model are displayed in Fig. 8.
+
+Table 3 Final best fit models of blood meal presence for Cx. antennatus and Cx. quinquefasciatus. df: degree of freedom, AICc: corrected Akaike information criterion, RMSE: Rroot mean squared error.
+
+Type of blood meal source	Retained variables	df	logLik	AICc	delta	weight	RMSE	
+Cx. antennatus	
+Hu	wind + resting habitat + trap location + NDVI + Rh1 + Pre d1.2	8	−421.120	858.5	0.00	0.448	0.466	
+Ca	resting habitat + trap location + Pre d2.3	5	−424.901	859.9	0.00	0.181	0.468	
+Bi	wind + resting habitat + Pre1.3 + Rh1.3	5	−261.216	532.5	0.00	0.565	0.346	
+Sru	cattle + pig + Sruminant + trap location + NDVI + Tp d2.3 + Pre d2.3	9	−141.938	302.1	0.00	0.043	0.245	
+Cx. quinquefasciatus	
+Hu	wind + chicken + resting habitat + Pre d2.3	5	−208.238	426.7	0.00	0.026	0.483	
+Ca	wind + resting habitat + Pre d1.3	4	−133.231	274.6	0.00	0.230	0.369	
+Bi	wind + resting habitat + NDWI + Pre d2.3	5	−197.047	404.3	0.00	0.357	0.466	
+Sru	cattle + pig + Sruminant + pop + NDVI + NDWI + Rh d1.2 + Tp d2.3	9	−115.586	249.8	0.00	0.077	0.342	
+
+Fig. 8 Effects of variables retained in the eight final models on the presence of Human (a, e), Cattle (b, f), Small ruminant (c, g) and Bird (d, h) blood meals for Cx. antennatus (a, b, c, d) and Cx. quinquefasciatus (e, f, g, h), with 95% confidence interval. In red are the factors with an odds ratio above 1, which increase the risk of presence of a given type of blood meal. In blue are the factors with an odds ratio under 1, which decrease the risk of presence of a given type of blood meal. Therefore, for a given host species, factors in red increase their risk of being bitten by a mosquito whereas factors in blue decrease this risk. RestHab[In]: Indoor mosquito shelter (resting habitat), TrLp: trap loction near water point [WP], and near cattle park [CP], Rh: relative humidity (with 1 to 3 days lag periods); Pre: precipitation (with 1 to 3 days lag periods); Tp: temperature (with 1 to 3 days lag periods). P-values < 0.05 are indicated with *, p-values < 0.01 with ** and p-values < 0.001with ***.
+
+For human (Fig. 8a), cattle (Fig. 8b) and SRu (Fig. 8c), increase of precipitation increased exposure risk to Cx. antennatus bites (1.03 < OR < 1.3, p < 0.05). Opposite, increased precipitation decreased the risk of exposure of birds (Fig. 8d) to Cx. antennatus OR = 0.96, p < 0.05). Increase of precipitation has no effect on the exposure of human (Fig. 8e) and cattle (Fig. 8f) to Cx. quinquefasciatus bite. For Cx. quinquefasciatus, if the presence model of SRu (Fig. 8g) blood did not retained precipitation, the increase of precipitation increased exposure risk of birds (Fig. 8h) to bites of this species (OR = 1.07, p < 0.001). SRus were protected against Cx. antennatus and Cx. quinquefasciatus bites when the temperature increased (0.5 < OR < 0.65, p < 0.05). Birds were also protected against Cx. antennatus bites when the RH increased (OR = 0.96, p < 0.001). Increase of wind speed appeared to protect humans from being bitten by Cx. antennatus (OR = 0.86, p < 0.01). Birds were more exposed to Cx. antennatus bites when wind speed increased (OR = 1.41, p < 0.001). For Cx. quinquefasciatus, increase of wind speed was the risk of being bitten for humans (OR = 1.16, p < 0.05), cattle (OR = 1.22, p < 0.05) and birds (OR = 1. 20, p < 0.05). Indoor collections increased the chance to obtain Cx. antennatus and Cx. quinquefasciatus with human (1.8 < OR < 2.50, p < 0.05) and bird blood (1.2 < OR < 1.5, p < 0.001) and inversely decreased the chance to obtain Cx. quinquefasciatus with cattle blood (OR = 0.21, p < 0.001). Being located near a cattle park and a water body were associated with a 2- to 3-fold increase in the risk for humans of being bitten by Cx. antennatus (1.9 < OR < 4, p < 0.01), and constituted a protective factor for cattle against Cx. antennatus bites (0.4 < OR < 0.55, p < 0.01). Increase in NDVI-value (OR = 1.04,p < 0.001) increased the risk for SRus (1.00 < OR < 1.20, p < 0.01) to be bitten by both mosquito species, and decreased the risk for humans to be bitten by Cx. antennatus (OR = 0.97, p < 0.001). Increase in NDWI-value was associated a decreased risk for birds and SRus (0.8 < OR < 0.98, p < 0.01) to be exposed to Cx. quinquefasciatus bites. The increase in number of chickens was a protective factor for humans (OR = 0.99, p < 0.01) against Cx. quinquefasciatus bites. The increase in number of cattle was a protective factor for SRus (OR = 0.99, p < 0.01) against Cx. antennatus and Cx. quinquefasciatus bites. Increase in population density constituted a risk factor for SRus to be bitten by Cx. quinquefasciatus (OR = 1.004, p < 0.01). Increase in number of SRus was a risk factor for SRus to be bitten by both species (1.00 < OR < 1.005, p < 0.01).
+
+Discussion
+
+In Madagascar, numerous data on the feeding preferences of mosquito vectors of RVFV and WNV10,21–23 are limited in time and space and does not allow to evaluate feeding variations among populations and species. Here, this study displays the first wide-scale study targeting feeding behaviour of mosquito species associated with both arboviruses in Madagascar.
+
+The ten analysed species include Cx quinquefasciatus, Cx. univittatus, Ma. uniformis, and Cx. tritaeniorhynchus, considered as major vector species, An. coustani, Cx. decens and Ae. circumluteolus as candidate vector species and An. maculipalpis and An. pauliani as potential vector species of WNV25,26 as well as Cx. antennatus, considered as major vector species and An. squamosus, An. coustani, Cx. decens, Cx. univittatus, Cx. quinquefasciatus, Cx. tritaeniorhynchus, and Ma. uniformis as candidate vector species of RVFV25.
+
+Trophic preference was variable both across periods and sites of mosquito collections, and differed according to the resting habitat (indoor/outdoor) or collection method (PSC/MTPT) used. The limited species diversity (n = 10) analysed in our survey is probably linked to the choice of the collection methods (MTPT and PSC), which provide fewer number of mosquito species than other traps such as light traps43 or QUEST (Quadrant Enabled Screen Trap) methods22. These methods are the most adequate to investigate mosquito trophic preference21, since they specifically target individuals which have taken a blood meal and since other methods targeting these individuals such as host landing captures are time consuming and raise ethical issues.
+
+Using PCR, the blood meal source was identified from more than 90% of females tested. PCR-based methods are fast and have great sensitivity29. Blood meal source could not be identified for 110 (9.34%) blood-fed females suggesting the occurrence of other blood meal sources not tested or the non-amplification of DNA due to low DNA quantity or DNA degradation because of the digestion process44. No horse-specific primers8 was used because no horses were present in any of our study sites.
+
+In Madagascar, this is the first report for Cx. antennatus, Cx. quinquefasciatus, Cx. tritaeniorhynchus and Ma. uniformis feeding on pigs. These mosquito species have already been reported to feed on pig in other countries45–47. Our study is the first to report the detection of passerine blood from Cx. quinquefasciatus and Ma. uniformis, which were already reported to feed on Passeriformes in multiple occasions in other countries48,49.
+
+Most mosquito blood meals were taken from humans and cattle, probably due to high number of humans and cattle, combined with their relatively large size and thus CO2 emitting capacity, which is a proxy of their attractivity50.
+
+It would be ideal to model the variation of the blood index in time and space as reported for Aedes mosquitoes3. Modeling the presence of blood in a wild female would be much more informative than modeling mosquito blood index due to the fact that blood meal analysis is a proxy for host preference51.
+
+Among ten mosquito species analysed, 67.38% of the tested engorged females had taken a single blood meal and 29.65% mixed blood meals. This result highlights the importance of opportunistic feeding behaviour of all these species as already reported in other studies25,26. Their opportunistic feeding behaviour increases the probability that they serve as bridge vectors between infected birds and humans52 and between infected ruminant and humans53, and in consequence constitute an important risk for WNV and RVFV transmission25,26. However, changes in the gut microbiota in response to mixed blood meals have the potential to alter vector susceptibility to pathogens/parasites54, but this has not been proven for RVFV and WNV.
+
+Models were developed for the two species with the greatest number of engorged females: Cx. antennatus (672 engorged females) and Cx. quinquefasciatus (316 engorged females). Our study revealed for the first time that presence/absence of blood meal of a given host origin is dynamic and driven at least by the wind speed, trap location in villages, mosquito resting sites, environmental factors, climatic factors and number of available vertebrate hosts. Surprisingly, the association between an increase in the number of a given host with the presence of blood meals from that host was only observed for SRu. For Cx. quinquefasciatus, there is a cross-association between the presence of SRu blood with increase in number of human (Fig. 8g). These results confirm that mosquito trophic preference is readily overruled by the physical abundance of available hosts4 and potentially depending on endophilic/exophilic and endophagic/exophagic behaviours of this species (not tested in this study).
+
+The negative effects of the number of chickens, cattles and pigs on the exposure of human (Fig. 8e) and SRus (Fig. 8c, g) to bites of Cx. quinquefasciatus and Cx. antennatus recall the dilution effect55, despite their low OR (close to 1). This dilution effect occurs if greater host diversity leads to lower contact rates between vectors and susceptible hosts55.
+
+In this study, the endophilic mosquito populations of Cx. antennatus and Cx. quinquefasciatus were expected to have fed on human blood. Indeed, indoor resting females are more likely to have fed on humans4 and mosquitoes resting outdoor to exhibit a high level of ruminant blood meals56. Similarly, cattle were highly exposed to exophilic mosquitoes. Birds are highly exposed to the endophilic mosquitoes of both species suggesting that endophilic mosquito readily bites not only human but also domestic birds that are placed indoor. However, the result of this study does not to analyze the behaviour of an exophagous but endophilic mosquitoes.
+
+The analysis also shows that NDVI is a protective factor for humans against Cx. antennatus bites. This results probably arise from the fact that increase in terrestrial plants might reduce contact between this species and human, by providing favourable outdoor resting places for exophilic mosquito population57. In this study, NDWI is protective factor for domestic animals against Cx. quinquefasciatus bites. NDWI has been linked to mosquito density as it can be a proxy of breeding habitat58.
+
+Our study also reports that trap location close to water body is a risk factor for humans to be bitten by Cx. antennatus. This result could suggest that the proximity of dwellings to breeding sites, increased human population exposure to mosquito bites59.
+
+Mosquitoes fly actively, searching for opposite sex to mate, host, resting site and oviposition site in the absence of wind or if the wind speed is less than 2 m/s60. It is demonstrated that an increase in wind speed lead to a decrease in the total biting rate of exophagic mosquito populations61.
+
+Wind also decreases mosquito collections by diluting mosquito attractants62. Here, our study report that increase in wind speed is a protective factor for human against Cx. antennatus bites, but constitutes a risk factor for human for Cx. quinquefasciatus bites.
+
+This result could be due to the fact that Cx. antennatus is more exophilic and exophagic than Cx. quinquefasciatus63. Increase in wind speed could reduce exophilic Cx. antennatus entry into houses or prevent endophilic Cx. quinquefasciatus from exiting, by countering upwind progress62.
+
+Exposure of humans to at least Cx. antennatus bites was expected higher than cattle exposure to bites of mosquitoes near cattle parks (Fig. 8a, b). The presence of ruminants in and near human habitations attracts mosquitoes, which may increase their risk of transmitting vector-borne pathogens to humans. The proximity of cattle to human dwellings diverts host-seeking mosquitoes64.
+
+The low exposure of humans to Cx. quinquefasciatus bites when the number of chicken increase recall the zooprophylaxy effect which is a decrease in the human biting rate in favour of mosquitoes feeding on the surrounding domestic animals65. In Madagascar, the success of zooprophylaxy depends on mosquito vector species and their host feeding preferences66, and probably to the certain types of animals that exert stronger zooprophylactic effects than others67. These high exposition of humans to Cx. antennatus bites near cattle park support the fact that zooprophylaxy measures remain controversial for African countries when considering arboviruses68. Considering that both species are opportunistic feeders8, they could modify their host use according to variations in host availability across habitats and seasons4. With Culex quinquefasciatus, it has been shown that chicken exert stronger zooprophylactic effects than the remaining vertebrate hosts.
+
+Finally, even though season was not retained in the final fitted model, mosquitoes may express different host preferences depending on the season4. In this study, the season effect might result from the effect of temperature, humidity and precipitation on mosquito behaviour, not from migratory or ruminant bird events4.
+
+Precipitation has been shown to increase mosquito attraction to skin odor baits69 which could explain significant exposure of human, cattle, and SRu to Cx. antennatus bites. At the same time, precipitation increase also the creation of larval breeding sites70, favouring mosquito abundance.
+
+Temperature is known to impact biting rate: increasing temperatures increase biting rate until a given threshold above which the biting rate declines71, supporting the fact that increase in temperature is a protective factor for SRu against Cx. antennatus bites. These results confirm that RVFV and WNV transmission involves mainly exophilic and zoophilic species25,26. The use of indoor residual spraying and insecticide treated nets are unlikely to have a substantial impact on RVFV and WNV transmission risk in Madagascar25,26. These indoor vector control measures only offer protection against endophilic and endophagic species72. Opposite, methods targeting larvae or outdoor resting mosquitoes, or ensuring the protection of animals are needed to interrupt mosquito-borne transmission of RVFV. These will need to be implemented alongside to target the reduction of non-vectorial transmission pathways of RVFV.
+
+Conclusion
+
+Ten mosquito’s species collected all over Madagascar show generalist feeding patterns and may act as bridge vectors for WNV and RVFV. Culex quinquefasciatus and Cx. antennatus trophic preference is modulated not only by climatic and environmental factors but also by habitat types, resting places and diversity and number of available vertebrate hosts. The variations of trophic behaviour observed may contribute to the heterogeneous incidence of both of WNF and RVF. This study provides an essential step towards a stronger evidence-based determination of risk of arboviruses transmission in humans and livestock. The use of other tools such as larval control or adult mosquito mass trapping to supplement indoor vector control in Madagascar needs to be explored.
+
+Supplementary Information
+
+Below is the link to the electronic supplementary material.
+
+Supplementary Material 1
+
+Supplementary Material 2
+
+Supplementary Material 3
+
+Supplementary Material 4
+
+Acknowledgements
+
+We would like to thank Dr. Voahangy Rasolofo, Scientific Director of Institut Pasteur de Madagascar, for her role as a project sponsor. We thank all the district farmers, villagers, and authorities for their participation in the fieldwork. We thank the UMR ESPACE-DEV (IRD, Univ Antilles, Univ Guyane, Univ Montpellier, Univ Réunion), at University of La Réunion – SEAS-OI Station, for producing the NDVI indices and making them available through the Sen2Extract interface (https://web.seas-oi.org/sen2extract/), developed in the frame of the S2-Malaria project (funded by CNES TOSCA 2017-2020). We are grateful to the IPM administrative staff for facilitating field work logistic. We are grateful to Haja Johnson Velonirina, Etienne Tata, Lala Andrianaivolambo, Alice Olga Vololoniaina, Mandaniaina Radotiana Andriamiarimanana, Mandimbisoa Fanambinana Rakotondraibe, Rajaonarison Rova Hanitriniavo for technical assistance.
+
+Author contributions
+
+MLT designed the experiments and conceived the paper. MLT, HG, CG, CCS, TW, AT analysed the data. MLT, HG, MRR, FMA, SM, MRA, IR and RG were involved in the capture and morphological identification of the mosquitoes. MLT, MFA, TNN conceptualized and coordinated the extraction of environmental and climtic data. HG, CG, CCS, TW and AT gave assistance and advice for molecular and statistical tools and analysis. ZNR, JMH, TW, RG and DA participated in the coordination of the study, facilitated the field study and helped draft the manuscript. All authors read and approved the final version of the manuscript.
+
+Funding
+
+This study is supported by a Wellcome Trust (209344/Z/17/Z), awarded to MLT: http://www.wellcome.ac.uk. TW was additionally supported by a Wellcome Trust/Royal Society Sir Henry Dale Fellowship (101285): http://www.wellcome.ac.uk; https://royalsociety.org. The funder had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript. This research work was carried out as part of the One Health Indian Ocean Dispositif en Partenariat (DP) partnership research network. The collaborative work between Réunion and Madagascar on vector risks is supported by the INTERREG co-financed by the European Union and the Réunion Region. Europe is committed to Réunion with INTERREG.
+
+Data availability
+
+The datasets used and analysed during the current study available from the corresponding author on reasonablerequest.
+
+Declarations
+
+Ethics approval and consent to participate
+
+Before starting the study, an ethical clearance numbered 014-MSANP/CRBM of February 26, 2018 was obtained from the ethical committee of the Ministry of Public health. Concerning the use human-baited double net traps, whose results are not published in this manuscript, an informed consent form for biomedical research was provided to each participant who agreed to stay under the double net traps to act as a human bait according to this ethical clearance. All participants who accepted to participate as human baits in the project signed this informed consent form. In this manuscript, no tissue, human or animal blood samples were taken in this study, and the physical and social integrity of the household occupants was not disturbed throughout the research.
+
+Consent for publication
+
+Not applicable.
+
+Competing interests
+
+The authors declare no competing interests.
+
+Figure legenfds.
+
+Publisher’s note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+
+References
+
+1. Cummins B Cortez R Foppa IM Walbeck J Hyman JM A spatial model of mosquito host-seeking behavior PLoS. Comput. Biol 2012 8 e1002500 10.1371/journal.pcbi.1002500 22615546 PMC3355069
+Cummins, B., Cortez, R., Foppa, I. M., Walbeck, J. & Hyman, J. M. A spatial model of mosquito host-seeking behavior. PLoS. Comput. Biol 8, e1002500 (2012).22615546 10.1371/journal.pcbi.1002500 PMC3355069
+2. Ostfeld RS Biodiversity loss and the rise of zoonotic pathogens Clin. Microbiol. Infect. 2009 15 40 43 10.1111/j.1469-0691.2008.02691.x 19220353
+Ostfeld, R. S. Biodiversity loss and the rise of zoonotic pathogens. Clin. Microbiol. Infect. 15, 40–43 (2009).19220353 10.1111/j.1469-0691.2008.02691.x
+3. Rose NH Climate and urbanization drive mosquito preference for humans Curr. Biol. 2020 30 3570 3579 10.1016/j.cub.2020.06.092 32707056 PMC7511451
+Rose, N. H. et al. Climate and urbanization drive mosquito preference for humans. Curr. Biol. 30, 3570–3579 (2020).32707056 10.1016/j.cub.2020.06.092 PMC7511451
+4. Takken W Niels O Verhulst NO Host preferences of blood-feeding mosquitoes Annu. Rev. Entomol. 2013 58 433 53 10.1146/annurev-ento-120811-153618 23020619
+Takken, W., Niels, O. & Verhulst, N. O. Host preferences of blood-feeding mosquitoes. Annu. Rev. Entomol. 58, 433–53 (2013).23020619 10.1146/annurev-ento-120811-153618
+5. McBride CS Evolution of mosquito preference for humans linked to an odorant receptor Nature 2014 515 222 277 10.1038/nature13964 25391959 PMC4286346
+McBride, C. S. et al. Evolution of mosquito preference for humans linked to an odorant receptor. Nature 515, 222–277 (2014).25391959 10.1038/nature13964 PMC4286346
+6. Finda, M. F. et al. Linking human behaviours and malaria vector biting risk in south-eastern Tanzania. PLoS ONE. 14 (12). 10.1371/journal.pone.0217414 (2019).10.1371/journal.pone.0217414 PMC6546273 31158255
+7. Tantely ML Le Goff G Boyer S Fontenille D An updated checklist of mosquito species (Diptera, Culicidae) from Madagascar Parasite 2016 23 20 10.1051/parasite/2016018 27101839 PMC4840257
+Tantely, M. L., Le Goff, G., Boyer, S. & Fontenille, D. An updated checklist of mosquito species (Diptera, Culicidae) from Madagascar. Parasite 23, 20 (2016).27101839 10.1051/parasite/2016018 PMC4840257
+8. Tantely ML Mosquito species associated with horses in Madagascar, A review of their vector status with regard to the epidemiology of West Nile fever Med. Vet. Entomol. 2021 36 13 10.1111/mve.12544 34427959
+Tantely, M. L. et al. Mosquito species associated with horses in Madagascar, A review of their vector status with regard to the epidemiology of West Nile fever. Med. Vet. Entomol. 36, 13 (2021).10.1111/mve.12544 34427959
+9. Brunhes J Boussès P Tantely ML Kengne P Un nouveau genre de Culicidae (Diptera), Paulianius n. gen., avec la description de trois nouvelles espèces malgaches Ann. Soc. Entomol. Fr. (N.S.). 2017 53 344 373 10.1080/00379271.2017.1365627
+Brunhes, J., Boussès, P., Tantely, M. L. & Kengne, P. Un nouveau genre de Culicidae (Diptera), Paulianius n. gen., avec la description de trois nouvelles espèces malgaches. Ann. Soc. Entomol. Fr. (N.S.). 53, 344–373 (2017).
+10. Fontenille D Arbovirus transmission cycles in Madagascar Arch. Inst. Pasteur Madagascar 1989 55 1 317 2751393
+Fontenille, D. Arbovirus transmission cycles in Madagascar. Arch. Inst. Pasteur Madagascar. 55, 1–317 (1989).2751393
+11. Andriamandimby SF Rift valley fever during rainy seasons, Madagascar, 2008 and 2009 Emerg. Infect. Dis. 2010 16 963 970 10.3201/eid1606.091266 20507747 PMC3086256
+Andriamandimby, S. F. Rift valley fever during rainy seasons, Madagascar, 2008 and 2009. Emerg. Infect. Dis. 16, 963–970 (2010).20507747 10.3201/eid1606.091266 PMC3086256
+12. Chevalier V Marsot M Molia S Rasamoelina H Rakotondravao R Pedrono M Serological evidence of west nile and usutu viruses circulation in domestic and wild birds in wetlands of mali and madagascar in 2008 International Journal of Environmental Research and Public Health 2020 17 1998 10.3390/ijerph17061998 32197367 PMC7142923
+Chevalier, V. et al. Serological evidence of west nile and usutu viruses circulation in domestic and wild birds in wetlands of mali and madagascar in 2008. International Journal of Environmental Research and Public Health 17, 1998. 10.3390/ijerph17061998 (2020).32197367 10.3390/ijerph17061998 PMC7142923
+13. Olive MM Integrated analysis of environment, cattle and human serological data, risks and mechanisms of transmission of rift valley fever in Madagascar PLoS. Negl. Trop. Dis 2016 10 e0004827 10.1371/journal.pntd.0004827 27415438 PMC4945045
+Olive, M. M. et al. Integrated analysis of environment, cattle and human serological data, risks and mechanisms of transmission of rift valley fever in Madagascar. PLoS. Negl. Trop. Dis 10, e0004827 (2016).27415438 10.1371/journal.pntd.0004827 PMC4945045
+14. Broban A Seroprevalence of IgG antibodies directed against dengue, chikungunya and West Nile viruses and associated risk factors in Madagascar, 2011 to 2013 Virus 2023 15 v15081707 10.3390/v15081707 PMC10458928 37632049
+Broban, A. et al. Seroprevalence of IgG antibodies directed against dengue, chikungunya and West Nile viruses and associated risk factors in Madagascar, 2011 to 2013. Virus 15, v15081707 (2023).10.3390/v15081707 PMC10458928 37632049
+15. Daubney R Hudson JR Garnham PC Enzootic hepatitis or Rift Valley fever, an undescribed virus disease of sheep, cattle and man from East Africa J. Pathol. Bacteriol. 1931 34 545 579 10.1002/path.1700340418
+Daubney, R., Hudson, J. R. & Garnham, P. C. Enzootic hepatitis or Rift Valley fever, an undescribed virus disease of sheep, cattle and man from East Africa. J. Pathol. Bacteriol. 34, 545–579 (1931).
+16. Morvan J Rollin PE Roux J Situation de la fièvre de la vallée du Rift à Madagascar en 1991. Enquêtes séro-épidémiologiques chez les bovins Revue d’élevage et de médecine vétérinaire des pays tropicaux 1992 45 121 127 10.19182/remvt.8935 1301622
+Morvan, J., Rollin, P. E. & Roux, J. Situation de la fièvre de la vallée du Rift à Madagascar en 1991. Enquêtes séro-épidémiologiques chez les bovins. Revue d’élevage et de médecine vétérinaire des pays tropicaux 121–127 (1992).1301622
+17. Colpitts TM Conway MJ Montgomery RR Fikrig E West Nile virus, biology, transmission, and human infection Clin. Microbiol. Rev. 2012 25 635 48 10.1128/CMR.00045-12 23034323 PMC3485754
+Colpitts, T. M., Conway, M. J., Montgomery, R. R. & Fikrig, E. West Nile virus, biology, transmission, and human infection. Clin. Microbiol. Rev. 25, 635–48 (2012).23034323 10.1128/CMR.00045-12 PMC3485754
+18. Jeanmaire E Prevalence of Rift Valley fever infection in ruminants in Madagascar after the 2008 outbreak Vector. Borne. Zoonotic. Dis 2011 11 395 402 10.1089/vbz.2009.0249 21395414
+Jeanmaire, E. et al. Prevalence of Rift Valley fever infection in ruminants in Madagascar after the 2008 outbreak. Vector. Borne. Zoonotic. Dis 11, 395–402 (2011).21395414 10.1089/vbz.2009.0249
+19. Lancelot R Drivers of Rift Valley fever epidemics in Madagascar Proc. Natl. Acad. Sci. U. S. A. 2017 114 938 943 10.1073/pnas.1607948114 28096420 PMC5293023
+Lancelot, R. et al. Drivers of Rift Valley fever epidemics in Madagascar. Proc. Natl. Acad. Sci. U. S. A. 114, 938–943 (2017).28096420 10.1073/pnas.1607948114 PMC5293023
+20. Heraud JM Arthropod-borne viruses of Madagascar The New Natural History of Madagascar, Goodman 2022 Princeton University Press
+Heraud, J. M. et al. Arthropod-borne viruses of Madagascar. In The New Natural History of Madagascar, Goodman (Princeton University Press, 2022).
+21. Andrianaivolambo L Anthropophilic mosquitoes and malaria transmission in the eastern foothills of the central highlands of Madagascar Acta. Tropica 2010 116 240 245 10.1016/j.actatropica.2010.08.017 20804715
+Andrianaivolambo, L. et al. Anthropophilic mosquitoes and malaria transmission in the eastern foothills of the central highlands of Madagascar. Acta. Tropica 116, 240–245 (2010).20804715 10.1016/j.actatropica.2010.08.017
+22. Tedrow, R. E. et al. Anopheles mosquito surveillance in Madagascar reveals multiple blood feeding behavior and Plasmodium infection. PLoS. Negl. Trop. Dis. 13, e0007176. https, (2019). 10.1371/journal.pntd.000717610.1371/journal.pntd.0007176 PMC6663035 31276491
+23. Tantely LM An entomological investigation during a recent Rift Valley fever epizootic/epidemic reveals new aspects of the vectorial transmission of the virus in Madagascar Pathogens 2024 13 258 10.3390/pathogens13030258 38535601 PMC10975538
+Tantely, L. M. et al. An entomological investigation during a recent Rift Valley fever epizootic/epidemic reveals new aspects of the vectorial transmission of the virus in Madagascar. Pathogens 13, 258. 10.3390/pathogens13030258 (2024).38535601 10.3390/pathogens13030258 PMC10975538
+24. Institut Pasteur de Madagascar, rapport d’activités. (2019). https//www.pasteur.mg/wp-content/uploads/2020/10/Rapport-annuel-2019-1.pdf.
+25. Tantely ML Boyer S Fontenille D A review of mosquitoes associated with Rift Valley fever virus in Madagascar Am. J. Trop. Med. Hyg 2015 92 722 729 10.4269/ajtmh.14-0421 25732680 PMC4385764
+Tantely, M. L., Boyer, S. & Fontenille, D. A review of mosquitoes associated with Rift Valley fever virus in Madagascar. Am. J. Trop. Med. Hyg 92, 722–729 (2015).25732680 10.4269/ajtmh.14-0421 PMC4385764
+26. Tantely ML Goodman S Rakotondranaivo T Boyer S Review of West Nile virus circulation and outbreak risk on Madagascar, Entomological and ornithological perspectives Parasite 2016 23 1 13 10.1051/parasite/2016058 27849515 PMC5112766
+Tantely, M. L., Goodman, S., Rakotondranaivo, T. & Boyer, S. Review of West Nile virus circulation and outbreak risk on Madagascar, Entomological and ornithological perspectives. Parasite 23, 1–13 (2016b).27849515 10.1051/parasite/2016058 PMC5112766
+27. Garros C Adaptation of a species-specific multiplex PCR assay for the identification of blood meal source in Culicoides (Ceratopogonidae, Diptera), applications on Palaearctic biting midge species, vectors of Orbiviruses Infect. Genet. Evol. 2011 11 1103 1110 10.1016/j.meegid.2011.04.002 21511056
+Garros, C. et al. Adaptation of a species-specific multiplex PCR assay for the identification of blood meal source in Culicoides (Ceratopogonidae, Diptera), applications on Palaearctic biting midge species, vectors of Orbiviruses. Infect. Genet. Evol. 11, 1103–1110 (2011).21511056 10.1016/j.meegid.2011.04.002
+28. Ngo KA Kramer L Identification of mosquito bloodmeals using polymerase chain reaction (PCR) with order-specific primers J. Med. Entomol. 2003 40 215 222 10.1603/0022-2585-40.2.215 12693851
+Ngo, K. A. & Kramer, L. Identification of mosquito bloodmeals using polymerase chain reaction (PCR) with order-specific primers. J. Med. Entomol. 40, 215–222 (2003).12693851 10.1603/0022-2585-40.2.215
+29. Pitzer J Kaufman P Tenbroeck S Maruniak J Host blood meal identification by multiplex polymerase chain reaction for dispersal evidence of stable flies (Diptera, Muscidae) between livestock facilities J. Med. Entomol. 2011 48 53 60 10.1603/ME10123 21337948
+Pitzer, J., Kaufman, P., Tenbroeck, S. & Maruniak, J. Host blood meal identification by multiplex polymerase chain reaction for dispersal evidence of stable flies (Diptera, Muscidae) between livestock facilities. J. Med. Entomol. 48, 53–60 (2011).21337948 10.1603/me10123
+30. Humanitarian Data Exchange. The humanitarian data Exchange. (2019). Available at https//data.humdata.org/dataset/united-nations-map (Accessed March 31, 2019). (2019).
+31. NASA Langley Research Center (LaRC) POWER Project. Accessed in February 01. (2022). https//power.larc.nasa.gov/data–access–viewer/
+32. Gao BC NDWI—A normalized difference water index for remote sensing of vegetation liquid water from space Remote Sens. Environ. 1996 58 257 266 10.1016/S0034-4257(96)00067-3
+Gao, B. C. NDWI—A normalized difference water index for remote sensing of vegetation liquid water from space. Remote Sens. Environ. 58, 257–266 (1996).
+33. U.S. President’s Malaria Initiative Madagascar Malaria Operational Plan FY 2023 (President’s Malaria Initiative, 2022); https //www.pmi.gov/resources/malaria- operational- plans- mops/
+34. R Core Team https, // www.R- project. org/ A language and environment for statistical computing 2021 Foundation for Statistical Computing
+R Core Team https, // www.R- project. org/. In A language and environment for statistical computing (Foundation for Statistical Computing, 2021) (Accessed on 2021).
+35. Flor, M. R interface to D3 chord diagrams using the Chorddiag package. Available at https//github.com/mattflor/chorddiag [access date January 23, 2023].
+36. Garrett-Jones C The human blood index of malaria vectors in relation to epidemiological assessment Bull. World Health Organ. 1964 30 241 261 14153413 PMC2554803
+Garrett-Jones, C. The human blood index of malaria vectors in relation to epidemiological assessment. Bull. World Health Organ. 30, 241–261 (1964).14153413 PMC2554803
+37. Wei, T. R package ‘corrplot’, visualization of a correlation matrix (Version 0.84). https //github.com/taiyun/corrplot.
+38. Wickham, H. Ggplot2: Elegant Graphics for Data Analysis, 2nd ed.; Springer International Publishing: Cham, Switzerland, ; ISBN 978-3-319-24277-4 (2016).
+39. Rudis, B. & Gandy, D. Waffle, create waffle chart visualizations. R package version 1.0.1. (2019). https //gitlab.com/hrbrmstr/waffle.
+40. Kassambara, A. & Mundt, F. Factoextra, extract and visualize the results of multivariate data analyses. (2020). Available at https//cran.r-project.org/package=factoextra.
+41. Barton, K. & MuMIn Multi-Model Inference. R Package Version 1.43.17. Available online, https, //CRAN.R-project.org/package=MuMIn (2020).
+42. Chai T Draxler RR Root mean square error (RMSE) or mean absolute error (MAE)?Arguments against avoiding RMSE in the literature Geosci. Model. Dev. 2014 7 1247 1250 10.5194/gmd-7-1247-2014
+Chai, T. & Draxler, R. R. Root mean square error (RMSE) or mean absolute error (MAE)?Arguments against avoiding RMSE in the literature. Geosci. Model. Dev. 7, 1247–1250 (2014).
+43. Tantely ML Biology of mosquitoes that are potential vectors of Rift Valley Fever virus in different biotopes of the central highlands of Madagascar J. Med. Entomol. 2013 50 603 610 10.1603/ME12069 23802456
+Tantely, M. L. et al. Biology of mosquitoes that are potential vectors of Rift Valley Fever virus in different biotopes of the central highlands of Madagascar. J. Med. Entomol. 50, 603–610 (2013).23802456 10.1603/me12069
+44. Akane A Matsubara K Nakamura H Takashi S Kimura K Identification of the heme compound copurified with deoxyribonucleic acid (DNA) from bloodstains, a major inhibitor of polymerase chain reaction (PCR) amplification J. Forensic Sci. 1994 39 362 372 10.1520/JFS13607J 8195750
+Akane, A., Matsubara, K., Nakamura, H., Takashi, S. & Kimura, K. Identification of the heme compound copurified with deoxyribonucleic acid (DNA) from bloodstains, a major inhibitor of polymerase chain reaction (PCR) amplification. J. Forensic Sci. 39, 362–372 (1994).8195750
+45. Shehata AZ Feeding rate and reproductive performance of three mosquito species as influenced by different blood meal sources Egypt. Acad. J. Biol. Sci. 2018 11 77 84
+Shehata, A. Z. Feeding rate and reproductive performance of three mosquito species as influenced by different blood meal sources. Egypt. Acad. J. Biol. Sci. 11, 77–84 (2018).
+46. Arunachalam N Samuel PP Hiriyan J Rajendran R Dash AP Short report, observations on the multiple feeding behavior of Culex tritaeniorhynchus (Diptera, Culicidae), the vector of Japanese encephalitis in Kerala in southern India Am. J. Trop. Med. Hyg. 2005 72 198 200 10.4269/ajtmh.2005.72.198 15741557
+Arunachalam, N., Samuel, P. P., Hiriyan, J., Rajendran, R. & Dash, A. P. Short report, observations on the multiple feeding behavior of Culex tritaeniorhynchus (Diptera, Culicidae), the vector of Japanese encephalitis in Kerala in southern India. Am. J. Trop. Med. Hyg. 72, 198–200 (2005).15741557
+47. Elizondo-Quiroga A Host-feeding preference of Culex quinquefasciatus in Monterrey, Northeastern Mexico J. Am. Mosq. Control Assoc. 2006 22 654 61 10.2987/8756-971X(2006)22[654:HPOCQI]2.0.CO;2 17304933
+Elizondo-Quiroga, A. et al. Host-feeding preference of Culex quinquefasciatus in Monterrey, Northeastern Mexico. J. Am. Mosq. Control Assoc. 22, 654–61 (2006).17304933 10.2987/8756-971X(2006)22[654:HPOCQI]2.0.CO;2
+48. Jansen CC Blood sources of mosquitoes collected from urban and peri-urban environments in eastern Australia with species-specific molecular analysis of avian blood meals Am. J. Trop. Med. Hyg. 2009 81 849 857 10.4269/ajtmh.2009.09-0008 19861621
+Jansen, C. C. et al. Blood sources of mosquitoes collected from urban and peri-urban environments in eastern Australia with species-specific molecular analysis of avian blood meals. Am. J. Trop. Med. Hyg. 81, 849–857 (2009).19861621 10.4269/ajtmh.2009.09-0008
+49. Njabo KY Smith TB Yohannes E Feeding habits of culicine mosquitoes in the Cameroon lowland forests based on stable isotopes and blood meal analyses J. Parasitol. Vect. Biol 2013 5 6 12
+Njabo, K. Y., Smith, T. B. & Yohannes, E. Feeding habits of culicine mosquitoes in the Cameroon lowland forests based on stable isotopes and blood meal analyses. J. Parasitol. Vect. Biol 5, 6–12 (2013).
+50. Cooperband MF Cardé RT Comparison of plume structures of carbon dioxide emitted from different mosquito traps Med. Vet. Entomol. 2006 20 1 10 10.1111/j.1365-2915.2006.00614.x 16608485
+Cooperband, M. F. & Cardé, R. T. Comparison of plume structures of carbon dioxide emitted from different mosquito traps. Med. Vet. Entomol. 20, 1–10 (2006).16608485 10.1111/j.1365-2915.2006.00614.x
+51. Katusi GC Seasonal variation in abundance and blood meal sources of primary and secondary malaria vectors within Kilombero Valley Southern Tanzania Parasites Vectors 2022 15 479 10.1186/s13071-022-05586-z 36539892 PMC9768911
+Katusi, G. C. et al. Seasonal variation in abundance and blood meal sources of primary and secondary malaria vectors within Kilombero Valley Southern Tanzania. Parasites Vectors 15, 479 (2022).36539892 10.1186/s13071-022-05586-z PMC9768911
+52. Molaei G Andreadis TG Armstrong PM Diuk-Wasser M Host-feeding patterns of potential mosquito vectors in Connecticut, U.S.A., molecular analysis of bloodmeals from 23 species of Aedes, Anopheles, Culex, Coquillettidia, Psorophora and Uranotaenia J. Med. Entomol. 2008 45 1143 1151 10.1093/jmedent/45.6.1143 19058640
+Molaei, G., Andreadis, T. G., Armstrong, P. M. & Diuk-Wasser, M. Host-feeding patterns of potential mosquito vectors in Connecticut, U.S.A., molecular analysis of bloodmeals from 23 species of Aedes, Anopheles, Culex, Coquillettidia, Psorophora and Uranotaenia. J. Med. Entomol. 45, 1143–1151 (2008).19058640 10.1603/0022-2585(2008)45[1143:hpopmv]2.0.co;2
+53. Gad AM Host feeding of mosquitoes (Diptera, Culicidae) associated with the recurrence of Rift valley fever in Egypt J. Med. Entomol. 1999 36 709 714 10.1093/jmedent/36.6.709 10593070
+Gad, A. M. et al. Host feeding of mosquitoes (Diptera, Culicidae) associated with the recurrence of Rift valley fever in Egypt. J. Med. Entomol. 36, 709–714 (1999).10593070 10.1093/jmedent/36.6.709
+54. Muturi EJ Njoroge TM Dunlap C Cáceres CE Blood meal source and mixed blood-feeding influence gut bacterial community composition in Aedes aegypti Parasites Vectors 2021 14 83 10.1186/s13071-021-04579-8 33509255 PMC7841894
+Muturi, E. J., Njoroge, T. M., Dunlap, C. & Cáceres, C. E. Blood meal source and mixed blood-feeding influence gut bacterial community composition in Aedes aegypti. Parasites Vectors 14, 83. 10.1186/s13071-021-04579-8 (2021).33509255 10.1186/s13071-021-04579-8 PMC7841894
+55. Ferraguti M A field test of the dilution effect hypothesis in four avian multi-host pathogens PLoS. Pathog 2021 17 e1009637 10.1371/journal.ppat.1009637 34161394 PMC8221496
+Ferraguti, M. et al. A field test of the dilution effect hypothesis in four avian multi-host pathogens. PLoS. Pathog 17, e1009637 (2021).34161394 10.1371/journal.ppat.1009637 PMC8221496
+56. Waite JL Increasing the potential for malaria elimination by targeting zoophilic vectors Sci. Rep 2017 7 40551 10.1038/srep40551 28091570 PMC5238397
+Waite, J. L. et al. Increasing the potential for malaria elimination by targeting zoophilic vectors. Sci. Rep 7, 40551 (2017).28091570 10.1038/srep40551 PMC5238397
+57. Raffy M Tran A On the dynamics of flying insects populations controlled by large scale information Theor. Popul. Biol. 2005 68 91 104 10.1016/j.tpb.2005.03.005 16023689
+Raffy, M. & Tran, A. On the dynamics of flying insects populations controlled by large scale information. Theor. Popul. Biol. 68, 91–104 (2005).16023689 10.1016/j.tpb.2005.03.005
+58. Scavuzzo JM Modeling dengue vector population using remotely sensed data and machine learning Acta Trop. 2018 185 167 175 10.1016/j.actatropica.2018.05.003 29777650
+Scavuzzo, J. M. et al. Modeling dengue vector population using remotely sensed data and machine learning. Acta Trop. 185, 167–175 (2018).29777650 10.1016/j.actatropica.2018.05.003
+59. Chirebvu E Chimbari MJ Ngwenya BN Assessment of risk factors associated with malaria transmission in Tubu village, northern Botswana Malar. Res. Treat. 2014 10.1155/2014/403069 24757573 PMC3976786
+Chirebvu, E., Chimbari, M. J. & Ngwenya, B. N. Assessment of risk factors associated with malaria transmission in Tubu village, northern Botswana. Malar. Res. Treat.10.1155/2014/403069 (2014).24757573 10.1155/2014/403069 PMC3976786
+60. Sellers RF Weather, host and vector, their interplay in the spread of insect-borne animal virus diseases J. Hyg. 1980 85 65 102 10.1017/S0022172400027108 6131919 PMC2134001
+Sellers, R. F. Weather, host and vector, their interplay in the spread of insect-borne animal virus diseases. J. Hyg. 85, 65–102 (1980).6131919 10.1017/s0022172400027108 PMC2134001
+61. Brugman VA Blood-feeding patterns of native mosquitoes and insights into their potential role as pathogen vectors in the Thames estuary region of the United Kingdom Parasit. Vectors 2017 10 163 10.1186/s13071-017-2098-4 28347323 PMC5369192
+Brugman, V. A. et al. Blood-feeding patterns of native mosquitoes and insights into their potential role as pathogen vectors in the Thames estuary region of the United Kingdom. Parasit. Vectors 10, 163 (2017).28347323 10.1186/s13071-017-2098-4 PMC5369192
+62. Hoffmann EJ Miller JR Reassessment of the role and utility of wind in suppression of mosquito (Diptera, Culicidae) host finding, stimulus dilution supported over flight limitation J. Med. Entomol. 2003 40 607 614 10.1603/0022-2585-40.5.607 14596273
+Hoffmann, E. J. & Miller, J. R. Reassessment of the role and utility of wind in suppression of mosquito (Diptera, Culicidae) host finding, stimulus dilution supported over flight limitation. J. Med. Entomol. 40, 607–614 (2003).14596273 10.1603/0022-2585-40.5.607
+63. Robert V Moderate transmission but high prevalence of malaria in Madagascar Int. J. Parasitol 2006 36 1273 1281 10.1016/j.ijpara.2006.06.005 16842796
+Robert, V. et al. Moderate transmission but high prevalence of malaria in Madagascar. Int. J. Parasitol 36, 1273–1281 (2006).16842796 10.1016/j.ijpara.2006.06.005
+64. Zeru MA Shibru S Massebo F Exploring the impact of cattle on human exposure to malaria mosquitoes in the Arba Minch area district of southwest Ethiopia Parasites Vectors 2020 13 322 10.1186/s13071-020-04194-z 32571402 PMC7310237
+Zeru, M. A., Shibru, S. & Massebo, F. Exploring the impact of cattle on human exposure to malaria mosquitoes in the Arba Minch area district of southwest Ethiopia. Parasites Vectors 13, 322 (2020).32571402 10.1186/s13071-020-04194-z PMC7310237
+65. Sota T Mogi M Effectiveness of zooprophylaxis in malaria control – A theoretical enquiry, with a model for mosquito populations with two bloodmeal hosts Med. Vet. Entomol. 1989 3 337 345 10.1111/j.1365-2915.1989.tb00240.x 2519684
+Sota, T. & Mogi, M. Effectiveness of zooprophylaxis in malaria control – A theoretical enquiry, with a model for mosquito populations with two bloodmeal hosts. Med. Vet. Entomol. 3, 337–345 (1989).2519684 10.1111/j.1365-2915.1989.tb00240.x
+66. Finney M McKenzie BA Rabaovola B Sutcliffe A Dotson E Zohdy S Widespread zoophagy and detection of Plasmodium spp. in Anopheles mosquitoes in southeastern Madagascar Malar. J. 2021 20 25 10.1186/s12936-020-03539-4 33413398 PMC7791646
+Finney, M. et al. Widespread zoophagy and detection of Plasmodium spp. in Anopheles mosquitoes in southeastern Madagascar. Malar. J. 20, 25 (2021).33413398 10.1186/s12936-020-03539-4 PMC7791646
+67. Yamamoto SS Louis VR Sie A Sauerborn R The effects of zooprophylaxis and other mosquito control measures against malaria in Nouna, Burkina Faso Malar. J. 2009 8 283 10.1186/1475-2875-8-28 20003189 PMC2799429
+Yamamoto, S. S., Louis, V. R., Sie, A. & Sauerborn, R. The effects of zooprophylaxis and other mosquito control measures against malaria in Nouna, Burkina Faso. Malar. J. 8, 283. 10.1186/1475-2875-8-28 (2009).20003189 10.1186/1475-2875-8-283 PMC2799429
+68. Killeen GF McKenzie FE Foy BD Bogh C Beier JC The availability of potential hosts as a determinant of feeding behaviours and malaria transmission by mosquito populations Trans. R. Soc. Trop. Med. Hyg. 2001 95 469 476 10.1016/S0035-9203(01)90005-7 11706651 PMC2483839
+Killeen, G. F., McKenzie, F. E., Foy, B. D., Bogh, C. & Beier, J. C. The availability of potential hosts as a determinant of feeding behaviours and malaria transmission by mosquito populations. Trans. R. Soc. Trop. Med. Hyg. 95, 469–476 (2001).11706651 10.1016/s0035-9203(01)90005-7 PMC2483839
+69. Olanga, E. A., Okal, M. N., Mbadi, P. A., Kokwaro, E. D. & Mukabana, W. R. Attraction of Anopheles gambiae to odour baits augmented with heat and moisture. Malar. J. 9, 6 https, (2010). 10.1186/1475-2875-9-610.1186/1475-2875-9-6 PMC2822790 20051143
+70. Mondet B Rainfall patterns and population dynamics of Aedes (Aedimorphus) vexans arabiensis, Patton 1905 (Diptera, Culicidae), a potential vector of Rift Valley fever virus in Senegal J. Vect Ecol. 2005 30 102 106 16007962
+Mondet, B. et al. Rainfall patterns and population dynamics of Aedes (Aedimorphus) vexans arabiensis, Patton 1905 (Diptera, Culicidae), a potential vector of Rift Valley fever virus in Senegal. J. Vect Ecol. 30, 102–106 (2005).16007962
+71. Christophers SR Aedes aegypti (L.) the Yellow Fever Mosquito 1960 Cambridge University Press
+Christophers, S. R. Aedes aegypti (L.) the Yellow Fever Mosquito (Cambridge University Press, 1960).
+72. Geissbühler Y Interdependence of domestic malaria prevention measures and mosquito-human interactions in urban Dar es Salaam, Tanzania Malar. J. 2007 6 126 10.1186/1475-2875-6-126 17880679 PMC2039744
+Geissbühler, Y. et al. Interdependence of domestic malaria prevention measures and mosquito-human interactions in urban Dar es Salaam, Tanzania. Malar. J. 6, 126 (2007).17880679 10.1186/1475-2875-6-126 PMC2039744

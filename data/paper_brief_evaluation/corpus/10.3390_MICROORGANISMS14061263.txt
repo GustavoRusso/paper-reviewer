@@ -1,0 +1,449 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Microorganisms
+Journal ID: Microorganisms
+NLM Journal ID: 101625893
+Journal ID: microorganisms
+
+Microorganisms
+
+EISSN: 2076-2607
+Publisher: Multidisciplinary Digital Publishing Institute (MDPI)
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13304302
+PMID: 42354887
+DOI: 10.3390/microorganisms14061263
+Article ID: microorganisms-14-01263
+Article version: 1
+Subjects: Review
+
+West Nile Virus in Horses as a Sentinel Host in One Health Surveillance: Epidemiological Insights and Future Perspectives
+
+https://orcid.org/0009-0009-9380-1985 Nistor Paula 1 2 †
+Stanga Livia 3 * †
+Iorgoni Vlad 1 2
+https://orcid.org/0000-0003-2531-6469 Gligor Alexandru 1
+Florea Bogdan 2 4
+Cocioba Vlad 2 5
+https://orcid.org/0000-0001-8913-4942 Iancu Ionica 1
+https://orcid.org/0009-0003-0153-5533 Maris Cosmin Horatiu 6
+https://orcid.org/0000-0001-7118-6488 Herman Viorel 1 7
+Kimura Hirokazu Academic Editor
+1 Department of Infectious Diseases and Preventive Medicine, Faculty of Veterinary Medicine, University of Life Sciences “King Mihai I” from Timişoara, 300645 Timişoara, Romania; paula.nistor@usvt.ro (P.N.); vlad.iorgoni@usvt.ro (V.I.); alexandru.gligor@usvt.ro (A.G.); ionica.iancu@usvt.ro (I.I.); viorel.herman@fmvt.ro (V.H.)
+2 Doctoral School “Veterinary Medicine”, University of Life Sciences “King Mihai I” from Timişoara, Calea Aradului 119, 300645 Timişoara, Romania; bogdan-alexandru.florea.fmv@usvt.ro (B.F.); vlad-mihai.cocioba.fmv@usvt.ro (V.C.)
+3 Discipline of Microbiology, Faculty of Medicine, “Victor Babes” University of Medicine and Pharmacy, Eftimie Murgu Square 2, 300041 Timişoara, Romania
+4 Department of Internal Medicine, University of Life Sciences “King Mihai I” from Timişoara, 300645 Timişoara, Romania
+5 Department of Animal Husbandry, University of Life Sciences “King Mihai I” from Timişoara, 300645 Timişoara, Romania
+6 Department of Forestry, Faculty of Engineering and Applied Technologies, University of Life Sciences “King Mihai I” from Timișoara, 300645 Timișoara, Romania; cosmin.maris@usvt.ro
+7 Academy of Romanian Scientists, Str. Ilfov, Nr. 3, Sector 5, 50044 Bucharest, Romania
+* Correspondence: stanga.livia@umft.ro† These authors contributed equally to this work.
+
+Electronic publication date: 2026 Jun 3
+Publication date: 2026 Jun
+Volume: 14
+Issue: 6
+Electronic Location ID: 1263
+Received 2026 Apr 30; Revised 2026 May 30; Accepted 2026 Jun 1
+Copyright: © 2026 by the authors.
+Copyright year: 2026
+License: Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, horses, sentinel surveillance, One Health, arboviruses, epidemiology, seroprevalence, vector-borne diseases
+
+Funding: This research received no external funding.
+
+==============================
+West Nile virus (WNV) is a globally distributed mosquito-borne flavivirus with significant implications for both veterinary and public health. While horses are incidental dead-end hosts, their epidemiological role extends beyond clinical disease, as they can serve as effective sentinel hosts for detecting local viral circulation. Their frequent exposure to mosquito vectors, ability to mount measurable antibody responses, geographic stability, accessibility for monitoring, and the possibility of observation within managed owner–veterinarian systems make them particularly suitable for surveillance within a One Health framework. Evidence from Europe and the Americas demonstrates that equine seroprevalence and field surveillance can identify transmission hotspots, reveal silent circulation, and contribute to the understanding of spatial and temporal risk patterns. The review also addresses key limitations, including vaccination effects, flavivirus cross-reactivity, methodological heterogeneity, and challenges in interpreting serological data across different ecological contexts. Strengthening equine sentinel surveillance through standardized methodologies and integration with predictive and geospatial approaches may improve early warning capacity and support more effective control of WNV and other emerging arboviral diseases.
+
+1. Introduction
+
+West Nile virus (WNV) is an enveloped, positive-sense single-stranded RNA virus belonging to the Flaviviridae family, first identified in Uganda in 1937 [1]. Since its initial recognition, WNV has expanded from a geographically limited pathogen to one of the most widely distributed mosquito-borne viruses in the world, with endemic or recurrent transmission documented on all continents except Antarctica [2]. This expansion has been driven by a combination of ecological and anthropogenic processes, including climatic shifts, changes in vector habitat, movement of infected birds, increasing overlap between wildlife and domestic animal systems, and the intensification of environmental conditions favorable to mosquito proliferation [3,4].
+
+The ecological maintenance of WNV depends on a bird–mosquito–bird transmission cycle in which ornithophilic mosquitoes, primarily species of the genus Culex, acquire infection from viremic birds and subsequently transmit the virus to new avian hosts [5]. In this cycle, birds act as the principal amplifying hosts, whereas horses and humans are regarded as incidental or dead-end hosts because they generally do not develop viremia sufficient to infect feeding mosquitoes [6]. Although horses do not contribute meaningfully to onward transmission, their infection reflects local mosquito activity and viral circulation [7].
+
+In response to the increasing importance of WNV in both veterinary and public health, sentinel-based surveillance has become a key approach for early detection of viral circulation. A sentinel host is one whose exposure, infection, or disease occurrence provides actionable information about pathogen circulation in a given ecological setting [8]. Horses meet key criteria of effective sentinel hosts, including frequent exposure to mosquito vectors, geographic stability, and accessibility for monitoring [7,9].
+
+The value of horses as sentinel hosts is particularly relevant within a One Health framework, where interactions between wildlife reservoirs, arthropod vectors, domestic animals, humans, and environmental conditions collectively shape the transmission dynamics of West Nile virus. In this interconnected system, horses occupy an intermediate and strategically informative position: although they do not contribute to viral amplification, their infection reflects local vector activity and ecological suitability for transmission. As such, equine populations provide a measurable and geographically meaningful indicator of viral circulation, linking environmental drivers and vector dynamics to potential human health risk. This integrative role enhances the capacity of surveillance systems to detect emerging transmission patterns and to support timely, evidence-based public health interventions [7,10].
+
+While existing literature has primarily focused on the clinical presentation, diagnostic approaches, and pathophysiological mechanisms of WNV infection in horses, comparatively less attention has been given to their broader epidemiological significance within integrated surveillance systems. In particular, there is an increasing need for a concept-driven synthesis that explicitly addresses the role of horses as sentinel hosts, not merely as incidental hosts but as interpretable indicators of viral circulation within complex ecological networks. Such an approach is especially relevant in the context of emerging and re-emerging arboviral threats, where early detection and accurate risk assessment depend on the integration of data across animal, human, and environmental domains. Accordingly, this review examines WNV in horses through the lens of sentinel surveillance, with emphasis on their ecological and epidemiological relevance, the interpretative value of equine serological and clinical data, their integration within One Health surveillance frameworks, key methodological and conceptual limitations, and future directions for improving their application in predictive and coordinated disease monitoring systems.
+
+Literature Search Strategy and Review Methodology
+
+This narrative review was conducted through a structured literature search performed in PubMed, Scopus, Web of Science, and Google Scholar databases. The search included combinations of the following keywords: “West Nile virus”, “horses”, “equine”, “sentinel surveillance”, “One Health”, “seroprevalence”, “arbovirus surveillance”, and “vector-borne diseases”.
+
+Priority was given to peer-reviewed articles published in English that focused on equine epidemiology, serological surveillance, vector-host interactions, and integrated One Health surveillance systems. Both classical and recent studies were considered to capture the historical development and current epidemiological understanding of equine WNV surveillance.
+
+Studies focused exclusively on clinical case descriptions without epidemiological relevance, non-peer-reviewed reports, and articles lacking sufficient methodological information were excluded. Additional references were identified through citation tracking of relevant articles.
+
+2. Ecological Basis of West Nile Virus Transmission and the Position of Horses in the Transmission Network
+
+The suitability of horses as sentinel hosts cannot be understood without first considering the ecological organization of WNV transmission. At its core, WNV is maintained through a vector-borne cycle involving competent mosquitoes and susceptible avian hosts [11]. Mosquitoes acquire infection during blood feeding on viremic birds and can then transmit the virus to additional avian hosts, thereby maintaining enzootic circulation [12] (Figure 1). Spillover to horses and humans occurs when bridge vectors feed opportunistically on mammals, particularly in areas where mosquito density is high and virus amplification in birds has already occurred [13].
+
+This transmission network is strongly shaped by environmental conditions, particularly temperature. Higher temperatures can accelerate mosquito development, increase feeding frequency, and shorten the extrinsic incubation period of West Nile virus within the vector, thereby increasing transmission potential under suitable ecological conditions. Rainfall and water availability determine larval habitat suitability, while land use, wetland density, vegetation structure, and urbanization influence both vector breeding sites and host contact patterns [14,15]. Environmental change, whether through climate warming, irrigation, altered drainage, urban sprawl, or habitat fragmentation, can increase the probability of contact between infected vectors and incidental hosts [16,17,18].
+
+Birds occupy the central ecological role in WNV amplification and dispersal. Resident birds sustain local transmission cycles, whereas migratory birds may contribute to long-distance viral introduction [19]. Once the virus is introduced into a region that contains competent vectors and suitable ecological conditions, local transmission can become established. However, direct monitoring of avian hosts is often logistically difficult, incomplete, or biased toward visible mortality events. This is one reason why domestic species, especially horses, are so attractive in surveillance systems [20,21].
+
+Horses sit at the interface between natural transmission ecology and managed animal health systems. Unlike migratory birds, they are usually geographically traceable. Unlike free-ranging wildlife, they can be sampled repeatedly and systematically. Unlike humans, they may reveal exposure patterns even in the absence of recognized outbreaks or intensive diagnostic activity. For these reasons, horses can provide a biologically meaningful and operationally feasible picture of local viral activity [22,23].
+
+Another ecological advantage of horses is that their infection is generally interpreted as evidence of local mosquito-mediated exposure rather than long-range animal movement through reservoir pathways [23,24]. Although transport and management practices can complicate this interpretation in some contexts, equine seropositivity often carries stronger local ecological meaning than a sporadic human case with unknown exposure setting. Thus, the horse functions as an intermediate surveillance lens: biologically responsive to the ecosystem, but still sufficiently controlled and observable to generate high-value epidemiological information [25,26].
+
+Nevertheless, interpretation of equine seropositivity as evidence of strictly local transmission may be complicated by horse movement associated with breeding, sport competitions, seasonal relocation, trade, or temporary housing. Accurate epidemiological interpretation therefore requires integration of animal movement history and management data whenever possible.
+
+In practical terms, the horse does not replace avian or vector surveillance. Rather, it strengthens ecological inference by providing a measurable domestic host response to local transmission intensity. This makes equine surveillance particularly relevant in regions where avian monitoring is underdeveloped, where vector testing is intermittent, or where public health systems require supplementary indicators of transmission risk [4,27].
+
+3. Why Horses Function as Sentinel Hosts for West Nile Virus Surveillance
+
+The suitability of horses as sentinel hosts for WNV surveillance is the result of a convergence of biological, ecological, and operational characteristics that together provide a robust epidemiological signal [8,10]. This suitability can be understood through four complementary dimensions: biological, operational, epidemiological, and comparative suitability (Figure 2).
+
+3.1. Biological and Epidemiological Suitability
+
+The suitability of horses as sentinel species for arboviral surveillance is determined by the combination of biological responsiveness and epidemiological relevance. Horses are frequently exposed to mosquito vectors and develop detectable antibody responses following infection, making them reliable indicators of viral circulation. As dead-end hosts, they do not develop viremia sufficient to infect feeding mosquitoes, meaning that equine infection reflects local transmission without contributing to viral amplification [26,28,29,30,31,32].
+
+From an epidemiological perspective, both serological and clinical findings in horses can provide information at multiple levels of inference. Detection of IgM antibodies may indicate recent exposure, whereas IgG seroprevalence reflects cumulative viral circulation over time. The spatial distribution of seropositive animals within holdings or regions can further support the identification of localized transmission patterns and regional risk assessment [33,34].
+
+3.2. Operational Suitability
+
+Operational suitability refers to the practicality of implementing equine-based surveillance under field conditions. Horses are generally owned, managed, and routinely monitored, which facilitates structured sampling and longitudinal follow-up. Their association with identifiable holdings enables accurate spatial attribution of epidemiological data, while veterinary oversight supports standardized clinical reporting and data collection. However, the effectiveness of this surveillance approach depends on stakeholder participation, including owner cooperation, accurate documentation of vaccination and movement history, and consistent involvement of veterinary services.
+
+3.3. Comparative Suitability
+
+Comparative suitability refers to the relative value of horses in relation to other components of WNV surveillance systems. Unlike birds, which serve as primary amplifying hosts but are difficult to monitor systematically, or mosquitoes, which provide direct evidence of viral presence but require technically demanding surveillance, horses offer a practical and interpretable host-based signal. Compared to human cases, which may be sporadic and associated with uncertain exposure locations, equine infections are often more geographically attributable. For these reasons, horses represent an intermediate and complementary surveillance component, bridging ecological processes and public health outcomes without replacing other surveillance modalities [35,36,37].
+
+Nevertheless, equine surveillance cannot replace avian or entomological surveillance systems. Birds remain the principal amplifying hosts and may provide earlier evidence of viral amplification, while vector surveillance offers direct evidence of viral circulation in mosquito populations.
+
+4. Epidemiological Insights from Equine Seroprevalence and Field Surveillance Studies
+
+Equine seroprevalence studies represent one of the most informative tools for understanding the circulation of WNV across different ecological contexts. These studies provide insight not only into the presence of the virus but also into the intensity, duration, and spatial distribution of transmission [7,25,38].
+
+4.1. Regional Variability and Global Comparisons
+
+In Europe, seroprevalence studies have demonstrated relatively low to moderate exposure levels in many regions. For example, in Germany, WNV seroprevalence in horses has been reported at approximately 3.3% using virus neutralization testing. Similar values have been reported in Austria (~5.3%), Croatia (~3.4%), and Greece (~4.0%), suggesting focal or emerging transmission patterns [7,39,40,41,42].
+
+In contrast, higher seroprevalence levels have been observed in regions with longer-standing endemic circulation, including parts of southeastern Europe where values may exceed 10–20% [26,43,44,45]. These differences reflect cumulative exposure over time, ecological suitability for vectors, and regional differences in surveillance intensity [43,44,45].
+
+In South America, studies such as that conducted in Brazil have revealed substantially higher levels of arbovirus exposure, with more than 50% of horses showing antibodies to at least one arbovirus and 32.1% confirmed as WNV-positive by PRNT90 [46]. These findings highlight the complexity of arboviral ecology in tropical environments, where multiple viruses co-circulate and environmental conditions favor sustained transmission [25,26,38,39,40,41,42,43,44,45,46].
+
+However, direct comparison between studies remains difficult because seroprevalence estimates are strongly influenced by differences in study design, sampling strategy, diagnostic assays, vaccination coverage, ecological conditions, and temporal context. Consequently, similar seroprevalence values may not necessarily indicate equivalent transmission intensity across regions.
+
+4.2. Interpretation of Seroprevalence
+
+Seroprevalence must be interpreted within its epidemiological context, as at the individual level it indicates exposure without defining the timing or source of infection, at the holding level the presence of multiple seropositive animals suggests local transmission, and at the regional level overall seroprevalence patterns reflect ecological suitability and the intensity of viral circulation [25,26,47] (Figure 3).
+
+Interpretation of equine seroprevalence should distinguish between endemic circulation, recent outbreak-associated transmission, and vaccine-induced seropositivity. High IgG seroprevalence in endemic regions may reflect long-term cumulative exposure rather than active transmission, whereas IgM detection is more indicative of recent viral circulation. In vaccinated populations, serological interpretation requires careful integration of vaccination history and confirmatory testing.
+
+Importantly, seropositivity does not necessarily indicate recent circulation. IgG antibodies may persist for extended periods, meaning that seroprevalence reflects both past and current exposure. This limitation must be considered when using equine data for real-time risk assessment [25,26,48].
+
+4.3. Determinants of Variability
+
+Differences in seroprevalence across studies are influenced by multiple interacting factors, including ecological conditions such as temperature, water availability, and vector density, the presence and diversity of avian reservoir hosts, variations in study design (e.g., random versus convenience sampling), the vaccination status of horses, as well as the diagnostic methods used and the thresholds applied for defining seropositivity [13,25,48,49]. Age is one of the most consistent determinants, with older horses showing higher seropositivity due to cumulative exposure [47,50,51].
+
+Furthermore, many published studies rely on convenience sampling rather than structured epidemiological designs, potentially introducing selection bias and limiting extrapolation to broader equine populations. Variability in laboratory confirmation protocols and serological thresholds further complicates inter-study comparability.
+
+4.4. Detection of Silent Transmission
+
+One of the most important contributions of equine surveillance is the detection of silent or cryptic transmission. In many regions, equine seroconversion has been documented in the absence of reported human cases, indicating that viral circulation may occur undetected by public health systems [26,32,44].
+
+This feature makes horses particularly valuable in early-stage emergence or in areas with limited diagnostic infrastructure.
+
+5. Clinical Relevance in Sentinel Surveillance: Why Clinical Disease Still Matters
+
+Although a proportion of infected horses may develop neuroinvasive disease, this does not invalidate their role as sentinel hosts. In sentinel surveillance, the defining feature is not the absence of disease, but the epidemiological interpretability of exposure or infection. Horses remain valuable sentinels because both subclinical seroconversion and clinically apparent infection can indicate local viral circulation. Clinical disease represents the more visible end of the same transmission process and may serve as an important trigger for surveillance, particularly where active serological monitoring is limited [35,52].
+
+Most WNV infections in horses are subclinical, but a minority of infected naïve horses develop neuroinvasive disease, often with signs such as ataxia, weakness, muscle fasciculations, cranial nerve deficits, and recumbency [53,54]. The fact that not all infections become clinically visible is actually advantageous from a sentinel perspective: equine populations can provide both silent serological evidence of circulation and more visible clinical alerts [55]. Together, these two forms of information create a richer surveillance signal than clinical reporting alone.
+
+Clinical cases are especially important in regions where structured active surveillance is limited [35,47]. A horse presenting with acute neurological disease may serve as a practical epidemiological alarm that prompts testing, vector attention, and risk reassessment. In this sense, the horse functions as a sentinel not only because it seroconverts, but because its disease may be noticed, investigated, and reported [7,46,56].
+
+The relationship between equine clinical disease and human risk is not always direct or linear [57,58]. A single equine case does not necessarily predict a human outbreak, and the absence of equine neurological disease does not exclude local circulation [30]. Nevertheless, the occurrence of confirmed equine cases adds important contextual value to surveillance and may justify enhanced attention to local mosquito activity and public health preparedness [51,59].
+
+Therefore, while horses should not be valued as sentinels only through overt disease, the clinical manifestation of WNV remains an important part of their surveillance significance. Equine clinical cases bring visibility, urgency, and interpretive weight to surveillance systems that might otherwise rely only on background serology.
+
+6. Diagnostic Interpretation in Sentinel Surveillance Contexts
+
+Because this review is centered on sentinel surveillance rather than diagnostic methodology itself, the importance of diagnosis lies primarily in how it shapes epidemiological interpretation. In the context of horse-based surveillance, the goal is often not merely to determine whether an individual horse is infected, but to infer whether viral circulation is occurring in a given area and how confidently that inference can be made.
+
+Serological testing forms the backbone of equine sentinel surveillance. Horses that seroconvert after exposure can reveal local transmission even in the absence of clinical signs [60,61]. However, the value of this information depends heavily on correct interpretation. IgM-based testing is particularly informative for recent infection, whereas IgG-based screening is more useful for cumulative exposure or seroprevalence estimation. Competitive ELISA assays are useful for large-scale screening, but their interpretation may be limited by flavivirus cross-reactivity, especially in regions where WNV, USUV, TBEV, or SLEV may overlap [62,63,64,65,66].
+
+Considerable heterogeneity exists among serological assays used across studies, including differences in ELISA format, antigen composition, cutoff interpretation, and confirmatory neutralization criteria. Variability in PRNT thresholds and laboratory validation standards may substantially influence reported seroprevalence estimates and complicate direct epidemiological comparisons between regions (Table 1) [63,64,65,67,68,69].
+
+The choice of diagnostic method depends on the epidemiological objective of surveillance, including detection of recent transmission, estimation of cumulative exposure, confirmation of WNV-specific antibodies, or ecological monitoring of vectors and reservoir hosts. Differences in assay sensitivity, specificity, and interpretive criteria must be considered when comparing surveillance data across studies and regions [55,66,70,71,72].
+
+For sentinel surveillance, confirmatory neutralization testing is often essential. Plaque Reduction Neutralization Test (PRNT90) and related virus neutralization methods increase specificity and help distinguish WNV exposure from serological responses to related flaviviruses. This is particularly important when equine seropositivity is being used to guide public health or ecological inference, since false-positive or non-specific results may distort the perceived distribution of risk [66,67,68,69,70].
+
+Another key issue is vaccination. In sentinel systems, vaccinated horses are often less useful as interpretable indicators of natural exposure unless surveillance is explicitly designed to account for immunization history. This is why several studies emphasize the value of using unvaccinated horses as sentinel populations [55,70,71,72].
+
+Thus, the relevance of diagnostics in sentinel surveillance is not only technical but strategic. The surveillance value of the horse depends on whether test results can be interpreted as meaningful evidence of local viral circulation. Standardized testing algorithms and clear vaccination documentation are therefore as important as the assays themselves.
+
+7. Integration of Horses into One Health Surveillance Systems
+
+Effective WNV surveillance requires a multi-layered approach that integrates data from different biological and institutional domains. Within this framework, horses provide a critical intermediate layer linking ecological processes with public health outcomes.
+
+7.1. Structure of an Integrated System
+
+A functional One Health surveillance system typically incorporates several complementary components, including entomological surveillance focused on mosquito abundance and infection rates, avian surveillance based on mortality monitoring and serology, equine surveillance through seroprevalence studies and clinical case detection, human surveillance involving clinical and laboratory-confirmed cases, and environmental data such as climate patterns, land use, and the distribution of water bodies [73,74,75]. Within this structure, horses contribute by translating ecological exposure into measurable biological responses, thereby connecting environmental risk with observable infection patterns in a domestic species (Figure 4).
+
+7.2. Role of Equine Data
+
+Equine data can be used to identify transmission hotspots, validate ecological risk models, detect early viral circulation, and trigger targeted interventions such as vector control measures or public health alerts [76,77]. The utility of horses as sentinel hosts is maximized when equine surveillance data are interpreted alongside entomological indicators such as mosquito abundance and infection rates, avian mortality and serology, human case surveillance, climatic and spatial risk mapping, and veterinary field observations. This integrated interpretation allows equine findings to be placed within a broader epidemiological context and enhances their predictive value [30,32].
+
+7.3. Practical Implementation Challenges
+
+Despite their epidemiological value, equine data are often not fully integrated into One Health surveillance systems. In practice, several barriers reduce their impact. These include fragmentation between veterinary and public health institutions, differences in reporting thresholds, lack of interoperable databases, inconsistent laboratory confirmation pathways, incomplete documentation of vaccination history, and delays in communication between field veterinarians, diagnostic laboratories, and public health authorities. In addition, the usefulness of equine surveillance depends on owner cooperation, local veterinary engagement, and the existence of clear protocols for sampling, reporting, and feedback. Without these structural elements, equine findings may remain isolated observations rather than actionable surveillance signals [9,78].
+
+In several European surveillance systems, equine neurological case reporting has been integrated with mosquito testing and human surveillance databases to improve early warning capacity. However, interoperability between veterinary and public health information systems remains inconsistent across regions, limiting real-time epidemiological integration and coordinated response [9,32,78].
+
+7.4. Examples of Integration
+
+In several European countries, equine data have been incorporated into national surveillance programs, where the detection of equine cases can trigger enhanced mosquito surveillance or targeted public health alerts [4,79]. However, the degree of integration remains variable, and in many settings surveillance systems remain reactive, responding to detected cases rather than proactively identifying areas at risk. Strengthening the integration of equine data into predictive and coordinated One Health frameworks remains a key priority [80].
+
+7.5. Role of Owners, Keepers, and Caretakers in Equine Sentinel Surveillance
+
+The epidemiological value of equine sentinel surveillance depends partly on stakeholder participation, as owner consent and veterinary engagement directly influence sampling coverage, data completeness, and representativeness. Incomplete vaccination records, limited reporting of animal movements, and variable participation rates may introduce selection bias and affect the interpretation of seroprevalence estimates. Consequently, stakeholder-related factors should be considered as sources of epidemiological uncertainty when designing and interpreting equine surveillance studies. From this perspective, owner and veterinarian involvement is relevant not primarily as an operational component, but as a determinant of surveillance quality and data validity [80,81,82,83,84,85,86,87].
+
+8. Limitations of Horses as Sentinel Hosts
+
+While horses are valuable sentinel hosts, their use is associated with important limitations that must be critically considered in epidemiological interpretation and surveillance design [30,34,88,89,90] (Figure 5).
+
+From a critical perspective, the usefulness of horses as sentinel models depends on a balance between biological interpretability and epidemiological relevance. While their status as dead-end hosts enhances the clarity of interpretation, it also limits their capacity to reflect transmission intensity in highly endemic settings, where repeated exposure may obscure temporal patterns. Moreover, in regions with widespread vaccination, serological data may no longer reliably indicate natural infection, further complicating interpretation. These factors highlight that the sentinel value of horses is conditional rather than absolute [25,44,55,90].
+
+While numerous studies support the use of horses as sentinel models for WNV surveillance, the strength and consistency of this approach vary across ecological and epidemiological contexts. In particular, previous research has demonstrated that equine seroprevalence can provide an early indication of viral circulation in some settings, whereas in others its interpretative value is reduced by factors such as high baseline immunity, vaccination coverage, or complex transmission dynamics. Therefore, the role of horses as sentinel models should not be considered uniformly applicable, but rather context-dependent and influenced by local ecological and operational conditions [26,44,55].
+
+Importantly, these limitations are not merely technical constraints but directly influence the epidemiological interpretation of equine surveillance data. For example, failure to account for vaccination status or cross-reactive antibody responses may lead to overestimation of transmission intensity, while uneven sampling may distort apparent spatial patterns. As a result, equine-based surveillance should be interpreted with caution and always integrated with complementary data sources, including entomological and human surveillance, to ensure accurate risk assessment [7,25,44,90].
+
+8.1. Selection Bias and Representativeness
+
+Many equine surveillance studies rely on convenience sampling rather than systematically designed sampling frameworks. As a result, the populations included may not accurately represent the broader equine population within a region. Differences in management systems, geographic distribution, and owner participation can introduce bias and affect the generalizability of findings [26,55].
+
+8.2. Methodological Heterogeneity
+
+Considerable variability exists across studies in terms of sampling strategies, diagnostic assays used, thresholds for defining seropositivity, and inclusion criteria. This heterogeneity limits comparability between studies and complicates attempts to synthesize data across regions or to draw robust conclusions about large-scale epidemiological patterns [86,87].
+
+8.3. Serological Cross-Reactivity
+
+Cross-reactivity between flaviviruses represents a major limitation in equine surveillance. In regions where WNV co-circulates with viruses such as Usutu virus, tick-borne encephalitis virus, or Saint Louis encephalitis virus, serological screening assays may detect antibodies that are not specific to WNV. Without confirmatory testing, this can lead to misclassification and overestimation of WNV exposure [64,88].
+
+This limitation has important epidemiological implications, particularly in areas with complex flavivirus ecology. Cross-reactive antibody responses may obscure the true distribution and intensity of WNV circulation, leading to inaccurate identification of transmission hotspots and potentially misleading risk assessments. In addition, the extent of cross-reactivity may vary depending on the assay used, the antigenic similarity between circulating viruses, and the immune history of the individual animal, including prior exposure to other flaviviruses or vaccination [48,88].
+
+From a surveillance perspective, failure to adequately address cross-reactivity can reduce the specificity and interpretability of equine sentinel data, especially when serological results are used to inform public health decisions or ecological modeling. For this reason, confirmatory testing using virus neutralization assays, such as PRNT, is essential in regions where multiple flaviviruses co-circulate. Moreover, integrating serological findings with ecological, entomological, and epidemiological data can help contextualize results and improve the accuracy of inference regarding local WNV activity [89,90].
+
+8.4. Vaccination Effects
+
+Vaccination further complicates serological interpretation. Vaccinated horses may develop antibody responses that are indistinguishable from those induced by natural infection in certain assays, particularly IgG-based tests. Unless vaccination history is accurately documented and incorporated into surveillance design, the sentinel value of equine serology may be reduced [91,92].
+
+8.5. Mobility and Spatial Uncertainty
+
+Although horses are generally more geographically stable than wildlife species, they may still be transported for competition, breeding, or trade. This mobility can obscure the true location of exposure and complicate spatial analyses that assume infection reflects local transmission [28,93].
+
+8.6. Temporal Limitations
+
+Seropositivity does not necessarily indicate recent transmission. The persistence of IgG antibodies means that positive results may reflect historical exposure rather than current viral circulation. Without complementary data, such as IgM detection or longitudinal sampling, it can be difficult to distinguish between past and ongoing transmission [42,94,95].
+
+8.7. Economic and Logistical Constraints
+
+The implementation of large-scale equine surveillance systems requires substantial resources, including financial investment, laboratory capacity, and veterinary infrastructure. These requirements are not uniformly met across regions, which may limit the feasibility and sustainability of equine-based surveillance programs, particularly in resource-limited settings [8,96].
+
+8.8. Stakeholder Dependence and Participation Barriers
+
+Unlike wildlife-based surveillance, equine sentinel systems depend heavily on owner consent, caretaker cooperation, and veterinary engagement. Limited awareness, concerns about the consequences of positive findings, incomplete vaccination records, reluctance toward repeated sampling, or logistical constraints at the holding level may reduce participation and introduce additional selection bias. These human factors can substantially affect the representativeness, continuity, and practical implementation of equine surveillance programs [73,97,98,99].
+
+9. Future Perspectives
+
+Within a One Health framework, the contribution of equine surveillance should be viewed as one component of a multi-layered system rather than a standalone indicator. Although horses provide valuable geographically anchored data, their interpretative value is maximized only when integrated with vector surveillance, wildlife monitoring, and human case reporting. This highlights the need for coordinated surveillance strategies that move beyond isolated data streams toward fully integrated epidemiological systems [7,25,44,99].
+
+The future value of horses in WNV surveillance will depend on making equine data more standardized, more comparable, and more integrated into predictive systems, as outlined in Figure 6.
+
+Future research should focus not only on expanding equine surveillance but also on improving its analytical robustness and integration within broader surveillance frameworks. This includes standardization of serological methodologies, better differentiation between vaccination- and infection-derived antibodies, and the development of models that incorporate equine data alongside environmental and entomological variables. Such approaches would enhance the predictive value of equine surveillance and support its role in early warning systems.
+
+One important direction is harmonization of surveillance protocols. Standard approaches to horse selection, vaccination assessment, sampling timing, screening assays, and confirmatory testing would improve comparability across studies and allow stronger epidemiological inference at regional and international levels [90].
+
+Another promising direction is the increased use of geospatial epidemiology. Mapping equine seropositivity alongside climate variables, mosquito abundance, land-use data, water bodies, and bird migration routes could improve the spatial resolution of WNV risk prediction. Horses are especially suitable for this because their residence or holding location is often known with precision [92].
+
+Longitudinal equine surveillance is also likely to be more informative than isolated cross-sectional studies. Repeated monitoring across transmission seasons can reveal temporal trends, identify emerging hotspots, and detect changes in endemicity. Such systems may be especially valuable in regions where WNV is expanding geographically or fluctuating in intensity [44].
+
+Future research should also define the ecological conditions under which horses are most informative as sentinels. Their usefulness may vary according to vaccination prevalence, vector species composition, bird ecology, and local management systems. Moving from descriptive surveillance toward evidence-based sentinel optimization would strengthen the practical role of equine populations in WNV preparedness.
+
+Finally, horses may also serve as models for broader arboviral sentinel surveillance. In regions where multiple flaviviruses circulate, equine surveillance could contribute to integrated monitoring systems capable of detecting not just WNV, but changes in overall arboviral pressure across domestic animal landscapes.
+
+9.1. Limitations
+
+This review is subject to certain limitations, including reliance on heterogeneous data sources and variability in study design across the literature. Differences in diagnostic methods, sampling strategies, and ecological contexts may affect the comparability of reported findings. Consequently, the conclusions presented here should be interpreted within the context of these constraints.
+
+9.2. AI-Assisted Figure Preparation
+
+All figures included in this manuscript were created by the authors using FigureLabs (https://www.figurelabs.ai/, accessed on 2 February 2026), an AI-assisted illustration tool, under an active paid subscription. The generated figures were subsequently reviewed, edited, and validated by the authors to ensure scientific accuracy, relevance, and consistency with the manuscript content. No previously published material was reproduced.
+
+9.3. AI-Assisted Text Preparation Disclosure
+
+During the preparation of this manuscript, the authors did not use artificial intelligence (AI) tools for the generation of scientific text, interpretation of data, or formulation of conclusions. AI-assisted tools were used exclusively for graphical illustration (FigureLabs), as described above. All written content, including conceptual development, literature synthesis, and critical interpretation, was produced, reviewed, and validated entirely by the authors. The authors take full responsibility for the integrity and originality of the manuscript in accordance with journal policies.
+
+10. Conclusions
+
+This review indicates that the value of horses in WNV surveillance extends beyond their role as incidental hosts and lies in their capacity to provide an epidemiologically interpretable signal of local viral circulation. The evidence reviewed across Europe and the Americas consistently shows that equine serological and clinical data can contribute to the identification of transmission hotspots, detection of silent circulation, and assessment of spatial risk patterns, particularly when integrated with entomological, environmental, and human surveillance data.
+
+A central finding emerging from the literature is that the usefulness of horses as sentinel models is context-dependent rather than universal. Their surveillance value is influenced by ecological conditions, vaccination coverage, diagnostic methodologies, sampling design, and the degree of integration within One Health surveillance systems. Consequently, equine data should not be interpreted in isolation but as one component of a broader epidemiological framework that combines multiple complementary sources of evidence.
+
+However, the surveillance value of horses is inseparable from the cooperation of owners, keepers, caretakers, and veterinarians, whose participation determines whether sentinel systems can be implemented consistently, interpreted correctly, and sustained over time. Expanding and refining equine surveillance through standardized methodology, integrated data sharing, and predictive epidemiological tools will enhance preparedness and improve the capacity of One Health systems to detect and respond to WNV circulation in a timely and meaningful way.
+
+Acknowledgments
+
+The authors would like to thank the Doctoral School “Veterinary Medicine”, University of Life Sciences “King Mihai I” from Timişoara, for the academic support and resources provided during the development of this manuscript. During the preparation of this manuscript, the authors used FigureLabs (https://www.figurelabs.ai/, accessed on 2 February 2026) for the creation of all schematic figures. The authors have reviewed and edited the output and take full responsibility for the content of this publication.
+
+Author Contributions
+
+Conceptualization, P.N., L.S., and V.H.; methodology, P.N. and L.S.; investigation, P.N., V.I., A.G., B.F., V.C., I.I., and C.H.M.; data curation, P.N.; formal analysis, P.N. and L.S.; writing—original draft preparation, P.N.; writing—review and editing, P.N., L.S., and V.H.; visualization, P.N.; supervision, L.S. and V.H. All authors have read and agreed to the published version of the manuscript.
+
+Institutional Review Board Statement
+
+Not applicable.
+
+Informed Consent Statement
+
+Not applicable.
+
+Data Availability Statement
+
+No new data were created or analyzed in this study. Data sharing is not applicable to this article.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+Abbreviations
+
+The following abbreviations are used in this manuscript: WNV	West Nile virus	
+PRNT	Plaque Reduction Neutralization Test	
+PRNT90	90% Plaque Reduction Neutralization Test	
+ELISA	Enzyme-Linked Immunosorbent Assay	
+IgM	Immunoglobulin M	
+IgG	Immunoglobulin G	
+USUV	Usutu virus	
+GIS	Geographic Information System	
+
+Figure 1 Ecological transmission cycle of West Nile virus and the sentinel position of horses within the One Health framework.
+
+Figure 2 Biological, operational, epidemiological, and comparative factors supporting the role of horses as sentinel hosts for WNV surveillance.
+
+Figure 3 Multi-level interpretation of equine seroprevalence in WNV surveillance.
+
+Figure 4 Integrated One Health surveillance system highlighting the role of horses as an intermediate epidemiological indicator.
+
+Figure 5 Major limitations affecting the use of horses as sentinel models in WNV surveillance.
+
+Figure 6 Emerging directions for integrating equine data into predictive and geospatial WNV surveillance systems.
+
+microorganisms-14-01263-t001_Table 1 Table 1 Diagnostic approaches used in West Nile virus surveillance and their epidemiological applications.
+
+Diagnostic Category	Assay	Main Target	Sample Type	Main Epidemiological Application	Limitations	
+Molecular	RT-PCR	Viral RNA	Whole blood, CSF, mosquito pools, tissues	Detection of active infection	Short viremia period	
+Molecular	Real-time RT-PCR	Viral RNA	Serum, tissues, mosquito pools	Early detection and confirmation	Requires laboratory infrastructure	
+Serological	IgM ELISA	Recent antibody response	Serum	Detection of recent infection	Possible flavivirus cross-reactivity	
+Serological	IgG ELISA	Cumulative exposure	Serum	Seroprevalence studies	Cannot distinguish old infection	
+Confirmatory serology	Plaque Reduction Neutralization Test (PRNT)	Neutralizing antibodies	Serum	Confirmation of WNV-specific antibodies	Labor-intensive	
+Virus isolation	Cell culture/embryonated eggs	Infectious virus	Blood, tissues, mosquito pools	Research and strain characterization	Low sensitivity in horses	
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+References
+
+1. Marino A. Vitale E. Maniaci A. La Via L. Moscatt V. Spampinato S. Senia P. Venanzi Rullo E. Restivo V. Cacopardo B. West Nile virus: Insights into microbiology, epidemiology, and clinical burden Acta Microbiol. Hell. 2025 70 44 10.3390/amh70040044
+2. Habarugira G. Suen W.W. Hobson-Peters J. Hall R.A. Bielefeldt-Ohmann H. West Nile virus: An update on pathobiology, epidemiology, diagnostics, control and One Health implications Pathogens 2020 9 589 10.3390/pathogens9070589 32707644 PMC7400489
+3. Ferraguti M. Martínez-de la Puente J. Figuerola J. Ecological effects on the dynamics of West Nile virus and avian Plasmodium: The importance of mosquito communities and landscape Viruses 2021 13 1208 10.3390/v13071208 34201673 PMC8310121
+4. Nistor P. Stanga L. Iorgoni V. Cojocaru R.G. Gligor A. Ciresan A. Florea B. Cocioba V. Iancu I. Iorgoni H. West Nile virus in Europe: Epidemiology, vector ecology, environmental drivers, and the role of equine sentinel surveillance in a One Health framework Pathogens 2026 15 298 10.3390/pathogens15030298 41901751 PMC13028643
+5. Wang Y. Calzolari M. Calvi G. Cox V.M. Angelini P. Dottori M. Wint W. Jahn S. Marini G. Dorigatti I. Association of avian biodiversity and West Nile virus circulation in Culex mosquitoes in Emilia-Romagna, Italy PLoS Negl. Trop. Dis. 2026 20 e0014076 10.1371/journal.pntd.0014076 41790846 PMC12978567
+6. Taieb L. Ludwig A. Ogden N.H. Lindsay R.L. Iranpour M. Gagnon C.A. Bicout D.J. Bird species involved in West Nile virus epidemiological cycle in southern Québec Int. J. Environ. Res. Public Health 2020 17 4517 10.3390/ijerph17124517 32585999 PMC7344584
+7. Gothe L.M.R. Ganzenberg S. Ziegler U. Obiegala A. Lohmann K.L. Sieg M. Vahlenkamp T.W. Groschup M.H. Hörügel U. Pfeffer M. Horses as sentinels for the circulation of flaviviruses in Eastern-Central Germany Viruses 2023 15 1108 10.3390/v15051108 37243194 PMC10222594
+8. Najafi S. Jojani M. Najafi K. Costanzo V. Vicidomini C. Roviello G.N. West Nile virus: Epidemiology, surveillance, and prophylaxis with a comparative insight from Italy and Iran Vaccines 2026 14 57 10.3390/vaccines14010057 41600973 PMC12846197
+9. Nistor P. Stânga L. Chirilă A. Iorgoni V. Cocioba V. Cojocaru R.G. Gligor A. Cireșan A. Florea B. Iorgoni H. Gaps between awareness and prevention of West Nile virus among horse owners in an endemic country: A cross-sectional study from Romania Vet. Sci. 2026 13 239 10.3390/vetsci13030239 41893656 PMC13030259
+10. Alibekova D.A. Barakbayev K.B. Omarova Z.D. Rystaeva R.A. Sultankulova K.T. Burashev Y.D. Argimbayeva T.U. Tulendibayev A.B. Aubakir N.A. Yermekbay T.T. Serological investigations on West Nile virus in horses in Kazakhstan Microorganisms 2025 13 2541 10.3390/microorganisms13112541 41304226 PMC12654397
+11. Mencattelli G. Silverj A. Iapaolo F. Ippoliti C. Teodori L. Di Gennaro A. Curini V. Candeloro L. Conte A. Polci A. Epidemiological and evolutionary analysis of West Nile virus lineage 2 in Italy Viruses 2022 15 35 10.3390/v15010035 36680076 PMC9866873
+12. Pauli G. Bauerfeind U. Blümel J. Burger R. Drosten C. Gröner A. Gürtler L. Heiden M. Hildebrandt M. Jansen B. West Nile virus Transfus. Med. Hemother. 2013 40 265 284 10.1159/000353698 24179475 PMC3776406
+13. Vargas Campos C.A. García-Pérez S. Figuerola J. Martínez-de la Puente J. Polo I. Rodríguez-de-Fonseca B. Fernández-Álvarez S. Galván Fraile V. Martín-Rey M. Lacasaña M. Comprehensive analysis of West Nile virus transmission: Environmental, ecological, and individual factors. An umbrella review One Health 2025 20 100984 10.1016/j.onehlt.2025.100984 40040921 PMC11876902
+14. Kilpatrick A.M. Meola M.A. Moudy R.M. Kramer L.D. Temperature, viral genetics, and the transmission of West Nile virus by Culex pipiens mosquitoes PLoS Pathog. 2008 4 e1000092 10.1371/journal.ppat.1000092 18584026 PMC2430533
+15. Reisen W.K. Fang Y. Martinez V.M. Effects of temperature on the transmission of West Nile virus by Culex tarsalis (Diptera: Culicidae) J. Med. Entomol. 2006 43 309 317 10.1093/jmedent/43.2.309 16619616
+16. Pascoe L. Clemen T. Bradshaw K. Nyambo D. Review of importance of weather and environmental variables in agent-based arbovirus models Int. J. Environ. Res. Public Health 2022 19 15578 10.3390/ijerph192315578 36497652 PMC9740748
+17. Montgomery M.J. Harwood J.F. Yougang A.P. Wilson-Bahun T.A. Tedjou A.N. Keumeni C.R. Wondji C.S. Kamgang B. Kilpatrick A.M. The effects of urbanization, temperature, and rainfall on Aedes aegypti and Aedes albopictus mosquito abundance across a broad latitudinal gradient in Central Africa Parasites Vectors 2025 18 135 10.1186/s13071-025-06764-5 40189559 PMC11972486
+18. Nayak P.P. Pai B.J. Govindan S. Babu N.N. Influence of climatic and land use factors on post-monsoon distribution of Aedes mosquito vectors in Udupi taluk Sci. Rep. 2025 15 36649 10.1038/s41598-025-20413-y 41120419 PMC12540794
+19. Kilpatrick A.M. LaDeau S.L. Marra P.P. Ecology of West Nile virus transmission and its impact on birds in the Western Hemisphere Auk 2007 124 1121 1136 10.1093/auk/124.4.1121
+20. Geraldes M.A. Giovanetti M. Cunha M.V. Lourenço J. Land and climate suitability for West Nile virus in Atlantic archipelagos guided by historical data from Europe Commun. Biol. 2026 9 131 10.1038/s42003-025-09410-z 41484394 PMC12855260
+21. Sofia M. Giannakopoulos A. Giantsis I.A. Touloudi A. Birtsas P. Papageorgiou K. Athanasakopoulou Z. Chatzopoulos D.C. Vrioni G. Galamatis D. West Nile virus occurrence and ecological niche modeling in wild bird species and mosquito vectors: An active surveillance program in the Peloponnese region of Greece Microorganisms 2022 10 1328 10.3390/microorganisms10071328 35889046 PMC9320058
+22. Lönker N.S. Fechner K. Wahed A.A.E. Horses as a crucial part of One Health Vet. Sci. 2020 7 28 10.3390/vetsci7010028 32121327 PMC7157506
+23. Anderson B.D. Barnes A.N. Umar S. Guo X. Thongthum T. Gray G.C. Reverse zoonotic transmission (zooanthroponosis): An increasing threat to animal health Zoonoses: Infections Affecting Humans and Animals Sing A. Springer Cham, Switzerland 2023
+24. Humphreys J.M. Pelzel-McCluskey A.M. Cohnstaedt L.W. McGregor B.L. Hanley K.A. Hudson A.R. Young K.I. Peck D. Rodriguez L.L. Peters D.P.C. Integrating spatiotemporal epidemiology, eco-phylogenetics, and distributional ecology to assess West Nile disease risk in horses Viruses 2021 13 1811 10.3390/v13091811 34578392 PMC8473291
+25. Ganzenberg S. Sieg M. Ziegler U. Pfeffer M. Vahlenkamp T.W. Hörügel U. Groschup M.H. Lohmann K.L. Seroprevalence and risk factors for equine West Nile virus infections in Eastern Germany, 2020 Viruses 2022 14 1191 10.3390/v14061191 35746662 PMC9229339
+26. Nistor P. Stanga L. Chirila A. Iorgoni V. Gligor A. Ciresan A. Popa I. Florea B. Imre M. Cocioba V. Seroprevalence and passive clinical surveillance of West Nile virus in horses from ecological high-risk areas in Western Romania: Exploratory findings from a cross-sectional study Microorganisms 2025 13 1910 10.3390/microorganisms13081910 40871414 PMC12388522
+27. Faverjon C. Risk Based Surveillance for Vector-Borne Diseases in Horses: Combining Multiple Sources of Evidence to Improve Decision Making Ph.D. Thesis Utrecht University Utrecht, The Netherlands 2017
+28. Nistor P. Stanga L. Chirila A. Iorgoni V. Gligor A. Ciresan A. Florea B. Bota C. Cocioba V. Popa I. Mosquito exposure risks in equine facilities: An environmental–managerial assessment in Western Romania Microorganisms 2025 13 2637 10.3390/microorganisms13112637 41304321 PMC12654757
+29. Boukraa S. de La Grandiere M.A. Bawin T. Raharimalala F.N. Zimmer J.Y. Haubruge E. Thiry E. Francis F. Diversity and ecology survey of mosquitoes potential vectors in Belgian equestrian farms: A threat prevention of mosquito-borne equine arboviruses Prev. Vet. Med. 2016 124 58 68 10.1016/j.prevetmed.2015.12.013 26775817
+30. Schwarz E.R. Long M.T. Comparison of West Nile virus disease in humans and horses: Exploiting similarities for enhancing syndromic surveillance Viruses 2023 15 1230 10.3390/v15061230 37376530 PMC10303507
+31. Carrasco L. Utrilla M.J. Fuentes-Romero B. Fernandez-Novo A. Martin-Maldonado B. West Nile virus: An update focusing on Southern Europe Microorganisms 2024 12 2623 10.3390/microorganisms12122623 39770826 PMC11677777
+32. García-Carrasco J.M. Muñoz A.R. Olivero J. Segura M. García-Bocanegra I. Real R. West Nile virus in the Iberian Peninsula: Using equine cases to identify high-risk areas for humans Euro Surveill. 2023 28 2200844 10.2807/1560-7917.ES.2023.28.40.2200844 37796440 PMC10557382
+33. Bergmann F. Trachsel D.S. Stoeckle S.D. Bernis Sierra J. Lübke S. Groschup M.H. Gehlen H. Ziegler U. Seroepidemiological survey of West Nile virus infections in horses from Berlin/Brandenburg and North Rhine-Westphalia, Germany Viruses 2022 14 243 10.3390/v14020243 35215837 PMC8877243
+34. Gonzálvez M. Franco J.J. Barbero-Moyano J. Caballero-Gómez J. Ruano M.J. Martínez R. Cano-Terriza D. García-Bocanegra I. Monitoring the epidemic of West Nile virus in equids in Spain, 2020–2021 Prev. Vet. Med. 2023 217 105975 10.1016/j.prevetmed.2023.105975 37481993
+35. Leblond A. Lecollinet S. Clinical screening of horses and early warning for West Nile virus Equine Vet. Educ. 2017 29 325 327 10.1111/eve.12571
+36. Bruno L. Nappo M.A. Frontoso R. Perrotta M.G. Di Lecce R. Guarnieri C. Ferrari L. Corradi A. West Nile virus (WNV): One-Health and Eco-Health global risks Vet. Sci. 2025 12 288 10.3390/vetsci12030288 40266979 PMC11945822
+37. Taheri S. González M. Ruiz-Lopez M.J. Soriguer R. Figuerola J. Patterns of West Nile virus vector co-occurrence and spatial overlap with human cases across Europe One Health 2025 20 101041 10.1016/j.onehlt.2025.101041 40321629 PMC12047587
+38. Chevalier N. Migné C.V. Mariteragi-Helle T. Dumarest M. De Mas M. Chevrier M. Queré E. Marcillaud-Pitel C. Lupo C. Bigeard C. Seroprevalence of West Nile, Usutu and tick-borne encephalitis viruses in equids from south-western France in 2023 Vet. Res. 2025 56 91 10.1186/s13567-025-01508-w 40275349 PMC12023385
+39. De Heus P. Kolodziejek J. Hubálek Z. Dimmel K. Racher V. Nowotny N. Cavalleri J. West Nile virus and tick-borne encephalitis virus are endemic in equids in Eastern Austria Viruses 2021 13 1873 10.3390/v13091873 34578454 PMC8473302
+40. Barbić L. Listeš E. Katić S. Stevanović V. Madić J. Starešina V. Labrović A. Di Gennaro A. Savini G. Spreading of West Nile virus infection in Croatia Vet. Microbiol. 2012 159 504 508 10.1016/j.vetmic.2012.04.038 22609103
+41. Vilibić-Čavlek T. Savić V. Klobučar A. Ferenc T. Ilić M. Bogdanić M. Tabain I. Stevanović V. Santini M. Posavec M. Emerging trends in the West Nile virus epidemiology in Croatia in the ‘One Health’ context, 2011–2020 Trop. Med. Infect. Dis. 2021 6 140 10.3390/tropicalmed6030140 34449731 PMC8396195
+42. Bouzalas I. Diakakis N. Chaintoutis S. Brellou G. Papanastassopoulou M. Danis K. Vlemmas I. Seuberlich T. Dovas C. Emergence of equine West Nile encephalitis in Central Macedonia, Greece, 2010 Transbound. Emerg. Dis. 2016 63 e219 e227 10.1111/tbed.12334 25660661
+43. Metz M. Olufemi O. Daly J. Barba M. Systematic review and meta-analysis of seroprevalence studies of West Nile virus in equids in Europe between 2001 and 2018 Transbound. Emerg. Dis. 2020 68 1814 1823 10.1111/tbed.13866 33012076
+44. Abbas I. Ahmed F. Muqaddas H. Alberti A. Varcasia A. Sedda L. Epidemiology and surveillance of West Nile virus in the Mediterranean Basin during 2010–2023: A systematic review Curr. Res. Parasitol. Vector Borne Dis. 2025 7 100277 10.1016/j.crpvbd.2025.100277 40586111 PMC12205625
+45. Oslobanu L.E.L. Păslaru A. Savuța G. West Nile virus seroprevalence in horses from Romania: First step in the infection risk assessment Bull. UASVM Vet. Med. 2015 72 10505 10.15835/buasvmcn-vm:10505
+46. Guimarães M.C.N. Freitas M.N.O. Sousa A.W. Cunha M.A.C.R. Almada G.L. Romano A.P.M. Santos M.G.D.P. Rodrigues G.A.P. Martins L.C. Chiang J.O. Serological evidence of arboviruses in horses during West Nile fever monitoring surveillance in Southeastern Brazil Front. Trop. Dis. 2022 3 881710 10.3389/fitd.2022.881710
+47. Selim A. Megahed A. Kandeel S. Alouffi A. Almutairi M.M. West Nile virus seroprevalence and associated risk factors among horses in Egypt Sci. Rep. 2021 11 20932 10.1038/s41598-021-00449-6 34686730 PMC8536702
+48. Beck C. Lowenski S. Durand B. Bahuon C. Zientara S. Lecollinet S. Improved reliability of serological tools for the diagnosis of West Nile fever in horses within Europe PLoS Negl. Trop. Dis. 2017 11 e0005936 10.1371/journal.pntd.0005936 28915240 PMC5617233
+49. Al-Rammahi H.M. Mohsen R.K. Othman R.M. First detection of West Nile virus seropositivity in horses in southern Iraq Open Vet. J. 2025 15 2016 2020 10.5455/OVJ.2025.v15.i5.17 40557085 PMC12184482
+50. Sule W.F. Oluwayelu D.O. Adedokun R.A. Rufai N. McCracken F. Mansfield K.L. Johnson N. High seroprevalence of West Nile virus antibodies observed in horses from southwestern Nigeria Vector Borne Zoonotic Dis. 2015 15 218 220 10.1089/vbz.2014.1706 25793479 PMC4369928
+51. Magallanes S. Llorente F. Ruiz-López M.J. Martínez-de la Puente J. Soriguer R. Calderon J. Jiménez-Clavero M.A. Aguilera-Sepúlveda P. Long-term serological surveillance for West Nile and Usutu virus in horses in south-West Spain One Health 2023 17 100578 10.1016/j.onehlt.2023.100578 38024263 PMC10665154
+52. Cantile C. Di Guardo G. Eleni C. Arispici M. Clinical and neuropathological features of West Nile virus equine encephalomyelitis in Italy Equine Vet. J. 2000 32 31 35 10.2746/042516400777612080 10661382
+53. Fehér O.E. Fehérvári P. Tolnai C.H. Forgách P. Malik P. Jerzsele Á. Wagenhoffer Z. Szenci O. Korbacska-Kutasi O. Epidemiology and clinical manifestation of West Nile virus infections of equines in Hungary, 2007–2020 Viruses 2022 14 2551 10.3390/v14112551 36423160 PMC9694158
+54. Paré J. Moore A. West Nile virus in horses—What do you need to know to diagnose the disease? Can. Vet. J. 2018 59 1119 1120 30510321 PMC6135266
+55. Naveed A. Eertink L.G. Wang D. Li F. Lessons learned from West Nile virus infection: Vaccinations in equines and their implications for One Health approaches Viruses 2024 16 781 10.3390/v16050781 38793662 PMC11125849
+56. Cleton N.B. van Maanen K. Bergervoet S.A. Bon N. Beck C. Godeke G.J. Lecollinet S. Bowen R. Lelli D. Nowotny N. A serological protein microarray for detection of multiple cross-reactive flavivirus infections in horses for veterinary and public health surveillance Transbound. Emerg. Dis. 2017 64 1801 1812 10.1111/tbed.12569 27633257
+57. Ward M.P. Scheurmann J.A. The relationship between equine and human West Nile virus disease occurrence Vet. Microbiol. 2008 129 378 383 10.1016/j.vetmic.2007.11.022 18182255
+58. Laperriere V. Brugger K. Rubel F. Simulation of the seasonal cycles of bird, equine and human West Nile virus cases Prev. Vet. Med. 2011 98 99 110 10.1016/j.prevetmed.2010.10.013 21093946
+59. Riccardo F. Bolici F. Fafangel M. Jovanovic V. Socan M. Klepac P. Plavsa D. Vasic M. Bella A. Diana G. West Nile virus in Europe: After action reviews of preparedness and response to the 2018 transmission season in Italy, Slovenia, Serbia and Greece Glob. Health 2020 16 47 Erratum in Glob. Health 2020, 16, 55 10.1186/s12992-020-00568-1 32423479 PMC7236470
+60. Folly A.J. Waller E.S.L. McCracken F. McElhinney L.M. Roberts H. Johnson N. Equine seroprevalence of West Nile virus antibodies in the UK in 2019 Parasites Vectors 2020 13 596 10.1186/s13071-020-04481-9 33243297 PMC7690108
+61. El Garch H. Minke J.M. Rehder J. Richard S. Edlund Toulemonde C. Dinic S. Andreoni C. Audonnet J.C. Nordgren R. Juillard V. A West Nile virus recombinant canarypox virus vaccine elicits WNV-specific neutralizing antibodies and cell-mediated immune responses in the horse Vet. Immunol. Immunopathol. 2008 123 230 239 10.1016/j.vetimm.2008.02.002 18372050
+62. Carson P.J. Prince H.E. Biggerstaff B.J. Lanciotti R. Tobler L.H. Busch M. Characteristics of antibody responses in West Nile virus-seropositive blood donors J. Clin. Microbiol. 2014 52 57 60 10.1128/JCM.01932-13 24131687 PMC3911469
+63. Ledermann J.P. Lorono-Pino M.A. Ellis C. Saxton-Shaw K.D. Blitvich B.J. Beaty B.J. Bowen R.A. Powers A.M. Evaluation of widely used diagnostic tests to detect West Nile virus infections in horses previously infected with St. Louis encephalitis virus or dengue virus type 2 Clin. Vaccine Immunol. 2011 18 580 587 10.1128/CVI.00201-10 21346058 PMC3122575
+64. Beck C. Jimenez-Clavero M.A. Leblond A. Durand B. Nowotny N. Leparc-Goffart I. Zientara S. Jourdain E. Lecollinet S. Flaviviruses in Europe: Complex circulation patterns and their consequences for the diagnosis and control of West Nile disease Int. J. Environ. Res. Public Health 2013 10 6049 6083 10.3390/ijerph10116049 24225644 PMC3863887
+65. Vilibic-Cavlek T. Ferenc T. Vujica Ferenc M. Bogdanic M. Potocnik-Hunjadi T. Sabadi D. Savic V. Barbic L. Stevanovic V. Monaco F. Cross-reactive antibodies in tick-borne encephalitis: Case report and literature review Antibodies 2022 11 72 10.3390/antib11040072 36412838 PMC9703958
+66. Ziegler U. Angenvoort J. Klaus C. Nagel-Kohl U. Sauerwald C. Thalheim S. Horner S. Braun B. Kenklies S. Tyczka J. Use of competition ELISA for monitoring of West Nile virus infections in horses in Germany Int. J. Environ. Res. Public Health 2013 10 3112 3120 10.3390/ijerph10083112 23887620 PMC3774427
+67. Magnarelli L.A. Bushmich S.L. Anderson J.F. Ledizet M. Koski R.A. Serum antibodies to West Nile virus in naturally exposed and vaccinated horses J. Med. Microbiol. 2008 57 1087 1093 10.1099/jmm.0.47849-0 18719177 PMC2562728
+68. Cavalleri J.-M. Korbacska-Kutasi O. Leblond A. Paillot R. Pusterla N. Steinmann E. Tomlinson J. European College of Equine Internal Medicine consensus statement on equine flaviviridae infections in Europe J. Vet. Intern. Med. 2022 36 1858 1871 10.1111/jvim.16581 36367340 PMC9708432
+69. Ben Mostafa K. Savini G. Dayhum A. Eldaghayes I. First detection of West Nile virus antibodies in animals in Libya Int. J. Infect. Dis. 2023 130 S76 10.1016/j.ijid.2023.04.188
+70. Cendejas P.M. Goodman A.G. Vaccination and control methods of West Nile virus infection in equids and humans Vaccines 2024 12 485 10.3390/vaccines12050485 38793736 PMC11125624
+71. Bahuon C. Marcillaud-Pitel C. Bournez L. Leblond A. Beck C. Hars J. Leparc-Goffart I. L’Ambert G. Paty M.C. Cavalerie L. West Nile virus epizootics in the Camargue (France) in 2015 and reinforcement of surveillance and control networks Rev. Sci. Tech. 2016 35 811 824 10.20506/rst.35.3.2571 28332648
+72. Pearce M. Venter M. Schouwstra T. van Eeden C. van Vuren P.J. Liu B. du Plessis A. Serum neutralising antibody response of seronegative horses against lineage 1 and lineage 2 West Nile virus following vaccination with an inactivated lineage 1 West Nile virus vaccine J. S. Afr. Vet. Assoc. 2013 84 1052 10.4102/jsava.v84i1.1052
+73. Branda F. Ahmed M.M. Yon D.K. Ceccarelli G. Ciccozzi M. Scarpa F. Retrospective analysis and cross-validated forecasting of West Nile virus transmission in Italy: Insights from climate and surveillance data Trop. Med. Infect. Dis. 2025 10 305 10.3390/tropicalmed10110305 41295570 PMC12656149
+74. Todoric D. Vrbova L. Mitri M.E. Gasmi S. Stewart A. Connors S. Zheng H. Bourgeois A.C. Drebot M. Paré J. An overview of the National West Nile Virus Surveillance System in Canada: A One Health approach Can. Commun. Dis. Rep. 2022 48 181 187 10.14745/ccdr.v48i05a01 37325258 PMC10262935
+75. Available online: https://hal.science/hal-03712527v1/file/601300.pdf (accessed on 12 December 2025)
+76. Epp T.Y. Waldner C. Berke O. Predictive risk mapping of West Nile virus (WNV) infection in Saskatchewan horses Can. J. Vet. Res. 2011 75 161 170 22210991 PMC3122974
+77. Geraldes M.A. Cunha M.V. Godinho C. de Lima R.F. Giovanetti M. Lourenço J. The historical ecological background of West Nile virus in Portugal indicates One Health opportunities Sci. Total Environ. 2024 944 173875 10.1016/j.scitotenv.2024.173875 38866158
+78. George J. Häsler B. Mremi I. Sindato C. Mboera L. Rweyemamu M. Mlangwa J. A systematic review on integration mechanisms in human and animal health surveillance systems with a view to addressing global health security threats One Health Outlook 2020 2 11 10.1186/s42522-020-00017-4 33829132 PMC7993536
+79. Patzina-Mehling C. Kopp A. Rauhöft L. Șuleșco T. Jones T.C. Drosten C. Sauer F.G. Lühken R. Junglen S. Genomic surveillance indicates high site-specific heterogeneity of West Nile virus in mosquitoes in rural regions of Germany across seasons One Health 2025 21 101179 10.1016/j.onehlt.2025.101179 41492287 PMC12765102
+80. Özcelik R. Remy-Wohlfender F. Küker S. Visschers V. Hadorn D. Dürr S. Potential and challenges of community-based surveillance in animal health: A pilot study among equine owners in Switzerland Front. Vet. Sci. 2021 8 641448 10.3389/fvets.2021.641448 34150880 PMC8212947
+81. Ince O. Paksoy Y. Sait A. Risk assessment about effectiveness of biosecurity implementations on horse properties in Turkey J. Hell. Vet. Med. Soc. 2024 75 7397 7406 10.12681/jhvms.34623
+82. White N. Flynn K. Survey of state animal health officials reveals lack of personnel and resources to manage equine infectious disease outbreaks J. Am. Vet. Med. Assoc. 2024 262 1504 1510 10.2460/javma.24.04.0248 39084239
+83. Costa E. Bayeux J. Silva A. De Queiroz G. Santos B. Rocha M. Rehfeld I. De Souza Franklin L. Valle L. Guedes M. Epidemiological surveillance of West Nile virus in the world and Brazil Braz. J. Vet. Res. Anim. Sci. 2020 56 e164335 10.11606/issn.1678-4456.bjvras.2019.164335
+84. Struchen R. Hadorn D. Wohlfender F. Balmer S. Süptitz S. Zinsstag J. Vial F. Experiences with a voluntary surveillance system for early detection of equine diseases in Switzerland Epidemiol. Infect. 2016 144 1830 1836 10.1017/S0950268816000091 26846449 PMC9150615
+85. Grajeda L. McCracken J. Berger-González M. Lopez M. Alvarez D. Méndez S. Pérez O. Cordón-Rosales C. Zinsstag J. Sensitivity and representativeness of one-health surveillance for diseases of zoonotic potential at health facilities relative to household visits in rural Guatemala One Health 2021 13 100336 10.1016/j.onehlt.2021.100336 34703874 PMC8524745
+86. Nistor P. Stanga L. Iorgoni V. Gligor A. Ciresan A. Iorgoni H. Florea B. Cocioba V. Iancu I. Maris C.H. Diagnosis and Surveillance of West Nile Virus Infection in Horses: Current Methods, Challenges, and Future Directions Vet. Sci. 2026 13 332 10.3390/vetsci13040332 42076705 PMC13120413
+87. Rusenova N. Rusenov A. Chervenkov M. Sirakov I. Seroprevalence of West Nile virus among equids in Bulgaria in 2022 and assessment of some risk factors Vet. Sci. 2024 11 209 10.3390/vetsci11050209 38787181 PMC11126025
+88. Chan K.R. Ismail A.A. Thergarajan G. Raju C.S. Yam H.C. Rishya M. Sekaran S.D. Serological cross-reactivity among common flaviviruses Front. Cell. Infect. Microbiol. 2022 12 975398 10.3389/fcimb.2022.975398 36189346 PMC9519894
+89. Ouni A. Aounallah H. Rebai W. Llorente F. Chendoul W. Hammami W. Rhim A. Jiménez-Clavero M. Pérez-Ramírez E. Bouattour A. The role of ruminants as sentinel animals in the circulation of the West Nile virus in Tunisia Pathogens 2025 14 267 10.3390/pathogens14030267 40137752 PMC11944776
+90. Olufemi O. Barba M. Daly J. A scoping review of West Nile virus seroprevalence studies among African equids Pathogens 2021 10 899 10.3390/pathogens10070899 34358049 PMC8308515
+91. Monaco F. Purpari G. Gennaro A. Mira F. Di Marco P. Guercio A. Savini G. Immunological response in horses following West Nile virus vaccination with inactivated or recombinant vaccine Vet. Ital. 2019 55 73 79 30951184
+92. Khatibzadeh S.M. Gold C.B. Keggan A.E. Perkins G.A. Glaser A.L. Dubovi E.J. Wagner B. West Nile virus-specific immunoglobulin isotype responses in vaccinated and infected horses Am. J. Vet. Res. 2015 76 92 100 10.2460/ajvr.76.1.92 25535666 PMC10959050
+93. Aharonson-Raz K. Lichter-Peled A. Tal S. Gelman B. Cohen D. Klement E. Steinman A. Spatial and temporal distribution of West Nile virus in horses in Israel (1997–2013)—From endemic to epidemics PLoS ONE 2014 9 e113149 10.1371/journal.pone.0113149 25402217 PMC4234662
+94. Williams R.A.J. Criollo Valencia H.A. López Márquez I. González González F. Llorente F. Jiménez-Clavero M.Á. Busquets N. Mateo Barrientos M. Ortiz-Díez G. Ayllón Santiago T. West Nile virus seroprevalence in wild birds and equines in Madrid Province, Spain Vet. Sci. 2024 11 259 10.3390/vetsci11060259 38922006 PMC11209238
+95. Faverjon C. Vial F. Andersson M.G. Lecollinet S. Leblond A. Early detection of West Nile virus in France: Quantitative assessment of syndromic surveillance system using nervous signs in horses Epidemiol. Infect. 2017 145 1044 1057 10.1017/S0950268816002946 27938434 PMC9507807
+96. Humblet M.-F. Vandeputte S. Fecher-Bourgeois F. Léonard P. Gosset C. Balenghien T. Durand B. Saegerman C. Estimating the economic impact of a possible equine and human epidemic of West Nile virus infection in Belgium Euro Surveill. 2016 21 30309 10.2807/1560-7917.ES.2016.21.31.30309 27526394 PMC4998509
+97. Farchati H. Merlin A. Saussac M. Dornier X. Dhollande M. Garon D. Tapprest J. Sala C. Is the French SIRE equine information system a good basis for surveillance and epidemiological research? Quality assessment using two surveys Res. Vet. Sci. 2020 134 96 101 10.1016/j.rvsc.2020.12.001 33352491
+98. Bertram F.-M. Thompson P.N. Venter M. Epidemiology and clinical presentation of West Nile virus infection in horses in South Africa, 2016–2017 Pathogens 2021 10 20 10.3390/pathogens10010020 PMC7823741 33396935
+99. Chevalier V. Tran A. Durand B. Predictive modeling of West Nile virus transmission risk in the Mediterranean Basin: How far from landing? Int. J. Environ. Res. Public Health 2014 11 67 90 10.3390/ijerph110100067 PMC3924437 24362544

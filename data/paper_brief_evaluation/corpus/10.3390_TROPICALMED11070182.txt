@@ -1,0 +1,231 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Trop Med Infect Dis
+Journal ID: Trop Med Infect Dis
+NLM Journal ID: 101709042
+Journal ID: tropicalmed
+
+Tropical Medicine and Infectious Disease
+
+EISSN: 2414-6366
+Publisher: Multidisciplinary Digital Publishing Institute (MDPI)
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13418699
+PMID: 42506752
+DOI: 10.3390/tropicalmed11070182
+Article ID: tropicalmed-11-00182
+Article version: 1
+Subjects: Opinion
+
+Climate Change and Autochthonous Vector-Borne Disease Transmission in Europe: Dengue as a Sentinel Signal for Surveillance and Preparedness
+
+https://orcid.org/0000-0002-8780-0304 Grzybek Maciej 1 *
+Bogacka Anna 2
+Fouque Florence Academic Editor
+1 Department of Tropical Parasitology, Institute of Maritime and Tropical Medicine, Medical University of Gdańsk, Powstania Styczniowego 9B, 81-519 Gdynia, Poland
+2 Department of Tropical and Parasitic Diseases, Faculty of Health Science with Institute of Maritime and Tropical Medicine, Medical University of Gdańsk, Powstania Styczniowego 9B, 81-519 Gdynia, Poland; anna.bogacka@gumed.edu.pl
+* Correspondence: maciej.grzybek@gumed.edu.pl
+Electronic publication date: 2026 Jun 29
+Publication date: 2026 Jul
+Volume: 11
+Issue: 7
+Electronic Location ID: 182
+Received 2026 Apr 14; Revised 2026 Jun 4; Accepted 2026 Jun 24
+Copyright: © 2026 by the authors.
+Copyright year: 2026
+License: Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: Aedes albopictus, arboviruses, autochthonous transmission, climate change, dengue, Europe, One Health, surveillance, vector-borne diseases
+
+Funding: This research received no external funding.
+
+==============================
+Climate change is reshaping the epidemiology of vector-borne diseases in Europe by altering the ecological conditions that determine vector survival, seasonal activity and pathogen transmission. Rising temperatures, milder winters, prolonged warm seasons and changing precipitation patterns are increasing the suitability of parts of Europe for competent mosquito, tick and sandfly vectors. These changes, combined with human mobility and land-use change, increase the probability that imported pathogens encounter permissive conditions for local transmission. This Opinion article examines autochthonous vector-borne disease transmission in Europe, using dengue as a sentinel example of a wider climate-sensitive transition. We discuss how imported viraemic cases, established competent vectors, vector–host contact and delayed clinical recognition can converge to enable local outbreaks. Beyond dengue, we consider West Nile virus, chikungunya, tick-borne encephalitis, leishmaniasis and Crimean–Congo haemorrhagic fever as examples of a broader and increasingly heterogeneous European risk landscape. We argue that the public-health impact of this transition is shaped not only by vector expansion, but also by gaps in surveillance integration, diagnostic readiness, workforce preparedness and One Health coordination. Strengthening climate-informed surveillance, rapid laboratory capacity, frontline clinical awareness and cross-sectoral response systems will be essential to prevent repeated introductions from becoming sustained public-health challenges.
+
+1. Introduction
+
+Climate change is reshaping the epidemiology of infectious diseases in Europe by modifying the ecological conditions that determine vector survival, seasonal activity, pathogen replication and human exposure. Rising mean and seasonal temperatures, milder winters, prolonged warm periods, altered precipitation and humidity, and changes in land use and urbanisation are increasingly favourable to several mosquito, tick and sandfly vectors [1,2]. These changes are occurring alongside international travel and population mobility, increasing the probability that imported pathogens encounter competent vectors during periods suitable for local transmission [2,3].
+
+The European risk landscape is heterogeneous. Southern and Mediterranean regions currently experience the highest suitability for several Aedes-borne infections and leishmaniasis, whereas parts of central and northern Europe are increasingly affected by expanding mosquito and tick activity, including Aedes albopictus, Ixodes ricinus and, in some areas, introduced or sporadically detected Hyalomma spp. ticks [3,4,5,6]. This does not mean that Europe is becoming uniformly tropical. Rather, local climatic suitability, vector density, human exposure, diagnostic awareness and public-health response capacity interact to create geographically variable windows of transmission risk.
+
+This Opinion article argues that climate-driven ecological change is transforming autochthonous vector-borne disease risk in Europe from a rare or exceptional phenomenon into a recurring preparedness challenge. Dengue is used as a sentinel example because it demonstrates how imported viraemic cases, established competent Aedes vectors and delayed clinical recognition can converge to produce local transmission. However, dengue is only one part of a broader climate-sensitive landscape that also includes chikungunya, West Nile virus, tick-borne encephalitis, leishmaniasis and Crimean–Congo haemorrhagic fever [7,8].
+
+2. Climate-Sensitive Mechanisms of Vector Expansion and Local Transmission
+
+Vector expansion should be interpreted not simply as a cartographic change in species distribution, but as a signal of altered ecological suitability. Temperature influences vector development, adult survival, biting activity and the extrinsic incubation period, defined as the interval between a vector acquiring a pathogen and becoming infectious. Warmer conditions may shorten this interval for some arboviruses, increasing the likelihood that infected vectors survive long enough to transmit the pathogen. At the same time, excessive heat, drought, reduced vector survival or unsuitable breeding habitats may limit transmission, emphasising that risk is nonlinear and context-dependent [2,7].
+
+For Aedes-borne viruses, local transmission in mainland Europe requires the convergence of at least four conditions: introduction of the pathogen, usually by an imported viraemic traveller; presence of competent vectors such as A. albopictus or A. aegypti; climatic and environmental conditions that support vector activity and viral replication; and sufficient vector–human contact before the case is diagnosed and vector control is implemented [7]. Rainfall, humidity and the availability of water-holding containers influence larval habitats, while temperature governs the speed of viral replication within the mosquito [7].
+
+A. albopictus is now established in many parts of southern and central Europe and continues to spread. ECDC and EFSA reported the species as established in hundreds of EU/EEA regions by June 2025, with new establishment or spread in several countries since the previous update [4]. A. aegypti remains much more geographically restricted in Europe, but its presence in selected areas and the possibility of reintroduction are important because it is a highly efficient vector of dengue, chikungunya, Zika and yellow fever viruses [5].
+
+Tick and sandfly systems are affected through partly different mechanisms. For I. ricinus, warmer temperatures, milder winters, host abundance, vegetation and human outdoor activity influence seasonal questing and exposure risk. For Hyalomma marginatum, warmer summers and ecological suitability may increase the probability that immature ticks introduced by migratory birds survive to adult stages in new areas. Sandfly distribution and leishmaniasis risk are similarly influenced by temperature, humidity, host reservoirs and land-use change [2].
+
+The major pathways by which climate-sensitive vector-borne diseases translate into preparedness needs are summarised in Table 1.
+
+3. Dengue as a Sentinel Example of Autochthonous Arboviral Transmission in Europe
+
+Dengue illustrates the transition from imported infections to locally acquired outbreaks in Europe. In mainland EU/EEA countries, dengue remains non-endemic and most cases are travel-associated. However, when viraemic travellers arrive in areas where competent Aedes vectors are established and active, local transmission can occur [7,9,10,11]. This makes dengue a useful sentinel for wider preparedness gaps because early clinical recognition, laboratory confirmation and vector-control measures must occur quickly enough to prevent amplification.
+
+ECDC data indicate that from 2010 to 2024, 579 autochthonous dengue cases were reported in mainland EU/EEA countries involving transmission by Aedes albopictus, with a clear increase in recent years: 71 cases in 2022, 130 in 2023 and 304 in 2024 [7]. These numbers do not imply uniform European risk, but they demonstrate that recurrent local transmission is now plausible during favourable seasonal windows. The pattern is consistent with published reports from Italy, France, Spain, Croatia and Madeira/Portugal [10,11,12,13,14,15,16,17].
+
+Selected milestones in European autochthonous dengue transmission are summarised in Table 2.
+
+The 2024 outbreak in Fano, Marche Region, central Italy, illustrates how local transmission may be amplified by ordinary clinical uncertainty rather than by pathogen novelty alone. Early cases presented with non-specific febrile illness and were not immediately recognised as dengue in a setting without a history of sustained transmission. By the time dengue was confirmed, reactive vector control and intensified surveillance were required [14]. Similar lessons emerge from earlier Italian and French outbreaks, where recognition of local transmission depended on the coordination of clinical, laboratory, epidemiological and entomological information [11,12,13,16,17].
+
+These events show that the distinction between imported and locally acquired disease is operationally important. In a warming Europe, travel history alone is no longer sufficient to rule in or rule out dengue and related arboviral infections. During periods of vector activity, clinicians and public-health authorities must consider both travel-associated and local exposure, especially in regions where A. albopictus is established.
+
+4. Beyond Dengue: A Widening Spectrum of Vector-Borne Threats
+
+Dengue is a sentinel signal, but not the only climate-sensitive vector-borne disease relevant to Europe. Chikungunya shares the Aedes-borne pathway and has already caused autochthonous outbreaks in Italy and France. ECDC historical data describe large outbreaks in Italy, including Emilia-Romagna in 2007 and central/southern Italy in 2017, as well as smaller French events [18]. These outbreaks demonstrate that preparedness for dengue, chikungunya and Zika cannot be separated from the distribution, density and seasonal activity of Aedes vectors.
+
+West Nile virus represents a different ecological system. It is maintained in bird–mosquito cycles, mainly involving Culex mosquitoes, with humans and horses acting as incidental hosts. Climate affects mosquito abundance, viral replication and the timing of enzootic amplification, while bird migration and local ecology influence spatial spread. West Nile virus has become endemic or recurrently epidemic in parts of southern, central and eastern Europe, and modelling work has linked climate change to spatial expansion of risk [19].
+
+Tick-borne encephalitis (TBE) is already established in many European countries, but its incidence and distribution are sensitive to climate, vegetation, host abundance and human outdoor exposure. ECDC reported 3516 confirmed TBE cases in the EU/EEA in 2022, with marked seasonality and most confirmed cases occurring between June and November [20]. Climate and land-use change may alter tick activity, altitude and latitude limits, and human exposure patterns, but interpretation requires caution because surveillance intensity, vaccination coverage and recreational behaviour also influence observed trends [2,21].
+
+Leishmaniasis remains most strongly associated with southern Europe, but sandfly suitability may expand under warmer conditions. The risk is shaped not only by climate but also by reservoir hosts, especially dogs, wildlife ecology, peri-domestic environments and socioeconomic conditions. This makes leishmaniasis an important example of why One Health surveillance must include veterinary and environmental information, not only human case reporting [2,22].
+
+Crimean–Congo haemorrhagic fever virus (CCHFV) represents a high-consequence scenario. The virus is transmitted primarily by Hyalomma ticks and maintained in tick-vertebrate cycles involving livestock and wildlife. Climate suitability for Hyalomma marginatum and related species is projected to increase in parts of Europe, and human cases have already been documented in some European settings. Although sustained transmission is not established across most of Europe, the severity of disease and biosafety requirements mean that preparedness must include diagnostic pathways, specimen transport procedures and clinical algorithms for suspected viral haemorrhagic fever [23,24,25].
+
+5. Diagnostic and Workforce Capacity as Limiting Factors
+
+The ability to detect and respond to emerging vector-borne infections depends critically on timely diagnosis and clinical recognition [26]. In many European settings, however, diagnostic and workforce capacity have not kept pace with the changing epidemiological landscape. Diseases historically regarded as rare or imported may not be routinely considered in primary care and emergency departments, where early recognition is essential for triggering public-health action.
+
+Laboratory capacity is also uneven. Molecular and serological testing for dengue, chikungunya, West Nile virus, tick-borne encephalitis, leishmaniasis and CCHFV may be centralised in reference laboratories, creating delays between clinical suspicion and confirmation. For Aedes-borne viruses, the diagnostic window for direct viral detection is limited and serological cross-reactivity can complicate interpretation, particularly in populations with previous flavivirus exposure or vaccination [7,26]. Clinical guidance for post-travel fever and recent imported cutaneous leishmaniasis cases underline that correct travel and exposure history, timing of diagnostic tests, and awareness of atypical or treatment-refractory presentations remain essential for frontline readiness [27,28].
+
+Workforce preparedness represents a parallel constraint. Many clinicians and public-health professionals in historically non-endemic areas have limited training in recognising and managing vector-borne diseases. This gap is particularly consequential during first local transmission events, when delayed suspicion can widen the window for mosquito exposure, secondary cases and reactive rather than preventive vector control.
+
+Selected examples of European research and training capacity relevant to vector-borne disease preparedness are summarised in Table 3.
+
+The objective is not to create a single European training model, but to ensure that frontline clinicians, diagnostic laboratories, entomologists, veterinarians and public-health teams share minimum operational competencies. These include recognition of compatible clinical syndromes, awareness of local vector activity, correct sample timing, rapid notification, and coordination with vector-control and environmental-health services.
+
+6. Surveillance Integration and the One Health Gap
+
+Effective preparedness for climate-sensitive vector-borne diseases depends on surveillance systems that can detect early signals across human, animal, vector and environmental domains. At present, surveillance in much of Europe remains fragmented: human case reporting, entomological monitoring, animal or reservoir surveillance and climate/environmental data are often collected by different institutions, using different objectives and reporting timelines [29,30,31,32,33,34]. This fragmentation limits the ability to translate early warning signals into preventive action.
+
+Climate-informed surveillance requires more than counting human cases. It should combine vector distribution and abundance, pathogen detection in vectors or reservoirs, seasonal meteorological indicators, travel-related importation risk and syndromic or laboratory signals from clinical services. Digital surveillance, social-media monitoring, environmental data streams and modelling tools may contribute to earlier detection, but their value depends on data quality, interoperability and clear decision thresholds [29,30,31].
+
+The One Health framework provides a practical basis for closing this gap. Operational One Health preparedness should link human clinical surveillance with veterinary reporting, wildlife or sentinel-animal data, entomological surveillance, environmental indicators and climate-informed risk assessment [32,33,34]. For West Nile virus, this means integrating human, equine, avian and mosquito data. For leishmaniasis, surveillance of dogs and sandflies is essential. For CCHFV, tick, livestock, wildlife and human health systems must be connected before a suspected human case appears.
+
+A key challenge is governance. Data sharing across sectors may be constrained by institutional boundaries, different case definitions, incompatible databases and uncertain responsibilities for triggering action. Preparedness therefore requires agreed thresholds for intensified surveillance, vector control, public communication, blood-safety measures, laboratory referral and cross-border notification. Without such operational links, Europe will continue to detect many climate-sensitive events only after local transmission has already occurred.
+
+7. Implications for Preparedness
+
+The changing epidemiology of vector-borne diseases in Europe requires preparedness to be defined as adaptive system capacity rather than pathogen-specific emergency response. The aim is not to predict every outbreak, but to reduce the time between ecological signal, clinical suspicion, laboratory confirmation and public-health action [8,33,35].
+
+First, surveillance should become seasonal, climate-informed and geographically targeted. Regions with established A. albopictus, recurrent West Nile virus activity, expanding tick-borne encephalitis risk or suitable Hyalomma spp. ecology require pre-season planning and rapid escalation pathways. Second, diagnostic systems should be prepared before the transmission season, including clear laboratory referral routes, guidance on specimen timing and algorithms for differentiating dengue, chikungunya, West Nile virus, TBE and other febrile syndromes. Third, workforce training should focus on practical recognition of locally acquired disease in patients without travel history when exposure occurs in a risk area during vector season.
+
+Future preparedness should also incorporate projections without treating them as deterministic forecasts. Continued warming, longer warm seasons and changes in precipitation are likely to expand the periods and locations in which local transmission is possible, but the realised burden will depend on surveillance quality, vector control, vaccination where available, housing, land use, travel patterns and public behaviour. This uncertainty strengthens rather than weakens the case for flexible preparedness systems [2,29,34,35]. Recent traveller-vaccination guidance further emphasises that dengue and chikungunya vaccination decisions require destination-specific risk assessment, consideration of previous dengue exposure, vaccine authorisation, safety signals and access to diagnostic confirmation [36]. Surveillance-based analysis of mosquito-borne disease trends in Poland and Europe for 2018–2024 likewise supports the need to interpret imported cases, autochthonous transmission and regional surveillance capacity together when planning preparedness [37].
+
+European systems are already moving in this direction through ECDC/EFSA vector maps, EU-level surveillance, reference laboratory networks, public-health guidance for locally acquired Aedes-borne diseases and One Health frameworks [3,4,5,7,32,34,35]. However, these capacities remain uneven. The central policy challenge is to ensure that climate-sensitive risk assessment becomes embedded in routine local and national public-health practice rather than activated only after outbreaks are detected.
+
+8. Conclusions
+
+Climate change is transforming the epidemiological landscape of Europe by altering the ecological baseline for vector survival, pathogen replication and seasonal transmission opportunity. Dengue provides a sentinel example of this transition, but the broader risk landscape also includes chikungunya, West Nile virus, tick-borne encephalitis, leishmaniasis and Crimean-Congo haemorrhagic fever.
+
+The public-health consequences of this transition will be shaped not only by vector expansion, but also by diagnostic readiness, clinical awareness, surveillance integration and cross-sector response capacity. Europe does not need to become uniformly endemic for tropical or vector-borne diseases to face repeated local transmission events. Preparedness must therefore move beyond historical assumptions of endemicity [35,38] and toward flexible, climate-informed and One Health-oriented systems capable of detecting and interrupting transmission early.
+
+Acknowledgments
+
+The authors would like to express their sincere gratitude to Jerzy M. Behnke (The University of Nottingham) for his valuable support, insightful comments, and expert guidance during the preparation of this manuscript. His contributions greatly enhanced the quality and clarity of the work.
+
+Author Contributions
+
+M.G.: Conceptualisation, Methodology, Writing—Original Draft Preparation, Visualisation, Supervision, Critical Review, Manuscript Amendments, Corresponding Author; A.B.: Writing—Editing, Writing—Original Draft Preparation, Critical Review, and Manuscript Amendments. All authors have read and agreed to the published version of the manuscript.
+
+Institutional Review Board Statement
+
+Not applicable.
+
+Informed Consent Statement
+
+Not applicable.
+
+Data Availability Statement
+
+All data are presented within the manuscript.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+tropicalmed-11-00182-t001_Table 1 Table 1 Climate-sensitive vector-borne disease threats in Europe: vectors, mechanisms and preparedness implications. The table provides selected examples rather than a comprehensive risk ranking.
+
+Disease/Pathogen	Main Vector/Reservoir System	Climate-Sensitive Mechanism	European Evidence/Significance	Preparedness Implication	
+Dengue virus	Aedes albopictus; Aedes aegypti	Imported viraemic travellers; competent Aedes vectors; temperature-dependent viral replication; water-holding urban breeding sites	Repeated autochthonous events in France, Italy, Spain, Croatia and Madeira/Portugal; marked increase in reported mainland EU/EEA cases after 2022	Rapid recognition of febrile illness during mosquito season; laboratory confirmation; targeted vector control; travel history and local exposure assessment	
+Chikungunya virus	Aedes albopictus; Aedes aegypti	Same Aedes-borne pathway as dengue; vector adaptation and warm-season transmission windows	Local transmission documented in Italy and France, including large outbreaks in Italy and smaller French clusters	Preparedness should be integrated with dengue and Zika surveillance because the vector and response pathways overlap	
+West Nile virus	Culex spp.; birds as amplifying hosts; humans and horses as incidental hosts	Warm summers, mosquito abundance, bird migration and ecological conditions supporting enzootic amplification	Endemic or recurrent seasonal transmission in parts of southern, central and eastern Europe, with interannual variability	Integrated human, veterinary, equine, avian and mosquito surveillance; seasonal risk communication and blood-safety measures	
+Tick-borne encephalitis virus	Ixodes ricinus and related ticks; wildlife hosts; humans exposed through tick bites or unpasteurised dairy	Warmer seasons, milder winters, vegetation, host density and recreational exposure affect tick activity and human contact	Established and expanding risk in parts of central, northern and eastern Europe; strong seasonality in reported EU/EEA cases	Vaccination policies in risk areas; clinician awareness; harmonised surveillance and public education on tick-bite prevention	
+Leishmania spp.	Phlebotomus spp.; dogs and wildlife reservoirs	Temperature and humidity influence sandfly survival, seasonality and range; reservoir ecology shapes transmission	Endemic in southern Europe with concern for northward expansion of vector suitability	Veterinary–human surveillance linkage; reservoir control; awareness of non-travel-associated cases in expanding risk areas	
+Crimean–Congo haemorrhagic fever virus	Hyalomma marginatum and other Hyalomma spp.; livestock and wildlife hosts	Warmer summers and ecological suitability may support survival of introduced Hyalomma ticks and enzootic cycles	Established or emerging concern in parts of south-eastern and southern Europe; high-consequence pathogen requiring preparedness	Tick surveillance; livestock and wildlife monitoring; biosafety-aware diagnostics; clinical algorithms for haemorrhagic fever evaluation	
+
+tropicalmed-11-00182-t002_Table 2 Table 2 Autochthonous dengue transmission in Europe, 2010–2025: Selected milestones and preparedness interpretation. The table summarises publicly available ECDC surveillance information and published outbreak reports, with emphasis on the transition from sporadic events to recurrent local transmission [7,10,11,12,13,14,15,16,17].
+
+Period/Year	Countries or Areas	Interpretation for Preparedness	
+2010	Croatia and metropolitan France	Early autochthonous events demonstrated that local dengue transmission could occur in European settings where competent Aedes vectors were present.	
+2012–2013	Madeira, Portugal	Large island outbreak associated with Aedes aegypti; important example of European dengue outbreak potential outside mainland EU/EEA.	
+2013–2019	Mainly France and Spain	Sporadic local transmission events; public-health response remained oriented mainly toward imported cases and local vector control.	
+2020	Italy and France	First documented autochthonous dengue outbreak in Italy and additional French events; reinforced the role of Aedes albopictus in temperate Europe.	
+2022	France and Spain	Substantial increase in locally acquired cases; signal of expanding seasonal transmission opportunity.	
+2023	Italy, France and Spain	Multiple clusters including Lazio and Lombardy in Italy and events in France; increased need for genomic, entomological and clinical integration.	
+2024	Italy, France and Spain	Largest recent annual burden reported in mainland EU/EEA, including the Fano outbreak in Italy; underlined diagnostic and frontline preparedness gaps.	
+2025 and beyond	Risk areas with established Aedes vectors	Continued risk is expected where imported viraemic cases coincide with vector activity, suitable temperature and delayed recognition.	
+
+tropicalmed-11-00182-t003_Table 3 Table 3 Selected European research and training capacity relevant to vector-borne disease preparedness. The list is illustrative and not intended as a comprehensive inventory or ranking.
+
+Institution/Initiative	Relevant Contribution	
+London School of Hygiene & Tropical Medicine, United Kingdom	MSc and diploma-level training in tropical medicine, public health and medical entomology; major research capacity.	
+Liverpool School of Tropical Medicine, United Kingdom	Long-standing tropical medicine institution with clinical, laboratory and vector-borne disease expertise.	
+Institute of Tropical Medicine Antwerp, Belgium	Postgraduate tropical medicine and infectious disease training; diagnostics and public-health expertise.	
+Swiss Tropical and Public Health Institute, Switzerland	Medical parasitology, infection biology, diagnostics, public-health and global-health research capacity.	
+University of Copenhagen/PREPARE4VBD, Denmark	European research initiative addressing vector-borne disease diagnostics, ecology, omics and environmental DNA-based surveillance.	
+Heidelberg University Hospital/Heidelberg Institute of Global Health, Germany	Vector-borne disease, geo-health, tropical medicine and international health training and research.	
+University of Naples Federico II, Italy	Mediterranean vector-borne disease research, including field diagnostics and tick/vector studies.	
+University of Bern, Switzerland	Molecular detection, field-based molecular surveillance and pathogen ecology relevant to vector-borne disease preparedness.	
+Institute of Maritime and Tropical Medicine, Medical University of Gdańsk, Poland	Tropical, maritime and travel medicine expertise; relevant capacity in central/eastern European preparedness.	
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+References
+
+1. Ainsworth C. Tropical Diseases Move North Nature 9 November 2023 Available online: https://www.nature.com/articles/d41586-023-03476-7 (accessed on 21 January 2026) 10.1038/d41586-023-03476-7 37945701
+2. Semenza J.C. Suk J.E. Vector-borne diseases and climate change: A European perspective FEMS Microbiol. Lett. 2018 365 fnx244 29149298 10.1093/femsle/fnx244 PMC5812531
+3. European Centre for Disease Prevention and Control European Food Safety Authority Aedes Invasive Mosquitoes—Current Known Distribution: June 2025 ECDC Stockholm, Sweden 2025 Available online: https://www.ecdc.europa.eu/en/publications-data/aedes-invasive-mosquitoes-current-known-distribution-june-2025 (accessed on 12 April 2026)
+4. European Centre for Disease Prevention and Control European Food Safety Authority Aedes albopictus—Current Known Distribution: June 2025 ECDC Stockholm, Sweden 2025 Available online: https://www.ecdc.europa.eu/en/publications-data/aedes-albopictus-current-known-distribution-june-2025 (accessed on 12 April 2026)
+5. European Centre for Disease Prevention and Control European Food Safety Authority Aedes aegypti—Current Known Distribution: June 2025 ECDC Stockholm, Sweden 2025 Available online: https://www.ecdc.europa.eu/en/publications-data/aedes-aegypti-current-known-distribution-june-2025 (accessed on 12 April 2026)
+6. Oliveira S. Rocha J. Sousa C.A. Capinha C. Wide and increasing suitability for Aedes albopictus in Europe is congruent across distribution models Sci. Rep. 2021 11 9916 10.1038/s41598-021-89096-5 33972597 PMC8110805
+7. European Centre for Disease Prevention and Control Public Health Guidance for Assessing Mitigating the Risk of Locally-Acquired Aedes-Borne Viral Diseases in the EU/EEA ECDC Stockholm, Sweden 2025
+8. Fleischmann W.A. Cao L.C. Nurjadi D. Velavan T.P. Addressing the rise of autochthonous vector-borne diseases in a warming Europe Int. J. Infect. Dis. 2024 149 107275 10.1016/j.ijid.2024.107275 39427704
+9. Brem J. Elankeswaran B. Erne D. Hedrich N. Lovey T. Marzetta V. Salvado L.T. Züger C. Schlagenhauf P. Dengue “homegrown” in Europe (2022 to 2023) New Microbes New Infect. 2024 56 101205 10.1016/j.nmni.2023.101205 38094104 PMC10715994
+10. European Centre for Disease Prevention and Control Historical Data on Local Transmission of Dengue in the EU/EEA ECDC Stockholm, Sweden 2025 Available online: https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea-previous-years (accessed on 12 April 2026)
+11. Lazzarini L. Barzon L. Foglia F. Manfrin V. Pacenti M. Pavan G. Rassu M. Capelli G. Montarsi F. Martini S. First autochthonous dengue outbreak in Italy, August 2020 Eurosurveillance 2020 25 2001606 10.2807/1560-7917.es.2020.25.36.2001606 32914745 PMC7502902
+12. De Carli G. Carletti F. Spaziante M. Gruber C.E.M. Rueca M. Spezia P.G. Vantaggio V. Barca A. De Liberato C. Romiti F. Outbreaks of autochthonous Dengue in Lazio region, Italy, August to September 2023: Preliminary investigation Eurosurveillance 2023 28 2300552 10.2807/1560-7917.es.2023.28.44.2300552 37917030 PMC10623645
+13. Romano G. Ferrari G. Pitrolo A.M.G. Rovida F. Piralla A. Baldanti F. Tracing the origin, spread, and molecular evolution of dengue type 1 cases that occurred in Northern Italy in 2023 Pathogens 2024 13 1124 10.3390/pathogens13121124 39770383 PMC11678104
+14. Sacco C. Liverani A. Venturi G. Gavaudan S. Riccardo F. Salvoni G. Fortuna C. Marinelli K. Marsili G. Pesaresi A. Autochthonous dengue outbreak in Marche Region, Central Italy, August to October 2024 Eurosurveillance 2024 29 2400713 10.2807/1560-7917.es.2024.29.47.2400713 39574388 PMC11583309
+15. Sousa C.A. Clairouin M. Seixas G. Viveiros B. Novo M.T. Silva A.C. Escoval M.T. Economopoulou A. Ongoing outbreak of dengue type 1 in the Autonomous Region of Madeira, Portugal: Preliminary report Eurosurveillance 2012 17 20333 10.2807/ese.17.49.20333-en 23231893
+16. Viginier B. Klitting R. Galon C. Bonnefoux V. Bellet C. Fontaine A. Brottet É. Paty M.-C. Mercurol A. Ragozin N. Peri-domestic entomological surveillance using private traps allows detection of dengue virus in Aedes albopictus during an autochthonous transmission event in mainland France, late summer 2023 Eurosurveillance 2024 29 2400195 10.2807/1560-7917.es.2024.29.36.2400195 39239729 PMC11378516
+17. Cochet A. Calba C. Jourdain F. Grard G. Durand G.A. Guinard A. Team I. Noël H. Paty M.-C. Franke F. Autochthonous dengue in mainland France, 2022: Geographical extension and incidence increase Eurosurveillance 2022 27 2200818 10.2807/1560-7917.es.2022.27.44.2200818 36330819 PMC9635021
+18. European Centre for Disease Prevention and Control Historical Data on Local Transmission in the EU/EEA of Chikungunya Virus Disease ECDC Stockholm, Sweden 2025 Available online: https://www.ecdc.europa.eu/en/infectious-disease-topics/chikungunya-virus-disease/surveillance-and-updates/local-transmission-previous-years (accessed on 11 March 2026)
+19. Erazo D. Grant L. Ghisbain G. Marini G. Colón-González F.J. Wint W. Rizzoli A. Van Bortel W. Vogels C.B.F. Grubaugh N.D. Contribution of climate change to the spatial expansion of West Nile virus in Europe Nat. Commun. 2024 15 1196 10.1038/s41467-024-45290-3 38331945 PMC10853512
+20. European Centre for Disease Prevention and Control Tick-borne encephalitis ECDC Annual Epidemiological Report for 2022 ECDC Stockholm, Sweden 2024
+21. Dagostin F. Tagliapietra V. Arnoldi D. Cagnacci F. Rizzoli A. Ecological and environmental factors affecting the risk of human tick-borne encephalitis in Europe, 2017 to 2021 Eurosurveillance 2023 28 2300121 37855903 10.2807/1560-7917.ES.2023.28.42.2300121 PMC10588310
+22. Pavia G. Branda F. Ciccozzi A. Romano C. Locci C. Azzena I. Pascale N. Marascio N. Quirino A. Gigliotti S. The issue of climate change and the spread of tropical diseases in Europe and Italy: Vector biology, disease transmission, genome-based monitoring and public health implications Infect. Dis. 2025 57 121 136 10.1080/23744235.2024.2437027 39663537
+23. Fernández-Ruiz N. Estrada-Peña A. Towards new horizons: Climate trends in Europe increase the environmental suitability for permanent populations of Hyalomma marginatum Pathogens 2021 10 95 10.3390/pathogens10020095 33494140 PMC7909578
+24. Estrada-Peña A. de la Fuente J. Latapia T. Ortega C. The impact of climate trends on a tick affecting public health: A retrospective modeling approach for Hyalomma marginatum PLoS ONE 2015 10 e0125760 10.1371/journal.pone.0125760 25955315 PMC4425654
+25. Fereidouni M. Kuhn J.H. Pecor D.B. Apanaskevich D.A. Sherifi K. Protić J. Karevska T. Boshevska G. Sánchez-Seco M.P. Papa A. Crimean-Congo hemorrhagic fever: An emerging threat in Europe Virol. Sin. 2025 in press 10.1016/j.virs.2025.12.006 41407199
+26. Martínez M.J. Cotten M. Phan M.V.T. Becker K. Espasa M. Leegaard T.M. Lisby G. Vest Schneider U. Casals-Pascual C. Viral epidemic preparedness: A perspective from five clinical microbiology laboratories in Europe Clin. Microbiol. Infect. 2024 30 582 585 37119988 10.1016/j.cmi.2023.04.024
+27. Kuna A. Olszański R. Szostakowska B. Kulawiak N. Kant R. Grzybek M. Unusual unsatisfactory treatment in two patients with imported cutaneous leishmaniasis Trop. Med. Infect. Dis. 2024 9 227 10.3390/tropicalmed9100227 39453254 PMC11510901
+28. Kuna A. Grzybek M. Practical approach to a patient with fever who travelled to the tropics Pol. Arch. Intern. Med. 2024 134 16660 10.20452/pamw.16660 38226582
+29. Alcayna T. Rao V.B. Lowe R. Identifying the climate sensitivity of infectious diseases: A conceptual framework Lancet Planet. Health 2025 9 101291 10.1016/j.lanplh.2025.101291 40763757
+30. Espinosa L. Wijermans A. Orchard F. Höhle M. Czernichow T. Coletti P. Hermans L. Faes C. Kissling E. Mollet T. Epitweetr: Early warning of public health threats using Twitter data Eurosurveillance 2022 27 2200177 10.2807/1560-7917.es.2022.27.39.2200177 36177867 PMC9524055
+31. Fallatah D.I. Adekola H.A. Digital epidemiology: Harnessing big data for early detection and monitoring of viral outbreaks Infect. Prev. Pract. 2024 6 100382 10.1016/j.infpip.2024.100382 39091623 PMC11292357
+32. Berezowski J. De Balogh K. Dórea F.C. Ruegg S. Broglia A. Zancanaro G. Gervelmeyer A. Coordinated surveillance system under the One Health approach for cross-border pathogens that threaten the Union: Options for sustainable surveillance strategies for priority pathogens EFSA J. 2023 21 e07888 36908560 10.2903/j.efsa.2023.7882 PMC9993136
+33. Kodama C. El Rifay A.S. Badra R. Abu Salbi R. Abubakar A. Kayali G. Operationalizing One Health: Strategic guidance for prevention and control of emerging and re-emerging vector-borne and zoonotic diseases in the Eastern Mediterranean Region Front. Trop. Dis. 2023 4 1258985
+34. European Centre for Disease Prevention and Control ECDC One Health Framework ECDC Stockholm, Sweden 2024
+35. Charnley G.E.C. Alcayna T. Almuedo-Riera A. Antoniou C. Badolo A. Bartumeus F. Boodram L.-L. Bueno-Marí R. Codeço C. Coelho F.C. Strengthening resilience to emerging vector-borne diseases in Europe: Lessons learnt from countries facing endemic transmission Lancet Reg. Health Eur. 2025 53 101271 10.1016/j.lanepe.2025.101271 40247854 PMC12002787
+36. Bogacka A. Daniel M. Wroczynska A. Grzybek M. Towards national guidance on dengue and chikungunya vaccination in travellers: Lessons from global recommendations Travel Med. Infect. Dis. 2026 71 102972 10.1016/j.tmaid.2026.102972 41864594
+37. Bogacka A. Kant R. Grzybek M. Surveillance-based insights into mosquito-borne disease trends: Implications for public health in Poland and Europe (2018–2024) Travel Med. Infect. Dis. 2026 70 102953 10.1016/j.tmaid.2026.102953 41539584
+38. Grzybek M. Tropical diseases in the context of climate change and emerging European transmission PLoS Negl. Trop. Dis. 2026 20 e0014038 10.1371/journal.pntd.0014038 41746919 PMC12944762

@@ -1,0 +1,333 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: J Antimicrob Chemother
+Journal ID: J Antimicrob Chemother
+NLM Journal ID: 7513617
+Journal ID: jac
+
+Journal of Antimicrobial Chemotherapy
+
+ISSN: 0305-7453
+EISSN: 1460-2091
+Publisher: Oxford University Press
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13329663
+PMID: 42396859
+DOI: 10.1093/jac/dkag224
+Article ID: dkag224
+Article version: 1
+Subjects: Original Research, AcademicSubjects/MED00230, AcademicSubjects/MED00290, AcademicSubjects/MED00740
+
+Favipiravir tissue distribution and inhibitory quotients in preclinical models: towards a pipeline for evidence-based antiviral repurposing
+
+https://orcid.org/0000-0002-4743-3626 Petit Paul-Rémi Conceptualization Data curation Formal analysis Investigation Methodology Validation Visualization Writing - original draft Writing - review & editing Unité des Virus Émergents (UVE: Aix-Marseille Univ, Università di Corsica, IRD 190, Inserm 1207, IRBA), Marseille 13005, France
+
+https://orcid.org/0000-0002-4734-2249 Touret Franck Conceptualization Formal analysis Investigation Methodology Visualization Writing - review & editing Unité des Virus Émergents (UVE: Aix-Marseille Univ, Università di Corsica, IRD 190, Inserm 1207, IRBA), Marseille 13005, France
+
+https://orcid.org/0000-0003-2326-2938 Driouich Jean-Sélim Conceptualization Formal analysis Investigation Methodology Visualization Writing - review & editing Unité des Virus Émergents (UVE: Aix-Marseille Univ, Università di Corsica, IRD 190, Inserm 1207, IRBA), Marseille 13005, France
+
+https://orcid.org/0009-0001-8898-6702 Paré Albert Data curation Investigation Writing - review & editing Unité Toxicologie ExpérimentAle et Modélisation, INERIS, Institut National de L’Environnement Industriel et des Risques, Verneuil-en-Halatte 60550, France
+
+https://orcid.org/0000-0001-7895-2720 de Lamballerie Xavier Funding acquisition Supervision Writing - review & editing Unité des Virus Émergents (UVE: Aix-Marseille Univ, Università di Corsica, IRD 190, Inserm 1207, IRBA), Marseille 13005, France
+
+https://orcid.org/0000-0001-8932-0171 Marlin Romain Project administration Resources Writing - review & editing Université Paris-Saclay, Inserm, CEA, Center for Immunology of Viral, Auto-Immune, Hematological and Bacterial Diseases » (IMVA-HB/IDMIT), Fontenay-aux-Roses & Le Kremlin-Bicêtre, France
+
+https://orcid.org/0000-0003-4072-9819 Contreras Vanessa Project administration Resources Writing - review & editing Université Paris-Saclay, Inserm, CEA, Center for Immunology of Viral, Auto-Immune, Hematological and Bacterial Diseases » (IMVA-HB/IDMIT), Fontenay-aux-Roses & Le Kremlin-Bicêtre, France
+
+https://orcid.org/0000-0002-6387-8481 Relouzat Francis Resources Université Paris-Saclay, Inserm, CEA, Center for Immunology of Viral, Auto-Immune, Hematological and Bacterial Diseases » (IMVA-HB/IDMIT), Fontenay-aux-Roses & Le Kremlin-Bicêtre, France
+
+https://orcid.org/0000-0001-5815-3454 Gallouët Anne-Sophie Resources Université Paris-Saclay, Inserm, CEA, Center for Immunology of Viral, Auto-Immune, Hematological and Bacterial Diseases » (IMVA-HB/IDMIT), Fontenay-aux-Roses & Le Kremlin-Bicêtre, France
+
+https://orcid.org/0000-0001-5842-7080 Pascal Quentin Resources Université Paris-Saclay, Inserm, CEA, Center for Immunology of Viral, Auto-Immune, Hematological and Bacterial Diseases » (IMVA-HB/IDMIT), Fontenay-aux-Roses & Le Kremlin-Bicêtre, France
+
+https://orcid.org/0000-0002-5534-5482 Guedj Jérémie Writing - review & editing Université de Paris, INSERM, IAME, Paris F-75018, France
+
+https://orcid.org/0000-0002-4928-4484 Le Grand Roger Université Paris-Saclay, Inserm, CEA, Center for Immunology of Viral, Auto-Immune, Hematological and Bacterial Diseases » (IMVA-HB/IDMIT), Fontenay-aux-Roses & Le Kremlin-Bicêtre, France
+
+https://orcid.org/0000-0001-7729-2636 Nougairède Antoine Conceptualization Formal analysis Investigation Methodology Supervision Validation Writing - review & editing Unité des Virus Émergents (UVE: Aix-Marseille Univ, Università di Corsica, IRD 190, Inserm 1207, IRBA), Marseille 13005, France
+
+https://orcid.org/0000-0002-0943-9648 Solas Caroline Conceptualization Formal analysis Investigation Methodology Resources Supervision Validation Visualization Writing - original draft Writing - review & editing Unité des Virus Émergents (UVE: Aix-Marseille Univ, Università di Corsica, IRD 190, Inserm 1207, IRBA), Marseille 13005, France
+Laboratoire de Pharmacocinétique et Toxicologie, Hôpital La Timone, APHM, Marseille, France
+
+Corresponding author. E-mail: paul.petit@ap-hm.fr
+Publication date: 2026 Aug
+Electronic publication date: 2026 Jul 3
+Volume: 81
+Issue: 8
+Electronic Location ID: dkag224
+Received 2026 Feb 15; Accepted 2026 Jun 11
+Copyright: © The Author(s) 2026. Published by Oxford University Press on behalf of British Society for Antimicrobial Chemotherapy.
+Copyright year: 2026
+License: This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (https://creativecommons.org/licenses/by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact reprints@oup.com for reprints and translation rights for reprints. All other permissions can be obtained through our RightsLink service via the Permissions link on the article page on our site—for further information please contact journals.permissions@oup.com.
+License URL: https://creativecommons.org/licenses/by-nc/4.0/
+
+Funding: internal funding
+Page count: 12
+
+==============================
+Abstract
+
+Objectives
+
+Favipiravir (T-705) shows potent in vitro activity but inconsistent in vivo efficacy. We assessed how plasma exposure and tissue distribution shape antiviral coverage using a tissue-based PK/PD framework.
+
+Methods
+
+Favipiravir and its hydroxylated metabolite (M1) were quantified in plasma and multiple organs of Syrian golden hamsters after single and repeated dosing and compared with a non-human primate dataset. We derived tissue penetration factors (TPFs), metabolic ratios (MR) and inhibitory quotients (IQ) against published EC50 values for representative RNA viruses and integrated these results with available human pharmacokinetic data.
+
+Results
+
+Favipiravir absorbed rapidly and distributed heterogeneously, reaching highest levels in kidney, gut and respiratory organs with limited brain access; M1 was enriched in liver and kidney. Organ exposure ranking was broadly similar across species. Tissue IQs were often lower than plasma IQs, indicating that plasma monitoring can overestimate target-organ coverage. IQ analysis suggested favourable coverage for influenza and RSV, heterogeneous, dose-dependent coverage for chikungunya, Rift Valley fever viruses and Orthohantavirus andesense (ANDV), intermediate coverage for Zika virus, and limited coverage for SARS-CoV-2, ebolavirus and West Nile virus. For some viruses, coverage may require higher exposures, prompting dose reassessment and safety data. The IQ patterns aligned with reported preclinical efficacy, and human pharmacokinetics suggested robust exposure margins for influenza but insufficient margins for SARS-CoV-2 and ebolavirus.
+
+Conclusions
+
+Tissue-based IQs refine the interpretation of exposure–response relationships and help explain favipiravir’s variable in vivo performance. The same framework can be refined and applied to other antiviral candidates to support preparedness strategies.
+
+Introduction
+
+Favipiravir (T-705) is a broad-spectrum antiviral agent originally developed by Toyama Chemical for the treatment of pandemic influenza and approved in Japan in 2014 under the name Avigan. Favipiravir is a purine analogue and is selectively recognized by viral RNA-dependent RNA polymerases, leading to lethal mutagenesis or chain termination in many RNA viruses.1,2  In vitro, favipiravir is active against multiple RNA viruses, including influenza, Zika, Lassa, Ebola or SARS-CoV-2.3–6
+
+Favipiravir is a prodrug that undergoes intracellular ribosylation and phosphorylation to form its active metabolite (T-705-RTP). However, in plasma and tissues, the major detectable form of metabolism is hydroxylated favipiravir (M1), produced primarily by aldehyde oxidase in the liver. The parent compound exhibits complex and non-linear pharmacokinetics, influenced by self-inhibition of metabolism and marked interindividual variability.7
+
+Despite its broad in vitro antiviral spectrum, in vivo efficacy of favipiravir has been inconsistent across preclinical and clinical studies. This discrepancy may reflect insufficient exposure in target tissues, which cannot be inferred from plasma concentrations alone. For pandemic preparedness, verifying that in vitro active molecules reach sufficient tissue exposure in vivo is critical for prioritization. For favipiravir, plasma pharmacokinetics are relatively well characterized, whereas tissue-level data remain scarce.
+
+In this study, we investigated the tissue distribution of favipiravir and its hydroxylated metabolite (M1) in Syrian golden hamsters, a widely used small animal model in preclinical antiviral testing. To complement these data and provide a cross-species pharmacological perspective, we also integrated unpublished tissue exposure data obtained in cynomolgus macaques from a separate study.8
+
+We analysed the tissue penetration factor (TPF) of favipiravir and its hydroxylated metabolite (M1) to assess the extent of tissue penetration. We also estimated the metabolic ratio (MR) across organs and calculated inhibitory quotients (IQ) for a panel of RNA viruses by comparing measured plasma and whole-organ homogenate concentrations to published EC50 values. Together, they provide an exploratory tissue-informed framework to contextualize favipiravir exposure and potential antiviral coverage in the setting of drug repurposing.
+
+Materials and methods
+
+Approval and authorization
+
+In vivo experiments were approved by the local ethical committee (C2EA—14) and the French ‘Ministère de l’Enseignement Supérieur, de la Recherche et de l’Innovation’ (APAFIS#23975). The protocols with non-human primates were approved by the institutional ethical committee ‘Comité d'Ethique en Expérimentation Animale du Commissariat à l’Energie Atomique et aux Energies Alternatives’ (CEtEA #44) under statement number A20-011. These protocols were authorized by the ‘Research, Innovation and Education Ministry’ under registration number APAFIS#24434-2020030216532863v1. All experiments were conducted in BSL 3 laboratory.
+
+Cynomolgus macaque pharmacokinetics
+
+Tissue distribution data in cynomolgus macaques were obtained from the study of Marlin et al.8 In this work, animals received a loading dose followed by repeated administrations twice daily (q12h), and residual concentrations were measured at steady state. Among 24 macaques (100 mg/kg q12h, n = 5; 150 mg/kg q12h, n = 10; 180 mg/kg q12h, n = 5; controls 150 mg/kg q12h, n = 4), animals euthanized before Day 7 were excluded to standardize treatment duration. Consequently, tissue distribution data were available for 16 infected macaques treated with favipiravir (n = 5, 8 and 3 in the 100, 150 and 180 mg/kg q12h groups, respectively) and plasma concentration data for four uninfected macaques at 150 mg/kg twice daily. Besides published plasma and lung data, additional unpublished tissue concentrations generated under identical conditions were analysed; methods are detailed in Marlin et al.8
+
+Hamster pharmacokinetic
+
+Seventeen 3-week-old female Syrian hamsters were provided by Janvier Labs. For single-dose PK, two groups (n = 6) received 12.5 or 25 mg of favipiravir intraperitoneally (250 or 500 mg/kg). Two animals per group were euthanized at 1, 3 or 6 h. To evaluate the pharmacokinetics of multiple doses, we used five hamsters: three hamsters received 12.5 mg per dose three times a day (q8h) (750 mg/kg/day q8h) and two hamsters received 25 mg per dose (1500 mg/kg/day q8h). The doses were administered 8 h apart. In the 750 mg/kg/day group, each hamster received either 3, 6 or 9 doses, while in the 1500 mg/kg/day group, each hamster received either 3 or 6 doses. Euthanasia was performed 3 hours after the last dose (Figure 1). This design was intended as an exploratory tissue-distribution study, in line with the 3R principles, rather than a fully powered preclinical pharmacokinetic study.
+
+Figure 1. Experimental design of favipiravir pharmacokinetics in hamsters. For the single-dose study, two groups of six hamsters received a single intraperitoneal injection of favipiravir (12.5 mg or 25 mg, corresponding to 250 or 500 mg/kg). Two animals per group were euthanized at 1, 3 or 6 h post-injection. For the multiple-dose study, two groups of hamsters received favipiravir every 8 h at 12.5 mg (750 mg/kg/day, n = 3) or 25 mg (1500 mg/kg/day, n = 2). Animals were euthanized 3 h after the last injection, following 3, 6 or 9 doses (750 mg/kg/day) or 3 or 6 doses (1500 mg/kg/day). At euthanasia, plasma and organs (brain, gut, kidney, liver, heart, lung, spleen) were collected for quantification. Created in BioRender. Render2, B. (2026) https://BioRender.com/6k7zb7x.
+
+Diagram summarizing the favipiravir pharmacokinetic study design in hamsters, including single-dose and multiple-dose intraperitoneal administration schedules, euthanasia time points after the last injection, and collection of plasma and organs for favipiravir quantification.
+
+Cross-species dose normalization
+
+To provide a simplified cross-species normalization of dosing regimens, animal doses were converted into approximate human equivalent doses (HEDs) using body-surface-area normalization, as previously described.9 HEDs were calculated according to the following formula:
+
+HED(mg/kg)=Animaldose(mg/kg)×KmanimalKmhuman
+
+Km factors of 5, 12 and 37 were used for hamsters, monkeys and adult humans, respectively. The resulting HED values are provided in Table S2 (available as Supplementary data at JAC Online) and Figure S2.
+
+Euthanasia and organ collection of hamsters
+
+Animals were anaesthetized with isoflurane before euthanasia. Organs were rinsed with 10 mL 0.9% sodium chloride and transferred to 2 mL or 50 mL tubes containing 0.9% sodium chloride (1 mL for intestine, kidney, spleen and heart; 10 mL for lung, brain and liver) and 3 mm glass beads. Samples were homogenized (TissueLyser; Retsch MM400; 5 min, 30 Hz), centrifuged (16 200 × g, 5 min), and supernatants stored at −80°C. Blood was collected into EDTA-containing tubes (100 μL; 0.5 M; ThermoFisher Scientific), centrifuged and stored at −80°C.
+
+Favipiravir quantification
+
+Favipiravir and M1 were quantified in plasma and organs as described by Bekegnran et al.10
+
+Briefly, samples underwent protein precipitation with acetonitrile containing an internal standard, followed by centrifugation and LC–MS/MS analysis. Method selectivity and accuracy were controlled using blank and quality-control samples, and analyte/internal-standard peak-area ratios were used for quantification. Samples with concentrations above the validated calibration range were diluted in the corresponding blank matrix and reanalysed to ensure quantification within the validated range.
+
+Collection of literature data for EC50
+
+PubMed was queried using: (favipiravir AND in vitro) OR (T705 AND in vitro). Articles reporting a favipiravir EC50 were extracted to a database. The articles selected for the 9 viruses of interest [Influenza, RSV, West Nile, Chikungunya, Zika virus, Rift Valley fever virus (RVFV), Orthohantavirus andesense (ANDV), ebolavirus, SARS-CoV-2] are listed in Table S1.
+
+Determination tissue penetration factor (TPF)
+
+To estimate the extent of drug distribution from plasma into organs, a TPF was calculated. TPF was defined as the ratio of the concentration measured in each tissue to the corresponding plasma concentration for the same animal and time point:
+
+TPFF=[Favipiravir]tissue[Favipiravir]PlasmaOrTPFM1=[M1]tissue[M1]plasma
+
+Tissue concentrations (µg/g) were converted to µg/mL. For this conversion, we used tissue-specific density values obtained from the IT’IS database.11 Organ-specific densities (g/mL) were used to convert mass to volumetric concentrations, assuming homogeneous homogenates.
+
+Determination of MR
+
+To assess the relative abundance of the parent compound (favipiravir) and its main metabolite (M1) in plasma and each tissue, we calculated the MR as follows:
+
+MRtissue=[M1]tissue[Favipiravir]tissue
+
+MR was calculated per organ, time point and animal from residual concentrations using density-adjusted concentrations as above.
+
+Determination of IQ
+
+For each virus of interest, the minimum and maximum EC50 values (after unit normalization) were extracted and used to define the range of published in vitro potency values. IQ values were calculated using the minimum EC50, maximum EC50 and geometric mean EC50 for each virus. For graphical representation in the main figures, the geometric mean EC50 was used as the central potency estimate. EC50 values were used as the primary potency metric because they were available across all viruses, whereas EC90 values were only available for selected viruses or studies. EC90-based IQs were therefore included only when specifically indicated. The IQ was defined as the ratio of the measured total favipiravir concentration in plasma or whole-organ homogenates to the corresponding EC50 for each virus, using the following formula:
+
+IQ=Tissueconcentration(μg×mL−1)Ec50(μg×mL−1)
+
+For hamsters, IQ values were calculated only from the repeated-dose groups, using concentrations measured at euthanasia 3 h after the last administration. For macaques, IQ values were calculated from trough concentrations (12 h) measured at euthanasia after repeated dosing.
+
+Data analysis and visualization
+
+Data were analysed descriptively, and no formal statistical comparisons were performed because of the exploratory design and limited group sizes. Graphs and heatmaps were generated using GraphPad Prism version 9.5.1.
+
+Results
+
+Pharmacokinetics in hamsters
+
+Following single-dose administration, favipiravir displayed a rapid absorption profile, with a plasmatic Tmax at 1 h and declining thereafter. With a 250 mg/kg dose, plasma levels (mean ± SD) decreased from 177 ± 21 µg/mL at 1 h to 27.5 ± 0.6 µg/mL at 3 h and 6.2 ± 1.4 µg/mL at 6 h (n = 2). At a 500 mg/kg exposure, plasma concentrations reached 396 ± 20 µg/mL at 1 h, falling to 165 ± 8 µg/mL at 3 h and 43.9 ± 1 µg/mL at 6 h (n = 2).
+
+Favipiravir distributed unevenly across tissues: gut, lung and spleen showed the highest exposures, whereas brain, heart and kidney were intermediate. Liver contained almost no detectable drug after a single dose, despite measurable concentrations in all other organs. Concentrations decreased in all tissues within 6 h.
+
+After repeated dosing, plasma concentrations were 74.9 ± 14.9 (n = 3) and 471.2 ± 76.1 µg/mL (n = 2) for doses of 750 and 1500 mg/kg/day, respectively. Higher exposure was observed in most organs. Hepatic levels became detectable at 750 mg/kg/day and rose further at 1500 mg/kg/day. The kidney consistently exhibited relatively high levels (Figure 2a).
+
+Figure 2. Tissue and plasma concentrations of favipiravir and its hydroxylated metabolite (M1) in non-infected hamsters (a, b) and SARS-CoV-2-infected non-human primates (c). In a and b, Syrian hamsters received a single intraperitoneal dose of 12.5 mg (250 mg/kg) or 25 mg (500 mg/kg), with sampling at 1 h, 3 h or 6 h post-injection, or three repeated doses of 12.5 mg (750 mg/kg/day) or 25 mg (1500 mg/kg/day) administered at 8-h intervals, with sampling performed 3 h after the last dose. Concentrations are plotted as mean ± SEM (standard error of the mean); circles represent favipiravir and triangles represent M1. In (a) and (b), dose groups are displayed from left to right within each cluster as follows: single 12.5 mg, repeated 12.5 mg, single 25 mg and repeated 25 mg dosing. In panel (c), SARS-CoV-2-infected cynomolgus macaques received favipiravir at 200, 300 or 360 mg/kg/day (q12h; displayed from left to right within each tissue/plasma cluster), with sampling on Day 7 post-infection. Concentrations of favipiravir and M1 are shown side by side for each tissue (circle for favipiravir, triangle for M1). The uninfected control group includes only plasma favipiravir concentrations at 300 mg/kg/day. All tissue concentrations were converted from µg/g to µg/mL using organ-specific densities obtained from the IT’IS database.
+
+Multi-panel scatter plot comparing favipiravir and M1 concentrations in plasma and tissues after different favipiravir dosing regimens in hamster and non-human primate pharmacokinetic models. Data are shown across plasma and organs.
+
+Plasma concentrations of the hydroxylated metabolite M1 were consistently lower than those of favipiravir and declined more rapidly over time. M1 showed a tissue distribution distinct from favipiravir (Figure 2a/b). Kidney, gut and liver showed the highest concentrations, with the liver being the only organ where M1 clearly exceeded favipiravir. Intermediate concentrations were observed in the lung, spleen and heart, while brain concentrations remained low. Under multiple dosing, M1 levels rose moderately in kidney, gut and liver, but remained lower than favipiravir except in the liver, highlighting its role as the main site of biotransformation (Figure 2b).
+
+Pharmacokinetics in NHP
+
+After repeated dosing at 200, 300 and 360 mg/kg/day, plasma favipiravir concentrations were 39.1 ± 60.9 µg/mL (n = 5), 175.2 ± 87.3 µg/mL (n = 8) and 175.3 ± 36.2 µg/mL (n = 3), respectively, measured on Day 7 post-infection in SARS-CoV-2-infected cynomolgus macaques. In uninfected control macaques treated at 150 mg/kg twice daily (300 mg/kg/day) and euthanized on Day 14, plasma favipiravir reached 61.4 ± 25.4 µg/mL (n = 4), indicating a lower systemic exposure than in infected animals at a comparable dose. Tissue distribution in infected animals showed elevated levels in kidney and liver, marked accumulation in the trachea and additional presence in the lungs, while heart and spleen contained moderate amounts (Figure 2c).
+
+M1 remained lower than favipiravir in plasma but was abundant in the kidney and liver, with kidney concentrations in some cases exceeding favipiravir, confirming active metabolism and elimination in these organs. Notably, kidney concentrations of M1 approached or exceeded those of the parent compound across all dose groups (Figure 2c).
+
+Plasma exposure increased with dose in both models and tissue patterns were broadly aligned, with kidney among higher-exposure organs in both species. Macaques showed prominent tracheal levels, whereas hamsters showed higher gut, lung and spleen levels. Liver exposure was low after single dosing but increased under repeated dosing. For M1, both species showed enrichment in kidney and liver. M1 exceeded favipiravir only in hamster liver, whereas in macaques, it remained below favipiravir in all tissues (Figure 2).
+
+Tissue penetration factor
+
+TPF values, calculated as tissue-to-plasma ratios, highlighted organ-specific differences in favipiravir distribution. When averaging across all doses and both species, the kidney (0.61), trachea (0.49) and gut (0.45) showed the highest relative penetration, followed by spleen (0.36), lung (0.33) and heart (0.27). The brain remained consistently low (0.18), and the liver showed modest ratios (0.24) (Figure 3a).
+
+Figure 3. Tissue penetration factor (TPF) of favipiravir across organs in hamsters and non-human primates. (a) Average TPF per organ, combining all doses and both animal models. (b) Average TPF per animal model (hamster versus macaques), combining all dosing regimens. Data are represented as box-and-whisker plots (min to max), with median values and individual points overlaid. (c) Detailed TPF by organ, species [hamsters (H) and macaques (M)], and dosing regimen. Doses are expressed in mg/kg/day, with q8h (three times daily) regimens for hamsters and q12h (twice daily) regimens for macaques. Bars represent the mean ± standard deviation (SD), and each triangle corresponds to an individual animal. Colours indicate organ identity: In panel (c), organ groups are displayed from left to right as brain, lung, trachea, spleen, heart, kidney, liver and guts. Data from macaques are displayed with a white checkerboard pattern to distinguish them from hamster values.
+
+Multi-panel graph showing favipiravir tissue penetration factors across organs in hamsters and non-human primates. Panels summarize average values by organ and animal model, and detailed values by organ, species and dosing regimen, highlighting inter-organ and inter-species variability in tissue penetration.
+
+When values were averaged separately by animal model, both hamsters and macaques showed broadly similar organ ranking, with the kidney consistently standing out as the main site of relative penetration and the heart among the lowest. Hamsters tended to show relatively higher ratios in lung and spleen, whereas macaques displayed comparatively greater ratios in the liver (Figure 3b).
+
+When examining the effect of increasing doses within each species, in hamsters, TPF values showed an apparent increase across dosing regimens, particularly in gut, lung and spleen, while macaques displayed relatively stable ratios across the different regimens. This stability in NHPs is consistent with distribution equilibrium after prolonged dosing (Day 7 after one loading and 13 maintenance doses) (Figure 3c).
+
+For the inactive metabolite M1, tissue-to-plasma ratios were also calculated (Figure S1).
+
+Metabolic ratios
+
+Plasma MR values were consistently <1 across dosing groups, confirming that favipiravir predominated over its metabolite M1 in systemic circulation. In hamsters, MR values were low at both 750 mg/kg/day (0.089) and 1500 mg/kg/day (0.053). In macaques, plasma MR values were higher at 200 mg/kg/day (≃0.24) but decreased markedly to ≃0.084 at 300 mg/kg/day, with little further change at 360 mg/kg/day (≃0.067). In both species, MR decreased non-proportionally with dose, consistent with partial metabolic saturation (autoinhibition of aldehyde oxidase) contributing to non-linear pharmacokinetics (Figure 4a).
+
+Figure 4. Metabolic ratio (MR) of M1 over favipiravir in tissues and plasma across animal models and dosing regimens. (a) MR in plasma, calculated for each animal and shown by dosing group. Bars represent the mean ± standard deviation (SD), with individual values shown as black triangles. (b) MR in tissues, grouped by organ across all animal models and dosing regimens. Data are represented as box-and-whisker plots (min to max), with median values and individual points overlaid. (c) Detailed MR values per organ, animal model [hamsters (H) and macaques (M)] and dosing regimen. Doses are expressed in mg/kg/day, with q8h (three times daily) for hamsters and q12h (twice daily) for macaques. Bars represent the mean ± SD, with individual data shown as triangles. In panel (b) and (c), organ groups are displayed from left to right as brain, lung, trachea, spleen, heart, kidney, liver and guts. Data from macaques are displayed with a white checkerboard pattern to distinguish them from hamster values. Panel a is shown on a linear scale, while Panels b and c are displayed on a logarithmic scale.
+
+Multi-panel graph showing the metabolic ratio of M1 over favipiravir in plasma and tissues across animal models and dosing regimens. Panels summarize plasma ratios by dosing group, tissue ratios by organ, and detailed organ-level ratios by species and regimen.
+
+When averaging across all dose regimens and both species, MR analysis highlighted strong tissue-specific differences, with the highest ratios in the liver (14) and kidney (1.6), followed by gut (0.5), consistent with active intense local metabolism and clearance. By contrast, MR values in brain, lung, spleen, trachea and heart remained well below 0.3, indicating that favipiravir concentrations largely exceeded those of M1 in non-metabolic compartments (Figure 4b).
+
+When analysed by dosing regimen, in both models, MR values showed a non-proportional dose-dependent decline, consistent with observations in the blood compartment (Figure 4c).
+
+Thus, although M1 increased with exposure, favipiravir increased more steeply, resulting in lower MR at higher doses.
+
+Inhibitory quotients
+
+Influenza virus and RSV
+
+IQ values for influenza were consistently high across plasma and all tissues, typically ranging between 40 and 1800-fold relative to EC50 and EC90, depending on dose and compartment.
+
+Particularly high IQs were observed in respiratory organs (lung and trachea) where IQ spanned from approximately 40- to 1000-fold when calculated with EC50 and between approximately 10- and 300-fold when calculated with EC90, depending on dose, reflecting favourable exposure in relation to the antiviral potency.
+
+RSV showed a broadly similar distribution pattern compared with influenza, but with markedly lower IQ values overall, ranging from approximately 6- to 260-fold across compartments, corresponding to an approximately 7-fold difference compared with influenza. However, at the lowest dose tested in macaques (200 mg/kg/day) and hamsters (750 mg/kg/day), IQ values in many target organs, including lung, remained at the lower end of this range (IQ = 6), suggesting that potentially effective concentrations may only be achieved at higher exposures.
+
+For influenza specifically, although all values remained >10, IQ values decreased by more than 50%–70% across compartments when calculated with EC90 rather than EC50 (Figure 5a). Sensitivity analyses showed that influenza remained broadly favourable across the tested scenarios, whereas RSV was more scenario-dependent and mainly favourable at higher exposures (Figure S3).
+
+Figure 5. Inhibitory quotients (IQ) of favipiravir in plasma and tissues across dosing regimens and target viruses. Mean IQ values were calculated for repeated-dose groups only, as the ratio of the favipiravir tissue concentration measured at euthanasia to the geometric mean of the reported EC50 or EC90 for each virus, in plasma and available organs, for each dosing group in hamsters (H) and macaques (M). Heatmaps are grouped into three panels: (a) influenza virus (IQ and IQ90) and respiratory syncytial virus (RSV); (b) SARS-CoV-2, ebolavirus and Zika virus and (c) chikungunya virus (CHIKV), Rift Valley fever virus (RVFV), Orthohantavirus andesense (ANDV; IQ90) and West Nile virus (WNV). Colour scale reflects the magnitude of the IQ. Values shown are group means. Grey boxes indicate organs for which favipiravir concentrations were not available for some groups. Asterisks (*) indicate the main target organs for each virus, based on current pathophysiological knowledge. The IQ90 for influenza and Orthohantavirus andesense were calculated using the EC90 value. Main heatmaps were generated using geometric mean EC50 or EC90 values; sensitivity analyses using minimum and maximum EC50 values are provided in Figure S3.
+
+Multi-panel heatmap showing mean favipiravir inhibitory quotients in plasma and tissues for repeated-dose groups in hamsters and non-human primates across multiple target viruses. Panels compare IQ values for influenza virus, RSV, SARS-CoV-2, ebolavirus, Zika virus, CHIKV, RVFV, Orthohantavirus andesense and WNV,
+
+SARS-CoV-2, ebolavirus and Zika virus
+
+In contrast, IQ values against SARS-CoV-2, ebolavirus and Zika virus were much lower. In most tissues, ratios remained below the threshold of 10, especially at lower doses. In hamsters, values above 10 were mainly observed at the highest dose (1500 mg/kg/day), particularly in respiratory organs, although this pattern was more pronounced for SARS-CoV-2 and Zika virus than for ebolavirus. In macaques, plasma IQs exceeded 10 only at high exposure (≃12.6 at 150–180 mg/kg q12h) for Zika virus, while for SARS-CoV-2, only the trachea transiently exceeded 10 at 150 mg/kg q12h; for ebolavirus, IQs remained below 10 across compartments. Overall, these findings suggest that potential pharmacological coverage for SARS-CoV-2, ebolavirus and Zika virus is highly dose-dependent and restricted to specific compartments, with distinct virus-specific patterns and a non-uniform relationship between plasma and tissue IQs (Figure 5b). Sensitivity analyses showed that conclusions for SARS-CoV-2, ebolavirus and Zika virus varied across scenarios, with broader predicted coverage mainly observed in the most favourable scenario and at higher exposures; for ebolavirus, coverage remained limited overall. (Figure S3)
+
+Other RNA virus: chikungunya, RVFV, ANDV and WNV
+
+Against chikungunya virus (CHIKV), RVFV and Orthohantavirus andesense (ANDV), IQ values reached very high levels in plasma and highly perfused organs (spleen, lung and kidney), sometimes exceeding 100 in plasma at the highest doses in hamsters or 50 in macaques, while increases across other organs were less pronounced. Nevertheless, achieving IQ values above 10 in organs generally required relatively high dosing, suggesting that elevated exposures may be needed to reach potentially effective levels. In contrast, West Nile virus (WNV) IQ values were generally below 10 in most organs, particularly in the brain, which is the key target site of pathogenesis, suggesting limited pharmacological coverage in this compartment (Figure 5c). Sensitivity analyses showed distinct profiles within this group: CHIKV was strongly scenario-dependent, RVFV and ANDV retained more favourable IQs at higher exposures across several scenarios, whereas WNV remained limited, particularly in the brain (Figure S3).
+
+Overall, IQ values varied substantially across viruses, dose regimens and compartments and sensitivity scenarios. These analyses showed that potency variability mainly affected viruses with intermediate IQ profiles, whereas conclusions were more stable for viruses with consistently favourable or unfavourable coverage. Because these estimates are based on total favipiravir concentrations measured in plasma or whole-organ homogenates, they should be interpreted as exploratory pharmacological indicators rather than direct measurements of target-site exposure.
+
+Discussion
+
+In this study, we characterized the tissue distribution of favipiravir and its major metabolite (M1) in Syrian golden hamsters and cynomolgus macaques and integrated concentrations into IQ to assess effective organ exposure across viral infections.
+
+Our results confirm that favipiravir exhibits rapid absorption and extensive distribution, with marked organ-specific differences. The kidney and gut consistently showed the highest penetration, while the brain was markedly limited, consistent with previous reports.12–14 The low apparent liver penetration likely reflects rapid and extensive metabolism rather than restricted tissue access, as supported by the predominance of M1 in this organ. Interpretation should therefore consider both compounds. Cross-species comparison revealed broadly similar distribution patterns between hamsters and macaques. Plasma concentrations were higher in hamsters, but comparison is limited by sampling schedules, interspecies metabolism15,16 and linear (rodents) versus non-linear (non-human primates) pharmacokinetics.17 A simplified normalization of dosing regimens as HEDs was therefore provided to improve cross-species readability. (Table S2 and Figure S2). This normalization highlights that the highest animal regimens correspond to very large approximate human-equivalent dose magnitudes, up to 14.2 g/day for a 70 kg adult. However, this scaling should be interpreted only as a contextual comparison of dose magnitude, since it does not account for species-specific aldehyde oxidase activity, non-linear pharmacokinetics or infection-related changes in exposure. MR analysis further illustrated these differences: in hamsters, MR values showed limited variation across doses, consistent with a relatively linear pharmacokinetic profile. By contrast, in macaques, MR values declined more than proportionally between 200 and 300 mg/kg/day and then stabilized, indicating that favipiravir concentrations rose more steeply than those of M1, consistent with capacity-limited metabolism and regulatory observations. We chose to represent IQs using total favipiravir concentrations measured in plasma and whole-organ homogenates, rather than applying a direct free-drug correction. This choice was made because plasma protein binding is available for favipiravir, but tissue-specific unbound fractions are not known, making a uniform plasma-derived correction uncertain across organs. Interpretation was therefore based on a conservative threshold of IQ ≥10 rather than IQ ≥1. This threshold accounts for the moderate plasma protein binding of favipiravir (∼50%), corresponding to an approximate 2-fold adjustment, together with an additional 5-fold PK/PD margin to account for intracellular activation, tissue-specific distribution, EC50 heterogeneity and the need to maintain exposure above the antiviral potency threshold. For influenza, IQ values were consistently above 10 in plasma and all tissues, including respiratory organs. This aligns with favipiravir clinical development18,19 and demonstrated antiviral activity in humans.20 In influenza patients, trough plasma concentrations above 20 µg/mL were associated with improved antiviral activity.21 This corresponds here to IQ50 ≈ 80 and IQ90 ≈ 25, well above the efficacy threshold. These influenza-derived IQ values may therefore provide empirical clinical benchmarks, potentially more informative than the generic IQ ≥ 10 threshold for respiratory viruses, although their transposability to other viruses, tissues or pathophysiological settings remains uncertain.
+
+For RSV, IQs also exceeded 10 in most compartments at higher doses, with especially favourable values in plasma and respiratory tissues. However, at the lowest doses tested (200 mg/kg/day in macaques and 750 mg/kg/day in hamsters), values in several organs fell below 10, indicating that effective exposure requires higher doses.
+
+For CHIKV, RVFV and ANDV, IQs above 10 were observed in some compartments, particularly at high doses, in line with prior reports of efficacy in rodents.22–25 For ANDV, this is also consistent with the antiviral activity reported by Safronetz et al., who showed that treatment with 50 or 100 mg/kg/day favipiravir reduced viral replication and improved survival in a lethal ANDV hamster model.26 Efficacy may therefore require near-upper tolerability exposures.
+
+By contrast, for ebolaviruses and SARS-CoV-2, IQs remained close to or below the efficacy threshold in most organs, even at high exposures, with the notable exception of the trachea in macaques. This is consistent with infection studies showing clear, dose-dependent efficacy in hamsters but limited or no benefit in macaques.8,27,28
+
+In COVID-19 patients, favipiravir plasma trough concentrations reported by Gülhan et al. were low and declined rapidly, and this exposure profile was not associated with a clinical antiviral benefit.29 Using the SARS-CoV-2 EC50 selected here (13.45 µg/mL), these trough concentrations correspond to plasma IQs of ≈1.6 on Day 2 and ≈0.12 on Day 4, indicating rapidly declining and very limited exposure margins, making sustained IQ in pulmonary tissues unlikely. Consistently, the recent AGILE CST-6 study of intravenous favipiravir showed that high-dose regimens were required to approach SARS-CoV-2 pharmacokinetic targets: median day-3 trough concentrations reached 96.49 µg/mL at 2400 mg twice daily, corresponding here to an approximate plasma IQ50 of 7.2, still below the conservative IQ ≥10 threshold.30 For Zika virus, although IQ profiles were similar, preclinical studies showed reduced plasma viral load,8 suggesting systemic infections may depend more on plasma exposure than tissue penetration.
+
+Regarding ebolavirus, in the JIKI trial, despite high-dose administration of favipiravir (up to 1200 mg twice daily), plasma trough concentrations reported by Nguyen et al. corresponded to IQ of ≈0.7–4.3, declining to ≈0.4–2.4 at later time points31 and, considering ∼50% plasma protein binding, effective exposure remains well below the threshold. For West Nile virus (WNV), a neurotropic flavivirus, IQs were particularly low in the brain raising concerns about CNS protection and consistent with limited efficacy in WNV models.32
+
+Taken together, these analyses show that IQs vary widely across viruses and tissues. While plasma IQs were often well above threshold, tissue IQs were sometimes much lower, particularly in clearance organs or the CNS. Thus, plasma exposure should be interpreted cautiously, and tissue-level data should be integrated when assessing favipiravir’s broad-spectrum potential.
+
+It should also be noted that bulk tissue concentrations do not necessarily reflect the true physiological exposure at the site of viral replication. In the present study, favipiravir concentrations were measured in whole-organ homogenates and therefore represent total organ-level exposure rather than compartment-specific concentrations. For example, in the original work of Marlin et al., pulmonary epithelial lining fluid concentrations were lower than those inferred from whole-lung homogenates,8 suggesting that lung IQs based on homogenates may overestimate functional target-site exposure.
+
+By contrast, in the CNS, interpretation of IQs depends on blood–brain barrier integrity: when protein content is low, total IQs may reflect the active fraction, whereas neuroinflammatory conditions may require higher concentrations: available data are limited to hamsters and suggest dose dependence.
+
+This study has several limitations. First, the temporal dimension of tissue exposure was only partially captured, as IQs were calculated from a single post-dose time point in each model. In hamsters, IQs were based on concentrations measured 3 h after the last administration, corresponding to an intermediate post-dose time point according to the single-dose pharmacokinetic profile. In macaques, IQs were based on trough concentrations measured after repeated dosing, which are relevant for assessing whether tissue exposure is maintained at the end of the dosing interval. Therefore, although these IQs do not represent full-time-integrated PK/PD metrics, their sampling context provides meaningful information on intermediate exposure in hamsters and sustained residual exposure in macaques. The sample size in hamsters was limited (n ≤ 3 per group), which reduces statistical power and limits the ability to capture inter-individual variability. These data should therefore be considered exploratory and descriptive and are not intended to support formal statistical comparisons or definitive dose–exposure relationships. Rather, they were used to characterize broad tissue-distribution patterns and to inform the proposed tissue-based PK/PD framework while limiting animal use in accordance with the 3R principles. In addition, only female hamsters were used, which prevents assessment of sex-related variability in favipiravir pharmacokinetics and metabolism. This is relevant because favipiravir biotransformation into M1 by aldehyde oxidase differs both across species and between sexes.15 Tissue concentrations in cynomolgus macaques were obtained from a study primarily designed for another objective, in SARS-CoV-2-infected animals, limiting comparability. Importantly, infection itself can alter pharmacokinetics through inflammation, changes in metabolism and tissue distribution. This has been directly demonstrated during acute arenavirus infection in hamsters, where reduced plasma favipiravir concentrations, altered absorption and elimination kinetics and increased formation of the inactive metabolite M1 were observed.33 Such disease-related changes may influence IQ interpretation. Accordingly, cross-species comparisons should be interpreted descriptively and were not intended to attribute exposure differences solely to species-related pharmacokinetic factors. However, the infected macaque dataset remains pharmacologically relevant for antiviral repurposing, since favipiravir is intended to be used in infected hosts, where disease-related changes in exposure may directly affect antiviral coverage. The reuse of this existing macaque dataset was consistent with the 3R principles by avoiding additional non-human primate experiments solely for comparative tissue-distribution purposes. We measured favipiravir and its inactive metabolite M1, but not the pharmacologically active ribonucleoside triphosphate (Favi-RTP). This is an important limitation, since intracellular Favi-RTP formation may vary across tissues and cell types. However, the EC50 values available in the literature are based on exposure to the parent compound favipiravir. Therefore, comparing parent favipiravir concentrations with favipiravir-derived EC50 values was the only approach consistent with the available potency data. Favipiravir biodistribution nevertheless remains informative despite potentially variable intracellular Favi-RTP formation. Importantly, regulatory data have shown that Favi-RTP is formed in the lung, supporting the relevance of favipiravir exposure as a surrogate marker.17 IQ were calculated using EC50 values derived from heterogeneous in vitro studies except when EC90-based IQs were specifically indicated, as for influenza and ANDV. To address this variability, the main graphical analysis used geometric mean potency values as a central estimate, while sensitivity analyses based on minimum and maximum potency values were added in Figure S3. These complementary analyses illustrate the range of possible IQ estimates and should be considered when interpreting viruses with highly variable reported potency values. They also showed that the overall interpretation was relatively stable for viruses with consistently high or low IQs across the potency range, such as influenza on the favourable side and ebolavirus or WNV on the unfavourable side, whereas intermediate profiles, including Zika virus, CHIKV, RVFV and ANDV, were more sensitive to the selected potency value, particularly at lower exposure levels. Additional EC90 data, when unavailable, and free-drug corrections would further refine estimates of pharmacologically active levels. The present total-concentration-based approach does not replace formal free-drug correction but avoids applying a uniform plasma-derived correction to tissues for which unbound fractions are unknown. Finally, extrapolation to humans must be made with caution, given interspecies differences in drug metabolism, particularly in aldehyde oxidase activity, which is a major determinant of favipiravir clearance. The present analysis did not include a mechanistic calibration of favipiravir metabolism using human liver cytosol, S9 fractions or other in vitro systems, and was therefore not designed to provide a quantitative bridge to human dosing. Rather, it should be viewed as a tissue-informed pharmacological framework to contextualize antiviral repurposing hypotheses.
+
+Overall, tissue-based IQs help reconcile favipiravir’s broad in vitro activity with variable in vivo outcomes: coverage appears robust for influenza (and often RSV), potentially favourable for CHIKV, RVFV and ANDV at high exposures, but limited for SARS-CoV-2 and ebolaviruses and poor for neurotropic infections, underscoring that plasma monitoring can overestimate target-organ exposure. These findings support the value of integrating tissue distribution data with plasma pharmacokinetics when interpreting the plausibility of antiviral repurposing. Beyond favipiravir, this work represents an exploratory tissue-informed PK/PD framework that could be applied to other repurposed antivirals and against different pathogens. Importantly, this framework is intended to support pharmacological prioritization and hypothesis generation, rather than to provide definitive human dosing recommendations. Such a framework could be further strengthened by the generation of pharmacokinetic data across a range of dose levels in vivo and in humans, including ongoing clinical investigations such as the FAVIDose trial (INSERM C18-47), together with more comprehensive tissue distribution profiling and inhibitory concentrations derived from diverse and physiologically relevant cellular models, thereby providing a more accurate and generalizable basis for antiviral prioritization.
+
+Supplementary Material
+
+dkag224_Supplementary_Data
+
+Acknowledgements
+
+We thank Benoit Delache, Nina Dhooge, Mathilde Galhaut, Cécile Hérate, Raphaël Ho Tsong Fang, Sebastien Langlois, Pauline Le Calvez, Sophie Luccantoni, Pauline Maisonnasse, Quentin Sconosciuti, Maxime Potier and Jean-Marie Robert for the help in NHP experiments and tissue processing. Part of this work was performed on the Aix Marseille University antivirals platform “Plateforme Criblage Viral Marseille-Timone (PCVMT)” belonging to the Marseille Screening Center “MaSC”.
+
+We also warmly thank Madeleine Giocanti for her invaluable assistance in performing the pharmacological assays.
+
+Funding
+
+This study was supported by internal funding. F.T. is supported by the IRD Chair “Antiviral strategy for emergence in the South”, in partnership with Aix-Marseille University, Inserm and ANRS MIE.
+
+Transparency declarations
+
+The authors declare no conflicts of interest related to this work.
+
+Author contributions
+
+Paul-Rémi Petit (Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Validation, Visualization, Writing—original draft, Writing—review & editing), Franck Touret (Conceptualization, Formal analysis, Investigation, Methodology, Visualization, Writing—review & editing), Jean-Sélim Driouich (Conceptualization, Formal analysis, Investigation, Methodology, Visualization, Writing—review & editing), Albert Paré (Data curation, Investigation, Writing—review & editing), Xavier de Lamballerie (Funding acquisition, Supervision, Writing—review & editing), Romain Marlin (Project administration, Resources, Writing—review & editing), Vanessa Contreras (Project administration, Resources, Writing—review & editing), Francis Relouzat (Resources), Anne-Sophie Gallouët (Resources), Quentin Pascal (Resources), Jérémie Guedj (Writing—review & editing), Antoine Nougairède (Conceptualization, Formal analysis, Investigation, Methodology, Supervision, Validation, Writing—review & editing) and Caroline Solas (Conceptualization, Formal analysis, Investigation, Methodology, Resources, Supervision, Validation, Visualization, Writing—original draft, Writing—review & editing)
+
+Supplementary data
+
+Figures S1–S3 and Tables S1 and S2 are available as Supplementary data at JAC Online.
+
+
+References
+
+1 Furuta  Y, Gowen  BB, Takahashi  K  et al  Favipiravir (T-705), a novel viral RNA polymerase inhibitor. Antiviral Res  2013; 100: 446–54. 10.1016/j.antiviral.2013.09.015 24084488 PMC3880838
+2 Sangawa  H, Komeno  T, Nishikawa  H  et al  Mechanism of action of T-705 ribosyl triphosphate against influenza virus RNA polymerase. Antimicrob Agents Chemother  2013; 57: 5202–8. 10.1128/AAC.00649-13 23917318 PMC3811313
+3 Baz  M, Goyette  N, Griffin  BD  et al  In vitro susceptibility of geographically and temporally distinct Zika viruses to favipiravir and ribavirin. Antiviral Ther  2017; 22: 613–8. 10.3851/IMP3180 28694390
+4 Fang  Q-Q, Huang  W-J, Li  X-Y  et al  Effectiveness of favipiravir (T-705) against wild-type and oseltamivir-resistant influenza B virus in mice. Virology  2020; 545: 1–9. 10.1016/j.virol.2020.02.005 32174453
+5 Reynard  O, Nguyen  X-N, Alazard-Dany  N  et al  Identification of a new ribonucleoside inhibitor of Ebola virus replication. Viruses  2015; 7: 6233–40. 10.3390/v7122934 26633464 PMC4690858
+6 Rosenke  K, Feldmann  H, Westover  JB  et al  Use of favipiravir to treat Lassa virus infection in macaques. Emerg Infect Dis  2018; 24: 1696–9. 10.3201/eid2409.180233 29882740 PMC6106425
+7 Madelain  V, Guedj  J, Mentré  F  et al  Favipiravir pharmacokinetics in nonhuman primates and insights for future efficacy studies of hemorrhagic fever viruses. Antimicrob Agents Chemother  2017; 61: e01305-16. 10.1128/AAC.01305-16 27736754 PMC5192134
+8 Marlin  R, Desjardins  D, Contreras  V  et al  Antiviral efficacy of favipiravir against Zika and SARS-CoV-2 viruses in non-human primates. Nat Commun  2022; 13: 5108. 10.1038/s41467-022-32565-w 36042198 PMC9427089
+9 Nair  A, Jacob  S. A simple practice guide for dose conversion between animals and human. J Basic Clin Pharm  2016; 7: 27. 10.4103/0976-0105.177703 27057123 PMC4804402
+10 Bekegnran  CP, Driouich  J, Breuer  J  et al  Simultaneous quantitation of favipiravir and its hydroxide metabolite in human plasma and hamster matrices using a UPLC–MS/MS method. Biomed Chromatogr  2023; 37: e5689. 10.1002/bmc.5689 37349975
+11 Baumgartner  C, Hasgall  PA, F  Di Gennaro, et al IT’IS Database for thermal and electromagnetic parameters of biological tissues. 2018. https://itis.swiss/virtual-population/tissue-properties/downloads/database-v4-0/.
+12 Bocan  TM, Basuli  F, Stafford  RG  et al  Synthesis of [18F]favipiravir and biodistribution in C3H/HeN mice as assessed by positron emission tomography. Sci Rep  2019; 9: 1785. 10.1038/s41598-018-37866-z 30741966 PMC6370782
+13 Richardson  PJ, Ottaviani  S, Prelle  A  et al  CNS penetration of potential anti-COVID-19 drugs. J Neurol  2020; 267: 1880–2. 10.1007/s00415-020-09866-5 32361836 PMC7195609
+14 Rong  J, Zhao  C, Xia  X  et al  Evaluation of [18F]favipiravir in rodents and nonhuman primates (NHP) with positron emission tomography. Pharmaceuticals  2023; 16: 524. 10.3390/ph16040524 37111280 PMC10146102
+15 Hanioka  N, Saito  K, Isobe  T  et al  Favipiravir biotransformation in liver cytosol: species and sex differences in humans, monkeys, rats, and mice. Biopharm Drug Dispos  2021; 42: 218–25. 10.1002/bdd.2275 33754379
+16 Mordenti  J . Man versus beast: pharmacokinetic scaling in mammals. J Pharm Sci  1986; 75: 1028–40. 10.1002/jps.2600751104 3820096
+17 Japanese Pharmaceuticals and Medical Devices Agency (PMDA) . Report on the Deliberation Results. https://www.pmda.go.jp/files/000210319.pdf.
+18 Furuta  Y, Takahashi  K, Fukuda  Y  et al  In vitro and in vivo activities of anti-influenza virus compound T-705. Antimicrob Agents Chemother  2002; 46: 977–81. 10.1128/AAC.46.4.977-981.2002 11897578 PMC127093
+19 Takahashi  K, Furuta  Y, Fukuda  Y  et al  In vitro and in vivo activities of T-705 and oseltamivir against influenza virus. Antivir Chem Chemother  2003; 14: 235–41. 10.1177/095632020301400502 14694986
+20 Hayden  FG, Lenk  RP, Stonis  L  et al  Favipiravir treatment of uncomplicated influenza in adults: results of two phase 3, randomized, double-blind, placebo-controlled trials. J Infect Dis  2022; 226: 1790–9. 10.1093/infdis/jiac135 35639525 PMC9650493
+21 Hayden  FG, Lenk  RP, Epstein  C  et al  Oral favipiravir exposure and pharmacodynamic effects in adult outpatients with acute influenza. J Infect Dis  2024; 230: e395–404. 10.1093/infdis/jiad409 37739792 PMC11326817
+22 Abdelnabi  R, Jochmans  D, Verbeken  E  et al  Antiviral treatment efficiently inhibits chikungunya virus infection in the joints of mice during the acute but not during the chronic phase of the infection. Antiviral Res  2018; 149: 113–7. 10.1016/j.antiviral.2017.09.016 28958920
+23 Caroline  AL, Powell  DS, Bethel  LM  et al  Broad spectrum antiviral activity of favipiravir (T-705): protection from highly lethal inhalational rift valley fever. PLoS Negl Trop Dis  2014; 8: e2790. 10.1371/journal.pntd.0002790 24722586 PMC3983105
+24 Julander  JG, Dagley  A, Gebre  M  et al  Strain-dependent disease and response to favipiravir treatment in mice infected with chikungunya virus. Antiviral Res  2020; 182: 104904. 10.1016/j.antiviral.2020.104904 32791074 PMC7543030
+25 Scharton  D, Van Wettere  AJ, Bailey  KW  et al  Rift valley fever virus infection in Golden Syrian Hamsters. PLoS One  2015; 10: e0116722. 10.1371/journal.pone.0116722 25607955 PMC4301868
+26 Safronetz  D, Falzarano  D, Scott  DP  et al  Antiviral efficacy of favipiravir against two prominent etiological agents of hantavirus pulmonary syndrome. Antimicrob Agents Chemother  2013; 57: 4673–80. 10.1128/AAC.00886-13 23856782 PMC3811478
+27 Driouich  J-S, Cochin  M, Lingas  G  et al  Favipiravir antiviral efficacy against SARS-CoV-2 in a hamster model. Nat Commun  2021; 12: 1735. 10.1038/s41467-021-21992-w 33741945 PMC7979801
+28 Kaptein  SJF, Jacobs  S, Langendries  L  et al  Favipiravir at high doses has potent antiviral activity in SARS-CoV-2−infected hamsters, whereas hydroxychloroquine lacks activity. Proc Natl Acad Sci U S A  2020; 117: 26955–65. 10.1073/pnas.2014441117 33037151 PMC7604414
+29 Gülhan  R, Eryüksel  E, Gülçebi İdriz Oğlu  M  et al  Pharmacokinetic characterization of favipiravir in patients with COVID-19. Br J Clin Pharmacol  2022; 88: 3516–22. 10.1111/bcp.15227 35014080
+30 Rowland  T, FitzGerald  R, Challenger  E  et al  Optimal dose and safety of intravenous favipiravir in hospitalized patients with COVID -19: a dose-escalating, randomized controlled phase Ib study. Clin Pharmacol Ther  2026; 119: 1650–61. 10.1002/cpt.70261 41848748 PMC13156351
+31 Nguyen  THT, Guedj  J, Anglaret  X  et al  Favipiravir pharmacokinetics in Ebola-infected patients of the JIKI trial reveals concentrations lower than targeted. PLoS Negl Trop Dis  2017; 11: e0005389. 10.1371/journal.pntd.0005389 28231247 PMC5340401
+32 Morrey  J, Taro  B, Siddharthan  V  et al  Efficacy of orally administered T-705 pyrazine analog on lethal West Nile virus infection in rodents. Antiviral Res  2008; 80: 377–9. 10.1016/j.antiviral.2008.07.009 18762216 PMC2587511
+33 Gowen  BB, Sefing  EJ, Westover  JB  et al  Alterations in favipiravir (T-705) pharmacokinetics and biodistribution in a hamster model of viral hemorrhagic fever. Antiviral Res  2015; 121: 132–7. 10.1016/j.antiviral.2015.07.003 26186980 PMC4536130

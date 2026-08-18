@@ -1,0 +1,193 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Pathogens
+Journal ID: Pathogens
+NLM Journal ID: 101596317
+Journal ID: pathogens
+
+Pathogens
+
+EISSN: 2076-0817
+Publisher: Multidisciplinary Digital Publishing Institute (MDPI)
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13414539
+PMID: 42515096
+DOI: 10.3390/pathogens15070769
+Article ID: pathogens-15-00769
+Article version: 1
+Subjects: Brief Report
+
+Effect of Cup Material on S-Methoprene Bioavailability and Susceptibility Estimates in Larval Mosquito Bioassays
+
+https://orcid.org/0000-0002-3654-5235 Wheeler Sarah S. *
+Kelley Kara
+https://orcid.org/0000-0002-1088-8686 Novelo Mario
+Taylor-Robinson Andrew Academic Editor
+Sacramento-Yolo Mosquito and Vector Control District, 8631 Bond Rd, Elk Grove, CA 95624, USA
+* Correspondence: swheeler@fightthebite.net
+Electronic publication date: 2026 Jul 22
+Publication date: 2026 Jul
+Volume: 15
+Issue: 7
+Electronic Location ID: 769
+Received 2026 Jun 26; Revised 2026 Jul 18; Accepted 2026 Jul 21
+Copyright: © 2026 by the authors.
+Copyright year: 2026
+License: Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: S-methoprene, larval resistance monitoring, expanded polystyrene, assay standardization, vector management, Culex quinquefasciatus
+
+Funding: Sacramento-Yolo Mosquito and Vector Control District This research received no external funding. Support for this work was provided by the Sacramento-Yolo Mosquito and Vector Control District through operational funds.
+
+==============================
+Mosquito control programs rely on larvicides such as S-methoprene to suppress vector populations and prevent mosquito-borne diseases including West Nile virus (WNV). Resistance surveillance is essential for maintaining the long-term effectiveness of larvicide active ingredients and is typically conducted using cup bioassays to evaluate larval susceptibility. Disposable Styrofoam cups are commonly used for these assays because they minimize adsorption of S-methoprene under standard testing conditions. However, recent restrictions on expanded polystyrene products in California necessitated the identification and evaluation of suitable replacement cup materials for larval resistance bioassays. Four alternative cup materials, high-density polyethylene (HDPE), polyethylene terephthalate (PET), polypropylene (PP), and paper cups, were compared to Styrofoam cups. Cup bioassays were conducted using a laboratory colony of Culex quinquefasciatus exposed to S-methoprene concentrations of 1–40 ppb. Emergence inhibition data were analyzed using probit regression to estimate the concentrations causing 50% and 90% emergence inhibition (LC50 and LC90, respectively) for each cup type. Cup material significantly affected concentration-response relationships. HDPE and paper cups produced significantly higher LC50 and LC90 estimates than Styrofoam, whereas PET and PP produced responses more comparable to the Styrofoam reference. Concentration-response slopes were similar among cup materials, indicating that cup material primarily shifted the concentration required to achieve a given level of emergence inhibition. These findings demonstrate that cup material can significantly influence estimated S-methoprene LC values. Replacement assay cups should therefore be validated before implementation in larval resistance monitoring programs.
+
+1. Introduction
+
+Mosquito-borne diseases are a major public health concern worldwide. To mitigate the threat of insecticide resistance within mosquito populations, mosquito control agencies implement integrated mosquito management (IMM) programs [1,2,3] that utilize a multipronged approach including public education, immature mosquito habitat source reduction, biological control, microbial control, and, when necessary, chemical control. To reduce selection pressure for resistance, larvicides and adulticides are applied in a targeted manner, and insecticide classes are rotated when possible. Routine insecticide resistance monitoring is also an essential component of IMM because it provides the information needed to detect changes in susceptibility and guide resistance management [4].
+
+Larvicides are an important component of IMM programs and often serve as the primary method of mosquito suppression because they target immature mosquito life stages in aquatic larval habitats and reduce the need for wide-area adult mosquito control insecticide applications. Mosquito larvicides include microbial products, insect growth regulators (IGRs), and surface films, each with distinct modes of action and operational considerations. Among these products, S-methoprene, a juvenile hormone analog (JHA), is widely used because of its low toxicity to non-target organisms [5] and effectiveness against immature mosquitoes. Juvenile hormone analogs interfere with normal mosquito larval development by mimicking juvenile hormones present during aquatic stages [6,7], preventing the emergence of adult mosquitoes [8].
+
+Larval resistance can be assessed using concentration-response bioassays commonly referred to as cup bioassays [9,10,11]. Cup bioassays are a standard tool for estimating mosquito susceptibility to larvicides and are typically conducted using reusable glass bowls and beakers or disposable cups to minimize contamination [11]. Because standardized bioassays are intended to provide reproducible estimates of larval susceptibility, factors that alter the effective larvicide concentration may introduce unintended variation into assay results. S-methoprene readily adsorbs to certain substrates [12,13], potentially reducing its concentration in solution and influencing measured concentration-response relationships. Consequently, early bioassays used silanized glassware to minimize losses of active ingredient [14]. Subsequent procedures transitioned to disposable Styrofoam cups [9,10,15], because they are inexpensive, disposable, and appear to minimize reductions in S-methoprene bioavailability under standard assay conditions.
+
+Recently, California Senate Bill 54 (SB 54; Solid Waste: Reporting, Packaging, and Plastic Food Ware; 2022) restricted the sale of expanded polystyrene (Styrofoam) food-service products, resulting in the unavailability of Styrofoam cups in California. Alternative cup materials therefore required evaluation before they could be adopted for standardized S-methoprene larval bioassays. Accordingly, four candidate replacement cup materials were compared with Styrofoam to determine whether cup material influenced measured S-methoprene concentration-response relationships and to identify a suitable replacement for standardized larval bioassays.
+
+2. Materials and Methods
+
+2.1. Mosquitoes
+
+Mosquito larvae were reared under laboratory-controlled conditions at 25 °C to ensure uniform larval development. Experiments were conducted using a laboratory reference colony of Culex quinquefasciatus (CQ1) originally collected in Merced County, CA, in the 1950s [16]. Mosquitoes were reared in plastic trays (24 cm × 30 cm) containing 1.5 L of dechlorinated tap water. Larvae were fed 0.2 g of finely ground TetraMin® (47.6% by volume; Tetra, Blacksburg, VA, USA) per tray daily. Prior to each bioassay, larvae from all rearing trays were combined to produce a uniform age-matched cohort, and late third- to early fourth-instar larvae were selected for testing.
+
+2.2. Larvicide Bioassays
+
+Five cup materials were evaluated: Styrofoam (237 mL, Dart, Mason, MI, USA) high-density polyethylene (HDPE) (237 mL, Mercedes Scientific, Lakewood Ranch, FL, USA), polyethylene terephthalate (PET) (355 mL, First Street available at Smart and Final, Los Angeles, CA, USA), polypropylene (PP) (251 mL, Karat by Lollicup, Chino, CA, USA) and Flexstyle® paper food containers lined with polyethylene (473 mL, Dart, Mason, MI, USA).
+
+Bioassays were conducted based on previously published methods [9,10,15] with some modifications. For each bioassay cup, 25 larvae were placed in a 90 mL condiment cup containing 10 mL of distilled water. Each test cup was filled with 90 mL of distilled water. Five percent Altosid® Liquid Larvicide (Wellmark International, Schaumburg, IL, USA) was serially diluted immediately before each assay to produce final S-methoprene concentrations of 0, 1, 2, 5, 10, 20, and 40 ppb. Four technical replicates were prepared for each cup material and concentration combination.
+
+After S-methoprene was added, the larvae and 10 mL of water from the condiment cup were transferred to each test cup, producing a final assay volume of 100 mL. Each cup received 37 mg of coarsely ground TetraMin. Cups were fitted with a clear lid, and all openings were closed with window screening. The assay cups were held in a climate-controlled rearing space (24 °C).
+
+Assays were first examined beginning 5 days after treatment and were scored after all pupae had either successfully emerged or died, typically 7 days after treatment. Successful adult emergence was determined by the presence of an exuvium. Pupae that died before emergence and adults that failed to completely emerge were classified as emergence inhibited. Living larvae remaining at the end of the assay were excluded from the analysis because they had not completed development during the observation period. Individuals that successfully completed adult emergence were classified as not emergence inhibited. Emergence inhibition was used as the response variable in all analyses. The complete experiment was conducted on five separate occasions.
+
+2.3. Statistical Analysis
+
+Statistical analyses were conducted in R version 4.6.0 [17]. Control emergence inhibition was evaluated prior to analysis and remained below thresholds requiring Abbott’s correction. Water-only controls were excluded from subsequent concentration-response analyses.
+
+To estimate the S-methoprene concentrations associated with 50% and 90% emergence inhibition for each cup material, probit models were fit using the ecotox package (v1.4.4) [18]. The models characterized the relationship between S-methoprene concentration and emergence inhibition and were used to estimate LC50 and LC90 values with 95% confidence intervals. Relative LC ratios were calculated by dividing the LC50 and LC90 estimates for each cup material by the corresponding estimates obtained using Styrofoam cups.
+
+To evaluate the effect of cup material on concentration-response relationships, emergence inhibition was analyzed using a generalized linear model with a quasibinomial error distribution and probit link. The model included log-transformed S-methoprene concentration, cup material, and experimental replicate as fixed effects. The contribution of cup material to emergence inhibition was evaluated by comparing models with and without the cup material term using an analysis-of-deviance F-test.
+
+To determine whether the effect of cup material changed across the range of S-methoprene concentrations, a second generalized linear model including a cup material × concentration interaction was compared with the main-effects model (concentration, cup material, and experimental replicate) using an analysis-of-deviance F-test. This analysis evaluated whether cup material affected the slope of the concentration-response relationship in addition to shifting the concentration required to achieve a given level of emergence inhibition. Cup-specific concentration-response slopes were also estimated using separate probit models for descriptive purposes.
+
+To compare each replacement cup material with the Styrofoam reference, planned contrasts were performed using estimated marginal means. For Figure 1, predicted concentration-response curves were generated from the main-effects model, and observed that emergence inhibition values were pooled across experimental replicates for each cup material and concentration. Figures were produced using the ggplot2 package [19]. The raw bioassay data are provided as Supplemental Dataset S1, and the R code used for the statistical analyses and figure generation is provided as Supplemental File S2.
+
+3. Results
+
+Control emergence inhibition was low across all cup materials, ranging from 0.6% in Styrofoam cups to 2.1% in HDPE, paper, and PET cups, with an overall control mortality of 1.5% (37/2472). S-methoprene concentrations ranged from 1 to 40 ppb and produced emergence inhibition ranging from 1.0% to 97.9%, encompassing nearly the full concentration-response curve (Figure 1A).
+
+Cup material significantly affected the concentration required to achieve a given level of emergence inhibition (F(4, 140) = 12.34, p < 0.001). Relative to Styrofoam cups, HDPE (β = −0.274, p = 0.0001) and paper cups (β = −0.278, p < 0.0001) required higher concentrations of S-methoprene to achieve equivalent emergence inhibition, whereas PET (β = 0.125, p = 0.073) and PP cups (β = −0.069, p = 0.326) did not differ significantly from Styrofoam.
+
+Estimated probit concentration-response slopes were similar among cup materials, ranging from 1.52 for HDPE cups to 1.69 for paper cups. Including a cup material × concentration interaction did not improve model fit (F(4, 136) = 0.388, p = 0.817), indicating no evidence that concentration-response slopes differed among cup materials.
+
+Estimated LC50 values ranged from 8.3 ppb for PET cups to 13.8 ppb for HDPE cups (Table 1). Relative to the Styrofoam reference (LC50 = 9.4 ppb), LC50 estimates were 46% higher for HDPE cups, 40% higher for paper cups, and 18% higher for PP cups, and 12% lower for PET cups. Similar patterns were observed for LC90 estimates, which ranged from 48.3 ppb for PET cups to 75.5 ppb for HDPE cups. These differences are illustrated in Figure 1B. Consistent with the generalized linear model, HDPE and paper cups produced the largest increases in estimated LC values, whereas PET and PP cups produced LC estimates closer to those obtained using Styrofoam.
+
+4. Discussion
+
+Although PET produced results most similar to the Styrofoam reference, the broader finding is that assay container material can influence estimated LC values and therefore should be validated before routine use in resistance monitoring.
+
+Concentration-response slopes were similar among cup materials and did not differ significantly, indicating that cup material primarily shifted the concentration required to achieve a given level of emergence inhibition rather than altering the overall concentration-response relationship.
+
+One possible explanation is that differences in polymer composition, surface properties, or adsorption characteristics among cup materials altered the amount of S-methoprene available in the assay solution. S-methoprene is a hydrophobic juvenile hormone analog that readily adsorbs to certain substrates [12]. Although S-methoprene concentrations were not measured directly in this study, the consistent shift in LC values without corresponding changes in concentration-response slopes is consistent with reduced S-methoprene availability in some cup materials.
+
+The findings of this study have important implications for mosquito control agencies conducting routine larval resistance monitoring. Larval susceptibility is commonly evaluated using resistance ratios, in which LC values for field populations are compared with those of a susceptible reference strain tested under the same assay conditions. In the present study, cup material shifted the concentration required to achieve a given level of emergence inhibition without altering the concentration-response slope. If a similar proportional shift appears to occur in field populations, cup material may have less influence on resistance ratios than on absolute LC estimates; however, this possibility was not evaluated. Consequently, replacement assay materials should be validated against established reference methods before implementation. When changes in assay materials are unavoidable, new baseline susceptibility values should be established for reference populations to maintain consistency in resistance monitoring.
+
+Among the evaluated replacement materials, PET produced LC estimates closest to the Styrofoam reference and appears to be the most suitable replacement for S-methoprene larval bioassays. In contrast, HDPE and paper cups consistently produced higher LC estimates and may not maintain continuity with historical bioassay data. Polypropylene cups produced intermediate results; although they did not differ significantly from Styrofoam, LC estimates remained consistently higher than the Styrofoam reference. The differing results among PET, PP, and HDPE cups suggest that multiple material properties may influence S-methoprene availability within the assay system.
+
+This study evaluated a single susceptible mosquito strain, one S-methoprene formulation, and laboratory bioassays conducted in distilled water. Consequently, the magnitude of the observed effects may differ among mosquito populations, formulations, or water chemistries encountered during routine resistance monitoring. In addition, S-methoprene bioavailability was inferred from biological responses rather than direct chemical measurements, and the proposed mechanism therefore remains hypothetical. Future studies should include direct chemical measurements of S-methoprene concentrations and evaluate additional mosquito populations, formulations, and water chemistries.
+
+Despite these limitations, this study highlights the importance of validating replacement assay materials before they are adopted for standardized mosquito resistance bioassays. As regulatory and commercial changes continue to affect the availability of existing assay materials, alternative containers should be evaluated to ensure they do not introduce methodological bias into larval resistance monitoring.
+
+5. Conclusions
+
+HDPE and paper cups significantly increased estimated S-methoprene LC values, whereas PET produced results most comparable to Styrofoam. Because cup material can influence estimated LC values, replacement assay containers should be validated before adoption in mosquito resistance monitoring programs.
+
+Acknowledgments
+
+The authors thank James Brodigan, Anna Blankenship-Cutshall, Haley Unmacht, Joy Drake, Katrina Stokes, Stanley Roberts, and Elizabeth Slagboom for their assistance counting the thousands of mosquito larvae used in this study. The authors also thank Debbie Dritz for providing mosquito colony support throughout the project. During the preparation of this manuscript, the authors used ChatGPT with the GPT-5.5 model (OpenAI; accessed June 2026) to improve clarity, organization, and readability of manuscript text and to assist with review of statistical code. The authors reviewed and edited all generated content and take full responsibility for the content of this publication.
+
+Supplementary Materials
+
+The following supporting information can be downloaded at: https://www.mdpi.com/article/10.3390/pathogens15070769/s1, Supplemental Dataset S1: Raw emergence inhibition data from S-methoprene larval bioassays conducted using Styrofoam, polyethylene terephthalate (PET), polypropylene (PP), high-density polyethylene (HDPE), and paper cups; Supplemental File S2: R code used to generate LC50 and LC90 estimates, statistical analyses, and Figure 1 from Supplemental Dataset S1.
+
+Author Contributions
+
+Conceptualization, S.S.W. and K.K.; methodology, S.S.W. and K.K.; software, S.S.W.; formal analysis, S.S.W.; investigation, K.K. and M.N.; data curation, K.K. and S.S.W.; writing—original draft preparation, S.S.W.; writing—review and editing, S.S.W., K.K. and M.N.; visualization, S.S.W.; supervision, S.S.W. All authors have read and agreed to the published version of the manuscript.
+
+Institutional Review Board Statement
+
+Not applicable.
+
+Informed Consent Statement
+
+Not applicable.
+
+Data Availability Statement
+
+All data generated and analyzed during this study are provided in Supplemental Dataset S1. The R code used to reproduce all statistical analyses and figures is provided in Supplemental File S2.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+Abbreviations
+
+The following abbreviations are used in this manuscript: CQ1	Culex quinquefasciatus reference colony	
+CI	Confidence interval	
+GLM	Generalized linear model	
+HDPE	High-density polyethylene	
+IGR	Insect growth regulator	
+IMM	Integrated mosquito management	
+JHA	Juvenile hormone analog	
+LC50	Concentration causing 50% emergence inhibition	
+LC90	Concentration causing 90% emergence inhibition	
+PET	Polyethylene terephthalate	
+PP	Polypropylene	
+WNV	West Nile virus	
+
+Figure 1 Effect of cup material on S-methoprene concentration-response relationships in Culex quinquefasciatus CQ1. (A) Probit concentration-response curves for mosquitoes exposed to S-methoprene in Styrofoam, polyethylene terephthalate (PET), polypropylene (PP), high-density polyethylene (HDPE), and paper cups. Points represent observed emergence inhibition pooled across assay repetitions, and lines represent fitted predictions from the generalized linear model. (B) Relative LC50 and LC90 estimates for each cup material expressed as fold change compared with the Styrofoam reference. Values greater than 1 indicate higher estimated concentrations required to achieve equivalent emergence inhibition relative to Styrofoam cups.
+
+pathogens-15-00769-t001_Table 1 Table 1 Estimated LC50 and LC90 values (ppb) and corresponding 95% confidence intervals for S-methoprene in laboratory larval bioassays conducted using five cup materials. Relative LC ratios are expressed relative to the Styrofoam reference (Styrofoam = 1.00). Values greater than 1 indicate that higher S-methoprene concentrations were required to achieve equivalent emergence inhibition than in Styrofoam cups.
+
+Cup Material	LC50 (ppb)	95% CI	Relative LC Ratio	LC90 (ppb)	95% CI	Relative LC Ratio	
+Styrofoam	9.4	7.1–12.8	1.00	51.7	32.7–106.0	1.00	
+HDPE	13.8	10.9–18.0	1.46	75.5	49.4–142.0	1.45	
+Paper	13.2	10.3–17.7	1.40	68.8	44.2–136.0	1.33	
+PET	8.3	6.4–10.9	0.88	48.3	31.9–89.6	0.93	
+PP	11.1	8.4–15.2	1.18	59.9	37.7–125.0	1.16	
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+References
+
+1. American Mosquito Control Association Best Practices for Integrated Mosquito Management Available online: https://www.mosquito.org/assets/pdf/hr_november_2021_amca_bmp_ma/ (accessed on 1 July 2026)
+2. Rose R.I. Pesticides and Public Health: Integrated Methods of Mosquito Management Emerg. Infect. Dis. 2001 7 17 23 10.3201/eid0701.010103 11266290 PMC2631680
+3. Fouet C. Kamdem C. Integrated Mosquito Management: Is Precision Control a Luxury or Necessity? Trends Parasitol. 2019 35 85 95 10.1016/j.pt.2018.10.004 30446394 PMC6503858
+4. Vontas J. Mavridis K. Vector Population Monitoring Tools for Insecticide Resistance Management: Myth or Fact? Pestic. Biochem. Physiol. 2019 161 54 60 10.1016/j.pestbp.2019.08.005 31685197
+5. Lawler S.P. Environmental Safety Review of Methoprene and Bacterially-Derived Pesticides Commonly Used for Sustained Mosquito Control Ecotoxicol. Environ. Saf. 2017 139 335 343 10.1016/j.ecoenv.2016.12.038 28187397
+6. Henrick C.A. Methoprene J. Am. Mosq. Control Assoc. 2007 23 225 239 10.2987/8756-971X(2007)23[225:M]2.0.CO;2 17853608
+7. Siddall J.B. Insect Growth Regulators and Insect Control: A Critical Appraisal Environ. Health Perspect. 1976 14 119 126 10.1289/ehp.7614119 976222 PMC1475088
+8. Arias J.R. Mulla M.S. Morphogenetic Aberrations Induced by a Juvenile Hormone Analogue in the Mosquito Culex Tarsalis (Diptera: Culicidae) J. Med. Entomol. 1975 12 309 316 10.1093/jmedent/12.3.309 1181435
+9. Su T. Thieme J. White G.S. Lura T. Mayerle N. Faraji A. Cheng M.-L. Brown M.Q. High Resistance to Bacillus Sphaericus and Susceptibility to Other Common Pesticides in Culex Pipiens (Diptera: Culicidae) from Salt Lake City, UT J. Med. Entomol. 2019 56 506 513 10.1093/jme/tjy193 30383248
+10. Su T. Thieme J. Ocegueda C. Ball M. Cheng M.-L. Resistance to Lysinibacillus Sphaericus and Other Commonly Used Pesticides in Culex Pipiens (Diptera: Culicidae) from Chico, California J. Med. Entomol. 2018 55 423 428 10.1093/jme/tjx235 29272497
+11. World Health Organization Guidelines for Laboratory and Field Testing of Mosquito Larvicides WHO/CDS/WHOPES/GCDPP/2005.13 WHO Geneva, Switzerland 2005
+12. Aronov P.A. Dettmer K. Christiansen J.A. Cornel A.J. Hammock B.D. Development of a HPLC/Tandem-MS Method for the Analysis of the Larvicides Methoprene, Hydroprene, and Kinoprene at Trace Levels Using Diels-Alder Derivatization J. Agric. Food Chem. 2005 53 3306 3312 10.1021/jf0485842 15853364 PMC1479544
+13. Baker S.L. Yan N.D. Accumulated Organic Debris in Catch Basins Improves the Efficacy of S-Methoprene against Mosquitoes in Toronto, Ontario, Canada J. Am. Mosq. Control Assoc. 2010 26 172 182 10.2987/09-5928.1 20649127
+14. Dame D.A. Wichterman G.J. Hornby J.A. Mosquito (Aedes taeniorhynchus) Resistance to Methoprene in an Isolated Habitat J. Am. Mosq. Control Assoc. 1998 14 200 203 9673923
+15. Lopez K. Harbison J. Irwin P. Erkapic A. Holub R. Blanco C. Paskewitz S. Clifton M. Bartholomay L. Extreme Resistance to S-Methoprene in Field-Collected Culex Pipiens (Diptera: Culicidae) across the Chicago, IL Region Sci. Rep. 2024 14 18001 10.1038/s41598-024-69066-3 39097646 PMC11297970
+16. McAbee R.D. Kang K.-D. Stanich M.A. Christiansen J.A. Wheelock C.E. Inman A.D. Hammock B.D. Cornel A.J. Pyrethroid Tolerance in Culex pipiens pipiens var molestus from Marin County, California Pest Manag. Sci. 2004 60 359 368 10.1002/ps.799 15119598
+17. R Core Team R: A Language and Environment for Statistical Computing R Foundation for Statistical Computing Vienna, Austria 2025 Available online: http://www.R-project.org/ (accessed on 1 July 2026)
+18. Hlina B.L. Birceanu O. Robinson C.S. Dhiyebi H. Wilkie M.P. The Relationship between Thermal Physiology and Lampricide Sensitivity in Larval Sea Lamprey (Petromyzon marinus) J. Gt. Lakes Res. 2021 47 S272 S284 10.1016/j.jglr.2021.10.002
+19. Wickham H. Ggplot2: Elegant Graphics for Data Analysis Springer New York, NY, USA 2016 9783319242774

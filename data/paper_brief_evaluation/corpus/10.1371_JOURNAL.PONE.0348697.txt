@@ -1,0 +1,951 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: PLoS One
+Journal ID: PLoS One
+NLM Journal ID: 101285081
+Journal ID: plos
+
+PLOS One
+
+EISSN: 1932-6203
+Publisher: PLOS
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13178890
+PMID: 42139224
+DOI: 10.1371/journal.pone.0348697
+Article ID: PONE-D-26-07716
+Article version: 1
+Subjects: Research Article, Science Policy, Science and Technology Workforce, Citizen Science, Medicine and Health Sciences, Epidemiology, Disease Surveillance, Ecology and Environmental Sciences, Species Colonization, Invasive Species, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Disease Vectors, Insect Vectors, Mosquitoes, Biology and Life Sciences, Species Interactions, Disease Vectors, Insect Vectors, Mosquitoes, Biology and Life Sciences, Zoology, Entomology, Insects, Mosquitoes, Biology and Life Sciences, Organisms, Eukaryota, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Biology and Life Sciences, Zoology, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Medicine and Health Sciences, Epidemiology, Medical Risk Factors, Biology and Life Sciences, Developmental Biology, Life Cycles, Larvae, Medicine and Health Sciences, Public and Occupational Health, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Disease Vectors, Insect Vectors, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Species Interactions, Disease Vectors, Insect Vectors, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Zoology, Entomology, Insects, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Organisms, Eukaryota, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Zoology, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Aedes Aegypti
+
+The role of citizen science in mosquito-borne disease surveillance and control: A scoping review
+
+The role of citizen science in mosquito-borne disease surveillance and control: A scoping review
+
+https://orcid.org/0000-0001-7566-3587 Kianfar Nima Conceptualization Formal analysis Software Writing – original draft Writing – review & editing 1
+Savoji Kimia Conceptualization Formal analysis Software Writing – original draft 2
+https://orcid.org/0000-0002-4323-382X Huang Xiao Conceptualization Funding acquisition Writing – review & editing 3
+Yang Di Conceptualization Funding acquisition Writing – review & editing 4
+https://orcid.org/0000-0001-5092-0698 Mollalo Abe Conceptualization Funding acquisition Software Supervision Writing – original draft Writing – review & editing 5 *
+1 Department of Geospatial Information Systems, Faculty of Geomatics Engineering, K. N. Toosi University of Technology, Tehran, Iran
+2 School of Computing, Clemson University, Clemson, South Carolina, United States of America
+3 Department of Environmental Sciences, Emory University, Atlanta, Georgia, United States of America
+4 Department of Geography, University of Florida, Gainesville, Florida, United States of America
+5 Department of Public Health Sciences, Medical University of South Carolina, Charleston, South Carolina, United States of America
+Silva Daniel de Paiva Editor
+Instituto Federal de Educacao Ciencia e Tecnologia Goiano - Campus Urutai, BRAZIL
+* E-mail: mollalo@musc.eduCompeting Interests: The authors have declared that no competing interests exist.
+
+Electronic publication date: 2026 May 15
+Publication date: 2026
+Volume: 21
+Issue: 5
+Electronic Location ID: e0348697
+Received 2026 Feb 12; Accepted 2026 Apr 20
+Copyright: © 2026 Kianfar et al
+Copyright year: 2026
+Copyright holder: Kianfar et al
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+The role of citizen science in mosquito-borne disease surveillance and control: A scoping review. 21 5 15 5 2026 e0348697 e0348697 PLoS One 10.1371/journal.pone.0348697 42139224
+The role of citizen science in mosquito-borne disease surveillance and control: A scoping review. 21 5 15 5 2026 e0348697 e0348697 PLoS One 10.1371/journal.pone.0348697 42139224
+
+Funding: NASA 80NSSC25K7190 https://orcid.org/0000-0001-5092-0698 Mollalo Abe A.M. is supported by the National Aeronautics and Space Administration (NASA) under award number 80NSSC25K7190.
+
+Figure count: 4
+Table count: 1
+Page count: 21
+Data Availability: All relevant data are within the manuscript and its Supporting information files (S2 File).
+
+Data Availability
+
+All relevant data are within the manuscript and its Supporting information files (S2 File).
+
+==============================
+Background
+
+Mosquito-borne diseases (MBDs) pose substantial global health and economic burdens. Although conventional MBDs surveillance systems remain essential, they are often resource-intensive, uneven in coverage, and often insufficiently responsive to spatio-temporal variations in mosquito presence and risk. Citizen science, increasingly enabled by mobile and digital technologies, offers a scalable complement to expand surveillance reach and timeliness. However, existing reviews have not comprehensively integrated evidence across diverse dimensions of citizen science applied to MBDs surveillance and control.
+
+Methods
+
+We conducted a systematic search of PubMed, MEDLINE, CINAHL, Scopus, and Web of Science from January 1, 2000, to October 17, 2025, to identify peer-reviewed studies examining citizen science applications in MBDs surveillance and control. Data were extracted and synthesized on study characteristics, participation objectives, recruitment strategies, citizen-generated data and technologies, validation mechanisms, effort-bias handling, analytical approaches, public health outputs, reported biases and methodological limitations, and ethical and governance practices.
+
+Results
+
+Of 3,734 records identified, 61 studies met inclusion criteria, with most published after 2017 (93.4%). Studies were conducted in Europe (44.3%) and the Americas (21.3%), with minimal representation from Asia (3.3%). Malaria-related surveillance was most common (23.0%), followed by dengue (13.1%), with other mosquito-borne diseases examined only sporadically, including West Nile virus (4.9%), Usutu virus (1.6%), La Crosse virus (1.6%), and California serogroup viruses (1.6%). Most studies were conducted in urban settings (47.5%), followed by mixed urban–rural contexts (36.1%), with relatively few exclusively in rural areas (18.0%). Mosquito Alert was the most frequently reported platform (23.0%), followed by GLOBE Observer (13.1%) and iNaturalist (11.5%). Commonly reported outputs included trend analyses (52.5%), risk-factor identification (44.3%), spatial predictions (42.6%), hotspot mapping (19.7%), and risk modeling (16.4%). Reporting of ethical and governance practices was inconsistent across studies.
+
+Conclusions
+
+The growing body of evidence indicates that citizen science can enhance mosquito surveillance, particularly for monitoring invasive species and spatio-temporal trends. Nevertheless, gaps in methodological rigor, representativeness, and ethical transparency limit its broader operational use.
+
+1. Introduction
+
+Mosquito-borne diseases (MBDs) remain major global public health threats, imposing substantial and continuing health burdens [1]. Each year, these infections account for over 347 million cases and more than 447 thousand deaths worldwide [2,3]. Beyond their health impacts, the associated economic burden is considerable across diverse settings. A recent global synthesis estimated that invasive Aedes mosquitoes and the diseases they transmit resulted in a cumulative cost of at least USD 94.7 billion between 1975 and 2020. Notably, the study documented a 14-fold increase in reported costs over time, with average annual costs of USD 3.1 billion, while emphasizing substantial underreporting and underestimation [4].
+
+Effective prevention and control of MBDs depend on surveillance systems capable of detecting changes in vector presence and transmission risk. Despite the magnitude and growing burden of MBDs, traditional mosquito surveillance remains uneven in coverage, resource-intensive, and often unable to resolve fine-scale or rapidly changing spatial patterns [5,6]. Addressing these limitations requires surveillance systems that are timely, spatially sensitive, and capable of tracking changes in vector presence, abundance, and spread. In response to these challenges, citizen science, enabled by digital tools and mobile technologies, offers a practical complement to traditional entomological and public health surveillance [7]. By engaging large numbers of participants, citizen science can expand the geographic and temporal reach of monitoring, particularly through smartphone-based reporting, geotagged observations, and image-based submissions [8]. Several well-established platforms illustrate the feasibility of this approach. For example, Mosquito Alert enables the public to submit geolocated mosquito photographs that can be validated by experts and used for monitoring invasive and medically important species [9]. Similarly, the GLOBE Observer Mosquito Habitat Mapper supports structured reporting of larval habitats and standing-water sites through a smartphone-based interface, generating standardized data streams that can inform surveillance and mitigation activities [10].
+
+Citizen science is particularly well-suited to MBDs surveillance as many actionable indicators of mosquito risk are observable in everyday environments, such as household and neighborhood breeding sites, nuisance hotspots, and encounters with invasive species [11]. Community reporting and engagement can strengthen early detection and broaden coverage in areas where routine surveillance is intermittent or resource-constrained, while also supporting sustained monitoring across seasons and years [12]. At the same time, advances in quality assurance and validation workflows, including automated classification supported by expert review, have improved the feasibility of translating citizen-submitted mosquito data into surveillance-relevant information [2].
+
+Despite this growing body of literature, the intersection of citizen science and MBDs surveillance remains an incompletely synthesized area of research. Although prior reviews have examined selected aspects of citizen science-based mosquito surveillance [13,14], they do not provide an integrated overview capturing participation models, citizen-generated data types, platforms and tools, analytical approaches, epidemiologic outputs, and ethical and operational considerations across MBDs surveillance and control studies. To address this gap, we conducted this scoping review to synthesize peer-reviewed evidence on citizen science applications in MBDs surveillance and control. Specifically, we aimed to systematically:
+
+Describe citizen science participation and implementation activities;
+
+Summarize recruitment and participation objectives (e.g., surveillance, education, vector control);
+
+Characterize data and enabling technologies (disease/vector focus, platforms/tools, and citizen-generated data types); and
+
+Synthesize analytical approaches, validation procedures, participation biases and mitigation strategies, outputs, and ethical considerations.
+
+Together, this review will identify methodological patterns, recurrent challenges, and critical gaps that can inform future study design and the integration of citizen-generated data into MBDs surveillance and control, including opportunities to strengthen early warning systems and predictive modeling.
+
+2. Methods
+
+This scoping review adhered to the methodological framework outlined by the Preferred Reporting Items for Systematic Reviews and Meta-Analyses Extension for Scoping Reviews (PRISMA-ScR) [15]. The completed PRISMA checklist is available in the S1 File.
+
+2.1. Search strategy
+
+A comprehensive literature search was conducted across several databases: PubMed, MEDLINE, CINAHL, Scopus, and Web of Science. The search covered studies published from January 1, 2000, to October 17, 2025, to identify English-language, peer-reviewed studies on citizen science applications in MBDs surveillance and control. The search period beginning in 2000 was selected to align with the emergence of digital and participatory surveillance approaches driven by expanding internet and mobile access. Our search strategy combined controlled vocabulary and free-text keywords from two primary conceptual domains: citizen science and MBDs. Broad citizen science-related terms were intentionally included to maximize sensitivity and capture the diverse terminology used to describe citizen-involved surveillance across disciplines. No restrictions were applied on geographic settings or population characteristics. The full search key terms for all databases are provided in Table 1 that were adopted and refined from those used in prior reviews [13,16].
+
+10.1371/journal.pone.0348697.t001 Table 1 Key terms used across databases.
+
+Theme	Key Terms	
+Citizen Science	(“citizen science” OR “participatory science” OR “community science” OR “community engagement” OR “community participation” OR “public participation” OR “community-based monitoring” OR “participatory monitoring” OR “volunteer monitoring” OR “participatory surveillance” OR “crowdsourcing” OR “mobile crowdsensing” OR “volunteered geographic information” OR “VGI”)	
+AND	
+Mosquito	(“mosquito” OR “mosquito surveillance” OR “mosquito monitoring” OR “mosquito borne disease” OR “vector” OR “vector borne disease” OR “vector surveillance” OR “entomological surveillance” OR “vector control” OR “mosquito control” OR “Aedes” OR “Anopheles” OR “Culex” OR “dengue” OR “malaria” OR “Zika” OR “chikungunya” OR “West Nile” OR “yellow fever” OR “arbovirus”)	
+
+2.2. Eligibility criteria
+
+In this review, citizen science in MBDs was defined as the active participation of non-professional individuals in generating, reporting, or interpreting mosquito-related data that are used to inform surveillance or vector-control activities through the scientific process [17]. Based on this definition, studies were included if they met all the following criteria: i) incorporated citizen science or participatory components; ii) focused on MBDs; iii) examined surveillance or vector-control as a primary study objective; iv) were original peer-reviewed studies; and v) were published in English. Studies were excluded if they i) were not peer-reviewed (e.g., conference abstracts, dissertations, reports, grey literature, reviews, and commentaries); ii) were unrelated to MBDs; and iii) were assessed mosquito-related data without involving active citizen participation.
+
+2.3. Screening process and study selection
+
+All retrieved studies were imported into Covidence (https://www.covidence.org/) for reference management. The screening process was conducted in two stages. In the first stage, titles and abstracts were independently reviewed by two reviewers (NK and KS) to minimize selection bias and exclude the studies that lacked a citizen science component or did not address MBDs surveillance or control. In the second stage, the full text of selected studies was thoroughly assessed against the predefined eligibility criteria. Any discrepancies were resolved through discussion during regular meetings and, when necessary, adjudication by a senior reviewer (AM).
+
+2.4. Data extraction
+
+Following study selection, a standardized data extraction form was developed using Microsoft Excel (Microsoft Corporation, Redmond, WA, United States) to systematically capture information aligned with the review objectives. Extracted data were collected on: i) study characteristics (bibliographic information, geographic location, study setting, and study design); ii) the citizen science framework (participant sample size, demographic characteristics, level of citizen involvement, recruitment methods, and purpose of participation); iii) MBDs focus, validation mechanisms, and analytical approaches (disease(s) studied, data types collected, validation procedures, effort-bias handling, analytical or modeling methods, and epidemiologic outputs); iv) platforms and technologies used (mobile applications, web portals, GPS-enabled tools, smartphones, sensors); and v) reported biases, methodological limitations, and ethical considerations (e.g., participation and sampling biases, data quality issues, validation limitations, recruitment/engagement challenges, representativeness limitations, technology-related barriers, spatial bias, ethical procedures, and data availability). Data extraction was independently completed by two reviewers (NK and KS), and any disagreements were resolved by consensus. The full extraction table is provided in the S2 File.
+
+2.5. Data synthesis
+
+Extracted data were synthesized using a structured, descriptive approach aligned with the review objectives. The selected studies were categorized based on study characteristics, MBDs focus, citizen science approach, platforms and technologies used, validation mechanisms, effort-bias handling, analytical approaches, reported biases and methodological limitations, and ethical considerations. This structured synthesis enabled the identification of methodological patterns, recurrent challenges, and key gaps in the implementation of citizen science approaches for MBDs surveillance and control.
+
+2.6. Ethics statement
+
+Because this study is a scoping review of published literature and did not involve human participants, identifiable personal data, or primary data collection, ethics approval and informed consent were not required.
+
+3. Results
+
+3.1. Study selection
+
+Our search initially identified 3,734 studies across the databases. A total of 2,155 duplicates were automatically removed by Covidence or manually, leaving 1,579 studies for title and abstract screening. At this stage, 1,309 studies were excluded, primarily because they did not involve citizen science participation, were not related to MBDs or did not address surveillance and control. The remaining 270 studies underwent full-text assessment, after which 209 studies were excluded for the following reasons: absence of a citizen science component (n = 89), lack of focus on MBDs (n = 47), primary outcome not related to surveillance or control (n = 40), non-original articles (n = 26), and non-English full text (n = 7). In total, 61 studies met all eligibility criteria and were included in this scoping review. Fig 1 presents the PRISMA flow diagram showing the study selection process.
+
+10.1371/journal.pone.0348697.g001 Fig 1 PRISMA flow diagram summarizing the study selection process.
+
+3.2. Spatial and temporal distribution
+
+The included studies were geographically diverse, spanning all continents. Europe accounted for the largest proportion of studies (n = 27, 44.3%), spanning 9 countries, including Spain [2,7,18–25], Germany [26–31], Italy [9,32,33], Hungary [34,35], France [12], Austria [36], the Netherlands [37], Ireland and the United Kingdom [38]. The Americas contributed 13 studies (n = 13, 21.3%), across six countries, including the United States [10,11,39–44], Canada [45], Cuba [46], Haiti [47], Nicaragua and Mexico [48,49]. Africa contributed 12 studies (n = 12, 19.7%), spanning seven countries and regions, including Rwanda [50–52], Tanzania [53–55], Malawi [56], Ethiopia [57], the Gambia [58], Madagascar [41], and West Africa-focused [59], and Africa-wide multi-country initiatives [60]. Oceania contributed seven studies (n = 7, 11.5%), representing Australia [61–65] and the Solomon Islands [66,67]. Asia was represented by two studies (n = 2, 3.3%), both in Sri Lanka [68,69].
+
+In addition to region-specific studies, two studies (n = 2, 3.3%) were classified as global in scope, drawing on data from worldwide surveillance platforms [70,71], and six studies (n = 6, 9.8%) were categorized as multinational, as they involved more than one country [2,41,45,59,60,72]. Overall, the included studies covered 24 unique countries. The spatial distribution of studies is depicted in Fig 2A.
+
+10.1371/journal.pone.0348697.g002 Fig 2 Spatial (A) and temporal (B) distribution of the included studies on citizen science–based MBDs surveillance and control.
+
+Panel A shows all countries represented across the included studies (n = 24 unique countries), including those captured through multi-country study designs. The base map shapefiles used in Panel A were derived from publicly available administrative boundary data obtained from Natural Earth (https://www.naturalearthdata.com/), which is in the public domain.
+
+Temporally, few studies were published before 2017 (n = 4, 6.6%) [46,48,53,68], whereas the majority were published from 2017 onward (n = 57, 93.4%). A notable rise occurred after 2020 (n = 42, 68.9%). Fig 2B illustrates the temporal distribution of included studies, with publications peaking in 2021 and remaining elevated in subsequent years.
+
+3.3. Mosquito surveillance
+
+Among the included studies, mosquito monitoring was the most common focus (n = 40, 65.6%), primarily concentrated on mapping the distribution, abundance, and spread of mosquito taxa, including species described by the original studies as invasive or nuisance in specific geographic and surveillance contexts. Aedes albopictus was the most commonly reported species (n = 16, 26.2%) [2,7,9,12,18,20,22–24,31–36,41], followed by Aedes japonicus (n = 6, 9.8%) [2,19,21,22,34,35], Aedes koreicus (n = 5, 8.2%) [2,9,28,34,35], and Aedes aegypti (n = 3, 4.9%) [2,22,43]. Additional species included Aedes notoscriptus (n = 1, 1.6%) [62] and Culex species, most commonly Culex pipiens (n = 4, 6.6%) [2,9,31,37] and Culex quinquefasciatus (n = 1, 1.6%) [62].
+
+A smaller subset of studies focused on Anopheles species, including Anopheles plumbeus (n = 2, 3.3%) [26,27], members of the Anopheles gambiae complex (A. gambiae s.s., A. arabiensis, A. funestus; n = 1, 1.6%) [56], and mixed Anopheles larvae observations through community surveillance platforms (n = 3, 4.9%) [10,70,71].
+
+Malaria-related surveillance was reported in 14 studies (n = 14, 23.0%), nearly all of which focused on dominant Anopheles vectors [25,47,50–60,68]. Dengue-related surveillance appeared in eight studies (n = 8, 13.1%) [2,46,48,49,59,66,67,69], while other MBDs were documented less frequently, including West Nile virus (n = 3, 4.9%) [21,31,37], Usutu virus (n = 1, 1.6%) [37], La Crosse virus (n = 1, 1.6%) [40], and California serogroup viruses (n = 1, 1.6%) [45].
+
+Regional patterns were evident. Most African studies focused on malaria vectors (n = 10 of 12, 83.3%), whereas European studies primarily emphasized Aedes species and general mosquito surveillance (n = 17 of 27, 63.0%). Several studies from the Americas (n = 5 of 13, 38.5%) and Oceania (n = 2 of 7, 28.6%) also focused on dengue, Zika, or chikungunya surveillance.
+
+3.4. Study designs and level of analysis
+
+Study designs varied in how citizen science was used, ranging from descriptive surveillance to system evaluation and, less commonly, intervention and feasibility studies. Descriptive study designs were the most common, appearing in 46 studies (n = 46, 75.4%), primarily focused on mosquito activity and spatio-temporal patterns in citizen-submitted data. Evaluation-oriented studies appeared in 15 studies (n = 15, 24.6%), most commonly assessing the performance, accuracy or reliability of citizen science surveillance systems. Intervention-based designs were identified in 10 studies (n = 10, 16.4%), including three randomized controlled trials (n = 3, 4.9%) [12,48,49]. Feasibility studies were identified in six studies (n = 6, 9.8%) [40,49,50,61,66,67], and four studies described pilot implementations (n = 4, 6.6%) [41,47,66,67].
+
+Most studies were conducted in urban settings (n = 29, 47.5%), while fewer were implemented across mixed urban-rural contexts (n = 22, 36.1%). A smaller group of studies was carried out exclusively in rural environments (n = 11, 18.0%).
+
+Sample sizes varied substantially across studies. Very small studies (≤50 participants) were identified in three studies (n = 3, 4.9%), while small-to-medium studies (51–500 participants) were identified in 15 studies (n = 15, 24.6%). Medium-to-large studies (501–10,000 participants) were reported in 14 studies (n = 14, 23.0%), and large-scale studies involving more than 10,000 users or submissions were documented in eight studies (n = 8, 13.1%). Sample size was not reported in 21 studies (n = 21, 34.4%).
+
+Participants’ gender distribution was reported in only eight studies (n=8, 13.1%). Among these, several studies reported approximately balanced male and female participation (n=5, 8.2%) [52–54,56,61], while others noted higher levels of female participation (n=3, 4.9%) [44,50,63].
+
+3.5. Citizen science involvement
+
+Citizen involvement varied both in intensity and the degree to which it contributed to different surveillance functions, ranging from simple reporting of observations to more active roles in local monitoring, intervention, annotation, and basic analytic support.
+
+3.5.1. Data collection.
+
+Citizen participation was predominantly focused on data collection (n = 58, 95.1%). Across these studies, citizens contributed a range of data types. Presence/absence data, commonly used for mapping species distributions or modeling occurrence patterns, were reported in 26 studies (n = 26, 42.6%). Photographic submissions were reported in 12 studies (n = 12, 19.7%). Habitat or breeding-site documentation, including reports of larval habitats, breeding sites, or nuisance locations, was reported in 11 studies (n = 11, 18.0%). Trap-based data collection was also reported in 11 studies (n = 11, 18.0%), most commonly using ovitraps (n = 5 of 11, 45.5%). Other trap types included BG-Sentinel traps (n = 3, 27.3%), BG Gravid Aedes Traps (BG-GAT) (n = 3, 27.3%), CO₂-baited traps (n = 2, 18.2%), and BG-Mosquitaire and CDC light traps (n = 1 each, 9.1%). Some studies used multiple trap types, so the total number of trap occurrences exceeds the number of studies.
+
+Submission of physical mosquito specimens or eggs by citizen participants was also reported in 10 studies (n = 10, 16.4%). Acoustic recordings of mosquito flight tones were reported in only three studies (n = 3, 4.9%). In general, simpler citizen-contributed data types such as presence reports and photographs were commonly used to support occurrence mapping, species identification, and early detection. In contrast, trap-based, specimen-based, and acoustic data were more often used in structured monitoring or more specialized validation and analytic workflows.
+
+3.5.2. Research engagement and participation.
+
+Beyond data collection, citizen engagement in research-related activities was reported in 22 studies (n = 22, 36.1%) (Fig 3A). These activities included participation in community-based planning or coordination with local leaders or organizations (n = 10, 16.4%), involvement in workshops and training sessions (n = 8, 13.1%), collaboration with research teams or project staff (n = 8, 13.1%), and contributions of experiential or local ecological knowledge (n = 5, 8.2%).
+
+10.1371/journal.pone.0348697.g003 Fig 3 Characteristics of the citizen science–based MBDs among the included studies: (A) level of involvement, (B) recruitment strategy, and (C) participation purpose.
+
+3.5.3. Monitoring and intervention.
+
+Active participation in monitoring or intervention activities, such as larval source management, trap maintenance, habitat reduction, or follow-up surveillance, was reported in 18 studies (n = 18, 29.5%). These activities included community-led larviciding (n = 6, 9.8%) [12,47–49,56,58], breeding-site elimination or habitat reduction (n = 6, 9.8%) [10,50,57,60,66,70], and maintenance of trapping or monitoring infrastructure (n = 5, 8.2%) [22,31,40,46,69]. Compared with observational reporting platforms, these studies positioned citizens as active co-implementers of surveillance and control, linking participation more directly to local vector management and public-health action.
+
+3.5.4. Dataset annotation, validation, and analysis.
+
+Dataset annotation was documented in eight studies (n = 8, 13.1%) [7,11,22,35,39,60,61,64], in which citizen-contributed data (often photographic or app-based observations) were reviewed, labeled, or categorized to support species identification, model training, or quality control workflows. These annotation activities functioned as Human-in-the-Loop quality assurance steps, with citizen contributions supporting validation and downstream analytical workflows. Most annotation activities supported species identification workflows (n = 6, 9.8%) [7,11,22,60,61,64], while a smaller number contributed to model development or dataset structuring (n = 2, 3.3%) [35,39]. A limited subset of studies (n = 3, 4.9%) engaged citizens directly in data analysis [23,39,40], including analytic interpretation, classroom-based data exercises, or community-supported modeling activities integrated into educational programs or surveillance evaluations.
+
+3.5.5. Recruitment strategies.
+
+Recruitment strategies varied across studies (Fig 3B). Open-call recruitment was the most common approach (n = 34, 55.7%), most often conducted through mobile applications (n = 15, 24.6%) [2,7,9,11,19,21–24,31,33,59,64,65,71], national or local media (n = 7, 11.5%) [9,10,31,33,34,37,43], public websites or email invitations (n = 5, 8.2%) [26,27,30,35,44], social media campaigns (n = 4, 6.6%) [10,45,61,63], and institutional newsletters or academic channels (n = 3, 4.9%) [44,61,63].
+
+Volunteer-based recruitment was reported in 26 studies (n = 26, 42.6%) and involved self-selected participants motivated by local interest or concern (n = 10, 16.4%) [18,20,25,28,41,47,52,62,67,72], prior engagement with community programs (n = 9, 14.8%) [32,40,48–50,53,58,60,66], or outreach through workshops, campaigns, or field activities (n = 6, 9.8%) [20,40,50,52,58,70].
+
+Recruitment through community organizations was documented in 24 studies (n = 24, 39.3%), including engagement with municipalities or local government units (n = 6, 9.8%) [32,40,46,49,51,58], village leadership (n = 6, 9.8%) [53–56,58,69], local health authorities (n = 4, 6.6%) [46,51,57,58], schools or educational institutions (n = 4, 6.6%) [10,39,40,45], and community health workers (n = 2, 3.3%) [51,58]. Academic institutions supported recruitment in two studies (n = 2, 3.3%) [61,69]. In general, open-call recruitment was most common in app- and platform-based surveillance systems designed to maximize submission volume and geographic reach. In contrast, recruitment through community organizations, schools, and local leadership was more characteristic of place-based initiatives that depended on sustained engagement, training, or intervention activities.
+
+Recruitment strategies also differed in how directly studies addressed structural participation imbalance across geographic contexts. In 33 studies (n = 33, 54.1%), recruitment, engagement, or outreach approaches clearly or partly aimed to broaden participation beyond highly populated settings. Of these, seven studies (n = 7, 11.5%) implemented more explicit targeted strategies for rural, remote, or underserved areas [32,42,47–50,57]. Within these seven studies, common approaches included partnerships with schools or school-based networks (n = 6, 9.8%), engagement with community leaders, local authorities, or community health workers (n = 6, 9.8%), door-to-door or household visits (n = 3, 4.9%), village-based recruitment structures (n = 2, 3.3%), and low-access tailored measures such as shared smartphones, offline data collection, or local-language outreach (n = 1, 1.6%) (non-mutually exclusive). The other 26 studies (n = 26, 42.6%) addressed this issue more indirectly through locally adapted outreach, media or social media campaigns, expanded recruitment networks, or discussions of ways to strengthen participation in low-contribution regions, without clearly framing these efforts as explicit corrections for urban or population-density bias. In the remaining 28 studies (n = 28, 45.9%), no clear recruitment-side strategy to reduce structural participation imbalance was reported. These patterns indicate that the recruitment strategy was not merely an operational detail, but a component of system design that shaped who participated, where data were generated, and how vulnerable the resulting outputs were to structural participation imbalance.
+
+3.5.6. Purpose of citizen participation.
+
+Surveillance activities were the predominant purpose of citizen participation (n = 57, 93.4%) (Fig 3C). These contributions included species identification (n = 55, 90.2%), presence/absence reporting (n = 41, 67.2%), inputs supporting risk assessment and spatial modeling (n = 17, 27.9%), trap monitoring (n = 12, 19.7%), habitat or breeding-site documentation (n = 11, 18.0%), early detection of invasive species (n = 8, 13.1%), nuisance documentation (n = 6, 9.8%), and acoustic detection (n = 3, 4.9%).
+
+Educational components were reported in 22 studies (n = 22, 36.1%), including public training sessions (n = 10, 16.4%) [32,33,39,40,46,50,56,63,69,70], community workshops focused on vector biology and prevention practices (n = 7, 11.5%) [32,39,40,51,55,56,63], school-based learning activities (n = 7, 11.5%) [10,39,40,44,56,66,70], awareness campaigns (n = 6, 9.8%) [32,33,40,69–71], and classroom-based mosquito ecology instruction (n = 5, 8.2%) [39,40,44,56,66].
+
+Vector control objectives were present in 18 studies (n = 18, 29.5%), with citizen involvement in targeted interventions to reduce mosquito populations or limit disease transmission. These include direct intervention activities (n = 10, 16.4%) [11,12,18,22,32,35,40,46,56,66], larval source management (n = 7, 11.5%) [47–49,51,58,66,70], breeding-site elimination (n = 7, 11.5%) [22,32,40,47,56,58,70], trap deployment or maintenance (n = 6, 9.8%) [12,36,40,48,49,66], and community cleanup activities (n = 4, 6.6%) [40,46,56,70]. Overall, citizen science initiatives commonly combined multiple functions, with some platforms more strongly oriented toward quantitative surveillance and others placing greater emphasis on education, engagement, or local control while still contributing surveillance-relevant information.
+
+3.6. Data types, tools and platforms
+
+3.6.1. Data types.
+
+Image-based submissions were the most common form of citizen-generated data (n = 33, 54.1%). These images were used for species identification (n = 19, 31.1%), presence documentation (n = 14, 23.0%), habitat characterization (n = 11, 18.0%), and nuisance assessments (n = 4, 6.6%). Larval counts were reported in 22 studies (n = 22, 36.1%), breeding-site observations in 20 studies (n = 20, 32.8%), and physical specimen submissions (eggs, larvae, or adult mosquitoes) in 15 studies (n = 15, 24.6%) [12,21,26–31,35,36,43,45,52,58].
+
+3.6.2. Platforms and technologies.
+
+A wide set of platforms and technologies supported these data streams (Fig 4A). Mobile applications and web portals were used in 37 studies (n = 37, 60.7%). Among these, Mosquito Alert (https://www.mosquitoalert.com/en/) was the most frequently used platform (n = 14, 23.0%) [2,7,9,11,19–24,34,35,37,42], followed by GLOBE Observer (https://observer.globe.gov/) (n = 8, 13.1%) [10,11,39,42,59,70,71], iNaturalist (https://www.inaturalist.org/) (n = 7, 11.5%) [11,38,42,63–65,72], and Mückenatlas web portal (https://mueckenatlas.com/) (n = 6, 9.8%) [26–31].
+
+10.1371/journal.pone.0348697.g004 Fig 4 Citizen science (A) platforms and applications, and (B) analytical approaches used in MBDs surveillance and control across included studies.
+
+Other mobile applications were reported less frequently and included ZanzaMapp (https://www.zanzamapp.it/) (n = 2, 3.3%) [32,33], MozzWear for acoustic detection (n = 2, 3.3%) [54,55], Mo-Buzz for community reporting (n = 1, 1.6%) [69], EntoLab for expert-assisted validation (n = 1, 1.6%) [2], Meditrack (n = 1, 1.6%) [66], and Trip Doctor (n = 1, 1.6%) [25]. One study developed an educational web portal (“Preparedness”) (https://www.azdhs.gov/preparedness/) designed for teachers and youth leaders to introduce mosquito biology (n = 1, 1.6%) [43].
+
+Geolocation technologies, including GPS-based location capture, were used to enrich spatial precision in 14 studies (n = 14, 23.0%) [2,7,10,11,19,22–24,39,41,42,51,66,69]. Sensor-based technologies were used in a limited subset of studies (n = 6, 9.8%), including larval monitoring devices or IoT-enabled larval sensors (n = 3, 4.9%) [42,66,68] and acoustic sensors for detecting mosquito flight tones (n = 3, 4.9%) [41,54,55]. Smart-trap hardware, including BG-GAT and BG-Mosquitaire systems, was used in one study (n = 1, 1.6%) [12], macro lenses to enhance image resolution were also reported in one study (n = 1, 1.6%) [11]. In general, smartphone- and web-based platforms enabled scalable, geolocated reporting across wide areas. In contrast, sensor-based, trap-based, or educational tools were more often tied to specialized surveillance tasks, local monitoring, or training-oriented participation models.
+
+3.7. Validation mechanisms
+
+Validation of citizen-generated observations was addressed in 48 studies (n = 48, 78.7%). In the remaining 13 studies (n = 13, 21.3%), validation was not applicable because the primary outcomes were derived from independent entomological monitoring or intervention assessments (n = 9, 14.8%), conceptual or educational program design (n = 3, 4.9%), or non-vector reporting systems (n = 1, 1.6%), rather than from citizen-submitted records requiring taxonomic verification.
+
+Expert-led validation was the dominant approach (n = 33, 54.1%). These workflows included app- or photo-based expert review (n = 16, 26.2%), laboratory processing of mailed specimens or ovitrap materials (n = 15, 24.6%), and expert validation followed by field confirmation (n = 2, 3.3%). Morphological examination, rearing, or molecular confirmation supported expert-led workflows in 11 studies (n = 11, 18.0%).
+
+Hybrid or mixed validation approaches were reported in six studies (n = 6, 9.8%), typically combining automated classification, participant-assisted identification, or cross-platform workflows with subsequent expert review. Fully automated classification was uncommon (n = 3, 4.9%) and largely limited to acoustic detection systems. Other validation approaches appeared only once each (n = 1, 1.6%), including community-based classification, participant self-identification supported by voucher photographs, and independent entomological verification of community-ranked mosquito-density outputs. In three studies (n = 3, 4.9%), validation procedures were not clearly described.
+
+Validation approaches varied systematically by platform type. App- and image-based reporting systems most often relied on expert review or hybrid workflows, whereas specimen- and trap-based systems commonly used laboratory or field confirmation, reflecting differences in data type and validation demands created by platform design.
+
+Quantitative validation performance was reported inconsistently. Five studies (n = 5, 8.2%) reported expert–participant agreement or image-identification accuracy ranging from approximately 86% to 94%. One study (n = 1, 1.6%) reported species-specific expert-confirmed accuracies of 87.6% for Aedes albopictus and 81.3% for Aedes aegypti, another (n = 1, 1.6%) reported early-warning specificity of approximately 97%, and one (n = 1, 1.6%) reported a ROC AUC of about 0.96 with approximately 98% accuracy for a large subset of images. Validation performance was more variable in one larval self-identification study (n = 1, 1.6%), with accuracy ranging from 34% to 100% across countries, and an acoustic-classification study (n = 1, 1.6%), where accuracy improved from approximately 35% to 65% after incorporating location metadata.
+
+3.8. Analytical approaches, effort-bias handling, and epidemiologic outputs
+
+Analytical approaches varied according to the type of citizen-generated data, the surveillance objective, and the extent to which studies addressed validation and uneven reporting efforts. These approaches included traditional statistical models, ecological models, machine learning (ML), and spatially explicit analyses. Generalized linear models (GLMs) were applied in eight studies (n = 8, 13.1%) [12,32–34,40,52–54], similar to generalized linear mixed models (GLMMs) (n = 8, 13.1%) [9,12,34,37,40,48,49,58]. These approaches were used to analyze citizen-submitted mosquito observations, model associations with environmental drivers, and support species-identification workflows.
+
+Logistic regression models were applied in five studies (n = 5, 8.2%) [20,27,32,42,56], whereas Bayesian logistic regression featured in three studies (n = 3, 4.9%) [7,20,23]. Negative binomial models were employed in three studies (n = 3, 4.9%) [12,32,56], Poisson models in two studies (n = 2, 3.3%) [23,34], and linear regression in two studies (n = 2, 3.3%) [33,42]. Hurdle models appeared in only one study (n = 1, 1.6%) [30].
+
+Generalized Additive Models (GAMs) were applied in two studies (n = 2, 3.3%) [9,33], with a generalized additive mixed model (GAMM) used in one study (n = 1, 1.6%) [32]. More specialized analytic methods were reported infrequently, including Bayesian inference using the Integrated Nested Laplace Approximation framework (n = 1, 1.6%) [32], spatial interpolation techniques using kriging (n = 1, 1.6%) [32], species distribution modeling using maximum entropy modeling (n = 1, 1.6%) [59] and Bayesian spatial models based on intrinsic conditional autoregressive structure (n = 1, 1.6%) [23].
+
+ML approaches were identified in six studies (n = 6, 9.8%) [11,18,24,35,42,60], primarily to support automated classification and species identification from citizen-contributed data. These included convolutional neural networks (CNNs) (n = 3, 4.9%) [11,18,24], Mask R-CNN segmentation (n = 1, 1.6%) [11], boosted regression trees (n = 1, 1.6%) [35], decision trees (n = 1, 1.6%) [42], and random forest (n = 1, 1.6%) [42]. Fig 4B summarizes the most common analytical approaches used across included studies.
+
+Handling of participation or reporting effort varied substantially across the included studies. In 23 studies (n = 23, 37.7%), effort correction was not directly applicable because the analyses focused on intervention trials or structured entomological monitoring (n = 9, 14.8%), co-design, implementation, or conceptual work (n = 5, 8.2%), participation- or questionnaire-based non-ecological analyses (n = 4, 6.6%), educational outcomes (n = 2, 3.3%), image-classification studies (n = 2, 3.3%), or non-vector reporting systems (n = 1, 1.6%).
+
+Explicit analytical adjustment or effort-aware modeling was identified in 11 studies (n = 11, 18.0%). These included offsets for estimated sampling effort (n = 2, 3.3%), weighted pseudo-absences or effort-weighted absences (n = 2, 3.3%), effort-standardized abundance metrics (n = 2, 3.3%), reporting-propensity models (n = 2, 3.3%), and direct modeling of reporting behavior (n = 1, 1.6%) (non-mutually exclusive).
+
+In 10 studies (n = 10, 16.4%), participation bias was examined, benchmarked, or partly accommodated without direct correction. These studies benchmarked citizen science records against external surveillance or reference datasets (n = 4, 6.6%), filtered low-quality or anomalous records (n = 1, 1.6%), or qualitative discussion of population-related reporting bias (n = 9, 14.8%) (non-mutually exclusive). A further 10 studies (16.4%) focused on detection-oriented outputs (e.g., early detection, confirmed occurrence, range expansion) and did not apply formal effort correction. In seven studies (n = 7, 11.5%), effort-related bias was partly mitigated through structured or standardized citizen-assisted sampling designs without separate analytical correction.
+
+The impact of uneven reporting varied by outcome. Outputs based on species presence, first detection, or confirmed occurrence were generally less sensitive to uneven reporting intensity. In contrast, abundance estimates, hotspot mapping, spatial clustering, temporal trend analyses, and some risk-modeling outputs were more vulnerable to participation bias. Accordingly, the implications of effort bias varied across studies depending on the type of surveillance output generated.
+
+Platforms based on low-burden public reporting, often supported by expert validation, were commonly used for species occurrence mapping, early detection, and tracking of spread, particularly for invasive mosquitoes. Studies that produced more quantitative outputs, such as abundance estimates, hotspot mapping, temporal trend analysis, or risk modeling, were more likely to incorporate stronger validation workflows, structured sampling, external benchmarking, or explicit effort-aware modeling. Community-based initiatives with deeper local engagement were more frequently associated with education, intervention, and locally grounded monitoring, even when they generated fewer analytically intensive outputs. These roles often overlapped, and several studies combined surveillance, engagement, and control objectives.
+
+Predictive and epidemiological outputs varied across studies but clustered into several recurring categories. Trend analyses were the most common outputs (n = 32, 52.5%). These analyses characterized seasonal MBDs activities (n = 15, 24.6%) [20,22,26,28,34,35,38,41,54,55,58,59,66,67,72], population trends (n = 7, 11.5%) [10,25,28,57,58,64,70], spatio-temporal submission patterns (n = 4, 6.5%) [2,9,30,58], ecological or behavioral changes over time (n = 3, 4.9%) [9,30,59,70], and intervention effects (n = 1, 1.6%) [36].
+
+Risk-factor identification appeared in 27 studies (n = 27, 44.3%). These studies examined environmental (n = 12, 19.7%) [2,10,12,23,27,41,51–53,56,58,69,70], climatic (n = 5, 8.2%) [22,33,46,60,72], demographic or behavioral (n = 3, 4.9%) [9,27,52], and land cover predictors (n = 1, 1.6%) [10].
+
+Spatial predictions, including distribution mapping and ecological suitability modeling, were documented in 26 studies (n = 26, 42.6%). These outputs included species distribution maps (n = 13, 21.3%) [2,7,10,22,26,28,31,35,37,38,52,59,72], expansion or spread predictions (n = 5, 8.2%) [2,23,41,42,71], ecological suitability models (n = 4, 6.6%) [7,9,10,41], multi-year spatial trend maps (n = 2, 3.3%) [32,66], and spatial interpolation techniques (n = 1, 1.6%) [52].
+
+Hotspot mapping was reported in 12 studies (n = 12, 19.7%). These outputs visualized density-based clusters (n = 5, 8.2%) [33,46,52,69,71], ecological hotspots (n = 3, 4.9%) [22,42,69], breeding-site aggregations (n = 2, 3.3%) [37,71], and early-warning hotspot visualizations (n = 2, 3.3%) [42,60].
+
+Risk modeling outputs were documented in 10 studies (n = 10, 16.4%). These studies included exposure risk estimates (n = 5, 8.2%) [2,23,35,42,69], outbreak potential assessments (n = 3, 4.9%) [41,42,69], and species-encounter probability surfaces (n = 2, 3.3%) [7,23].
+
+3.9. Reported biases and methodological limitations
+
+Across the included studies, several explicitly reported biases or methodological limitations affecting their own citizen science data or implementation. Data quality issues were the most common (n = 35, 57.4%), followed by validation limitations (n = 32, 52.5%), recruitment/engagement challenges (n = 32, 52.5%), and participation and sampling biases reported by the studies themselves (n = 27, 44.3%), which included uneven observation or reporting effort. Representativeness limitations, indicating that the contributed data may not adequately reflect the full target population or study context, were noted in 25 studies (n = 25, 41.0%). Technology-related barriers (n = 16, 26.2%) and spatial bias (n = 15, 24.6%) were reported less often.
+
+3.10. Data governance and participant protections
+
+Ethical practices varied across the included studies. Informed consent was explicitly reported in 34 studies (n = 34, 55.7%). Consent mechanisms included written agreements in community or school-based settings (n = 8, 13.1%) [44,48,49,53–57] and digital or implicit consent obtained through mobile-app user agreements or platform participation (n = 8, 13.1%) [2,10,22,34,35,37,38,59]. Privacy protections were described in 32 studies (n = 32, 52.5%).
+
+Ethics committee or institutional review board approval was reported in 11 studies (n = 11, 18.0%) [40,44,47–50,52–55,57], primarily in studies involving human subjects, minors, biological specimen collection, or community-based intervention components. Data ownership and licensing considerations were reported in 14 studies (n = 14, 23.0%) [7,9–11,22,31,32,35,38,41,42,60,64,70]. These studies specified user ownership of submitted content [64] or outlined open-data policies such as Creative Commons licensing (e.g., CC0) under platforms such as Mosquito Alert [22]. Notably, several recurring digital platforms operated under established governance frameworks that commonly addressed consent, privacy, anonymization, visibility, and data sharing. As these provisions were often embedded within the platform itself, they were not always restated explicitly in each study using the same tools. For example, Mosquito Alert incorporated user agreement and privacy policy acceptance, anonymous participation, random user identifiers, geolocation protection, and open data or licensing terms. GLOBE Observer used account-based participation with public screen names (rather than public personal identifiers) and screened submitted photographs for faces or identifying text. Mückenatlas used explicit consent procedures, confidential handling of personal data, anonymized sharing of mosquito and location information, and opt-in public visibility. Similarly, iNaturalist allowed users to retain ownership of submitted content while selecting licenses and controlling geoprivacy settings for observations.
+
+4. Discussion
+
+This review provided a comprehensive synthesis of how citizen science has been applied to MBDs surveillance and control over the past two decades. The evidence base has expanded rapidly since 2017, reflecting growing interest in participatory, digitally enabled surveillance approaches and the maturation of mobile technologies that facilitate large-scale public engagement. Across studies, citizen science has been used most consistently to support mosquito monitoring, particularly for invasive and nuisance species. It has generated a range of surveillance-relevant outputs, including spatio-temporal trend analyses, distribution mapping, hotspot identification, and risk-related products. However, the literature points to persistent gaps that limit translation into public health decision-making, including limited evaluation of surveillance system performance, fewer intervention-oriented studies, incomplete reporting of participant characteristics, and limited data governance and ethical safeguards [11].
+
+Our findings confirm and extend prior reviews showing that citizen science can complement routine entomological surveillance by expanding geographic coverage and supporting early detection, particularly for invasive Aedes species. Consistent with earlier work, we also observed substantial methodological heterogeneity, uneven representativeness, and ongoing needs for robust validation workflows to enhance public health utility [13]. Our review advances the literature by providing a more integrated synthesis across the surveillance continuum, explicitly linking recruitment strategies and participation objectives to citizen-generated data streams, validation workflows, analytical approaches, and resulting epidemiologic outputs. By identifying where evidence concentrates, we can clarify how citizen-generated data are used in surveillance practice and where methodological improvements are needed to enhance public health impact. The review further suggests that the scientific value of citizen-generated mosquito data depends not only on the underlying validation workflow, but also on how the participation model, effort-bias handling, and analytical objective are aligned. Low-burden public-reporting systems with strong expert validation were most often used for early detection, occurrence mapping, and spread tracking. In contrast, studies targeting quantitative outputs, such as hotspot mapping, temporal trend analysis, or risk modeling, more often require stronger validation, benchmarking, and effort-aware analytical approaches. Community-based initiatives with deeper local engagement were more often oriented toward education, public engagement, and local vector-control activities. These roles often overlapped rather than being mutually exclusive. In this sense, citizen science can be understood as ground-truth, human-sensed, and socially mediated geospatial data that extend surveillance reach and timeliness while also reflecting the social geography of participation and associated reporting biases. This framing is particularly relevant during crises or operational disruptions, when routine field surveillance may be delayed or unable to scale and citizen-generated observations can provide rapid situational awareness [73].
+
+The geographic distribution of studies was uneven, with most evidence originating from Europe and the Americas and comparatively limited representation from Asia and parts of Africa. This pattern likely reflects differences in research infrastructure, sustained funding, access to mature digital platforms capable of supporting large-scale participation, and region-specific surveillance priorities. In Europe, many studies have focused on invasive Aedes detection and monitoring, where citizen reporting is particularly well aligned with early detection and spread tracking [22,72]. This pattern is likely further influenced by variation in regulatory and data-sharing environments, unequal academic incentives to publish citizen science research, and language or indexing biases that can obscure locally implemented surveillance efforts.
+
+Our findings point to a meaningful gap in how participant characteristics and contextual factors are reported and examined in citizen science–based MBD surveillance studies. Gender distributions were documented in only a small minority of studies, and implementations focused exclusively on rural settings were relatively uncommon. These omissions are not merely descriptive limitations; they have direct implications for data quality, representativeness, and equity [74,75]. Participation in citizen science is shaped by structural factors such as access to digital technologies, educational background, and institutional trust, all of which can influence who contributes data and where observations are generated [76]. Consequently, citizen-generated datasets often overrepresent urban, digitally connected populations while under-capturing rural and underserved communities. These biases may produce systematic blind spots in populations that frequently experience higher vulnerability to MBDs and limited coverage by routine surveillance systems. Consistent with this pattern, only a small subset of studies implemented clearly targeted recruitment strategies for rural, remote, or underserved settings. Most addressed this issue only indirectly through broader outreach or did not clearly report a recruitment-side strategy to mitigate structural participation imbalance.
+
+Across the included studies, several recurring limitations constrained both the interpretability and operational utility of citizen science–based surveillance. Because participation is voluntary and geographically uneven, data are often clustered in accessible or highly engaged areas, creating spatial imbalances that complicate interpretation [77]. Data quality challenges, including misidentification, variable image quality, and incomplete submissions, further complicated analysis and interpretation [78]. A persistent methodological issue was the difficulty of disentangling reporting effort from true mosquito abundance, particularly when submission counts were treated as implicit proxies of population levels. Only a minority of studies used explicit effort-aware modeling. Most either addressed participation bias qualitatively or focused on outputs less sensitive to uneven reporting, such as early detection or confirmed presence. This distinction is important because abundance estimates, hotspot mapping, spatial clustering, and temporal trend analyses are more vulnerable to participation bias than detection-oriented surveillance outputs. From an implementation perspective, sustaining participant engagement over time and maintaining adequate validation capacity emerged as major constraints, especially for systems that rely on expert review for species confirmation or for curating training data for automated classification. While these constraints do not negate the value of citizen science for MBDs surveillance, they underscore the need for clearer reporting of effort and validation, and for routine benchmarking against entomological data where feasible.
+
+Another related methodological priority is uncertainty propagation in citizen science–based mosquito surveillance. Uncertainty may arise from observation bias, when reports reflect where people are present rather than where mosquitoes are distributed [79]. It can also stem from effort bias, as submission counts are not equivalent to mosquito abundance [80]. Additional sources of uncertainty come from classification error, particularly in image-, acoustic-, and machine-learning–based identification [78,81]. Furthermore, spatial aggregation choices can blur the signal and make it difficult to separate true hotspots from reporting artefacts [82]. These challenges point to the need for effort-aware probabilistic approaches, including Bayesian frameworks, that represent and propagate uncertainty across the surveillance pipeline instead of treating citizen observations as error-free inputs [83].
+
+Our synthesis suggests that many included studies primarily reflect an extractive “citizens as sensors” model, in which participation is dominated by data provision. At the same time, emerging evidence of Human-in-the-Loop participation, including dataset annotation and limited citizen involvement in data analysis, indicates opportunities to move toward more participatory models. This aligns with typologies of participation that distinguish crowdsourcing from deeper forms of participatory science, and underscores the value of explicitly designing citizen science systems that incorporate validation loops, feedback, and shared interpretation [84]. Future mosquito surveillance initiatives could more consistently position participants as active analytical partners by integrating citizen contributions into model refinement, data validation loops, and iterative improvement of classification workflows, rather than limiting citizen roles to data submission alone.
+
+Ethical and privacy considerations were described unevenly across the literature. While some studies reported informed consent, privacy protections, or formal ethics review, many provided limited or no details on these practices. This variability likely reflects differences in how projects conceptualize citizen science, as environmental monitoring rather than human-subjects research, as well as reliance on app-based terms of use in place of explicit ethical protocols. Beyond reporting practices, ethical transparency plays a central role in citizen science systems by shaping participant trust, engagement, and sustained contribution. Because these initiatives rely on voluntary public participation, clear communication about what data are collected, how they are used, how privacy is protected, and whether submissions are anonymized or shared openly is not only an ethical requirement but also a practical mechanism for encouraging participation. Many mosquito-focused citizen science platforms deliberately minimized personal data collection, used anonymized or masked identifiers, or allowed users to control visibility and sharing settings. When clearly communicated, these protections may therefore strengthen confidence in participation and support sustained data contribution. In this context, transparent and standardized reporting of governance practices would provide a better understanding of how citizen science systems foster trust while managing privacy, data use, and accountability. Nonetheless, citizen science–based MBDs surveillance often involves precise geolocation and time-stamped data, which can pose privacy risks, particularly when information is shared openly or visualized at fine spatial scales [7]. Established ethical frameworks for participatory and digital surveillance emphasize explicit consent, data minimization, clear governance, and fairness [85]. Without systematic reporting and consistent implementation of these safeguards, the credibility, trustworthiness, and long-term sustainability of citizen science initiatives may be undermined [86]. To move beyond identifying ethical gaps and toward actionable guidance, future studies should report governance practices more explicitly. This includes clarifying data sovereignty by specifying who owns and controls citizen-generated data, and outlining benefit-sharing mechanisms, such as whether participating communities receive timely results and actionable outputs. Studies should also strengthen informed consent for fine-scale geolocation sharing, with clear options for spatial generalization and withdrawal. In addition, transparency around AI-assisted validation and classification is essential, including monitoring for potential algorithmic bias. Reporting these elements as standard practice would strengthen governance and support ethical, sustainable deployment in public health settings.
+
+Several limitations meaningfully constrain the current evidence base and its operational relevance. Restricting the review to English-language, peer-reviewed studies indexed in major databases likely underrepresents work published in other languages, reported through program evaluations, or disseminated as gray literature, particularly from regions where citizen science operates outside traditional academic channels. Inconsistent terminology and definitions of citizen science across disciplines further complicate synthesis, while substantial heterogeneity in study designs, reporting practices, and outcome measures limits comparability and limits quantitative analysis. Addressing these challenges is essential to advancing the field. Future research should prioritize longitudinal and evaluation-oriented designs that quantify timeliness, accuracy, and added value relative to routine surveillance, incorporate intervention studies that assess decision-making and risk reduction, strengthen integration with contextual and social data and remote sensing linkages, and adopt consistent reporting standards for participation, validation, uncertainty, and ethics to support reproducibility and public health translation.
+
+5. Conclusions
+
+This review showed that citizen science has become an increasingly important complement to conventional mosquito surveillance, particularly for monitoring invasive species and generating timely, spatially resolved outputs such as trend analysis, distribution mapping, and hotspot identification. However, uneven geographic coverage, participation biases, variable data quality, limited validation, and inconsistent ethical reporting continue to limit operational uptake. Addressing these challenges through rigorous evaluation, standardized reporting, and clear governance frameworks will be essential for translating citizen science into reliable and sustainable mosquito surveillance and control.
+
+Supporting information
+
+S1 File Preferred Reporting Items for Systematic reviews and Meta-Analyses extension for Scoping Reviews (PRISMA-ScR) Checklist.
+
+(DOCX)
+
+S2 File Detailed extracted information of the included articles.
+
+(DOCX)
+
+DOI: 10.1371/journal.pone.0348697.r001
+
+Author response to Decision Letter 0
+
+Submission Version: 0
+
+Transfer Alert
+
+This paper was transferred from another journal. As a result, its full editorial history (including decision letters, peer reviews and author responses) may not be present.
+
+12 Feb 2026
+
+DOI: 10.1371/journal.pone.0348697.r002
+
+Decision Letter 0
+
+Nelli Luca Academic Editor
+Copyright: © 2026 Luca Nelli
+Copyright year: 2026
+Copyright holder: Luca Nelli
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Submission Version: 0
+
+19 Mar 2026
+
+-->PONE-D-26-07716-->-->The Role of Citizen Science in Mosquito-Borne Disease Surveillance and Control: A Scoping Review-->-->PLOS One
+
+Dear Dr. Mollalo,
+
+Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.
+
+Please submit your revised manuscript by May 03 2026 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at plosone@plos.org. When you're ready to submit your revision, log on to https://www.editorialmanager.com/pone/ and select the 'Submissions Needing Revision' folder to locate your manuscript file.
+
+Please include the following items when submitting your revised manuscript:-->
+
+A letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.
+
+A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.
+
+An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.
+
+If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.
+
+If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at https://plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols.
+
+We look forward to receiving your revised manuscript.
+
+Kind regards,
+
+Luca Nelli, PhD
+
+Academic Editor
+
+PLOS One
+
+Journal requirements:
+
+When submitting your revision, we need you to address these additional requirements.
+
+1. Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at
+
+https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf and
+
+https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf
+
+2. Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
+
+If the reviewer comments include a recommendation to cite specific previously published works, please review and evaluate these publications to determine whether they are relevant and should be cited. There is no requirement to cite these works unless the editor has indicated otherwise.
+
+Additional Editor Comments:
+
+Dear Abe Mollalo,
+
+Thank you for submitting your manuscript to PLOS One.
+
+After editorial assessment and external review, I am writing to let you know that the decision is major revision. The reviewers and I feel that the topic is relevant and the manuscript has clear potential, but several substantive issues need to be addressed before it can be considered further.
+
+Please revise the manuscript carefully in light of the reviewers’ comments and provide a clear, point-by-point response explaining how each issue has been addressed.
+
+I look forward to receiving your revised submission.
+
+Best wishes,
+
+Luca Nelli
+
+[Note: HTML markup is below. Please do not edit.]
+
+Reviewers' comments:
+
+Reviewer's Responses to Questions
+
+-->Comments to the Author
+
+1. Is the manuscript technically sound, and do the data support the conclusions?
+
+The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. -->
+
+Reviewer #1: Yes
+
+Reviewer #2: Partly
+
+**********
+
+-->2. Has the statistical analysis been performed appropriately and rigorously? -->
+
+Reviewer #1: Yes
+
+Reviewer #2: N/A
+
+**********
+
+-->3. Have the authors made all data underlying the findings in their manuscript fully available?
+
+The PLOS Data policy requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.-->
+
+Reviewer #1: Yes
+
+Reviewer #2: Yes
+
+**********
+
+-->4. Is the manuscript presented in an intelligible fashion and written in standard English?
+
+PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.-->
+
+Reviewer #1: Yes
+
+Reviewer #2: Yes
+
+**********
+
+-->5. Review Comments to the Author
+
+Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)-->
+
+Reviewer #1: The paper provides a scoping review of studies incorporating citizen science elements for mosquito surveillance. The work offers a useful framework through which to understand global variation and biases in citizen science data within the field of mosquito-borne diseases (MBDs). The authors provide clear rationale for the work and the inclusion criteria are justified. The analysis is comprehensive and includes many parameters to identify differences and commonalities of studies. Statistical analysis is limited to percentages but is appropriate for the objectives. The authors find biases in spatial distribution of studies, with the majority of studies occurring in the western hemisphere and the Global North. The work adds to existing literature on the topic of citizen science for vector surveillance through the inclusion here of ethical considerations and participation models, as well as useful discussion of spatial and methodological biases. The paper is written well with clear objectives, methodology, findings and conclusions. All supporting data are available within the paper and supplementary information.
+
+Minor comments:
+
+Line 172-181: Listing the numbers of countries that contributed studies from each continent may cause confusion as this is not reflected in the map in Figure 2, where far more countries are included due to multi-country studies - this is made clear in the supporting information but is not explicit in the manuscript. It would be helpful to mention the total number of countries from which citizen science studies were included, either in the same paragraph or within the figure legend for Figure 2.
+
+Line 194-195: It might be useful to clarify how species were determined to be invasive – was this based on studies that specifically mentioned invasive species monitoring? If not, was the definition of ‘invasive’ accounted for across studies that may have included the native range of ‘invasive’ species e.g. Aedes aegypti?
+
+Line 211: Maybe the number of studies from the Americas and Oceania that included surveillance for dengue/ Zika/ Chikungunya could also be provided, for consistency
+
+Line 240: It would be interesting to know what other traps were used and the breakdown of trap types by number of studies
+
+Line 271-272: Maybe the last three approaches can be reordered to reflect decreasing frequency (public websites, social media campaigns, institutional newsletters)
+
+General comment: The discussion lists several biases of citizen science data. While not necessary, it could be interesting to give an overview (in the results) of biases that the studies themselves have identified in their work.
+
+Reviewer #2: This manuscript presents a scoping review examining the role of citizen science in mosquito-borne disease surveillance and control. The authors analyze 61 studies published between 2000 and 2025 that use citizen participation to collect mosquito-related data or support vector surveillance initiatives. The review summarizes study characteristics, technologies used, participation strategies, analytical outputs, and governance practices. The topic is timely and highly relevant. Citizen science initiatives have become an increasingly important complement to traditional mosquito surveillance programs, particularly with the widespread availability of mobile technologies and digital reporting platforms. The manuscript provides a useful overview of existing initiatives and highlights the rapid growth of citizen-science projects in this field. However, several aspects that determine the scientific robustness and operational value of citizen-science surveillance systems are insufficiently addressed in the analysis and would benefit from further development.
+
+A first aspect concerns the discussion of ethical and governance issues. In the current manuscript, governance considerations are mainly addressed in terms of whether ethical procedures are reported by the studies included in the review. While this is important, the discussion could be expanded to consider the role of ethical transparency as a mechanism to foster participation and trust among citizens. Citizen-science initiatives depend fundamentally on voluntary engagement from the public, and participation levels are strongly influenced by the degree of trust participants place in the project. Clear communication about how data are collected, how they will be used, and how personal information is protected is, therefore, not only an ethical requirement but also a practical mechanism to encourage participation. In many mosquito citizen-science platforms, personal data collection is deliberately minimized or avoided, and the explicit communication of this principle can serve as an important incentive for participation. Addressing how different projects communicate these governance and privacy practices to participants would therefore provide a more nuanced perspective on the role of ethics and governance in citizen-science initiatives. Linked to that, as the manuscript highlights, many studies are related to the same citizen science project or use the same platform, and authors should make sure that in all these cases, some basic information related to ethical or data collection issues should not be mentioned, considering that it has been previously described or explained in previous papers. Saying that to make note of the authors to check for consistency for platforms or projects beyond what is explained or described in a single paper. For example, checking Supplementary file 2 “Extraction table” it is possible to see that kind of inconsistencies between study 1 and 2, both use Mosquito Alert tools, in the 1st ethics about the obtetion of pictures and reports is stated (e.g. user agreement, anonymous participation, etc.), while in the 2nd, even if also use Mosquito Alert for image classification, the obtention of the images appears as “Not stated”. If they used the Mosquito Alert app to collect images, it is supposed that reports have been collected with user agreement and anonymous participation again. I will recommend the authors in that table to create a clear field identifying the project or tool used to unify the studies and check that information is consistent across all studies for the same platform and tool.
+
+A second important issue relates to participation biases in citizen-science datasets. A well-known limitation of citizen-science initiatives is that participation intensity is strongly dependent on population density. Areas with larger populations tend to generate more observations simply because more potential contributors are present, whereas rural or sparsely populated areas often remain underrepresented. This urban participation bias has important implications for mosquito surveillance systems, particularly when citizen-generated data are used for spatial analyses such as hotspot detection, abundance estimation, or risk mapping. The manuscript notes that a large proportion of studies were conducted in urban environments, and in the discussion highlights the bias risk, but the analysis would benefit from exploring more explicitly how different projects address this structural bias. Some initiatives attempt to mitigate these imbalances through targeted recruitment strategies, for example, by organizing communication campaigns or partnerships aimed at engaging communities in rural or less populated regions where participation is otherwise more difficult to achieve. Examining whether and how such strategies are implemented across the reviewed studies would provide valuable insight into how citizen-science projects attempt to balance participation across different geographical contexts.
+
+Closely related to this issue is the analytical treatment of participation biases in the studies reviewed. Citizen-science datasets inevitably reflect both ecological patterns and patterns of reporting activity, and this distinction is particularly important when data are used to generate quantitative outputs. Analyses based on citizen observations should ideally account for variations in participation effort, as differences in reporting intensity can strongly influence estimates of mosquito abundance, the identification of spatial hotspots, or the interpretation of temporal trends. Without appropriate corrections, such outputs may reflect patterns of participation rather than true ecological dynamics. The manuscript would therefore benefit from a more systematic examination of how the reviewed studies address sampling effort in their analyses. Some analytical approaches explicitly incorporate participation intensity or observation probability, whereas others use modelling frameworks designed to account for detection biases. At the same time, it is important to recognize that not all types of outputs are equally sensitive to participation bias. For example, detecting the presence of a mosquito species in a region is relatively independent of sampling effort, as the species is either detected or not detected. In contrast, estimates of abundance, spatial clustering, or temporal trends are much more sensitive to variations in participation effort. Distinguishing between these different types of outputs and discussing how they are affected by participation biases would significantly strengthen the analytical depth of the review.
+
+Another important dimension that appears to be largely absent from the current analysis concerns the validation of citizen-generated observations. The scientific reliability of citizen-science mosquito surveillance depends critically on how submitted observations are verified and classified. Different projects employ a range of validation mechanisms, including expert entomologist review, distributed networks of specialists, community validation processes, or automated classification tools based on artificial intelligence. These procedures can vary considerably in terms of accuracy, speed, and scalability, and they directly influence the reliability of the datasets generated by citizen-science platforms. The review would therefore benefit from examining how the different initiatives included in the study handle the classification and validation of mosquito specimens or images, who performs these validations, and what is known about the accuracy of the identification processes. Understanding these mechanisms is essential for assessing the scientific value of the outputs generated by the platforms.
+
+More broadly, and more importantly, from my point of view, the manuscript would benefit from adopting a more integrated analytical framework linking the different components of citizen-science systems. At present, the review discusses aspects such as data collection, participation strategies, analytical outputs, and governance largely as separate dimensions. However, the scientific value of a citizen-science platform ultimately depends on how these elements interact. A more synthetic perspective that connects the level of citizen participation, the validation procedures used, the analytical approaches applied, and the methods used to correct participation biases would provide a clearer picture of the strengths and limitations of different initiatives. Such an approach could also help identify distinct functional roles of citizen-science projects. Some platforms may primarily contribute to quantitative public-health surveillance by generating data that can be integrated into risk models, while others may focus more strongly on education and public engagement or on supporting early detection of invasive species. These different functions are not mutually exclusive, and no single model should necessarily be considered superior to others. However, distinguishing between them could help clarify the specific contributions that citizen-science initiatives can make to mosquito surveillance and public health. Developing this type of synthesis would significantly strengthen the manuscript by offering a more comprehensive overview of the diversity of citizen-science platforms and the different roles they play.
+
+In summary, the manuscript addresses an important and rapidly evolving area of research and provides a useful overview of existing citizen-science initiatives in mosquito-borne disease surveillance. However, the review would benefit from a deeper analysis of participation biases, validation procedures, and analytical approaches used to account for variations in participation effort. Expanding the discussion of governance and ethical transparency in relation to citizen participation, and developing a more integrated framework linking participation, validation, analysis, and outputs, would greatly enhance the contribution of the study. With these revisions, the manuscript could provide a more robust and informative synthesis of the current state of citizen-science approaches in mosquito surveillance.
+
+**********
+
+-->6. PLOS authors have the option to publish the peer review history of their article (what does this mean?). If published, this will include your full peer review and any attached files.
+
+If you choose “no”, your identity will remain anonymous but your review may still be made public.
+
+Do you want your identity to be public for this peer review? For information about this choice, including consent withdrawal, please see our Privacy Policy.-->
+
+Reviewer #1: No
+
+Reviewer #2: No
+
+**********
+
+[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]
+
+To ensure your figures meet our technical requirements, please review our figure guidelines: https://journals.plos.org/plosone/s/figures
+
+You may also use PLOS’s free figure tool, NAAS, to help you prepare publication quality figures: https://journals.plos.org/plosone/s/figures#loc-tools-for-figure-preparation.
+
+NAAS will assess whether your figures meet our technical requirements by comparing each figure against our figure specifications.
+
+DOI: 10.1371/journal.pone.0348697.r003
+
+Author response to Decision Letter 1
+
+Submission Version: 1
+
+12 Apr 2026
+
+Dear Editor and Reviewers,
+
+Thank you for your time and careful review of our manuscript. We have thoroughly revised the manuscript in response to your valuable comments. We believe the revised version is substantially improved in clarity, organization, and presentation. Below, we provide a point-by-point response to each comment and indicate where revisions were made in the manuscript.
+
+Sincerely,
+
+**********************************************************************************
+
+Response to Editor
+
+COMMENT
+
+After editorial assessment and external review, I am writing to let you know that the decision is major revision. The reviewers and I feel that the topic is relevant and the manuscript has clear potential, but several substantive issues need to be addressed before it can be considered further.
+
+Please revise the manuscript carefully in light of the reviewers’ comments and provide a clear, point-by-point response explaining how each issue has been addressed.
+
+RESPONSE
+
+Thank you for your guidance and for the opportunity to revise our manuscript. We have carefully addressed reviewers’ comments and provided a detailed point-by-point response explaining how each issue was handled. All changes are highlighted in the revised manuscript.
+
+**********************************************************************************
+
+Responses to Reviewer #1
+
+Comments to the Author
+
+The paper provides a scoping review of studies incorporating citizen science elements for mosquito surveillance. The work offers a useful framework through which to understand global variation and biases in citizen science data within the field of mosquito-borne diseases (MBDs). The authors provide clear rationale for the work and the inclusion criteria are justified. The analysis is comprehensive and includes many parameters to identify differences and commonalities of studies. Statistical analysis is limited to percentages but is appropriate for the objectives. The authors find biases in spatial distribution of studies, with the majority of studies occurring in the western hemisphere and the Global North. The work adds to existing literature on the topic of citizen science for vector surveillance through the inclusion here of ethical considerations and participation models, as well as useful discussion of spatial and methodological biases. The paper is written well with clear objectives, methodology, findings and conclusions. All supporting data are available within the paper and supplementary information.
+
+RESPONSE
+
+We sincerely thank Reviewer #1 for their time and valuable feedback. Their insightful comments have significantly contributed to improving the quality of our manuscript. In this revised version, we have provided specific responses to each comment and highlighted all corresponding changes in the text.
+
+**
+
+COMMENT
+
+Minor comments:
+
+Line 172-181: Listing the numbers of countries that contributed studies from each continent may cause confusion as this is not reflected in the map in Figure 2, where far more countries are included due to multi-country studies - this is made clear in the supporting information but is not explicit in the manuscript. It would be helpful to mention the total number of countries from which citizen science studies were included, either in the same paragraph or within the figure legend for Figure 2.
+
+RESPONSE
+
+Thank you for this helpful suggestion. We agree that this point required clarification and have revised both the Results section 3.2 and the Figure 2 caption accordingly:
+
+Added text to Results section 3.2:
+
+“Overall, the included studies covered 24 unique countries.”
+
+Added text to Figure 2 caption:
+
+“Panel A shows all countries represented across the included studies (n=24 unique countries), including those captured through multi-country study designs.”
+
+**
+
+COMMENT
+
+Line 194-195: It might be useful to clarify how species were determined to be invasive – was this based on studies that specifically mentioned invasive species monitoring? If not, was the definition of ‘invasive’ accounted for across studies that may have included the native range of ‘invasive’ species e.g. Aedes aegypti?
+
+RESPONSE
+
+Thank you for this important recommendation. We revised Results section 3.3 to clarify that this classification was based on how the original studies described the target species within their specific geographic and surveillance contexts, and revised the wording accordingly:
+
+Results section 3.3:
+
+“Among the included studies, mosquito monitoring was the most common focus (n=40, 65.6%), primarily concentrated on mapping the distribution, abundance, and spread of mosquito taxa, including species described by the original studies as invasive or nuisance in specific geographic and surveillance contexts. Aedes albopictus was the most commonly reported species (n=16, 26.2%)2,7,10,15,22,24,26–28,35–40,45, followed by Aedes japonicus (n=6, 9.8%)2,23,25,26,38,39, Aedes koreicus (n=5, 8.2%)2,10,32,38,39, and Aedes aegypti (n=3, 4.9%)2,26,47. Additional species included Aedes notoscriptus (n=1, 1.6%)66 and Culex species, most commonly Culex pipiens (n=4, 6.6%)2,10,35,41 and Culex quinquefasciatus (n=1, 1.6%)66.
+
+A smaller subset of studies focused on Anopheles species, including Anopheles plumbeus (n=2, 3.3%)30,31, members of the Anopheles gambiae complex (A. gambiae s.s., A. arabiensis, A. funestus; n=1, 1.6%)60, and mixed Anopheles larvae observations through community surveillance platforms (n=3, 4.9%)11,74,75.”
+
+**
+
+COMMENT
+
+Line 211: Maybe the number of studies from the Americas and Oceania that included surveillance for dengue/ Zika/ Chikungunya could also be provided, for consistency.
+
+RESPONSE
+
+Thank you for this important observation. We revised Results section 3.3 to provide the corresponding counts for studies from the Americas and Oceania that focused on surveillance targeting dengue, Zika, or chikungunya.
+
+Results section 3.3:
+
+“Several studies from the Americas (n=5 of 13, 38.5%) and Oceania (n=2 of 7, 28.6%) also focused on dengue, Zika, or chikungunya surveillance.”
+
+**
+
+COMMENT
+
+Line 240: It would be interesting to know what other traps were used and the breakdown of trap types by number of studies.
+
+RESPONSE
+
+Thank you for this helpful suggestion. We revised Results section 3.5.1 to provide the breakdown of trap types used across the included studies:
+
+Results section 3.5.1:
+
+“Trap-based data collection was also reported in 11 studies (n=11, 18.0%), most commonly using ovitraps (n=5 of 11, 45.5%). Other trap types included BG-Sentinel traps (n=3, 27.3%), BG Gravid Aedes Traps (BG-GAT) (n=3, 27.3%), CO₂-baited traps (n=2, 18.2%), and BG-Mosquitaire and CDC light traps (n=1 each, 9.1%). Some studies used more than one trap type, so the total number of trap occurrences exceeds the number of studies.”
+
+**
+
+COMMENT
+
+Line 271-272: Maybe the last three approaches can be reordered to reflect decreasing frequency (public websites, social media campaigns, institutional newsletters).
+
+RESPONSE
+
+Thank you. We revised the order of the last three recruitment approaches in Results section 3.5.5 to reflect decreasing frequency:
+
+Results section 3.5.5:
+
+“…public websites or email invitations (n=5, 8.2%)26,27,30,35,44, social media campaigns (n=4, 6.6%)10,45,61,63, and institutional newsletters or academic channels (n=3, 4.9%)44,61,63.”
+
+**
+
+COMMENT
+
+General comment: The discussion lists several biases of citizen science data. While not necessary, it could be interesting to give an overview (in the results) of biases that the studies themselves have identified in their work.
+
+RESPONSE
+
+We thank the reviewer for this helpful suggestion. We agree and added a new Results subsection, Section 3.9 (“Reported biases and methodological limitations”), to summarize the main biases and limitations explicitly reported by the included studies. We also revised Methods Sections 2.4 and 2.5, and the Abstract accordingly:
+
+Results section 3.9 (added):
+
+“3.9 Reported biases and methodological limitations
+
+Across the included studies, several explicitly reported biases or methodological limitations affecting their own citizen science data or implementation. Data quality issues were the most common (n=35, 57.4%), followed by validation limitations (n=32, 52.5%), recruitment/engagement challenges (n=32, 52.5%), and participation and sampling biases reported by the studies themselves (n=27, 44.3%), which included uneven observation or reporting effort. Representativeness limitations, indicating that the contributed data may not adequately reflect the full target population or study context, were noted in 25 studies (n=25, 41.0%). Technology-related barriers (n=16, 26.2%) and spatial bias (n=15, 24.6%) were reported less often.”
+
+Methods section 2.4 (revised):
+
+“…v) reported biases, methodological limitations, and ethical considerations (e.g. participation and sampling biases, data quality issues, validation limitations, recruitment/engagement challenges, representativeness limitations, technology-related barriers, spatial bias, ethical procedures, and data availability).”
+
+Methods section 2.5 (revised):
+
+“…reported biases and methodological limitations, and ethical considerations.”
+
+Abstract section (revised):
+
+“…reported biases and methodological limitations, and ethical and governance practices.”
+
+**
+
+############################################################################
+
+Responses to Reviewer #2
+
+Comments to the Author
+
+This manuscript presents a scoping review examining the role of citizen science in mosquito-borne disease surveillance and control. The authors analyze 61 studies published between 2000 and 2025 that use citizen participation to collect mosquito-related data or support vector surveillance initiatives. The review summarizes study characteristics, technologies used, participation strategies, analytical outputs, and governance practices. The topic is timely and highly relevant. Citizen science initiatives have become an increasingly important complement to traditional mosquito surveillance programs, particularly with the widespread availability of mobile technologies and digital reporting platforms. The manuscript provides a useful overview of existing initiatives and highlights the rapid growth of citizen-science projects in this field. However, several aspects that determine the scientific robustness and operational value of citizen-science surveillance systems are insufficiently addressed in the analysis and would benefit from further development.
+
+RESPONSE
+
+We sincerely thank Reviewer #2 for their thoughtful summary and positive evaluation of our work. We are grateful for the constructive feedback which has contributed to strengthening the overall quality and rigor of our study. In the revised manuscript, we have carefully addressed the reviewer’s suggestions and incorporated additional clarifications where appropriate. Major changes have been highlighted for ease of review.
+
+**
+
+COMMENT
+
+A first aspect concerns the discussion of ethical and governance issues. In the current manuscript, governance considerations are mainly addressed in terms of whether ethical procedures are reported by the studies included in the review. While this is important, the discussion could be expanded to consider the role of ethical transparency as a mechanism to foster participation and trust among citizens. Citizen-science initiatives depend fundamentally on voluntary engagement from the public, and participation levels are strongly influenced by the degree of trust participants place in the project. Clear communication about how data are collected, how they will be used, and how personal information is protected is, therefore, not only an ethical requirement but also a practical mechanism to encourage participation. In many mosquito citizen-science platforms, personal data collection is deliberately minimized or avoided, and the explicit communication of this principle can serve as an important incentive for participation. Addressing how different projects communicate these governance and privacy practices to participants would therefore provide a more nuanced perspective on the role of ethics and governance in citizen-science initiatives. Linked to that, as the manuscript highlights, many studies are related to the same citizen science project or use the same platform, and authors should make sure that in all these cases, some basic information related to ethical or data collection issues should not be mentioned, considering that it has been previously described or explained in previous papers. Saying that to make note of the authors to check for consistency for platforms or projects beyond what is explained or described in a single paper. For example, checking Supplementary file 2 “Extraction table” it is possible to see that kind of inconsistencies between study 1 and 2, both use Mosquito Alert tools, in the 1st ethics about the obtention of pictures and reports is stated (e.g. user agreement, anonymous participation, etc.), while in the 2nd, even if also use Mosquito Alert for image classification, the obtention of the images appears as “Not stated”. If they used the Mosquito Alert app to collect images, it is supposed that reports have been collected with user agreement and anonymous participation again. I will recommend the authors in that table to create a clear field identifying the project or tool used to unify the studies and check that information is consistent across all studies for the same platform and tool.
+
+RESPONSE
+
+We thank the reviewer for this thoughtful and important comment. We agree that the previous version focused mainly on whether ethical procedures were explicitly reported by individual studies and did not sufficiently consider ethical transparency as a mechanism for fostering trust and participation. We also agree that recurring platforms may embed governance and privacy features that are not restated in every publication. To address this, we revised the Discussion, expanded Results section 3.10, and updated S2 File by adding a platform-level ethics column and improving consistency across studies using the same platform. The following revisions were made:
+
+Results section 3.10 (added):
+
+“Notably, several recurring digital platforms operated under established governance frameworks that commonly addressed consent, privacy, anonymization, visibility, and data sharing. As these provisions were often embedded within the platform itself, they were not always restated explicitly in every individual study using the same tools. For example, Mosquito Alert incorporated user-agreement and privacy-policy acceptance, anonymous participation, random user identifiers, geolocation protection, and open-data or licensing terms. GLOBE Observer used account-based participation with public screen names (rather than public personal identifiers) and screened submitted photographs for faces or identifying text. Mückenatlas used explicit consent procedures, confidential handling of personal data, anonymized sharing of mosquito and location information, and opt-in public visibility. Similarly, iNaturalist allowed users to retain ownership of submitted content while selecting licenses and controlling geoprivacy settings for observations.”
+
+Discussion section (added):
+
+“Beyond reporting practices, ethical transparency plays a central role in citizen science systems by shaping participant trust, engagement, and sustained contribution. Because these initiatives rely on voluntary public participation, clear communication about what data are collected, how they are used, how privacy is protected, and whether submissions are anonymized or shared openly is not only an ethical requirement but also a practical mechanism for encouraging participation. Many mosquito-focused citizen science platforms deliberately minimize personal data collection, use anonymized or masked identifiers, or allow users to control visibility and sharing settings. When clearly communicated, these protections may therefore strengthen confidence in participation and support sustained data contribution. In this context, transparent and standardized reporting of governance practices would provide a better understanding of how
+
+Attachment Submitted filename: Response to Reviewers.docx
+
+DOI: 10.1371/journal.pone.0348697.r004
+
+Decision Letter 1
+
+Silva Daniel Academic Editor
+Copyright: © 2026 Daniel Silva
+Copyright year: 2026
+Copyright holder: Daniel Silva
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Submission Version: 1
+
+20 Apr 2026
+
+The Role of Citizen Science in Mosquito-Borne Disease Surveillance and Control: A Scoping Review
+
+PONE-D-26-07716R1
+
+Dear Dr. Mollalo,
+
+We’re pleased to inform you that your manuscript has been judged scientifically suitable for publication and will be formally accepted for publication once it meets all outstanding technical requirements.
+
+Within one week, you’ll receive an e-mail detailing the required amendments. When these have been addressed, you’ll receive a formal acceptance letter and your manuscript will be scheduled for publication.
+
+An invoice will be generated when your article is formally accepted. Please note, if your institution has a publishing partnership with PLOS and your article meets the relevant criteria, all or part of your publication costs will be covered. Please make sure your user information is up-to-date by logging into Editorial Manager at Editorial Manager® and clicking the ‘Update My Information' link at the top of the page. For questions related to billing, please contact billing support.
+
+If your institution or institutions have a press office, please notify them about your upcoming paper to help maximize its impact. If they’ll be preparing press materials, please inform our press team as soon as possible -- no later than 48 hours after receiving the formal acceptance. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact onepress@plos.org.
+
+Kind regards,
+
+Daniel de Paiva Silva, Ph.D.
+
+Academic Editor
+
+PLOS One
+
+Additional Editor Comments (optional):
+
+Dear Dr. Mollalo,
+
+After this review round, I am pleased to accept your manuscript for publication in PLoS One.
+
+Sincerely,
+
+Daniel Silva
+
+Reviewers' comments:
+
+Reviewer's Responses to Questions
+
+-->Comments to the Author
+
+1. If the authors have adequately addressed your comments raised in a previous round of review and you feel that this manuscript is now acceptable for publication, you may indicate that here to bypass the “Comments to the Author” section, enter your conflict of interest statement in the “Confidential to Editor” section, and submit your "Accept" recommendation.-->
+
+Reviewer #1: All comments have been addressed
+
+Reviewer #2: All comments have been addressed
+
+**********
+
+-->2. Is the manuscript technically sound, and do the data support the conclusions?
+
+The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. -->
+
+Reviewer #1: (No Response)
+
+Reviewer #2: Yes
+
+**********
+
+-->3. Has the statistical analysis been performed appropriately and rigorously? -->
+
+Reviewer #1: (No Response)
+
+Reviewer #2: Yes
+
+**********
+
+-->4. Have the authors made all data underlying the findings in their manuscript fully available?
+
+The PLOS Data policy requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.-->
+
+Reviewer #1: (No Response)
+
+Reviewer #2: Yes
+
+**********
+
+-->5. Is the manuscript presented in an intelligible fashion and written in standard English?
+
+PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.-->
+
+Reviewer #1: (No Response)
+
+Reviewer #2: Yes
+
+**********
+
+-->6. Review Comments to the Author
+
+Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)-->
+
+Reviewer #1: The authors have addressed all comments carefully and the manuscript has been improved as a result. The findings are introduced, presented and discussed very clearly and in my opinion the manuscript is worthy of publication.
+
+Reviewer #2: Based on the revised manuscript and the point-by-point response, I consider that the authors have properly addressed my main comments. In particular, the revised version now gives a much stronger and more integrated treatment of the issues I had raised regarding ethical transparency and governance, participation bias, effort-bias handling, validation mechanisms, and the need for a more synthetic framework linking participation, validation, analytical outputs, and the functional roles of citizen-science platforms. These additions are reflected in the expanded abstract and methods, as well as in the new or substantially revised Results sections on validation mechanisms, effort-bias handling, reported biases and methodological limitations, and ethical/governance issues, together with a more integrated discussion. Overall, these changes clearly improve the scientific robustness and interpretability of the review. Reviewer 1’s comments also appear to have been addressed appropriately.
+
+From my point of view, the new version provides a clearer picture of the diversity of citizen-science initiatives and the different surveillance and public-health functions they can serve. Compared with the previous version, the revised manuscript is more complete and analytically stronger, so I do not have any major remaining concerns, and I believe the manuscript is now suitable for acceptance. Congratulations to the authors for this valuable piece of work.
+
+**********
+
+-->7. PLOS authors have the option to publish the peer review history of their article (what does this mean?). If published, this will include your full peer review and any attached files.
+
+If you choose “no”, your identity will remain anonymous but your review may still be made public.
+
+Do you want your identity to be public for this peer review? For information about this choice, including consent withdrawal, please see our Privacy Policy.-->
+
+Reviewer #1: No
+
+Reviewer #2: Yes: Alex Richter-Boix
+
+**********
+
+DOI: 10.1371/journal.pone.0348697.r005
+
+Acceptance letter
+
+Silva Daniel Academic Editor
+Copyright: © 2026 Daniel Silva
+Copyright year: 2026
+Copyright holder: Daniel Silva
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+PONE-D-26-07716R1
+
+PLOS One
+
+Dear Dr. Mollalo,
+
+I'm pleased to inform you that your manuscript has been deemed suitable for publication in PLOS One. Congratulations! Your manuscript is now being handed over to our production team.
+
+At this stage, our production department will prepare your paper for publication. This includes ensuring the following:
+
+* All references, tables, and figures are properly cited
+
+* All relevant supporting information is included in the manuscript submission,
+
+* There are no issues that prevent the paper from being properly typeset
+
+You will receive further instructions from the production team, including instructions on how to review your proof when it is ready. Please keep in mind that we are working through a large volume of accepted articles, so please give us a few days to review your paper and let you know the next and final steps.
+
+Lastly, if your institution or institutions have a press office, please let them know about your upcoming paper now to help maximize its impact. If they'll be preparing press materials, please inform our press team within the next 48 hours. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact onepress@plos.org.
+
+You will receive an invoice from PLOS for your publication fee after your manuscript has reached the completed accept phase. If you receive an email requesting payment before acceptance or for any other service, this may be a phishing scheme. Learn how to identify phishing emails and protect your accounts at https://explore.plos.org/phishing.
+
+If we can help with anything else, please email us at customercare@plos.org.
+
+Thank you for submitting your work to PLOS ONE and supporting open access.
+
+Kind regards,
+
+PLOS ONE Editorial Office Staff
+
+on behalf of
+
+Dr. Daniel de Paiva Silva
+
+Academic Editor
+
+PLOS One
+
+
+References
+
+1 Fu G . Epidemiological patterns of mosquito-borne diseases globally. J Mosq Res. 2024. doi: 10.5376/jmr.2024.14.0012
+2 Južnič-Zonta Ž , et al. Mosquito alert: leveraging citizen science to create a GBIF mosquito occurrence dataset. Gigabyte. 2022;1:1–11.10.46471/gigabyte.54 PMC9930537 36824520
+3 World Health Organization. Global vector control response 2017–2030. 2017. https://www.who.int/publications/i/item/9789241512978
+4 Roiz D , Pontifes PA , Jourdain F , Diagne C , Leroy B , Vaissière A-C , et al. The rising global economic costs of invasive Aedes mosquitoes and Aedes-borne diseases. Sci Total Environ. 2024;933:173054. doi: 10.1016/j.scitotenv.2024.173054 38729373
+5 Abong’o B , Stanton MC , Donnelly MJ , Ochomo E , Ter Kuile FO , Samuels AM , et al. Evaluation of community-based vector surveillance system for routine entomological monitoring under low malaria vector densities and high bed net coverage in western Kenya. Malar J. 2023;22(1):203. doi: 10.1186/s12936-023-04629-9 37400805 PMC10318638
+6 Wint GRW , et al. VectorNet: collaborative mapping of arthropod disease vectors in Europe and surrounding areas since 2010. Eurosurveillance. 2023;28.10.2807/1560-7917.ES.2023.28.26.2200666 PMC10311950 37382886
+7 Palmer JRB , Oltra A , Collantes F , Delgado JA , Lucientes J , Delacour S , et al. Citizen science provides a reliable and scalable tool to track disease-carrying mosquitoes. Nat Commun. 2017;8(1):916. doi: 10.1038/s41467-017-00914-9 29066710 PMC5655677
+8 Gupta D , Gadre A. Enhancing mosquito identification and tracking with object detection and citizen-science smartphone imagery. Tescher AG , Ebrahimi T , editors. In: Applications of Digital Image Processing XLVII. San Diego, United States: SPIE; 2024. pp. 12. doi: 10.1117/12.3028328
+9 Virgillito C , Longo E , De Marco CM , Serini P , Zucchelli MV , Montarsi F , et al. Involving citizen scientists in monitoring arthropod vectors of human and zoonotic diseases: the case of Mosquito Alert in Italy. Sci Total Environ. 2024;948:174847. doi: 10.1016/j.scitotenv.2024.174847 39025142
+10 Low RD , Schwerin TG , Boger RA , Soeffing C , Nelson PV , Bartlett D , et al. Building International Capacity for Citizen Scientist Engagement in Mosquito Surveillance and Mitigation: The GLOBE Program’s GLOBE Observer Mosquito Habitat Mapper. Insects. 2022;13(7):624. doi: 10.3390/insects13070624 35886800 PMC9316649
+11 Carney RM , Mapes C , Low RD , Long A , Bowser A , Durieux D , et al. Integrating global citizen science platforms to enable next-generation surveillance of invasive and vector mosquitoes. Insects. 2022;13(8):675. doi: 10.3390/insects13080675 36005301 PMC9409379
+12 Pontifes PA , Doeuff NL , Perrin Y , Czeher C , Ferré J-B , Rozier Y , et al. A 3-year entomological cluster randomised controlled trial to assess the efficacy of mass-trapping for Aedes albopictus control in France: The vectrap project. Acta Trop. 2025;270:107810. doi: 10.1016/j.actatropica.2025.107810 40885327
+13 Sousa LB , Craig A , Chitkara U , Fricker S , Webb C , Williams C , et al. Methodological diversity in citizen science mosquito surveillance: a scoping review. Citiz Sci Theory Pract. 2022;7(1):8. doi: 10.5334/cstp.469
+14 Saran S , Singh P . Systematic review on citizen science and artificial intelligence for vector-borne diseases. Int Arch Photogramm Remote Sens Spatial Inf Sci. 2024;XLVIII-4–2024:397–402. doi: 10.5194/isprs-archives-xlviii-4-2024-397-2024
+15 Tricco AC , Lillie E , Zarin W , O’Brien KK , Colquhoun H , Levac D , et al. PRISMA Extension for Scoping Reviews (PRISMA-ScR): checklist and explanation. Ann Intern Med. 2018;169(7):467–73. doi: 10.7326/M18-0850 30178033
+16 Baminiwatte R , Torsu B , Scherbakov D , Mollalo A , Obeid JS , Alekseyenko AV , et al. Machine learning in healthcare citizen science: A scoping review. Int J Med Inform. 2025;195:105766. doi: 10.1016/j.ijmedinf.2024.105766 39740357 PMC11810576
+17 The Science of Citizen Science. Cham: Springer International Publishing; 2021. doi: 10.1007/978-3-030-58278-4
+18 Adhane G , Dehshibi MM , Masip D . A deep convolutional neural network for classification of Aedes Albopictus mosquitoes. IEEE Access. 2021;9:72681–90. doi: 10.1109/access.2021.3079700
+19 Eritja R , Delacour-Estrella S , Ruiz-Arrondo I , González MA , Barceló C , García-Pérez AL , et al. At the tip of an iceberg: citizen science and active surveillance collaborating to broaden the known distribution of Aedes japonicus in Spain. Parasit Vectors. 2021;14(1):375. doi: 10.1186/s13071-021-04874-4 34311767 PMC8314548
+20 Eritja R , Palmer JRB , Roiz D , Sanpera-Calbet I , Bartumeus F . Direct evidence of adult Aedes albopictus dispersal by car. Sci Rep. 2017;7(1):14399. doi: 10.1038/s41598-017-12652-5 29070818 PMC5656642
+21 Eritja R , Ruiz-Arrondo I , Delacour-Estrella S , Schaffner F , Álvarez-Chachero J , Bengoa M , et al. First detection of Aedes japonicus in Spain: an unexpected finding triggered by citizen science. Parasit Vectors. 2019;12(1):53. doi: 10.1186/s13071-019-3317-y 30674335 PMC6344982
+22 Eritja R , Sanpera-Calbet I , Delacour-Estrella S , Ruiz-Arrondo I , Puig MÀ , Bengoa-Paulís M , et al. Integrating citizen science and field sampling into next-generation early-warning systems for vector surveillance: twenty years of municipal detections of Aedes invasive mosquito species in Spain. Insects. 2025;16(9):904. doi: 10.3390/insects16090904 41009087 PMC12470473
+23 Padilla-Pozo Á , et al. Assessing and correcting neighborhood socioeconomic spatial sampling biases in citizen science mosquito data collection. Sci Rep. 2024;14:22462.39341898 10.1038/s41598-024-73416-6 PMC11439082
+24 Pataki BA , Garriga J , Eritja R , Palmer JRB , Bartumeus F , Csabai I . Deep learning identification for citizen science surveillance of tiger mosquitoes. Sci Rep. 2021;11(1):4718. doi: 10.1038/s41598-021-83657-4 33633197 PMC7907246
+25 Rodriguez-Valero N , Ledesma-Carbayo MJ , Martí-Soler H , Cuadrado Sanchez D , Vladimirov A , Camprubí-Ferrer D , et al. A smartphone app for real-time assessment of malaria prophylaxis adverse events. Telemed J E-Health. 2024;30(5):1436–42. doi: 10.1089/tmj.2023.0200 38215269
+26 Heym EC , Kampen H , Fahle M , Hohenbrink TL , Schäfer M , Scheuch DE , et al. Anopheles plumbeus (Diptera: Culicidae) in Germany: updated geographic distribution and public health impact of a nuisance and vector mosquito. Trop Med Int Health. 2017;22(1):103–12. doi: 10.1111/tmi.12805 27797433
+27 Heym EC , Schröder J , Kampen H , Walther D . The nuisance mosquito Anopheles plumbeus (Stephens, 1828) in Germany-a questionnaire survey may help support surveillance and control. Front Public Health. 2017;5:278. doi: 10.3389/fpubh.2017.00278 29164092 PMC5663692
+28 Hohmeister N , Werner D , Kampen H . The invasive Korean bush mosquito Aedes koreicus (Diptera: Culicidae) in Germany as of 2020. Parasit Vectors. 2021;14(1):575. doi: 10.1186/s13071-021-05077-7 34772448 PMC8588644
+29 Pernat N , Kampen H , Jeschke JM , Werner D . Buzzing homes: using citizen science data to explore the effects of urbanization on indoor mosquito communities. Insects. 2021;12(5):374. doi: 10.3390/insects12050374 33919337 PMC8143366
+30 Pernat N , Kampen H , Ruland F , Jeschke JM , Werner D . Drivers of spatio-temporal variation in mosquito submissions to the citizen science project “Mückenatlas”. Sci Rep. 2021;11(1):1356. doi: 10.1038/s41598-020-80365-3 33446753 PMC7809264
+31 Walther D , Kampen H . The Citizen science project “mueckenatlas” helps monitor the distribution and spread of invasive mosquito species in Germany. J Med Entomol. 2017;54(6):1790–4. doi: 10.1093/jme/tjx166 29029273 PMC5850493
+32 Caputo B , Langella G , Petrella V , Virgillito C , Manica M , Filipponi F , et al. Aedes albopictus bionomics data collection by citizen participation on Procida Island, a promising Mediterranean site for the assessment of innovative and community-based integrated pest management methods. PLoS Negl Trop Dis. 2021;15(9):e0009698. doi: 10.1371/journal.pntd.0009698 34529653 PMC8445450
+33 Caputo B , Manica M , Filipponi F , Blangiardo M , Cobre P , Delucchi L , et al. ZanzaMapp: a scalable citizen science tool to monitor perception of mosquito abundance and nuisance in Italy and Beyond. Int J Environ Res Public Health. 2020;17(21):7872. doi: 10.3390/ijerph17217872 33121060 PMC7672598
+34 Garamszegi LZ , Kurucz K , Soltész Z . Validating a surveillance program of invasive mosquitoes based on citizen science in Hungary. J Appl Ecol. 2023;60:1481–94.
+35 Garamszegi LZ , Soltész Z , Szentiványi T , Kurucz K , Nagy G , Bede-Fazekas Á . Identifying ecological factors mediating the spread of three invasive mosquito species: citizen science informed prediction. J Pest Sci. 2024;98(2):913–28. doi: 10.1007/s10340-024-01841-7
+36 Reichl J , Prossegger C , Eichholzer B , Plauder P , Unterköfler MS , Bakran-Lebl K , et al. A citizen science report-Tiger mosquitoes (Aedes albopictus) in allotment gardens in Graz, Styria, Austria. Parasitol Res. 2023;123(1):79. doi: 10.1007/s00436-023-08106-9 38158426 PMC10756886
+37 Abourashed A , Cerecedo-Iglesias C , Dellar M , Palmer JRB , Bartumeus F . Spatial inference of Culex pipiens abundance and biting activity distribution in the Netherlands using citizen science. Parasit Vectors. 2025;18(1):162. doi: 10.1186/s13071-025-06774-3 40307911 PMC12042346
+38 Cull B , Vo BN , Webb C , Williams CR . iNaturalist community observations provide valuable data on human-mosquito encounters. J Vector Ecol. 2024;49(2):R12–26. doi: 10.52707/1081-1710-49.2.R12 39315958
+39 Cho H , Low RD , Fischer HA , Storksdieck M . The STEM enhancement in earth science “mosquito mappers” virtual internship: outcomes of place-based engagement with citizen science. Front Environ Sci. 2021;9:682669. doi: 10.3389/fenvs.2021.682669
+40 Day CA , Trout Fryxell RT . Community efforts to monitor and manage Aedes mosquitoes (Diptera: Culicidae) with ovitraps and litter reduction in east Tennessee. BMC Public Health. 2022:2383.10.1186/s12889-022-14792-4 PMC9764731 36536336
+41 Mukundarajan H , Hol FJH , Castillo EA , Newby C , Prakash M . Using mobile phones as acoustic sensors for high-throughput mosquito surveillance. Elife. 2017;6:e27854. doi: 10.7554/eLife.27854 29087296 PMC5663474
+42 Polineni S , Shastri O , Bagchi A , Gnanakumar G , Rasamsetti S , Sundaravadivel P . MOSQUITO EDGE: An Edge-intelligent real-time mosquito threat prediction using an IoT-enabled hardware system. Sensors (Basel). 2022;22(2):695. doi: 10.3390/s22020695 35062653 PMC8780188
+43 Tarter KD , Levy CE , Yaglom HD , Adams LE , Plante L , Casal MG , et al. Using citizen science to enhance surveillance of Aedes aegypti in Arizona, 2015-17. J Am Mosq Control Assoc. 2019;35(1):11–8. doi: 10.2987/18-6789.1 31334498 PMC6644674
+44 Wagner-Coello HU , Villar ME , DeGennaro M . Incorporating citizen science engagement in a vector surveillance undergraduate internship. Discov Educ. 2024;3(1):191. doi: 10.1007/s44217-024-00293-6 39445030 PMC11493780
+45 Hollett L , Padgett T , Canuti M , White C , Brenton C , Wight J , et al. Citizen science detection and characterization of Mosquito-Borne Viruses. Ecohealth. 2025;22(2):256–67. doi: 10.1007/s10393-025-01711-3 40108076
+46 Bonet M , Spiegel JM , Ibarra AM , Kouri G , Pintre A , Yassi A . An integrated ecosystem approach for sustainable prevention and control of dengue in Central Havana. Int J Occup Environ Health. 2007;13(2):188–94. doi: 10.1179/oeh.2007.13.2.188 17718176
+47 Bardosh KL , Jean L , Beau De Rochars VM , Lemoine JF , Okech B , Ryan SJ , et al. Polisye Kont Moustik: a culturally competent approach to larval source reduction in the context of lymphatic filariasis and malaria elimination in Haiti. Trop Med Infect Dis. 2017;2(3):39. doi: 10.3390/tropicalmed2030039 30270896 PMC6082096
+48 Andersson N , Nava-Aguilera E , Arosteguí J , Morales-Perez A , Suazo-Laguna H , Legorreta-Soberanis J , et al. Evidence based community mobilization for dengue prevention in Nicaragua and Mexico (Camino Verde,the Green Way): cluster randomized controlled trial. BMJ. 2015;:h3267. doi: 10.1136/bmj.h3267 PMC4495677 26156323
+49 Andersson N , Arostegui J , Nava-Aguilera E , Harris E , Ledogar RJ . Camino Verde (The Green Way): evidence-based community mobilisation for dengue control in Nicaragua and Mexico: feasibility study and study protocol for a randomised controlled trial. BMC Public Health. 2017;17(Suppl 1):407. doi: 10.1186/s12889-017-4289-5 28699570 PMC5506595
+50 Asingizwe D , Milumbu Murindahabi M , Koenraadt CJM , Poortvliet PM , van Vliet AJH , Ingabire CM , et al. Co-designing a citizen science program for malaria control in Rwanda. Sustainability. 2019;11(24):7012. doi: 10.3390/su11247012
+51 Murindahabi MM , Asingizwe D , Poortvliet PM , van Vliet AJH , Hakizimana E , Mutesa L , et al. A citizen science approach for malaria mosquito surveillance and control in Rwanda. NJAS: Wageningen J Life Sci. 2018;86–87(1):101–10. doi: 10.1016/j.njas.2018.07.005
+52 Murindahabi MM , Hoseni A , Corné Vreugdenhil LC , van Vliet AJH , Umupfasoni J , Mutabazi A , et al. Citizen science for monitoring the spatial and temporal dynamics of malaria vectors in relation to environmental risk factors in Ruhuha, Rwanda. Malar J. 2021;20(1):453. doi: 10.1186/s12936-021-03989-4 34861863 PMC8641173
+53 Mwangungulu SP , Sumaye RD , Limwagu AJ , Siria DJ , Kaindoa EW , Okumu FO . Crowdsourcing vector surveillance: using community knowledge and experiences to predict densities and distribution of outdoor-biting mosquitoes in rural Tanzania. PLoS One. 2016;11(6):e0156388. doi: 10.1371/journal.pone.0156388 27253869 PMC4890851
+54 Mponzi WP , Dam R , Msaky D , Mwalugelo Y , Sinka M , Kiskin I , et al. “Fighting against malaria is everyone’s concern”: a randomized control trial assessing the role of incentives for encouraging local communities to record and upload mosquito sounds using the MozzWear application. Malar J. 2025;24(1):295. doi: 10.1186/s12936-025-05564-7 41029380 PMC12486566
+55 Dam R , Mponzi W , Msaky D , Mwandyala T , Kaindoa EW , Sinka ME , et al. What incentives encourage local communities to collect and upload mosquito sound data by using smartphones? A mixed methods study in Tanzania. Glob Health Res Policy. 2023;8(1):18. doi: 10.1186/s41256-023-00298-y 37246227 PMC10226264
+56 Gowelo S , Meijer P , Tizifa T , Malenga T , Mburu MM , Kabaghe AN , et al. Community participation in habitat management and larviciding for the control of malaria vectors in Southern Malawi. Am J Trop Med Hyg. 2022;108(1):51–60. doi: 10.4269/ajtmh.21-1127 36410320 PMC9833073
+57 Asale A , Kussa D , Girma M , Mbogo C , Mutero CM . Community based integrated vector management for malaria control: lessons from three years’ experience (2016-2018) in Botor-Tolay district, southwestern Ethiopia. BMC Public Health. 2019;19(1):1318. doi: 10.1186/s12889-019-7606-3 31638928 PMC6805624
+58 Jassey B , Yudhastuti R , Jallow O , Touray I , Ridha MR , Diyanah KC . Community-led application of Bacillus thuringiensis var. israelensis (Bti) effectively reduces malaria vector densities in The Gambia. Biodiversitas. 2025;26(8). doi: 10.13057/biodiv/d260813
+59 Freeman EA , Carlton EJ , Paull S , Dadzie S , Buchwald A . Utilizing citizen science to model the distribution of Aedes aegypti in West Africa. J Vector Ecol. 2022;47(1):117–27. doi: 10.52707/1081-1710-47.1.117 36629363
+60 Carney RM , Long A , Low RD , Zohdy S , Palmer JRB , Elias P , et al. Citizen science as an approach for responding to the threat of Anopheles stephensi in Africa. Citiz Sci. 2023;8(1). doi: 10.5334/cstp.616 38616822 PMC11010391
+61 Braz Sousa L , Fricker SR , Doherty SS , Webb CE , Baldock KL , Williams CR . Citizen science and smartphone e-entomology enables low-cost upscaling of mosquito surveillance. Sci Total Environ. 2020;704:135349. doi: 10.1016/j.scitotenv.2019.135349 31837870
+62 Bazin M , Williams CR . Mosquito traps for urban surveillance: collection efficacy and potential for use by citizen scientists. J Vector Ecol. 2018;43(1):98–103. doi: 10.1111/jvec.12288 29757507
+63 Braz Sousa L , Fricker S , Webb C , Baldock KL , Williams CR . Learning outcomes for participants in citizen science mosquito surveillance. J Med Entomol. 2024;61(6):1399–409. doi: 10.1093/jme/tjae117 39271136
+64 Braz Sousa L , Fricker S , Webb CE , Baldock KL , Williams CR . Citizen science mosquito surveillance by Ad Hoc observation using the iNaturalist platform. Int J Environ Res Public Health. 2022;19(10):6337. doi: 10.3390/ijerph19106337 35627874 PMC9140400
+65 Webb C , Clancy J , Doggett SL , McAlister E , Williams C , Fricker S , et al. First record of the mosquito Aedes (Downsiomyia) shehzadae (Diptera: Culicidae) in Australia: A unique discovery aided by citizen science. J Vector Ecol. 2022;47(1):133–7. doi: 10.52707/1081-1710-47.1.133 36629366
+66 Craig A , Panda N , Palapu R , Oku G , Lifoia C , Tatalu J , et al. Citizen science for enhanced dengue vector surveillance in Solomon Islands: A Methods Paper. CSTP. 2024;9(1):3. doi: 10.5334/cstp.679
+67 Craig AT , Kama N Jr , Fafale G , Bugoro H . Citizen science as a tool for arboviral vector surveillance in a resourced-constrained setting: results of a pilot study in Honiara, Solomon Islands, 2019. BMC Public Health. 2021;21(1):509. doi: 10.1186/s12889-021-10493-6 33726697 PMC7962342
+68 Yapabandara AM , Curtis CF , Wickramasinghe MB , Fernando WP . Control of malaria vectors with the insect growth regulator pyriproxyfen in a gem-mining area in Sri Lanka. Acta Trop. 2001;80(3):265–76. doi: 10.1016/s0001-706x(01)00178-4 11700185
+69 Lwin MO , Jayasundar K , Sheldenkar A , Wijayamuni R , Wimalaratne P , Ernst KC , et al. Lessons From the Implementation of Mo-Buzz, a Mobile Pandemic Surveillance System for Dengue. JMIR Public Health Surveill. 2017;3(4):e65. doi: 10.2196/publichealth.7376 28970191 PMC5643840
+70 Low R , Boger R , Nelson P , Kimura M . GLOBE Mosquito Habitat Mapper Citizen Science Data 2017–2020. GeoHealth. 2021:5.10.1029/2021GH000436 PMC8527845 34712882
+71 Uelmen JA Jr , Clark A , Palmer J , Kohler J , Van Dyke LC , Low R , et al. Global mosquito observations dashboard (GMOD): creating a user-friendly web interface fueled by citizen science to monitor invasive and vector mosquitoes. Int J Health Geogr. 2023;22(1):28. doi: 10.1186/s12942-023-00350-7 37898732 PMC10612222
+72 Cull B . Online crowdsourced data from iNaturalist can assist monitoring of invasive mosquitoes. Insects. 2025;16(2):128. doi: 10.3390/insects16020128 40003758 PMC11855696
+73 Huang X , Wang S , Yang D , Hu T , Chen M , Zhang M , et al. Crowdsourcing geospatial data for earth and human observations: a review. J Remote Sens. 2024;4. doi: 10.34133/remotesensing.0105
+74 Paleco C , García Peter S , Salas Seoane N , Kaufmann J , Argyri P. Inclusiveness and Diversity in Citizen Science. In: Vohland K , et al., editors. The Science of Citizen Science. Cham: Springer International Publishing; 2021. pp. 261–81. doi: 10.1007/978-3-030-58278-4_14
+75 Kianfar N , Alsharayri S , Mollalo A . Alzheimer’s disease and related dementias in rural medicare populations: a scoping review. BMC Geriatr. 2026;26(1):237. doi: 10.1186/s12877-026-07031-7 41593510 PMC12918024
+76 Roche J , et al. Citizen science, education, and learning: challenges and opportunities. Front Sociol. 2020;5:613814.33869532 10.3389/fsoc.2020.613814 PMC8022735
+77 Zhang G , Zhu A-X . The representativeness and spatial bias of volunteered geographic information: a review. Ann GIS. 2018;24(3):151–62. doi: 10.1080/19475683.2018.1501607
+78 Kosmala M , Wiggins A , Swanson A , Simmons B . Assessing data quality in citizen science. Front Ecol Environ. 2016;14:551–60. doi: 10.1002/fee.1436
+79 Zhang G . Spatial and temporal patterns in volunteer data contribution activities: a case study of eBird. Int J Geo-Inf. 2020;9(10):597. doi: 10.3390/ijgi9100597
+80 Tang B , Clark JS , Gelfand AE . Modeling spatially biased citizen science effort through the eBird database. Environ Ecol Stat. 2021;28:609–30.
+81 Bird TJ , et al. Statistical solutions for error and bias in global citizen science datasets. Biol Conserv. 2014;173:144–54.
+82 La Sorte FA , Cohen JM , Jetz W . Data coverage, biases, and trends in a global citizen‐science resource for monitoring avian diversity. Divers Distrib. 2024;30:e13863.
+83 Mugford J , et al. Citizen science decisions: A Bayesian approach optimises effort. Ecol Inform. 2021;63:101313.
+84 Haklay M. Citizen science and volunteered geographic information: Overview and typology of participation. In: Sui D , Elwood S , Goodchild M , editors. Crowdsourcing geographic knowledge. Dordrecht: Springer Netherlands; 2013. pp. 105–22. doi: 10.1007/978-94-007-4587-2_7
+85 Resnik DB , Elliott KC , Miller AK . A framework for addressing ethical issues in citizen science. Environ Sci Policy. 2015;54:475–81. doi: 10.1016/j.envsci.2015.05.008
+86 Ozolinčiūtė E , et al. Guidelines for research ethics and research integrity in citizen science. Res Ideas Outcomes. 2022;8:e97122.

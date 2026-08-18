@@ -1,0 +1,312 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Public Health Pract (Oxf)
+Journal ID: Public Health Pract (Oxf)
+NLM Journal ID: 101774776
+
+Public Health in Practice
+
+EISSN: 2666-5352
+Publisher: Elsevier
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13068835
+PMID: 41972018
+DOI: 10.1016/j.puhip.2026.100776
+Article ID: S2666-5352(26)00055-8
+Article ID: 100776
+Article version: 1
+Subjects: Original Research
+
+Knowledge, risk perceptions and practices regarding mosquito-borne arboviral diseases among physicians in Baden-Wuerttemberg, Germany: A cross-sectional questionnaire-based analysis
+
+Dressler Aparna aparna.dressler@sm.bwl.de ⁎
+Wagner-Wiening Christiane
+Brockmann Stefan O.
+Department of Health Protection, Infection Control and Epidemiology, State Health Office, Ministry of Social Affairs, Health and Integration, Stuttgart, Baden-Wuerttemberg, Germany
+⁎ Corresponding author. aparna.dressler@sm.bwl.de
+Publication date: 2026 Jun
+Electronic publication date: 2026 Mar 21
+Volume: 11
+Electronic Location ID: 100776
+Received 2026 Jan 3; Revised 2026 Mar 15; Accepted 2026 Mar 20
+Copyright: © 2026 The Authors. Published by Elsevier Ltd on behalf of The Royal Society for Public Health.
+Copyright year: 2026
+Copyright holder:
+License: This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Keywords: Arboviruses, Mosquito-borne diseases, Knowledge, Attitudes, Practices, Physicians, Germany, Public health, Aedes albopictus
+
+==============================
+Background
+
+Mosquito-borne arboviral infections (MBAI), including dengue and chikungunya viruses transmitted primarily by Aedes species and West Nile virus (WNV), transmitted mainly by Culex species, are increasingly reported in Europe. For Aedes-associated arboviruses, climate change and globalization contribute to the spread and establishment of competent vectors, while for WNV, climatic factors such as temperature and host–vector dynamics may enhance transmission in areas where the virus is already present. Physicians play a key role in early recognition and prevention of MBAI, yet data on their knowledge, risk perceptions, and practices (KPP) in non-endemic settings remain limited.
+
+Methods
+
+We developed a 44-item questionnaire to assess KPP related to arboviral infections. We conducted a cross-sectional survey between May to October 2024 using EUSurvey an opensource web-based tool, among all general practitioners, internists and pediatricians registered with the Association of Statutory Health Insurance Physicians of Baden-Wuerttemberg (KVBW). Descriptive statistics were computed. Composite domain scores were calculated and normalized (0-100 scale). Associations between domains and predictors were examined using non-parametric tests, Spearman correlation, and beta regression models. Multiple comparisons were adjusted using the Benjamini-Hochberg method.
+
+Results
+
+A total of 473 physicians participated in the survey (response rate of ∼6%); 55.8% were women and 60% were aged 40-59 years. The median normalized scores were knowledge 68.6 (IQR 55.4-79.7), perception 33.3 (26.7-46.7), and practices 54.6 (37-68.5). A majority of respondents, 75.8% (N = 354) reported only partial knowledge on arboviral transmission routes. 68.9 % (N = 324) desired more information on endemic regions for arboviruses. In a clinical vignette (fever with truncal exanthema after travel to southern France), 42% would order arboviral testing, compared to 90% for a pregnant traveler returning from Brazil. Over 73% (N = 341 of 462) physicians reported a no to low risk of autochthonous West Nile virus (WNV) infections, and only travel-associated indication was widely recognized (89.4% (N = 373). Knowledge and perception scores were positively associated with practices (OR: 1.16 [95% CI 1.11-1.21] and 1.14 [1.09-1.20], both p < 0.0001).
+
+Conclusions
+
+This first survey of physician KPPs on MBAI in Germany highlights substantial knowledge gaps, misaligned risk perceptions, and travel-centric diagnostic mindset, where the risk of infections locally and within Europe was underrecognized. Despite a low response rate, this study provides a valuable reference point for preparedness planning. Integrating arbovirus-related content into continuing medical education, supported by public health information campaigns and surveillance feedback, are likely to contribute to strengthening clinical awareness and may support improved diagnostic and counselling practices in the face of expanding vector presence and increasing risk of autochthonous infections.
+
+1 Background
+
+Mosquito-borne arboviral infections (MBAI), such as dengue and chikungunya viruses (primarily transmitted by Aedes mosquitoes, including Aedes aegypti and Aedes albopictus [AA]) and West Nile virus (WNV) (mainly transmitted by Culex species), are increasingly reported in Europe. These pathogens have historically been associated with tropical and subtropical regions. However, over the past two decades, Europe has experienced an increasing risk of autochthonous transmission, driven by factors such as climate change, globalization, and the expansion of competent vectors [[1], [2], [3]]. European health systems are hence increasingly confronted with the challenges of arbovirus infections.
+
+In Germany, the federal state of Baden-Wuerttemberg is most affected due to geographical and climatic conditions that favor the establishment of AA. This species was first detected in Baden-Wuerttemberg in 2007 and has since spread significantly, establishing stable populations particularly along the Upper Rhine region. Although no locally acquired cases of the aforementioned MBAI have yet been reported in Baden-Wuerttemberg, imported cases may pose an epidemiological risk, particularly in regions where competent vectors are established [4]. Neighboring European countries like France and Italy have already documented autochthonous cases of Dengue and Chikungunya virus [3,[5], [6], [7]]. Recent reports of locally acquired Chikungunya cases particularly, in the Grand Est region of France, near the German border [8], underscore both the proximity and immediacy of this threat for Baden-Wuerttemberg and Germany.
+
+Physicians are the first point of contact for patients presenting with symptoms of arboviral infections. Therefore, their awareness of the current situation is critical not only for timely diagnosis and patient management, but also for early detection, and outbreak prevention. MBAI may present with a broad clinical spectrum, ranging from asymptomatic infection to severe disease. Dengue and chikungunya typically manifest with acute febrile illness, rash, headache, and arthralgia, whereas severe dengue may include bleeding complications. WNV infection is asymptomatic in most cases, but a minority of patients develop neuroinvasive disease such as meningitis or encephalitis [7]. To date, structured KAP-style evaluations among physicians regarding arboviral diseases remain limited in Europe. An analysis from several European countries identified gaps in physician knowledge and preparedness regarding emerging arboviral infections [9].
+
+Currently, there is a lack of comprehensive data on knowledge, perceptions, and practices (KPP) regarding MBAI among physicians in Germany. This study aims to address this gap by descriptively assessing the KPP of physicians in Baden-Wuerttemberg through a structured cross-sectional survey and to explore associative relationships between these domains and selected physician characteristics. The aim of this study was not only to describe physicians’ knowledge, risk perception, and practices regarding arboviral infections, but also to identify potential preparedness gaps that could inform targeted educational strategies, risk communication, and public health planning. Understanding these domains is essential to support early recognition, appropriate diagnostic decision-making, and context-specific preparedness as arboviral risks evolve in Germany.
+
+2 Methods
+
+2.1 Study design and sampling
+
+We conducted a web-based cross-sectional survey from May to October 2024 using EUSurvey, an open-source web-based tool targeting general practitioners, pediatricians, and internists in Baden-Wuerttemberg registered with the Association of Statutory Health Insurance Physicians of Baden-Wuerttemberg (KVBW). We contacted 8475 physicians via email using addresses from the KVBW. The invitation email included a personalized link to the questionnaire and informed participants that (1) participation was voluntary, (2) all responses would be treated confidentially, (3) data would be anonymized and could not be linked to individual persons, and (4) submission of the completed questionnaire constituted informed consent to participate in the study and for the data to be analyzed. Two reminder emails were sent two and four weeks after the initial invitation.
+
+Questionnaire: We developed a 44-item questionnaire, consisting of four sections: demographic information, knowledge of mosquito-borne arboviruses (e.g., transmission, symptoms, vectors), risk perceptions regarding autochthonous arboviral infections in Germany, and routine clinical practices (e.g., diagnostic testing, patients counselling). The questionnaire was structured into three analytic domains: Knowledge, Risk Perceptions, and Practices (item-level detail is provided in the Supplementary Section). The questionnaire was developed as an exploratory instrument for descriptive assessment and was not designed as a psychometrically validated scale. Therefore, no formal validation procedures (e.g., factor analysis or reliability testing) were performed. Domain selection was guided by established Knowledge–Attitude/Perception–Practice (KAP) frameworks commonly used in public health research [[10], [11], [12]] and adapted to the epidemiological context of arboviral infections in Germany. The conceptual framework underlying this study assumes that physician preparedness reflects a progression from knowledge to risk perception, which together may influence reported clinical practices. Within this framework, knowledge represents factual understanding of arboviral infections and transmission mechanisms, familiarity with local epidemiological context and vector presence, and risk perception reflects individual judgment regarding the likelihood of autochthonous transmission. Because no validated questionnaire specifically addressing physician preparedness for arboviral infections in this setting was available, a context-specific instrument was developed. Item generation and development was informed by expert discussion involving specialists in infectious diseases, epidemiology, public health surveillance, and vector-borne diseases. Draft versions were reviewed by experts to ensure content relevance, clarity, and conceptual alignment with the predefined domains. The questionnaire was subsequently piloted among physicians (N = 5) to assess usability, clarity of wording, and technical functionality of the online survey system; feedback was incorporated into the final version. Pilot participants were excluded from the main survey to avoid potential biases. A full English translation of the questionnaire is provided in the Supplementary Section. The three analytical domains represented different aspects of preparedness: knowledge (factual understanding of arboviruses and transmission), risk perception (perceived risk of autochthonous transmission), and practice (self-reported clinical activities, including counselling and diagnostic considerations). These domains were used as pragmatic analytical groupings rather than validated psychometric constructs. Items included in domain scores allowed predefined, transparent scoring rules (e.g., correct/incorrect responses or ordinal categories). The practice domain contained both core and conditional items, reflecting differences in clinical roles such as travel medicine counselling; therefore, practice scores should be interpreted as reflecting the breadth of self-reported preparedness-related activities rather than directly comparable clinical competence or guideline adherence across all respondents.
+
+As the study was exploratory and aimed primarily at descriptive characterization and associative modeling rather than hypothesis testing with predefined effect sizes, a formal a priori power calculation was not conducted. The achieved sample size was deemed sufficient to allow multivariable regression modeling with stable coefficient estimation.
+
+2.2 Data analysis
+
+Scoring system: Score construction was defined a priori based on conceptual alignment of items with their respective domains (knowledge, risk perception, and practices). Items addressing legal notification requirements were assigned to the knowledge domain, as they assessed familiarity with regulatory obligations rather than self-reported reporting practices. Correct responses were determined according to current epidemiological evidence and public health guidance. Knowledge scores were constructed based on predefined correct responses derived from established epidemiological and clinical guidance. Item scoring followed predefined rules (item-level details on scoring are available in the Supplementary Section):• Knowledge: 1 = correct answers, 0.5 = partially correct answers, and 0 for incorrect or “don't know” responses.
+
+• Risk Perception: Likert-scale ratings ranging from 1 (low) to 6 (very high), 0 points for “don't know”.
+
+• Practices: Self-reported actions (e.g. travel medical guidance for patients) rated on a binary scale; 1 point for “yes” and 0 points for “no” and “don't know”.
+
+Domain scores: We derived a composite score for each of the domains (knowledge, perceptions, and practices). Domain scores were defined a priori as pragmatic analytical groupings based on conceptual relevance to the predefined constructs (knowledge, risk perception, and practice). Item allocation was theory-driven and not based on statistical or psychometric validation, as the questionnaire was designed for exploratory descriptive analysis rather than scale development. Only questions allowing predefined, transparent scoring rules (e.g., correct/incorrect responses or ordinal categories) were included in domain score calculations.
+
+The practice domain was intentionally designed to capture preparedness-related clinical behaviour, including diagnostic decision-making, counselling activities, and preventive recommendations, reflecting applied clinical practice rather than a single behavioural construct. The practice domain included both core items applicable to all respondents and conditional items related to travel medicine counselling. Respondents not performing travel medicine consultations consequently scored 0 for these components. This design was chosen to capture the breadth of real-world clinical practice, acknowledging that exposure to travel medicine varies across physicians. Questions assessing recommended diagnostic indications included predefined correct options, with each correctly selected option scored as 1 point and incorrect options scored as 0. The questionnaire focused on self-reported clinical practices (e.g., diagnostic considerations, counselling behaviour, and testing indications) rather than formal assessment of clinical symptom recognition using case-based scenarios and does not assess diagnostic accuracy or guideline adherence. Higher practice scores indicate broader self-reported engagement with recommended preparedness-related practices. The score reflects overall practice scope rather than strict guideline adherence or directly comparable competence across all respondents. Detailed question wording and scoring procedures are provided in the Supplementary Material. Demographic items, conditionally displayed questions, and exploratory or qualitative items (e.g., open-ended responses) were excluded from scoring. The maximum possible overall raw score across the domains was 70 (details provided in the Supplementary Section). Domain scores were subsequently normalized to a 0-100 scale to enable cross-domain comparisons using the following formula:Normalized Score = (Total Score / Maximum Possible Score) × 100.
+
+The normalized scores are expressed as percentages.
+
+No external cut-off thresholds were used to categorize scores into “low,” “moderate,” or “high.” Where descriptive groupings were presented, they served illustrative purposes only and were not used for inferential conclusions.
+
+Statistical analysis: We performed descriptive statistical analysis and used R statistical program version 4.1.3. We assessed group differences in responses using the Chi-square (χ2) test or Fisher's Exact Test, as appropriate, depending on sample size and distribution. The correlation between normalized practice, knowledge, and perception scores was assessed using Spearman's rank correlation. To address ties and avoid large-sample approximations, two-sided permutation p-values were computed with 10,000 label permutations, and Benjamini-Hochberg (BH) correction controlled the false discovery rate across the set of correlations. Beta regression analyses were used to assess the association between normalized knowledge and risk perception scores and the normalized practice score, adjusting for physician characteristics (e.g., years of clinical experience and medical specialty). Beta regression is particularly suitable for modelling outcomes that are continuous and constrained to the interval (0, 1), such as proportions or percentages, as it accounts for the distributional properties of the response variable [13]. The normalized practice score (0-100) was divided by 100 and adjusted to the open interval (0,1) for beta regression; we report odds ratios on the logit link. The model is as follows:g(μi) = β0 + β1(Knowledge) + β2(Perceptions) + β3 (Age group) + β4(Gender) + β5 (Specialty)
+
+where g (.) is the logit link function and μi is the normalized practice proportion for physician i. β0 is the intercept, and β1-β5 are the regression coefficients for the predictors. Knowledge and perception scores are the primary explanatory variables, while physician characteristics (age group, gender, and specialty) are adjustment variables to account for potential confounding. For normalized knowledge and perception scores (0-100) we report ORs per 10-point increase (a decile) on the 0-100 scale, so that 1 unit = 10 points. Hence, an OR per 10 points compares, e.g., a score of 60 → 70 or 35 → 45 on that scale.
+
+Respondents who selected “diverse” (N = 7) for gender and two small professional categories (“medical assistants” (N = 2) and “other specialty” (N = 3) were excluded. Multicollinearity was evaluated using generalized variance inflation factors (GVIF). Sensitivity analyses including years of experience did not improve model fit (ΔAIC = 0.07, favoring the simpler model) and coefficients for knowledge and perception remained materially unchanged (<3% change). Therefore, we retained the model without years of experience. We report both unadjusted p values and BH-adjusted p values with adjusted p values ≤ 0.05 considered statistically significant. This analysis follows the STrengthening the Reporting of OBservational studies in Epidemiology (STROBE) guidelines[14].
+
+Fig. 1 summarizes the three analytical domains, number of items per domain, response formats, thematic focus, and scoring ranges. The risk perception domain represents the attitudinal component of the KAP framework. Within the KAP framework, knowledge, risk perception, and practice were treated as related but analytically distinct dimensions of physician preparedness, acknowledging that observed associations do not imply causal pathways.Fig. 1 Questionnaire framework and domain structure.
+
+Fig. 1
+
+3 Results
+
+3.1 Participant characteristics
+
+A total of 473 physicians participated in the survey, giving a response rate of approximately 6%, of whom 55.8% (N = 264) were women, and over 60% (N = 307) were aged 40-59 years. The majority were general practitioners (56%; N = 265), followed by internists (24.9%; N = 118) and pediatricians (18%; N = 85). A small number self-identified as other specialty (0.6%; N = 3) or as medical personnel (0.4%; N = 2). Most respondents (55.6%; N = 263) had over 20 years of clinical experience, and 97.9 % (N = 463) had previously encountered patients with suspected or confirmed arboviral infections.
+
+Overall, the survey revealed three main patterns. First, physicians demonstrated moderate overall knowledge but important gaps in specific areas, particularly regarding arboviral transmission and endemic regions. Second, risk perception of autochthonous arboviral infections was generally low, with most respondents rating the risk across pathogens as none to low. Third, preventive practices were relatively common, particularly regarding patient counselling on mosquito protection measures, although diagnostic awareness for certain European risk scenarios remained limited.
+
+3.2 Domain knowledge
+
+Overall knowledge levels regarding mosquito-borne arboviral infections were moderate but uneven across specific topics, with notable gaps in the understanding of arbovirus transmission routes and endemic regions. The median normalized knowledge Score was 68.6 (IQR 55.4-79.7) (Table 1). Fig. 1 shows the interpretation of the term Arboviruses among 473 physicians. 79 of 473 respondents (16.7 %) answered all 5 transmission sub-items correctly. We observed a lack of understanding of the term Arboviruses (Fig. 2) and transmission routes of MBAI (Fig. 3). A majority of respondents (75.8%, N = 354) selected the response option “partly” when asked about their familiarity with arboviral transmission routes. In addition, 68.9% (N = 324) expressed a desire for more information on endemic regions for arboviruses. This latter item was descriptive and did not contribute to the knowledge score. 79.1% (N = 371) wanted more information on transmission routes of arboviruses. 85% (N = 396) expressed interest in receiving information on mosquito species capable of transmitting infections in Germany.Table 1 Mean, standard deviation (SD), median and interquartile range (IQR) of domain scores.
+
+Table 1Domain Score	Mean (SD)	Median	IQR	Mean (SD)	Median	IQR	
+Absolute	Normalized	
+Knowledge	8.4 (2.4)	8.8	(6.8–10.1)	66.7 (17)	68.6	(55.4–79.7)	
+Perception	10.6 (4.7)	10	(8-14)	35.5 (15.7)	33.3	(26.7–46.7)	
+Practices	14.1 (5.6)	14.8	(10–18.5)	52.3 (20.6)	54.6	(37–68.5)	
+Total Score	27.3 (8.1)	27.3	(22.2–31.9)	-	-	-	
+
+Fig. 2 Distribution of the interpretation of the term Arboviruses among 473 physicians in Baden-Wuerttemberg.
+
+Fig. 2
+
+Fig. 3 Distribution of responses regarding transmission routed among 473 physicians in Baden-Wuerttemberg, Germany.
+
+Fig. 3
+
+Awareness of the local presence of Aedes albopictus was moderate and inconsistent: 50.3% (N = 238) of respondents reported that the species had been detected in their practice area, while 27.1% (N = 127) were unaware of its presence. Of those who were aware of AA in their area only 32.5% (N = 77) reported receiving information on AA presence in the area, of which 66.2% (N = 51) were informed by press/media reports (Fig. 4). A majority of respondents (68.1%; N = 320) reported not having access to informational materials on mosquito-borne arboviral infections. 93.8% (N = 436) opined that climatic conditions have a role to play in autochthonous arboviral infections in non-endemic countries.Fig. 4 Reported sources of information on Aedes albopictus presence among physicians receiving such information (N = 77).
+
+Fig. 4
+
+Regarding legal notification requirements, most respondents correctly identified laboratory notification (89.3%; 399/447). According to German notification regulations, the arboviral infections are primarily legally notifiable by the diagnosing laboratory. The results above reflect respondents’ understanding of legal notification requirements rather than practice. 59.2% (N = 279) responded that autochthonous MBAI had been detected in Germany. WNV was identified by the majority (32.4%; N = 170), followed by Dengue (28.6%; N = 150).
+
+3.3 Domain risk perception
+
+Risk perception of autochthonous arboviral infections in Germany was generally low across all pathogens. Most physicians rated the likelihood of local transmission as none to low, particularly for WNV and Dengue. The median normalized Risk Perception Domain Score was 33.3 (26.7-46.7). A majority of physicians (83.9%; 397 out of 473) rated the risk of autochthonous arboviral infections across all pathogens (Fig. 5) between no-risk to low risk. Over 73% (N = 341 of 462) physicians reported a no to low risk of autochthonous WNV infections. Over 19% (N = 89 of 462) reported a medium to high risk of autochthonous WNV infections. Over 80% (N = 371 of 462) physicians reported a no to low risk of autochthonous Dengue infections. Over 16% (N = 77 of 462) physicians reported a medium to very high risk perceived risk of autochthonous dengue infections. We observed statistically significant gender differences in risk perception of autochthonous Dengue infections (BH-adjusted χ2, p = 0.002), but no statistically significant differences in risk perception when stratified by years of experience and age group.Fig. 5 Distribution of perceived risk perception among N = 473 physicians in Baden-Wuerttemberg, Germany.
+
+Fig. 5
+
+3.4 Domain practice
+
+Reported practices related to arboviral infections were moderate overall, with high levels of patient counselling on mosquito protection but variable awareness of diagnostic indications. The median normalized Practice Score was 54.6 (IQR 37 - 68.5). The normalized practice score was statistically significantly associated with years of experience (Kruskal-Wallis test, BH-adjusted p < 0.0001). There was a strong and statistically significant association between age group and years of clinical experience (χ2 test with Monte Carlo simulation, p < 0.0001; Spearman's correlation 0.61) hence, we do not report the association between age and practice scores to avoid redundancy. We did not find any statistically significant gender differences in the practices score.
+
+The most frequent clinically diagnosed arboviral infection reported by respondents was Dengue (39%; N = 166 out of 420 respondents). 68.6% (N = 319) respondents reported providing travel advice of which only 30% (N = 95 of 315 respondents) provided travel medicine consultations routinely (at least once a week). We observed significant gender differences (women more frequently) in the frequency of reported travel consultations (χ2 BH-adjusted p = 0.01). The years of experience were borderline significant (χ2 BH-adjusted p = 0.06) for the frequency of reported travel consultations. For scenarios in which WNV-diagnostic testing should be conducted, only the travel-associated indication was widely recognized. Among respondents who answered the item, 89.4% (N = 373) correctly identified “encephalitis after return from an area with current or suspected WNV transmission”. 60.2% (N = 251) selected “summer/late summer with etiologically unclear encephalitis”, and 0% selected “summer/late summer clusters of patients with undifferentiated fever”. In a clinical vignette reflecting contemporary European risk (fever and truncal exanthema after travel to Côte d’Azur, southern France), 42% (N = 200) would initiate arboviral testing, compared with 90% (N = 425) for a pregnant symptomatic returning traveler from Brazil with a fever, headache and joint pain. Physicians who identified Europe as an endemic region for MBAI were about twice as likely to report they would order arboviral testing for a patient returning from the Côte d’Azur with fever and truncal rash (OR = 2.05, 95% CI 1.37-3.10, p < 0.0001). Overall, 31.7% (N = 147) of respondents reported using informational materials or media during patient counselling on arboviral infections. Exploratory subgroup analyses showed no significant differences by gender or years of clinical experience. Overall, 89% (N = 424) of respondents reported providing counselling on vector protection measures to patients, either in travel medicine consultations or other clinical contexts. Respondents covered a median of 4 (IQR 4-5) recommended measures; only 18% (N = 76) covered all six, and 83.5% covered ≥4 measures (N = 246). The most commonly reported vector protection measure reported was protective clothing (98.6%; N = 418/424), followed by topical repellents, applied directly to the skin (91.7%, N = 389/424) and bed nets (90.6%; N = 384/424). The least frequent response was the use of room repellants (35.6%; N = 151/424). By years of experience, the proportion of respondents recommending behavioral measures differed (χ2, BH-adjusted p = 0.04), as did the proportion recommending removal of potential breeding sites (χ2, BH-adjusted p < 0.01). No other items remained significant after BH correction.
+
+3.4.1 Spearman's correlation analysis between domains
+
+Practice and knowledge scores were positively associated (Spearman's ρ = 0.37; permutation test with 10,001 permutations, BH-adjusted p < 0.0001). Practice and perception scores were also positively associated (Spearman's ρ = 0.26; BH-adjusted p < 0.0001).
+
+3.4.2 Multivariable beta regression (logit link) analyses
+
+Beta regression models examined associations between normalized knowledge and risk perception scores and the normalized practice score. Participant characteristics were included as control variables (Table 2). Beta regression models (Table 2) demonstrated that both knowledge and risk perception were positively associated with higher practice scores, with adjusted odds ratios of 1.16 (95% CI 1.11–1.21) and 1.14 (95% CI 1.09–1.20) per 10-point increase, respectively (both BH-adjusted p < 0.0001). Compared with the reference age group (50–59 years), participants aged 40–49 years showed lower practice scores (OR 0.76, 95% CI 0.65–0.91; BH-adjusted p < 0.0001), whereas other age groups did not differ significantly. Pediatricians demonstrated lower practice scores than general practitioners (reference category) (OR 0.72, 95% CI 0.60–0.87; BH-adjusted p < 0.001). No significant association was observed for gender. Model results were robust to inclusion of years of clinical experience (ΔAIC = 0.07). Adjusted generalized variance inflation factors (GVIF <1.3) indicated no evidence of relevant multicollinearity.Table 2 Beta Regression Model Predicting Practices Based on Knowledge, Controlling for Perceptions, Gender, Age Group and Specialty, with ORs, Confidence Intervals (CI) and Adjusted/Unadjusted P values. ORs for Knowledge & Perception are per 10 points. This model included N = 461 respondents.
+
+Table 2Predictor	OR	CI low	CI high	P Value	Adjusted p Value (BH)	
+Normalized Knowledge (per 10 points)	1.16	1.11	1.21	0.00	<0.0001∗	
+Normalized Perception (per 10 points)	1.14	1.09	1.19	0.00	<0.0001∗	
+Gender Reference category Women	
+Men	0.97	0.84	1.12	0.68	0.70	
+Age Group Reference category 50-59 years		
+30-39 years	0.75	0.56	1.01	0.06	0.10	
+40-49 years	0.76	0.65	0.91	<0.001	<0.0001∗	
+60-69 years	0.86	0.59	1.24	0.41	0.53	
+>69 years	1.07	0.74	1.55	0.7	0.70	
+Specialty Reference category GPs	
+Internists	0.88	0.75	1.04	0.14	0.21	
+Pediatricians	0.74	0.61	0.89	<0.0001	<0.0001∗	
+Model Fit (AIC)	−275.26					
+∗p ≤ 0.05 statistically significant.
+
+Sensitivity analyses using raw (unnormalized) scores rescaled to the (0,1) interval yielded substantively unchanged results (see Supplementary Table S1).
+
+4 Discussion
+
+In this cross-sectional survey of general practitioners, internists, and pediatricians in Baden-Wuerttemberg, we identified important gaps in knowledge, risk perception, and clinical practice related to MBAI. To our knowledge, this is the first study in Germany assessing KPPs on MBAI among physicians. Key strengths of this study include its focus on a German state with areas of established Aedes albopictus populations and an increasing number of districts reporting local presence, the comprehensive coverage of knowledge, perceptions, and practices, and the use of multiple analytic cross-checks (global tests, BH correction, and sensitivity analyses for age and experience collinearity). Both knowledge and perception were consistently and positively related to self-reported practices. Although the effect sizes are modest, they are meaningful at the population level: a 10-point (decile) increase in either construct was associated with ∼15% higher odds of the mean practice proportion. After multivariable adjustment, we found no systematic differences by gender, age group, or years of experience, suggesting that within this sample, knowledge and perception may be more proximal determinants of reported (practice) behavior than basic demographics or seniority. The observed knowledge gaps may reflect the relatively low clinical exposure to arboviral infections in Germany and limited integration of these diseases in routine medical education. Furthermore, the findings suggest that healthcare providers in non-endemic regions, may underestimate arboviral risks and may lack the training to respond effectively. The lower expected practice among pediatricians (relative to the GPs) could reflect specialty-specific workflow, perceived patient risk, or differing guideline emphasis, and merits further exploration. In line with the exploratory nature of this KPP research, the beta regression model was used to estimate adjusted associations between domains of preparedness, acknowledging that the observed relationships reflect co-occurrence patterns rather than causal pathways.
+
+The practice domain combined core items applicable to all respondents with conditional travel-medicine-related items and therefore reflects the breadth of self-reported preparedness-related activities rather than strict guideline adherence. Variation in practice scores may partly relate to differences in clinical roles and patient populations, particularly regarding travel medicine exposure. Accordingly, findings related to practice scores should be interpreted as indicators of overall preparedness behavior rather than directly comparable measures of clinical competence. Recommendations regarding the removal of potential mosquito breeding sites should be interpreted in the context that preventive counselling was assessed broadly and was not limited exclusively to travel medicine consultations, but also reflected general patient counselling on mosquito prevention.
+
+The high proportion of respondents reporting prior encounters with suspected or confirmed arboviral infections likely reflects the broad framing of the question, including clinically suspected and travel-associated cases rather than strictly laboratory-confirmed diagnoses. This finding does not necessarily indicate high factual knowledge but may instead reflect exposure to patients presenting with compatible clinical syndromes. The coexistence of frequent reported encounters and identified knowledge gaps suggests that physicians may encounter clinically suspected cases without having comprehensive formal knowledge of arboviral terminology or transmission routes.
+
+Although mosquito preventive counselling was common in the context of travel medicine, diagnostic decision-making was not well aligned with current epidemiology. Travel-associated triggers for arboviral testing, including WNV, were readily recognized, whereas local or seasonal indications (e.g., summer encephalitis or clusters of undifferentiated fever) were under-recognized. In a clinical vignette reflecting contemporary European risk (fever with truncal exanthema after travel to southern France), only 42% of respondents would order arboviral testing. Physicians who identified Europe as an arboviral endemic region were about twice as likely as those who did not to request testing in this scenario (OR = 2.05, 95% CI 1.37–3.10; χ2, BH-adjusted p < 0.001), suggesting a travel-anchored case definition in which risk cues drive clinical action. While Europe is not broadly endemic for MBAI, well-documented foci of autochthonous transmission exist, particularly in southern France and Italy, and WNV is low-grade endemic in eastern Germany with Culex pipiens as its main vector, which is widely distributed across Germany. While infections such as dengue, chikungunya, and Zika virus are currently mainly travel-associated. WNV represents a clinically relevant example of locally acquired arboviral infection. Nevertheless, more than 70% of respondents in our survey perceived the risk of autochthonous WNV infection in Germany as low or non-existent. These findings highlight a travel-centric mental model and underline the need for greater familiarity with local vector presence and context-specific testing triggers, especially against the backdrop of climate change facilitating the establishment of competent vectors in Germany. The observed travel-centric mental model may lead clinicians to underrecognize locally acquired infections, particularly when testing decisions are strongly linked to travel history. Strengthening familiarity with local epidemiology, vector distribution, and context-specific testing triggers may help improve recognition of both endemic and emerging arboviral risks.
+
+The strong association between knowledge, risk perception, and practice scores highlights the importance of integrating arbovirus-related content into medical education and continuing professional development. Targeted training, particularly for early-to mid-career practitioners, may improve early recognition, reporting, and patient counselling. In addition, public health authorities could support clinical decision-making by providing context-specific risk communication based on local surveillance data.
+
+Exploratory analyses indicated gender differences in the frequency of reported travel medicine consultations (χ2 BH-adjusted p = 0.01); However, these findings should be interpreted descriptively rather than as indicators of differences in clinical quality or guideline adherence. Such exploratory observations may help inform future research and the development of targeted educational approaches. The higher practice scores observed among more experienced clinicians may reflect cumulative exposure to travel-associated cases, greater familiarity with outbreak communication, or broader public-health engagement. However, these associations should be interpreted cautiously, as the cross-sectional design does not allow conclusions about causality. Differences may also reflect generational variation in medical education or continuing professional training. From a practical perspective, these findings suggest that preparedness interventions may benefit from tailoring across career stages, for example by incorporating emerging vector-borne disease content into early-career training while offering focused update formats for experienced clinicians.
+
+Gender differences in dengue risk perception, despite similar practice levels, further suggest that perceived risk and implemented clinical practice are not always aligned and that risk communication may be interpreted differently across clinician subgroups.
+
+4.1 Policy and system considerations
+
+Given the documented establishment of Aedes albopictus in parts of Baden-Wuerttemberg and the proximity of autochthonous transmission in neighboring regions, closing the gap between travel-focused and local/seasonal diagnostic prompts should be a priority. A shift is needed from a purely travel-related diagnostic focus toward a combined approach that integrates both travel history and seasonal/local epidemiology. Such a dual trigger system will be critical to ensure that early detection and notification keep pace with the region's changing vector ecology.
+
+A large proportion of arboviral infections are asymptomatic, subclinical or present with non-specific symptoms. This indicates that many cases are undiagnosed. In the MERMAIDS-ARBO study, a prospective observational study in 21 hospitals in seven countries across southeast Europe, an underdiagnosis of arbovirus infections was identified. Arboviral infections contributed more to hospital admissions that were diagnosed by local clinicians. 110 (13%) of 847 patients with reference laboratory results were diagnosed with a confirmed or probable acute infection with endemic arboviruses included in the study, but only 49 (45%) of the 110 patients were diagnosed by a local clinician [[9], [10], [11], [12], [13], [14], [15]]. These findings underscore a need to improve awareness of ongoing risk and clinical presentation of endemic arboviruses. Comparable gaps in clinician knowledge and diagnostic alignment regarding arboviral infections have also been reported outside Europe. Surveys among physicians in endemic regions, including Africa and Asia have similarly identified uncertainty in recognizing local transmission risk, limited familiarity with transmission routes, and variability in diagnostic testing triggers. Studies among primary care physicians and hospital clinicians in the United States and Brazil, for example, have demonstrated that awareness of vector presence and clinical suspicion for locally acquired arboviral infections often lag behind epidemiological developments. These findings suggest that the challenges observed in our study are not unique to Germany or Europe, but reflect a broader global pattern in clinician preparedness for emerging and re-emerging mosquito-borne diseases [[16], [17], [18], [19], [20]].
+
+Pragmatic clinician-facing measures could include concise, practice-oriented decision aids that highlight key diagnostic triggers, such as summer or late-summer neurological syndromes and local clusters of undifferentiated fever suggestive of WNV infection. Integration of brief arbovirus-focused micro-trainings into continuing medical education (CME) channels and GP networks, accompanied by audit-and-feedback mechanisms, may further support preparedness. In addition, coordination with local public health authorities to provide timely seasonal updates through clinician-relevant communication channels could help align clinical awareness with evolving epidemiological situations.
+
+Translating awareness into routine practice will likely require a multipronged approach. Possible strategies include seasonally timed micro-reminders delivered via clinician apps, professional mailing lists, or electronic health record (EHR) systems; concise clinic-ready educational materials for both clinicians and patients; and simple EHR-based prompts to support diagnostic decision-making. Regular surveillance feedback, such as vector activity summaries or seasonal alerts, may further strengthen situational awareness and facilitate early recognition of locally acquired infections.
+
+4.2 Limitations
+
+The main limitation of this study is the low response rate, which raises the possibility of non-response and selection bias. Non-response may reflect both practical constraints (e.g. lack of time) and a perceived lack of relevance of MBAI for daily practice, which in turn may be linked to limited awareness or interest in the topic. Physicians with greater interest or awareness of arboviral infections and higher digital skills may have been more likely to participate, potentially leading to selection bias, and overestimation of knowledge and reported practices in our sample. The findings may represent an upper-bound estimate of preparedness and the true knowledge and practice levels in the broader physician population may be lower. Similar patterns have been observed in other physician surveys with low participation, where more motivated or topic-aware respondents disproportionately contributed [21].
+
+All measures are self-reported and thus subject to recall and social-desirability bias. Socially desirable responding may lead to overestimation of knowledge levels and reported practices, while recall bias may affect the reporting of infrequent or past clinical encounters. A few associations (e.g., gender differences in perception, years of experience and travel consultations) yielded borderline p-values slightly above the conventional 0.05 threshold. These borderline findings should be interpreted cautiously, as they may indicate true effects, which could not be confirmed due to insufficient statistical power.
+
+The cross-sectional design precludes causal inferencing, and generalizability beyond Baden-Wuerttemberg may be limited, although, findings may be similar in other German states with comparable climatic conditions and awareness levels. Representativeness of the study sample must be interpreted with caution. Although key participant characteristics such as age group, gender, medical specialty, and years of clinical experience were collected and are reported, the voluntary online recruitment and low response rate limit the ability to assume full representativeness of the physician population in Baden-Wuerttemberg. In terms of the age distribution, the average age of GPs in Baden-Wuerttemberg is approximately 55 years [21] which broadly corresponds with the predominant age group (40-59 years) in our cohort. Detailed structural characteristics of practice settings (e.g., urban–rural location, district-level practice distribution, or practice type) were not collected, primarily to reduce respondent burden and to minimize risks of indirect identification (given the survey was anonymous) within a relatively small professional population. Consequently, the findings should be interpreted as reflecting the participating physicians rather than the entire physician population. Future studies could strengthen external validity through more targeted sampling approaches and inclusion of additional practice-context variables where feasible.
+
+Other limitations include potential residual confounding, and limited power for some subgroups after exclusions. A further limitation concerns the wording of certain knowledge items., the inclusion of “flies” as a potential vector category may have introduced ambiguity, as respondents could have interpreted this either as competent vectors such as sandflies or biting midges, or as non-biting flies. This may have affected the interpretability of responses for this item and illustrates a limitation in questionnaire design. Future surveys should consider more explicit vector terminology to minimize potential misinterpretation. The questionnaire was not formally psychometrically validated; therefore, domain scores should be interpreted as pragmatic analytical groupings rather than validated constructs.
+
+We did not explore potential regional differences within Baden-Wuerttemberg, such as urban-rural variation or district-level differences in vector distribution and public health messaging, which may also shape physician awareness and practices and could therefore represent an unmeasured confounding factor. This decision was made to limit questionnaire complexity, reduce respondent burden, and avoid potential indirect identifiability in a relatively small professional population. Including regional or practice-location variables might have enabled more context-specific analyses and potentially more targeted recommendations, particularly in areas with differing vector presence or public health messaging. Consequently, unmeasured regional heterogeneity may have influenced some observed associations. Future studies should consider integrating geographic or practice-location variables to better understand spatial variation in preparedness and clinical awareness. Unmeasured regional heterogeneity may have influenced the observed associations.
+
+The low response rate in this study highlights the challenges of recruiting busy physicians for field epidemiological survey studies on public health relevant topics. A recent Cochrane Review suggests using postal questionnaires in preference to, or offered in addition to, electronic modes [23]. Other studies suggest smaller monetary incentives may be a more appropriate way to increase response rates [[22], [24]].
+
+4.3 Conclusions
+
+Despite the low response rate, which is the main limitation of this study, it identifies existing gaps in KPP and provides an important and relevant reference point for improving medical preparedness among physicians in Baden-Wuerttemberg and possibly all of Germany. The findings are descriptive and associative in nature and should be interpreted as hypothesis-generating rather than causal. Future studies with higher participation rates and broader geographic coverage will be important to validate the findings and to strengthen the evidence base. The findings highlight the importance of integrating arbovirus-related content into continuing medical education and public health training programs. The findings emphasize that arboviral infections should not be viewed solely as imported diseases, as WNV already represents an example of endemic arboviral transmission in Germany. Information and communication strategies may contribute to improving physician awareness of arboviral risks and could thereby indirectly support improvements in clinical recognition and practice. However, behavioural change in clinical practice typically requires multifaceted interventions beyond awareness-raising alone.
+
+Contributions to literature
+
+• Provides the first evidence on physician knowledge, perceptions, and practices regarding mosquito-borne arboviral infections in Germany.
+
+• Identifies substantial gaps in physician awareness and preparedness for locally transmitted arboviral infections in non-endemic European settings.
+
+• Underscores the importance of moving beyond a travel-focused diagnostic mindset and enhancing awareness of autochthonous arboviral infections in Europe.
+
+• Offers a data-driven basis for integrating arboviral topics into continuing medical education.
+
+Ethics statement and consent to participate
+
+This study did not involve medical research on human subjects as defined by the Declaration of Helsinki. It was conducted as an anonymous, voluntary online survey without the collection of personal or health-related data. The Ethics Committee of the State Medical Association of Baden-Wuerttemberg (Landesaerztekammer Baden-Wuerttemberg), which is the competent authority in the federal state where the study was developed and implemented, deemed this study exempt from ethics approval. This exemption is in accordance with § 15 (1) sentence 1 of the Professional Code for Physicians of the State Medical Association of Baden-Wuerttemberg, Germany (Berufsordnung der Landesärztekammer Baden-Württemberg), (see: https://files.aerztekammer-bw.de/c73ea88bf1eb2331/fbaf22825106/Berufsordnung.pdf).
+
+Consent for publication
+
+Not applicable.
+
+Availability of data and materials
+
+The data that support the findings of this study are available from the corresponding author upon reasonable request.
+
+Author contributions
+
+Concept, design, methodology: AD, CWW, SB; data management: AD; statistical analysis: AD; writing - original draft preparation, AD. All the authors have read and agreed to the published version of the manuscript.
+
+Funding
+
+None.
+
+Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+List of abbreviations
+
+AA Aedes albopictus
+
+BH Benjaminin-Hochberg
+
+CME Continued Medical Education
+
+GP General Practitioner
+
+EHR Electronic Health Records
+
+KPPs Knowledge Perceptions and Practices
+
+KVBW Statutory Health Insurance Physicians of Baden-Wuerttemberg
+
+MBAI Mosquito-borne Arboviral Infections
+
+WNV West-Nile-Virus
+
+Appendix A Supplementary data
+
+The following is the Supplementary data to this article:Multimedia component 1
+
+Multimedia component 1
+
+Acknowledgements
+
+We would like to extend our sincere gratitude to all participating physicians for their time and valuable contributions to this study.
+
+Appendix A Supplementary data to this article can be found online at https://doi.org/10.1016/j.puhip.2026.100776.
+
+
+References
+
+1 Sigfrid L. Reusken C. Eckerle I. Nussenblatt V. Lipworth S. Messina J. Kraemer M. Ergonul O. Papa A. Koopmans M. Horby P. Preparing clinicians for (re-)emerging arbovirus infectious diseases in Europe Clin. Microbiol. Infect. 24 3 2018 Mar 229 239 28648861 10.1016/j.cmi.2017.05.029
+2 https://www.ecdc.europa.eu/en/publications-data/mosquito-borne-diseases-emerging-threat
+3 https://www.ecdc.europa.eu/en/chikungunya-virus-disease/surveillance-and-updates/seasonal-surveillance
+4 Thomas S.M. Tjaden N.B. Frank C. Jaeschke A. Zipfel L. Wagner-Wiening C. Faber M. Beierkuhnlein C. Stark K. Areas with high hazard potential for autochthonous transmission of aedes albopictus-Associated arboviruses in Germany Int. J. Environ. Res. Publ. Health 15 6 2018 1270 10.3390/ijerph15061270 PMC6025521 29914102
+5 Brem J. Elankeswaran B. Erne D. Hedrich N. Lovey T. Marzetta V. Salvado L.T. Züger C. Schlagenhauf P. Dengue "homegrown" in Europe (2022 to 2023) New Microb. New Infect. 23 56 2023 Nov 101205 10.1016/j.nmni.2023.101205 PMC10715994 38094104
+6 Hedrich N. Bekker-Nielsen Dunbar M. Grobusch M.P. Schlagenhauf P. Aedes-borne arboviral human infections in Europe from 2000 to 2023: a systematic review and meta-analysis Trav. Med. Infect. Dis. 64 2025 102799 10.1016/j.tmaid.2025.102799 39800038
+7 Simonin Y. Europe faces multiple arboviral threats in 2025 Viruses 17 12 2025 Dec 18 1642 41472311 10.3390/v17121642 PMC12737385
+8 https://www.pasteur.fr/en/research-journal/news/summer-2025-early-emergence-chikungunya-mainland-france
+9 Sigfrid L. Chan X.H.S. Kasbergen L.M.R. Hookham L. Wei J. Prevalence, clinical management, and outcomes of adults hospitalised with endemic arbovirus illness in southeast Europe (MERMAIDS-ARBO): a prospective observational study Lancet Infect. Dis. 25 6 2025 June 690 700 39987929 10.1016/S1473-3099(24)00655-8
+10 World Health Organization (WHO) Advocacy, Communication and Social Mobilization for TB Control: a Guide to Developing Knowledge, Attitude and Practice Surveys 2008 WHO
+11 Kaliyaperumal K.I.E.C. Guideline for conducting a knowledge, attitude and practice (KAP) study AECS Illuminat. 4 1 2004 7 9
+12 Amiri P. Asghari G. Sadrosadat H. Karimi M. Amouzegar A. Mirmiran P. Azizi F. Psychometric properties of a developed questionnaire to assess knowledge, attitude and practice regarding vitamin D (D-KAP-38) Nutrients 9 5 2017 May 8 471 28481302 10.3390/nu9050471 PMC5452201
+13 Ferrari S.L.P. Cribari-Neto F. Beta regression for modelling rates and proportions J. Appl. Stat. 31 7 2004 799 815
+14 von Elm E. Altman D.G. Egger M. Pocock S.J. Gøtzsche P.C. Vandenbroucke J.P. STROBE Initiative The strengthening the reporting of observational studies in epidemiology (STROBE) statement: guidelines for reporting observational studies Ann. Intern. Med. 147 8 2007 Oct 573 577 Erratum in: Ann Intern Med. 2008 Jan 15;148(2):168 17938396 10.7326/0003-4819-147-8-200710160-00010
+15 Burt F.J. Hewson R. Arboviral infections in southeast Europe: ongoing challenges for diagnosis, outbreak investigation, and preparedness Lancet Infect. Dis. 25 6 2025 June 605 607 39987928 10.1016/S1473-3099(25)00076-3
+16 Ipadeola A.F. Akinnola O.O. Kolawole O.M. Isere E.E. Attah T.A. Omenyi L.O. Assessment of knowledge and practices towards the diagnosis of arboviral infections amongst healthcare workers in Lagos state and the federal capital territory: a cross-sectional study Pan. Afr. Med. J. 49 2024 124 40190441 10.11604/pamj.2024.49.124.44504 PMC11971820
+17 Bangoura S.T. Hounmenou C.G. Sidibé S. Camara S.C. Mbaye A. Exploratory analysis of the knowledge, attitudes and perceptions of healthcare workers about arboviruses in the context of surveillance in the Republic of Guinea PLoS Neglected Trop. Dis. 17 12 2025 e0011814 10.1371/journal.pntd.0011814 PMC10721174 38048341
+18 Koonisetty K.S. Aghamohammadi N. Urmi T. Yavasoglu S.I. Rahman M.S. Assessment of knowledge, attitudes, and practices regarding dengue among physicians: a web-based cross-sectional survey Behav. Sci. 11 2021 105 34436095 10.3390/bs11080105 PMC8389296
+19 Lyons S.L. Martin S.W. Gould C.V. Staples J.E. Healthcare provider knowledge of west nile virus diagnostic testing-United States, 2022 Open Forum Infect. Dis. 27 12 2025 ofaf379 (7) 10.1093/ofid/ofaf379 PMC12247500 40657167
+20 Figueiró A.C. Hartz Z.M. Brito C.A. Samico I. Siqueira Filha N.T. Cazarin G. [Death from dengue fever as a sentinel event for evaluation of quality of healthcare: a case study in two municipalities in Northeast Brazil, 2008] Cad. Saúde Pública 27 2011 2373 2385 22218580 10.1590/s0102-311x2011001200009
+21 https://www.kvbawue.de/ueber-uns/daten-fakten/altersstruktur-der-aerzte-therapeuten
+22 Cunningham C.T. Quan H. Hemmelgarn B. Noseworthy T. Beck C.A. Dixon E. Samuel S. Ghali W.A. Sykes L.L. Jetté N. Exploring physician specialist response rates to web-based surveys BMC Med. Res. Methodol. 15 2015 Apr 9 32 25888346 10.1186/s12874-015-0016-z PMC4404667
+23 Edwards P. Perkins C. Response is increased using postal rather than electronic questionnaires - new results from an updated Cochrane systematic review BMC Med. Res. Methodol. 24 1 2024 Sep 16 209 39285263 10.1186/s12874-024-02332-0 PMC11403848
+24 Brtnikova M. Crane L.A. Allison M.A. Hurley L.P. Beaty B.L. A method for achieving high response rates in national surveys of U.S. primary care physicians PLoS One 13 8 2018 e0202755 10.1371/journal.pone.0202755 PMC6107210 30138406

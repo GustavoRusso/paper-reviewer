@@ -1,0 +1,490 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Nat Commun
+Journal ID: Nat Commun
+NLM Journal ID: 101528555
+
+Nature Communications
+
+EISSN: 2041-1723
+Publisher: Nature Publishing Group
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13263328
+PMID: 42285951
+DOI: 10.1038/s41467-026-73251-5
+Article ID: 73251
+Article version: 1
+Subjects: Article
+
+Fine-scale heterogeneity and local amplification of West Nile virus in urban environments in Berlin
+
+http://orcid.org/0000-0003-2441-629X Patzina-Mehling Corinna 1 2
+Kopp Anne 1 2
+Lee Yea-Seul 1 2
+http://orcid.org/0009-0003-4512-7048 Birkl Maximillian X. L. 1 2
+Ebers Sophia 1 2
+Voigt Katrin 1 2
+http://orcid.org/0009-0001-0707-4200 Graff Selina L. 1 2
+http://orcid.org/0000-0002-0741-7218 Beisel Uli 3
+Landgraf Conny 4
+http://orcid.org/0009-0006-5482-4971 Ganz Florian 4
+http://orcid.org/0000-0001-6763-9923 Planillo Aimara 4 5
+http://orcid.org/0000-0002-9269-4446 Kramer-Schadt Stephanie 4 6
+http://orcid.org/0000-0002-3799-6011 Junglen Sandra sandra.junglen@charite.de
+1 2
+1 https://ror.org/01hcx6992 grid.7468.d 0000 0001 2248 7639 Institute of Virology, Charité – Universitätsmedizin Berlin, corporate member of Freie Universität Berlin and Humboldt-Universität zu Berlin, Berlin, Germany
+2 https://ror.org/028s4q594 grid.452463.2 German Centre for Infection Research (DZIF), Partner Site Charité, Berlin, Germany
+3 https://ror.org/046ak2485 grid.14095.39 0000 0001 2185 5786 Institute of Geographical Sciences, Freie Universität Berlin, Berlin, Germany
+4 https://ror.org/05nywn832 grid.418779.4 0000 0001 0708 0355 Department of Ecological Dynamics, Leibniz Institute for Zoo and Wildlife Research, Berlin, Germany
+5 https://ror.org/006gw6z14 grid.418875.7 0000 0001 1091 6248 Department of Conservation Biology and Global Change, Doñana Biological Station (EBD-CSIC), Seville, Spain
+6 https://ror.org/03v4gjf40 grid.6734.6 0000 0001 2292 8254 Institute of Ecology, Technische Universität Berlin, Berlin, Germany
+Electronic publication date: 2026 Jun 12
+Publication date: 2026
+Volume: 17
+Electronic Location ID: 4597
+Received 2025 Nov 13; Accepted 2026 May 6
+Copyright: © The Author(s) 2026
+Copyright year: 2026
+License: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West nile virus, Urban ecology, Epidemiology
+
+Funding: https://doi.org/10.13039/100009139 Deutsches Zentrum für Infektionsforschung (German Center for Infection Research) 8040801947 Junglen Sandra
+
+Funding: The Berlin University Alliance BUA - grant no. 113_MC_GlobalHealth
+issue-copyright-statement: © Springer Nature Limited 2026
+
+==============================
+Climate change can intensify mosquito-borne disease risks through rising temperatures and more frequent extreme weather events. To mitigate effects of climate change, cities are adopting nature-based solutions, such as urban greening and rainwater management, yet their implications for vector-borne diseases and host community composition remain poorly understood. West Nile virus (WNV), an emerging mosquito-borne human pathogen in Europe, is primarily transmitted between birds and mosquitoes. Using mosquito sampling at five sites within a one-square-kilometre area in Berlin, Germany, we examined how urban land cover, including climate-resilient infrastructure, influences local WNV amplification over two mosquito seasons in 2023 and 2024. We found seasonal WNV infection rates of up to 4.8% in mosquitoes and identified fine-scale heterogeneity in infection risk. Residential areas and cemeteries exhibited the highest minimum infection rates per month (up to 15 and 21, respectively), whereas natural conversation and sponge city sites showed significantly lower rates (up to 4 and 13, respectively). These patterns were not explained by mosquito abundance or species composition but by habitat characteristics and avian host community structure. Our findings reveal that urban land cover shapes WNV infection risk and suggest that incorporating biodiversity restoration into nature-based solutions may serve as strategy for sustainable climate-resilient urban planning.
+
+Mosquito-borne infections such as West Nile Virus are emerging in Europe. Here, the authors investigate how West Nile Virus infection rates in mosquitoes vary in different urban environments in Berlin.
+
+Introduction
+
+Cities worldwide face growing challenges due to high population density, low biodiversity and increasing vulnerability to climate change, creating an urgent need for sustainable adaption strategies1–3. In response, many urban areas are adopting nature-based solutions, such as urban greening and rainwater management, in line with the United Nations Environment Programme1. These approaches enhance climate resilience and biodiversity while improving human well-being. Europe has launched major policy frameworks, including the Green Deal2 and the Biodiversity Strategy 20303, to address environmental and climate challenges. While such initiatives offer multiple benefits, their implications for vector-borne diseases remain poorly understood. Expanding green and blue spaces can unintentionally create suitable habitats for mosquitoes and vertebrate hosts, potentially increasing spillover infection risk to humans. Yet, empirical evidence linking nature-based solutions with vector-borne disease risks is scarce, underscoring the need for systematic evaluation4,5.
+
+Mosquito-borne viruses such as dengue, chikungunya and West Nile virus (WNV) are increasingly reported in urban and peri-urban environments, representing a growing public health burden under changing climatic conditions6–8. While knowledge of the fine-scale spatial distribution of Aedes-borne infections in urban areas is increasing, and areas with persistent geographical transmission hotspots have been identified9–13, understanding of Culex-borne infections is lagging behind. Among these, WNV is of particular relevance in Europe due to its ongoing emergence and projected expansion under climate change7,14–17. Mosquitoes acquire WNV from infected birds and transmit it to humans, who may develop disease but do not contribute to viral transmission. Symptoms of disease include West Nile fever (WNF), or, in rare cases, a neuroinvasive disease (WNND) with a case-fatality rate of approximately 10%18,19.
+
+The ecology of WNV is complex and shaped by environmental and climatic factors. However, key aspects of its amplification, particularly in urbanised habitats and in the context of climate adaptation strategies, remain insufficiently understood. The potential effects of climate-resilient infrastructure and nature-based solutions on mosquitoes and bird community composition, and consequently on local WNV amplification, are largely unexplored.
+
+WNV transmission depends on the abundance and species composition of competent vectors and avian hosts. In Europe, the main vectors are Culex (Cx.) pipiens complex mosquitoes, which thrive in urban environments, feed on birds and humans and breed in nearly every type of water source20. While peridomestic birds, such as the American robin (Turdus migratorius), the house finch (Haemorhous mexicanus) and the house sparrow (Passer domesticus), have been identified as the key amplification hosts in North America21–23, data on the amplification competence of European bird species remain limited24–26. Diverse bird communities containing non-competent hosts can reduce transmission through a “dilution effect”, whereby vectors feed less frequently on amplifying species27. However, evidence for this effect for WNV is mixed28–30. Conversely, high mosquito and avian host densities are often positively correlated with mosquito infection rates and clusters of human cases31, with mosquito infection rates serving as strong predictors of human cases32,33.
+
+Abiotic factors, including temperature, precipitation and land-cover, also play key roles in shaping mosquito populations. Higher temperatures accelerate mosquito development, biting rates and WNV replication in vectors34–36. Abnormally high temperatures have been associated with increased WNV incidence in both North America and Europe37–40. Precipitation provides breeding habitats for mosquitoes and correlates with higher vector abundance and human WNV cases41,42. Extreme weather events can have opposing effects, as heavy rainfall may wash out breeding sites43,44, whereas drought can increase contact between birds and mosquitoes at remaining natural water bodies as well as at anthropogenic water sources, such as irrigation systems and water storage sites45–47. Land cover determines habitat suitability and food availability, influencing both mosquito and bird community composition48–51. WNV abundance tends to be highest in urban and agricultural landscapes15,45,52,53, yet the fine-scale ecology of WNV in European urban settings remains poorly resolved, as most studies have contrasted broader land cover categories, e.g. urban versus rural54.
+
+In Germany, WNV has become endemic in the Berlin metropolitan area, with recurring detections in mosquitoes, birds and humans55–58. Berlin provides a valuable case study, as it is actively implementing climate adaption measures, such as sponge city projects, an urban planning approach that enhances rainwater retention and infiltration through decentralised rainwater management, including the installation of permeable surfaces and natural drainage systems (Berliner Regenwasseragentur, https://regenwasseragentur.berlin/), the Green Roof programme (Berliner GründachPLUS Programm, 2026-01), and the Berlin Tree Planting Law, which aims to plant over one million trees by 2040 (Berliner Klimaanpassungsgesetz, 2025-11-07).
+
+In this study, we investigate at a fine spatial scale how urban land cover and nature-based solutions affect mosquitoes and bird species assemblages and local WNV amplification within an area of Berlin where WNV has recently established endemicity55. We further link these outcomes to microhabitat characteristics to identify urban features that may enhance or mitigate WNV infection risk.
+
+Results
+
+Urban microhabitats show distinct patterns of mosquito abundance and WNV infection
+
+A total of 13,627 and 10,463 mosquitoes were collected across five urban microhabitats in 2023 and 2024, respectively, using a standardised trapping system (Fig. 1). In both years, mosquito abundance peaked in July and was lowest in September (Fig. 2a), and a similar mosquito abundance pattern for the five microhabitats was found. The highest abundance was observed at a nature conservation area (N), followed by a park-like cemetery (C) and a residential area (RA), while the lowest was recorded at a residential backyard (RB) (Fig. 2b, c, Table 1). The sponge city site (S) did not exhibit elevated mosquito abundance in both years and had lower counts than RA, C and N, despite having permanent open water similar to RA and C.Fig. 1 Sampling sites of this study.
+
+a Map of Berlin, Germany, with the sampling area in the district of Tempelhof-Schöneberg shown in a red box (created with QGIS 3.4.12). b Aerial picture of sampling locations (from 2023, adapted from Berlin geoportal; https://gdi.berlin.de/viewer/main/). C cemetery, N nature conservation site, RA residential area, RB residential block, S sponge city site. c Pictures taken at the sampling sites.
+
+Fig. 2 Mosquito abundance and WNV minimum infection rates (MIRs).
+
+a Number of collected mosquitoes were normalised to trap performance per catch night and are shown according to sampling month and year (filled bars, 2023; striped bars, 2024). b, c Normalised number of mosquitoes per site and month in 2023 (b) and 2024 (c) (two-sided unpaired Welch’s t-test; * p < 0.05; ** p < 0.01; *** p < 0.001; in detail: RB vs. S June 2023 p = 0.0326, RB vs. RA July 2023 p = 0.0075, RB vs. C July 2023 p = 0.0141, RB vs. S July 2023 p = 0.0195, RB vs. N July 2023 p = 0.0410, RB vs. RA August 2023 p = 0.0034, RB vs. C August 2023 p < 0.0001, RB vs. S August 2023 p = 0.0020, RB vs. N August 2023 p = 0.0073, RB vs. C September 2023 p = 0.0367, RB vs. S September 2023 p = 0.0159, RA vs. C August 2023 p = 0.0335, RA vs. N August 2023 p = 0.0167, S vs. N August 2023 p = 0.0403, RB vs. C July 2024 p = 0.0464, RB vs. RA August 2024 p = 0.0045, RB vs. S August 2024 p = 0.0453, RB vs. N August 2024 p = 0.0368, RB vs. C September 2024 p = 0.0295, RA vs. C September 2024 p = 0.0290). d MIRs were calculated as WNV-positive mosquito pools per total numbers of mosquitoes per month per 1000 individuals and shown according to sampling month and year (filled bars, 2023; striped bars, 2024). e, f MIRs per site per month in 2023 (e) and 2024 (f). To analyse statistical significance, a two-way Chi-Squared test was performed (** p < 0.01; *** p < 0.001; in detail: July 2023 vs. 2024 p = 0.0248, August 2023 vs. 2024 p = 0.0005, RA vs. S July 2023 p = 0.0025, RA vs. N July 2023 p = 0.0097, RA vs. N August 2023 p = 0.0044, C vs. S July 2023 p = 0.0174, C vs. N August 2023 p = 0.0001, S vs. N August 2023 p = 0.0089, RA vs. N July 2024 p = 0.0001, C vs. N July 2024 p = 0.0034). Source data are provided in the Source Data file. Months are colour-coded: June, yellow; July, orange; August, red; September, brown. Icons were adapted from Microsoft PowerPoint.
+
+Table 1 Total number of mosquitoes per species per site per month
+
+		June	July	August	September	
+		RB	RA	C	S	N	RB	RA	C	S	N	RB	RA	C	S	N	RB	RA	C	S	N	
+Culex pipiens s.s.	2023	78	460	1008	268	446	296	1387	1466	890	2063	54	279	560	393	654	13	94	58	171	215	
+2024	98	756	372	171	356	300	1178	717	549	1790	179	374	445	541	652	69	76	163	117	96	
+Culex mimeticus	2023	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+2024	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+Culex modestus	2023	0	1	0	2	0	0	4	6	6	0	0	4	0	0	0	0	1	1	0	0	
+2024	0	1	1	3	0	3	26	24	4	7	1	1	33	13	7	0	1	0	0	0	
+Culex sp.	2023	11	27	257	39	25	147	83	301	102	60	13	145	46	188	382	4	9	14	53	42	
+2024	0	0	0	24	0	28	60	52	37	43	2	38	15	31	4	0	8	11	8	5	
+Culiseta annulata	2023	0	1	0	0	1	2	6	2	3	2	0	3	0	2	0	0	0	1	0	1	
+2024	0	0	1	0	0	0	5	1	3	1	0	0	0	0	3	0	3	2	0	1	
+Culiseta morsitans	2023	0	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	0	0	
+2024	0	0	0	0	1	0	0	0	0	0	0	0	1	0	0	0	1	1	0	0	
+Culiseta sp.	2023	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+2024	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+Coquillettidia richardii	2023	1	20	3	1	12	0	19	2	1	11	0	4	2	0	1	0	0	0	0	0	
+2024	0	16	5	0	7	0	9	1	0	6	0	1	0	0	6	0	0	0	0	0	
+Aedes vexans	2023	0	1	0	0	1	5	16	16	26	50	6	8	4	10	10	2	0	0	3	7	
+2024	32	21	7	21	19	1	1	3	3	6	41	15	21	13	60	0	1	0	0	1	
+Aedes cataphylla	2023	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+2024	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+Aedes cinereus/geminus	2023	0	1	1	0	0	7	2	9	4	11	7	4	15	7	21	0	0	1	0	0	
+2024	0	0	0	0	1	1	0	2	0	6	2	1	5	0	3	0	0	0	0	0	
+Aedes rossicus	2023	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	
+2024	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	
+Aedes caspius	2023	0	0	0	0	0	0	1	0	0	0	3	1	0	0	2	0	0	0	0	0	
+2024	1	1	0	5	0	1	0	0	0	0	1	3	0	2	1	0	0	0	0	0	
+Ochlerotatus geniculatus	2023	1	2	3	0	8	0	4	11	1	21	1	1	13	1	9	0	1	4	0	6	
+2024	0	1	4	0	3	1	1	9	0	9	0	1	2	0	8	0	0	3	0	0	
+Aedes annulipes/cantans	2023	5	3	4	2	9	0	0	2	1	3	0	0	1	0	0	0	0	0	0	0	
+2024	1	1	7	2	8	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	
+Ochlerotatus sticticus	2023	0	0	0	0	0	0	0	1	0	0	1	1	0	0	1	0	0	0	0	0	
+2024	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	
+Aedes/Ochlerotatus sp.	2023	0	0	0	0	3	7	0	4	0	0	0	3	0	3	6	0	0	0	0	0	
+2024	11	3	9	11	11	1	0	1	0	1	0	0	3	3	3	0	0	1	0	0	
+Anopheles plumbeus	2023	1	0	9	0	11	0	0	10	1	9	1	5	32	0	24	0	2	51	0	23	
+2024	0	1	20	1	26	2	6	79	3	37	0	1	109	1	79	0	1	68	4	13	
+Anopheles claviger	2023	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+2024	0	0	0	0	0	0	1	0	0	0	0	0	0	1	2	0	0	1	0	0	
+Anopheles sp.	2023	0	0	0	0	0	0	0	4	0	1	0	0	0	0	2	0	0	0	0	0	
+2024	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	3	1	0	
+unidentified	2023	0	0	0	0	0	0	0	0	0	0	3	20	0	260	49	0	0	2	0	0	
+2024	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	
+# total	2023	97	516	1285	312	516	464	1523	1835	1036	2231	89	478	674	630	1161	19	107	133	227	294	
+2024	144	801	428	239	436	338	1287	892	599	1908	226	437	635	606	828	69	91	253	130	116	
+Species total	2023	5	8	6	4	7	4	9	11	10	8	7	10	8	5	8	2	4	7	2	5	
+2024	5	8	8	7	9	7	8	8	5	9	5	10	8	7	10	1	6	6	2	4	
+The number of individual mosquitoes per species for each site and month in 2023 and 2024 is shown. s.s. subspecies, sp. species.
+
+In 2023, WNV infection in mosquitoes was high, with 4.8 % of mosquito pools testing positive (78/1,625). For all sites except N, minimum infection rates (MIRs) peaked in August, with the highest MIRs observed at C (20.77) and RA (14.60) (Table 2, Fig. 2d, e), reaching levels comparable to those reported from outbreak areas in southern Europe59–61. In contrast, infection rates at N remained low, particularly in August (2.58). In July, MIRs were lowest at S (0.97) and N (4.03) and significantly higher at RA (11.16) and C (8.17). In September, WNV was detected only at RA and C, with comparatively high MIRs, whereas RB showed the lowest infection risk, with only a single WNV detection in July.Table 2 WNV-positive mosquito pools identified per site and month in the respective sampling year
+
+		June	July	August	September	Total	
+Site	Sampling year	#	% pos.	MIR	#	% pos.	MIR	#	% pos.	MIR	#	% pos.	MIR	#	
+RB	2023	0	0	0	1	1.96	2.16	0	0	0	0	0	0	1	
+	2024	0	0	0	0	0	0	0	0	0	0	0	0	0	
+RA	2023	0	0	0	17	10.69	11.16	7	9.86	14.64	1	4.55	9.35	25	
+	2024	1	1.10	1.25	11	7.43	8.55	2	3.70	4.58	0	0	0	14	
+C	2023	1	0.67	0.78	15	7.69	8.17	14	15.91	20.77	1	3.57	7.52	31	
+	2024	0	0	0	4	3.77	4.48	3	4.11	4.72	0	0	0	7	
+S	2023	0	0	0	1	0.90	0.97	8	10.13	12.70	0	0	0	9	
+	2024	0	0	0	1	1.45	1.67	1	1.39	1.65	0	0	0	2	
+N	2023	0	0	0	9	3.93	4.03	3	2.27	2.58	0	0	0	12	
+	2024	0	0	0	0	0	0	2	2.13	2.42	0	0	0	2	
+Total	2023	1	0.28	0.37	43	5.77	6.07	32	8.14	10.55	2	1.50	2.56	78	
+	2024	1	0.36	0.49	16	2.71	3.18	9	2.48	2.93	0	0	0	25	
+Total number of WNV detection (#), percentage of WNV positive pools (% pos.) and MIR per site and month in 2023 and 2024 are listed.
+
+WNV infection rates of mosquitoes were significantly lower in 2024, with only 1.95 % of the mosquito pools (25/1280) testing positive for WNV. Again, higher MIRs were detected at RA and C compared to N and S (Fig. 2f, Table 2). WNV peaked at RA (8.55) in July and was only detected at N (2.42) in August, whereas lower but similar levels were found at C (4.48–4.72) and S (1.67–1.65) in July and August. Again, the highest MIRs were detected at RA and C in both months, while WNV was lower at S and significantly lower at N, where it was only detected in August. WNV was detected once at RA in June, with no detections at RB throughout the sampling season and none at any site in September.
+
+WNV amplified locally confirmed by genomic surveillance
+
+We performed NGS on all WNV-positive samples, obtaining complete coding sequences for 49 WNV strains from 2023 and 18 from 2024. Samples with fewer than 600,000 genome copies per mL (ct values  >29) did not yield complete coding sequences. For these samples, nested PCRs and Sanger sequencing were performed, yielding partial sequences from 23 strains from 2023 and 4 from 2024, covering 0.6–5 kb of the WNV coding sequence. Genome analysis revealed that all detected WNV sequences carried the unique Berlin-specific nucleotide variants, with the exception of five sequences from 2024. Phylogenetic analysis of complete coding sequences placed these five sequences within the broader phylogenetic diversity of WNV sequences detected across Germany, whereas all sequences containing the Berlin-specific nucleotide variants grouped within the Berlin clade, supporting local viral amplification (Fig. 3). These sequences further resolved into two major subclades, while one sequence grouped with bird-derived WNV sequences from 2020. The largest subclade comprised 43 sequences from this study, one sequence from a bird, and two WNV sequences derived from a human case and a mosquito, both from an allotment garden in the same neighbourhood, detected in 2021 and 202255. These sequences shared nine unique single-nucleotide variations (SNVs). The second subclade included six WNV sequences from 2023 and twelve from 2024 that shared four unique SNVs with a WNV sequence from a bird found in Berlin, Oberschöneweide, in 2020. Collectively, these findings indicate ongoing local WNV persistence and microhabitat-level amplification.Fig. 3 Phylogenetic analysis of WNV sequences from this study.
+
+The phylogenetic relationship of 67 coding-complete WNV sequences from the five study sites was inferred using a maximum likelihood (PHYML) tree based on a MAFFT alignment using the TN93 substitution model and 1000 bootstrap replicates (thick lines highlight clades with bootstrap values above 75). The Berlin clade is marked in blue. Sequences from this study are marked in red (2023) and violet (2024). Triangles indicate collapsed subtrees. Source data are provided in the Source Data file.
+
+WNV infection rates were independent of mosquito abundance and species composition
+
+In total, 16 species or species complexes were identified, with Culex pipiens complex as the primary WNV vector representing 82.4 % of all specimens and dominating at all sites in both years (Fig. 4a, c, Table 1). Mosquitoes of the genus Culex were the most abundant at all sites, comprising 83.0–96.3 % of specimens per site. Other species did not exceed 12.5% per site. Common non-Culex species included Aedes vexans (0.5–9.5%), Aedes cinereus (0.04–2.1%), Ochlerotatus geniculatus (0–1.1%), Coquillettidia richardii (0–1.6%) and Anopheles plumbeus (0–12.5%).Fig. 4 Mosquito species community composition and host sources of blood-fed mosquitoes per sampling site.
+
+a, c Cumulative total rates of mosquito species per site in 2023 (a) and 2024 (c). b, d Mosquito species assemblages per site per month in 2023 (b) and 2024 (d). Mosquito species are colour-coded as indicated in the legend. e Bloodmeal analysis of 134 mosquito pools containing at least one blood-fed specimen. Host sources are marked as birds (purple), humans (red) and other mammals (brown). Source data are provided in the Source Data file. Abbreviations are: s.s. subspecies, sp. species.
+
+No significant differences were observed in species richness, evenness or Shannon diversity index across sites (Supplementary Table 1), and rarefaction plots indicated similar mosquito species diversity (Supplementary Fig. 1). Monthly comparisons revealed minor site-specific differences in mosquito species composition. For example, Coquillettidia richardii occurred almost exclusively at RA, C and N in June and July. In contrast, Anopheles plumbeus was more abundant at C (38.3% and 26.9%) and N (7.8% and 11.2%) in September 2023 and 2024, respectively. RB showed higher proportions of Aedes sp. mosquitoes in June (6.2% and 31.3%) and August (20.2% and 19.5%) of 2023 and 2024, respectively (Fig. 4b, d, Table 1). Cluster analysis of mosquito species assemblages across the five sites indicated similarity between the two more natural sites N and C and the two more urban sites S and RA, with the urban backyard RB linked to S and RA in both years (Fig. 5a, c). Overall, WNV infection patterns were not explained by mosquito abundance or species composition, indicating other ecological drivers.Fig. 5 Cluster analysis of the mosquito community.
+
+a Hierarchical cluster analysis heatmap for individual mosquito species from 2023 according to their abundance. Colours indicate abundances [log2-scale]. Parentheses indicate clusters of similar mosquito abundances. b Cluster analysis heatmap for mosquito species according to the number of WNV detections in 2023. Colours indicate total abundances. Parentheses indicate clusters of similar infection strength. c Cluster analysis heatmap for individual mosquito species from 2024 according to their abundance. d Cluster analysis heatmap for mosquito species according to the number of WNV detections in 2023 and 2024 combined. Source data are provided in the Source Data file. Cx. Culex, Cs. Culiseta, Cq. Coquillettidia, Ae. Aedes, Och. Ochlerotatus, An. Anopheles, s.s. subspecies, sp. species.
+
+Culex mosquitoes predominantly feed on birds, with occasional human hosts
+
+A small proportion of collected mosquitoes were blood-fed (n = 199) and analysed for vertebrate host DNA, yielding 134 host sequences (Source Data). The majority (n = 122) originated from Culex mosquitoes, which fed predominantly on birds (n = 103), but also on humans (n = 15), squirrels (n = 2), a mouse (n = 1) and a fox (n = 1) (Fig. 4e). Humans were identified as feeding source for Culex at RA and C, the two sites with the highest WNV infection rates in mosquitoes, as well as at S, N and RB. In contrast, Aedes, Anopheles and Coquillettidia species fed on sheep, foxes, a mouse, and also on humans. House sparrows (Passer domesticus) were detected as the main bloodmeal sources at RB, whereas more diverse feeding patterns were observed at larger, greener sites such as RA, C and N. Three mosquito pools that contained DNA from Passer domesticus (Culex sp., RA, n = 2) or Parus major (Culex pipiens, C, n = 1) were tested positive for WNV. These bird species were also detected with the highest abundances during a field survey conducted at these sites in 2025 (Supplementary Figs. 2–4, Supplementary Methods). These results highlight site-specific differences in avian host feeding patterns of Culex sp., with birds as the primary bloodmeal source and occasional human exposure.
+
+Urban microhabitat shapes avian communities and mosquito infections
+
+Hierarchical cluster analysis suggested that WNV infection in mosquitoes was primarily correlated with spatial proximity and water availability rather than mosquito community composition. C and RA clustered together, as did S and N, with RB linking closer to S and N (Fig. 5b, d). RB and N lacked large water sources, while S contained a small constructed rainwater retention site but no higher trees. Correlation analyses were performed using field variables (e.g. mosquito abundance, bloodmeal sources, MIR, temperature and humidity), modelled bird abundances of WNV susceptible species62,63, as well as microhabitat characteristics (e.g. impervious surface and human population density). Mosquito MIR in 2023 was positively correlated with open water, as well as with the abundance of the great tit (Parus major) and the common wood pigeon (Columba palumbus) (Fig. 6a, Supplementary Table 2). Correlations between mosquito MIR and avian species dataset were less significant for 2024 (Supplementary Table 3, Supplementary Fig. 5) and for combined analyses of 2023 and 2024 (Supplementary Fig. 6), most likely due to lower WNV infection rates. The modelled bird abundances were confirmed by a breeding bird field survey at the study sites in the spring of 2025 (Supplementary Figs. 2–4, Supplementary Methods). Bird abundances were well correlated for all sites, except for S and N, where the recorded bird abundance was lower than in our model, which for S could be due to little vegetation cover (Fig. 6b).Fig. 6 Correlation analysis of variables associated with mosquito MIR in 2023.
+
+a Variables from field sampling in 2023, from a spatial model on local bird abundances, as well as from the environment, were used for an extensive Kendall’s Tau correlation analysis (for variable assignment and data, see Supplementary Table 2). Correlations with MIR are framed in black. Kendall’s Tau values are shown from red to blue as indicated in the legend. Source data are provided in the Source Data file. MIR minimum infection rate, mosq mosquito, ab abundance, hum humidity, cov coverage, div diversity, imperv imperviousness, hum pop dens human population density, seq sequence, temp temperature. b Linear regression (conditional means and 95% confidence intervals) showing differences in bird model predictions and bird observations obtained from field surveys at the five study sites in 2025 (see Supplementary Methods). The dashed black line refers to a 1:1 representation of observed vs. modelled species abundances, and the points represent the raw data per species and site.
+
+Modelled abundances of Parus major and Cyanistes caeruleus, and bird host richness inferred from blood fed mosquitoes had the highest representation (cos2) in 2023 whereas bush cover, minimum temperature and presence of DNA from Sylvia atricapilla in mosquito bloodmeals contributed little (Supplementary Fig. 7). In 2024, several bird species detected in mosquito bloodmeals and mosquito richness had highest cos2 values (Supplementary Fig. 8a), while mosquito abundance, presence of Erithacus rubecula in bloodmeals and bird diversity had highest representations in analyses of the 2023 and 2024 datasets (Supplementary Fig. 9a).
+
+Principal Component Analysis (PCA) revealed that the first two principal components (PCs) explained 72.3 % of data variability in 2023 (Fig. 7). PC1, reflecting a gradient from urban to more natural and biodiverse habitats, explained 48.9 % of the variance, while PC2, related to climatic factors, accounted for 23.4%. Mosquito MIR was positively associated with Culex sp. abundance, with frequencies of the great tit (Parus major), the common wood pigeon (Columba palumbus) in mosquito bloodmeals, as well as with the presence of permanent larger water bodies, mean to maximum humidity, and semi-natural habitats. MIR was negatively correlated with the detection of the Eurasian magpie (Pica pica) and the house sparrow (Passer domesticus) in mosquito bloodmeals, the modelled abundance of the wood pigeon (Columba palumbus), human population density and imperviousness, indicating that the two most contrasting habitats, urbanised and highly natural, biodiverse areas, were linked to lower mosquito infection rates.Fig. 7 Principle component analysis (PCA) of variables associated with mosquito MIR in 2023.
+
+The biplot of the PCA linked mosquito MIR to the abundances of the bird species based on bloodmeal host frequency in the field sampling and bird species abundance (based on a spatial model), as well as with spatial characteristics of the sites (tree cover, imperviousness, presence of water, human density). Modelled positions of the study sites in the biplot are marked by coloured dots. Source data are provided in the Source Data file. MIR minimum infection rate, mosq mosquito, ab abundance, hum humidity, Cov coverage, div diversity, imperv imperviousness, humPopDens human population density, seq sequence, temp temperature.
+
+In 2024, as well as in combined analyses for both years, mosquito MIR was also associated with open water bodies, Culex sp. abundance and a diverse avian feeding pattern of mosquitoes (bird host richness) in semi-natural areas (Supplementary Figs. 7b and 9b). Urbanisation variables, such as imperviousness and human population density, remained negatively associated, as did the Eurasian magpie (Pica pica) and the carrion crow (Corvus corone), while certain passerine species, such as the Eurasian blackcap (Sylvia atricapilla) and the Eurasian chaffinch (Fringilla coelebs), were positively correlated with mosquito MIR. (Supplementary Table 4). Overall, these findings reveal that microhabitat structure defines local host composition and seems to drive fine-scale WNV amplification in an urban area.
+
+Discussion
+
+Urban areas are potential hotspots for mosquito-borne diseases, particularly those transmitted by Aedes aegypti and Aedes albopictus, such as dengue, chikungunya and Zika virus, which circulate between humans and mosquitoes64. Although humans are dead-end hosts for WNV, urban areas are often affected. Climate change and urbanisation are key drivers of increasing mosquito-borne disease incidence65. Understanding how urban microenvironments facilitate transmission is critical for designing healthy, climate-resilient infrastructures and for identifying urban areas with elevated WNV transmission risk to guide public awareness campaigns and vector control.
+
+In this study, we analysed WNV infection rates in mosquitoes at a fine spatial scale across five closely situated urban sites, each less than 1 km apart, in Berlin during the 2023 and 2024 transmission seasons. We observed high rates of WNV infection in mosquitoes (up to 4.8%), with local amplification strongly influenced by urban land cover features. Greener sites with abundant bushy vegetation, water bodies and trees, specifically a park-like residential area and cemetery, exhibited the highest MIRs (up to 20.8), whereas a residential backyard with little vegetation showed low rates (up to 2.2). Of note, despite high tree and bush cover, a nature conservation site showed significantly lower WNV infection rates throughout both seasons (MIRs up to 4.0), and a sponge city site with little vegetation showed a similar, but less pronounced pattern. These findings highlight the importance of small-scale surveillance to identify urban WNV hotspots.
+
+Genomic surveillance and phylogenetic analyses revealed that the vast majority of detected WNV sequences clustered within the Berlin clade of WNV lineage 255, confirming local endemicity and suggesting that observed mosquito infections resulted from local amplification rather than repeated introductions. The extensive local amplification and maintenance of closely related variants over consecutive years support the importance of microhabitat-level ecological conditions and suggest more limited virus dispersal via infected birds in urban settings. In contrast, higher rates of dispersal of related virus variants have been observed in mosquitoes from rural areas of eastern Germany66. Five WNV strains clustered within the broader genetic diversity of detected WNV sequences in Germany and were most likely introduced from other regions in the country. These sequences exhibited between 30 and 94 SNVs and were substantially more diverse than the 62 locally amplified strains, which showed 0–31 SNVs. We found no evidence of subsequent local amplification of these introduced strains. Variation in WNV infection rates between sites is therefore likely driven by urban environmental characteristics rather than by virus introductions.
+
+While higher mosquito densities can correlate with increased WNV infection risk31, our data indicate that abundance alone does not explain the local infection patterns. RA and C showed both high mosquito density and high MIRs in July and August, whereas low-density sites sometimes exhibited elevated infection rates (e.g. RB in July; RA and C in September 2023). Notably, the nature conservation site had in both years the highest mosquito numbers, but the lowest WNV infection rates. Differences in species assemblages, such as low frequency of competent vectors, could contribute to these patterns, as observed elsewhere67. However, we detected no significant variation in mosquito species composition or diversity between sites, consistent with other studies68. The majority of mosquitoes at all sites were Cx. pipiens (>82%) and 92.7% belonged to the genus Culex, the principal vector for WNV69. Aedes vexans, a potential WNV vector, showed no significant site differences and has conflicting evidence regarding its vector competence70,71.
+
+Mosquito infection depends on feeding on viraemic birds, and urban characteristics influence bird abundance and community composition28–30,63, which in turn affect WNV infection rates. Data on bird species abundance and species assemblages were not available for our study sites in the mosquito sampling years, but bird abundances were modelled based on environmental descriptor variables and breeding bird censuses63, and confirmed by a bird field survey conducted at the study sites in 2025. Analysis of bird species assemblages and mosquito bloodmeals suggested that the common wood pigeon (Columba palumbus), the great tit (Parus major), the hooded crow (Corvus cornix), the Eurasian blackcap (Sylvia atricapilla), the Eurasian chaffinch (Fringilla coelebs) and the green woodpecker (Picus viridis) were associated with higher mosquito infection rates. Of note, the bird field survey showed that common species, such as great tits (Parus major), were underpredicted in the model, especially at S and N. The sites RA and C, which had the highest WNV infection rates, also had the highest bird abundances, driven by the most common species, such as great tits (Parus major) and wood pigeons (Columba palumbus). These species were mostly detected in mosquito bloodmeals at C and RA, supporting the hypothesis that these common species are involved in WNV amplification.
+
+Culex mosquitoes feed predominantly on birds, with occasional human hosts. Different bird species contributed to blood meals at RB and RA, which may explain higher WNV infection rates at RA due to a higher proportion of potential avian amplificatory hosts30. Conversely, low WNV infection rates at N may reflect higher bird diversity with more incompetent or less competent hosts28,29. Differences in host assemblages may also explain the contrasting patterns at C, which exhibited both higher host diversity and elevated MIRs.
+
+Urban green infrastructure modulates environmental conditions such as temperature and humidity and is important for preserving urban biodiversity72. In Berlin, greener urban areas correspond to higher bird diversity63,73,74. We observed significantly lower WNV infection rates at the nature conservation and sponge city sites, supporting the hypothesis that higher biodiversity reduces infection risk, as suggested by PCA results. The sponge city site showed a more than ten-fold increase in mosquito infection rates from July (0.97) to August (12.70) in 2023, likely reflecting heavy rainfall, standing water in retention basins and elevated temperatures that accelerated mosquito development.
+
+Observed MIRs of this study were relatively high in 2023 and comparable to European regions with recurring outbreaks and high numbers of human cases, e.g. Northern Italy and Central Greece59–61. This contrasts with the reporting of a single human WNV case in Berlin in 2023 and seven in 2024, suggesting underdiagnosis due to no or mild symptoms upon infection and low public and physician awareness, as well as the predominantly avian feeding behaviour of Cx pipiens. This species occurs in two bioforms75, with biotype pipiens feeding preferentially on birds and biotype molestus on humans, with hybrids discussed to act as bridge vectors for bird-to-human transmission76, even though recent studies have also contradicted this hypothesis77,78. Our blood-meal analyses provide evidence for occasional human exposure, and two autochthonous WNND cases were reported in proximity to our study sites in 2021 and 202255. The high density and infection rates of WNV vectors at RA, with a substantial elderly population as the highest risk group for severe disease, highlight the public health relevance of these findings23.
+
+This study has some constraints that should be considered when interpreting the findings. Sampling was restricted to a single area comprising five microhabitats, and it remains to be determined whether similar patterns occur in other parts of the Berlin metropolitan area that include comparable microhabitat structures. Although consistent trends were observed across two consecutive sampling seasons, suggesting microhabitat-specific effects, confirmation in additional urban regions is required to assess generalisability. In addition, the number of blood-fed mosquitoes available for analysis was limited. More comprehensive inference regarding host-vector interactions would benefit from larger numbers of blood-fed specimens collected throughout the mosquito season and across microhabitats. Future studies integrating blood meal analyses with simultaneous bird community assessments and systematic testing of birds for WNV infection at the same sites would clarify which avian species contribute most to local WNV amplification and help disentangle microhabitat-specific transmission dynamics.
+
+In conclusion, these data demonstrate that urban landscape features, host community composition and biodiversity significantly influence WNV amplification at fine spatial scales. Identifying urban hotspots provides opportunities for spatially targeted surveillance, control of Culex larvae by reducing breeding sites, and public awareness campaigns, similar to approaches used for Aedes-borne infections9–13,73,74. Similar methodologies are needed for Culex-borne infections, particularly in light of the emergence of WNV in Europe and the goals of implementing climate-resilient cities and nature-based solutions in urban planning.
+
+Methods
+
+Site selection, mosquito collection and identification
+
+The study area is located in Berlin, the largest and most populous metropolitan area in Germany, with an area of 892 km2 and a population of 3.8 million (Fig. 1). The following five mosquito trapping sites were selected representing a gradient from green to grey infrastructure, with or without additional open water provisioning: (1) a plain backyard of a Berlin-typical residential block in a grey urban space, hereafter called RB, constructed in 1930, multiple dwelling house with two blocks for 600–700 inhabitants and a backyard with a lawn of 5000 m2 (sampling permission and access granted by the private proprietor); (2) a residential area (RA) built in 1918 according to the garden city concept, which comprises a park-like property with old trees and a glacial pond, and consists of 163 multiple dwelling and 69 single-family houses for ca. 2500 inhabitants (sampling permission and access granted by the private proprietor and inhabitants); (3) a large park-like cemetery (C) with a glacial pond, established in 1908, area of 110,342 m2 (sampling permission granted by the Bezirksamt Tempelhof-Schöneberg von Berlin at 2023-06-12 (AG/24_2023) and at 2024-06-05 (AG/24_2024)); (4) a nature-based solution site, an industrial site reconstructed according to the sponge city concept (S), re-constructed 2010–2015, area of 43,368 m2, unsealed 23,974 m2, containing a rainwater basin reservoir and a rain garden, a cistern, a flood retention lake, permeable pavement, a natural garden, green roofs, infiltration systems, evaporation areas, 83 renting parties (mainly companies with offices and workshops) (sampling permission and access granted by the private proprietor); and (5) a nature conservation area (N), established in 1999, a re-natured railway yard, area of 180,000 m2, containing a highly diverse flora and fauna (sampling permission granted by the Senatsverwaltung für Mobilität, Verkehr, Klimaschutz und Umwelt von Berlin at 2023-06-20 and 2024-06-13 (OA-AS/FAS/836)). Overview maps from Germany and Berlin districts (Fig. 1a) were created using QGIS 3.4.12 software (Open Source Geospatial Foundation; http://qgis.org; 2025) incorporating map data from OpenStreetMap (https://www.openstreetmap.org/copyright; 2025) and digital geographic data from the German Federal Office for Cartography and Geodesy (Bundesamt für Kartographie und Geodäsie; https://gdz.bkg.bund.de/index.php/default/digitale-geodaten/verwaltungsgebiete/nuts-gebiete-1-5-000-000-stand-31-12-nuts5000-31-12.html; 2024) and Berlin (https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/; 2024). The detailed satellite image from the sampling area (Fig. 1b) was adapted from an aerial picture from 2023 published by the Berlin geoportal (https://gdi.berlin.de/viewer/main/; accessed 2026-04-15).
+
+Mosquitoes were trapped with four or three BG-Pro traps (Biogents, Germany) per site, baited with BG-Mozzibait (Biogents, Germany) and dry ice as the CO2-source for four consecutive nights (from dusk until dawn) per month in the mosquito season from June to September in 2023 or 2024, respectively. Traps were placed at fixed positions approximately 20-50 m apart, except at RA, where one spot was changed in July 2023 due to accessibility. Temperature and humidity were measured at each of the mosquito collection sites using thermo-/hygrometers (Temperature & Humidity Logger DS1923-F5#, Maxim Integrated, USA; see Source Data). Mosquitoes were morphologically identified on ice using a standard key20.
+
+The diversity of mosquito species for each site was calculated using the Shannon diversity index79: H = −∑pi*ln(pi), with pi defined as the number of individuals of one species divided by the total number of individuals collected per site. Species evenness, a measure of the relative abundance of the different species (S) per site, was calculated as E = H’/ln(S).
+
+RNA extraction, molecular species identification and WNV screening
+
+In total, we pooled 1-10 individual specimens according to species, gender and location, before homogenisation in ice-cold 500 µL phosphate-buffered saline (PBS) using ceramic beads at 30 Hz for 2 × 50 s in a TissueLyser II (Qiagen, Germany). Superpools of 10 pools with 100 µL homogenate of each pool were prepared for further analyses. Genomic nucleic acids (NA) were either extracted from 200 µL of the superpools or from 50 µL of the pool homogenate and eluted in a total volume of 100 µL using the MagNA Pure 96 DNA and Viral NA Small Volume Kit (Roche Diagnostics, Germany).
+
+For single specimens, the mosquito species was confirmed by partial sequencing the mosquito cytochrome c oxidase I (COI) gene using 1 µL NA and a published protocol80. In brief, a 710 bp fragment of the mosquito COI gene was amplified using primers LCO1490 (5′- GGTCAACAAATCATAAAGATATTGG-3′) and HCO2198 (5′-TAAACTTCAGGGTGACCAAAAAATCA-3′) using Platinum Taq Polymerase (Thermo Fisher Scientific, USA) and the subsequent thermal protocol: 3 min at 94 °C, followed by 35 cycles of 94 °C for 15 s, 50 °C for 20 s and 72 °C for 40 s and a final elongation step at 72 °C for 5 min. PCR amplicons were treated with ExoSAP (Biotechrabbit, Germany) according to the manufacturer’s instructions before Sanger sequencing by Microsynth Seqlab (Microsynth AG, Switzerland). Sequences were analysed using the BLASTn web tool (NCBI, USA).
+
+For cDNA synthesis, eluted NA from mosquito superpools or pool homogenates was transcribed to cDNA using SuperScript IV reverse transcriptase (Thermo Fisher Scientific GmbH, Germany) and random hexamer primers (Integrated DNA Technologies Germany GmbH, Germany). Screening for the presence of WNV genomic RNA was performed using 2 µL cDNA by a published real-time PCR (RT-PCR) assay81. In brief, amplification of a fragment of the WNV genome was performed using primers FLI-WNV5-F (5′-GGGCCTTCTGGTCGTGTTC-3′) and FLI-WNF6-R (5′-GATCTTGGCYGTCCACCTC-3′) and the Platinum Taq Polymerase (Thermo Fisher Scientific, USA) with the subsequent thermal protocol: 2 min at 95 °C, followed by 45 cycles of 95 °C for 15 s and 60 °C for 30 s. Real-time measurement of WNV genome amplification was performed using the FLI-WNF-Probe (5′-FAM/CCACCCAGG/ZEN/AGGTCCTTCGCAA/3IABkFQ-3′) and the LightCycler LC480 (Roche Diagnostics, Germany). WNV-positive pool homogenates were confirmed by at least one of the following PCRs: (1) a nested- PCR amplifying WNV ORF nt 2049–2910 (forward: 5′-TGGGAAGAGGAGAACAGCAGAT-3′, reverse: 5′-GCGGTTCCTATGATCTTCGAGTC-3′; forward nested: 5′-CAGGGACTTCTAGGAGCCCT-3′, reverse nested: 5′-TCAGGAACATGCGAGTGCTT-3′), (2) a nested- PCR amplifying WNV ORF nt 7633-8488 (forward: 5′-AGGGGAAGTTTGGAAGGAGAGA-3′, reverse: 5′-TGGTAGTTCCAGGTCCTGTAGG-3′; forward nested: 5′-TCAACCACATGACGAAGGAAG-3′, reverse nested: 5′-GTTGCGTGAAAGGGGGTTTC-3′), or (3) the commercially available RealStar® WNV RT-PCR Kit (Altona Diagnostics, Germany). Primers were designed using Geneious Prime 9.1.8 (Biomatters, New Zealand) and commercially ordered (Integrated DNA Technologies, Belgium). The conventional PCRs were performed using Platinum Taq Polymerase (Thermo Fisher Scientific, USA) and the subsequent thermal protocol: 3 min at 95 °C, followed by 35 cycles of 95 °C for 15 s, 60 °C for 20 s and 72 °C for 40 s and a final elongation step at 72 °C for 5 min. After treatment with ExoSAP (Biotechrabbit, Germany), PCR amplicons were Sanger sequenced by Microsynth Seqlab (Microsynth AG, Switzerland) and analysed using BLASTn.
+
+Blood meal analysis of mosquitoes
+
+Mosquito pools containing blood-fed mosquitoes were tested for the host species source by a vertebrate COI PCR82 (n = 199) using 1 µl eluted NA. Vertebrate COI fragments were amplified using primers Mod_RepCOI_F (5′-TNTTYTCMACYAACCACAAAGA-3′), VertCOI_7216_R (5′-CARAAGCTYATGTTRTTYATDCG-3′), VertCOI_7194_F (5′-CGMATRAAYAAYATRAGCTTCTGAY-3′) and Mod_repCOI_R (5′-TTCDGGRTGNCCRAARAATCA-3′) using Platinum Taq Polymerase (Thermo Fisher Scientific, USA) and the subsequent thermal protocol: 3 min at 95 °C, followed by 40 cycles of 95 °C for 40 s, 48.5 °C for 30 s and 72 °C for 30 s and a final elongation step at 72 °C for 7 min. Amplicons were sequenced as described above and analysed using BOLD v483 and BLASTn. Visualisation was done using SankeyMATIC (https://www.sankeymatic.com; accessed 2026-02-13).
+
+WNV whole genome sequencing and phylogenetic analyses
+
+For sequencing of the complete coding regions of detected WNV sequences, native and amplicon-based next-generation sequencing (NGS) were performed. For native NGS, libraries were prepared from 5 µL RNA of WNV-positive mosquito homogenates using the KAPA RNA Hyper Prep Kit (Roche Diagnostics, Germany), quantified using the Qubit dsDNA HS Assay kit (Thermo Fisher Scientific, USA) and the Agilent TapeStation with the HS D1000 Kit (Agilent, Germany), and applied to an Illumina NextSeq 2000 platform (Illumina, USA).
+
+For amplicon-based NGS, WNV genomic sequences were amplified using a multiplex PCR described before66. In brief, two PCR sets amplifying the WNV open reading frame were performed using Platinum Taq Polymerase (Thermo Fisher Scientific, USA) and the subsequent thermal protocol: 3 min at 95 °C, followed by 40 cycles of 95 °C for 15 s, 60 °C for 15 s and 72 °C for 30 s, and a final elongation step at 72 °C for 5 min, and merged for subsequent NGS analysis. Library preparation was performed using the KAPA Hyper Plus Kit (Roche Diagnostics), quantified as described for native NGS, and amplicon-based NGS was performed using Illumina MiSeq v3, 600 cycles, for the samples from 2023 and Illumina NextSeq 2000 for the samples from 2024.
+
+WNV genomes were assembled using Geneious Prime 9.1.8 (Biomatters, New Zealand). Reads were trimmed using BBDuk (v35.82 by Brian Bushnell) and mapped to the German WNV reference sequence OP810567. The coding-complete regions of detected WNV sequences as well as publicly available reference sequences from Germany (NCBI virus, USA) were aligned using MAFFT v7.30884. Following a model test with MEGA v11.0.13, a maximum likelihood (PHYML) tree was inferred using the IQ-TREE web server85,86, employing the TN93 substitution model and 1000 bootstrap replicates with reference sequence AY532665 as an outgroup. Visualisation was performed using the Interactive Tree of Life (iTOL) web server87.
+
+Biodiversity analyses
+
+We performed a Kendall Tau’s correlation analysis and a principal component analysis (PCA) on a dataset of biotic and abiotic variables across the five sampling locations to reduce dimensionality and identify key variables explaining most of the variability in the data and to understand their contribution to WNV infections in mosquitoes. We extracted environmental variables in a 50 m radius around the focal location (i.e. the location in the centre around the four trap positions) and calculated the mean of the variable values falling within the radius per location: availability of open water (binary; yes or no), imperviousness [%], tree cover [%], human population density [no. inhabitants/ha], and bush cover [%]. These data were downloaded from the Berlin geoportal (publicly available at: https://gdi.berlin.de; accessed 2025-02-07; see Source Data). Additionally, we used the mean, minimum and maximum temperatures and humidities measured during the sampling occasions as climatic descriptors (Supplementary Tables 2–4).
+
+As biotic variables, we included the bird and mosquito community composition and abundance. Mosquito community composition and abundance were obtained from the field (Table 1), and unidentified species were discarded. Rarefaction to standardise mosquito diversity was done with the R-package iNext88 (Supplementary Fig. 1). Bird community information was obtained from a joint species distribution model in a hierarchical Bayesian framework (jSDM)89,90. The model calculated breeding bird diversity and total abundance of 66 non-aquatic breeding birds as well as abundance of single species in Berlin, as projected to a raster of 100 × 100 m resolution62,63. The original data for the model consisted of counts of breeding territories in 29 transects across the city; the fitted jSDM related bird presence and abundance to environmental predictors (tree cover, human population density, open green space, noise level), as well as prey species abundances (insects and spiders), which were based on a jSDM using distance to water as a predictor variable63. To confirm the modelled bird species at the study sites, we conducted an intensive field survey in 2025 (Supplementary Methods, Supplementary Figs. 2–4). Similar to above, we extracted the modelled total bird diversity and total abundance in a 50 m radius around the location, as well as the predicted presence and abundance of the single bird species. This yielded a total of 42 bird species present and their abundances around the sampling locations (Supplementary Table 5). In addition, the frequencies of host feeding on susceptible bird species detected in the mosquito bloodmeal analyses were included as variables in the Kendall’s tau correlation. Susceptible bird species were defined as species in which WNV RNA or antibodies were detected in previous studies91–93.
+
+Statistical analysis
+
+For normalisation over the mosquito seasons, mosquito numbers per trap per night were calculated. P-values for statistically significant differences in the normalised mosquito numbers were calculated with a two-tailed unpaired Welch’s t-test comparing single trap performance per night for each site and month. The MIR assumes that at least one mosquito per pool is positive. MIR was calculated as the number of positive pools divided by the total number of individual mosquitoes tested, expressed as the minimum number infected per 1000. The p-values for statistical significance of the MIRs per site were calculated with a two-way Chi-Squared test (MedCalc Software Ltd., Belgium). Detailed test statistics for the t- and Chi-Squared tests can be found in the Source Data.
+
+We conducted a cluster analysis using the R-package pheatmap (Kolde R, 2025. pheatmap: Pretty Heatmaps. R package version 1.0.13, https://CRAN.R-project.org/package=pheatmap) for the mosquito abundances at the five locations, as well as the infection probability relative to the total abundance of mosquitoes at that location, as a preliminary check whether infections follow mosquito community composition. Data were standardised prior to PCA to ensure the contribution of all variables was comparable. The number of components was determined using the Kaiser criterion, retaining those with eigenvalues > 1. The analysis was conducted using the function prcomp(). We used cosine squared (cos²) values to measure the proportion of the variable’s total variance that is explained by a specific dimension, also called ‘quality of representation’. High values close to 1 mean the variable was well-represented by the dimension and that most of the variable’s variability was captured by that component. Low values close to zero mean poor representation of a component, and its variability is spread across other dimensions. We used the R-package ‘factoextra’ for visualisation94.
+
+Reporting summary
+
+Further information on research design is available in the Nature Portfolio Reporting Summary linked to this article.
+
+Supplementary information
+
+Supplementary Information
+
+Peer Review file
+
+Reporting Summary
+
+Source data
+
+Source Data
+
+Supplementary information
+
+The online version contains supplementary material available at 10.1038/s41467-026-73251-5.
+
+Acknowledgements
+
+We thank Christian Hieke and Romy Schönberger for technical assistance, as well as Moritz Wenzler-Meya for preparing the environmental layers and Cedric Scherer for support in code polishing. We cordially thank Ayhan Türk, Bettina and Peter Bergmann, Thorsten Gutzke (Vonovia), IGG Malzfabrik mbh, Grün Berlin GmbH and the Bezirksamt Tempelhof-Schöneberg of Berlin for their support.
+
+Author contributions
+
+C.P.M., U.B. and S.J. designed and conceptualised the study. C.P.M., Y.S.L., M.X.L.B., S.E. and S.L.G. executed field work and mosquito identification. C.P.M., Y.S.L., M.X.L.B., S.E. and K.V. performed virus screening and validation. A.K. performed next-generation sequencing. C.L. and F.G. conducted the breeding bird field survey in 2025. A.P. provided modelled bird species maps. S.K.S. designed methodology, ran formal analysis and developed the model code of the ecological studies. C.P.M., A.K. and S.K.S. were involved in computational analysis and visualisation of the data. S.J. and U.B. secured project funding. C.P.M. and S.J. wrote the original draft, with contributions by S.K.S. All authors read the paper and approved the submission.
+
+Peer review
+
+Peer review information
+
+Nature Communications thanks Gina Charnley and the other, anonymous, reviewer(s) for their contribution to the peer review of this work. A peer review file is available.
+
+Funding
+
+S.J. discloses support for the research of this work from the Berlin University Alliance (BUA, 113_MC_GlobalHealth) and the German Centre for Infection Research (DZIF, 8040801947). U.B. discloses support for the publication of this work from the Berlin University Alliance (BUA, 113_MC_GlobalHealth). All other authors declare no relevant funding. Open Access funding enabled and organized by Projekt DEAL.
+
+Data availability
+
+The data generated in this study are provided in the Source Data file. WNV sequence datas are available under GenBank accession numbers numbers PX569566.1–PX569613.1 and PZ018997.1–PZ019015.1 (WNV complete ORFs; https://www.ncbi.nlm.nih.gov/nuccore/PX569566.1 to https://www.ncbi.nlm.nih.gov/nuccore/PZ019015.1) as well as PX620687.1–PX620726.1 and PZ019016.1–PZ019020.1 (WNV partial sequences; https://www.ncbi.nlm.nih.gov/nuccore/PX620687.1 to https://www.ncbi.nlm.nih.gov/nuccore/PZ019020.1); NGS data under BioSample accessions SAMN53337887–SAMN53337935 and SAMN55391934–SAMN55391951 (BioProject ID PRJNA1367344; https://www.ncbi.nlm.nih.gov/biosample/1367344). Source data are provided with this paper.
+
+Code availability
+
+Analysis code and data are available under 10.5281/zenodo.19577441.
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+
+References
+
+1. United Nations Environment Programme, U. N. E. P. Nature-Based Solutions: Opportunities and Challenges for Scaling Up. Nairobi: UNEP. https://www.unep.org/resources/report/nature-based-solutions-opportunities-and-challenges-scaling (2022).
+2. European Commission, E. C. The European Green Deal. https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_en (2019).
+3. European Commission, E. C. EU Biodiversity Strategy for 2030. https://environment.ec.europa.eu/strategy/biodiversity-strategy-2030_en (2020).
+4. Fournet, F., Simard, F. & Fontenille, D. Green cities and vector-borne diseases: emerging concerns and opportunities. Euro Surveill.10.2807/1560-7917.ES.2024.29.10.2300548 (2024).10.2807/1560-7917.ES.2024.29.10.2300548 PMC10986671 38456216
+5. Charnley GEC Strengthening resilience to emerging vector-borne diseases in Europe: lessons learnt from countries facing endemic transmission Lancet Reg. Health Eur. 2025 53 101271 10.1016/j.lanepe.2025.101271 40247854 PMC12002787
+Charnley, G. E. C. et al. Strengthening resilience to emerging vector-borne diseases in Europe: lessons learnt from countries facing endemic transmission. Lancet Reg. Health Eur. 53, 101271 (2025).40247854 10.1016/j.lanepe.2025.101271 PMC12002787
+6. Bhatt S The global distribution and burden of dengue Nature 2013 496 504 507 10.1038/nature12060 23563266 PMC3651993
+Bhatt, S. et al. The global distribution and burden of dengue. Nature 496, 504–507 (2013).23563266 10.1038/nature12060 PMC3651993
+7. Erazo D Contribution of climate change to the spatial expansion of West Nile virus in Europe Nat. Commun. 2024 15 1196 10.1038/s41467-024-45290-3 38331945 PMC10853512
+Erazo, D. et al. Contribution of climate change to the spatial expansion of West Nile virus in Europe. Nat. Commun. 15, 1196 (2024).38331945 10.1038/s41467-024-45290-3 PMC10853512
+8. Semenza JC Paz S Climate change and infectious disease in Europe: Impact, projection and adaptation Lancet Reg. Health Eur. 2021 9 100230 10.1016/j.lanepe.2021.100230 34664039 PMC8513157
+Semenza, J. C. & Paz, S. Climate change and infectious disease in Europe: Impact, projection and adaptation. Lancet Reg. Health Eur. 9, 100230 (2021).34664039 10.1016/j.lanepe.2021.100230 PMC8513157
+9. Teillet C Exploring fine-scale urban landscapes using satellite data to predict the distribution of Aedes mosquito breeding sites Int. J. Health Geogr. 2024 23 18 10.1186/s12942-024-00378-3 38972982 PMC11229250
+Teillet, C. et al. Exploring fine-scale urban landscapes using satellite data to predict the distribution of Aedes mosquito breeding sites. Int. J. Health Geogr. 23, 18 (2024).38972982 10.1186/s12942-024-00378-3 PMC11229250
+10. Dzul-Manzanilla F Identifying urban hotspots of dengue, chikungunya, and Zika transmission in Mexico to support risk stratification efforts: a spatial analysis Lancet Planet Health 2021 5 e277 e285 10.1016/S2542-5196(21)00030-9 33964237 PMC8114339
+Dzul-Manzanilla, F. et al. Identifying urban hotspots of dengue, chikungunya, and Zika transmission in Mexico to support risk stratification efforts: a spatial analysis. Lancet Planet Health 5, e277–e285 (2021).33964237 10.1016/S2542-5196(21)00030-9 PMC8114339
+11. Knoblauch S Urban Aedes aegypti suitability indicators: a study in Rio de Janeiro, Brazil Lancet Planet Health 2025 9 e264 e273 10.1016/S2542-5196(25)00049-X 40252673
+Knoblauch, S. et al. Urban Aedes aegypti suitability indicators: a study in Rio de Janeiro, Brazil. Lancet Planet Health 9, e264–e273 (2025).40252673 10.1016/S2542-5196(25)00049-X
+12. Jeefoo P Tripathi NK Souris M Spatio-temporal diffusion pattern and hotspot detection of dengue in Chachoengsao province, Thailand Int. J. Environ. Res. Public Health 2011 8 51 74 10.3390/ijerph8010051 21318014 PMC3037060
+Jeefoo, P., Tripathi, N. K. & Souris, M. Spatio-temporal diffusion pattern and hotspot detection of dengue in Chachoengsao province, Thailand. Int. J. Environ. Res. Public Health 8, 51–74 (2011).21318014 10.3390/ijerph8010051 PMC3037060
+13. Bisanzio D Spatio-temporal coherence of dengue, chikungunya and Zika outbreaks in Merida, Mexico PLoS Negl. Trop. Dis. 2018 12 e0006298 10.1371/journal.pntd.0006298 29543910 PMC5870998
+Bisanzio, D. et al. Spatio-temporal coherence of dengue, chikungunya and Zika outbreaks in Merida, Mexico. PLoS Negl. Trop. Dis. 12, e0006298 (2018).29543910 10.1371/journal.pntd.0006298 PMC5870998
+14. Camp JV Nowotny N The knowns and unknowns of West Nile virus in Europe: what did we learn from the 2018 outbreak? Expert Rev. Anti Infect. Ther. 2020 18 145 154 10.1080/14787210.2020.1713751 31914833
+Camp, J. V. & Nowotny, N. The knowns and unknowns of West Nile virus in Europe: what did we learn from the 2018 outbreak? Expert Rev. Anti Infect. Ther. 18, 145–154 (2020).31914833 10.1080/14787210.2020.1713751
+15. Lu L West Nile virus spread in Europe: phylogeographic pattern analysis and key drivers PLoS Pathog. 2024 20 e1011880 10.1371/journal.ppat.1011880 38271294 PMC10810478
+Lu, L. et al. West Nile virus spread in Europe: phylogeographic pattern analysis and key drivers. PLoS Pathog. 20, e1011880 (2024).38271294 10.1371/journal.ppat.1011880 PMC10810478
+16. Mencattelli G Spatial and temporal dynamics of West Nile virus between Africa and Europe Nat. Commun. 2023 14 6440 10.1038/s41467-023-42185-7 37833275 PMC10575862
+Mencattelli, G. et al. Spatial and temporal dynamics of West Nile virus between Africa and Europe. Nat. Commun. 14, 6440 (2023).37833275 10.1038/s41467-023-42185-7 PMC10575862
+17. Farooq Z European projections of West Nile virus transmission under climate change scenarios One Health 2023 16 100509 10.1016/j.onehlt.2023.100509 37363233 PMC10288058
+Farooq, Z. et al. European projections of West Nile virus transmission under climate change scenarios. One Health 16, 100509 (2023).37363233 10.1016/j.onehlt.2023.100509 PMC10288058
+18. Yeung MW Shing E Nelder M Sander B Epidemiologic and clinical parameters of West Nile virus infections in humans: a scoping review BMC Infect. Dis. 2017 17 609 10.1186/s12879-017-2637-9 28877682 PMC5588625
+Yeung, M. W., Shing, E., Nelder, M. & Sander, B. Epidemiologic and clinical parameters of West Nile virus infections in humans: a scoping review. BMC Infect. Dis. 17, 609 (2017).28877682 10.1186/s12879-017-2637-9 PMC5588625
+19. Zou S Foster GA Dodd RY Petersen LR Stramer SL West Nile fever characteristics among viremic persons identified through blood donor screening J. Infect. Dis. 2010 202 1354 1361 10.1086/656602 20874087
+Zou, S., Foster, G. A., Dodd, R. Y., Petersen, L. R. & Stramer, S. L. West Nile fever characteristics among viremic persons identified through blood donor screening. J. Infect. Dis. 202, 1354–1361 (2010).20874087 10.1086/656602
+20. Becker, N. et al. Mosquitoes and Their Control 2. edn, (Springer, 2010).
+21. VanDalen KK Hall JS Clark L McLean RG Smeraski C West Nile virus infection in American Robins: new insights on dose response PLoS ONE 2013 8 e68537 10.1371/journal.pone.0068537 23844218 PMC3699668
+VanDalen, K. K., Hall, J. S., Clark, L., McLean, R. G. & Smeraski, C. West Nile virus infection in American Robins: new insights on dose response. PLoS ONE 8, e68537 (2013).23844218 10.1371/journal.pone.0068537 PMC3699668
+22. Kilpatrick AM LaDeau SL Marra PP Ecology of West Nile virus transmission and its impact on birds in the western hemisphere Auk 2007 124 1121 1136 10.1093/auk/124.4.1121
+Kilpatrick, A. M., LaDeau, S. L. & Marra, P. P. Ecology of West Nile virus transmission and its impact on birds in the western hemisphere. Auk 124, 1121–1136 (2007).
+23. van der Meulen KM Pensaert MB Nauwynck HJ West Nile virus in the vertebrate world Arch. Virol. 2005 150 637 657 10.1007/s00705-004-0463-z 15662484
+van der Meulen, K. M., Pensaert, M. B. & Nauwynck, H. J. West Nile virus in the vertebrate world. Arch. Virol. 150, 637–657 (2005).15662484 10.1007/s00705-004-0463-z
+24. Valiakos G Serological and molecular investigation into the role of wild birds in the epidemiology of West Nile virus in Greece Virol. J. 2012 9 266 10.1186/1743-422X-9-266 23140247 PMC3546012
+Valiakos, G. et al. Serological and molecular investigation into the role of wild birds in the epidemiology of West Nile virus in Greece. Virol. J. 9, 266 (2012).23140247 10.1186/1743-422X-9-266 PMC3546012
+25. Jourdain E Bird species potentially involved in introduction, amplification, and spread of West Nile virus in a Mediterranean wetland, the Camargue (Southern France) Vector Borne Zoonotic Dis. 2007 7 15 33 10.1089/vbz.2006.0543 17417954
+Jourdain, E. et al. Bird species potentially involved in introduction, amplification, and spread of West Nile virus in a Mediterranean wetland, the Camargue (Southern France). Vector Borne Zoonotic Dis. 7, 15–33 (2007).17417954 10.1089/vbz.2006.0543
+26. Tran A An integrative eco-epidemiological analysis of West Nile virus transmission Ecohealth 2017 14 474 489 10.1007/s10393-017-1249-6 28584951 PMC5662683
+Tran, A. et al. An integrative eco-epidemiological analysis of West Nile virus transmission. Ecohealth 14, 474–489 (2017).28584951 10.1007/s10393-017-1249-6 PMC5662683
+27. Ostfeld RS Keesing F Biodiversity and disease risk: The case of Lyme disease Conserv Biol. 2000 14 722 728 10.1046/j.1523-1739.2000.99014.x
+Ostfeld, R. S. & Keesing, F. Biodiversity and disease risk: The case of Lyme disease. Conserv Biol. 14, 722–728 (2000).
+28. Swaddle JP Calos SE Increased avian diversity is associated with lower incidence of human West Nile infection: observation of the dilution effect PLoS ONE 2008 3 e2488 10.1371/journal.pone.0002488 18575599 PMC2427181
+Swaddle, J. P. & Calos, S. E. Increased avian diversity is associated with lower incidence of human West Nile infection: observation of the dilution effect. PLoS ONE 3, e2488 (2008).18575599 10.1371/journal.pone.0002488 PMC2427181
+29. Ezenwa VO Godsey MS King RJ Guptill SC Avian diversity and West Nile virus: testing associations between biodiversity and infectious disease risk Proc. Biol. Sci. 2006 273 109 117 16519242 10.1098/rspb.2005.3284 PMC1560012
+Ezenwa, V. O., Godsey, M. S., King, R. J. & Guptill, S. C. Avian diversity and West Nile virus: testing associations between biodiversity and infectious disease risk. Proc. Biol. Sci. 273, 109–117 (2006).16519242 10.1098/rspb.2005.3284 PMC1560012
+30. Allan BF Ecological correlates of risk and incidence of West Nile virus in the United States Oecologia 2009 158 699 708 10.1007/s00442-008-1169-9 18941794
+Allan, B. F. et al. Ecological correlates of risk and incidence of West Nile virus in the United States. Oecologia 158, 699–708 (2009).18941794 10.1007/s00442-008-1169-9
+31. Talbot B Caron-Levesque M Ardis M Kryuchkov R Kulkarni MA Linking bird and mosquito data to assess spatiotemporal West Nile Virus risk in humans Ecohealth 2019 16 70 81 10.1007/s10393-019-01393-8 30673905
+Talbot, B., Caron-Levesque, M., Ardis, M., Kryuchkov, R. & Kulkarni, M. A. Linking bird and mosquito data to assess spatiotemporal West Nile Virus risk in humans. Ecohealth 16, 70–81 (2019).30673905 10.1007/s10393-019-01393-8
+32. Giordano BV Kaur S Hunter FF West Nile virus in Ontario, Canada: a twelve-year analysis of human case prevalence, mosquito surveillance, and climate data PLoS ONE 2017 12 e0183568 10.1371/journal.pone.0183568 28829827 PMC5568768
+Giordano, B. V., Kaur, S. & Hunter, F. F. West Nile virus in Ontario, Canada: a twelve-year analysis of human case prevalence, mosquito surveillance, and climate data. PLoS ONE 12, e0183568 (2017).28829827 10.1371/journal.pone.0183568 PMC5568768
+33. Karki S Brown WM Uelmen J Ruiz MO Smith RL The drivers of West Nile virus human illness in the Chicago, Illinois, USA area: fine scale dynamic effects of weather, mosquito infection, social, and biological conditions PLoS ONE 2020 15 e0227160 10.1371/journal.pone.0227160 32437363 PMC7241786
+Karki, S., Brown, W. M., Uelmen, J., Ruiz, M. O. & Smith, R. L. The drivers of West Nile virus human illness in the Chicago, Illinois, USA area: fine scale dynamic effects of weather, mosquito infection, social, and biological conditions. PLoS ONE 15, e0227160 (2020).32437363 10.1371/journal.pone.0227160 PMC7241786
+34. Ruiz MO Local impact of temperature and precipitation on West Nile virus infection in Culex species mosquitoes in northeast Illinois, USA Parasit. Vectors 2010 3 19 10.1186/1756-3305-3-19 20302617 PMC2856545
+Ruiz, M. O. et al. Local impact of temperature and precipitation on West Nile virus infection in Culex species mosquitoes in northeast Illinois, USA. Parasit. Vectors 3, 19 (2010).20302617 10.1186/1756-3305-3-19 PMC2856545
+35. Vogels CB Fros JJ Goertz GP Pijlman GP Koenraadt CJ Vector competence of northern European Culex pipiens biotypes and hybrids for West Nile virus is differentially affected by temperature Parasit. Vectors 2016 9 393 10.1186/s13071-016-1677-0 27388451 PMC4937539
+Vogels, C. B., Fros, J. J., Goertz, G. P., Pijlman, G. P. & Koenraadt, C. J. Vector competence of northern European Culex pipiens biotypes and hybrids for West Nile virus is differentially affected by temperature. Parasit. Vectors 9, 393 (2016).27388451 10.1186/s13071-016-1677-0 PMC4937539
+36. Paz S Albersheim I Influence of warming tendency on population abundance and on the probability of West Nile Fever outbreaks (Israeli case study:: 2001-2005) Ecohealth 2008 5 40 48 10.1007/s10393-007-0150-0 18648796
+Paz, S. & Albersheim, I. Influence of warming tendency on population abundance and on the probability of West Nile Fever outbreaks (Israeli case study:: 2001-2005). Ecohealth 5, 40–48 (2008).18648796 10.1007/s10393-007-0150-0
+37. Moirano G Fletcher C Semenza JC Lowe R Short-term effect of temperature and precipitation on the incidence of West Nile Neuroinvasive Disease in Europe: a multi-country case-crossover analysis Lancet Reg. Health Eur. 2025 48 101149 10.1016/j.lanepe.2024.101149 39717226 PMC11665362
+Moirano, G., Fletcher, C., Semenza, J. C. & Lowe, R. Short-term effect of temperature and precipitation on the incidence of West Nile Neuroinvasive Disease in Europe: a multi-country case-crossover analysis. Lancet Reg. Health Eur. 48, 101149 (2025).39717226 10.1016/j.lanepe.2024.101149 PMC11665362
+38. Tran A Environmental predictors of West Nile fever risk in Europe Int. J. Health Geogr. 2014 13 26 10.1186/1476-072X-13-26 24986363 PMC4118316
+Tran, A. et al. Environmental predictors of West Nile fever risk in Europe. Int. J. Health Geogr. 13, 26 (2014).24986363 10.1186/1476-072X-13-26 PMC4118316
+39. Hahn MB Meteorological conditions associated with increased incidence of West Nile virus disease in the United States, 2004-2012 Am. J. Trop. Med Hyg. 2015 92 1013 1022 10.4269/ajtmh.14-0737 25802435 PMC4426558
+Hahn, M. B. et al. Meteorological conditions associated with increased incidence of West Nile virus disease in the United States, 2004-2012. Am. J. Trop. Med Hyg. 92, 1013–1022 (2015).25802435 10.4269/ajtmh.14-0737 PMC4426558
+40. Stilianakis NI Identification of climatic factors affecting the epidemiology of human West Nile virus infections in Northern Greece PLoS ONE 2016 11 e0161510 10.1371/journal.pone.0161510 27631082 PMC5025206
+Stilianakis, N. I. et al. Identification of climatic factors affecting the epidemiology of human West Nile virus infections in Northern Greece. PLoS ONE 11, e0161510 (2016).27631082 10.1371/journal.pone.0161510 PMC5025206
+41. Moirano G West Nile Virus infection in Northern Italy: case-crossover study on the short-term effect of climatic parameters Environ. Res 2018 167 544 549 10.1016/j.envres.2018.08.016 30145430
+Moirano, G. et al. West Nile Virus infection in Northern Italy: case-crossover study on the short-term effect of climatic parameters. Environ. Res. 167, 544–549 (2018).30145430 10.1016/j.envres.2018.08.016
+42. Groen TA Ecology of West Nile virus across four European countries: empirical modelling of the Culex pipiens abundance dynamics as a function of weather Parasit. Vectors 2017 10 524 10.1186/s13071-017-2484-y 29070056 PMC5657042
+Groen, T. A. et al. Ecology of West Nile virus across four European countries: empirical modelling of the Culex pipiens abundance dynamics as a function of weather. Parasit. Vectors 10, 524 (2017).29070056 10.1186/s13071-017-2484-y PMC5657042
+43. Koenraadt CJ Harrington LC Flushing effect of rain on container-inhabiting mosquitoes Aedes aegypti and Culex pipiens (Diptera: Culicidae) J. Med. Entomol. 2008 45 28 35 10.1093/jmedent/45.1.28 18283939
+Koenraadt, C. J. & Harrington, L. C. Flushing effect of rain on container-inhabiting mosquitoes Aedes aegypti and Culex pipiens (Diptera: Culicidae). J. Med. Entomol. 45, 28–35 (2008).18283939 10.1603/0022-2585(2008)45[28:feoroc]2.0.co;2
+44. Ferraccioli F Effects of climatic and environmental factors on mosquito population inferred from West Nile virus surveillance in Greece Sci. Rep. 2023 13 18803 10.1038/s41598-023-45666-3 37914706 PMC10620416
+Ferraccioli, F. et al. Effects of climatic and environmental factors on mosquito population inferred from West Nile virus surveillance in Greece. Sci. Rep. 13, 18803 (2023).37914706 10.1038/s41598-023-45666-3 PMC10620416
+45. Watts MJ Sarto IMV Mortyn PG Kotsila P The rise of West Nile Virus in Southern and Southeastern Europe: a spatial-temporal analysis investigating the combined effects of climate, land use and economic changes One Health 2021 13 100315 10.1016/j.onehlt.2021.100315 34485672 PMC8408625
+Watts, M. J., Sarto, I. M. V., Mortyn, P. G. & Kotsila, P. The rise of West Nile Virus in Southern and Southeastern Europe: a spatial-temporal analysis investigating the combined effects of climate, land use and economic changes. One Health 13, 100315 (2021).34485672 10.1016/j.onehlt.2021.100315 PMC8408625
+46. Shaman J Day JF Stieglitz M Drought-induced amplification and epidemic transmission of West Nile virus in southern Florida J. Med. Entomol. 2005 42 134 141 10.1093/jmedent/42.2.134 15799522
+Shaman, J., Day, J. F. & Stieglitz, M. Drought-induced amplification and epidemic transmission of West Nile virus in southern Florida. J. Med. Entomol. 42, 134–141 (2005).15799522 10.1093/jmedent/42.2.134
+47. Shaman J Day JF Komar N Hydrologic conditions describe West Nile virus risk in Colorado Int. J. Environ. Res. Public Health 2010 7 494 508 10.3390/ijerph7020494 20616987 PMC2872291
+Shaman, J., Day, J. F. & Komar, N. Hydrologic conditions describe West Nile virus risk in Colorado. Int. J. Environ. Res. Public Health 7, 494–508 (2010).20616987 10.3390/ijerph7020494 PMC2872291
+48. Boerlijst SP Biting the hand that feeds: Anthropogenic drivers interactively make mosquitoes thrive Sci. Total Environ. 2023 858 159716 10.1016/j.scitotenv.2022.159716 36302419
+Boerlijst, S. P. et al. Biting the hand that feeds: Anthropogenic drivers interactively make mosquitoes thrive. Sci. Total Environ. 858, 159716 (2023).36302419 10.1016/j.scitotenv.2022.159716
+49. Krol L Interactive effects of climate, land use and soil type on Culex pipiens/torrentium abundance One Health 2023 17 100589 10.1016/j.onehlt.2023.100589 37415720 PMC10320611
+Krol, L. et al. Interactive effects of climate, land use and soil type on Culex pipiens/torrentium abundance. One Health 17, 100589 (2023).37415720 10.1016/j.onehlt.2023.100589 PMC10320611
+50. da Silva Pessoa Vieira CJ Land-use effects on mosquito biodiversity and potential arbovirus emergence in the Southern Amazon, Brazil Transbound. Emerg. Dis. 2022 69 1770 1781 10.1111/tbed.14154 33993650
+da Silva Pessoa Vieira, C. J. et al. Land-use effects on mosquito biodiversity and potential arbovirus emergence in the Southern Amazon, Brazil. Transbound. Emerg. Dis. 69, 1770–1781 (2022).33993650 10.1111/tbed.14154
+51. Bauer, A. M. et al. Land use predicts proportion of West Nile virus vector-competent mosquitoes. Ecosphere10.1002/ecs2.4771 (2024).
+52. Bowden SE Magori K Drake JM Regional differences in the association between land cover and West Nile virus disease incidence in humans in the United States Am. J. Trop. Med. Hyg. 2011 84 234 238 10.4269/ajtmh.2011.10-0134 21292890 PMC3029173
+Bowden, S. E., Magori, K. & Drake, J. M. Regional differences in the association between land cover and West Nile virus disease incidence in humans in the United States. Am. J. Trop. Med. Hyg. 84, 234–238 (2011).21292890 10.4269/ajtmh.2011.10-0134 PMC3029173
+53. Kilpatrick AM Globalization, land use, and the invasion of West Nile virus Science 2011 334 323 327 10.1126/science.1201010 22021850 PMC3346291
+Kilpatrick, A. M. Globalization, land use, and the invasion of West Nile virus. Science 334, 323–327 (2011).22021850 10.1126/science.1201010 PMC3346291
+54. Werner D Kowalczyk S Kampen H Nine years of mosquito monitoring in Germany, 2011-2019, with an updated inventory of German culicid species Parasitol. Res. 2020 119 2765 2774 10.1007/s00436-020-06775-4 32671542 PMC7431392
+Werner, D., Kowalczyk, S. & Kampen, H. Nine years of mosquito monitoring in Germany, 2011-2019, with an updated inventory of German culicid species. Parasitol. Res. 119, 2765–2774 (2020).32671542 10.1007/s00436-020-06775-4 PMC7431392
+55. Ruscher, C. et al. Ecological and clinical evidence of the establishment of West Nile virus in a large urban area in Europe, Berlin, Germany, 2021 to 2022. Euro Surveill.10.2807/1560-7917.ES.2023.28.48.2300258 (2023).10.2807/1560-7917.ES.2023.28.48.2300258 PMC10690859 38037727
+56. Feyer S Clinical, pathological and virological aspects of fatal West Nile virus infections in ten free-ranging goshawks (Accipiter gentilis) in Germany Transbound. Emerg. Dis. 2021 68 907 919 10.1111/tbed.13759 32743905
+Feyer, S. et al. Clinical, pathological and virological aspects of fatal West Nile virus infections in ten free-ranging goshawks (Accipiter gentilis) in Germany. Transbound. Emerg. Dis. 68, 907–919 (2021).32743905 10.1111/tbed.13759
+57. Schneider J Autochthonous West Nile virus infection in Germany: increasing numbers and a rare encephalitis case in a kidney transplant recipient Transbound. Emerg. Dis. 2021 10.1111/tbed.14406 34850584 PMC8969181
+Schneider, J. et al. Autochthonous West Nile virus infection in Germany: increasing numbers and a rare encephalitis case in a kidney transplant recipient. Transbound. Emerg. Dis.10.1111/tbed.14406 (2021).34850584 10.1111/tbed.14406 PMC8969181
+58. Ziegler, U. et al. West Nile Virus epidemic in Germany triggered by epizootic emergence, 2019. Viruses10.3390/v12040448 (2020).10.3390/v12040448 PMC7232143 32326472
+59. Tsioka, K. et al. West Nile Virus in Culex Mosquitoes in Central Macedonia, Greece, 2022. Viruses10.3390/v15010224 (2023).10.3390/v15010224 PMC9863787 36680264
+60. Tsioka K Detection and molecular characterization of West Nile virus in Culex pipiens mosquitoes in Central Macedonia, Greece, 2019-2021 Acta Trop. 2022 230 106391 10.1016/j.actatropica.2022.106391 35271813
+Tsioka, K. et al. Detection and molecular characterization of West Nile virus in Culex pipiens mosquitoes in Central Macedonia, Greece, 2019-2021. Acta Trop. 230, 106391 (2022).35271813 10.1016/j.actatropica.2022.106391
+61. Marini G A quantitative comparison of West Nile virus incidence from 2013 to 2018 in Emilia-Romagna, Italy PLoS Negl. Trop. Dis. 2020 14 e0007953 10.1371/journal.pntd.0007953 31895933 PMC6939904
+Marini, G. et al. A quantitative comparison of West Nile virus incidence from 2013 to 2018 in Emilia-Romagna, Italy. PLoS Negl. Trop. Dis. 14, e0007953 (2020).31895933 10.1371/journal.pntd.0007953 PMC6939904
+62. Planillo, A., Fiechter, L., Sturm, U., Voigt-Heucke, S. & Kramer-Schadt, S. Citizen science data for urban planning: comparing different sampling schemes for modelling urban bird distribution. Landscape Urban Plan.10.1016/j.landurbplan.2021.104098 (2021).
+63. Planillo A Arthropod abundance modulates bird community responses to urbanization Divers Distrib. 2021 27 34 49 10.1111/ddi.13169
+Planillo, A. et al. Arthropod abundance modulates bird community responses to urbanization. Divers Distrib. 27, 34–49 (2021).
+64. Lim A The overlapping global distribution of dengue, chikungunya, Zika and yellow fever Nat. Commun. 2025 16 3418 10.1038/s41467-025-58609-5 40210848 PMC11986131
+Lim, A. et al. The overlapping global distribution of dengue, chikungunya, Zika and yellow fever. Nat. Commun. 16, 3418 (2025).40210848 10.1038/s41467-025-58609-5 PMC11986131
+65. Thomson MC Stanberry LR Climate change and vectorborne diseases N. Engl. J. Med 2022 387 1969 1978 10.1056/NEJMra2200092 36416768
+Thomson, M. C. & Stanberry, L. R. Climate change and vectorborne diseases. N. Engl. J. Med 387, 1969–1978 (2022).36416768 10.1056/NEJMra2200092
+66. Patzina-Mehling C Genomic surveillance indicates high site-specific heterogeneity of West Nile virus in mosquitoes in rural regions of Germany across seasons One Health 2025 10.1016/j.onehlt.2025.101179 41492287 PMC12765102
+Patzina-Mehling, C. et al. Genomic surveillance indicates high site-specific heterogeneity of West Nile virus in mosquitoes in rural regions of Germany across seasons. One Health10.1016/j.onehlt.2025.101179 (2025).41492287 10.1016/j.onehlt.2025.101179 PMC12765102
+67. Chaves, L. F. et al. Climatic variability and landscape heterogeneity impact urban mosquito diversity and vector abundance and infection. Ecosphere10.1890/ES11-00088.1 (2011).
+68. McMillan JR Linking the vectorial capacity of multiple vectors to observed patterns of West Nile virus transmission J. Appl. Ecol. 2019 56 956 965 10.1111/1365-2664.13322
+McMillan, J. R. et al. Linking the vectorial capacity of multiple vectors to observed patterns of West Nile virus transmission. J. Appl. Ecol. 56, 956–965 (2019).
+69. Wilke ABB Urbanization favors the proliferation of Aedes aegypti and Culex quinquefasciatus in urban areas of Miami-Dade County, Florida Sci. Rep. 2021 11 22989 10.1038/s41598-021-02061-0 34836970 PMC8626430
+Wilke, A. B. B. et al. Urbanization favors the proliferation of Aedes aegypti and Culex quinquefasciatus in urban areas of Miami-Dade County, Florida. Sci. Rep. 11, 22989 (2021).34836970 10.1038/s41598-021-02061-0 PMC8626430
+70. Tiawsirisup S Vector competence of Aedes vexans (Diptera: Culicidae) for West Nile virus and potential as an enzootic vector J. Med. Entomol. 2008 45 452 457 10.1093/jmedent/45.3.452 18533439
+Tiawsirisup, S. et al. Vector competence of Aedes vexans (Diptera: Culicidae) for West Nile virus and potential as an enzootic vector. J. Med. Entomol. 45, 452–457 (2008).18533439 10.1603/0022-2585(2008)45[452:VCOAVD]2.0.CO;2
+71. Wohnke E Comparison of vector competence of Aedes vexans Green River and Culex pipiens biotype pipiens for West Nile virus lineages 1 and 2 Zoonoses Public Health 2020 67 416 424 10.1111/zph.12700 32162489
+Wohnke, E. et al. Comparison of vector competence of Aedes vexans Green River and Culex pipiens biotype pipiens for West Nile virus lineages 1 and 2. Zoonoses Public Health 67, 416–424 (2020).32162489 10.1111/zph.12700
+72. Zhang, Y., Ong, G. X., Jin, Z., Seah, C. M. & Chua, T. S. The effects of urban greenway environment on recreational activities in tropical high-density Singapore: a computer vision approach. Urban for Urban Green10.1016/j.ufug.2022.127678 (2022).
+73. Callaghan, C. T., Major, R. E., Lyons, M. B., Martin, J. M. & Kingsford, R. T. The effects of local and landscape habitat attributes on bird diversity in urban greenspaces. Ecosphere10.1002/ecs2.2347 (2018).
+74. Callaghan CT Generalists are the most urban-tolerant of birds: a phylogenetically controlled analysis of ecological and life history traits using a novel continuous measure of bird responses to urbanization Oikos 2019 128 845 858 10.1111/oik.06158
+Callaghan, C. T. et al. Generalists are the most urban-tolerant of birds: a phylogenetically controlled analysis of ecological and life history traits using a novel continuous measure of bird responses to urbanization. Oikos 128, 845–858 (2019).
+75. Haba Y McBride L Origin and status of mosquito ecotypes Curr. Biol. 2022 32 R237 R246 10.1016/j.cub.2022.01.062 35290776 PMC9108678
+Haba, Y. & McBride, L. Origin and status of mosquito ecotypes. Curr. Biol. 32, R237–R246 (2022).35290776 10.1016/j.cub.2022.01.062 PMC9108678
+76. Vogels CB Goertz GP Pijlman GP Koenraadt CJ Vector competence of European mosquitoes for West Nile virus Emerg. Microbes Infect. 2017 6 e96 10.1038/emi.2017.82 29116220 PMC5717085
+Vogels, C. B., Goertz, G. P., Pijlman, G. P. & Koenraadt, C. J. Vector competence of European mosquitoes for West Nile virus. Emerg. Microbes Infect. 6, e96 (2017).29116220 10.1038/emi.2017.82 PMC5717085
+77. Blom R Blood-feeding patterns of Culex pipiens biotype pipiens and pipiens/molestus hybrids in relation to avian community composition in urban habitats Parasit. Vectors 2024 17 95 10.1186/s13071-024-06186-9 38424573 PMC10902945
+Blom, R. et al. Blood-feeding patterns of Culex pipiens biotype pipiens and pipiens/molestus hybrids in relation to avian community composition in urban habitats. Parasit. Vectors 17, 95 (2024).38424573 10.1186/s13071-024-06186-9 PMC10902945
+78. Vogels CBF Goertz GP Pijlman GP Koenraadt CJM Vector competence of northern and southern European Culex pipiens pipiens mosquitoes for West Nile virus across a gradient of temperatures Med. Vet. Entomol. 2017 31 358 364 10.1111/mve.12251 28752627
+Vogels, C. B. F., Goertz, G. P., Pijlman, G. P. & Koenraadt, C. J. M. Vector competence of northern and southern European Culex pipiens pipiens mosquitoes for West Nile virus across a gradient of temperatures. Med. Vet. Entomol. 31, 358–364 (2017).28752627 10.1111/mve.12251
+79. Shannon CE A mathematical theory of communication Bell Syst. Tech. J. 1948 27 379 423 10.1002/j.1538-7305.1948.tb01338.x
+Shannon, C. E. A mathematical theory of communication. Bell Syst. Tech. J. 27, 379–423 (1948).
+80. Folmer O Black M Hoeh W Lutz R Vrijenhoek R DNA primers for amplification of mitochondrial cytochrome c oxidase subunit I from diverse metazoan invertebrates Mol. Mar. Biol. Biotechnol. 1994 3 294 299 7881515
+Folmer, O., Black, M., Hoeh, W., Lutz, R. & Vrijenhoek, R. DNA primers for amplification of mitochondrial cytochrome c oxidase subunit I from diverse metazoan invertebrates. Mol. Mar. Biol. Biotechnol. 3, 294–299 (1994).7881515
+81. Eiden M Vina-Rodriguez A Hoffmann B Ziegler U Groschup MH Two new real-time quantitative reverse transcription polymerase chain reaction assays with unique target sites for the specific and sensitive detection of lineages 1 and 2 West Nile virus strains J. Vet. Diagn. Invest. 2010 22 748 753 10.1177/104063871002200515 20807934
+Eiden, M., Vina-Rodriguez, A., Hoffmann, B., Ziegler, U. & Groschup, M. H. Two new real-time quantitative reverse transcription polymerase chain reaction assays with unique target sites for the specific and sensitive detection of lineages 1 and 2 West Nile virus strains. J. Vet. Diagn. Invest. 22, 748–753 (2010).20807934 10.1177/104063871002200515
+82. Reeves LE Gillett-Kaufman JL Kawahara AY Kaufman PE Barcoding blood meals: new vertebrate-specific primer sets for assigning taxonomic identities to host DNA from mosquito blood meals PLoS Negl. Trop. Dis. 2018 12 e0006767 10.1371/journal.pntd.0006767 30161128 PMC6135518
+Reeves, L. E., Gillett-Kaufman, J. L., Kawahara, A. Y. & Kaufman, P. E. Barcoding blood meals: new vertebrate-specific primer sets for assigning taxonomic identities to host DNA from mosquito blood meals. PLoS Negl. Trop. Dis. 12, e0006767 (2018).30161128 10.1371/journal.pntd.0006767 PMC6135518
+83. Ratnasingham S BOLD v4: A Centralized Bioinformatics Platform for DNA-Based Biodiversity Data Methods Mol. Biol. 2024 2744 403 441 10.1007/978-1-0716-3581-0_26 38683334
+Ratnasingham, S. et al. BOLD v4: A Centralized Bioinformatics Platform for DNA-Based Biodiversity Data. Methods Mol. Biol. 2744, 403–441 (2024).38683334 10.1007/978-1-0716-3581-0_26
+84. Katoh K Standley DM MAFFT multiple sequence alignment software version 7: improvements in performance and usability Mol. Biol. Evol. 2013 30 772 780 10.1093/molbev/mst010 23329690 PMC3603318
+Katoh, K. & Standley, D. M. MAFFT multiple sequence alignment software version 7: improvements in performance and usability. Mol. Biol. Evol. 30, 772–780 (2013).23329690 10.1093/molbev/mst010 PMC3603318
+85. Trifinopoulos J Nguyen LT von Haeseler A Minh BQ W-IQ-TREE: a fast online phylogenetic tool for maximum likelihood analysis Nucleic Acids Res. 2016 44 W232 W235 10.1093/nar/gkw256 27084950 PMC4987875
+Trifinopoulos, J., Nguyen, L. T., von Haeseler, A. & Minh, B. Q. W-IQ-TREE: a fast online phylogenetic tool for maximum likelihood analysis. Nucleic Acids Res. 44, W232–W235 (2016).27084950 10.1093/nar/gkw256 PMC4987875
+86. Hoang DT Chernomor O von Haeseler A Minh BQ Vinh LS UFBoot2: improving the Ultrafast Bootstrap Approximation Mol. Biol. Evol. 2018 35 518 522 10.1093/molbev/msx281 29077904 PMC5850222
+Hoang, D. T., Chernomor, O., von Haeseler, A., Minh, B. Q. & Vinh, L. S. UFBoot2: improving the Ultrafast Bootstrap Approximation. Mol. Biol. Evol. 35, 518–522 (2018).29077904 10.1093/molbev/msx281 PMC5850222
+87. Letunic I Bork P Interactive Tree of Life (iTOL) v6: recent updates to the phylogenetic tree display and annotation tool Nucleic Acids Res. 2024 52 W78 W82 10.1093/nar/gkae268 38613393 PMC11223838
+Letunic, I. & Bork, P. Interactive Tree of Life (iTOL) v6: recent updates to the phylogenetic tree display and annotation tool. Nucleic Acids Res. 52, W78–W82 (2024).38613393 10.1093/nar/gkae268 PMC11223838
+88. Hsieh TC Ma KH Chao A iNEXT: an R package for rarefaction and extrapolation of species diversity (Hill numbers) Methods Ecol. Evol. 2016 7 1451 1456 10.1111/2041-210X.12613
+Hsieh, T. C., Ma, K. H. & Chao, A. iNEXT: an R package for rarefaction and extrapolation of species diversity (Hill numbers). Methods Ecol. Evol. 7, 1451–1456 (2016).
+89. Ovaskainen O How to make more out of community data? A conceptual framework and its implementation as models and software Ecol. Lett. 2017 20 561 576 10.1111/ele.12757 28317296
+Ovaskainen, O. et al. How to make more out of community data? A conceptual framework and its implementation as models and software. Ecol. Lett. 20, 561–576 (2017).28317296 10.1111/ele.12757
+90. Tikhonov G Opedal O Abrego N Lehikoinen A Ovaskainen O Joint species distribution modelling with HMSC-R bioRxiv 2019 10.1101/603217 PMC7074067 32194928
+Tikhonov, G., Opedal, O., Abrego, N., Lehikoinen, A. & Ovaskainen, O. Joint species distribution modelling with HMSC-R. bioRxiv10.1101/603217 (2019).10.1111/2041-210X.13345 PMC7074067 32194928
+91. Schopf F Circulation of West Nile virus and Usutu virus in birds in Germany, 2021 and 2022 Infect. Dis. (Lond.) 2025 57 256 277 10.1080/23744235.2024.2419859 39520671
+Schopf, F. et al. Circulation of West Nile virus and Usutu virus in birds in Germany, 2021 and 2022. Infect. Dis. (Lond.) 57, 256–277 (2025).39520671 10.1080/23744235.2024.2419859
+92. Gobbo, F. et al. Integrated One Health Surveillance of West Nile Virus and Usutu Virus in the Veneto Region, Northeastern Italy, from 2022 to 2023. Pathogens10.3390/pathogens14030227 (2025).10.3390/pathogens14030227 PMC11945005 40137712
+93. Munger E One Health approach uncovers emergence and dynamics of Usutu and West Nile viruses in the Netherlands Nat. Commun. 2025 16 7883 10.1038/s41467-025-63122-w 40849294 PMC12375057
+Munger, E. et al. One Health approach uncovers emergence and dynamics of Usutu and West Nile viruses in the Netherlands. Nat. Commun. 16, 7883 (2025).40849294 10.1038/s41467-025-63122-w PMC12375057
+94. Kassambra, A. & Mundt, F. factoextra: Extract and visualize the results of multivariate data analyses. https://cran.r-project.org/web/packages/factoextra/index.html (2020).

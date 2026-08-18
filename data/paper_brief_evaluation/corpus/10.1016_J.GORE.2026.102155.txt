@@ -1,0 +1,172 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Gynecol Oncol Rep
+Journal ID: Gynecol Oncol Rep
+NLM Journal ID: 101652231
+
+Gynecologic Oncology Reports
+
+EISSN: 2352-5789
+Publisher: Elsevier
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13329501
+PMID: 42404044
+DOI: 10.1016/j.gore.2026.102155
+Article ID: S2352-5789(26)00135-9
+Article ID: 102155
+Article version: 1
+Subjects: Survey Article
+
+Immune checkpoint inhibitor–induced encephalitis in endometrial carcinoma: Distinguishing immune from infectious causes
+
+Sarva Laasyapriya laasya.sarva@health.slu.edu a ⁎
+Alston Natalia a
+Delonais-Parker Ava a
+Grabosch Shannon M. b
+a Graduate Medical Education, Saint Louis University School of Medicine, St. Louis, MO, United States
+b Division of Gynecologic Oncology, SSM SLUCare Department of Obstetrics, Gynecology, and Women's Health, St. Louis, MO, United States
+⁎ Corresponding author. laasya.sarva@health.slu.edu
+Publication date: 2026 Aug
+Electronic publication date: 2026 Jun 25
+Volume: 66
+Electronic Location ID: 102155
+Received 2026 Apr 26; Revised 2026 Jun 18; Accepted 2026 Jun 19
+License: This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+License URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+Keywords: Pembrolizumab, Endometrial carcinoma, Immune checkpoint inhibitor, Encephalitis, Corticosteroid therapy
+
+==============================
+Background
+
+Immune checkpoint inhibitors (ICIs) have expanded therapeutic options for advanced gynecologic cancers but can occasionally cause neurologic immune-mediated adverse events such as encephalitis. These presentations can overlap with infectious or metabolic conditions necessitating timely recognition.
+
+Case
+
+A 68-year-old woman with stage IIIC1 endometrioid endometrial carcinoma developed progressive encephalopathy 15 days after her fourth cycle of pembrolizumab-based therapy. Initial findings of fever, leukocytosis, and abnormal urinalysis supported urosepsis, and a positive West Nile virus IgM serology further complicated the diagnosis. However, subsequent cerebrospinal fluid studies did not support neuroinvasive West Nile disease. Concurrent severe hypothyroidism further complicated the diagnostic evaluation. Ultimately, negative cerebrospinal fluid cultures, lack of evidence for neuroinvasive disease, and continued neurologic decline despite antimicrobial therapy raised concern for pembrolizumab-induced encephalitis. High-dose intravenous methylprednisolone led to rapid and sustained neurologic improvement, substantiating an immune-mediated etiology.
+
+Discussion and conclusion
+
+This case highlights the diagnostic complexity of pembrolizumab-associated encephalitis in the presence of concurrent infectious and endocrine abnormalities. The temporal relationship to immunotherapy, lack of infectious findings, and fast response to corticosteroid treatment were consistent with an immune-mediated etiology. Early recognition of these adverse events is critical to recovery and bolsters the need for a high index of suspicion with these therapies.
+
+Highlights
+
+• Pembrolizumab-induced encephalitis may closely mimic an infectious or metabolic etiology.
+
+• Positive West Nile virus testing and severe hypothyroidism initially obscured the immune-related cause.
+
+• Rapid neurologic improvement with corticosteroids supported an ICI-related encephalitic process.
+
+• Concurrent neurologic and endocrine immune toxicities reflect systemic effects of PD-1 inhibition.
+
+1 Introduction
+
+Immune checkpoint inhibitors (ICIs) are monoclonal antibodies that enhance antitumor immune responses by blocking inhibitory signaling pathways on T cells (Zamani and Šácha, 2025). Widely used agents include ipilimumab, pembrolizumab, and nivolumab. Although initially approved for melanoma, non–small cell lung cancer, renal cell carcinoma, urothelial carcinoma, hepatocellular carcinoma, and Hodgkin lymphoma, ICIs have broadened therapeutic options for gynecologic malignancies This includes endometrial, cervical, and ovarian cancer (Bagchi et al., 2021). Pembrolizumab and dostarlimab have gone beyond the classically established benefit in mismatch repair deficiency or high PD-L1-expressing tumors to provide some impact in mismatch repair-proficient endometrial cancers as well (Mirza et al., 2023; Eskander et al., 2023).
+
+ICI-related encephalitis is a rare but clinically significant adverse event, with reported incidence ranging from 0.1% to 1% depending on the study and agent being investigated. In available reviews, encephalitis has been reported most frequently with PD-1/PD-L1 inhibitors such as nivolumab and pembrolizumab and emerges more often with combination checkpoint blockade than with single-agent therapy, with rates upward of 5.68% in combination therapy (Cheng et al., 2021; Buckley et al., 2025). Presentations vary widely and include fever, headache, encephalopathy, seizures, diplopia, ataxia, and other focal neurologic deficits. ICIs may also induce endocrine immune-related adverse events, particularly hypothyroidism, hyperthyroidism, adrenalitis, and immune-mediated diabetes (Wright and Johnson, 2023).
+
+The clinical manifestations of ICI-related encephalitis overlap substantially with infectious, metabolic, and metastatic processes, making diagnosis challenging. Early recognition relies on maintaining a high degree of clinical suspicion and carefully excluding alternative etiologies. This report describes a patient with endometrial carcinoma who developed acute encephalitis while receiving pembrolizumab in combination therapy. The case highlights diagnostic challenges that arise when multiple confounding etiologies coexist.
+
+2 Case
+
+2.1 Patient Information
+
+A 68-year-old with a recent diagnosis of endometrial adenocarcinoma had undergone total laparoscopic hysterectomy, bilateral salpingo-oophorectomy, and sentinel node biopsies, identifying a final stage IIIC1, grade 2 endometrioid endometrial carcinoma with left sentinel lymph node involvement. Pathology further demonstrated mismatch repair deficiency (dMMR) with loss of MLH1 and PMS2 nuclear expression and retained MSH2 and MSH6 expression. She was treated with adjuvant therapy using a PORTEC 3-type regimen consisting of chemo-sensitizing cisplatin during pelvic radiation followed by carboplatin and paclitaxel. A modified regimen incorporating pembrolizumab was used based on her dMMR status, with a dose received at the same time as her cisplatin and later the carboplatin and paclitaxel (Eskander et al., 2023). Fifteen days after her second cycle of carboplatin, paclitaxel, and pembrolizumab, she presented with progressive fatigue, weakness, and altered mental status of two weeks' duration. She had no known prior neurologic or autoimmune disease.
+
+2.2 Clinical findings and hospital admission timeline
+
+Table 1.Table 1 Hospital course of a patient with pembrolizumab-associated immune checkpoint inhibitor (ICI) encephalitis. The timeline highlights the patient's clinical presentation, pertinent laboratory and imaging findings, and therapeutic interventions from initial admission through diagnosis and treatment. Baseline thyroid function testing obtained 15 days before admission demonstrated normal thyroid function prior to the development of treatment-related endocrinopathy.
+
+Hospital day	Presentation	Relevant labs/imaging	Interventions	
+15 days before admission	Patient receives Cycle 2 of carboplatin, Taxol, and pembrolizumab for IIIC1 Grade 2 endometrioid endometrial adenocarcinoma. Previously received chemo-sensitizing radiation with cisplatin and pembrolizumab, making this her 4th dose of pembrolizumab.	TSH: 1.001 μIU/mL		
+Day 1 (admit)	Patient presents with 2 weeks of progressive fatigue, weakness, and confusion. She is febrile at 103.1 °F with a systolic blood pressure of 89 mmHg. She is oriented only to person and place. She also reports bilateral leg weakness.	White blood cell count: 13.5 × 109/L
+
+Procalcitonin: 0.18
+
+Urinalysis: >100 white blood cells, 1+ bacteria	Start cefepime and vancomycin.	
+Day 2	Patient's mental status worsens. She is febrile at 103.6 °F and moves to the ICU.	Blood cultures and urine cultures: negative to date
+
+CT Abdomen and Pelvis: Hydronephrosis in both kidneys.	Broaden antimicrobial coverage to meropenem, micafungin, doxycycline, and acyclovir.	
+Days 3–8	Patient's fevers and confusion persist. There is no nuchal rigidity, and patient denies photophobia.	West Nile virus serologic testing: IgM positive, IgG negative.
+
+Repeat blood cultures are negative.
+
+Electroencephalogram: no signs of seizure activity
+
+MRI brain: no acute processes	Continue antibiotics	
+Day 9	Lumbar puncture is performed secondary to neurological decline.	Cerebrospinal fluid:
+Protein = 54 mg/dL
+Glucose = 67 mg/dL
+Cell count = Acellular
+Negative culture		
+Days 10–11	Patient continues reporting extremity weakness and displays persistent altered mental status, markedly reduced speech from previous days.	TSH: 89 μIU/mL
+Free T4: < 0.4 μIU/mL.	Start IV methylprednisolone 1 g x5 days and thyroid replacement. Discontinue antibiotics.	
+Days 12–15	Patient with improved speech by Day 13. She tolerates a regular diet by Day 14.			
+Day 20 (discharge)	Patient continues to improve.		Discharge on a 6-week steroid taper	
+Follow-up one week after discharge	Continued improved neurologic status. Remains in skilled nursing for rehabilitation given frailty.		Discontinue chemotherapy and pembrolizumab and continue thyroid replacement	
+
+2.3 Diagnostic assessment and therapeutic intervention
+
+Diagnostic methods included initial laboratory evaluation, which was remarkable for leukocytosis, elevated procalcitonin, abnormal urinalysis, and CT imaging, which revealed bilateral hydronephrosis. Initial management targeted presumed urosepsis with empiric intravenous cefepime and vancomycin. Persistent fevers and concern for central nervous system infection prompted ICU transfer and escalation of antimicrobial therapy to meropenem, micafungin, doxycycline, and acyclovir.
+
+Serologic testing demonstrated positive West Nile virus IgM and negative IgG antibodies. Lumbar puncture performed on hospital day 9 revealed acellular cerebrospinal fluid with mildly elevated protein, normal glucose, and negative cultures. These findings were not consistent with neuroinvasive West Nile virus infection or infectious meningitis and encephalitis. Simultaneously, laboratory evaluation revealed severe hypothyroidism with a TSH of 89.17 μIU/mL and a free thyroxine level of <0.42 ng/dL, for which levothyroxine replacement was initiated.
+
+Given repeatedly negative cultures, non-inflammatory cerebrospinal fluid studies, and progressive neurologic decline despite broad-spectrum antimicrobial therapy, pembrolizumab-induced encephalitis became the leading diagnosis. High-dose intravenous methylprednisolone (1 g daily for 5 days) was initiated, followed by a planned 6-week taper. The patient was subsequently discharged to a skilled nursing facility.
+
+2.4 Follow-up and outcomes
+
+The patient was seen by gynecologic oncology one week after discharge and was noted to have mildly slurred speech, intermittent confusion, and difficulty ambulating independently, although her neurologic status was rapidly approaching baseline. At one-month post-discharge, she returned to her neurologic baseline. The follow-up CT scan was unremarkable. Following hospitalization, systemic chemotherapy and pembrolizumab were discontinued. Thyroid replacement therapy was continued, with repeat testing showing an improved TSH of 13.200 μIU/mL four months after her hospitalization.
+
+3 Discussion
+
+Both urinary tract infection (UTI) and WNV can present with acute altered mental status, fever, and headache, which are also common in ICI-iE, particularly in the meningoencephalitis subtype (Figueroa-Ortiz and Mead, 2025; Velasco et al., 2021; Maayan Eshed et al., 2024; Garcia-Bustos et al., 2021). In the case of UTI, especially in older or immunosuppressed patients, delirium and fever may be prominent, leading clinicians to attribute encephalopathic symptoms to infection rather than to an immune-mediated process (Figueroa-Ortiz and Mead, 2025; Garcia-Bustos et al., 2021). This occurred in our patient, who was initially treated for presumed urosepsis based on urinalysis and systemic findings.
+
+WNV neuroinvasive disease often presents with fever, headache, confusion, and sometimes focal neurologic deficits. CSF findings such as pleocytosis and elevated protein are seen in both WNV and ICI-iE (Velasco et al., 2021; Maayan Eshed et al., 2024). In our patient, a positive serum WNV IgM result further complicated the picture and delayed consideration of an immune-mediated cause. In patients on immune checkpoint inhibitors, the presence of fever and inflammatory CSF findings often leads to empiric treatment for infection, which can postpone the recognition of ICI-iE. In addition, WNV can itself trigger autoimmune syndromes, including autoimmune encephalitis, which can blur the distinction between infectious and immune-mediated etiologies (Velasco et al., 2021). These overlapping presentations emphasize how ICI-iE may be missed for more common conditions and the importance of keeping it on the differential when patients receiving immunotherapy present with unexplained neurologic deficits. However, in this patient, the subsequent cerebrospinal fluid findings did not support West Nile disease as the primary etiology of encephalitis. Although serum West Nile virus IgM was positive, cerebrospinal fluid findings were not consistent with active West Nile CNS infection but more likely with recent exposure or systemic illness. The temporal relationship to pembrolizumab administration and rapid response to corticosteroid therapy ultimately favored an immune-mediated encephalitis diagnosis.
+
+The majority of ICI encephalitis cases present with diffuse meningoencephalitis syndrome or a focal encephalitis picture. Additionally, most patients with ICI-related encephalitis exhibit CSF abnormalities such as lymphocytic pleocytosis or elevated protein (Karagianni et al., 2019). In this patient, the rapid neurologic decline in the absence of CSF inflammation raised concern for autoimmune encephalitis triggered by pembrolizumab.
+
+Although profound hypothyroidism may cause encephalopathy, several features argued against it as the dominant cause of this patient's neurologic decline. Thyroid-related encephalopathy, specifically myxedema coma, typically develops gradually and is frequently accompanied by bradycardia, hypothermia, hypoventilation, hyponatremia, or hypoglycemia, which were not present in this patient's clinical picture (Chen et al., 2024). The patient demonstrated marked neurologic improvement within days of starting corticosteroids. This feature strongly favored an immune-mediated process over isolated thyroid dysfunction (Mocellin et al., 2007; Zavgorodneva et al., 2025; Katakura et al., 2021). Furthermore, ICI-related encephalitis has been reported to have an incidence of approximately 0.1–1%, whereas Hashimoto encephalopathy remains far more rare with an estimated prevalence of 2.1 per 100,000 individuals in the general population (Cheng et al., 2021; Buckley et al., 2025; Nersesjan et al., 2021).
+
+The timing of symptom onset further supported ICI-related encephalitis. Encephalopathy symptoms related to anti-PD-1 therapy most commonly appear after a median of 6–8 weeks after the first dose, typically corresponding to 2–4 treatment cycles (Zou et al., 2025). This is congruent with our patient who developed symptoms after her fourth cycle, 15 days after her most recent pembrolizumab infusion.
+
+MRI and EEG in ICI-related encephalitis are frequently normal or nonspecific, particularly in early or non-focal presentations (Zou et al., 2025). In this context, the patient's unremarkable imaging did not exclude the diagnosis. A key diagnostic feature was her rapid response to high-dose corticosteroids. Most patients with ICI-related encephalitis improve substantially with prompt corticosteroid therapy. The patient's recovery was consistent with the typical corticosteroid responsiveness seen in immune-mediated encephalitis and further supported an ICI-related etiology.
+
+4 Conclusion
+
+This case highlights the diagnostic challenges of immune checkpoint inhibitor-associated encephalitis in the presence of concurrent infectious and endocrine abnormalities. Though initial evaluation suggested urosepsis and subsequent West Nile virus serology raised concern for neuroinvasive infection, cerebrospinal fluid studies and clinical progression supported an immune-mediated etiology. The close temporal relationship to pembrolizumab therapy, concurrent immune-related hypothyroidism, and rapid response to corticosteroids were most consistent with pembrolizumab-induced encephalitis. This case highlights the importance of maintaining a high degree of suspicion for neurologic immune-related adverse events in patients receiving checkpoint inhibitors in the presence of confounding abnormalities to deliver prompt corticosteroid therapy.
+
+CRediT authorship contribution statement
+
+Laasyapriya Sarva: Writing – review & editing, Writing – original draft, Project administration, Methodology, Investigation, Formal analysis, Data curation. Natalia Alston: Writing – original draft, Investigation, Formal analysis. Ava Delonais-Parker: Writing – original draft, Investigation, Formal analysis, Data curation. Shannon M. Grabosch: Supervision, Resources, Project administration, Conceptualization.
+
+Informed consent
+
+Written informed consent was obtained from the patient for the publication of this manuscript and related clinical details.
+
+Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+
+References
+
+Bagchi S. Yuan R. Engleman E.G. Immune checkpoint inhibitors for the treatment of Cancer: clinical impact and mechanisms of response and resistance Annu. Rev. Pathol. 16 2021 223 249 10.1146/annurev-pathol-042020-042741 33197221
+Buckley M.W. Balaji Warner A. Brahmer J. Immune-related encephalitis after immune checkpoint inhibitor therapy Oncologist 30 1 2025 oyae186 10.1093/oncolo/oyae186 PMC11783331 39066587
+Chen D.H. Hurtado C.R. Chang P. Zakher M. Angell T.E. Clinical features and outcomes of Myxedema coma in patients hospitalized for hypothyroidism: analysis of the United States National Inpatient Sample Thyroid 34 4 2024 419 428 10.1089/thy.2023.0559 38279788
+Cheng K. Wang Y. Zhou Y. Xia R. Tang L. Liu J. Neurological adverse events induced by immune checkpoint inhibitors in non-small cell lung cancer: current perspectives and new development Clin. Med. Insights Oncol. 15 2021 11795549211056261 Published 2021 Nov 24 10.1177/11795549211056261 PMC8637700 34866959
+Eskander R.N. Sill M.W. Beffa L. Pembrolizumab plus chemotherapy in advanced endometrial Cancer N. Engl. J. Med. 388 23 2023 2159 2170 10.1056/NEJMoa2302312 36972022 PMC10351614
+Figueroa-Ortiz C.J. Mead P.A. Urinary tract infections in immunocompromised patients Curr. Opin. Infect. Dis. 38 4 2025 322 328 10.1097/QCO.0000000000001121 40497539 PMC12282672
+Garcia-Bustos V. Escrig A.I.R. López C.C. Prospective cohort study on hospitalised patients with suspected urinary tract infection and risk factors por multidrug resistance Sci. Rep. 11 1 2021 11927 Published 2021 Jun 7 10.1038/s41598-021-90949-2 PMC8184807 34099754
+Karagianni P. Alexopoulos H. Sourdi A. Papadimitriou D. Dimitrakopoulos A.N. Moutsopoulos H.M. West Nile virus infection triggering autoimmune encephalitis: pathophysiological and therapeutic implications Clin. Immunol. 207 2019 97 99 10.1016/j.clim.2019.07.007 31454696
+Katakura Y. Kimura T. Kusano T. Case report: a variety of immune-related adverse events triggered by immune checkpoint inhibitors in a subject with malignant melanoma: destructive thyroiditis, aseptic meningitis and isolated ACTH deficiency Front. Endocrinol. (Lausanne) 12 2021 722586 Published 2021 Oct 12 10.3389/fendo.2021.722586 PMC8547604 34712202
+Maayan Eshed G. Levinson T. Mina Y. West Nile virus encephalitis: clinical characteristics and a comparison to other infectious encephalitides J. Neurol. Sci. 467 2024 123286 10.1016/j.jns.2024.123286 39550785
+Mirza M.R. Chase D.M. Slomovitz B.M. Dostarlimab for primary advanced or recurrent endometrial Cancer N. Engl. J. Med. 388 23 2023 2145 2158 10.1056/NEJMoa2216334 36972026
+Mocellin R. Walterfang M. Velakoulis D. Hashimoto’s encephalopathy : epidemiology, pathogenesis and management CNS Drugs 21 10 2007 799 811 10.2165/00023210-200721100-00002 17850170
+Nersesjan V. McWilliam O. Krarup L.H. Kondziella D. Autoimmune encephalitis related to Cancer treatment with immune checkpoint inhibitors: a systematic review Neurology 97 2 2021 e191 e202 10.1212/WNL.0000000000012122 33952651
+Velasco R. Villagrán M. Jové M. Encephalitis induced by immune checkpoint inhibitors: a systematic review JAMA Neurol. 78 7 2021 864 873 10.1001/jamaneurol.2021.0249 33720308
+Wright J.J. Johnson D.B. Approach to the patient with immune checkpoint inhibitor-associated endocrine dysfunction J. Clin. Endocrinol. Metab. 108 6 2023 1514 1525 10.1210/clinem/dgac689 36481794 PMC10188314
+Zamani M.R. Šácha P. Immune checkpoint inhibitors in cancer therapy: what lies beyond monoclonal antibodies? Med. Oncol. 42 7 2025 273 Published 2025 Jun 19 10.1007/s12032-025-02822-1 PMC12178997 40536609
+Zavgorodneva Z. Khan M. Guber H. Co-occurrence of hypophysitis and thyroiditis induced by PD-L1 inhibitor avelumab: clinical insights JCEM Case Rep. 3 6 2025 luaf093 Published 2025 May 12 10.1210/jcemcr/luaf093 PMC12066409 40356788
+Zou L. Rao X. Zhao X. Clinical features, diagnosis, and treatment of pembrolizumab induced autoimmune encephalitis Investig. New Drugs 43 2 2025 191 198 10.1007/s10637-025-01511-0 39907964

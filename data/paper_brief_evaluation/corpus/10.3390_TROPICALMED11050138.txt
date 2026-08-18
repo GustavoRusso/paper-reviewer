@@ -1,0 +1,210 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Trop Med Infect Dis
+Journal ID: Trop Med Infect Dis
+NLM Journal ID: 101709042
+Journal ID: tropicalmed
+
+Tropical Medicine and Infectious Disease
+
+EISSN: 2414-6366
+Publisher: Multidisciplinary Digital Publishing Institute (MDPI)
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13211373
+PMID: 42188867
+DOI: 10.3390/tropicalmed11050138
+Article ID: tropicalmed-11-00138
+Article version: 1
+Subjects: Case Report
+
+First Usutu Virus Infection in an Asymptomatic Blood Donor in Greece
+
+https://orcid.org/0000-0002-6643-3322 Papa Anna 1 *
+https://orcid.org/0000-0001-5200-8045 Tsioka Katerina 1
+https://orcid.org/0000-0002-2249-2443 Pappa Styliani 1
+https://orcid.org/0009-0009-0483-3724 Pervanidou Danai 2
+Politis Constantina 2
+Stamoulis Kostas 3
+Bakaloudi Vassiliki 4
+Smith David W. Academic Editor
+1 Department of Microbiology, Medical School, Aristotle University of Thessaloniki, 54124 Thessaloniki, Greece; aik.tsioka@gmail.com (K.T.); s_pappa@hotmail.com (S.P.)
+2 National Public Health Organisation, 15123 Athens, Greece; d.pervanidou@eody.gov.gr (D.P.); cpolitis11@yahoo.gr (C.P.)
+3 Hellenic National Blood Transfusion Center, 13672 Athens, Greece; kostas.stamoulis@gmail.com
+4 Blood Center, AHEPA University General Hospital, 54636 Thessaloniki, Greece; bakaloudi@gmail.com
+* Correspondence: annap@auth.gr
+Electronic publication date: 2026 May 18
+Publication date: 2026 May
+Volume: 11
+Issue: 5
+Electronic Location ID: 138
+Received 2026 Feb 25; Revised 2026 Mar 20; Accepted 2026 May 12
+Copyright: © 2026 by the authors.
+Copyright year: 2026
+License: Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: Usutu virus, blood donor, whole genome sequence, phylogenetic analysis, Greece
+
+Funding: European Union Horizon 2020 Research and Innovation Programme 874735 Ministry of Health in Greece This research was supported by the Versatile Emerging Infectious Disease Observatory (VEO) project funded by the European Union Horizon 2020 Research and Innovation Programme, grant number 874735. The National Reference Centre for Arboviruses and the Blood Center are supported by the Ministry of Health in Greece. The views, statements and opinions expressed in this article are those of the authors and do not necessarily reflect the official policy or position of the National Public Health Organization (NPHO/EODY).
+
+==============================
+Usutu virus (USUV) is a mosquito-borne flavivirus, widely distributed in Central Europe, where it causes avian outbreaks with large-scale mortality. Although most human infections are asymptomatic or mild, the reports of USUV neurologic infections are increasing, especially among immunocompromised patients. Cross-reactivity in serological and molecular assays is often seen between USUV and the genetically and antigenically related West Nile virus (WNV). Here, we report the first USUV infection in Greece in an asymptomatic blood donor who tested positive in the automated nucleic acid test during screening for WNV, which is endemic in the country. Following the blood donation surveillance plan, a serum sample taken two weeks post-donation was tested for WNV IgM and IgG antibodies. The borderline index of the IgM antibodies, combined with negative result for IgG antibodies, raised the suspicion of molecular cross-reactivity with USUV. Although the USUV-specific PCR in donor’s plasma was negative, its result was positive following amplification of the virus in cell culture, as USUV RNA was detected in the culture supernatant confirming the USUV infection. Whole genome sequence was taken using an Ion Torrent next-generation sequencing platform. Phylogenetic analysis showed that the Greek strain clusters within the USUV Europe 2A genetic lineage. The detection of USUV human infection in Greece prompts for surveillance studies to elucidate its epidemiology and ecology in the country.
+
+1. Introduction
+
+Usutu virus (USUV, Orthoflavivirus usutuense) is circulating in nature between Culex spp. mosquitoes as vectors and birds as amplifying hosts, while humans and horses are dead-end hosts with short-lasting and low-level viraemia [1]. The virus was first isolated in 1959 from Culex neavei mosquitoes collected near the Usutu River in South Africa [2,3], while the first two human infections were identified in the Central African Republic and Burkina Faso in 1981 and 2004, respectively [4]. In Europe, USUV was initially detected in 2001–2002 in dead birds in Austria [5], while a retrospective study showed that the virus was already present in archived tissue samples from dead birds collected in 1996 in the Tuscany region of Italy [6]. Several avian outbreaks (particularly in blackbirds) with mass mortality were observed in Europe [6,7,8]. Human USUV infections are usually asymptomatic or present as mild febrile illness often accompanied by rash; however, an increasing number of neuroinvasive cases are being reported, mainly in immunocompromised patients, while in rare cases, the disease has a fatal outcome [9,10,11,12,13]. Several USUV infections have been reported in blood donors who had been tested positive in the automated nucleic acid test (NAT) systems during routine West Nile virus (WNV) screening [14,15,16,17,18,19]. This is due to cross-reactivity between these two genetically related viruses as they are both belonging to the Japanese encephalitis serocomplex of the Orthoflavivirus genus in the Flaviviridae family [20].
+
+USUV has a positive-sense single-stranded RNA genome with a length of approximately 11,000 nucleotides, which encodes a polyprotein of around 3400 amino acids. Currently, the USUV sequences cluster into eight lineages, which are named on the basis of their geographic origin of isolation: Europe (EU)1 to EU5, and Africa (AF)1 to AF3; all lineages, except AF1, have been detected in Europe, suggesting several virus introductions in the continent [8].
+
+Greece is one of the European countries with the highest annual incidence of human WNV infections. However, there is not any report of human USUV infection. The first serological evidence of USUV circulation in Greece was in November 2010 when a domestic pigeon sampled in Central Macedonia Region in the frame of a WNV bird surveillance survey was found positive in WNV ELISA, but negative in WNV neutralization test, while it was positive for USUV neutralizing antibodies [21]. Studies in Culex pipiens mosquitoes showed that the circulation of USUV is low. In a mosquito surveillance study conducted during 2020–2022 in three Regions of Greece (Attica, Central Macedonia and Thessaly), USUV was detected in four of 1500 pools (0.27%) of C. pipiens mosquitoes; the positive mosquitoes had been trapped in late August 2020 and in September 2022, all in the Central Macedonia Region in northern Greece [22]. In a recent study, USUV was detected in one of 1316 (0.07%) pools of C. pipiens mosquitoes collected in 2024 in various administrative Regions in Greece; the mosquitoes of the positive pool had been trapped in September [23]. This specific pool was one of the 737 pools (0.13%) of mosquitoes collected in Central Macedonia Region. The partial USUV sequence was clustering into the EU2 lineage [23]. Here, we report the first USUV infection in a Greek asymptomatic blood donor and we present the phylogenetic relationships based on whole genome sequence of the strain.
+
+2. Materials and Methods
+
+In late September 2024, a female asymptomatic donor with no comorbidities at her late 20s was found repeatedly WNV positive by NAT. The donor lived in Central Macedonia in northern Greece, with no travel outside that region during the incubation period. The NAT was performed at the Blood Center of AHEPA University General Hospital in Thessaloniki using the Cobas 8800 System (Roche Diagnostics International AG, Rotkreuz, Switzerland). Following the WNV-positive results, the blood unit was discarded.
+
+According to the applied algorithm for blood donors screening, a NAT reactive result initiates a series for further testing, e.g., retest the initial plasma sample by NAT, and test a follow-up serum sample taken 14 days after donation by NAT and by serology at the National Reference Laboratory for Arboviruses and hemorrhagic fever viruses in Aristotle University of Thessaloniki for the presence of WNV-specific IgM and IgG antibodies. An additional serum sample taken 28 days after donation was also tested as the serological result of the previous sample was not indicative of WNV infection (Table 1). Up to that time, the donor remained asymptomatic.
+
+2.1. Serological Testing for West Nile Virus
+
+Two serial serum samples taken from the blood donor 14 and 28 weeks after donation were tested. For the detection of WNV IgM and IgG antibodies the WNV IgM capture DxSelect and WNV IgG DxSelect commercial ELISA kits (Focus Diagnostics Inc., Cypress, CA, USA) were used. According to the manufacturers, an index >1.1 for IgM and >1.5 for IgG is defined as positive result. The IgG avidity was measured in the IgG positive samples using the same ELISA IgG kit and 6 M urea; avidity value <50% is defined as low avidity, suggestive of a recent WNV infection [24].
+
+2.2. Virus Isolation
+
+Vero E6 cell monolayers were inoculated with 350 ul donors’ plasma in a 25 cm2 flask containing 10 mL culture medium consisting of minimum essential medium with 10% fetal bovine serum, L-glutamine 200 mM, penicillin and streptomycin 5000 U/mL, amphotericin B 250 ug/mL and sodium bicarbonate solution 7.5%. All culture reagents were purchased from Gibco (ThermoFisher Scientific, Waltham, MA, USA). The flask was incubated at 37 °C with 5% CO2, and the presence of cytopathic effects (CPEs), such as cell rounding and detachment, was monitored daily. After three serial passages of the virus in new flasks, the virus stocks were stored at −80 °C. All the procedures for USUV isolation were performed in the biosafety level 3 laboratory by staff trained to work within this containment level.
+
+2.3. Molecular Testing
+
+Viral RNA was extracted from 140 ul blood donor’s plasma and from culture supernatant using the QIAamp Viral RNA kit (Qiagen, Hilden, Germany). The testing for WNV RNA was performed using a commercial real-time RT-PCR kit (Sacace Biotechnologies, Como, Italy). For the detection of USUV RNA, an in-house USUV-specific real-time RT-PCR was applied using the primer set USU-F and USU-R2 and the probe USU-S [25].
+
+2.4. Next-Generation Sequencing
+
+De novo next-generation sequencing (NGS) was performed on the viral RNA extracted from the culture supernatant. First-strand cDNA synthesis was performed from 10 ul of RNA using SuperScript III Reverse Transcriptase (Invitrogen, ThermoFisher Scientific, Waltham, MA, USA) and oligo (dT) primers; second-strand synthesis was carried out using Klenow fragment DNA polymerase (New England Biolabs, Ipswich, MA, USA).
+
+The libraries were prepared using the Ion 510 & Ion 520 & Ion 530 for Ion Chef kit for 400 base-reads and quantified using the Ion Library TaqMan Quantitation kit. Then, they were normalized to a final concentration of 30 pM, and the library (single end) was loaded in an Ion 520 semiconductor sequencing chip on an Ion Torrent S5 platform following the manufacturer’s instructions. All reagents were obtained from ThermoFisher Scientific. Raw reads were processed for quality control through the Torrent Suite software version 5.18.1, and the obtained sequences were aligned using the sequence of USUV strain Vienna 2001 (GenBank Accession number NC_006551) as reference. Assembly and annotation of the USUV whole genome sequence were performed using Geneious Prime, version 2021.2.1.
+
+2.5. Phylogenetic Analysis
+
+The USUV whole genome sequence was aligned with respective sequences obtained from the GenBank Database using CLUSTAL W, and a phylogenetic tree was generated using the maximum likelihood method and Tamura-Nei model of nucleotide substitutions in MEGA version 12 software [26].
+
+3. Results
+
+3.1. WNV NAT Screening
+
+The results from the NAT screening of the donor’s samples in the Blood Center of AHEPA University General Hospital in Thessaloniki are seen in Table 1.
+
+3.2. Serological and Molecular Testing
+
+The results of the serological and molecular testing in the Reference Laboratory are seen in Table 2. Specifically, the index of the WNV IgM antibodies in the serum sample taken 14 days after donation was at the borderline, while WNV IgG antibodies were not detected, and the WNV-specific PCR was negative. Therefore, a second serum sample was taken 14 days later (28 days post donation). Although WNV IgG antibodies were detected with avidity 20.8% (less than 50%, suggestive of acute infection), WNV IgM antibodies were not detected. Since the serology results were inconclusive, USUV was suspected, and the stored original plasma sample of the donor was tested by an USUV-specific real-time RT-PCR which resulted negative.
+
+3.3. Virus Isolation
+
+CPEs were observed in the flasks on the 5th day post-inoculation. The real-time RT-PCR performed on the RNA extracted from the cell culture supernatant gave a positive result with cycle threshold (Ct) 16.5 (Table 2).
+
+3.4. Next-Generation Sequencing
+
+A total of 265,070 reads were taken from NGS. The whole genome sequence of USUV consisted of 10,947 nucleotides with an open reading frame encoding the virus polyprotein consisting of 3434 amino acids.
+
+3.5. Phylogenetic Analysis
+
+A maximum likelihood phylogenetic tree based on whole genome sequences of USUV (10,302 nucleotides) is seen in Figure 1. The percentage of replicate trees in which the associated taxa clustered together (1000 replicates) is shown below the branches; only values >75% are shown. The Greek sequence clusters within the USUV EU2 genetic lineage, and specifically in the sub-lineage EU2-A, sharing >99.5% nucleotide identity with European strains of the same sub-lineage.
+
+4. Discussion
+
+USUV is an emerging arbovirus in Europe with increasing spatial distribution and number of human infection reports. Most USUV infections are asymptomatic or mild and remain undiagnosed. However, there are several reports of USUV asymptomatic cases which were diagnosed following a false positive result during WNV NAT screening in blood donations due to cross-reactivity between USUV and WNV. Similar cross-reactivity is seen also in serology.
+
+Since 2010 when WNV emerged in Greece, it causes seasonal outbreaks of human infections almost every year [27]. Therefore, the National Public Health Organisation implements annually (during May–November) enhanced surveillance of human WNV infections. An intersectoral Working Group (under the Ministry of Health) designates the “affected” and “high-risk” municipalities (administrative units), where targeted blood safety and hemovigilance measures are implemented. A municipality is defined as “affected” when at least one human case of WNV infection (either with WNND or not) has been recorded during the current season, and as “high risk” when no case has been recorded during the current transmission season, but risk factors are present (e.g., neighboring/adjacent to affected municipalities). The screening programs are applied to donors residing or having visited “affected” and “high-risk” areas. In these areas, the National blood safety authorities have issued guidelines: (i) the blood safety measures include 28-day deferral of donors who spent even one night in an area with ongoing WNV transmission to humans, and WNV ID-NAT blood screening; (ii) the hemovigilance measures include post donation and post transfusion information, as well as retrospective procedures aiming at tracing recipients of blood components from a potentially infectious blood donation; and (iii) the serological follow-up includes test for WNV IgM and IgG antibodies of donors positive for WNV RNA. A retrospective screening of the available blood units taken up to 15 days prior to the municipality’s characterization is also performed in the affected areas, while in high-risk areas the screening starts upon the characterization without retrospective screening.
+
+The donor of the present study lived in an already affected area of Central Macedonia Region, and all measures targeting the affected areas were in place; this is why the donated blood was tested for WNV. The reports of USUV in C. pipiens mosquitoes and USUV-specific neutralizing antibodies in a sentinel bird were also from Central Macedonia [21,22,23]. The detection of USUV only in the northern part of the country is probably the result of environmental or other factors rather than a bias in sampling.
+
+The positive WNV NAT result combined with inconclusive results in WNV serology (borderline index of IgM antibodies with no detection of IgG antibodies), prompted for USUV testing. USUV RNA was not detected in the original plasma sample, but it was detected in the culture supernatant taken five days post-inoculation of donor’s plasma in Vero E6 cells, which is explained by the fact that the virus was amplified in the cells at detectable level (Ct 16.5). Four weeks after the donation, WNV IgM antibodies were undetectable in the donor’s serum, but WNV IgG antibodies were detected. USUV serology was not performed; therefore, IgG cross-reactivity between USUV and WNV was not directly proven, but it is assumed based on other studies which have shown that it is often seen between these two flaviviruses even in neutralizing tests [28]. Since the neutralizing antibodies usually target the antigenically similar envelope protein E, they are broadly cross-reactive, highlighting the need for diagnostic tools with increased specificity. A recent study showed that differentiation between recent WNV and USUV infections is possible using quantitative WNV and USUV NS1-based IgM and IgG ELISAs, which should be performed side-by-side to minimize cross-reactivity effects [29].
+
+The Greek USUV strain belongs to EU2-A lineage. It can be seen that the strain isolated in 1993 in Senegal (ArD101291, accession number KC754956) is more closely related to the European USUV strains than to African strains, supporting the hypothesis that USUV was introduced into Europe from Africa, most probably via viremic migratory birds [30]. A recent study estimated that Europe 2 lineage has arisen from an ancestor that existed in Austria following its introduction from Africa between 1970 and the 1980s [31]. The authors mentioned that the fact that many intervening countries in Africa are unsampled, the prediction of spatial movements of USUV between African countries and between Africa and Europe is difficult, and caution is needed in the interpretation of phylogeography results.
+
+While Greece is endemic for WNV, this is the first report of autochthonous USUV human infection in the country. This fact, together with the low prevalence of USUV in mosquitoes, could be attributed to unfavorable ecological conditions not supporting the intense, widespread amplification of USUV as seen in Central European countries [22]. An additional factor may be the interaction and competion between USUV and WNV, since it was shown in cell lines that USUV is outcompeted by WNV in mammalian, avian and mosquito cells [32]. A third explanation is the misdiagnosis of USUV cases due to cross-reactivity with WNV, and the underestimation due to asymptomatic or mild infection. A recent study showed that, in contrast to WNV, USUV cannot infect motor neurons in healthy individuals due to its restriction by the antiviral immune response, which could explain the differences in the clinical impact of these two viruses [33].
+
+Currently, there are no specific regulations for screening blood donations for USUV. However, blood transfusion is often applied to immunosuppressed or severely ill patients with a potential risk for development of nosocomial USUV-associated neurological disease in USUV endemic countries that screen only for WNV [17]. To the best of our knowledge, there is not any report of transfusion-transmitted USUV infection. Further surveillance studies are needed to find out to what extent USUV is implicated in transfusion safety and in public health in general.
+
+5. Conclusions
+
+WNV and USUV belong to the same serocomplex of orthoflaviviruses, and cross-reactivity is often seen in the diagnostic assays. Therefore, the differential diagnosis between WNV and USUV infections is challenging, and awareness is needed among clinicians and laboratory professionals not to overlook or misidentify the USUV infections. The detection of autochthonous USUV human infection in Greece prompts for surveillance studies to elucidate its epidemiology and ecology in the country.
+
+Author Contributions
+
+Conceptualization, A.P.; methodology, V.B., A.P., C.P. and K.S.; validation, A.P.; investigation, K.T., S.P. and D.P.; resources, V.B.; data curation, A.P. and V.B.; writing—original draft preparation, A.P.; writing—review and editing, all authors; visualization, A.P. and S.P.; supervision, A.P.; project administration, A.P.; funding acquisition, A.P. All authors have read and agreed to the published version of the manuscript.
+
+Institutional Review Board Statement
+
+The study was conducted in accordance with the Declaration of Helsinki and approved by the Ethics Committee of the National Public Health Organisation (protocol code 9560 and date of approval 30 April 2026).
+
+Informed Consent Statement
+
+Informed consent was obtained from the blood donor to publish this article. All data were anonymized ensuring that the individual cannot be identified.
+
+Data Availability Statement
+
+The sequence of the study was submitted to the GenBank DataBase under the accession number PV659400.
+
+Conflicts of Interest
+
+The authors declare no conflicts of interest.
+
+Figure 1 Maximum likelihood phylogenetic tree based on USUV whole genome sequences. The sequence of the present study is shown in bold. The sequences are shown as accession number, country and year of detection.
+
+tropicalmed-11-00138-t001_Table 1 Table 1 WNV NAT results of the blood donor’s samples.
+
+Sample	Time of Collection	Result/Cycle Threshold	
+Plasma (blood unit)	Day of donation	Positive/31.99	
+Plasma (donor)	Day of donation	Positive/30.06	
+Plasma (donor) *	Day of donation	Positive/31.46	
+Serum (donor)	15 days post donation	Negative	
+* Same donor’s plasma sample re-tested.
+
+tropicalmed-11-00138-t002_Table 2 Table 2 Serological and molecular results on samples taken from the blood donor and from culture supernatant taken five days post-inoculation.
+
+Sample	Days Post Donation	WNV IgM	WNV IgG/Avidity	WNV PCR	USUV Real-Time RT-PCR/Cycle Threshold	
+Stored plasma	0	N.D. 1	N.D.	Negative	Negative	
+Serum	14	0.96 (borderline)	negative	N.D.	N.D.	
+Serum	28	negative	2.2/20.8	N.D.	N.D.	
+Culture supernatant		-	-	Negative	Positive/16.5	
+1 N.D.: not done.
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+References
+
+1. Cle M. Beck C. Salinas S. Lecollinet S. Gutierrez S. Van de Perre P. Baldet T. Foulongne V. Simonin Y. Usutu virus: A new threat? Epidemiol. Infect. 2019 147 e232 10.1017/S0950268819001213 31364580 PMC6625183
+2. Williams M.C. Simpson D.I. Haddow A.J. Knight E.M. The Isolation of West Nile Virus from Man and of Usutu Virus from the Bird-Biting Mosquito Mansonia aurites (Theobald) in the Entebbe Area of Uganda Ann. Trop. Med. Parasitol. 1964 58 367 374 10.1080/00034983.1964.11686258 14212897
+3. McIntosh B.M. Usutu (SA Ar 1776), nouvel arbovirus du groupe B International Catalogue of Arboviruses American Society of Tropical Medicine and Hygiene Arlington, VA, USA 1985 Volume 31985 1059 1060
+4. Nikolay B. Diallo M. Boye C.S. Sall A.A. Usutu virus in Africa Vector Borne Zoonotic Dis. 2011 11 1417 1423 10.1089/vbz.2011.0631 21767160
+5. Weissenbock H. Kolodziejek J. Url A. Lussy H. Rebel-Bauder B. Nowotny N. Emergence of Usutu virus, an African mosquito-borne flavivirus of the Japanese encephalitis virus group, central Europe Emerg. Infect. Dis. 2002 8 652 656 10.3201/eid0807.020094 12095429 PMC2730324
+6. Weissenbock H. Bakonyi T. Rossi G. Mani P. Nowotny N. Usutu virus, Italy, 1996 Emerg. Infect. Dis. 2013 19 274 277 10.3201/eid1902.121191 23347844 PMC3559058
+7. de Bruin E. van Irsel J. Chandler F. Kohl R. van de Voorde T. van der Linden A. de Boer F. Koopmans M. van der Jeugd H. Reusken C. Usutu Virus Antibody Dynamics in Naturally Infected Blackbirds, the Netherlands, 2016–2018 Emerg. Infect. Dis. 2025 31 1244 1246 10.3201/eid3106.241744 40439549 PMC12123932
+8. Cadar D. Luhken R. van der Jeugd H. Garigliany M. Ziegler U. Keller M. Lahoreau J. Lachmann L. Becker N. Kik M. Widespread activity of multiple lineages of Usutu virus, western Europe, 2016 Euro Surveill. 2017 22 30452 10.2807/1560-7917.ES.2017.22.4.30452 28181903 PMC5388094
+9. Angeloni G. Bertola M. Lazzaro E. Morini M. Masi G. Sinigaglia A. Trevisan M. Gossner C.M. Haussig J.M. Bakonyi T. Epidemiology, surveillance and diagnosis of Usutu virus infection in the EU/EEA, 2012 to 2021 Euro Surveill. 2023 28 2200929 10.2807/1560-7917.ES.2023.28.33.2200929 37589592 PMC10436690
+10. Cadar D. Simonin Y. Human Usutu Virus Infections in Europe: A New Risk on Horizon? Viruses 2022 15 77 10.3390/v15010077 36680117 PMC9866956
+11. Pecorari M. Longo G. Gennari W. Grottola A. Sabbatini A. Tagliazucchi S. Savini G. Monaco F. Simone M. Lelli R. First human case of Usutu virus neuroinvasive infection, Italy, August–September 2009 Euro Surveill. 2009 14 15 16 10.2807/ese.14.50.19446-en 20070936
+12. Simonin Y. Sillam O. Carles M.J. Gutierrez S. Gil P. Constant O. Martin M.F. Girard G. Van de Perre P. Salinas S. Human Usutu Virus Infection with Atypical Neurologic Presentation, Montpellier, France, 2016 Emerg. Infect. Dis. 2018 24 875 878 10.3201/eid2405.171122 29664365 PMC5938765
+13. Szabo B.G. Nagy A. Nagy O. Koroknai A. Csonka N. Korozs D. Jeszenszky K. Hardi A. Deezsi-Magyar N. Sztikler J. First documented case of a fatal autochthonous Usutu virus infection in an immunocompromised patient in Hungary: A clinical-virological report and implications from the literature Virol. J. 2025 22 261 10.1186/s12985-025-02890-9 40731345 PMC12309071
+14. Domanovic D. Gossner C.M. Lieshout-Krikke R. Mayr W. Baroti-Toth K. Dobrota A.M. Escoval M.A. Henseler O. Jungbauer C. Liumbruno G. West Nile and Usutu Virus Infections and Challenges to Blood Safety in the European Union Emerg. Infect. Dis. 2019 25 1050 1057 10.3201/eid2506.181755 31107223 PMC6537739
+15. Cadar D. Maier P. Muller S. Kress J. Chudy M. Bialonski A. Schlaphof A. Jansen S. Jost H. Tannich E. Blood donor screening for West Nile virus (WNV) revealed acute Usutu virus (USUV) infection, Germany, September 2016 Euro Surveill. 2017 22 30501 10.2807/1560-7917.ES.2017.22.14.30501 28422005 PMC5388121
+16. Allering L. Jost H. Emmerich P. Gunther S. Lattwein E. Schmidt M. Seifried E. Sambri V. Hourfar K. Schmidt-Chanasit J. Detection of Usutu virus infection in a healthy blood donor from south-west Germany, 2012 Euro Surveill. 2012 17 20341 10.2807/ese.17.50.20341-en 23241231
+17. Bakonyi T. Jungbauer C. Aberle S.W. Kolodziejek J. Dimmel K. Stiasny K. Allerberger F. Nowotny N. Usutu virus infections among blood donors, Austria, July and August 2017—Raising awareness for diagnostic challenges Euro Surveill. 2017 22 17-00644 10.2807/1560-7917.ES.2017.22.41.17-00644 PMC5710119 29043962
+18. Aberle S.W. Kolodziejek J. Jungbauer C. Stiasny K. Aberle J.H. Zoufaly A. Hourfar M.K. Weidner L. Nowotny N. Increase in human West Nile and Usutu virus infections, Austria, 2018 Euro Surveill. 2018 23 1800545 10.2807/1560-7917.ES.2018.23.43.1800545 30376913 PMC6208007
+19. Carletti F. Colavita F. Rovida F. Percivalle E. Baldanti F. Ricci I. De Liberato C. Rosone F. Messina F. Lalle E. Expanding Usutu virus circulation in Italy: Detection in the Lazio region, central Italy, 2017 to 2018 Euro Surveill. 2019 24 1800649 10.2807/1560-7917.ES.2019.24.3.1800649 30670139 PMC6344840
+20. International Committee on Taxonomy of Viruses: ICTV Family: Flaviviridae. Genus: Orthoflavivirus 2025 Available online: https://ictv.global/report/chapter/flaviviridae/flaviviridae/orthoflavivirus (accessed on 2 May 2025)
+21. Chaintoutis S.C. Dovas C.I. Papanastassopoulou M. Gewehr S. Danis K. Beck C. Lecollinet S. Antalis V. Kalaitzopoulou S. Panagiotopoulos T. Evaluation of a West Nile virus surveillance and early warning system in Greece, based on domestic pigeons Comp. Immunol. Microbiol. Infect. Dis. 2014 37 131 141 10.1016/j.cimid.2014.01.004 24503179
+22. Panagopoulou A. Tegos N. Beleri S. Mpimpa A. Balatsos G. Michaelakis A. Hadjichristodoulou C. Patsoula E. Molecular detection of Usutu virus in pools of Culex pipiens mosquitoes in Greece Acta Trop. 2024 258 107330 10.1016/j.actatropica.2024.107330 39043331
+23. Tsioka K. Stoikou K. Antalis V. Charizani E. Pappa S. Gewehr S. Kalaitzopoulou S. Mourelatos S. Papa A. Detection of West Nile virus, Usutu virus and insect-specific bunyaviruses in Culex spp. mosquitoes, Greece, 2024 Viruses 2025 17 1414 10.3390/v17111414 41305437 PMC12656916
+24. Prince H.E. Lape-Nixon M. Busch M.P. Tobler L.H. Foster G.A. Stramer S.L. Utilization of follow-up specimens from viremic blood donors to assess the value of West Nile virus immunoglobulin G avidity as an indicator of recent infection Clin. Diagn. Lab. Immunol. 2005 12 1123 1126 10.1128/CDLI.12.9.1123-1126.2005 16148183 PMC1235801
+25. Del Amo J. Sotelo E. Fernandez-Pinero J. Gallardo C. Llorente F. Aguero M. Jimenez-Clavero M.A. A novel quantitative multiplex real-time RT-PCR for the simultaneous detection and differentiation of West Nile virus lineages 1 and 2, and of Usutu virus J. Virol. Methods 2013 189 321 327 10.1016/j.jviromet.2013.02.019 23499258
+26. Kumar S. Stecher G. Suleski M. Sanderford M. Sharma S. Tamura K. MEGA12: Molecular Evolutionary Genetic Analysis Version 12 for Adaptive and Green Computing Mol. Biol. Evol. 2024 41 msae263 10.1093/molbev/msae263 39708372 PMC11683415
+27. Papa A. Danis K. Baka A. Bakas A. Dougas G. Lytras T. Theocharopoulos G. Chrysagis D. Vassiliadou E. Kamaria F. Ongoing outbreak of West Nile virus infections in humans in Greece, July–August 2010 Euro Surveill. 2010 15 19644 10.2807/ese.15.34.19644-en 20807489
+28. Percivalle E. Cassaniti I. Sarasini A. Rovida F. Adzasehoun K.M.G. Colombini I. Isernia P. Cuppari I. Baldanti F. West Nile or Usutu Virus? A Three-Year Follow-Up of Humoral and Cellular Response in a Group of Asymptomatic Blood Donors Viruses 2020 12 157 10.3390/v12020157 32013152 PMC7077259
+29. Rossbacher L. Taschler S. Cecchettin E. Popovitsch A. Aberle S.W. Aberle J.H. Medits-Weiss I. Stiasny K. Differentiation of West Nile and Usutu Virus Infections by Antibodies Directed to the Non-Structural Protein 1 Viruses 2025 17 1357 10.3390/v17101357 41157627 PMC12567941
+30. Nikolay B. Dupressoir A. Firth C. Faye O. Boye C.S. Diallo M. Sall A.A. Comparative full length genome sequence analysis of Usutu virus isolates from Africa Virol. J. 2013 10 217 10.1186/1743-422X-10-217 23816256 PMC3716710
+31. Engel D. Jost H. Wink M. Borstler J. Bosch S. Garigliany M.M. Jost A. Czajka C. Luhken R. Ziegler U. Reconstruction of the Evolutionary History and Dispersal of Usutu Virus, a Neglected Emerging Arbovirus in Europe and Africa mBio 2016 7 e01938-15 10.1128/mBio.01938-15 26838717 PMC4742707
+32. Wang H. Abbo S.R. Visser T.M. Westenberg M. Geertsema C. Fros J.J. Koenraadt C.J.M. Pijlman G.P. Competition between Usutu virus and West Nile virus during simultaneous and sequential infection of Flaviviridae pipiens mosquitoes Emerg. Microbes Infect. 2020 9 2642 2652 10.1080/22221751.2020.1854623 33215969 PMC7738303
+33. Marshall E.M. Bauer L. Nelemans T. Sooksawasdi Na Ayudhya S. Benavides F. Lanko K. de Vrij F.M.S. Kushner S.A. Koopmans M. van Riel D. Differential susceptibility of human motor neurons to infection with Usutu and West Nile virus J. Neuroinflamm. 2024 21 236 10.1186/s12974-024-03228-y 39334427 PMC11437828

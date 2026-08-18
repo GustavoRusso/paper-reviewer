@@ -1,0 +1,187 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: PLoS One
+Journal ID: PLoS One
+NLM Journal ID: 101285081
+Journal ID: plos
+
+PLOS One
+
+EISSN: 1932-6203
+Publisher: PLOS
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13098923
+PMID: 42013114
+DOI: 10.1371/journal.pone.0334586
+Article ID: PONE-D-25-53084
+Article version: 1
+Subjects: Research Article, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Disease Vectors, Insect Vectors, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Species Interactions, Disease Vectors, Insect Vectors, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Zoology, Entomology, Insects, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Organisms, Eukaryota, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Aedes Aegypti, Biology and Life Sciences, Zoology, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Aedes Aegypti, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Disease Vectors, Insect Vectors, Mosquitoes, Culex Quinquefasciatus, Biology and Life Sciences, Species Interactions, Disease Vectors, Insect Vectors, Mosquitoes, Culex Quinquefasciatus, Biology and Life Sciences, Zoology, Entomology, Insects, Mosquitoes, Culex Quinquefasciatus, Biology and Life Sciences, Organisms, Eukaryota, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Culex Quinquefasciatus, Biology and Life Sciences, Zoology, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Culex Quinquefasciatus, Medicine and Health Sciences, Medical Conditions, Infectious Diseases, Disease Vectors, Insect Vectors, Mosquitoes, Biology and Life Sciences, Species Interactions, Disease Vectors, Insect Vectors, Mosquitoes, Biology and Life Sciences, Zoology, Entomology, Insects, Mosquitoes, Biology and Life Sciences, Organisms, Eukaryota, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Biology and Life Sciences, Zoology, Animals, Invertebrates, Arthropoda, Insects, Mosquitoes, Medicine and Health Sciences, Public and Occupational Health, Biology and Life Sciences, Organisms, Viruses, Arboviruses, Biology and life sciences, Organisms, Viruses, RNA viruses, Flaviviruses, West Nile virus, Biology and life sciences, Microbiology, Medical microbiology, Microbial pathogens, Viral pathogens, Flaviviruses, West Nile virus, Medicine and health sciences, Pathology and laboratory medicine, Pathogens, Microbial pathogens, Viral pathogens, Flaviviruses, West Nile virus, Biology and life sciences, Organisms, Viruses, Viral pathogens, Flaviviruses, West Nile virus, Earth Sciences, Seasons, People and places, Geographical locations, North America, United States, Florida
+
+Spatiotemporal dynamics of Aedes aegypti and Culex quinquefasciatus populations in Miami-Dade County, Florida
+
+Spatiotemporal dynamics of Aedes aegypti and Culex quinquefasciatus populations in Miami-Dade County, Florida
+
+Vasquez Chalmers Conceptualization Data curation Formal analysis Investigation Writing – original draft 1
+Multini Laura C. Formal analysis Investigation Writing – review & editing 2
+Mutebi John-Paul Conceptualization Project administration Supervision Writing – review & editing 1
+SeRine Ethan Formal analysis Investigation Writing – review & editing 3
+Hill Megan D. Formal analysis Investigation Writing – review & editing 3
+Litvinova Maria Formal analysis Validation Writing – review & editing 4
+Ajelli Marco Conceptualization Funding acquisition Supervision Validation Writing – review & editing 3
+https://orcid.org/0000-0002-6629-7666 Wilke André B. B. Conceptualization Formal analysis Funding acquisition Project administration Supervision Writing – original draft Writing – review & editing 4 *
+1 Maimi-Dade County Mosquito Control Division, Miami, Florida, United States of America
+2 Department of Entomology, Cornell University, Ithaca, New York, United States of America
+3 Laboratory for Computational Epidemiology and Public Health, Department of Epidemiology and Biostatistics, Indiana University School of Public Health, Bloomington, Indiana, United States of America
+4 Department of Epidemiology and Biostatistics, Indiana University School of Public Health, Bloomington, Indiana, United States of America
+Colborn James Editor
+Clinton Health Access Initiative, UNITED STATES OF AMERICA
+Competing Interests: The authors have declared that no competing interests exist.
+
+* E-mail: andwilke@iu.edu
+Electronic publication date: 2026 Apr 21
+Publication date: 2026
+Volume: 21
+Issue: 4
+Electronic Location ID: e0334586
+Received 2025 Sep 29; Accepted 2026 Apr 5
+Copyright: © 2026 Vasquez et al
+Copyright year: 2026
+Copyright holder: Vasquez et al
+License: This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Funding: http://dx.doi.org/10.13039/100000001 National Science Foundation DMS-2424606 https://orcid.org/0000-0002-6629-7666 Wilke André B. B. http://dx.doi.org/10.13039/100000001 National Science Foundation DMS-2424606 Ajelli Marco http://dx.doi.org/10.13039/100000001 National Science Foundation DMS-2424606 SeRine Ethan http://dx.doi.org/10.13039/100000001 National Science Foundation DMS-2424606 Hill Megan D. André B.B. Wilke, Ethan SeRine, Megan D. Hill, and Marco Ajelli were supported by the National Science Foundation (DMS-2424605/2424606/2424607). The NSF had no role in the design of the study and collection, analysis, and interpretation of data, and in writing the manuscript.
+
+Figure count: 3
+Table count: 2
+Page count: 9
+Data Availability: The mosquito surveillance data analyzed in this study are owned by the Miami-Dade Mosquito Control Division, a governmental agency of Miami-Dade County. Although the records are fully de-identified, the County classifies them as operational public-health data; external release therefore requires prior review to ensure compliance with Florida public-records statutes and County privacy guidelines. Researchers who wish to obtain the dataset may submit a formal Public Records Request to the MDMCD Data Custodian (https://www.miamidade.gov/global/solidwaste/mosquito/contact-mosquito-control.page).
+
+Data Availability
+
+The mosquito surveillance data analyzed in this study are owned by the Miami-Dade Mosquito Control Division, a governmental agency of Miami-Dade County. Although the records are fully de-identified, the County classifies them as operational public-health data; external release therefore requires prior review to ensure compliance with Florida public-records statutes and County privacy guidelines. Researchers who wish to obtain the dataset may submit a formal Public Records Request to the MDMCD Data Custodian (https://www.miamidade.gov/global/solidwaste/mosquito/contact-mosquito-control.page).
+
+==============================
+Millions of United States residents live where arbovirus vectors like Aedes aegypti and Culex quinquefasciatus are abundant, creating conditions that can facilitate local arboviral transmission. This threat is well-established: West Nile virus is already endemic in most of the country, and locally acquired dengue outbreaks are occurring with an increasing frequency. Therefore, identifying temporal trends in mosquito abundance and areas conducive to their proliferation is essential for public health preparedness and response planning. This study aims to characterize the spatiotemporal dynamics of Ae. aegypti and Cx. quinquefasciatus populations in Miami-Dade County, Florida. We analyzed eight years (2017–2024) of mosquito surveillance data from 308 mosquito traps operating across the county. We characterized the spatiotemporal distribution of female Ae. aegypti and Cx. quinquefasciatus and identified persistent areas of high mosquito abundance (hotspots) using local spatial analysis. A total of 399,418 Ae. aegypti and 1,250,879 Cx. quinquefasciatus were collected. The two species showed distinct and opposing seasonal patterns: Ae. aegypti abundance peaked during the summer wet season, whereas Cx. quinquefasciatus peaked in the winter dry season. Our analysis identified spatially consistent hotspots for both species, with some traps classified as hotspots in over half the years studied. The consistent seasonality of the two species and detection of hotspot areas across years provides operational value for long-term monitoring, evaluation of control interventions, and targeted resource allocation. As arboviruses continue to pose a public health risk in urban environments such as Miami-Dade County, the ability to anticipate and respond to vector population fluctuations is instrumental for effective prevention and control.
+
+Introduction
+
+Millions of United States residents live in areas where Aedes aegypti, the primary vector of dengue, Zika, and chikungunya viruses, and Culex quinquefasciatus, the primary vector of West Nile virus (WNV) and St. Louis Encephalitis virus (SLEV), are established [1–3]. The risk of local transmission from these mosquitoes is not theoretical. WNV is now endemic in the United States [4], having been documented in 96% of counties since its introduction in 1999 and having caused an estimated 7 million infections and more than 50 thousand neuroinvasive cases, although many infections remain asymptomatic [4,5]. Similarly, locally acquired dengue infections are increasingly reported, with recent outbreaks in Florida, California, and Arizona, highlighting a growing public health threat [6,7]. Specifically, in Miami-Dade County, Florida, 314 locally transmitted dengue virus infections were reported between 2010 and 2024 [8]. However, CDC estimates suggest that actual case numbers may be substantially higher due to underreporting, with an estimated reporting rate between 1.0% and 4.8% [9].
+
+While essential for mitigating arboviral disease threats, mosquito control operations are often reactive, triggered by disease cases or public complaints [10]. A shift toward a more proactive strategy, where interventions can be planned in advance, must be underpinned by a foundational understanding of long-term vector dynamics. This involves identifying consistent seasonal trends in key vector species and persistent high-risk areas (“hotspots”) that can inform data-driven operational planning.
+
+A key step toward proactive control is to analyze historical mosquito surveillance data to identify consistent spatial and temporal patterns in vector populations, including the identification of areas with substantially higher mosquito abundance. To provide this evidence for Miami-Dade County, Florida, we analyzed eight years of surveillance data (2017–2024). Our objectives are to: (i) characterize the spatiotemporal distribution of Ae. aegypti and Cx. quinquefasciatus and (ii) identify hotspot areas for their proliferation. The identification of areas conducive to mosquito proliferation serves three main purposes: to identify resource availability at the local scale responsible for supporting mosquito populations; to provide an early warning system for increased mosquito activity; and to inform targeted control strategies to mitigate mosquito proliferation. Therefore, the identification of hotspot areas is relevant for proactively informing mosquito surveillance and control efforts.
+
+Materials and methods
+
+In this study, we used 277 BG-Sentinel 2 traps (Biogents AG, Regensburg, Germany) and 31 CDC light traps that are part of the Miami-Dade County mosquito surveillance system (Fig 1). Each trap is deployed once weekly for 24 hours over approximately 50 weeks per year. Traps are placed in shaded areas protected from direct sunlight, wind, and precipitation to optimize mosquito collection. Collected mosquitoes are morphologically identified to species using standard taxonomic keys [11]. Surveillance protocols remained consistent throughout the study period, with traps deployed at fixed locations using the same trap models and CO2 as bait. BG-Sentinel and CDC traps baited with CO2 primarily attract host-seeking female mosquitoes [12] and are not specifically designed to attract males. Although some male mosquitoes were collected, they were considered accidental catches and were excluded from the analyses. Even though the Miami-Dade Mosquito Control surveillance system collected several mosquito species from 2017 to 2024, this study focused on the two primary vector species of epidemiological importance: Ae. aegypti and Cx. quinquefasciatus. No specific permits were required for this study, as the entomological data utilized in this analysis are the property of the Miami-Dade Mosquito Control Division and were collected for entomological surveillance purposes.
+
+10.1371/journal.pone.0334586.g001 Fig 1 Spatial distribution of traps in the Miami-Dade Mosquito Control Surveillance System, 2024.
+
+BG-Sentinel traps are shown as blue circles, and CDC traps as yellow squares. The figure was produced using ArcGIS Online (Esri, Redlands, CA), using freely available layers from Miami-Dade County’s Open Data Hub - https://gis-mdc.opendata.arcgis.com/.
+
+Monthly species totals were paired with sampling effort, defined as the number of trap-nights per month (calculated by multiplying the number of traps deployed by the number of 24-hour periods they were operated). Mean female mosquitoes per trap-night were calculated for the entire study period.
+
+The identification of areas conducive to mosquito proliferation serves three main objectives: (1) identify resources at the local scale responsible for supporting mosquito populations; (2) provide an early warning system for increased mosquito activity; and (3) inform targeted control strategies to mitigate mosquito proliferation. Therefore, to identify areas conducive to the proliferation of Ae. aegypti and Cx. quinquefasciatus, we created a 4-km buffer around each trap and calculated the number of traps within each buffer, along with the total and mean number of mosquitoes collected by each trap in the buffer. This buffer size ensured inclusion of a sufficient number of neighboring traps (mean: 15 per buffer) to enable compelling statistical analysis while maintaining operational spatial resolution. Traps were classified as hotspots if their average mosquito count was above the 97.5th percentile of their respective buffer. Alternative thresholds for hotspot definitions can be used based on the distance from the buffer mean. We explored the following options: i) above 97.5th percentile of the distribution of distance from buffer mean; ii) 97.5th percentile of the non-outlier traps within respective buffer. To calculate the mean mosquito abundance per buffer, we follow the methods used in Wilke et al. [13]. First, we removed outliers using a standard method based on median±1.58×IQRn, where IQR is the interquartile range, n is the number of observations in the buffer, and the 1.58 multiplier is the standard constant for notched boxplots as defined by McGill, Tukey, and Larsen [14].
+
+Figures were produced using ArcGIS Online (Esri, Redlands, CA), using freely available layers from Miami-Dade County’s Open Data Hub - https://gis-mdc.opendata.arcgis.com/. All analyses were conducted in R (version 4.2.2) [15], using “geosphere” package [16] for the distance calculation and “rstudioapi” [17] for dynamic path definition. Additionally, “dplyr” package [17] was used for the calculation of descriptive statistics, but is not required for the data manipulation. The code used to perform the analyses is openly available on GitHub at https://github.com/litvinovamv/Mosquito-Data-Analysis/tree/main/abundance_hotspots.
+
+Results
+
+From 2017 to 2024, a total of 399,418 Ae. aegypti and 1,250,879 Cx. quinquefasciatus mosquitoes were collected in Miami-Dade County, Florida (Table 1). Annual counts and mean abundance per trap-night showed consistent patterns, with Cx. quinquefasciatus remaining more abundant than Ae. aegypti throughout the study period. Yearly relative abundance of Ae. aegypti ranged from 35,612–64,570 mosquitoes, while Cx. quinquefasciatus ranged from 96,154–203,223 mosquitoes. Mean values for Ae. aegypti ranged from 3.39 to 6.06 mosquitoes per trap-night, while Cx. quinquefasciatus ranged from 9.92 to 21.33. The overall mean abundance was 4.25 mosquitoes per trap-night for Ae. aegypti and 13.46 for Cx. quinquefasciatus.
+
+10.1371/journal.pone.0334586.t001 Table 1 Relative abundance of Aedes aegypti and Culex quinquefasciatus. Mean number of mosquitoes per trap-night shown in parentheses.
+
+Year	Aedes aegypti	Culex quinquefasciatus	
+2017	45,925 (6.06)	131,203 (17.33)	
+2018	40,681 (4.93)	175,880 (21.33)	
+2019	35,612 (4.04)	96,154 (10.91)	
+2020	36,086 (3.71)	113,714 (11.71)	
+2021	63,985 (4.13)	203,223 (13.13)	
+2022	53,843 (3.39)	185,358 (11.68)	
+2023	58,716 (3.68)	158,031 (9.92)	
+2024	64,570 (4.02)	187,316 (11.67)	
+Total	399,418	1,250,879 (13.46)	
+Mean per trap-night	4.25	13.46	
+
+The seasonal population dynamics of Ae. aegypti and Cx. quinquefasciatus showed consistent temporal variations across the study period (Fig 2). Aedes aegypti and Cx. quinquefasciatus showed opposing seasonal trends, with Ae. aegypti abundance concentrated in the summer wet season (June-August) and Cx. quinquefasciatus peaking during the winter dry season (December-February). Culex quinquefasciatus remained more abundant overall compared to Ae. aegypti. Nonetheless, both species were consistently present and collected in relatively high numbers throughout the year, suggesting continuous breeding and survival across seasons. While these patterns represent observational trends rather than results of inferential hypothesis testing, their persistence across the study period underscores their importance for year-round surveillance and situation awareness.
+
+10.1371/journal.pone.0334586.g002 Fig 2 Monthly number of Aedes aegypti (red) and Culex quinquefasciatus (blue) collected in Miami-Dade County, Florida.
+
+The number of trap-nights per month is indicated by the dashed line.
+
+Among the 306 traps included in this eight-year study, an average of 36 traps were classified as hotspots for Ae. aegypti (Fig 3). Of these, 3 traps were identified as hotspots in all eight years, 3 traps in seven years, 4 traps in six years, and 5 traps in five years. Similarly, an average of 35 traps was identified as hotspots for Cx. quinquefasciatus, with 3 traps classified as hotspots in all eight years, 5 traps in seven years, 5 traps in six years, and 3 traps in five years. Table 2 presents the temporal results of hotspot classification when using a variety of hotspot measures. These results illustrated the flexibility of hotspot classification to accommodate diverse priorities and resources for response by adjusting the sensitivity of situational awareness analysis.
+
+10.1371/journal.pone.0334586.t002 Table 2 Frequency of hotspot classification for each trap from 2017 to 2024. Hotspot traps were defined as traps with a mean mosquito abundance exceeding the 97.5th percentile within their respective 4-km buffers.
+
+Frequency of Hotspot Classification, n (%)	Aedes aegypti	Culex quinquefasciatus	
+Hotspot Trap	Relative difference from buffer mean	Non-outlier trap abundance	Hotspot Trap	Relative difference from buffer mean	Non-outlier trap abundance	
+8 (100%)	3	–	3	3	–	7	
+7 (87.5%)	3	–	4	5	–	5	
+6 (75%)	4	–	4	5	–	8	
+5 (62.5%)	5	–	12	3	–	5	
+4 (50%)	17	1	26	13	2	25	
+3 (37.5%)	15	4	19	20	4	22	
+2 (25%)	21	8	29	17	6	44	
+1 (12.5%)	36	19	39	29	16	35	
+0 (0%)	202	230	170	211	235	155	
+
+10.1371/journal.pone.0334586.g003 Fig 3 Spatial distribution of hotspots for female Aedes aegypti and Culex quinquefasciatus in Miami-Dade County, Florida, from 2017 to 2024, based on relative mosquito abundance compared to other traps within a 4 km buffer radius.
+
+Colors represent the number of times a trap has been classified as a hotspot during the study period. The figure was produced using ArcGIS Online (Esri, Redlands, CA), using freely available layers from Miami-Dade County’s Open Data Hub - https://gis-mdc.opendata.arcgis.com/.
+
+Discussion
+
+The characterization of the spatiotemporal distribution of Ae. aegypti and Cx. quinquefasciatus in Miami-Dade County, Florida, is essential for identifying hotspot areas for mosquito proliferation to guide control operations and improve arbovirus outbreak preparedness and response. Our results show that both Ae. aegypti and Cx. quinquefasciatus have well-established seasonal patterns, with Ae. aegypti peaking in the summer months and Cx. quinquefasciatus in the winter months. The underlying drivers of these seasonal dynamics need further investigation, particularly given the relatively stable temperature in Miami-Dade County throughout the year and the lack of a clear-cut alignment of the relative abundance of the two focus species and rainfall, for example, Ae. aegypti population consistently peaked in July despite temperature and rainfall being virtually the same in July and August [18].
+
+Seasonal trends of mosquito vector species have been reported elsewhere in the United States. In Maricopa County, Arizona, Cx. quinquefasciatus had bimodal peaks aligned with the spring and early fall rainy seasons, while Ae. aegypti populations increased during wetter months of the year and declined sharply at the onset of the dry season [13]. In New Orleans, Louisiana, Ae. aegypti showed consistent peaks from May to August, whereas Cx. quinquefasciatus maintained high abundance year-round, with broad summer peaks [19]. In Los Angeles, California, Cx. quinquefasciatus abundance peaked early in July and declined steadily thereafter, while Ae. aegypti increased gradually from June, reaching a peak in October before decreasing in November [20].
+
+These results indicate that while both species respond to seasonal environmental changes, the timing, intensity, and persistence of peaks vary by location, reflecting differences in local climatic patterns, habitat availability, and species-specific ecological adaptations. The patterns found in Miami-Dade County of Ae. aegypti summer peak abundance and Cx. quinquefasciatus winter peak abundance contrasts with patterns in other regions, underscoring the importance of localized, species-specific surveillance to guide targeted vector control efforts. The operational value of these findings is underscored by the observation that WNV seroconversions in Florida sentinel chickens frequently persist into later in the year [21,22]. This period coincides with peak Cx. quinquefasciatus abundance, providing an entomological link to the sustained risk of spillover. This overlap underscores the need for year-round surveillance and a data-driven framework to allow the early detection of hotspots in urban environments.
+
+Our spatial analysis showed consistent spatial clustering of traps with high mosquito abundance. These spatial trends suggest that local environmental and anthropogenic factors influence species distribution and abundance; however, future studies are needed to empirically validate these observations. The temporal persistence of specific hotspots suggests the presence of stable ecological or structural conditions, as well as resource availability, which support sustained mosquito production. These findings further suggest the presence of priority areas for targeted vector control and support the use of persistent hotspots as sentinel sites for early warning and surveillance.
+
+Miami-Dade County remains particularly susceptible to arbovirus transmission due to its climate, urban landscape, and international connectivity [2,23]. Modeling estimates suggest that, assuming a basic reproduction number of 1.5, the introduction of a single asymptomatic infected individual could lead to a 10% probability of a dengue outbreak resulting in at least 40 symptomatic cases, with a median outbreak size of 73 symptomatic infections [24]. These projections underscore the importance of proactive surveillance and targeted interventions in Miami-Dade County.
+
+Historical spatiotemporal entomological data provide a foundation for the development and implementation of proactive mosquito control measures. However, mosquito populations are highly sensitive to short-term fluctuations in temperature and rainfall, complicating efforts to anticipate and mitigate periods of increased abundance and elevated arbovirus transmission risk [25,26]. This variability presents a challenge for public health agencies responsible for implementing timely and effective mosquito control interventions. Current strategies are primarily reactive, typically triggered by confirmed disease cases, increased mosquito trap counts, or public complaints [27,28].
+
+While this preliminary characterization provides immediate operational utility for public health authorities, further research is needed to elucidate the underlying drivers of these dynamics. Integrating high-resolution historical entomological surveillance data into routine operations could enhance situational awareness and support a more proactive, data-driven approach [29,30]. This integration could facilitate the early identification of high-risk periods and locations, enabling public health authorities to optimize intervention timing and targeting, improve resource allocation, and increase the overall effectiveness of mosquito control programs.
+
+Conclusion
+
+Our findings show that the incorporation of high-resolution entomological surveillance data across spatial and temporal scales enables the identification of key areas and periods of elevated mosquito vector abundance. The consistent detection of hotspot areas across multiple years provides operational value by identifying reliable locations for monitoring mosquito population dynamics, assessing the impact of control interventions, and prioritizing resource allocation. As arboviruses remain a persistent public health threat in urban environments such as Miami-Dade County, the capacity to anticipate and respond to mosquito vector population fluctuations is critical for effective outbreak prevention and control. This study presents data that is instrumental for the improvement of situational awareness, guiding targeted vector control operations, and ultimately reducing the risk of local arbovirus transmission.
+
+
+References
+
+1 VectorSurv. https://vectorsurv.org/
+2 Centers for Disease Control and Prevention. Dengue in the US States and Territories. Available at: https://www.cdc.gov/dengue/areaswithrisk/in-the-us.html
+3 Centers for Disease Control and Prevention. West Nile Virus. https://www.cdc.gov/west-nile-virus/data-maps/historic-data.html?CDC_AAref_Val=https://www.cdc.gov/westnile/statsmaps/historic-data.html. Accessed 2023 October 1.
+4 Centers for Disease Control and Prevention. West Nile Virus in the United States: Guidelines for surveillance, prevention, and control. https://www.cdc.gov/westnile/resources/pdfs/wnvGuidelines.pdf. Accessed 2023 October 1.
+5 Ronca SE , Murray KO , Nolan MS . Cumulative incidence of West Nile virus infection, continental United States, 1999–2016. Emerg Infect Dis. 2019;25:325–7.30666940 10.3201/eid2502.180765 PMC6346444
+6 Monaghan AJ , Eisen RJ , Eisen L , McAllister J , Savage HM , Mutebi J-P , et al. Consensus and uncertainty in the geographic range of Aedes aegypti and Aedes albopictus in the contiguous United States: Multi-model assessment and synthesis. PLoS Comput Biol. 2019;15(10):e1007369. doi: 10.1371/journal.pcbi.1007369 31600194 PMC6786520
+7 Centers for Disease Control and Prevention. Potential range of Aedes aegypti and Aedes albopictus in the United States, 2017. https://www.cdc.gov/mosquitoes/mosquito-control/professionals/range.html. Accessed 2023 October 1.
+8 Center for Disease Control and Prevention. Dengue Historic Data (2010-2014). https://www.cdc.gov/dengue/data-research/facts-stats/historic-data.html. Accessed 2023 October 1.
+9 Shankar MB , Rodríguez-Acosta RL , Sharp TM , Tomashek KM , Margolis HS , Meltzer MI . Estimating dengue under-reporting in Puerto Rico using a multiplier model. PLoS Negl Trop Dis. 2018;12(8):e0006650. doi: 10.1371/journal.pntd.0006650 30080848 PMC6095627
+10 National Association of County and City Health Officials. Mosquito Control Capabilities in the U.S. https://www.naccho.org/uploads/downloadable-resources/Mosquito-control-in-the-U.S.-Report.pdf
+11 Darsie Jr. RF , Morris CD . Keys to the Adult Females and Fourth Instar Larvae of the Mosquitoes of Florida (Diptera, Culicidae). 1st ed. Bulletin of the Florida Mosquito Control Association. 2000.
+12 Wilke ABB , Vasquez C , Carvajal A , Moreno M , Petrie WD , Beier JC . Evaluation of the effectiveness of BG-Sentinel and CDC light traps in assessing the abundance, richness, and community composition of mosquitoes in rural and natural areas. Parasit Vectors. 2022;15(1):51. doi: 10.1186/s13071-022-05172-3 35135589 PMC8822692
+13 Wilke ABB , Damian D , Litvinova M , Byrne T , Zardini A , Poletti P , et al. Spatiotemporal distribution of vector mosquito species and areas at risk for arbovirus transmission in Maricopa County, Arizona. Acta Trop. 2023;240:106833. doi: 10.1016/j.actatropica.2023.106833 36736524
+14 Mcgill R , Tukey JW , Larsen WA . Variations of Box Plots. Am Stat. 1978;32:12–6.
+15 R Core Team. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing.
+16 Hijmans RJ. geosphere: Spherical Trigonometry. CRAN: Contributed Packages. The R Foundation. 2010. doi: 10.32614/cran.package.geosphere
+17 Ushey K, Allaire J, Wickham H, Ritchie G. rstudioapi: Safely Access the RStudio API. CRAN: Contributed Packages. The R Foundation. 2014. doi: 10.32614/cran.package.rstudioapi
+18 National Oceanic and Atmospheric Administration. Climate Data Online. https://www.ncei.noaa.gov/cdo-web/
+19 Scavo NA , Reyes D , Pavlakis AF , Riegel C , Wilke ABB . Mosquito seasonality and trap type evaluation using routine surveillance data from New Orleans, Louisiana, United States. PLoS One. 2026;21(1):e0334208. doi: 10.1371/journal.pone.0334208 41511921 PMC12788643
+20 Hill M , Wilke ABB , Fuller DO , Kummer AG , Ventura PC , Beier JC , et al. Environmental and socio-economic determinants of mosquito vector species presence and abundance in Los Angeles County, California. Research Square. 2024. doi: 10.21203/rs.3.rs-3338430/v1
+21 Tavares Y , Day J , Giordano BV , Eastmond B , Burkett-Cadena N , Guralnick RP , et al. Regional variation in the landscape ecology of West Nile virus sentinel chicken seroconversion in Florida. PLoS One. 2024;19(10):e0305510. doi: 10.1371/journal.pone.0305510 39453894 PMC11508685
+22 Shaman J , Day JF , Stieglitz M . Drought-induced amplification and epidemic transmission of West Nile virus in southern Florida. J Med Entomol. 2005;42(2):134–41. doi: 10.1093/jmedent/42.2.134 15799522
+23 Coatsworth H , Lippi CA , Vasquez C , Ayers JB , Stephenson CJ , Waits C , et al. A molecular surveillance-guided vector control response to concurrent dengue and West Nile virus outbreaks in a COVID-19 hotspot of Florida. Lancet Reg Health Am. 2022;11:100231. doi: 10.1016/j.lana.2022.100231 36778921 PMC9903724
+24 Kummer AG , Wilke ABB , Ventura PC , Vasquez C , Medina J , Unlu I , et al. Comparing the effectiveness of adulticide application interventions on mitigating local transmission of dengue virus. J Pest Sci. 2024;98(1):463–75. doi: 10.1007/s10340-024-01787-w
+25 Andronico A , Menudier L , Salje H , Vincent M , Paireau J , de Valk H , et al. Comparing the performance of three models incorporating weather data to forecast dengue epidemics in Reunion Island, 2018–2019. J Infect Dis. 2024;229:10–8.37988167 10.1093/infdis/jiad468 PMC10786251
+26 Poh KC , Chaves LF , Reyna-Nava M , Roberts CM , Fredregill C , Bueno R Jr , et al. The influence of weather and weather variability on mosquito abundance and infection with West Nile virus in Harris County, Texas, USA. Sci Total Environ. 2019;675:260–72. doi: 10.1016/j.scitotenv.2019.04.109 31030133
+27 Wilke ABB , Chase C , Vasquez C , Carvajal A , Medina J , Petrie WD , et al. Urbanization creates diverse aquatic habitats for immature mosquitoes in urban areas. Sci Rep. 2019;9(1):15335. doi: 10.1038/s41598-019-51787-5 31653914 PMC6814835
+28 United States Environmental Protection Agency. Joint Statement on Mosquito Control in the United States. https://www.epa.gov/mosquitocontrol/joint-statement-mosquito-control-united-states#:~:text=EPA%20and%20CDC%20recommend%20that,circumstances%2C%20to%20control%20adult%20mosquitoes. Accessed 2023 October 1.
+29 Ventura PC , Kummer AG , Wilke ABB , Chitturi J , Hill MD , Vasquez C , et al. Forecasting the relative abundance of Aedes vector populations to enhance situational awareness for mosquito control operations. PLoS Negl Trop Dis. 2024;18(11):e0012671. doi: 10.1371/journal.pntd.0012671 39585922 PMC11627370
+30 Harp RD , Holcomb KM , Retkute R , Prusokiene A , Prusokas A , Ertem Z , et al. Evaluation of the 2022 West Nile virus forecasting challenge, USA. Parasit Vectors. 2025;18(1):152. doi: 10.1186/s13071-025-06767-2 40269898 PMC12020065

@@ -21,11 +21,11 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 
 **Step 1 uses papers already loaded in the local database.** It does **not** work on a newly created empty Postgres.
 
-- The notebook looks up each DOI with `get_paper_by_doi` against the **local app database** (the same Postgres as `just up`).
-- Each DOI must already be an archived **`Paper` row**. Those rows come from the normal product path: [Search external sources](2.1-search-external-sources.md) then [Paper archiving](2.2.1-paper-archiving.md). This procedure does **not** create papers.
-- Full text does **not** need to be fulfilled yet. If `full_text_plain` is missing or unusable, step 1 may call domain `inform_source_record` / `inform_full_text` and then dump the body.
-- If the DOI has no `Paper` row, skip it and say so in the notebook output. Do not archive from the notebook.
-- An empty database after migrate only → every DOI is skipped; no corpus files.
+- The notebook loads **every** `Paper` row from the **local app database** (the same Postgres as `just up`). There is no DOI list.
+- Those rows come from the normal product path: [Search external sources](2.1-search-external-sources.md) then [Paper archiving](2.2.1-paper-archiving.md). This procedure does **not** create papers.
+- A paper is eligible when `usable_full_text_plain(paper.full_text_plain)` is already set. Step 1 does **not** call `inform_source_record` or `inform_full_text`. `PaperBrief` is not a filter and is not dumped.
+- If `corpus/{DOI_FILE}.txt` already exists, skip that paper (do not overwrite) and say so in the notebook output.
+- An empty database after migrate only, or no paper with usable full text → no new `.txt` files. The manifest is rewritten only when at least one `.txt` is on disk.
 - After `corpus/` exists, steps 2 and 3 do **not** use Postgres. They still run in the **app** workspace so one `just notebooks` session covers all three steps.
 - Do **not** run these notebooks in `just sandbox` (no Postgres). Runtime: [Runtime](#runtime).
 
@@ -35,7 +35,7 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 
 - Three notebooks that call **domain Python**, not Prefect and not Streamlit.
 - A frozen **corpus**: `full_text_plain` files plus a bibliographic **manifest** (step 1).
-- Fetch full text when an existing Paper has no usable body: same domain functions as the app (`inform_source_record` / `inform_full_text`), not Prefect.
+- Step 1 queries local `Paper` rows that already have usable full text. It does **not** fetch full text.
 - Always **generate new briefs** with `generate_paper_brief_content` (step 2). Do not dump `PaperBrief` from the database.
 - Steps 2–3 read **only files**. Step 2: `corpus/manifest.jsonl` and `corpus/{filename}`. Step 3: `{run_id}/02-briefs.jsonl` and matching `corpus/{DOI_FILE}.txt` (same filename rule as step 1; not the manifest). Postgres is not used.
 - One **run folder** next to the corpus for brief + template (step 2) and scores (step 3).
@@ -44,6 +44,7 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 ### Out of scope (this document)
 
 - Prefect (`create_paper_brief`, `evaluate_paper_brief`, `ingest_paper`, `inform_*` flows).
+- Fetching full text from the notebook (`inform_source_record` / `inform_full_text`). Fulfill papers in the app first.
 - Paper archiving / creating a `Paper` row from a DOI that is not already in the local database.
 - Writes to `PaperBrief` (`content`, `evaluation`, `evaluation_status`, `evaluation_score`). Offline brief and judge output are **file artifacts only**.
 - A Streamlit page, a stepper entry, or production-image paths.
@@ -71,7 +72,7 @@ flowchart LR
   evalNb --> runDir
 ```
 
-1. Step 1 reads archived `Paper` rows from local Postgres, may fulfill full text, and writes the corpus.
+1. Step 1 reads archived `Paper` rows from local Postgres (usable `full_text_plain` only; no fetch) and writes new corpus files. Existing `.txt` files are skipped.
 2. Step 2 generates new briefs from corpus files. It does not call `create_paper_brief`.
 3. Step 3 runs `judge_paper_brief_evaluation` on those files. It does not call `evaluate_paper_brief`.
 
@@ -124,7 +125,7 @@ data/paper_brief_evaluation/
 | `run_id` | UTC stamp `YYYYMMDDThhmmssZ` (example `20260817T160000Z`). One folder per evaluation. Lexicographic order is time order. Prefix `02-` / `03-` groups step artifacts inside that folder. |
 | Corpus filename | Uppercase `Paper.doi` with every `/` replaced by `_`, plus `.txt`. If two DOIs collide, step 1 **stops** and reports the pair. Records in JSONL always use the real uppercase DOI. |
 | Corpus file body | UTF-8 `full_text_plain` only (no YAML header). |
-| Manifest | `corpus/manifest.jsonl`: one object per accepted paper `{ "doi", "title", "journal", "published_year", "filename" }`. `journal` / `published_year` may be null. Step 1 rewrites the whole manifest each successful corpus build (only papers that got a `.txt`). |
+| Manifest | `corpus/manifest.jsonl`: one object per `.txt` still in `corpus/` `{ "doi", "title", "journal", "published_year", "filename" }`. `journal` / `published_year` may be null. Step 1 rewrites the whole manifest from those files after the run, looking up title / journal / year from the database. A `.txt` with no matching `Paper` is omitted from the manifest and reported. |
 | JSONL | One JSON object per line. UTF-8. |
 
 Reuse the same `corpus/` across many `{run_id}/` folders. Do not put step 2/3 files inside `corpus/`.
@@ -135,12 +136,10 @@ Notebook: `01-build-corpus.ipynb`.
 
 **Use papers already loaded in the local database.**
 
-- Input: a DOI list in a notebook cell (curated eval set). Those DOIs must match archived `Paper.doi` values in local Postgres.
-- Load with `get_paper_by_doi`. If there is **no Paper row**, skip that DOI (this notebook does not archive). Record the skip in the notebook output.
-- If `usable_full_text_plain(paper.full_text_plain)` is already set, use that body.
-- If it is missing or unusable, call domain `inform_source_record` then `inform_full_text` in `paper_reviewer.topic_scope.fulfill_papers_metadata.inform` (not `paper_reviewer.flows`, not `ingest_paper`). Pass `force=true` on those calls so a prior `failed` / `unavailable` can retry. **Side effect:** this writes source-record and full-text columns on the local `Paper` row. It must **not** create or rewrite `PaperBrief`.
-- After that, if full text is still not usable, skip the DOI (source cannot supply text).
-- Write one `.txt` per accepted paper under `data/paper_brief_evaluation/corpus/` (overwrite same DOI). Write **`manifest.jsonl`** from the Paper row after a successful fetch/dump (`doi`, `title`, `journal`, `published_year`, `filename`).
+- Input: every `Paper` row in local Postgres. There is no DOI list.
+- Eligibility: `usable_full_text_plain(paper.full_text_plain)` is set. Do **not** use `PaperBrief` as a filter. Do **not** call `inform_source_record` or `inform_full_text`. If the body is missing or unusable, skip the paper and say so.
+- If `corpus/{DOI_FILE}.txt` already exists, skip that paper (do not overwrite) and say so.
+- Write one `.txt` per newly accepted paper under `data/paper_brief_evaluation/corpus/`. After the run, rewrite **`manifest.jsonl`** from every `.txt` still in `corpus/` (skipped files plus new writes). Look up `doi`, `title`, `journal`, `published_year` from the `Paper` row. `filename` is the on-disk name.
 
 Usable-body rule: same as [Generate paper brief](2.2.3-generate-paper-brief.md) (`usable_full_text_plain`).
 
@@ -193,9 +192,9 @@ Do **not** call `docker compose` on the host by hand ([AGENTS.md](../../AGENTS.m
 
 The notebook process sees the same secrets as the worker:
 
-- `DATABASE_URL`
+- `DATABASE_URL` (step 1)
 - `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `OPENAI_MODEL` (on the `notebooks` service; used by steps 2–3)
-- `NCBI_API_KEY` for step 1 full-text fetch when the body is missing
+- `NCBI_API_KEY` is still passed to the notebooks service (same as the worker) but step 1 does not fetch full text
 
 The repo bind-mount at `/workspace` is the notebook cwd. Imports use the editable `paper_reviewer` install. Writes under `data/paper_brief_evaluation/` appear on the host disk and may be committed. `.dockerignore` still excludes `notebooks/` and `data/` from production images.
 

@@ -1,0 +1,400 @@
+JOURNAL INFORMATION
+==============================
+NLM Title Abbreviation: Euro Surveill
+Journal ID: Euro Surveill
+NLM Journal ID: 100887452
+Journal ID: ES
+
+Eurosurveillance
+
+ISSN: 1025-496X
+EISSN: 1560-7917
+Publisher: European Centre for Disease Prevention and Control
+
+ARTICLE INFORMATION
+==============================
+PMCID: PMC13330735
+PMID: 42246068
+DOI: 10.2807/1560-7917.ES.2026.31.22.2500394
+Article ID: 2500394
+Article ID: 2500394
+Article version: 1
+Subjects: Research
+
+Modelling the risk of West Nile virus infection in seven European countries from published serological and case notification data, 2008 to 2022
+
+Feng Hailin 1
+Marini Giovanni 2
+Barabás Éva 3
+Koureas Michalis 4
+Mouchtouri Varvara A 4
+https://orcid.org/0000-0001-9959-0706 Dorigatti Ilaria 1
+1 MRC Centre for Global Infectious Disease Analysis, School of Public Health, Imperial College London, United Kingdom
+2 Research and Innovation Centre, Fondazione Edmund Mach, San Michele all’Adige, Italy
+3 Hungarian National Blood Transfusion Service, Budapest, Hungary
+4 Laboratory of Hygiene and Epidemiology, Faculty of Medicine, University of Thessaly, Larissa, Greece
+Correspondence: Ilaria Dorigatti (i.dorigatti@imperial.ac.uk)
+
+Print publication date: 2026 Jun 4
+Volume: 31
+Issue: 22
+Electronic Location ID: 2500394
+Received 2025 Jun 4; Accepted 2026 Mar 3
+Copyright: This article is copyright of the authors or their affiliated institutions, 2026.
+Copyright year: 2026
+Copyright holder: The authors or their affiliated institutions
+License: This is an open-access article distributed under the terms of the Creative Commons Attribution (CC BY 4.0) Licence. You may share and adapt the material, but must give appropriate credit to the source, provide a link to the licence, and indicate if changes were made.
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Keywords: West Nile virus, force of infection, Europe, human, modelling, systematic review
+
+==============================
+BACKGROUND
+
+West Nile virus (WNV) is a zoonotic mosquito-borne pathogen increasingly reported in Europe.
+
+AIM
+
+We aimed to characterise heterogeneities in the average annual human risk of WNV infection (force of infection, FOI) and in WNV surveillance across Europe.
+
+METHODS
+
+We conducted a systematic review following the PRISMA guidelines to identify serological studies on WNV in humans with IgG-based assays in Europe. We then used mathematical models fitted to both age-stratified serosurvey and case data to reconstruct spatially explicit FOI estimates, the sensitivity of syndromic surveillance and age-dependent trends in case reporting.
+
+RESULTS
+
+We extracted 92 serosurvey datasets from 21 countries. Based on 10 age-stratified serosurvey datasets from Greece, Hungary, Italy, Romania and Spain and case data from seven countries (Austria, Cyprus, Greece, Hungary, Italy, Romania and Spain), we estimated the WNV FOI for 119 European nomenclature of territorial units for statistics level (NUTS) 0-3 regions. We found evidence of spatial heterogeneities in transmission intensity and estimated that on average less than 0.2% of human WNV infections were notified, with country variability and age-dependent trends in the propensity of reporting WNV disease.
+
+CONCLUSION
+
+This study shows that the intensity of WNV transmission, the average annual incidence of infection and the sensitivity of surveillance are heterogeneous across Europe. Due to differences in case reporting across countries, the incidence of reported WNV cases does not necessarily reflect the same proportion of WNV infections and hence the actual infection incidence, which highlights the importance of conducting WNV seroprevalence surveys.
+
+Key public health message
+
+What did you want to address in this study and why?
+
+West Nile virus (WNV) is transmitted via mosquitoes to humans and other animals. Infections of West Nile virus are increasing in Europe, and the disease has a considerable impact on human health including blood and transplant safety. We aimed to estimate the average annual risk of WNV infection in humans and analyse potential differences in reporting of WNV infections across Europe.
+
+What have we learnt from this study?
+
+We identified hotspots of transmission and learnt that the average annual risk of WNV infection and reporting across the 119 European NUTS 0–3 regions included in this study is heterogeneous. Notably, we found that the locations reporting the largest number of WNV reported cases are not necessarily those experiencing the highest number of infections.
+
+What are the implications of your findings for public health?
+
+This study suggests that WNV surveillance detects different proportions of the actual (unobserved) number of infections across Europe. Seroprevalence surveys can help estimate the true number of infections, the susceptibility of the population and assess the local transmission risk.
+
+Introduction
+
+West Nile virus (WNV) is an emerging vector-borne zoonosis mainly transmitted by Culex mosquitoes, first isolated in 1937 in Uganda, and now widely spread worldwide, including Europe [1,2]. The virus is maintained in an avian-mosquito transmission cycle and occasionally spills over to humans and horses, which are dead-end hosts [1].
+
+Approximately 20% of patients with WNV infections present acute, influenza-like and self-limiting febrile symptoms (West Nile fever, WNF), and estimates suggest that about 1% of people infected with WNV develop severe neuro-invasive disease (West Nile neuro-invasive disease, WNND) which can be fatal [3]. The incubation period of WNV infection in humans usually ranges from 2 to 14 days but may extend up to 21 days among persons with weakened immune systems [4,5]. In Europe, the transmission season typically lasts between May and October [1,6,7]. Human-to-human transmission can occur through blood transfusion, organ transplant and from mother to baby via breastfeeding or during pregnancy [2,8]. In the absence of a vaccine and antiviral treatment against WNV infection in humans, disease prevention relies on vector control measures and implementation of blood safety protocols. Surveillance of WNV involves monitoring of mosquitoes and other animals (equids and birds) as well as humans [9]. Findings from surveillance activities can inform risk management and the implementation of preventive measures such as vector control interventions. In the European Union (EU) [10], a deferral of at least 28 days for blood donors who travelled to the regions currently recognised to be affected by the virus, such as regions with at least one reported human WNV case, is in place to reduce the risk of human-to-human transmission. In some European countries, such as in Italy, screening for WNV among blood donors is initiated whenever WNV transmission is detected not only through human case surveillance, but also through entomological surveillance, given WNV detection in mosquitoes typically anticipates case detection in humans [11,12].
+
+Due to the clinical presentation of WNV infections, and specifically the development of symptoms and severe neurological conditions in a small proportion of the infections, surveillance of symptomatic human cases gives a partial picture of the extent and occurrence of WNV infections in Europe. On the other hand, detection of IgG antibodies in the blood of infected individuals is a practical way to identify past WNV infections irrespective of the onset of symptoms (if any), estimate the number of infected persons, and by comparing the number of notified cases with the estimated number of infections it is possible to estimate the sensitivity of case-based surveillance. Age-stratified seroprevalence surveys can be used to estimate the force of infection (FOI), defined as the per capita risk at which individuals become infected per unit time (usually expressed in years), which is a key epidemiological metric of transmission intensity [13-16]. Moreover, also the age distribution of notified WNV cases can be used to estimate the FOI, as shown by the methods previously developed for other arboviruses such as dengue virus [17-20] and in combination with age-stratified seroprevalence data provide the information to estimate age-dependent trends in reporting.
+
+In Europe, previous studies modelled spatial and temporal variations in the risk of WNV infection in humans using occurrence data and environmental, land use and economic changes as drivers [17,18,21,22], with some models taking into consideration the avian community composition [23,24]. Mechanistic models have also been employed to reconstruct temporal variations in WNV transmission dynamics [25]. Entomological traits, such as temperature dependencies in mosquito biology, have been included in the calculation of WNV basic reproduction number, R0, to predict the impact of climate change [26,27]. Furthermore, the contribution of ecological and climatic factors to WNV establishment across Europe has been quantified using machine learning techniques [28,29].
+
+In this work, we identified and collated data from published WNV serosurveys conducted in Europe and jointly modelled the observed age profile of persons with antibodies against WNV with the age distribution of notified cases to estimate the WNV FOI, age trends in case reporting and the magnitude of case underreporting across Europe. We aimed to characterise spatial variations in the risk of WNV infection and case reporting by linking seroprevalence and case data.
+
+Methods
+
+Systematic review
+
+By following the PRISMA guidelines, we conducted a systematic review to identify published serosurveys conducted in Europe of WNV in humans [30]. We used search terms related to “West Nile Virus”, “Europe” and “seroprevalence” in Embase and Medline and restricted the screening to studies conducted in the countries geographically classified as belonging to Europe but without imposing any restriction on language. All search terms are listed in Supplementary List 1. Articles published up to 16 September 2024 (last search date) were retrieved, and for the studies included in the literature review, we also considered the references of the selected papers for possible inclusion.
+
+Three reviewers (HF, GM and ID) were involved in the title and abstract screening and full-text review of the papers, and one reviewer (HF) was responsible for the data extraction. All three reviewers participated in the decision-making process on whether to include the study in the systematic review. The removal of duplicated papers and inclusion decisions were recorded in Covidence (https://www.covidence.org). We applied the following eligibility criteria: (i) the population tested should not include symptomatic WNF/WNND individuals; (ii) the number of positive samples and the total number of samples tested or the estimates of persons with antibodies against WNV (e.g. expressed as percentages) should be provided; (iii) the serological tests used were clearly stated, and these assays quantified IgG antibodies (i.e. studies using assays measuring only IgM antibodies were excluded); (iv) the study location (georeferenced or area-level) was clearly specified. When the included studies mentioned that more granular data compared with the published data were available, we reached out to the authors enquiring for the opportunity to access the more granular data (e.g. the age of the tested persons).
+
+For each eligible study, we collated the following information: year of the study, location (with nomenclature of territorial units for statistics level 3 (NUTS3) code where applicable), serological assay used, total number of persons tested and number of positives or the observed proportion of seropositive persons by age group. If the year of the study was not reported, the publication year was used as a proxy of the year of the study. The database was collated using Microsoft Excel (version 16.89) and the data collected are presented in Supplementary data file 1.
+
+Regression analysis
+
+To examine the relationship between the assay used and the reported overall seropositivity (πi) in each study (i), we ran a regression analysis between πi and the serological assay used (Xi) (reference category: neutralisation test) adjusted for the study period (Ti, defined as 16-year intervals starting from 1958 up to 2021, reference group: 1958–1973) as shown in Equation (Eqn.) (1) where ε is a normally distributed error term. For the age-stratified seroprevalence survey data, we reconstructed the overall population-level seropositivity by weighting the age-specific seropositivity by the corresponding age-distribution of the population [31].
+
+πi=β0+β1Xi+β2Ti+ε(1)
+
+Model parameterisation and fitting
+
+Matching serosurvey and case data
+
+We obtained WNV epidemiological data collected between 2008 and 2022 from the European Surveillance System (TESSy) provided by Austria, Bulgaria, Croatia, Cyprus, Czechia, France, Germany, Greece, Hungary, Italy, the Netherlands, Portugal, Romania, Slovakia, Slovenia and Spain and released by the European Centre for Disease Prevention and Control (ECDC), by NUTS3 regions. As the EU WNV case definition was standardised in 2008, we included cases reported starting from that year in our analysis [32-35]. We extracted the annual number of reported cases in TESSy by age groups of 10-year intervals (e.g. 0–9 years, 10–19 years, up to age group ≥ 90 years) at NUTS3 level.
+
+In the subsequent modelling analysis, we retained only regions with WNV serosurveys conducted since 2008 in the general population, including blood donors, and that reported seropositivity in at least two age groups. We then matched the age-stratified serosurvey data to the case data reported in TESSy at NUTS3 level. Regions with fewer than 10 reported cases between 2008 and 2022 and without any age-stratified seroprevalence data available were excluded from the modelling analysis.
+
+Region classification
+
+We classified the NUTS3 regions with serosurvey and/or WNV case data into three categories: (i) regions with age-stratified seroprevalence data only; (ii) regions with case data only; (iii) regions with both age-stratified seroprevalence and case data. We denote λl the location-specific and time-constant WNV FOI, i.e. the per capita average annual probability for susceptible people living in location l of acquiring WNV infection, which we estimated on the logarithmic scale using the mathematical models developed for each region category.
+
+Model for regions with age-stratified seroprevalence data only
+
+We respectively defined Nlj as the number of tested samples and and Plj as the number of positive samples in location l and in age group j with age group median aj. Using an established catalytic model [14,16,36,37], the seroprevalence πlj of age group j in location l, was modelled as a function of the local WNV FOI λl as described in Eqn. (2):
+
+πjl=1−e−λlaj(2)
+
+For each location, we assumed that the observed data followed a binomial likelihood as defined in Eqn. (3):
+
+L(Pl,Nl|λl)=∏jπjlPjl(1−πjl)NjlPjl(3)
+
+Model for regions with reported case data only
+
+In regions with only case data, we estimated the location-specific FOI (λl), the yearly country-specific reporting rate (ρc) for country c and the age-dependent trend in case reporting (γj) by using the model [13,17,19,20] described in Eqn. (4):
+
+Cjl=ρcγjSjl(e−λlajmin−e−λlajmax)(4)
+
+In this model, Clj denotes the expected number of reported cases during the study period (2008–2022), Slj denotes the average population size of age group j in location l [38] multiplied by the length of study period (15 years), and ajmin and ajmax denoted the lower and upper bound of age group j. We estimated the age-dependent trends in case reporting γj (for j ≠ 8) relative to the reference age group of 70–79-year-olds (γ8 = 1). We assumed that the observed age group specific number of reported cases in location l, Olj, follows a multinomial distribution as described in Eqn. (5), and that the observed total number of reported cases in location l, Ol, follows a Poisson distribution as defined in Eqn. (6).
+
+L(Ojl|Cjl)=∏j(Cjl∑jCjl)Ojl(5)
+
+L(Ol|∑jCjl)=∏l(∑jCjl)OlOl!e−∑jCjl(6)
+
+Model for regions with both age-stratified seroprevalence and case data
+
+In regions with both age-stratified seroprevalence and case data, we estimated the location-specific FOI λl, the yearly country-specific reporting rate (ρc) and the age-dependent trend in case reporting (γj, reference age group of 70–79-year-olds, γ8 = 1) as described in Eqn. (2)-(6).
+
+Prior distributions
+
+We used normal prior distributions centred in −7 and with standard deviation 3.5 for all location-specific FOIs estimated in the log scale (ln(λl)). For the country-specific reporting rates (ρc), we used normal prior distributions, centred in the raw reporting rate estimates computed as the ratio between the number of reported cases and the local total number of seropositive individuals in the population during the study period reconstructed from the serosurvey data. The standard deviation of the prior distribution of ρc was set to the value calculated over all countries.
+
+For each age group j (except j = 8 which was taken as reference group), we used normal prior distribution for γj centred on the mean proportion of cases reported in the average annual age-specific population S̅J relative to the proportion of annual cases reported in the reference age group, 70–79-year-olds, as shown in Eqn. (7).
+
+γ^j=Oj/S¯jO8/S¯8(7)
+
+The prior distribution of all parameters is shown in Supplementary Table 1.
+
+Model fitting
+
+We jointly fitted the model to all NUTS3 regions with both seroprevalence and case data and only case data using the Hamilton Monte Carlo (HMC) method implemented in CmdStanR [39]. The regions with only age-stratified seroprevalence data were fitted separately, given that the only estimated parameter was λl.
+
+We ran 25,000 iterations of the HMC method in three parallel chains, using a burn-in of 7,000 iterations and a thinning of five iterations. In total, we generated 15,000 samples from the posterior distributions which we then used to estimate the median and 95% credible interval (CrI) of the parameters.
+
+Incidence estimation
+
+We estimated the average annual number of new WNV infections (Ĉl) for each location using the estimated FOI (λ̂l) and the average annual population size (S̄lj) at NUTS3 level as shown in Eqn. (8).
+
+C^l=∑jS¯jl(e−λ^lajmin−e−λ^lajmax)(8)
+
+Statistical analysis
+
+We tested whether the FOI estimates obtained in the regions with age-stratified seroprevalence data were significantly different in mean from the FOI estimates obtained in the regions with age-stratified case data only using the Welch two sample t-test.
+
+Sensitivity analysis
+
+We conducted a sensitivity analysis to assess the effect of accounting for both data sources (age-stratified seroprevalence data in combination with age-stratified case data) vs only considering age-stratified case notification data or only age-stratified seroprevalence data, on the FOI estimates. The comparison between estimated parameters was only conducted on the NUTS3 regions with both age-stratified serosurvey and case data. We estimated the FOI using Eqn. (2)–(3) (only serosurvey data), Eqn. (4)–(6) (only case notification data) and compared these with the FOI estimates obtained using Eqn. (2) to (6) (both serosurvey and case data).
+
+Results
+
+Systematic literature review
+
+Figure 1 shows the PRISMA chart of the literature review, which included 1,137 published studies: 270 were retained for full text review. We extracted data from 77 studies; these provided 92 serological datasets for 233 NUTS1–3 administrative units or geolocations in 21 European countries, as presented in Supplementary data file 1 and Supplementary Figure 1. In addition, we analysed previously unpublished age-stratified data from seroprevalence surveys conducted in Greece and Hungary, which were originally published at an aggregated level [40,41]. We identified 18 age-stratified datasets, while all other 74 datasets reported the overall (i.e. overall ages, not stratified by age group) proportion of seropositive people.
+
+Figure 1 PRISMA chart of the systematic review on serosurveys of West Nile virus in humans, Europe, 1958–2021a
+
+PRISMA flow chart, illustrating the steps of the systematic review which was conducted to identify published serological surveys of West Nile virus conducted in human populations in Europe from 1947 to 16 September 2024.a Studies with publication date until 16 September 2024 were included.
+
+The serosurveys included in this review were conducted between 1958 and 2021. For 18 of the 92 datasets, we used the publication year as a proxy for the year of the study. The study population ranged from healthy blood donors, residents and international travellers, and specific populations screened for occupational health, such as zoo, forestry and stable workers, farmers and hunters. The number of persons tested in the serosurveys included varied from seven in Italy in 2010 [42] to 14,437 in Germany in 2004 [43].
+
+The number of serosurveys, assays used and the overall reported proportion of seropositive persons varied both temporally and spatially, as can be seen in Supplementary Figure 2. Various serological assays were used across serosurveys, including ELISAs, immunofluorescence assays (IFAs), hemagglutination-inhibition tests (HITs), neutralisation tests and protein microarray. For 50 of the 92 serosurveys, multiple serological tests were conducted on the same samples to assess their concordance and sensitivity and potential cross-reactivity with other viruses [41]. Neutralisation test was used throughout the study periods and appeared in most combinations with other serology tests, while the IFA was mainly used in combination with other assays; HIT was mainly used before 1989 while ELISA has been used frequently since 1990s. Protein microarray was used in only one study [44]. The regression analysis showed that compared with the neutralisation test, HIT was associated with significantly higher overall seropositivity, after adjusting for the period (p = 0.015). More details are provided in Supplementary Figure 2B and Supplementary Table 2.
+
+The 18 age-stratified seroprevalence datasets were extracted from 17 serosurvey studies conducted between 1963 and 2020, with sample sizes ranging from 65 to 3,962 participants (Table). All serosurveys were conducted in eastern and southern Europe, except for one study in Austria and one in Germany. We used 10 age-stratified seroprevalence surveys done in 2008–2022 for the FOI estimation. In eight of these studies, neutralisation tests were used, and in two studies, the samples were tested for other cross-reactive arboviruses, with the cross-reactive samples removed from the analysis. Two studies were national serosurveys conducted in Hungary, seven studies covered 58 NUTS3 regions in Greece, Spain, Italy and Romania, and one study covered a NUTS2 region in Greece.
+
+Table Age-stratified serosurvey datasets identified in a systematic review on West Nile virus infection in humans, by year, Europe, 1963−2020a
+
+Publication	Country	Area	Target population	Sampling method	Study year	Sample size	
+Kunz [55]	Austria	Klosterneuburg	Blood donors	Convenience sampling	1963b	65	
+Pavlatos et al. [56]	Greece	National	General population	Probability proportional to size sampling	1964b	1,128	
+Ebke et al. [57]	Germany	National (except Schleswig-Holstein)	General population	Convenience sampling	1971b	373	
+Garea Gonzalez et al. [58]	Spain	North-western Spain	General population	Convenience sampling	1977b	701	
+Imami et al. [59]	Kosovoc	Suhareka	General population	Convenience sampling	1978b	992	
+Hubalek et al. [60]	Czechia	Prague	General population	Voluntary sampling	2002, 2003	497	
+Dimou et al. [61]	Greece	Northern Greece	General population	Convenience sampling	2003–2005	655	
+Bernabeu-Wittel et al. [62]	Spain	Seville	General population	Stratified random sampling	2007b	504	
+Ladbury et al. [51]a	Greece	Lowland areas of Imathia and Pella prefectures	General population	Two stage cluster sampling	2010	644	
+Remoli et al. [63]a	Italy	Grosseto	General population	Convenience voluntary sampling	2012	100	
+Hadjichristodoulou et al. [40]a, d	Greece	National	General population	Stratified left-over sampling	2012–2013	3,962	
+Nagy et al. [41]a, d	Hungary	National	Blood donors	Random sampling	2016	2,112	
+Marchi et al. [52]a	Italy	Siena	General population	Convenience sampling	2016–2017	879	
+Frías et al. [64]a	Spain	Ciudad Real	Blood donors	Disproportionate stratified random sampling	2017–2018	1,093	
+Marchi et al. [52]a	Italy	Siena	General population	Convenience sampling	2018–2019	921	
+Crivei et al. [65]a	Romania	Iasi	Hospital-based cohort	Convenience sampling	2019	88	
+Nagy et al. [66]a	Hungary	National	Blood donors	Convenience sampling	2019–2020	3,005	
+Coroian et al. [67]a	Romania	Alba, Cluj, Sălaj, Bistrița-Năsăud, Maramureș and Satu Mare	Blood donors	Disproportionate stratified sampling	2019–2020	1,200	
+a Only the studies conducted from 2008 (n = 10) were included in the FOI estimation.
+
+b The year of publication was used as a proxy for the year of the study.
+
+c At the time of the published study [59] Kosovo was part of Yugoslavia. The geographical designation Kosovo is without prejudice to positions on status and is in line with United Nations Security Council Resolution 1244/99 and the International Court of Justice Opinion on the Kosovo declaration of independence.
+
+d This study provided more disaggregated data than originally published.
+
+Region categorisation
+
+In total, we found 31 NUTS3 regions (in Greece, Spain, Italy, Bulgaria, France and Romania) with evidence of WNV circulation from serosurveys but no previously reported cases in TESSy between 2008 and 2022. During the study period, 4,460 WNV human cases were reported in 200 NUTS3 regions in TESSy.
+
+We estimated the WNV FOI for 119 regions across seven countries. These included 19 NUTS2 and NUTS3 regions from four countries (Greece, Italy, Romania and Spain) and a national estimate from Hungary with only age-stratified seroprevalence data, 40 NUTS3 regions with both age-stratified seroprevalence data and case data from two countries (Greece and Romania), and 59 regions with only case data (≥ 10 cases) from six countries (Austria, Cyprus, Greece, Hungary, Romania and Spain) reported in 2008–2022. For completeness, we show the NUTS3 regions with < 10 reported cases between 2008 and 2022 and without any age-stratified seroprevalence data available (hence excluded from the FOI analysis) in Supplementary Figure 3.
+
+Figure 2A shows the locations of the regions with available WNV data analysed in this study, and Figure 2B shows the cumulative number of cases reported by NUTS3 region where the inset shows the combined age-distribution of the cases over all location, with the highest incidence in persons aged 70–79 years.
+
+Figure 2 Regions with West Nile virus infections in humans being modelled, seven European countries, 2008–2022
+
+Available West Nile virus age-stratified data for 2008–2022. Panel A shows region categories by colour, excluding the regions reporting  fewer than 10 cases over the study period. Panel B shows the number of cumulative cases across 99 NUTS3 regions and includes an inset plot showing the mean and percentiles of the age-distribution of the cumulative cases. The inset illustrates an upward trend in notified case with increasing age, peaking within the 70–79-year-olds.ECDC: European Centre for Disease Prevention and Control; EU/EEA: European Union/European Economic Area; NUTS: Nomenclature of Territorial Units for Statistics.
+
+Panel A. The regions are shaded with colours representing the region category. For regions with only case data, only regions with ≥ 10 cases reported over the study period are shown.
+
+Panel B. Cumulative number of cases (over all ages) reported between 2008 and 2022 in 99 NUTS3 regions included in the FOI modelling. Data provided by ECDC based on the data reported by EU/EEA countries. The inset shows the age group distribution calculated over all locations. The points show the mean of cumulative reported cases during the study period by age group calculated over the NUTS3 regions and the bars indicate the 2.5% and 97.5% percentiles.
+
+Prior distributions
+
+The prior distributions of the reporting rates of Supplementary Table 1 were informed by the raw reporting rates estimates by country (Austria, Cyprus, Greece, Hungary, Italy, Romania, Spain), as presented in Supplementary Table 1 and Supplementary Figure 4. Overall, we estimated that on average 0.1% of the seropositive population are reported in the case-based surveillance, with a standard deviation of 0.17%. The propensity of case reporting shows an increasing trend with age, Supplementary Figure 5.
+
+Model fit
+
+We included age-stratified seroprevalence survey and case data across 119 regions from Austria, Cyprus, Greece, Hungary, Italy, Romania and Spain in the analysis. More detailed information is presented in Supplementary Figure 6 and 7. Figure 3 shows the FOI estimates, the yearly country-specific reporting rates and the age-dependent trend in case reporting, including examples of the model fit for (i) the metropolitan city of Venice (Italy), for which we only had case data; (ii) Thessaloniki region (Greece), for which we had both age-stratified seroprevalence and case data and (iii) Hungary, for which we only had national age-stratified serosurvey data. The results presented in Figure 3A suggest large spatial heterogeneity in the estimated WNV FOI, from 1.44 × 10−5 (95% CrI: 1.40 × 10−6–5.89 × 10−5) in Magnesia, Greece to 6.32 × 10−2 (95% CrI: 4.49 × 10−2–8.39 × 10−2) in Olt, Romania. Hotspots of WNV transmission, defined as regions with median estimates of the FOI > 0.033 (corresponding to an average age of infection at 30 years), were identified in Romania and Hungary. The FOI estimates obtained for the regions reporting case data only tended to be significantly higher (p < 0.001) than the FOI estimates obtained for the regions with age-stratified seroprevalence data, as presented in Supplementary Figure 8.
+
+Figure 3 Estimated force of infection, reporting rate and trends in reporting by age, seven European countries, 2008–2022
+
+West Nile virus estimates of transmission intensity and reporting rates across Europe, featuring a map of regional model-estimated annual average Force of Infection alongside inset charts detailing model fits for specific local data. Eastern European countries show relatively higher FOIs comparing to other modelled regions. Panel B shows the estimated yearly reporting rates for seven European countries with their 95% credible intervals (all below 1%). Panel C illustrates relative reporting rates across different age groups, demonstrating an upward trend in case reporting as age increases compared to a 70–79-year-old reference group.CrI: credible interval; FOI: force of infection; WNV: West Nile virus.
+
+Panel A. Median FOI estimates at regional level from seven European countries. The FOI estimates at NUTS3 level are shaded on top of the NUTS2 estimate where applicable. The insets show three examples of each region category: Hungary (national age-stratified serosurvey data only); city of Venice (Italy) (case data only); Thessaloniki region (Greece) (both age-stratified case and seroprevalence data available). The observed serosurvey data (point) and 95% confidence interval calculated using the exact binomial method (error bar) are shown in green; the blue line and shaded area show the median and 95% CrI of the model estimates. The observed number of reported cases are shown in red; black points and vertical lines show the median and the 95% CrI of the model estimates.
+
+Panel B. Estimated yearly country-specific reporting rate (median and 95% CrI).
+
+Panel C. Estimated age-dependent trend in reporting a WNV case compared with the reference age group of 70–79-year-olds (median and 95% CrI).
+
+As shown in Figure 3B, we estimated that case-based surveillance reports around 0.69% (95% CrI: 0.59–0.80%) of WNV infections in Greece, 0.12% (95% CrI: 0.02–0.34%) in Cyprus, 0.11% (95% CrI: 0.10–0.14%) in Italy and smaller proportions of WNV infections in the other countries. The large uncertainty around the reporting rate estimates in Cyprus, Austria and Spain is because Cyprus is classified as a single NUTS3 region while only two regions in Spain and one in Austria were available for the analysis.
+
+We also estimated the relative propensity of WNV reporting by age group and found increasing trends by age (Figure 3C). Compared with the reference group of 70–79-year-olds, WNV infections tended to be reported 1.35 times more (95% CrI: 1.23–1.47) among 80–89-year-olds, 0.80 (95% CrI: 0.64–0.99) times among persons aged ≥ 90 years and significantly less among younger persons.
+
+Finally, from the annual expected number of WNV infections per 100,000 people extrapolated from the FOI estimates at NUTS3 level, we found hotspots of WNV transmission and infection in large parts of Hungary and Romania and in a few provinces in northern Italy as well (Figure 4). Figure 4B shows that the estimated number of cases from the fitted model at NUTS3 level is in line with the observed number of reported cases. In some NUTS3 regions in Romania, Hungary and Italy, we estimated that the annual incidence of WNV infection, which includes asymptomatic and symptomatic infections, could exceed > 6,000 per 100,000 people (these regions reported case data only; Figure 4C). On the other hand, we estimated that none of NUTS3 regions in Greece had more than 4,000 WNV infections per 100,000 people per year despite parts of Greece being among those reporting the largest number of WNV cases in Europe (Figure 2B). Large within-country variations in the incidence of WNV infection were estimated in Hungary and Romania (Figure 4A).
+
+Figure 4 Estimated average annual incidence of West Nile virus infections per 100,000 people and estimated annual number of cases, seven European countries, 2008–2022
+
+West Nile virus average annual infection incidence estimates across Europe. Panel A shows the estimated average annual incidence of WNV infection per 100,000 people in 117 NUTS3 regions. Panel B is a scatter plot comparing reported versus estimated cases for 99 NUTS3 regions, where country-specific coloured points align closely along the y=x reference line. Panel C uses boxplots to display the estimated annual incidence by country, with color-coded points indicating the source of WNV data, i.e. whether the estimates were obtained from age-stratified seroprevalence data, case data, or both sources.FOI: force of infection; NUTS: Nomenclature of Territorial Units for Statistics; WNV: West Nile virus.
+
+Panel A. A total of 117 NUTS3 regions included in the estimations. Expected average annual incidence computed using the median FOI estimates from the fitted model.
+
+Panel B. Reported vs estimated cases in 99 NUTS3 eligible regions with data on reported cases. The country of each region is indicated by the colour. The red dashed line shows the y = x line.
+
+Panel C. Boxplot of estimated annual incidence in 117 NUTS3 regions fitted to the model (points) by country and coloured by region category. The box shows the first and the third quartiles and the bold horizontal line shows the median.
+
+Sensitivity analysis
+
+Among the 40 NUTS3 regions with both age-stratified seroprevalence and case data available, we found that for 32 NUTS3 regions, the FOI estimates obtained were consistent (i.e., had overlapping 95% CrI) when considering only seroprevalence, case data or both data sources, as shown in Supplementary Figure 9A. The remaining eight regions were mainly characterised by large numbers of reported cases (the average number of cases is 90 across the eight regions, with a maximum of 182), suggesting that the case component of the model influenced the model calibration and the FOI estimates the most. Despite the differences in FOI estimates, the estimates of reporting rate and age-dependent scaling factor, showed overlapping 95% CrI when fitting only to case data as illustrated in Supplementary Figures 9B, 9C, 10 and 11 indicating a qualitatively similar model fit to when using both data sources.
+
+Discussion
+
+In the systematic literature review, we found large variations in the sample sizes, assays used, geographical scope and study populations in the serosurveys conducted in Europe over time. The relatively high WNV seroprevalence before 1990 appears to be linked to the serological assays used. We also found more serosurveys conducted in Europe since 2006, which is likely driven by the increased transmission and upsurge of WNV outbreaks, alongside the strengthening of arbovirus surveillance across the regions [45-47].
+
+Seroprevalence studies help unveil the population exposure to WNV irrespective of the strength of the local surveillance system, as they can estimate the number of persons infected and identify regions with evidence of undetected WNV circulation. For instance, the seroprevalence study conducted in Greece in 2013 identified WNV seropositive persons in seven prefectures where no cases were reported in previous years [40]. One of these prefectures reported WNV cases in 2018 and 2022.
+
+While flavivirus cross-reactivity can pose uncertainties in the interpretation of WNV seroprevalence data [48], in this study, we have adopted stringent selection criteria – including using the results obtained with the neutralisation assay for eight of the 10 age-stratified surveys, and the exclusion of any cross-reactive sample in the remaining serosurveys – which ensures the specificity and sensitivity of the data included in the modelling analysis.
+
+In this study, we adapted catalytic models originally developed to analyse surveillance data from endemic, immunising vector-borne diseases, and largely applied to dengue seroprevalence studies [15,16] and case data [13,19,20], to estimate the WNV FOI from WNV serosurveys and case notification data in Europe. Specifically, sero-catalytic models exploit observed age trends in seroprevalence to infer the risk of infection, as increasing seroprevalence by age indicates endemic viral circulation (given the probability of having acquired the infection depends on the exposure time, measured in years of life, as opposed to flatter age-dependent seroprevalence profiles which indicate equal susceptibility, exposure and risk of infection by age which is typical of epidemic and emerging settings). A summary of the mathematics behind the use of observed age trends in seroprevalence to characterise the level of endemicity and transmission intensity is given in the published literature [37]. In particular, a strength of this study is in the identification of locations with both age-stratified serosurvey and case data in 2008–2022, which provides information and power to estimate the proportion of infections reported to surveillance.
+
+Notably, the estimated variation in the country-specific reporting rate of WNV not only reflects different sensitivities of case-based surveillance but also captures differences in case definitions, as some countries report only confirmed cases [49] and others report also probable cases [35] and, in this study, we analysed probable and confirmed cases combined. On the other hand, in all EU/EEA countries except Czechia, Greece and Spain, passive WNV surveillance was in place, hence WNND are more frequently detected than WNF cases [6]. While the confirmed WNF cases may be younger than the WNND cases, the extent to which geographical differences in the relative proportion of reported WNND vs WNF cases may influence the FOI estimate cannot be extensively evaluated to date, as the breakdown of the total number of reported WNV cases into WNND, WNF or asymptomatic cases was not available. In the future, it would be useful to access the breakdown of WNV cases into WNND, WNF and asymptomatic cases, as this would shed light on differences in surveillance and allow us to test whether applying the methods developed in this study solely on confirmed WNND cases modifies the FOI estimates obtained in this study using all reported WNV cases. In turn, the relative reporting rates increasing with age suggest that older adults are more likely to be symptomatic, develop severe disease and thus seek medical care when infected, which is in line with the published literature [50].
+
+Our FOI estimates suggest that in some European countries, the regions reporting the largest number of cases are not necessarily those where we expect the largest number of infections. In the sensitivity analysis that we have conducted, we find that the FOI estimates obtained using only case data, only serosurvey data and both data sources were consistent. While this finding is reassuring, both from a modelling and public health perspective, it also highlights the benefit of validating and refining FOI estimates using multiple tools and data sources. Specifically, the implementation of regional age-stratified WNV serosurveys across Europe in locations with known WNV circulation generates the data needed to directly quantify the sensitivity of local surveillance which would eventually enable more precise and less uncertain estimates of WNV transmission intensity. Furthermore, serosurveys conducted in regions at risk of WNV transmission provide useful data to better understand the current and future geographical limits of WNV circulation, as the virus is likely to move into new regions characterised by naïve host and human populations before its circulation is detected through WNV surveillance as is currently implemented across most of Europe.
+
+The objective of this study was to quantify the average transmission intensity of WNV, as measured by the time-constant FOI. Due to the limited amount of WNV data available in time from both case-based surveillance and serosurveys, it was not possible to estimate the seasonality nor intra-annual variations in transmission intensity. Sequential serosurveys have been conducted in Greece and Italy [40,51,52], but the small sample sizes in serosurveys posed limitations to the extent to which it was possible to reconstruct temporal changes in the local WNV FOI without substantial uncertainty in the estimates. Despite this limitation, the quantification of spatial variations in the average time-constant FOI helps quantify the (unobserved) burden of infection and can contribute to identifying climate and environmental risk factors [53]. This study also highlights the heterogeneous implementation of population-based age-stratified serosurveys across Europe. The estimates generated in this study agree with previous analyses suggesting parts of eastern Europe and parts of southern Europe such as Italy are at higher risk of WNV transmission [28,29]. In the future it would be interesting to assess the extent to which ecological and climatic factors can explain the variation in the WNV FOI estimates generated in this study [17,28,29,54].
+
+Conclusion
+
+In conclusion, we developed data fusion modelling methods utilising both serosurvey and case notification data for quantifying the local risk of WNV transmission as determined by the FOI, which accounted surveillance across geographies and age-dependent trends in reporting. Our results suggest that the European regions with the highest incidence of reported WNV cases are not necessarily the regions with the highest transmission risk. As such, this study lays the foundations for informing the development of evidence-based surveillance programmes to inform public health policy, epidemic preparedness and outbreak response planning now and in the future.
+
+Ethical statement
+
+Ethical approval is not necessary for this article as no experiment involving animals or human was conducted.
+
+Use of artificial intelligence tools
+
+None declared.
+
+Data availability
+
+The epidemiological data that support the findings of this study are available from ECDC. Restrictions apply to the availability of these data, which were used under license for the current study, and so are not publicly available. The serosurvey data extracted from the systematic literature review are provided in the Supplementary data file ‘Review spreadsheet.xlsx’.
+
+Disclaimer
+
+This article has obtained approval of publication from ECDC. The views and opinions of the authors expressed herein do not necessarily state or reflect those of ECDC nor of the Vaccine Impact Modelling Consortium. The accuracy of the authors’ statistical analysis and the findings they report are not the responsibility of ECDC. ECDC is not responsible for conclusions or opinions drawn from the data provided. ECDC is not responsible for the correctness of the data and for data management, data merging and data collation after provision of the data. ECDC shall not be held liable for improper or incorrect use of the data.
+
+Supplementary Data
+
+5831000 Supplementary Material 1
+
+Supplementary Data
+
+89000 Supplementary Material 2
+
+Authors’ contributions: Hailin Feng: Data curation, Formal analysis, Methodology, Software, Visualisation, Writing – original draft, Writing – review & editing. Giovanni Marini: Conceptualisation, Data curation, Formal analysis, Supervision, Writing – review & editing. Éva Barabás: Data curation, Writing – review & editing, Data provision. Michalis Koureas: Data curation, Writing – review & editing, Data provision. Varvara A Mouchtouri: Data curation, Writing – review & editing, Data provision. Ilaria Dorigatti: Conceptualisation, Formal analysis, Methodology, Supervision, Visualisation, Writing – original draft, Writing – review & editing.
+
+Conflict of interest: None declared.
+
+Funding statement: ID and HF acknowledge funding from the MRC Centre for Global Infectious Disease Analysis (reference MR/X020258/1), funded by the UK Medical Research Council (MRC). This UK funded award is carried out in the frame of the Global Health EDCTP3 Joint Undertaking; and acknowledges funding by Community Jameel. ID also acknowledges funding from Wellcome Trust (213494/Z/18/Z and 228185/Z/23/Z) and via the Vaccine Impact Modelling Consortium (226727/Z/22/Z). This study was partially funded by EU grant 874850 MOOD. The contents of this publication are the sole responsibility of the authors and don’t necessarily reflect the views of the European Commission.
+
+
+References
+
+1 European Centre for Disease Prevention and Control (ECDC). West Nile virus infection. Stockholm: ECDC. [Accessed: 2 Jun 2026]. Available from: https://www.ecdc.europa.eu/en/west-nile-virus-infection
+2 Kramer LD Styer LM Ebel GD . A global perspective on the epidemiology of West Nile virus. Annu Rev Entomol. 2008;53(1):61-81. 10.1146/annurev.ento.53.103106.093258 17645411
+3 Mostashari F Bunning ML Kitsutani PT Singer DA Nash D Cooper MJ Epidemic West Nile encephalitis, New York, 1999: results of a household-based seroepidemiological survey. Lancet. 2001;358(9278):261-4. 10.1016/S0140-6736(01)05480-0 11498211
+4 Petersen LR Brault AC Nasci RS . West Nile virus: review of the literature. JAMA. 2013;310(3):308-15. 10.1001/jama.2013.8042 23860989 PMC4563989
+5 Zeller HG Schuffenecker I . West Nile virus: an overview of its spread in Europe and the Mediterranean basin in contrast to its spread in the Americas. Eur J Clin Microbiol Infect Dis. 2004;23(3):147-56. 10.1007/s10096-003-1085-1 14986160
+6 European Centre for Disease Prevention and Control (ECDC) and European Food Safety Authority. (EFSA). Surveillance, prevention and control of West Nile virus and Usutu virus infections in the EU/EEA. Stockholm: ECDC & Parma: EFSA; Sep 2023. Available from: https://www.ecdc.europa.eu/sites/default/files/documents/Surveillance_prevention_and_control_of_WNV_and_Usutu_virus_infections_in_the_EU-EEA.pdf
+7 European Centre for Disease Prevention and Control (ECDC). Historical data on local transmission in Europe for West Nile virus West Nile virus infections in 2024. Stockholm: ECDC; 10 Jun 2024. Available from: https://www.ecdc.europa.eu/en/west-nile-fever/surveillance-and-disease-data/historical
+8 Centers for Disease Control and Prevention (CDC). Intrauterine West Nile virus infection--New York, 2002. MMWR Morb Mortal Wkly Rep. 2002;51(50):1135-6.12537289
+9 European Centre for Disease Prevention and Control (ECDC), European Food Safety Authority (EFSA). Vector control practices and strategies against West Nile virus. Stockholm: ECDC & Parma: EFSA; Nov 2020. Available from: https://www.ecdc.europa.eu/sites/default/files/documents/Vector-control-practices-and-strategies-against-West-Nile-virus.pdf
+10 European Commission (EC). Commission Directive 2004/33/EC of 22 March 2004 implementing Directive 2002/98/EC of the European Parliament and of the Council as regards certain technical requirements for blood and blood components. Official Journal of the European Union. Luxembourg: Publications Office of the European Union. 30.03.2004:L 91. Available from: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32004L0033
+11 European Centre for Disease Prevention and Control (ECDC). West Nile virus risk assessment tool. Stockholm: ECDC; 3 Jul 2013. Available from: https://www.ecdc.europa.eu/sites/default/files/media/en/publications/Publications/west-nile-virus-risk-assessment-tool.pdf
+12 Istituto Superiore di Sanita (ISS). Piano Nazionale di prevenzione, sorveglianza e risposta alle Arbovirosi (PNA) 2020-2025. [National plan on prevention, surveillance and response to arboviruses]. Rome: ISS; 15 May 2024. Italian. Available from: https://www.centronazionalesangue.it/wp-content/uploads/2024/05/2024_0021034_Indicazioni-sorveglianza-e-prevenzione-trasmissione-WNV-e-Usutu-mediante-trasfusione-emocomponenti-labili-stagione-estivo-autunnale-2024.pdf
+13 Imai N Dorigatti I Cauchemez S Ferguson NM . Estimating dengue transmission intensity from case-notification data from multiple countries. PLoS Negl Trop Dis. 2016;10(7):e0004833. 10.1371/journal.pntd.0004833 27399793 PMC4939939
+14 Cox V O’Driscoll M Imai N Prayitno A Hadinegoro SR Taurel A-F Estimating dengue transmission intensity from serological data: A comparative analysis using mixture and catalytic models. PLoS Negl Trop Dis. 2022;16(7):e0010592. 10.1371/journal.pntd.0010592 35816508 PMC9302823
+15 Vicco A McCormack C Pedrique B Ribeiro I Malavige GN Dorigatti I . A scoping literature review of global dengue age-stratified seroprevalence data: estimating dengue force of infection in endemic countries. EBioMedicine. 2024;104:105134. 10.1016/j.ebiom.2024.105134 38718682 PMC11096825
+16 Imai N Dorigatti I Cauchemez S Ferguson NM . Estimating dengue transmission intensity from sero-prevalence surveys in multiple countries. PLoS Negl Trop Dis. 2015;9(4):e0003719. 10.1371/journal.pntd.0003719 25881272 PMC4400108
+17 Marini G Pugliese A Wint W Alexander NS Rizzoli A Rosà R . Modelling the West Nile virus force of infection in the European human population. One Health. 2022;15:100462. 10.1016/j.onehlt.2022.100462 36532665 PMC9754970
+18 Tran A Sudre B Paz S Rossi M Desbrosse A Chevalier V Environmental predictors of West Nile fever risk in Europe. Int J Health Geogr. 2014;13(1):26. 10.1186/1476-072X-13-26 24986363 PMC4118316
+19 O’Driscoll M Imai N Ferguson NM Hadinegoro SR Satari HI Tam CC Spatiotemporal variability in dengue transmission intensity in Jakarta, Indonesia. PLoS Negl Trop Dis. 2020;14(3):e0008102. 10.1371/journal.pntd.0008102 32142516 PMC7080271
+20 Rodriguez-Barraquer I Salje H Cummings DA . Opportunities for improved surveillance and control of dengue from age-specific case data. eLife. 2019;8:e45474. 10.7554/eLife.45474 31120419 PMC6579519
+21 García-Carrasco J-M Muñoz A-R Real R . Anticipating the locations in Europe of high-risk areas for West Nile virus outbreaks in 2021. Zoonoses Public Health. 2021;68(8):982-6. 10.1111/zph.12877 34242480
+22 Watts MJ Sarto I Monteys V Mortyn PG Kotsila P Kotsila P . The rise of West Nile Virus in Southern and Southeastern Europe: A spatial-temporal analysis investigating the combined effects of climate, land use and economic changes. One Health. 2021;13:100315. 10.1016/j.onehlt.2021.100315 34485672 PMC8408625
+23 Durand B Tran A Balança G Chevalier V . Geographic variations of the bird-borne structural risk of West Nile virus circulation in Europe. PLoS One. 2017;12(10):e0185962. 10.1371/journal.pone.0185962 29023472 PMC5638290
+24 Giesen C Herrador Z Fernandez-Martinez B Figuerola J Gangoso L Vazquez A A systematic review of environmental factors related to WNV circulation in European and Mediterranean countries. One Health. 2023;16:100478. 10.1016/j.onehlt.2022.100478 37363246 PMC10288031
+25 de Wit MM Dimas Martins A Delecroix C Heesterbeek H Ten Bosch QA . Mechanistic models for West Nile virus transmission: a systematic review of features, aims and parametrization. Proc Biol Sci. 2024;291(2018):20232432. 10.1098/rspb.2023.2432 38471554 PMC10932716
+26 Di Pol G Crotta M Taylor RA . Modelling the temperature suitability for the risk of West Nile Virus establishment in European Culex pipiens populations. Transbound Emerg Dis. 2022;69(5):e1787-99. 10.1111/tbed.14513 35304820 PMC9790397
+27 Vogels CBF Hartemink N Koenraadt CJM . Modelling West Nile virus transmission risk in Europe: effect of temperature and mosquito biotypes on the basic reproduction number. Sci Rep. 2017;7(1):5022. 10.1038/s41598-017-05185-4 28694450 PMC5504010
+28 Erazo D Grant L Ghisbain G Marini G Colón-González FJ Wint W Contribution of climate change to the spatial expansion of West Nile virus in Europe. Nat Commun. 2024;15(1):1196. 10.1038/s41467-024-45290-3 38331945 PMC10853512
+29 Farooq Z Sjödin H Semenza JC Tozan Y Sewe MO Wallin J European projections of West Nile virus transmission under climate change scenarios. One Health. 2023;16:100509. 10.1016/j.onehlt.2023.100509 37363233 PMC10288058
+30 Page MJ McKenzie JE Bossuyt PM Boutron I Hoffmann TC Mulrow CD The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ. 2021;372(71):n71. 10.1136/bmj.n71 33782057 PMC8005924
+31 United Nations, Department of Economic and Social Affairs, Population Division (UN). World Population Prospects 2024. New York: UN; 2024. Available from: https://population.un.org/wpp
+32 European Centre for Disease Prevention and Control (ECDC). Meeting Report - Expert consultation on West Nile virus infection Stockholm: 21-22 April 2009. Stockholm: ECDC; 2009. Available from: https://www.ecdc.europa.eu/sites/default/files/media/en/publications/Publications/0909_MER_Expert_consultation_on_WNV.pdf
+33 European Commission (EC). 2008/426/EC: Commission Decision of 28 April 2008 amending Decision 2002/253/EC laying down case definitions for reporting communicable diseases to the Community network under Decision No 2119/98/EC of the European Parliament and of the Council (notified under document number C(2008) 1589. Official Journal of the European Union. Luxembourg: Publications Office of the European Union. 18.06.2008:L 159. Available from: https://eur-lex.europa.eu/eli/dec/2008/426/oj/eng
+34 European Commission (EC). 2007/875/EC: Commission Decision of 18 December 2007 amending Decision No 2119/98/EC of the European Parliament and of the Council and Decision 2000/96/EC as regards communicable diseases listed in those decisions (notified under document number C(2007) 6355. Official Journal of the European Union. Luxembourg: Publications Office of the European Union. 28.12.2007:L 344. Available from: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32007D0875&qid=1774627066471
+35 Young JJ Haussig JM Aberle SW Pervanidou D Riccardo F Sekulić N Epidemiology of human West Nile virus infections in the European Union and European Union enlargement countries, 2010 to 2018. Euro Surveill. 2021;26(19):2001095. 10.2807/1560-7917.ES.2021.26.19.2001095 33988124 PMC8120798
+36 Ferguson NM Donnelly CA Anderson RM . Transmission dynamics and epidemiology of dengue: insights from age-stratified sero-prevalence surveys. Philos Trans R Soc Lond B Biol Sci. 1999;354(1384):757-68. 10.1098/rstb.1999.0428 10365401 PMC1692557
+37 Kamau E Chen J Bajaj S Torres N Creswell R Pavlich-Mariscal JA The mathematics of serocatalytic models with applications to public health data. Stat Med. 2025;44(15-17):e70188. 10.1002/sim.70188 40696544 PMC12284347
+38 Eurostat. Database - Population and demography database. Luxembourg: Eurostat. [Accessed: 2 Jun 2026]. Available from: https://ec.europa.eu/eurostat/web/population-demography/demography-population-stock-balance/database
+39 Gabry J, Češnovar R, Johnson A, Bronder S. cmdstanr: R Interface to “CmdStan” 2024. Available from: https://mc-stan.org/cmdstanr/
+40 Hadjichristodoulou C Pournaras S Mavrouli M Marka A Tserkezou P Baka A West Nile virus seroprevalence in the Greek population in 2013: A nationwide cross-sectional survey. PLoS One. 2015;10(11):e0143803. 10.1371/journal.pone.0143803 26605539 PMC4659653
+41 Nagy A Szöllősi T Takács M Magyar N Barabás É . West Nile virus seroprevalence among blood donors in Hungary. Vector Borne Zoonotic Dis. 2019;19(11):844-50. 10.1089/vbz.2018.2401 31184991
+42 Barzon L Pacenti M Cusinato R Cattai M Franchin E Pagni S Human cases of West Nile Virus infection in north-eastern Italy, 15 June to 15 November 2010. Euro Surveill. 2011;16(33):19949. 10.2807/ese.16.33.19949-en 21871228
+43 Pfleiderer C Blümel J Schmidt M Roth WK Houfar MK Eckert J West Nile virus and blood product safety in Germany. J Med Virol. 2008;80(3):557-63. 10.1002/jmv.21110 18205233
+44 de Bellegarde de Saint Lary C Kasbergen LMR Bruijning-Verhagen PCJL van der Jeugd H Chandler F Hogema BM Assessing West Nile virus (WNV) and Usutu virus (USUV) exposure in bird ringers in the Netherlands: a high-risk group for WNV and USUV infection? One Health. 2023;16:100533. 10.1016/j.onehlt.2023.100533 37363259 PMC10288042
+45 Tsai TF Popovici F Cernescu C Campbell GL Nedelcu NI . West Nile encephalitis epidemic in southeastern Romania. Lancet. 1998;352(9130):767-71. 10.1016/S0140-6736(98)03538-7 9737281
+46 Autorino GL Battisti A Deubel V Ferrari G Forletta R Giovannini A West Nile virus epidemic in horses, Tuscany region, Italy. Emerg Infect Dis. 2002;8(12):1372-8. 10.3201/eid0812.020234 12498650 PMC2738505
+47 European Centre for Disease Prevention and Control (ECDC). Surveillance Atlas of Infectious Diseases. Stockholm: ECDC: 28 Apr 2023. Available from: https://www.ecdc.europa.eu/en/surveillance-atlas-infectious-diseases
+48 Beck C Jimenez-Clavero MA Leblond A Durand B Nowotny N Leparc-Goffart I Flaviviruses in Europe: complex circulation patterns and their consequences for the diagnosis and control of West Nile disease. Int J Environ Res Public Health. 2013;10(11):6049-83. 10.3390/ijerph10116049 24225644 PMC3863887
+49 European Centre for Disease Prevention and Control (ECDC). Factsheet about West Nile virus infection. Stockholm: ECDC; 15 Dec 2023. Available from: https://www.ecdc.europa.eu/en/west-nile-fever/facts
+50 Montgomery RR . Age-related alterations in immune responses to West Nile virus infection. Clin Exp Immunol. 2017;187(1):26-34. 10.1111/cei.12863 27612657 PMC5167051
+51 Ladbury GAF Gavana M Danis K Papa A Papamichail D Mourelatos S Population seroprevalence study after a West Nile virus lineage 2 epidemic, Greece, 2010. PLoS One. 2013;8(11):e80432. 10.1371/journal.pone.0080432 24260390 PMC3832368
+52 Marchi S Montomoli E Viviani S Giannecchini S Stincarelli MA Lanave G West Nile virus seroprevalence in the Italian Tuscany Region from 2016 to 2019. Pathogens. 2021;10(7):844. 10.3390/pathogens10070844 34357994 PMC8308575
+53 Cattarino L Rodriguez-Barraquer I Imai N Cummings DAT Ferguson NM . Mapping global variation in dengue transmission intensity. Sci Transl Med. 2020;12(528):eaax4144. 10.1126/scitranslmed.aax4144 31996463
+54 Farooq Z Rocklöv J Wallin J Abiri N Sewe MO Sjödin H Artificial intelligence to predict West Nile virus outbreaks with eco-climatic drivers. Lancet Reg Health Eur. 2022;17:100370. 10.1016/j.lanepe.2022.100370 35373173 PMC8971633
+55 Kunz C . Nachweis haemagglutinations-hemmender antikoerper gegen Arboviren in der Bevoelkerung Osterreichs. [Demonstration of haemagglutination-inhibiting arborvirus antibodies in the population of Austria]. German. Zentralbl Bakteriol Orig. 1963;190:174-82.14119877
+56 Pavlatos M Smith CE . Antibodies to arthropod-borne viruses in Greece. Trans R Soc Trop Med Hyg. 1964;58(5):422-4. 10.1016/0035-9203(64)90089-6 14206698
+57 Ebke J Schäfer E . Nachweis hämagglutinationshemmender antikörper gegen Arboviren. Untersuchungen an jüngeren Personen aus der Bundesrepublik Deutschland und der Republik Togo (westafrika). [Detection of hemagglutination-inhibiting antibodies to arboviruses in sera of young individuals in the Federal Republic of Germany and in the Republic of Togo (West Africa)]. German. Zentralbl Bakteriol Orig A. 1971;218(2):149-59.4403535
+58 González MT Filipe AR . Antibodies to arboviruses in northwestern Spain. Am J Trop Med Hyg. 1977;26(4):792-7. 10.4269/ajtmh.1977.26.792 889019
+59 Imami O Calisher CH Lazwick JS . Serological studies on the epidemiology of some arbovirus infections in the commune of Suhareka, Kosovo. Acta Biol Med Exp. 1978;3:61-5.
+60 Hubálek Z Zeman P Halouzka J Juricová Z Stovicková E Bálková H Mosquitoborne viruses, Czech Republic, 2002. Emerg Infect Dis. 2005;11(1):116-8. 10.3201/eid1101.040444 15705333 PMC3294340
+61 Dimou V Gerou S Papa A . The epidemic West Nile virus strain in Greece was a recent introduction. Vector Borne Zoonotic Dis. 2013;13(10):719-22. 10.1089/vbz.2013.1318 23919603
+62 Bernabeu-Wittel M Ruiz-Pérez M del Toro MD Aznar J Muniain A de Ory F West Nile virus past infections in the general population of Southern Spain. Enferm Infecc Microbiol Clin. 2007;25(9):561-5. 10.1157/13111181 17953895
+63 Remoli ME Fiorentini C Marchi A Di Renzi S Vonesch N Peri MV Seroprevalence survey of arboviruses in workers from Tuscany, Italy. Med Lav. 2018;109(2):125-31. 10.23749/mdl.v109i2.5024 29701628 PMC7682178
+64 Frías M Caballero-Gómez J Vázquez A Madrigal E Ruiz-Fons F Gallo M Serosurvey of blood donors to assess West Nile virus exposure, South-Central Spain. Emerg Infect Dis. 2024;30(7):1496-8. 10.3201/eid3007.240450 38916587 PMC11210648
+65 Crivei LA Vata A Teodor D Porea D Cozma AP Anita A An assessment of West Nile and Usutu viruses’ seroprevalence in hospitalized patients: a preliminary study on flavivirus exposure in eastern Romania. Pathogens. 2024;13(2):133. 10.3390/pathogens13020133 38392871 PMC10892458
+66 Nagy A Csonka N Takács M Mezei E Barabás É . West Nile and Usutu virus seroprevalence in Hungary: A nationwide serosurvey among blood donors in 2019. PLoS One. 2022;17(4):e0266840. 10.1371/journal.pone.0266840 35395048 PMC8992992
+67 Coroian M Mihalca AD Dobler G Euringer K Girl P Borșan S-D Seroprevalence rates against West Nile, Usutu, and tick-borne encephalitis viruses in blood-donors from north-western Romania. Int J Environ Res Public Health. 2022;19(13):8182. 10.3390/ijerph19138182 35805850 PMC9266370
