@@ -16,6 +16,8 @@ from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     TopicBriefLlmResult,
 )
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    apply_gateway_chat_options,
+    assistant_message_text,
     resolve_openai_base_url,
     resolve_openai_model,
     usage_integers,
@@ -199,9 +201,11 @@ def generate_topic_brief_content(
         "response_format": type_to_response_format_param(TopicBriefContent),
     }
     if base_url is not None:
-        create_kwargs["max_tokens"] = _GATEWAY_MAX_TOKENS
+        apply_gateway_chat_options(
+            create_kwargs, max_tokens=_GATEWAY_MAX_TOKENS
+        )
     completion = client.chat.completions.create(**create_kwargs)
-    content = completion.choices[0].message.content
+    content = assistant_message_text(completion.choices[0].message)
     if not content:
         raise ValueError("OpenAI returned no parsed topic brief")
     try:

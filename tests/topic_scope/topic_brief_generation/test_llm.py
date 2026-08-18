@@ -84,6 +84,7 @@ def _stub_openai(
     create_captured: dict[str, object] | None = None,
     *,
     content: str | None = None,
+    reasoning: str | None = None,
     usage: object | None = None,
 ) -> None:
     parsed = sample_topic_brief_content()
@@ -99,6 +100,8 @@ def _stub_openai(
                 create_kwargs.clear()
                 create_kwargs.update(kw)
                 message = SimpleNamespace(content=raw)
+                if reasoning is not None:
+                    message.reasoning = reasoning
                 return SimpleNamespace(
                     choices=[SimpleNamespace(message=message)],
                     usage=usage,
@@ -165,6 +168,64 @@ def test_generate_topic_brief_content_adds_gateway_json_only(
     system = create_captured["messages"][0]["content"]
     assert "first non-whitespace character must be `{`" in system
     assert create_captured["max_tokens"] == 8192
+    assert create_captured["reasoning_effort"] == "none"
+
+
+def test_generate_topic_brief_content_omits_gateway_options_on_public_api(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
+
+    generate_topic_brief_content(
+        topic_statement="topic",
+        facets=[],
+        briefed_references=[_briefed()],
+    )
+
+    assert "max_tokens" not in create_captured
+    assert "reasoning_effort" not in create_captured
+
+
+def test_generate_topic_brief_content_parses_reasoning_when_content_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    brief = sample_topic_brief_content()
+    _stub_openai(
+        monkeypatch,
+        captured,
+        content="",
+        reasoning=brief.model_dump_json(),
+    )
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "gemma4:e4b")
+
+    result = generate_topic_brief_content(
+        topic_statement="topic",
+        facets=[],
+        briefed_references=[_briefed()],
+    )
+
+    assert result.content == brief
+
+
+def test_generate_topic_brief_content_raises_when_content_and_reasoning_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, content="")
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "gemma4:e4b")
+
+    with pytest.raises(ValueError, match="OpenAI returned no parsed topic brief"):
+        generate_topic_brief_content(
+            topic_statement="topic",
+            facets=[],
+            briefed_references=[_briefed()],
+        )
 
 
 def test_parse_topic_brief_content_accepts_clean_json() -> None:
