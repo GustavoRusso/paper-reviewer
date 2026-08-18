@@ -118,6 +118,7 @@ data/paper_brief_evaluation/
     02-brief-template.md
     03-evaluations.jsonl
     03-judge-model.txt
+    03-token-summary.json
 ```
 
 | Rule | Value |
@@ -176,6 +177,33 @@ Notebook: `03-evaluate-briefs.ipynb`.
 - Skip JSONL lines that have `error` and no `brief` (no judge call).
 - Write **`03-evaluations.jsonl`**: success `{ "doi": "...", "evaluation_score": 4.25, "evaluation": { ... four G-Eval objects ... } }` (`evaluation` is `PaperBriefEvaluation`; `evaluation_score` is the two-decimal mean). Failure `{ "doi": "...", "error": "..." }`.
 - Write **`03-judge-model.txt`**: exact bytes of the chosen chat model id.
+- After the judge (or later, without a new judge run), read generator `prompt_tokens` / `completion_tokens` / `total_tokens` from `02-briefs.jsonl`. Do **not** call the generator. Do **not** copy those fields into `03-evaluations.jsonl`. Join each DOI to `evaluation_score` and conciseness when a success line exists in `03-evaluations.jsonl`. If that file is missing, `joined_with_score` is 0 and quality means are null.
+- Write **`03-token-summary.json`**: one UTF-8 JSON object (indent 2, trailing newline), not JSONL. Shape:
+
+```json
+{
+  "run_id": "20260818T160000Z_llama3.1-8b",
+  "coverage": {
+    "brief_rows": 109,
+    "with_usage": 108,
+    "missing_usage": 1,
+    "joined_with_score": 108
+  },
+  "tokens": {
+    "prompt_tokens": {"count": 108, "sum": 1, "min": 1, "max": 1, "median": 1.0, "p90": 1},
+    "completion_tokens": {"count": 108, "sum": 1, "min": 1, "max": 1, "median": 1.0, "p90": 1},
+    "total_tokens": {"count": 108, "sum": 1, "min": 1, "max": 1, "median": 1.0, "p90": 1}
+  },
+  "quality": {
+    "joined_count": 108,
+    "mean_evaluation_score": 4.12,
+    "mean_score_per_1k_total_tokens": 1.3704,
+    "mean_conciseness": 4.25
+  }
+}
+```
+
+`brief_rows` counts JSONL lines with a `brief`. `with_usage` counts those with all three usage integers. `missing_usage` is `brief_rows - with_usage`. `joined_with_score` counts usage rows that also have a success score. Each `tokens` field is `null` when that integer is absent on every brief. `count` / `sum` / `min` / `max` / `p90` are integers (`p90` is nearest-rank). `median` is a JSON number (may be `.5` when the count is even). Quality means use two-decimal half-up except `mean_score_per_1k_total_tokens` (four decimals). Quality means are `null` when `joined_count` is 0. Token fields are **generate** usage from notebook 02, not judge usage.
 - Do **not** call `evaluate_paper_brief` (that function writes `PaperBrief` columns).
 
 Domain functions: `paper_reviewer.topic_scope.paper_brief_evaluation.llm` (`judge_paper_brief_evaluation`) and `paper_reviewer.schemas.topic_scope.paper_brief_evaluation` (`mean_evaluation_score`, `PaperBriefEvaluation`).
