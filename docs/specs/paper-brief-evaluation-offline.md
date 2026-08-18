@@ -150,10 +150,11 @@ Usable-body rule: same as [Generate paper brief](2.2.3-generate-paper-brief.md) 
 Notebook: `02-generate-briefs.ipynb`.
 
 - Set **`MODEL`** in a notebook cell (required chat model id). Empty or whitespace → stop; no run folder.
+- Optional **`LIMIT`**: leave blank (`None` or empty) to process every manifest row. A positive integer processes the first N rows in manifest order. `0`, negative, or non-integer → stop; no run folder.
 - Set `OPENAI_MODEL` from that value so `generate_paper_brief_content` uses it.
 - Create a new `{run_id}/` folder (`YYYYMMDDThhmmssZ_{model_slug}`).
 - Read `corpus/manifest.jsonl`. Do **not** query Postgres. Do **not** read `PaperBrief`.
-- For each manifest row:
+- For each selected manifest row:
   - Load **full text** from `corpus/{filename}` (frozen).
   - Pass **title, journal, year** from the manifest into `generate_paper_brief_content`.
   - Always call `generate_paper_brief_content(...)` (new LLM brief). Do **not** import `paper_reviewer.flows` and do **not** call `create_paper_brief`.
@@ -168,8 +169,9 @@ Notebook: `03-evaluate-briefs.ipynb`.
 
 - Input: one `{run_id}/` that already has `02-briefs.jsonl`, plus sibling `corpus/` (`.txt` files; Postgres is not required). Set `RUN_ID` in a notebook cell (`YYYYMMDDThhmmssZ_{model_slug}`). Leave it empty to use the latest sibling folder that already has `02-briefs.jsonl` (lexicographic order is time order).
 - Set **`MODEL`** in a notebook cell (required chat model id). Empty or whitespace → stop; do not write scores.
+- Optional **`LIMIT`**: leave blank (`None` or empty) to process every line in `02-briefs.jsonl`. A positive integer processes the first N lines in file order. A line with no brief still counts toward N. `0`, negative, or non-integer → stop; do not write scores. Do **not** apply `LIMIT` to the token-summary cell.
 - Set `OPENAI_MODEL` from that value so `judge_paper_brief_evaluation` uses it. This is the **judge** model; it is not the generator slug in `run_id`.
-- For each success line in `02-briefs.jsonl`:
+- For each success line among the selected rows in `02-briefs.jsonl`:
   - Load `full_text_plain` from `corpus/{DOI_FILE}.txt` (uppercase DOI, `/` → `_`; same rule as step 1). Do not read the manifest.
   - Validate `brief` as `PaperBriefContent`.
   - Call `judge_paper_brief_evaluation(full_text_plain, content=...)`.
