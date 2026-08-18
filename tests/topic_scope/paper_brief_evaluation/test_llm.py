@@ -64,6 +64,7 @@ def _stub_openai(
     create_captured: dict[str, object] | None = None,
     *,
     content: str | None = None,
+    reasoning: str | None = None,
 ) -> None:
     parsed = sample_evaluation()
     raw = content if content is not None else parsed.model_dump_json()
@@ -82,6 +83,8 @@ def _stub_openai(
                     content=raw,
                     refusal=None,
                 )
+                if reasoning is not None:
+                    message.reasoning = reasoning
                 return SimpleNamespace(
                     choices=[SimpleNamespace(message=message)],
                     usage=None,
@@ -172,6 +175,78 @@ def test_judge_clips_full_text_on_gateway(monkeypatch: pytest.MonkeyPatch) -> No
     assert "END_MARK" not in user
     system = create_captured["messages"][0]["content"]
     assert "first non-whitespace character must be `{`" in system
+
+
+def test_judge_omits_gateway_options_on_public_api(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
+
+    judge_paper_brief_evaluation(
+        "plain",
+        content=sample_brief_content(),
+    )
+
+    assert "max_tokens" not in create_captured
+    assert "reasoning_effort" not in create_captured
+
+
+def test_judge_sets_gateway_chat_options(monkeypatch: pytest.MonkeyPatch) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "llama3.1-8b")
+
+    judge_paper_brief_evaluation(
+        "plain",
+        content=sample_brief_content(),
+    )
+
+    assert create_captured["max_tokens"] == 4096
+    assert create_captured["reasoning_effort"] == "none"
+
+
+def test_judge_parses_reasoning_when_content_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    evaluation = sample_evaluation()
+    _stub_openai(
+        monkeypatch,
+        captured,
+        content="",
+        reasoning=evaluation.model_dump_json(),
+    )
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "gemma4:e4b")
+
+    result = judge_paper_brief_evaluation(
+        "plain",
+        content=sample_brief_content(),
+    )
+
+    assert result == evaluation
+
+
+def test_judge_raises_when_content_and_reasoning_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, content="")
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "gemma4:e4b")
+
+    with pytest.raises(
+        ValueError, match="OpenAI returned no parsed paper brief evaluation"
+    ):
+        judge_paper_brief_evaluation(
+            "plain",
+            content=sample_brief_content(),
+        )
 
 
 @pytest.mark.parametrize(
