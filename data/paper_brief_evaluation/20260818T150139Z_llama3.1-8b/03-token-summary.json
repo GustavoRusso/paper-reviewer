@@ -1,0 +1,41 @@
+{
+  "run_id": "20260818T150139Z_llama3.1-8b",
+  "coverage": {
+    "brief_rows": 109,
+    "with_usage": 109,
+    "missing_usage": 0,
+    "joined_with_score": 109
+  },
+  "tokens": {
+    "prompt_tokens": {
+      "count": 109,
+      "sum": 307092,
+      "min": 1099,
+      "max": 3891,
+      "median": 2806.0,
+      "p90": 3150
+    },
+    "completion_tokens": {
+      "count": 109,
+      "sum": 35910,
+      "min": 112,
+      "max": 592,
+      "median": 322.0,
+      "p90": 450
+    },
+    "total_tokens": {
+      "count": 109,
+      "sum": 343002,
+      "min": 1429,
+      "max": 4406,
+      "median": 3116.0,
+      "p90": 3519
+    }
+  },
+  "quality": {
+    "joined_count": 109,
+    "mean_evaluation_score": 4.31,
+    "mean_score_per_1k_total_tokens": 1.3996,
+    "mean_conciseness": 4.22
+  }
+}
