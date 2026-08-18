@@ -178,7 +178,7 @@ services:
               count: all
               capabilities: [gpu]
 
-  # One-shot: pull the default local chat model into Ollama (idempotent).
+  # One-shot: pull local chat models into Ollama (idempotent).
   ollama-pull:
     profiles: ["app"]
     image: ollama/ollama:latest
@@ -187,7 +187,8 @@ services:
     depends_on:
       ollama:
         condition: service_healthy
-    entrypoint: ["ollama", "pull", "llama3.1:8b"]
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["ollama pull llama3.1:8b && ollama pull gemma4:e4b"]
     restart: "no"
 
   # Jupyter Lab for local offline eval notebooks. Profile `notebooks` so

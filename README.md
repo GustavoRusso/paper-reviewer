@@ -94,7 +94,7 @@ Paper brief generation (`create_paper_brief`), topic brief generation (`create_t
 
 **Default — Local Ollama (no API key required)**
 
-`just up` starts **Ollama** and automatically pulls `llama3.1:8b` (first startup downloads several GB and can take a few minutes). The `.env.example` already contains the correct settings — no extra steps needed:
+`just up` starts **Ollama** and automatically pulls `llama3.1:8b` and `gemma4:e4b` (first startup downloads several GB and can take a few minutes). The `.env.example` already contains the correct settings — no extra steps needed:
 
 ```bash
 OPENAI_API_KEY=ollama
@@ -102,7 +102,7 @@ OPENAI_BASE_URL=http://localhost:11434/v1
 OPENAI_MODEL=llama3.1:8b
 ```
 
-Confirm the model is ready: `curl http://localhost:11434/v1/models`. To pull a different model manually: `just pull-model`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama).
+Set `OPENAI_MODEL=gemma4:e4b` to use Gemma instead. Confirm the models are ready: `curl http://localhost:11434/v1/models`. To re-pull both models manually: `just pull-model`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama).
 
 **NVIDIA GPU:** the Ollama service in [compose.yml](compose.yml) is set up for **NVIDIA** GPUs (Compose `deploy.resources.reservations.devices`). You need the NVIDIA Container Toolkit and a compatible driver on the host. If you do not have an NVIDIA card, comment out the GPU `deploy` block on `ollama` in [compose.yml](compose.yml) and expect slower CPU inference, or switch to the OpenAI API below.
 

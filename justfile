@@ -20,7 +20,7 @@ migrate:
     {{compose}} -p {{app_project}} --profile app up -d --build --wait db
     {{compose}} -p {{app_project}} --profile app run --rm --build migrate
 
-# Pull the default local llama3.1 model into Ollama (idempotent)
+# Pull local Ollama chat models (llama3.1:8b and gemma4:e4b; idempotent)
 pull-model:
     {{compose}} -p {{app_project}} --profile app up -d --wait ollama
     {{compose}} -p {{app_project}} --profile app run --rm ollama-pull
