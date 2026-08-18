@@ -90,33 +90,33 @@ The assistant drafts a cited introduction that explains what is currently known 
 
 ### LLM for paper briefs (OpenAI or local)
 
-Paper brief generation (`create_paper_brief`) and evaluation need a chat model. Configure one of these in `.env`:
+Paper brief generation (`create_paper_brief`), topic brief generation (`create_topic_brief`), and evaluation need a chat model. The default `.env.example` is preconfigured for the **local Ollama** runtime that ships with `just up`.
 
-**Option A — OpenAI API (cloud)**
+**Default — Local Ollama (no API key required)**
 
-Leave `OPENAI_BASE_URL` empty and set your API key:
-
-```bash
-OPENAI_API_KEY=sk-...
-# OPENAI_BASE_URL=          # leave empty
-# OPENAI_MODEL=              # optional; default gpt-4o-mini
-```
-
-**Option B — Local OpenModel + Ollama (on your machine)**
-
-`just up` starts **Ollama** and an **OpenModel** gateway, pulls `llama3.1-8b`, and exposes an OpenAI-compatible API on port **11435**. Set:
+`just up` starts **Ollama** and automatically pulls `llama3.1:8b` (first startup downloads several GB and can take a few minutes). The `.env.example` already contains the correct settings — no extra steps needed:
 
 ```bash
 OPENAI_API_KEY=ollama
-OPENAI_BASE_URL=http://localhost:11435/v1
-OPENAI_MODEL=llama3.1-8b
+OPENAI_BASE_URL=http://localhost:11434/v1
+OPENAI_MODEL=llama3.1:8b
 ```
 
-The first startup can take several minutes while the model downloads. Re-pull without a full restart: `just pull-model`. Confirm the model: `curl http://localhost:11435/v1/models`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama--openmodel).
+Confirm the model is ready: `curl http://localhost:11434/v1/models`. To pull a different model manually: `just pull-model`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama).
 
-**NVIDIA GPU:** the local Ollama + OpenModel stack in [compose.yml](compose.yml) is set up for **NVIDIA** GPUs (Compose `deploy.resources.reservations.devices`). You need the NVIDIA Container Toolkit and a compatible driver on the host. If you do not have an NVIDIA card, use Option A or change [compose.yml](compose.yml) (comment out the GPU `deploy` blocks on `ollama` and `openmodel`) and expect slower CPU inference.
+**NVIDIA GPU:** the Ollama service in [compose.yml](compose.yml) is set up for **NVIDIA** GPUs (Compose `deploy.resources.reservations.devices`). You need the NVIDIA Container Toolkit and a compatible driver on the host. If you do not have an NVIDIA card, comment out the GPU `deploy` block on `ollama` in [compose.yml](compose.yml) and expect slower CPU inference, or switch to the OpenAI API below.
 
-Leave both `OPENAI_API_KEY` and `OPENAI_BASE_URL` empty to skip live LLM drafts (jobs will be recorded as Failed).
+**Alternative — OpenAI API (cloud)**
+
+To use the public OpenAI API instead of local Ollama, change these three variables in `.env`:
+
+```bash
+OPENAI_API_KEY=sk-...        # your OpenAI key
+OPENAI_BASE_URL=              # empty — routes to https://api.openai.com/v1
+OPENAI_MODEL=                 # empty — defaults to gpt-4o-mini (or set a specific model)
+```
+
+Leave all three empty to skip live LLM drafts (jobs will be recorded as Failed).
 
 ## Services
 
@@ -128,8 +128,7 @@ After `just up`, these services are available:
 | Paper Reviewer UI | [http://localhost:8501](http://localhost:8501) (default `UI_PORT`)                   | Streamlit UI; Home lists Topic scopes from the database (each row opens the Topic scope hub) and links to Topic intake                                |
 | Prefect           | [http://localhost:4200](http://localhost:4200) (default `PREFECT_PORT`)              | Prefect API/UI (`prefect-server`); `prefect-worker` serves the flows (`ingest_paper` at most 5 concurrent runs). Progress still from Postgres.        |
 | PostgreSQL        | See [docs/local-development.md](docs/local-development.md#environment-configuration) | App relational database (port and credentials from `.env`)                                                                                            |
-| OpenModel gateway | [http://localhost:11435](http://localhost:11435)                                     | OpenAI-compatible local LLM API (`openmodel`); use `/v1` in `OPENAI_BASE_URL`. Started after one-shot model provision.                                |
-| Ollama            | [http://localhost:11434](http://localhost:11434)                                     | Inference runtime behind OpenModel (`ollama`); models persist in Docker volume `ollama_data`. Default [compose.yml](compose.yml) targets NVIDIA GPUs. |
+| Ollama            | [http://localhost:11434](http://localhost:11434)                                     | Local LLM runtime with OpenAI-compatible `/v1` API (`ollama`); models persist in Docker volume `ollama_data`. Default [compose.yml](compose.yml) targets NVIDIA GPUs. |
 
 
 

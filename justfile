@@ -20,17 +20,17 @@ migrate:
     {{compose}} -p {{app_project}} --profile app up -d --build --wait db
     {{compose}} -p {{app_project}} --profile app run --rm --build migrate
 
-# Pull/register the local llama3.1 model via OpenModel (idempotent; also runs on just up)
+# Pull the default local llama3.1 model into Ollama (idempotent)
 pull-model:
-    {{compose}} -p {{app_project}} --profile app up -d --build --wait ollama
-    {{compose}} -p {{app_project}} --profile app run --rm --build openmodel-provision
+    {{compose}} -p {{app_project}} --profile app up -d --wait ollama
+    {{compose}} -p {{app_project}} --profile app run --rm ollama-pull
 
 # Stop the persistent app stack; volumes are preserved
 down:
     {{compose}} -p {{app_project}} down
 
 # Follow logs (optional service name; default: all running services)
-# Examples: just logs | just logs ui | just logs db | just logs prefect-server | just logs prefect-worker | just logs ollama | just logs openmodel | just logs notebooks
+# Examples: just logs | just logs ui | just logs db | just logs prefect-server | just logs prefect-worker | just logs ollama | just logs notebooks
 logs service="":
     {{compose}} -p {{app_project}} logs -f {{service}}
 

@@ -137,6 +137,8 @@ services:
         condition: service_completed_successfully
       prefect-server:
         condition: service_healthy
+      ollama-pull:
+        condition: service_completed_successfully
     command:
       [
         "uv",
@@ -147,7 +149,7 @@ services:
       ]
     restart: on-failure
 
-  # 0. Ollama inference runtime (used by OpenModel for ollama:// models)
+  # Local LLM inference runtime (OpenAI-compatible API on host port 11434).
   ollama:
     profiles: ["app"]
     image: ollama/ollama:latest
@@ -157,8 +159,7 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     environment:
-      # Unload after idle. -1 keeps the model in VRAM forever (Open WebUI has no eject
-      # for this OpenAI-compatible gateway, so do not set -1 here).
+      # Unload after idle. -1 keeps the model in VRAM forever.
       - OLLAMA_KEEP_ALIVE=5m
     restart: unless-stopped
     healthcheck:
@@ -177,69 +178,17 @@ services:
               count: all
               capabilities: [gpu]
 
-  # One-shot: register llama3.1 in Ollama + OpenModel before the gateway starts.
-  openmodel-provision:
+  # One-shot: pull the default local chat model into Ollama (idempotent).
+  ollama-pull:
     profiles: ["app"]
-    build:
-      context: .
-      dockerfile: openmodel.Dockerfile
-    image: openmodel-gateway:local
+    image: ollama/ollama:latest
     environment:
-      - OLLAMA_HOST=http://ollama:11434
-      - OPENMODEL_HOME=/root/.openmodel
-    volumes:
-      - openmodel_data:/root/.openmodel
+      OLLAMA_HOST: http://ollama:11434
     depends_on:
       ollama:
         condition: service_healthy
-    command:
-      [
-        "om",
-        "pull",
-        "ollama://llama3.1:8b",
-        "--alias",
-        "llama3.1-8b",
-      ]
+    entrypoint: ["ollama", "pull", "llama3.1:8b"]
     restart: "no"
-
-  # 1. The [OpenModel API Gateway](https://github.com/wundercorp/openmodel)
-  openmodel:
-    profiles: ["app"]
-    build:
-      context: .
-      dockerfile: openmodel.Dockerfile
-    image: openmodel-gateway:local
-    container_name: openmodel-gateway
-    ports:
-      - "11435:11435"
-    volumes:
-      # Persists downloaded models on your host PC so they aren't lost on restart
-      - openmodel_data:/root/.openmodel
-    environment:
-      - NODE_ENV=production
-      # Point the Ollama CLI (bundled in the image) at the ollama service
-      - OLLAMA_HOST=http://ollama:11434
-      # Match the openmodel_data volume so hf:// GGUF downloads persist
-      - OPENMODEL_HOME=/root/.openmodel
-      # OpenModel does not pass --n-gpu-layers; offload all layers when VRAM allows
-      - LLAMA_ARG_N_GPU_LAYERS=-1
-      # Keep hf:// GGUF loaded in llama serve between requests, then unload (same idea as Ollama)
-      - LLAMA_KEEP_ALIVE=5m
-    depends_on:
-      ollama:
-        condition: service_healthy
-      openmodel-provision:
-        condition: service_completed_successfully
-    restart: unless-stopped
-    # Same NVIDIA reservation as ollama (shared GPU; watch VRAM if both run large models)
-    # comment this deploy section if your GPU is not NVIDIA
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
 
   # Jupyter Lab for local offline eval notebooks. Profile `notebooks` so
   # `just up` and `just sandbox` do not start it or publish JUPYTER_PORT.
@@ -263,6 +212,8 @@ services:
       db:
         condition: service_healthy
       migrate:
+        condition: service_completed_successfully
+      ollama-pull:
         condition: service_completed_successfully
     command:
       [
@@ -288,4 +239,3 @@ volumes:
   postgres_data:
   prefect_data:
   ollama_data:
-  openmodel_data:
