@@ -155,7 +155,7 @@ Notebook: `02-generate-briefs.ipynb`.
   - Load **full text** from `corpus/{filename}` (frozen).
   - Pass **title, journal, year** from the manifest into `generate_paper_brief_content`.
   - Always call `generate_paper_brief_content(...)` (new LLM brief). Do **not** import `paper_reviewer.flows` and do **not** call `create_paper_brief`.
-- Write **`02-briefs.jsonl`**: success `{ "doi": "...", "brief": { ... PaperBriefContent ... } }`; failure `{ "doi": "...", "error": "..." }` (no `brief`).
+- Write **`02-briefs.jsonl`**: success `{ "doi": "...", "brief": { ... PaperBriefContent ... }, "prompt_tokens": 123, "completion_tokens": 45, "total_tokens": 168 }` (`prompt_tokens` / `completion_tokens` / `total_tokens` come from `PaperBriefLlmResult`; same meaning and null rules as [Generate paper brief](2.2.3-generate-paper-brief.md); JSON `null` when usage is absent does not fail the row); failure `{ "doi": "...", "error": "..." }` (no `brief`, no token fields).
 - Write **`02-brief-template.md`**: exact bytes from `load_paper_brief_template()` (the generic system prompt). Do **not** include the gateway-only JSON suffix that `generate_paper_brief_content` may append at call time.
 
 Domain functions: `paper_reviewer.topic_scope.generate_paper_brief.llm`.
