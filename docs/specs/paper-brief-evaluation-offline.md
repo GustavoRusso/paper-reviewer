@@ -1,8 +1,8 @@
 # Offline paper-brief evaluation
 
-This document owns the **offline paper-brief evaluation** procedure: three Jupyter notebooks that freeze a full-text corpus, generate briefs, and score those briefs with the same judge as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). It is not a workflow phase step number.
+This document owns the **offline paper-brief evaluation** procedure: four Jupyter notebooks that freeze a full-text corpus, generate briefs, score those briefs with the same judge as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md), and compare stored runs. It is not a workflow phase step number.
 
-**Status:** steps 1–3 (build corpus; generate briefs; offline judge) and the Jupyter runtime (`just notebooks`) are implemented.
+**Status:** steps 1–4 (build corpus; generate briefs; offline judge; compare runs) and the Jupyter runtime (`just notebooks`) are implemented.
 
 **Criteria, JSON shape, and `evaluation_score` stay owned by** [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). This document **points** at that contract. Do not copy the rubric here.
 
@@ -12,7 +12,7 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 
 | Term | Meaning |
 | --- | --- |
-| **Offline paper-brief evaluation** | Local notebook procedure that builds a frozen corpus, generates briefs on disk, and scores those briefs. Distinct from the Prefect job `evaluate_paper_brief`. |
+| **Offline paper-brief evaluation** | Local notebook procedure that builds a frozen corpus, generates briefs on disk, scores those briefs, and compares stored runs. Distinct from the Prefect job `evaluate_paper_brief`. |
 | **Corpus** | Folder of `full_text_plain` files plus `manifest.jsonl`. Built in step 1 from papers already archived in the local database. |
 | **Run** | One evaluation attempt. A timestamped folder next to the corpus that holds step 2 and step 3 files. |
 | **Judge** | The same LLM-as-judge as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md). Domain function `judge_paper_brief_evaluation`. It does not draft or rewrite a brief. |
@@ -26,18 +26,18 @@ In-app 2.2.4 scores a succeeded `PaperBrief` row and persists the artifact on th
 - A paper is eligible when `usable_full_text_plain(paper.full_text_plain)` is already set. Step 1 does **not** call `inform_source_record` or `inform_full_text`. `PaperBrief` is not a filter and is not dumped.
 - If `corpus/{DOI_FILE}.txt` already exists, skip that paper (do not overwrite) and say so in the notebook output.
 - An empty database after migrate only, or no paper with usable full text → no new `.txt` files. The manifest is rewritten only when at least one `.txt` is on disk.
-- After `corpus/` exists, steps 2 and 3 do **not** use Postgres. They still run in the **app** workspace so one `just notebooks` session covers all three steps.
+- After `corpus/` exists, steps 2, 3, and 4 do **not** use Postgres. They still run in the **app** workspace so one `just notebooks` session covers all four steps.
 - Do **not** run these notebooks in `just sandbox` (no Postgres). Runtime: [Runtime](#runtime).
 
 ## Scope
 
 ### In scope (this document)
 
-- Three notebooks that call **domain Python**, not Prefect and not Streamlit.
+- Four notebooks. Steps 1–3 call **domain Python**, not Prefect and not Streamlit. Step 4 reads stored files only (no generator, no judge).
 - A frozen **corpus**: `full_text_plain` files plus a bibliographic **manifest** (step 1).
 - Step 1 queries local `Paper` rows that already have usable full text. It does **not** fetch full text.
 - Always **generate new briefs** with `generate_paper_brief_content` (step 2). Do not dump `PaperBrief` from the database.
-- Steps 2–3 read **only files**. Step 2: `corpus/manifest.jsonl` and `corpus/{filename}`. Step 3: `{run_id}/02-briefs.jsonl` and matching `corpus/{DOI_FILE}.txt` (same filename rule as step 1; not the manifest). Postgres is not used.
+- Steps 2–4 read **only files**. Step 2: `corpus/manifest.jsonl` and `corpus/{filename}`. Step 3: `{run_id}/02-briefs.jsonl` and matching `corpus/{DOI_FILE}.txt` (same filename rule as step 1; not the manifest). Step 4: every `{run_id}/` plus `corpus/manifest.jsonl` for titles. Postgres is not used.
 - One **run folder** next to the corpus for brief + template (step 2) and scores (step 3).
 - Fail-soft per DOI (one paper failure does not stop the notebook).
 
@@ -62,6 +62,7 @@ flowchart LR
   corpusNb[Notebook 01 corpus]
   briefNb[Notebook 02 briefs]
   evalNb[Notebook 03 evaluate]
+  compareNb[Notebook 04 compare]
   corpusDir[corpus folder]
   runDir[run folder]
   localDb --> corpusNb
@@ -70,11 +71,14 @@ flowchart LR
   briefNb --> runDir
   runDir --> evalNb
   evalNb --> runDir
+  runDir --> compareNb
+  corpusDir --> compareNb
 ```
 
 1. Step 1 reads archived `Paper` rows from local Postgres (usable `full_text_plain` only; no fetch) and writes new corpus files. Existing `.txt` files are skipped.
 2. Step 2 generates new briefs from corpus files. It does not call `create_paper_brief`.
 3. Step 3 runs `judge_paper_brief_evaluation` on those files. It does not call `evaluate_paper_brief`.
+4. Step 4 compares stored run folders and lists the worst-scored papers for one judged run. It does not write files.
 
 ## Deploy vs local
 
@@ -104,6 +108,7 @@ notebooks/paper_brief_evaluation/
   01-build-corpus.ipynb
   02-generate-briefs.ipynb
   03-evaluate-briefs.ipynb
+  04-compare-runs.ipynb
 ```
 
 **Data** (tracked in git; not copied into the production image):
@@ -210,6 +215,21 @@ Notebook: `03-evaluate-briefs.ipynb`.
 
 Domain functions: `paper_reviewer.topic_scope.paper_brief_evaluation.llm` (`judge_paper_brief_evaluation`) and `paper_reviewer.schemas.topic_scope.paper_brief_evaluation` (`mean_evaluation_score`, `PaperBriefEvaluation`).
 
+## Step 4 — compare runs (display only)
+
+Notebook: `04-compare-runs.ipynb`.
+
+- Input: every `{run_id}/` sibling of `corpus/` under `data/paper_brief_evaluation/`. Postgres is not used. Do **not** call the generator or the judge. Do **not** write files under `data/`. Do **not** persist a `04-*.json` artifact.
+- A run folder matches `YYYYMMDDThhmmssZ_{model_slug}`. Skip `corpus/`. A **judged** run has `03-evaluations.jsonl`. Folders with briefs only stay in the inventory with empty quality cells.
+- Prefer `03-token-summary.json` for coverage, mean `evaluation_score`, median `total_tokens`, and `mean_score_per_1k_total_tokens`. Recompute per-criterion means and score tails from `03-evaluations.jsonl`. Read the generator slug from `run_id`. Read the judge model from `03-judge-model.txt`.
+- Set **`RUN_ID`** in a notebook cell. Leave it empty to use the latest judged run (lexicographic order is time order).
+- **`WORST_N`** (default 10): how many lowest `evaluation_score` success rows to list for that run. `0`, negative, or non-integer → stop the worst-paper cell.
+- Show identity/coverage, quality (mean, median, min, p10, share `<= 3.00`, share `>= 4.50`, mean of each G-Eval criterion), and generator-token efficiency.
+- When two or more judged runs share DOIs, show pairwise shared count and mean `evaluation_score` on that intersection (`LIMIT` and fail-soft make raw means unfair).
+- Join titles from `corpus/manifest.jsonl` for the worst-paper list. Skip JSONL error lines (no score). Then print the lowest-scoring criterion and a truncated `reasoning` for those same rows.
+
+Do **not** import `paper_reviewer.flows`. Do **not** call `create_paper_brief` or `evaluate_paper_brief`.
+
 ## Runtime
 
 There is **no host Python**. Do **not** install Jupyter, `uv`, or the app toolchain on the host. Host tools stay Docker Desktop and `just` ([host-requirements.md](../host-requirements.md)).
@@ -240,7 +260,7 @@ Do **not** add a domain package for this procedure.
 
 | Piece | Status |
 | --- | --- |
-| Notebooks | [`01-build-corpus.ipynb`](../../notebooks/paper_brief_evaluation/01-build-corpus.ipynb), [`02-generate-briefs.ipynb`](../../notebooks/paper_brief_evaluation/02-generate-briefs.ipynb), and [`03-evaluate-briefs.ipynb`](../../notebooks/paper_brief_evaluation/03-evaluate-briefs.ipynb) exist. |
+| Notebooks | [`01-build-corpus.ipynb`](../../notebooks/paper_brief_evaluation/01-build-corpus.ipynb), [`02-generate-briefs.ipynb`](../../notebooks/paper_brief_evaluation/02-generate-briefs.ipynb), [`03-evaluate-briefs.ipynb`](../../notebooks/paper_brief_evaluation/03-evaluate-briefs.ipynb), and [`04-compare-runs.ipynb`](../../notebooks/paper_brief_evaluation/04-compare-runs.ipynb) exist. |
 | Data dirs | `data/paper_brief_evaluation/` is tracked (corpus and later run results). Still excluded from production images. |
 | Jupyter | Dev dependency (`jupyter` / `ipykernel`). |
 | `just notebooks` | App stack, then the `notebooks` service. Publishes `JUPYTER_PORT`. Passes `OPENAI_*` and `NCBI_API_KEY`. |

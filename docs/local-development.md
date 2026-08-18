@@ -112,7 +112,7 @@ Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just s
 just notebooks
 ```
 
-That starts the app stack if needed, then Jupyter Lab in the **`notebooks`** service (Compose profile `notebooks`). Open `http://localhost:${JUPYTER_PORT}` (default [8888](http://localhost:8888)). The process has `DATABASE_URL`, `NCBI_API_KEY`, and `OPENAI_*` from `.env`. Notebooks: [`01-build-corpus.ipynb`](../notebooks/paper_brief_evaluation/01-build-corpus.ipynb), [`02-generate-briefs.ipynb`](../notebooks/paper_brief_evaluation/02-generate-briefs.ipynb), [`03-evaluate-briefs.ipynb`](../notebooks/paper_brief_evaluation/03-evaluate-briefs.ipynb). Contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime).
+That starts the app stack if needed, then Jupyter Lab in the **`notebooks`** service (Compose profile `notebooks`). Open `http://localhost:${JUPYTER_PORT}` (default [8888](http://localhost:8888)). The process has `DATABASE_URL`, `NCBI_API_KEY`, and `OPENAI_*` from `.env`. Notebooks: [`01-build-corpus.ipynb`](../notebooks/paper_brief_evaluation/01-build-corpus.ipynb), [`02-generate-briefs.ipynb`](../notebooks/paper_brief_evaluation/02-generate-briefs.ipynb), [`03-evaluate-briefs.ipynb`](../notebooks/paper_brief_evaluation/03-evaluate-briefs.ipynb), [`04-compare-runs.ipynb`](../notebooks/paper_brief_evaluation/04-compare-runs.ipynb). Contract: [paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md#runtime).
 
 `just down` stops Jupyter with the rest of the app project. The sandbox never publishes `JUPYTER_PORT`.
 

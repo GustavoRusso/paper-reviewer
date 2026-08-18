@@ -104,7 +104,7 @@ paper-reviewer/
 │   ├── ui/
 │   └── flows/
 ├── notebooks/                          # local-only procedures (not deployed)
-│   └── paper_brief_evaluation/         # 01–03 notebooks; spec: paper-brief-evaluation-offline.md
+│   └── paper_brief_evaluation/         # 01–04 notebooks; spec: paper-brief-evaluation-offline.md
 ├── data/                               # eval corpus/results (tracked; not deployed)
 │   └── paper_brief_evaluation/         # corpus/ + {run_id}/; not a src package
 ├── docs/

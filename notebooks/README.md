@@ -36,7 +36,8 @@ Recipe and env details: [docs/local-development.md](../docs/local-development.md
 | [paper_brief_evaluation/01-build-corpus.ipynb](paper_brief_evaluation/01-build-corpus.ipynb) | Freeze full text from archived local Papers | Implemented |
 | [paper_brief_evaluation/02-generate-briefs.ipynb](paper_brief_evaluation/02-generate-briefs.ipynb) | Generate briefs from the corpus | Implemented |
 | [paper_brief_evaluation/03-evaluate-briefs.ipynb](paper_brief_evaluation/03-evaluate-briefs.ipynb) | Score those briefs and summarize generator token usage | Implemented |
+| [paper_brief_evaluation/04-compare-runs.ipynb](paper_brief_evaluation/04-compare-runs.ipynb) | Compare stored runs and list the worst-scored papers | Implemented |
 
 Procedure, paths, and domain functions: [docs/specs/paper-brief-evaluation-offline.md](../docs/specs/paper-brief-evaluation-offline.md).
 
-Output (corpus and later run results) is written under `data/paper_brief_evaluation/` on the bind-mounted repo. Those files can be committed. They are not copied into the production image.
+Output (corpus and later run results) is written under `data/paper_brief_evaluation/` on the bind-mounted repo. Those files can be committed. They are not copied into the production image. Notebook 04 reads those files and does not write new ones.
