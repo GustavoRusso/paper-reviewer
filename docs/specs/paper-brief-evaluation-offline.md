@@ -122,7 +122,7 @@ data/paper_brief_evaluation/
 | Rule | Value |
 | --- | --- |
 | Corpus vs runs | Sibling folders under `data/paper_brief_evaluation/`. |
-| `run_id` | UTC stamp `YYYYMMDDThhmmssZ` (example `20260817T160000Z`). One folder per evaluation. Lexicographic order is time order. Prefix `02-` / `03-` groups step artifacts inside that folder. |
+| `run_id` | UTC stamp plus model slug: `YYYYMMDDThhmmssZ_{model_slug}` (example `20260818T160000Z_llama3.1-8b`). `model_slug` is the notebook `MODEL` with `:`, `/`, `\`, and space replaced by `-`. One folder per evaluation. Lexicographic order is time order because the stamp comes first. Prefix `02-` / `03-` groups step artifacts inside that folder. |
 | Corpus filename | Uppercase `Paper.doi` with every `/` replaced by `_`, plus `.txt`. If two DOIs collide, step 1 **stops** and reports the pair. Records in JSONL always use the real uppercase DOI. |
 | Corpus file body | UTF-8 `full_text_plain` only (no YAML header). |
 | Manifest | `corpus/manifest.jsonl`: one object per `.txt` still in `corpus/` `{ "doi", "title", "journal", "published_year", "filename" }`. `journal` / `published_year` may be null. Step 1 rewrites the whole manifest from those files after the run, looking up title / journal / year from the database. A `.txt` with no matching `Paper` is omitted from the manifest and reported. |
@@ -147,7 +147,9 @@ Usable-body rule: same as [Generate paper brief](2.2.3-generate-paper-brief.md) 
 
 Notebook: `02-generate-briefs.ipynb`.
 
-- Create a new `{run_id}/` folder.
+- Set **`MODEL`** in a notebook cell (required chat model id). Empty or whitespace → stop; no run folder.
+- Set `OPENAI_MODEL` from that value so `generate_paper_brief_content` uses it.
+- Create a new `{run_id}/` folder (`YYYYMMDDThhmmssZ_{model_slug}`).
 - Read `corpus/manifest.jsonl`. Do **not** query Postgres. Do **not** read `PaperBrief`.
 - For each manifest row:
   - Load **full text** from `corpus/{filename}` (frozen).
@@ -162,7 +164,7 @@ Domain functions: `paper_reviewer.topic_scope.generate_paper_brief.llm`.
 
 Notebook: `03-evaluate-briefs.ipynb`.
 
-- Input: one `{run_id}/` that already has `02-briefs.jsonl`, plus sibling `corpus/` (`.txt` files; Postgres is not required). Set `RUN_ID` in a notebook cell (`YYYYMMDDThhmmssZ`). Leave it empty to use the latest sibling folder that already has `02-briefs.jsonl` (lexicographic order is time order).
+- Input: one `{run_id}/` that already has `02-briefs.jsonl`, plus sibling `corpus/` (`.txt` files; Postgres is not required). Set `RUN_ID` in a notebook cell (`YYYYMMDDThhmmssZ_{model_slug}`). Leave it empty to use the latest sibling folder that already has `02-briefs.jsonl` (lexicographic order is time order).
 - For each success line in `02-briefs.jsonl`:
   - Load `full_text_plain` from `corpus/{DOI_FILE}.txt` (uppercase DOI, `/` → `_`; same rule as step 1). Do not read the manifest.
   - Validate `brief` as `PaperBriefContent`.
