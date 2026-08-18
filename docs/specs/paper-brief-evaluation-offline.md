@@ -117,12 +117,13 @@ data/paper_brief_evaluation/
     02-briefs.jsonl
     02-brief-template.md
     03-evaluations.jsonl
+    03-judge-model.txt
 ```
 
 | Rule | Value |
 | --- | --- |
 | Corpus vs runs | Sibling folders under `data/paper_brief_evaluation/`. |
-| `run_id` | UTC stamp plus model slug: `YYYYMMDDThhmmssZ_{model_slug}` (example `20260818T160000Z_llama3.1-8b`). `model_slug` is the notebook `MODEL` with `:`, `/`, `\`, and space replaced by `-`. One folder per evaluation. Lexicographic order is time order because the stamp comes first. Prefix `02-` / `03-` groups step artifacts inside that folder. |
+| `run_id` | UTC stamp plus model slug: `YYYYMMDDThhmmssZ_{model_slug}` (example `20260818T160000Z_llama3.1-8b`). `model_slug` is notebook 02 `MODEL` (the generator) with `:`, `/`, `\`, and space replaced by `-`. The judge model from notebook 03 is recorded in `03-judge-model.txt`, not in `run_id`. One folder per evaluation. Lexicographic order is time order because the stamp comes first. Prefix `02-` / `03-` groups step artifacts inside that folder. |
 | Corpus filename | Uppercase `Paper.doi` with every `/` replaced by `_`, plus `.txt`. If two DOIs collide, step 1 **stops** and reports the pair. Records in JSONL always use the real uppercase DOI. |
 | Corpus file body | UTF-8 `full_text_plain` only (no YAML header). |
 | Manifest | `corpus/manifest.jsonl`: one object per `.txt` still in `corpus/` `{ "doi", "title", "journal", "published_year", "filename" }`. `journal` / `published_year` may be null. Step 1 rewrites the whole manifest from those files after the run, looking up title / journal / year from the database. A `.txt` with no matching `Paper` is omitted from the manifest and reported. |
@@ -165,6 +166,8 @@ Domain functions: `paper_reviewer.topic_scope.generate_paper_brief.llm`.
 Notebook: `03-evaluate-briefs.ipynb`.
 
 - Input: one `{run_id}/` that already has `02-briefs.jsonl`, plus sibling `corpus/` (`.txt` files; Postgres is not required). Set `RUN_ID` in a notebook cell (`YYYYMMDDThhmmssZ_{model_slug}`). Leave it empty to use the latest sibling folder that already has `02-briefs.jsonl` (lexicographic order is time order).
+- Set **`MODEL`** in a notebook cell (required chat model id). Empty or whitespace → stop; do not write scores.
+- Set `OPENAI_MODEL` from that value so `judge_paper_brief_evaluation` uses it. This is the **judge** model; it is not the generator slug in `run_id`.
 - For each success line in `02-briefs.jsonl`:
   - Load `full_text_plain` from `corpus/{DOI_FILE}.txt` (uppercase DOI, `/` → `_`; same rule as step 1). Do not read the manifest.
   - Validate `brief` as `PaperBriefContent`.
@@ -172,6 +175,7 @@ Notebook: `03-evaluate-briefs.ipynb`.
   - Compute `evaluation_score` with `mean_evaluation_score` (app mean; the LLM must not supply it). Same JSON and rounding as [Paper brief evaluation](2.2.4-paper-brief-evaluation.md).
 - Skip JSONL lines that have `error` and no `brief` (no judge call).
 - Write **`03-evaluations.jsonl`**: success `{ "doi": "...", "evaluation_score": 4.25, "evaluation": { ... four G-Eval objects ... } }` (`evaluation` is `PaperBriefEvaluation`; `evaluation_score` is the two-decimal mean). Failure `{ "doi": "...", "error": "..." }`.
+- Write **`03-judge-model.txt`**: exact bytes of the chosen chat model id.
 - Do **not** call `evaluate_paper_brief` (that function writes `PaperBrief` columns).
 
 Domain functions: `paper_reviewer.topic_scope.paper_brief_evaluation.llm` (`judge_paper_brief_evaluation`) and `paper_reviewer.schemas.topic_scope.paper_brief_evaluation` (`mean_evaluation_score`, `PaperBriefEvaluation`).
