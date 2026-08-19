@@ -102,7 +102,7 @@ OPENAI_BASE_URL=http://localhost:11434/v1
 OPENAI_MODEL=llama3.1:8b
 ```
 
-Set `OPENAI_MODEL=gemma4:e4b` to use Gemma instead. Confirm the models are ready: `curl http://localhost:11434/v1/models`. To re-pull both models manually: `just pull-model`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama).
+Set `OPENAI_MODEL=gemma4:e4b` to use Gemma instead (recommended — see [Paper brief quality](#paper-brief-quality-offline-evaluation)). Confirm the models are ready: `curl http://localhost:11434/v1/models`. To re-pull both models manually: `just pull-model`. Details: [docs/local-development.md](docs/local-development.md#local-llm-ollama).
 
 **NVIDIA GPU:** the Ollama service in [compose.yml](compose.yml) is set up for **NVIDIA** GPUs (Compose `deploy.resources.reservations.devices`). You need the NVIDIA Container Toolkit and a compatible driver on the host. If you do not have an NVIDIA card, comment out the GPU `deploy` block on `ollama` in [compose.yml](compose.yml) and expect slower CPU inference, or switch to the OpenAI API below.
 
@@ -117,6 +117,17 @@ OPENAI_MODEL=                 # empty — defaults to gpt-4o-mini (or set a spec
 ```
 
 Leave all three empty to skip live LLM drafts (jobs will be recorded as Failed).
+
+## Paper brief quality (offline evaluation)
+
+We measured paper-brief quality on a frozen corpus of **109 archived biomedical papers** (full text from local PubMed ingest). For each paper, a local LLM drafts a structured brief; the **same in-app judge** used in production ([2.2.4](docs/specs/2.2.4-paper-brief-evaluation.md)) scores the whole brief on four criteria — **faithfulness**, **completeness**, **conciseness**, and **topic-agnostic wording** — each 1–5. The overall score is the mean of those four (also 1–5). Scores are **advisory**; they do not block ingest or topic-brief generation.
+
+We compared two local Ollama models ([notebook 04](notebooks/paper_brief_evaluation/04-compare-runs.ipynb); full procedure: [offline eval spec](docs/specs/paper-brief-evaluation-offline.md)):
+
+- **gemma4:e4b** — mean **4.83** on 96 scored briefs; ~92% scored ≥ 4.5; no briefs ≤ 3.0.
+- **llama3.1:8b** — mean **4.31** on 109 scored briefs; ~60% scored ≥ 4.5; 2 briefs scored 1.0 (judge flagged serious faithfulness problems).
+
+**Conclusion:** both models produce generally usable briefs, but **gemma4:e4b is the better default** — higher quality with similar token cost (~3.1–3.3k tokens per brief). Llama is acceptable for local dev, but watch for rare bad summaries on data-heavy papers. To reproduce or compare new runs: `just notebooks` → run notebooks 01–04; results land under `data/paper_brief_evaluation/`.
 
 ## Services
 
@@ -143,7 +154,7 @@ Paper Reviewer is an end-to-end LLM application: it ingests papers from PubMed, 
 | Problem description                  | This README (intro + [Who it is for](#who-it-is-for))                                                                                                                                 |                                                                                                                                                                                                                                        |
 | Retrieval flow                       | [docs/specs/papers-search.md](docs/specs/papers-search.md), [docs/specs/4-topic-brief-generation.md](docs/specs/4-topic-brief-generation.md)                                          | Use of **PostgreSQL full-text search** over a local knowledge base to generate the References that will be used by the LLM to generate the topic brief. Indexing is done during ingestion: [2.2.5](docs/specs/2.2.5-paper-indexing.md) |
 | Retrieval evaluation                 | [docs/specs/papers-search.md](docs/specs/papers-search.md)                                                                                                                            | No retrieval evaluation was run.                                                                                                                                                                                                       |
-| LLM evaluation                       | [docs/specs/2.2.4-paper-brief-evaluation.md](docs/specs/2.2.4-paper-brief-evaluation.md)[docs/specs/paper-brief-evaluation-offline.md](docs/specs/paper-brief-evaluation-offline.md) | Run an online evaluation on each generated paper brief. Run an offline evaluation using in-app G-Eval + offline judge runs                                                                                                             |
+| LLM evaluation                       | [docs/specs/2.2.4-paper-brief-evaluation.md](docs/specs/2.2.4-paper-brief-evaluation.md)[docs/specs/paper-brief-evaluation-offline.md](docs/specs/paper-brief-evaluation-offline.md) | Run an online evaluation on each generated paper brief. Run an offline evaluation using in-app G-Eval + offline judge runs. Offline results: [Paper brief quality](#paper-brief-quality-offline-evaluation)                                                                                                             |
 | Interface                            | [docs/ui-style.md](docs/ui-style.md)[docs/specs/topic-scope-hub.md](docs/specs/topic-scope-hub.md)                                                                                   | Streamlit UI; default URL in [Services](#services)                                                                                                                                                                                     |
 | Ingestion pipeline                   | [docs/specs/2.1-search-external-sources.md](docs/specs/2.1-search-external-sources.md)[docs/specs/2.2-paper-ingestion.md](docs/specs/2.2-paper-ingestion.md)                         | dlt extract + Prefect `ingest_paper`; stack: [technology-stack.md](docs/technology-stack.md)                                                                                                                                           |
 | Monitoring                           | [docs/local-development.md](docs/local-development.md)                                                                                                                                | Prefect UI / worker only; No user-feedback or chart monitoring                                                                                                                                                                         |
