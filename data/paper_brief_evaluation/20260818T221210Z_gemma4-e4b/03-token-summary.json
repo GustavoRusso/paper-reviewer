@@ -1,0 +1,41 @@
+{
+  "run_id": "20260818T221210Z_gemma4-e4b",
+  "coverage": {
+    "brief_rows": 104,
+    "with_usage": 104,
+    "missing_usage": 0,
+    "joined_with_score": 75
+  },
+  "tokens": {
+    "prompt_tokens": {
+      "count": 104,
+      "sum": 296651,
+      "min": 1136,
+      "max": 3592,
+      "median": 2884.0,
+      "p90": 3247
+    },
+    "completion_tokens": {
+      "count": 104,
+      "sum": 48489,
+      "min": 213,
+      "max": 1627,
+      "median": 449.0,
+      "p90": 540
+    },
+    "total_tokens": {
+      "count": 104,
+      "sum": 345140,
+      "min": 1487,
+      "max": 4096,
+      "median": 3316.0,
+      "p90": 3719
+    }
+  },
+  "quality": {
+    "joined_count": 75,
+    "mean_evaluation_score": 4.83,
+    "mean_score_per_1k_total_tokens": 1.5393,
+    "mean_conciseness": 4.75
+  }
+}
