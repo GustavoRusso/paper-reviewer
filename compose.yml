@@ -189,7 +189,7 @@ services:
       ollama:
         condition: service_healthy
     entrypoint: ["/bin/sh", "-c"]
-    command: ["ollama pull llama3.1:8b && ollama pull gemma4:e4b"]
+    command: ["ollama pull gemma4:e4b"]
     restart: "no"
 
   # Jupyter Lab for local offline eval notebooks. Profile `notebooks` so
