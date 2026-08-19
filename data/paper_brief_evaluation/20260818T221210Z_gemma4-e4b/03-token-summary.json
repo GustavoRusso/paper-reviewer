@@ -4,7 +4,7 @@
     "brief_rows": 104,
     "with_usage": 104,
     "missing_usage": 0,
-    "joined_with_score": 75
+    "joined_with_score": 96
   },
   "tokens": {
     "prompt_tokens": {
@@ -33,9 +33,9 @@
     }
   },
   "quality": {
-    "joined_count": 75,
+    "joined_count": 96,
     "mean_evaluation_score": 4.83,
-    "mean_score_per_1k_total_tokens": 1.5393,
+    "mean_score_per_1k_total_tokens": 1.4987,
     "mean_conciseness": 4.75
   }
 }
