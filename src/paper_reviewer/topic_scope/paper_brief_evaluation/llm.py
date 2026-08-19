@@ -18,7 +18,7 @@ from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     _ASSISTANT_OUTPUT_MAX_CHARS,
     _DEFAULT_OPENAI_MODEL,
     _GATEWAY_JSON_ONLY,
-    _GATEWAY_MAX_TOKENS,
+    _GATEWAY_REASONING_EFFORT,
     _PLACEHOLDER_API_KEY,
     _emit_openai_log,
     _extract_json_object,
@@ -26,7 +26,6 @@ from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     _repair_unescaped_controls_in_strings,
     _serialize_openai_part,
     _strip_ansi_and_controls,
-    apply_gateway_chat_options,
     assistant_message_text,
     clip_full_text_for_gateway,
     extract_scientific_full_text,
@@ -36,6 +35,18 @@ from paper_reviewer.topic_scope.generate_paper_brief.llm import (
 )
 
 _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_evaluation_template.md"
+_JUDGE_MAX_TOKENS = 8192
+
+
+def apply_judge_chat_options(
+    create_kwargs: dict[str, object],
+    *,
+    gateway: bool,
+) -> None:
+    """Set judge completion limits for any chat backend."""
+    create_kwargs["max_tokens"] = _JUDGE_MAX_TOKENS
+    if gateway:
+        create_kwargs["reasoning_effort"] = _GATEWAY_REASONING_EFFORT
 
 
 def load_paper_brief_evaluation_template() -> str:
@@ -141,10 +152,7 @@ def judge_paper_brief_evaluation(
         ],
         "response_format": type_to_response_format_param(PaperBriefEvaluation),
     }
-    if base_url is not None:
-        apply_gateway_chat_options(
-            create_kwargs, max_tokens=_GATEWAY_MAX_TOKENS
-        )
+    apply_judge_chat_options(create_kwargs, gateway=base_url is not None)
     _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
     completion = client.chat.completions.create(**create_kwargs)
     _emit_openai_log(

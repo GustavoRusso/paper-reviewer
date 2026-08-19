@@ -25,6 +25,10 @@ Do not use a research topic, topic statement, or topic facets. The judge does no
 
 Return one JSON object with exactly four keys: `faithfulness`, `completeness`, `conciseness`, `topic_agnostic`. Each value is an object `{ "reasoning": string, "score": integer }`. Each `score` is an integer from 1 to 5 (1 worst, 5 best). Do not return evaluation_score. Do not return per-field scores or presence flags.
 
+## Output format
+
+Keep each `reasoning` value to at most four short sentences. Paraphrase; do not paste long quotations from the article. Use plain text in `reasoning` (no LaTeX, markup, or code fences).
+
 ## Grounding
 
 Use the supplied full text only. Do not treat journal boilerplate or a reference list as findings. Every claim you check must be supported by that text.

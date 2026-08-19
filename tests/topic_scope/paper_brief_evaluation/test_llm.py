@@ -177,7 +177,7 @@ def test_judge_clips_full_text_on_gateway(monkeypatch: pytest.MonkeyPatch) -> No
     assert "first non-whitespace character must be `{`" in system
 
 
-def test_judge_omits_gateway_options_on_public_api(
+def test_judge_sets_max_tokens_on_public_api(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     captured: dict[str, object] = {}
@@ -190,7 +190,7 @@ def test_judge_omits_gateway_options_on_public_api(
         content=sample_brief_content(),
     )
 
-    assert "max_tokens" not in create_captured
+    assert create_captured["max_tokens"] == 8192
     assert "reasoning_effort" not in create_captured
 
 
@@ -206,7 +206,7 @@ def test_judge_sets_gateway_chat_options(monkeypatch: pytest.MonkeyPatch) -> Non
         content=sample_brief_content(),
     )
 
-    assert create_captured["max_tokens"] == 4096
+    assert create_captured["max_tokens"] == 8192
     assert create_captured["reasoning_effort"] == "none"
 
 
