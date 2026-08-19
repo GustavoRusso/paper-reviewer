@@ -23,13 +23,13 @@ from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
 )
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     _GATEWAY_JSON_ONLY,
-    _GATEWAY_MAX_TOKENS,
     apply_gateway_chat_options,
     assistant_message_text,
     build_brief_user_message,
     clip_full_text_for_gateway,
     load_paper_brief_template,
     parse_paper_brief_content,
+    resolve_gateway_max_tokens,
     resolve_openai_base_url,
     resolve_openai_model,
 )
@@ -102,7 +102,10 @@ create_kwargs: dict[str, object] = {
     "messages": messages,
     "response_format": type_to_response_format_param(PaperBriefContent),
 }
-apply_gateway_chat_options(create_kwargs, max_tokens=_GATEWAY_MAX_TOKENS)
+apply_gateway_chat_options(
+    create_kwargs,
+    max_tokens=resolve_gateway_max_tokens(os.environ.get("OPENAI_GATEWAY_MAX_TOKENS")),
+)
 completion = client.chat.completions.create(**create_kwargs)
 
 message = completion.choices[0].message

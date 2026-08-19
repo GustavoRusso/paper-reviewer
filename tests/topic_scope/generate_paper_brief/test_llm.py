@@ -16,6 +16,7 @@ from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     generate_paper_brief_content,
     load_paper_brief_template,
     parse_paper_brief_content,
+    resolve_gateway_max_tokens,
     resolve_openai_base_url,
     resolve_openai_model,
 )
@@ -88,10 +89,23 @@ def _stub_openai(
     content: str | None = None,
     reasoning: str | None = None,
     usage: object | None = None,
-) -> None:
+    finish_reason: str | None = "stop",
+    responses: list[str] | None = None,
+) -> dict[str, object]:
+    """Stub openai.OpenAI.
+
+    Returns a ``call_log`` dict with ``"call_count"`` (int) tracking how
+    many times ``create()`` was called.
+
+    When *responses* is set, each ``create()`` call pops the next element
+    as the assistant ``content``.  After the list is exhausted the last
+    element repeats.  *content* is ignored when *responses* is given.
+    """
     parsed = sample_brief_content()
-    raw = content if content is not None else parsed.model_dump_json()
+    default_raw = content if content is not None else parsed.model_dump_json()
     create_kwargs = create_captured if create_captured is not None else {}
+    call_log: dict[str, object] = {"call_count": 0}
+    response_queue: list[str] = list(responses) if responses else []
 
     class FakeClient:
         def __init__(self, **kwargs: object) -> None:
@@ -101,6 +115,11 @@ def _stub_openai(
             def create(**kw: object) -> object:
                 create_kwargs.clear()
                 create_kwargs.update(kw)
+                call_log["call_count"] = int(call_log["call_count"]) + 1  # type: ignore[arg-type]
+                if response_queue:
+                    raw = response_queue.pop(0)
+                else:
+                    raw = default_raw
                 message = SimpleNamespace(
                     role="assistant",
                     content=raw,
@@ -109,7 +128,12 @@ def _stub_openai(
                 if reasoning is not None:
                     message.reasoning = reasoning
                 return SimpleNamespace(
-                    choices=[SimpleNamespace(message=message)],
+                    choices=[
+                        SimpleNamespace(
+                            message=message,
+                            finish_reason=finish_reason,
+                        ),
+                    ],
                     usage=usage,
                 )
 
@@ -117,6 +141,7 @@ def _stub_openai(
 
     monkeypatch.setenv("OPENAI_API_KEY", "sk-test")
     monkeypatch.setattr("openai.OpenAI", FakeClient)
+    return call_log
 
 
 def test_generate_paper_brief_content_omits_base_url_when_unset(
@@ -485,7 +510,7 @@ def test_generate_paper_brief_content_sets_max_tokens_for_gateway(
         published_year=2026,
     )
 
-    assert create_captured["max_tokens"] == 4096
+    assert create_captured["max_tokens"] == 8192
     assert create_captured["reasoning_effort"] == "none"
 
 
@@ -838,3 +863,215 @@ def test_generate_paper_brief_content_caps_assistant_output_on_parse_failure(
     dump = message[message.index(heading) + len(heading) :].lstrip("\n")
     assert dump == illegal[:8000]
     assert illegal[8000:] not in message
+
+
+# --- resolve_gateway_max_tokens ---
+
+
+def test_resolve_gateway_max_tokens_unset_returns_default() -> None:
+    assert resolve_gateway_max_tokens(None) == 8192
+    assert resolve_gateway_max_tokens("") == 8192
+    assert resolve_gateway_max_tokens("   ") == 8192
+
+
+def test_resolve_gateway_max_tokens_valid_integer() -> None:
+    assert resolve_gateway_max_tokens("2048") == 2048
+    assert resolve_gateway_max_tokens("  4096  ") == 4096
+
+
+def test_resolve_gateway_max_tokens_invalid_raises() -> None:
+    with pytest.raises(ValueError, match="positive integer"):
+        resolve_gateway_max_tokens("abc")
+    with pytest.raises(ValueError, match="positive integer"):
+        resolve_gateway_max_tokens("0")
+    with pytest.raises(ValueError, match="positive integer"):
+        resolve_gateway_max_tokens("-1")
+
+
+def test_generate_paper_brief_content_uses_env_gateway_max_tokens(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "llama3.1-8b")
+    monkeypatch.setenv("OPENAI_GATEWAY_MAX_TOKENS", "2048")
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert create_captured["max_tokens"] == 2048
+
+
+# --- Gateway conciseness ---
+
+
+def test_gateway_system_prompt_includes_conciseness(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://gateway.example/v1")
+    monkeypatch.setenv("OPENAI_MODEL", "llama3.1-8b")
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    system = create_captured["messages"][0]["content"]
+    assert "prefer brevity" in system
+    assert "no LaTeX" in system
+
+
+def test_public_api_system_prompt_excludes_conciseness(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured, create_captured)
+    monkeypatch.delenv("OPENAI_BASE_URL", raising=False)
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    system = create_captured["messages"][0]["content"]
+    assert "prefer brevity" not in system
+    assert "first non-whitespace character" not in system
+
+
+# --- Retry logic ---
+
+
+def test_retry_on_invalid_json_then_success(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    valid = sample_brief_content().model_dump_json()
+    call_log = _stub_openai(
+        monkeypatch, captured, responses=["NOT_JSON_AT_ALL", valid]
+    )
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert call_log["call_count"] == 2
+    assert result.content.summary == sample_brief_content().summary
+
+
+def test_retry_on_finish_reason_length_then_success(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    truncated = '{"summary": "cut off here'
+    valid = sample_brief_content().model_dump_json()
+    call_log = _stub_openai(
+        monkeypatch,
+        captured,
+        finish_reason="length",
+        responses=[truncated, valid],
+    )
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert call_log["call_count"] == 2
+    assert result.content.summary == sample_brief_content().summary
+
+
+def test_both_attempts_fail_raises_last_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    call_log = _stub_openai(
+        monkeypatch, captured, responses=["BAD_1", "BAD_2"]
+    )
+
+    with pytest.raises(ValueError) as exc_info:
+        generate_paper_brief_content(
+            "plain",
+            title="Title",
+            journal="Journal",
+            published_year=2026,
+        )
+
+    assert call_log["call_count"] == 2
+    assert "BAD_2" in str(exc_info.value)
+
+
+def test_first_attempt_succeeds_no_retry(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    call_log = _stub_openai(monkeypatch, captured)
+
+    result = generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert call_log["call_count"] == 1
+    assert result.content.summary == sample_brief_content().summary
+
+
+def test_retry_appends_retry_suffix_to_system_prompt(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    create_captured: dict[str, object] = {}
+    valid = sample_brief_content().model_dump_json()
+    _stub_openai(
+        monkeypatch, captured, create_captured,
+        responses=["NOT_JSON", valid],
+    )
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    system = create_captured["messages"][0]["content"]
+    assert "Previous response was truncated" in system
+
+
+def test_empty_content_retries_then_raises(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+    call_log = _stub_openai(
+        monkeypatch, captured, responses=["", ""]
+    )
+
+    with pytest.raises(ValueError, match="OpenAI returned no parsed paper brief"):
+        generate_paper_brief_content(
+            "plain",
+            title="Title",
+            journal="Journal",
+            published_year=2026,
+        )
+
+    assert call_log["call_count"] == 2

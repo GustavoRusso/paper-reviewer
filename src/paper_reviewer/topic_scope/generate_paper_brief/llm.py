@@ -20,13 +20,28 @@ _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_template.md"
 _DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 _LOOPBACK_HOSTS = {"localhost", "127.0.0.1"}
 _PLACEHOLDER_API_KEY = "not-needed"
-_GATEWAY_MAX_TOKENS = 4096
+_DEFAULT_GATEWAY_MAX_TOKENS = 8192
 _GATEWAY_REASONING_EFFORT = "none"
 _GATEWAY_FULL_TEXT_MAX_CHARS = 8000
 _GATEWAY_JSON_ONLY = (
     "Reply with a single JSON object only. "
     "The first non-whitespace character must be `{`."
 )
+_GATEWAY_CONCISENESS = (
+    "Keep each string field to 1-2 sentences. "
+    "key_findings: exactly 2-3 short items. "
+    "Omit optional fields (discussion, limitations, recommendations) "
+    "unless clearly supported and concise. "
+    "Plain text only: no LaTeX, no markdown headings inside string values. "
+    "The entire JSON object must fit in one response; prefer brevity."
+)
+_RETRY_SYSTEM_SUFFIX = (
+    "Previous response was truncated or invalid JSON. "
+    "Reply again with shorter field values; omit optional fields "
+    "(discussion, limitations, recommendations) unless essential. "
+    "Valid JSON only."
+)
+_MAX_ATTEMPTS = 2
 _GATEWAY_TRUNCATE_NOTE = "\n\n[truncated for local gateway context]"
 _ASSISTANT_OUTPUT_HEADING = "Assistant output:"
 _ASSISTANT_OUTPUT_MAX_CHARS = 8000
@@ -134,6 +149,20 @@ def resolve_openai_model(raw: str | None) -> str | None:
     if not stripped:
         return None
     return stripped
+
+
+def resolve_gateway_max_tokens(raw: str | None) -> int:
+    """Return gateway max_tokens from env, defaulting to 8192."""
+    if raw is None:
+        return _DEFAULT_GATEWAY_MAX_TOKENS
+    stripped = raw.strip()
+    if not stripped:
+        return _DEFAULT_GATEWAY_MAX_TOKENS
+    if not stripped.isdigit() or int(stripped) <= 0:
+        raise ValueError(
+            f"OPENAI_GATEWAY_MAX_TOKENS must be a positive integer, got {stripped!r}"
+        )
+    return int(stripped)
 
 
 def load_paper_brief_template() -> str:
@@ -457,6 +486,32 @@ def assistant_message_text(message: object) -> str:
     return ""
 
 
+def _call_and_log(
+    client: object,
+    create_kwargs: dict[str, object],
+) -> object:
+    """Call chat.completions.create with Prefect/logging around it."""
+    _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
+    completion = client.chat.completions.create(**create_kwargs)  # type: ignore[union-attr]
+    _emit_openai_log(
+        "OpenAI response message:\n"
+        f"{_serialize_openai_part(completion.choices[0].message)}"
+    )
+    usage = getattr(completion, "usage", None)
+    _emit_openai_log(_format_usage_log(usage))
+    return completion
+
+
+def _completion_choice_text(
+    completion: object,
+) -> tuple[str, str | None]:
+    """Return (assistant_text, finish_reason) from the first choice."""
+    choice = completion.choices[0]  # type: ignore[union-attr]
+    finish_reason = getattr(choice, "finish_reason", None)
+    text = assistant_message_text(choice.message)
+    return text, finish_reason
+
+
 def generate_paper_brief_content(
     full_text_plain: str,
     *,
@@ -482,9 +537,14 @@ def generate_paper_brief_content(
         if base_url is not None:
             raise ValueError("OPENAI_MODEL is not set")
         model = _DEFAULT_OPENAI_MODEL
-    if base_url is not None:
+    is_gateway = base_url is not None
+    if is_gateway:
         client = OpenAI(api_key=api_key, base_url=base_url)
-        system_prompt = f"{load_paper_brief_template()}\n\n{_GATEWAY_JSON_ONLY}"
+        system_prompt = (
+            f"{load_paper_brief_template()}\n\n"
+            f"{_GATEWAY_JSON_ONLY}\n\n"
+            f"{_GATEWAY_CONCISENESS}"
+        )
         article_text = clip_full_text_for_gateway(full_text_plain)
     else:
         client = OpenAI(api_key=api_key)
@@ -506,32 +566,62 @@ def generate_paper_brief_content(
         ],
         "response_format": type_to_response_format_param(PaperBriefContent),
     }
-    if base_url is not None:
-        apply_gateway_chat_options(
-            create_kwargs, max_tokens=_GATEWAY_MAX_TOKENS
+    if is_gateway:
+        gateway_max = resolve_gateway_max_tokens(
+            os.environ.get("OPENAI_GATEWAY_MAX_TOKENS"),
         )
-    _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
-    completion = client.chat.completions.create(**create_kwargs)
-    _emit_openai_log(
-        "OpenAI response message:\n"
-        f"{_serialize_openai_part(completion.choices[0].message)}"
-    )
-    usage = getattr(completion, "usage", None)
-    _emit_openai_log(_format_usage_log(usage))
-    content = assistant_message_text(completion.choices[0].message)
-    if not content:
-        raise ValueError("OpenAI returned no parsed paper brief")
-    try:
-        parsed = parse_paper_brief_content(content)
-    except (ValueError, ValidationError) as exc:
-        dump = content[:_ASSISTANT_OUTPUT_MAX_CHARS]
-        raise ValueError(
-            f"{str(exc).rstrip()}\n\n{_ASSISTANT_OUTPUT_HEADING}\n{dump}"
-        ) from exc
-    prompt_tokens, completion_tokens, total_tokens = usage_integers(usage)
-    return PaperBriefLlmResult(
-        content=parsed,
-        prompt_tokens=prompt_tokens,
-        completion_tokens=completion_tokens,
-        total_tokens=total_tokens,
-    )
+        apply_gateway_chat_options(create_kwargs, max_tokens=gateway_max)
+
+    last_error: ValueError | None = None
+    for attempt in range(_MAX_ATTEMPTS):
+        if attempt > 0:
+            messages = list(create_kwargs["messages"])  # type: ignore[arg-type]
+            original_system = messages[0]["content"]  # type: ignore[index]
+            messages[0] = {  # type: ignore[index]
+                "role": "system",
+                "content": f"{original_system}\n\n{_RETRY_SYSTEM_SUFFIX}",
+            }
+            create_kwargs["messages"] = messages
+
+        completion = _call_and_log(client, create_kwargs)
+        content, finish_reason = _completion_choice_text(completion)
+
+        if not content:
+            last_error = ValueError("OpenAI returned no parsed paper brief")
+            _emit_openai_log(
+                f"Brief attempt {attempt + 1}/{_MAX_ATTEMPTS} failed: "
+                "empty assistant text"
+            )
+            continue
+
+        try:
+            parsed = parse_paper_brief_content(content)
+        except (ValueError, ValidationError) as exc:
+            dump = content[:_ASSISTANT_OUTPUT_MAX_CHARS]
+            last_error = ValueError(
+                f"{str(exc).rstrip()}\n\n{_ASSISTANT_OUTPUT_HEADING}\n{dump}"
+            )
+            _emit_openai_log(
+                f"Brief attempt {attempt + 1}/{_MAX_ATTEMPTS} failed: "
+                f"{type(exc).__name__}"
+            )
+            continue
+
+        if finish_reason == "length" and attempt < _MAX_ATTEMPTS - 1:
+            _emit_openai_log(
+                f"Brief attempt {attempt + 1}/{_MAX_ATTEMPTS}: "
+                "finish_reason=length, retrying"
+            )
+            continue
+
+        usage = getattr(completion, "usage", None)
+        prompt_tokens, completion_tokens, total_tokens = usage_integers(usage)
+        return PaperBriefLlmResult(
+            content=parsed,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            total_tokens=total_tokens,
+        )
+
+    assert last_error is not None
+    raise last_error
