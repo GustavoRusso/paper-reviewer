@@ -20,10 +20,19 @@ migrate:
     {{compose}} -p {{app_project}} --profile app up -d --build --wait db
     {{compose}} -p {{app_project}} --profile app run --rm --build migrate
 
-# Pull local Ollama chat model (gemma4:e4b; idempotent)
-pull-model:
+# Pull a local Ollama model (idempotent). Default: gemma4:e4b
+# Usage: just pull-model
+#        just pull-model "llama3.1:8b"
+# Quote the tag (colon). Examples:
+#   gemma4:e4b         — default; best measured paper-brief quality
+#   llama3.1:8b        — prior offline-eval baseline
+#   qwen2.5:0.5b       — ~1 GB RAM; smoke tests only
+#   qwen2.5-coder:7b   — ~8 GB NVIDIA; structured/technical text
+#   qwen2.5:7b         — ~8 GB NVIDIA; general paper-brief alternative
+# After pull: set OPENAI_MODEL to the same tag in .env; recreate prefect-worker.
+pull-model model="gemma4:e4b":
     {{compose}} -p {{app_project}} --profile app up -d --wait ollama
-    {{compose}} -p {{app_project}} --profile app run --rm ollama-pull
+    {{compose}} -p {{app_project}} --profile app exec -T ollama ollama pull {{model}}
 
 # Stop the persistent app stack; volumes are preserved
 down:
