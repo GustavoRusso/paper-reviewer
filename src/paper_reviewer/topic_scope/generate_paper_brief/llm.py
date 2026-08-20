@@ -18,6 +18,7 @@ from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
 
 _TEMPLATE_PATH = Path(__file__).parent / "paper_brief_template.md"
 _DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
+_PUBLIC_OPENAI_BASE_URL = "https://api.openai.com/v1"
 _LOOPBACK_HOSTS = {"localhost", "127.0.0.1"}
 _PLACEHOLDER_API_KEY = "not-needed"
 _DEFAULT_GATEWAY_MAX_TOKENS = 8192
@@ -139,6 +140,20 @@ def resolve_openai_base_url(raw: str | None, *, in_container: bool) -> str | Non
     if parsed.port is not None:
         host = f"{host}:{parsed.port}"
     return urlunparse(parsed._replace(netloc=host))
+
+
+def build_openai_client(*, api_key: str, base_url: str | None) -> object:
+    """Build an OpenAI client.
+
+    Always pass an explicit ``base_url``. When *base_url* is None, use the
+    public API URL so an empty ``OPENAI_BASE_URL`` env (common under Compose
+    ``${VAR:-}``) cannot leave the SDK with a scheme-less URL.
+    """
+    from openai import OpenAI
+
+    if base_url is not None:
+        return OpenAI(api_key=api_key, base_url=base_url)
+    return OpenAI(api_key=api_key, base_url=_PUBLIC_OPENAI_BASE_URL)
 
 
 def resolve_openai_model(raw: str | None) -> str | None:
@@ -553,7 +568,6 @@ def generate_paper_brief_content(
     published_year: int | None,
 ) -> PaperBriefLlmResult:
     """Call chat completions and parse PaperBriefContent. Tests must inject a stub."""
-    from openai import OpenAI
     from openai.lib._parsing import type_to_response_format_param
 
     api_key = os.environ.get("OPENAI_API_KEY") or None
@@ -571,8 +585,8 @@ def generate_paper_brief_content(
             raise ValueError("OPENAI_MODEL is not set")
         model = _DEFAULT_OPENAI_MODEL
     is_gateway = base_url is not None
+    client = build_openai_client(api_key=api_key, base_url=base_url)
     if is_gateway:
-        client = OpenAI(api_key=api_key, base_url=base_url)
         system_prompt = (
             f"{load_paper_brief_template()}\n\n"
             f"{_GATEWAY_JSON_ONLY}\n\n"
@@ -580,7 +594,6 @@ def generate_paper_brief_content(
         )
         article_text = clip_full_text_for_gateway(full_text_plain)
     else:
-        client = OpenAI(api_key=api_key)
         system_prompt = load_paper_brief_template()
         article_text = extract_scientific_full_text(full_text_plain)
     create_kwargs: dict[str, object] = {

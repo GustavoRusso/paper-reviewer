@@ -25,6 +25,7 @@ from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     _repair_unescaped_controls_in_strings,
     _strip_ansi_and_controls,
     assistant_message_text,
+    build_openai_client,
     clip_full_text_for_gateway,
     extract_scientific_full_text,
     resolve_openai_base_url,
@@ -108,7 +109,6 @@ def judge_paper_brief_evaluation(
     content: PaperBriefContent,
 ) -> PaperBriefEvaluation:
     """Call chat completions and parse PaperBriefEvaluation. Tests must inject a stub."""
-    from openai import OpenAI
     from openai.lib._parsing import type_to_response_format_param
 
     api_key = os.environ.get("OPENAI_API_KEY") or None
@@ -125,14 +125,13 @@ def judge_paper_brief_evaluation(
         if base_url is not None:
             raise ValueError("OPENAI_MODEL is not set")
         model = _DEFAULT_OPENAI_MODEL
+    client = build_openai_client(api_key=api_key, base_url=base_url)
     if base_url is not None:
-        client = OpenAI(api_key=api_key, base_url=base_url)
         system_prompt = (
             f"{load_paper_brief_evaluation_template()}\n\n{_GATEWAY_JSON_ONLY}"
         )
         article_text = clip_full_text_for_gateway(full_text_plain)
     else:
-        client = OpenAI(api_key=api_key)
         system_prompt = load_paper_brief_evaluation_template()
         article_text = extract_scientific_full_text(full_text_plain)
     create_kwargs: dict[str, object] = {

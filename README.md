@@ -108,15 +108,15 @@ Set `OPENAI_MODEL=gemma4:e4b` to use Gemma instead (recommended — see [Paper b
 
 **Alternative — OpenAI API (cloud)**
 
-To use the public OpenAI API instead of local Ollama, change these three variables in `.env`:
+To use the public OpenAI API instead of local Ollama, set your key and leave the gateway URL and model empty (or omit those lines):
 
 ```bash
 OPENAI_API_KEY=sk-...        # your OpenAI key
-OPENAI_BASE_URL=              # empty — routes to https://api.openai.com/v1
+OPENAI_BASE_URL=              # empty — uses https://api.openai.com/v1
 OPENAI_MODEL=                 # empty — defaults to gpt-4o-mini (or set a specific model)
 ```
 
-Leave all three empty to skip live LLM drafts (jobs will be recorded as Failed).
+Leave `OPENAI_API_KEY` empty to skip live LLM drafts (jobs will be recorded as Failed). Recreate `prefect-worker` after changing `.env`.
 
 ## Paper brief quality (offline evaluation)
 

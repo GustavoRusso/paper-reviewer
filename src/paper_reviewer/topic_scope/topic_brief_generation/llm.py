@@ -18,6 +18,7 @@ from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     apply_gateway_chat_options,
     assistant_message_text,
+    build_openai_client,
     resolve_openai_base_url,
     resolve_openai_model,
     usage_integers,
@@ -164,7 +165,6 @@ def generate_topic_brief_content(
     briefed_references: Sequence[BriefedReference],
 ) -> TopicBriefLlmResult:
     """Call chat completions and parse TopicBriefContent. Tests must inject a stub."""
-    from openai import OpenAI
     from openai.lib._parsing import type_to_response_format_param
 
     api_key = os.environ.get("OPENAI_API_KEY") or None
@@ -181,11 +181,10 @@ def generate_topic_brief_content(
         if base_url is not None:
             raise ValueError("OPENAI_MODEL is not set")
         model = _DEFAULT_OPENAI_MODEL
+    client = build_openai_client(api_key=api_key, base_url=base_url)
     if base_url is not None:
-        client = OpenAI(api_key=api_key, base_url=base_url)
         system_prompt = f"{load_topic_brief_template()}\n\n{_GATEWAY_JSON_ONLY}"
     else:
-        client = OpenAI(api_key=api_key)
         system_prompt = load_topic_brief_template()
     user_message = build_topic_brief_user_message(
         topic_statement=topic_statement,

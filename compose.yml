@@ -5,6 +5,20 @@ x-app-env: &app-env
   <<: *db-env
   PREFECT_API_URL: ${PREFECT_API_URL:-http://prefect-server:4200/api}
 
+x-ncbi-env: &ncbi-env
+  NCBI_API_KEY: ${NCBI_API_KEY:-}
+
+# Empty OPENAI_BASE_URL is safe: clients pass an explicit public URL when unset
+# (OpenAI SDK otherwise treats env "" as a broken base_url).
+x-llm-env: &llm-env
+  OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+  OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+  OPENAI_MODEL: ${OPENAI_MODEL:-}
+  OPENAI_GATEWAY_MAX_TOKENS: ${OPENAI_GATEWAY_MAX_TOKENS:-}
+
+x-worker-env: &worker-env
+  <<: [*app-env, *ncbi-env, *llm-env]
+
 services:
   workspace:
     build: .
@@ -64,8 +78,7 @@ services:
     ports:
       - "${UI_PORT:-8501}:8501"
     environment:
-      <<: *app-env
-      NCBI_API_KEY: ${NCBI_API_KEY:-}
+      <<: [*app-env, *ncbi-env]
     depends_on:
       db:
         condition: service_healthy
@@ -123,12 +136,7 @@ services:
     volumes:
       - .:/workspace
     environment:
-      <<: *app-env
-      NCBI_API_KEY: ${NCBI_API_KEY:-}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
-      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
-      OPENAI_MODEL: ${OPENAI_MODEL:-}
-      OPENAI_GATEWAY_MAX_TOKENS: ${OPENAI_GATEWAY_MAX_TOKENS:-}
+      <<: *worker-env
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -203,12 +211,7 @@ services:
     ports:
       - "${JUPYTER_PORT:-8888}:8888"
     environment:
-      <<: *app-env
-      NCBI_API_KEY: ${NCBI_API_KEY:-}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
-      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
-      OPENAI_MODEL: ${OPENAI_MODEL:-}
-      OPENAI_GATEWAY_MAX_TOKENS: ${OPENAI_GATEWAY_MAX_TOKENS:-}
+      <<: *worker-env
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:

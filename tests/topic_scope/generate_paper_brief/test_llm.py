@@ -146,7 +146,7 @@ def _stub_openai(
     return call_log
 
 
-def test_generate_paper_brief_content_omits_base_url_when_unset(
+def test_generate_paper_brief_content_uses_public_base_url_when_unset(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     captured: dict[str, object] = {}
@@ -160,8 +160,26 @@ def test_generate_paper_brief_content_omits_base_url_when_unset(
         published_year=2026,
     )
 
-    assert "base_url" not in captured
+    assert captured["base_url"] == "https://api.openai.com/v1"
     assert captured["api_key"] == "sk-test"
+
+
+def test_generate_paper_brief_content_uses_public_base_url_when_env_empty(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Compose may inject OPENAI_BASE_URL=""; SDK must not keep that empty URL."""
+    captured: dict[str, object] = {}
+    _stub_openai(monkeypatch, captured)
+    monkeypatch.setenv("OPENAI_BASE_URL", "")
+
+    generate_paper_brief_content(
+        "plain",
+        title="Title",
+        journal="Journal",
+        published_year=2026,
+    )
+
+    assert captured["base_url"] == "https://api.openai.com/v1"
 
 
 def test_generate_paper_brief_content_passes_base_url_when_set(
