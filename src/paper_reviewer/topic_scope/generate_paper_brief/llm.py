@@ -428,13 +428,38 @@ def _format_usage_log(usage: object | None) -> str:
     )
 
 
-def _emit_openai_log(message: str) -> None:
+def format_exception_message(exc: BaseException) -> str:
+    """Return exception type and message, plus ``__cause__`` chain when present."""
+    chunks: list[str] = []
+    seen: set[int] = set()
+    current: BaseException | None = exc
+    while current is not None and id(current) not in seen and len(chunks) < 5:
+        seen.add(id(current))
+        name = type(current).__name__
+        text = str(current).strip() or repr(current)
+        if not chunks:
+            chunks.append(f"{name}: {text}")
+        else:
+            chunks.append(f"(caused by: {name}: {text})")
+        current = current.__cause__
+    return " ".join(chunks)
+
+
+def _emit_openai_log(message: str, *, error: bool = False) -> None:
     try:
         from prefect import get_run_logger
 
-        get_run_logger().info(message)
+        logger = get_run_logger()
+        if error:
+            logger.error(message)
+        else:
+            logger.info(message)
     except Exception:
-        logging.getLogger(__name__).info(message)
+        log = logging.getLogger(__name__)
+        if error:
+            log.error(message)
+        else:
+            log.info(message)
 
 
 def _usage_int(usage_json: dict[str, object], key: str) -> int | None:
@@ -492,7 +517,15 @@ def _call_and_log(
 ) -> object:
     """Call chat.completions.create with Prefect/logging around it."""
     _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
-    completion = client.chat.completions.create(**create_kwargs)  # type: ignore[union-attr]
+    try:
+        completion = client.chat.completions.create(**create_kwargs)  # type: ignore[union-attr]
+    except Exception as exc:
+        base_url = getattr(client, "base_url", None)
+        detail = format_exception_message(exc)
+        if base_url is not None:
+            detail = f"base_url: {base_url}\n{detail}"
+        _emit_openai_log(f"OpenAI call failed:\n{detail}", error=True)
+        raise
     _emit_openai_log(
         "OpenAI response message:\n"
         f"{_serialize_openai_part(completion.choices[0].message)}"

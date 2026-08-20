@@ -20,11 +20,9 @@ from paper_reviewer.topic_scope.generate_paper_brief.llm import (
     _GATEWAY_JSON_ONLY,
     _GATEWAY_REASONING_EFFORT,
     _PLACEHOLDER_API_KEY,
-    _emit_openai_log,
+    _call_and_log,
     _extract_json_object,
-    _format_usage_log,
     _repair_unescaped_controls_in_strings,
-    _serialize_openai_part,
     _strip_ansi_and_controls,
     assistant_message_text,
     clip_full_text_for_gateway,
@@ -153,15 +151,8 @@ def judge_paper_brief_evaluation(
         "response_format": type_to_response_format_param(PaperBriefEvaluation),
     }
     apply_judge_chat_options(create_kwargs, gateway=base_url is not None)
-    _emit_openai_log(f"OpenAI request:\n{_serialize_openai_part(create_kwargs)}")
-    completion = client.chat.completions.create(**create_kwargs)
-    _emit_openai_log(
-        "OpenAI response message:\n"
-        f"{_serialize_openai_part(completion.choices[0].message)}"
-    )
-    usage = getattr(completion, "usage", None)
-    _emit_openai_log(_format_usage_log(usage))
-    raw_content = assistant_message_text(completion.choices[0].message)
+    completion = _call_and_log(client, create_kwargs)
+    raw_content = assistant_message_text(completion.choices[0].message)  # type: ignore[union-attr]
     if not raw_content:
         raise ValueError("OpenAI returned no parsed paper brief evaluation")
     try:

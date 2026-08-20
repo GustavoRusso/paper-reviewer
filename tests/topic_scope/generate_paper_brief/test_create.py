@@ -298,8 +298,7 @@ def test_llm_failure_sets_failed_with_message(
     )
 
     assert result.status is PaperAspectStatus.failed
-    assert result.error_message is not None
-    assert "LLM timeout" in result.error_message
+    assert result.error_message == "RuntimeError: LLM timeout"
 
     session = session_factory()
     try:
@@ -310,6 +309,43 @@ def test_llm_failure_sets_failed_with_message(
         assert brief.prompt_tokens is None
         assert brief.completion_tokens is None
         assert brief.total_tokens is None
+    finally:
+        session.close()
+
+
+def test_llm_failure_persists_exception_type_and_cause(
+    session_factory: sessionmaker[Session],
+) -> None:
+    paper_id = create_test_paper(session_factory)
+
+    def generate(
+        full_text_plain: str,
+        *,
+        title: str,
+        journal: str | None,
+        published_year: int | None,
+    ) -> PaperBriefContent:
+        try:
+            raise OSError("Name or service not known")
+        except OSError as cause:
+            raise RuntimeError("Connection error.") from cause
+
+    result = create_paper_brief(
+        paper_id,
+        session_factory=session_factory,
+        generate_content=generate,
+    )
+
+    assert result.status is PaperAspectStatus.failed
+    assert result.error_message is not None
+    assert result.error_message.startswith("RuntimeError: Connection error.")
+    assert "(caused by: OSError: Name or service not known)" in result.error_message
+
+    session = session_factory()
+    try:
+        brief = get_paper_brief_by_paper_id(session, paper_id)
+        assert brief is not None
+        assert brief.error_message == result.error_message
     finally:
         session.close()
 

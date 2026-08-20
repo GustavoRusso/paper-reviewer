@@ -22,6 +22,9 @@ from paper_reviewer.schemas.topic_scope.generate_paper_brief import (
     PaperBriefContent,
     PaperBriefLlmResult,
 )
+from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    format_exception_message,
+)
 
 GeneratePaperBriefContent = Callable[..., PaperBriefContent | PaperBriefLlmResult]
 
@@ -137,7 +140,9 @@ def create_paper_brief(
                 published_year=paper.published_year,
             )
         except Exception as exc:
-            return _mark_failed(session, paper_id, brief, str(exc))
+            return _mark_failed(
+                session, paper_id, brief, format_exception_message(exc)
+            )
         if isinstance(generated, PaperBriefLlmResult):
             content = generated.content
             prompt_tokens = generated.prompt_tokens

@@ -8,11 +8,13 @@ from types import SimpleNamespace
 import pytest
 
 from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    _call_and_log,
     _format_usage_log,
     _serialize_openai_part,
     build_brief_user_message,
     clip_full_text_for_gateway,
     extract_scientific_full_text,
+    format_exception_message,
     generate_paper_brief_content,
     load_paper_brief_template,
     parse_paper_brief_content,
@@ -324,6 +326,63 @@ def test_generate_paper_brief_content_passes_configured_model(
     assert create_captured["model"] == "llama3.1-8b"
 
 
+def test_format_exception_message_includes_type_and_cause() -> None:
+    try:
+        raise OSError("Name or service not known")
+    except OSError as cause:
+        try:
+            raise RuntimeError("Connection error.") from cause
+        except RuntimeError as exc:
+            message = format_exception_message(exc)
+
+    assert message.startswith("RuntimeError: Connection error.")
+    assert "(caused by: OSError: Name or service not known)" in message
+
+
+def test_format_exception_message_without_cause() -> None:
+    assert format_exception_message(RuntimeError("LLM timeout")) == (
+        "RuntimeError: LLM timeout"
+    )
+
+
+def test_call_and_log_emits_error_and_reraises_on_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    emitted: list[tuple[bool, str]] = []
+
+    def capture(message: str, *, error: bool = False) -> None:
+        emitted.append((error, message))
+
+    monkeypatch.setattr(
+        "paper_reviewer.topic_scope.generate_paper_brief.llm._emit_openai_log",
+        capture,
+    )
+
+    class BoomClient:
+        base_url = "https://api.openai.com/v1/"
+
+        def __init__(self) -> None:
+            def create(**_kw: object) -> object:
+                try:
+                    raise OSError("getaddrinfo failed")
+                except OSError as cause:
+                    raise RuntimeError("Connection error.") from cause
+
+            self.chat = SimpleNamespace(completions=SimpleNamespace(create=create))
+
+    with pytest.raises(RuntimeError, match="Connection error"):
+        _call_and_log(BoomClient(), {"model": "gpt-4o-mini", "messages": []})
+
+    assert len(emitted) == 2
+    assert emitted[0][0] is False
+    assert emitted[0][1].startswith("OpenAI request:\n")
+    assert emitted[1][0] is True
+    assert emitted[1][1].startswith("OpenAI call failed:\n")
+    assert "base_url: https://api.openai.com/v1/" in emitted[1][1]
+    assert "RuntimeError: Connection error." in emitted[1][1]
+    assert "(caused by: OSError: getaddrinfo failed)" in emitted[1][1]
+
+
 def test_generate_paper_brief_content_logs_request_response_and_usage(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -339,9 +398,14 @@ def test_generate_paper_brief_content_logs_request_response_and_usage(
     )
     _stub_openai(monkeypatch, captured, create_captured, usage=usage)
     emitted: list[str] = []
+
+    def capture(message: str, *, error: bool = False) -> None:
+        assert error is False
+        emitted.append(message)
+
     monkeypatch.setattr(
         "paper_reviewer.topic_scope.generate_paper_brief.llm._emit_openai_log",
-        emitted.append,
+        capture,
     )
 
     generate_paper_brief_content(

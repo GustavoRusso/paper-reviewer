@@ -21,6 +21,9 @@ from paper_reviewer.schemas.topic_scope.paper_brief_evaluation import (
     PaperBriefEvaluation,
     mean_evaluation_score,
 )
+from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    format_exception_message,
+)
 
 JudgePaperBriefEvaluation = Callable[..., PaperBriefEvaluation]
 
@@ -112,7 +115,9 @@ def evaluate_paper_brief(
             content = PaperBriefContent.model_validate(brief.content)
             evaluation = judge(paper.full_text_plain, content=content)
         except Exception as exc:
-            return _mark_evaluation_failed(session, paper_id, brief, str(exc))
+            return _mark_evaluation_failed(
+                session, paper_id, brief, format_exception_message(exc)
+            )
         brief.evaluation = evaluation.model_dump(mode="json")
         brief.evaluation_score = mean_evaluation_score(evaluation)
         brief.evaluation_status = PaperAspectStatus.succeeded

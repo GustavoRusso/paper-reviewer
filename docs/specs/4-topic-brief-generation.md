@@ -183,7 +183,7 @@ CreateTopicBriefEnqueueResult(submitted=False, skipped_in_flight=False, skipped_
 | `updated_at` | Yes (DB) | Last status/content update. |
 | `topic_scope_id` | Yes | FK to `TopicScope`. Unique. |
 | `status` | Yes | `PaperAspectStatus`. Default `not_started`. |
-| `error_message` | No | Set when `status=failed`. Cleared on enqueue and on `succeeded`. On `TopicBriefContent` parse failure, include the validation or extract error plus the raw assistant text (capped at 8000 characters) after an `Assistant output:` marker. |
+| `error_message` | No | Set when `status=failed`. Cleared on enqueue and on `succeeded`. Include the exception type name and message (and `__cause__` chain when present). On `TopicBriefContent` parse failure, include the validation or extract error plus the raw assistant text (capped at 8000 characters) after an `Assistant output:` marker. |
 | `content` | No until succeeded | Structured brief payload (JSONB / typed sections). On regenerate enqueue, keep previous `content` until the new draft succeeds. On failed rewrite, leave last good `content` for display. After a successful parse, always store the new `content` (v1). |
 | `prompt_tokens` | No | Last OpenAI `usage.prompt_tokens`. Null when usage is absent or the key is missing. |
 | `completion_tokens` | No | Last OpenAI `usage.completion_tokens`. Null when usage is absent or the key is missing. |
@@ -264,7 +264,7 @@ Quality index shape (artifact fields, storage, and UI) is deferred to the implem
 | Row missing and ≥1 briefed Reference | Create row; run LLM; on parse success store `content` and the three usage integers from that call; set `succeeded`; clear error. |
 | `force` is true (page always) and row exists, ≥1 briefed Reference | Rewrite: run LLM even if status was `succeeded` or `failed`; then `succeeded` or `failed` from this attempt. Keep prior `content` and the three usage columns until a successful write. A successful write **overwrites** the three usage columns with that run. |
 | `force` is false and `TopicBrief.status` is `succeeded` | No-op success. Do not change `content` or the three usage columns. |
-| LLM / parse / DB error | Set `failed` + `error_message`. Keep prior `content` and the three usage columns when present. On `TopicBriefContent` parse failure, `error_message` includes the validation or extract error and the capped assistant text. Other failures (timeout, missing key) do not dump assistant text. |
+| LLM / parse / DB error | Set `failed` + `error_message` (exception type, message, and cause chain when present). Keep prior `content` and the three usage columns when present. On `TopicBriefContent` parse failure, `error_message` includes the validation or extract error and the capped assistant text. Other failures (timeout, missing key) do not dump assistant text. |
 
 ### Overwrite policy
 

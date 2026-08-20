@@ -239,7 +239,7 @@ def test_llm_failure_keeps_prior_content(
     )
 
     assert result.status is PaperAspectStatus.failed
-    assert result.error_message == "llm down"
+    assert result.error_message == "RuntimeError: llm down"
 
     session = session_factory()
     try:

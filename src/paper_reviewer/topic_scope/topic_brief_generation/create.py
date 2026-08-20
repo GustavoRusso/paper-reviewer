@@ -23,6 +23,9 @@ from paper_reviewer.schemas.topic_scope.topic_brief_generation import (
     TopicBriefContent,
     TopicBriefLlmResult,
 )
+from paper_reviewer.topic_scope.generate_paper_brief.llm import (
+    format_exception_message,
+)
 from paper_reviewer.topic_scope.topic_brief_generation.briefed import (
     BriefedReference,
     list_briefed_references,
@@ -149,7 +152,9 @@ def create_topic_brief(
                 briefed_references=briefed,
             )
         except Exception as exc:
-            return _mark_failed(session, topic_scope_id, brief, str(exc))
+            return _mark_failed(
+                session, topic_scope_id, brief, format_exception_message(exc)
+            )
         if isinstance(generated, TopicBriefLlmResult):
             content = generated.content
             prompt_tokens = generated.prompt_tokens
