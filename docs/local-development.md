@@ -1,6 +1,35 @@
 # Local development
 
-All local workflows run through `just` recipes that wrap Docker Compose. Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
+Two supported ways to develop:
+
+| Path | Host needs | How you work |
+| --- | --- | --- |
+| **Host / `just` (default)** | Docker Desktop + `just` | `just up`, `just run`, `just test`; IDE stays on the host |
+| **Dev Container (optional)** | Docker Desktop + Cursor/VS Code Dev Containers | **Reopen in Container**; IDE and terminals attach to Compose `workspace` |
+
+Both paths use the same Compose project (`paper-reviewer`), image, volumes, and app services. Pick one path per session — do not run `just up` and **Reopen in Container** as two separate stacks. Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
+
+## Dev Containers
+
+Optional IDE path. Config lives under [`.devcontainer/`](../.devcontainer/).
+
+1. Copy [`.env.example`](../.env.example) to `.env` (same as the host path).
+2. Start Docker Desktop.
+3. Open this repo in Cursor (or VS Code).
+4. Run **Dev Containers: Reopen in Container** (Command Palette). First build can take several minutes (image build + Ollama model pull, like `just up`).
+5. Wait until the IDE attaches to `/workspace`. `postCreateCommand` runs `uv sync`.
+6. Open the UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and Prefect at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)).
+
+What starts: Compose services listed in [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) `runServices` — `workspace`, `db`, `migrate`, `ui`, `prefect-server`, `prefect-worker`, `ollama`, `ollama-pull`. [`.devcontainer/compose.override.yml`](../.devcontainer/compose.override.yml) clears the `app` profile and sets Compose project name `paper-reviewer` so volumes match `just up`.
+
+Inside the Dev Container:
+
+- Run `uv run pytest`, `uv run dlthub …`, and other Python commands **directly** (no `just`).
+- Do **not** use `just` recipes that call `docker compose` (no Docker socket mount).
+- `shutdownAction` is `none`: closing the IDE does not stop the Compose stack. Stop from the host with `just down` when you want teardown.
+- Sandbox (`just sandbox` / `just test`) and Jupyter (`just notebooks`) stay on the **host / `just`** path.
+
+MCP inside the Dev Container: [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio`. Host Cursor still uses [`.cursor/mcp.json`](../.cursor/mcp.json) (`docker compose exec`). Enable MCP in Cursor Settings as in [Enable the dlt-workspace-mcp server](#enable-the-dlt-workspace-mcp-server-in-cursor-manual).
 
 ## Environment configuration
 
@@ -15,7 +44,7 @@ All initial local parametrization lives in a project-root **`.env`** file. Compo
    Copy-Item .env.example .env
    ```
 
-2. Edit `.env` before `just up` (ports, Postgres credentials, Prefect URLs, optional NCBI key).
+2. Edit `.env` before `just up` or **Reopen in Container** (ports, Postgres credentials, Prefect URLs, optional NCBI key).
 3. Do not commit `.env` (gitignored). Commit only [`.env.example`](../.env.example).
 
 | Variable | Default | Used by | Notes |
@@ -85,11 +114,12 @@ Manual smoke for **Regenerate**: when both source-record and full-text statuses 
 
 ## Agent shells
 
-Coding-agent terminals (Cursor, Claude Code, Codex, and similar) run on the **host**, not inside the Compose container. The Linux `.venv` and `uv` binary exist only in the image, so host `uv` / `python` / `pytest` will fail.
+Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Short form:
 
-Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Paper Reviewer UI so `just sandbox-down` does not tear them down.
+- **Host IDE / host agent terminal:** wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Paper Reviewer UI so `just sandbox-down` does not tear them down. Host `uv` / `python` / `pytest` will fail — the Linux `.venv` exists only in the image.
+- **Dev Container IDE / attached agent terminal:** run `uv` / `pytest` directly. Do not use `just` recipes that need Docker on the host.
 
-If a recipe is missing or awkward, do **not** call `docker` / `docker compose` on the host: stop and propose a [justfile](../justfile) change — see **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Do not add IDE-specific agent rule files for this; AGENTS.md is the single owner.
+If a host `just` recipe is missing or awkward, do **not** call `docker` / `docker compose` on the host: stop and propose a [justfile](../justfile) change — see **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Do not add IDE-specific agent rule files for this; AGENTS.md is the single owner.
 
 ### Running tests
 
@@ -172,17 +202,15 @@ Or with an interactive shell: `just sandbox-shell`, then `uv run dlthub ai statu
 
 ### Enable the dlt-workspace-mcp server in Cursor (manual)
 
-MCP is configured to run **inside the Compose `workspace` container** (no host `uv`). See [`.cursor/mcp.json`](../.cursor/mcp.json).
+MCP always runs **inside** the Compose `workspace` container (no host `uv`). Which config file applies depends on the IDE path:
 
-1. Start the persistent app workspace so the container is running:
+| IDE path | Config | How MCP starts |
+| --- | --- | --- |
+| Host Cursor | [`.cursor/mcp.json`](../.cursor/mcp.json) | `docker compose … exec workspace uv run dlthub ai mcp --stdio` |
+| Dev Container | [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (mounted over `.cursor/mcp.json`) | `uv run dlthub ai mcp --stdio` |
 
-   ```bash
-   just up
-   ```
-
-   (`docker compose exec` only works against a running service. Prefer the **paper-reviewer** project over the sandbox so MCP is not torn down by `just sandbox-down`.)
-
-2. Open this project in **Cursor**.
+1. Ensure the app `workspace` is running: `just up` (host path) or **Reopen in Container** (Dev Container path). Prefer the **paper-reviewer** project over the sandbox so host MCP is not torn down by `just sandbox-down`.
+2. Open this project in **Cursor** (host or already attached).
 3. Open **Cursor Settings → MCP**.
 4. Find **`dlt-workspace-mcp`** and **Enable** / approve it if prompted.
 5. Confirm status is connected (not error / needsAuth).
@@ -192,9 +220,9 @@ MCP is configured to run **inside the Compose `workspace` container** (no host `
 If the server fails to start:
 
 - Error `service "shell" is not running` / unknown service: the Compose service name is **`workspace`**, not `shell` (see `compose.yml`). Reload MCP after fixing `.cursor/mcp.json`.
-- Error `service "workspace" is not running`: run `just up`, wait until healthy (`just status`), then toggle the MCP server off/on or reload the Cursor window.
-- Confirm `fastmcp` is installed in the project env (`uv add fastmcp` inside `just shell` if missing).
-- Re-run `uv run dlthub ai init --agent cursor` in the workspace container only if you need to regenerate skills/rules; keep the Docker-based `mcp.json` (do not let init overwrite it back to host `uv` without re-applying the compose exec form).
+- Error `service "workspace" is not running` (host path): run `just up`, wait until healthy (`just status`), then toggle the MCP server off/on or reload the Cursor window.
+- Confirm `fastmcp` is installed in the project env (`uv add fastmcp` inside `just shell`, or `uv add fastmcp` in a Dev Container terminal).
+- Re-run `uv run dlthub ai init --agent cursor` in the workspace container only if you need to regenerate skills/rules; keep the host Docker-based [`.cursor/mcp.json`](../.cursor/mcp.json) and the Dev Container [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (do not let init overwrite them back to host `uv` without re-applying the correct form).
 - Run `uv run dlthub ai status` inside the container for diagnostics.
 
 Official references: [REST API Source with dltHub AI Workbench](https://dlthub.com/docs/hub/ingestion/rest-api-source), [Installation](https://dlthub.com/docs/hub/getting-started/installation).

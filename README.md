@@ -83,7 +83,7 @@ The assistant drafts a cited introduction that explains what is currently known 
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
 2. Copy `[.env.example](.env.example)` to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md). PubMed key notes: [docs/specs/external-sources/pubmed.md](docs/specs/external-sources/pubmed.md).
-3. Choose how **paper brief** jobs call an LLM (see below), then run the stack with `just up`: [docs/local-development.md](docs/local-development.md)
+3. Choose how **paper brief** jobs call an LLM (see below), then start the stack with `just up` **or** Cursor **Reopen in Container**: [docs/local-development.md](docs/local-development.md)
 4. Open the services listed below (start on Home to see existing **Topic scopes**, or start with Topic intake)
 
 
@@ -133,7 +133,7 @@ We compared two local Ollama models ([notebook 04](notebooks/paper_brief_evaluat
 
 ## Services
 
-After `just up`, these services are available:
+After `just up` or **Reopen in Container**, these services are available:
 
 
 | Service           | URL                                                                                  | Description                                                                                                                                                           |

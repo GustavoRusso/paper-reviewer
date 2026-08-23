@@ -40,8 +40,8 @@ flowchart TB
     docsDir["docs/"]
     notebooksDir["notebooks/"]
     dataDir["data/"]
+    composeFiles["compose.yml, .devcontainer/, .env examples"]
     hostTools["justfile, AGENTS.md, README.md"]
-    composeFiles["compose.yml, .env examples"]
   end
 
   Dockerfile -->|"COPY + .dockerignore"| deploy
@@ -51,10 +51,10 @@ flowchart TB
 | Category | Paths | Role |
 | --- | --- | --- |
 | **Runtime (deployed)** | `src/paper_reviewer/`, `alembic/`, `alembic.ini`, `pyproject.toml`, `uv.lock`, `.streamlit/config.toml` | What production containers need to run the UI, flows, ingest, and migrations. Streamlit theme: [ui-style.md](ui-style.md) |
-| **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile` | Image build and local workflows on the host; not application runtime code |
+| **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile`, `.devcontainer/` | Image build and local workflows on the host; optional Dev Container attach; not application runtime code |
 | **Development-only** | `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, agent guidance, and eval notebooks/output; exclude from production images. Notebooks import the installed `paper_reviewer` package (Compose bind-mount). `data/` holds the eval corpus and scores and may be committed ([specs/paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md)); do not add an eval package under `src/`. |
 
-Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `.git/`, and similar paths.
+Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `.devcontainer/`, `.cursor/`, `.agents/`, `.git/`, and similar paths.
 
 **Target:** one application image; multiple Compose services with different entrypoints (Streamlit, Prefect worker, Alembic migrate)—same tree, different `CMD`.
 
@@ -108,6 +108,7 @@ paper-reviewer/
 ├── data/                               # eval corpus/results (tracked; not deployed)
 │   └── paper_brief_evaluation/         # corpus/ + {run_id}/; not a src package
 ├── docs/
+├── .devcontainer/                      # optional IDE attach (Dev Containers)
 ├── Dockerfile
 ├── .dockerignore
 ├── compose.yml
