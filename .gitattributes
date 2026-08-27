@@ -1,5 +1,3 @@
-# Force LF for shell scripts so they run inside Linux containers on Windows checkouts
-*.sh text eol=lf
-justfile text eol=lf
-Dockerfile text eol=lf
-compose.yml text eol=lf
+# Normalize all text to LF. Linux containers, shell, just, and Docker require LF.
+# Windows hosts: set editor EOL to LF; prefer core.autocrlf=input (not true).
+* text=auto eol=lf

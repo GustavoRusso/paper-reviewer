@@ -40,7 +40,8 @@ just --version
 ## Next steps
 
 1. Copy [`.env.example`](../.env.example) to `.env` and set local values (see [local-development.md — Environment configuration](local-development.md#environment-configuration)).
-2. Choose a path:
+2. On Windows, keep text as **LF** (see [local-development.md — Line endings](local-development.md#line-endings)): set the editor EOL to `\n`, and set host Git `core.autocrlf` to `input` or `false` (not `true`).
+3. Choose a path:
    - **Host / `just`:** continue with [local-development.md](local-development.md) (`just up`, recipes).
    - **Dev Container:** see [local-development.md — Dev Containers](local-development.md#dev-containers) (`Reopen in Container`).
 

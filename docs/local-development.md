@@ -9,6 +9,19 @@ Two supported ways to develop:
 
 Both paths use the same Compose project (`paper-reviewer`), image, volumes, and app services. Pick one path per session — do not run `just up` and **Reopen in Container** as two separate stacks. Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
 
+## Line endings
+
+This repository stores **LF** (`\n`) for all text files. The Linux workspace image, shell scripts, `just`, and Docker need LF. Do **not** switch the project to CRLF.
+
+| Mechanism | Role |
+| --- | --- |
+| [`.gitattributes`](../.gitattributes) | `* text=auto eol=lf` — Git normalizes text to LF on commit and checkout |
+| [`.editorconfig`](../.editorconfig) | Asks editors to save with LF |
+
+On a **Windows host** Git install, set `core.autocrlf` to `input` or `false`. Do **not** use `true` (that rewrites working-tree files to CRLF). Prefer editing inside the Dev Container, or set the editor **Files: Eol** to `\n` when editing from Windows against the bind mount.
+
+If `git status` shows many modified files with no visible content change, run `git diff --ignore-cr-at-eol`. An empty result means CRLF-only noise; restore with `git restore -- <paths>` (or convert those files back to LF). Files that already have `eol=lf` may still contain CRLF on disk while Git stays clean — convert them to LF before running shell or `just` in Linux.
+
 ## Dev Containers
 
 Optional IDE path. Config lives under [`.devcontainer/`](../.devcontainer/).
