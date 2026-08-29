@@ -108,6 +108,11 @@ paper-reviewer/
 ├── data/                               # eval corpus/results (tracked; not deployed)
 │   └── paper_brief_evaluation/         # corpus/ + {run_id}/; not a src package
 ├── docs/
+├── .cursor/
+│   ├── environment.json                # Cursor Cloud Agent VM (not VS Code)
+│   ├── Dockerfile                      # Cloud Agent host image (Docker + just)
+│   ├── cloud-agent-install.sh
+│   └── cloud-agent-start.sh
 ├── Dockerfile
 ├── .dockerignore
 ├── compose.yml

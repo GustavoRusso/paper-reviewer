@@ -11,6 +11,8 @@ Install these tools on your machine before any Paper Reviewer workflow. They are
 
 Do **not** install frameworks, languages, compilers, runtimes, or other app tooling on the host. Anything needed to develop or run the app must live inside Docker images.
 
+Cursor Cloud Agent VMs install Docker Engine and `just` from [`.cursor/environment.json`](../.cursor/environment.json). You do not install those tools by hand on the Cloud VM. See [local-development.md — Cursor Cloud Agents](local-development.md#cursor-cloud-agents).
+
 ## Docker Desktop
 
 1. Install [Docker Desktop](https://docs.docker.com/desktop/) for your platform.
