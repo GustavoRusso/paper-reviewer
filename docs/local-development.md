@@ -24,14 +24,16 @@ If `git status` shows many modified files with no visible content change, run `g
 
 ## Dev Containers
 
-Optional IDE path. Config lives under [`.devcontainer/`](../.devcontainer/).
+Optional IDE path. Config lives under [`.devcontainer/`](../.devcontainer/). Workspace helpers for Cursor and VS Code live under [`.vscode/`](../.vscode/).
 
 1. Copy [`.env.example`](../.env.example) to `.env` (same as the host path).
 2. Start Docker Desktop.
-3. Open this repo in Cursor (or VS Code).
-4. Run **Dev Containers: Reopen in Container** (Command Palette). First build can take several minutes (image build + Ollama model pull, like `just up`).
+3. Open this repo in Cursor (or VS Code with the Dev Containers extension).
+4. On folder open, the IDE detects [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) and shows **Would you like to reopen it inside a container?** — choose **Reopen in Container**. ([`.vscode/extensions.json`](../.vscode/extensions.json) recommends the Dev Containers extension; [`.vscode/settings.json`](../.vscode/settings.json) keeps that prompt enabled.)
 5. Wait until the IDE attaches to `/workspace`. `postCreateCommand` runs `uv sync`.
 6. Open the UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and Prefect at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)).
+
+Neither Cursor nor VS Code supports a committed repo setting that **silently** forces Reopen in Container on every open (by design). After the first attach, reopen the same entry from **File → Open Recent** (remote/dev-container URI) to reattach without the prompt. You can also run **Dev Containers: Reopen in Container** from the Command Palette anytime.
 
 What starts: Compose services listed in [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) `runServices` — `workspace`, `db`, `migrate`, `ui`, `prefect-server`, `prefect-worker`, `ollama`, `ollama-pull`. [`.devcontainer/compose.override.yml`](../.devcontainer/compose.override.yml) clears the `app` profile and sets Compose project name `paper-reviewer` so volumes match `just up`.
 

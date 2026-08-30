@@ -8,7 +8,7 @@ Install these tools on your machine before any Paper Reviewer workflow. They are
 | --- | --- | --- |
 | **Docker Desktop** | Runs the entire development and application stack in containers (WSL2 backend recommended on Windows). | Always |
 | **`just`** | Single command interface for every project workflow on the host. | Host / `just` path (default for agents) |
-| **Cursor (or VS Code) + Dev Containers** | Attach the IDE to the Compose `workspace` service. | Optional Dev Container path only |
+| **Cursor (or VS Code) + Dev Containers** | Attach the IDE to the Compose `workspace` service. Cursor ships Anysphere Dev Containers; VS Code needs the **Dev Containers** extension (`ms-vscode-remote.remote-containers`). [`.vscode/extensions.json`](../.vscode/extensions.json) recommends both. | Optional Dev Container path only |
 
 Do **not** install frameworks, languages, compilers, runtimes, or other app tooling on the host. Anything needed to develop or run the app must live inside Docker images.
 

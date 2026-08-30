@@ -1,0 +1,4 @@
+{
+  "dev.containers.showReopenInContainerPrompt": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+}
