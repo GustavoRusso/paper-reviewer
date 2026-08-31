@@ -35,11 +35,12 @@ Optional IDE path. Config lives under [`.devcontainer/`](../.devcontainer/). Wor
 
 Neither Cursor nor VS Code supports a committed repo setting that **silently** forces Reopen in Container on every open (by design). After the first attach, reopen the same entry from **File → Open Recent** (remote/dev-container URI) to reattach without the prompt. You can also run **Dev Containers: Reopen in Container** from the Command Palette anytime.
 
-What starts: Compose services listed in [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) `runServices` — `workspace`, `db`, `migrate`, `ui`, `prefect-server`, `prefect-worker`, `ollama`, `ollama-pull`. [`.devcontainer/compose.override.yml`](../.devcontainer/compose.override.yml) clears the `app` profile and sets Compose project name `paper-reviewer` so volumes match `just up`.
+What starts: Compose services listed in [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) `runServices` — `workspace`, `db`, `ui`, `prefect-server`, `prefect-worker`, `ollama`, `ollama-pull`. The devcontainer intentionally does not auto-start a one-shot migration step because Alembic is a manual apply step, not a normal long-lived process. [`.devcontainer/compose.override.yml`](../.devcontainer/compose.override.yml) clears the `app` profile and sets Compose project name `paper-reviewer` so volumes match `just up`.
 
 Inside the Dev Container:
 
 - Run `uv run pytest`, `uv run dlthub …`, and other Python commands **directly** (no `just`).
+- Run the schema migration once after attaching: `uv run alembic upgrade head`.
 - Do **not** use `just` recipes that call `docker compose` (no Docker socket mount).
 - `shutdownAction` is `none`: closing the IDE does not stop the Compose stack. Stop from the host with `just down` when you want teardown.
 - Sandbox (`just sandbox` / `just test`) and Jupyter (`just notebooks`) stay on the **host / `just`** path.
@@ -88,8 +89,7 @@ Compose defines:
 
 - **`workspace`** — Python 3.12 + uv image with the repository bind-mounted at `/workspace` (agents, MCP, `just shell` / `just run`). Unprofiled so it starts with both `just up` and `just sandbox`.
 - **`db`** — PostgreSQL 16 on host port **`POSTGRES_PORT`** (default **5432**; Compose profile `app`; started by `just up`). Named volume `postgres_data` survives `just down`.
-- **`migrate`** — one-shot Alembic `upgrade head` against `db` (Compose profile `app`). Runs on every `just up` before the UI starts; exits when done.
-- **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `migrate` succeeds).
+- **`ui`** — same image, Streamlit **Paper Reviewer** UI on host port **`UI_PORT`** (default **8501**; Compose profile `app`; started by `just up` after `db` is healthy).
 - **`prefect-server`** — Prefect API/UI on host port **`PREFECT_PORT`** (default **4200**; Compose profile `app`; started by `just up`). Image `prefecthq/prefect:3.8-python3.12`. Persists server metadata in named volume `prefect_data` (SQLite under `/root/.prefect`). Browser UI talks to `PREFECT_UI_API_URL`.
 - **`prefect-worker`** — Serves leaf deployments `inform_source_record/default` and `inform_full_text/default`, `create_paper_brief/default`, `evaluate_paper_brief/default`, `create_topic_brief/default`, and `ingest_paper/default` via `python -m paper_reviewer.flows.serve` (Compose profile `app`; started by `just up`). Same application image and bind-mount as `ui` / `workspace`. Sets `PREFECT_API_URL`, `DATABASE_URL`, optional `NCBI_API_KEY`, and optional `OPENAI_*` from shared Compose env anchors (`x-worker-env`). The Streamlit UI submits `ingest_paper` and `create_topic_brief` runs with `run_deployment` (fire-and-forget). `ingest_paper/default` has a deployment concurrency limit of **5**; extra runs wait (`AwaitingConcurrencySlot`). The UI still submits one run per selected paper. Other served deployments have no such cap. An `ingest_paper` run shows nested subflow runs for `inform_source_record`, `inform_full_text`, and (when full text succeeded) `create_paper_brief` then (when the brief succeeded) `evaluate_paper_brief`. Progress UIs still poll Postgres, not Prefect, for paper and brief status.
 - **`ollama`** — Ollama inference runtime on host port **11434** (Compose profile `app`; started by `just up`). OpenAI-compatible API at `/v1`. Persists models in named volume `ollama_data`.
@@ -98,9 +98,7 @@ Compose defines:
 
 ### Schema migrations (Alembic)
 
-Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). The **app** stack applies them automatically: `just up` starts `db`, runs the `migrate` service to `alembic upgrade head`, then starts `ui`. The sandbox has no `db` / `migrate` services.
-
-Manual / one-off apply (idempotent):
+Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). The **app** stack starts `db` and the UI without treating Alembic as a required startup service. The sandbox has no `db` service. Apply schema updates explicitly when needed:
 
 ```bash
 just migrate

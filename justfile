@@ -11,14 +11,14 @@ sandbox_project := "paper-reviewer-sandbox"
 compose := "docker compose"
 jupyter_port := env("JUPYTER_PORT", "8888")
 
-# Build/start the persistent app stack (workspace + app profile: migrate + UI + Postgres + Prefect); wait until healthy
+# Build/start the persistent app stack (workspace + UI + Postgres + Prefect); wait until healthy
 up:
     {{compose}} -p {{app_project}} --profile app up -d --build --wait
 
-# Apply Alembic migrations to app Postgres (idempotent; also runs automatically on just up)
+# Apply Alembic migrations to app Postgres (manual one-off step; not part of app startup)
 migrate:
-    {{compose}} -p {{app_project}} --profile app up -d --build --wait db
-    {{compose}} -p {{app_project}} --profile app run --rm --build migrate
+    {{compose}} -p {{app_project}} --profile app up -d --build --wait workspace db
+    {{compose}} -p {{app_project}} exec -T workspace sh -c '/workspace/scripts/migrate.sh'
 
 # Pull a local Ollama model (idempotent). Default: gemma4:e4b
 # Usage: just pull-model
