@@ -11,17 +11,26 @@ services:
   db:
     profiles: !reset []
 
-  migrate:
-    profiles: !reset []
-
   ui:
     profiles: !reset []
+    depends_on:
+      db:
+        condition: service_healthy
+      prefect-server:
+        condition: service_healthy
 
   prefect-server:
     profiles: !reset []
 
   prefect-worker:
     profiles: !reset []
+    depends_on:
+      db:
+        condition: service_healthy
+      prefect-server:
+        condition: service_healthy
+      ollama-pull:
+        condition: service_completed_successfully
 
   ollama:
     profiles: !reset []

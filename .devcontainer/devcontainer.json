@@ -6,7 +6,6 @@
   "runServices": [
     "workspace",
     "db",
-    "migrate",
     "ui",
     "prefect-server",
     "prefect-worker",
