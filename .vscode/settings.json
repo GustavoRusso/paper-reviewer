@@ -8,5 +8,13 @@
   "diffEditor.wordWrap": "on",
   "diffEditor.renderSideBySide": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.experimental.showMovedCode": true
+  "diffEditor.experimental.showMovedCode": true,
+
+  "workbench.colorCustomizations": {
+  "editor.diffEditor.insertedTextBackground": "#00ff0033",
+  "editor.diffEditor.removedTextBackground": "#ff000033",
+  "editor.diffEditor.insertedTextForeground": "#003300",
+  "editor.diffEditor.removedTextForeground": "#330000"
+  }
+
 }
