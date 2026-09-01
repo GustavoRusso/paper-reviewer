@@ -134,6 +134,25 @@ Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Short form
 
 If a host `just` recipe is missing or awkward, do **not** call `docker` / `docker compose` on the host: stop and propose a [justfile](../justfile) change — see **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Do not add IDE-specific agent rule files for this; AGENTS.md is the single owner.
 
+## Cursor Cloud Agents
+
+Cursor Cloud Agents run on a remote Ubuntu VM. The committed [`.cursor/environment.json`](../.cursor/environment.json) is Cursor-only (VS Code does not read it). It is the highest-precedence Cloud Agent environment source.
+
+| File | Role |
+| --- | --- |
+| [`.cursor/environment.json`](../.cursor/environment.json) | Names the VM image, `install`, and `start` commands |
+| [`.cursor/Dockerfile`](../.cursor/Dockerfile) | Host image: Docker Engine, Compose plugin, `just` 1.58.0. Not the app [Dockerfile](../Dockerfile) |
+| [`.cursor/cloud-agent-install.sh`](../.cursor/cloud-agent-install.sh) | Copies `.env.example` to `.env` when `.env` is missing |
+| [`.cursor/cloud-agent-start.sh`](../.cursor/cloud-agent-start.sh) | Starts the Docker daemon and waits until it is ready |
+
+The VM is the **host** in [AGENTS.md](../AGENTS.md). After boot, agents still call `just`; they do not call `docker compose` directly.
+
+`install` / `start` do **not** run `just up`. That recipe pulls the default Ollama model (several GB) and starts the full app stack. Cloud Agents should use `just sandbox` / `just test` unless the task needs the UI, Postgres, Prefect, or Ollama.
+
+Put optional API keys (`NCBI_API_KEY`, `OPENAI_API_KEY`) in the Cursor Secrets tab when a task needs live PubMed or the public OpenAI API. Do not commit them. The default `.env.example` values are enough for sandbox tests.
+
+`.cursor/environment.json` is not a Dev Container file. Local Cursor desktop and VS Code keep using Docker Desktop + `just` on your machine.
+
 ### Running tests
 
 Use the sandbox (not host `pytest` / `uv`). Recipes start the sandbox workspace if needed:

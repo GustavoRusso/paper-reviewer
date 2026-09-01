@@ -68,6 +68,14 @@ MCP: host Cursor uses [`.cursor/mcp.json`](.cursor/mcp.json) (`docker compose ex
 
 Host tooling: [docs/host-requirements.md](docs/host-requirements.md). App vs sandbox lifecycle and Dev Containers: [docs/local-development.md](docs/local-development.md).
 
+## Cursor Cloud specific instructions
+
+Cursor Cloud Agents use [`.cursor/environment.json`](.cursor/environment.json). That file builds a VM image with Docker Engine and `just`, copies `.env.example` to `.env` when `.env` is missing, and starts the Docker daemon on each boot.
+
+After the VM is up, follow the CLI policy above. Use `just sandbox` / `just test` for disposable work. Use `just up` only when you need the persistent app (UI, Postgres, Prefect, Ollama). Do **not** start `just up` from environment `install` or `start` (the first Ollama model pull is several GB).
+
+Details: [docs/local-development.md](docs/local-development.md#cursor-cloud-agents).
+
 ## Documentation layout
 
 - **[README.md](README.md)** — User-facing only: short introduction to the project (what it is, who it is for, terminology, high-level workflow). Do not put install steps, runbooks, or deep technical detail there.

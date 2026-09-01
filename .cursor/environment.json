@@ -1,0 +1,10 @@
+{
+  "name": "Paper Reviewer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "user": "ubuntu",
+  "install": "if [ -x .cursor/cloud-agent-install.sh ]; then .cursor/cloud-agent-install.sh; elif [ ! -f .env ] && [ -f .env.example ]; then cp .env.example .env; fi",
+  "start": "if [ -x .cursor/cloud-agent-start.sh ]; then .cursor/cloud-agent-start.sh; else sudo service docker start; fi"
+}
