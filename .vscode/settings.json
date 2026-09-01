@@ -15,6 +15,13 @@
   "editor.diffEditor.removedTextBackground": "#ff000033",
   "editor.diffEditor.insertedTextForeground": "#003300",
   "editor.diffEditor.removedTextForeground": "#330000"
-  }
+  },
+
+  "githubPullRequests.defaultMergeMethod": "squash",
+  "githubPullRequests.showPullRequestNumberInTree": true,
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.pullBranch": "prompt",
+  "githubPullRequests.notifications": "pullRequests",
+  "githubPullRequests.assignCreated": "true"
 
 }
