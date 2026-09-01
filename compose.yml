@@ -54,21 +54,6 @@ services:
       retries: 10
       start_period: 10s
 
-  # One-shot: apply Alembic migrations before UI (and other app services) start.
-  migrate:
-    profiles: ["app"]
-    build: .
-    working_dir: /workspace
-    volumes:
-      - .:/workspace
-    environment:
-      <<: *db-env
-    depends_on:
-      db:
-        condition: service_healthy
-    command: ["uv", "run", "alembic", "upgrade", "head"]
-    restart: "no"
-
   ui:
     profiles: ["app"]
     build: .
@@ -82,20 +67,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
       prefect-server:
         condition: service_healthy
     command:
       [
-        "uv",
-        "run",
-        "streamlit",
-        "run",
-        "src/paper_reviewer/ui/app.py",
-        "--server.address=0.0.0.0",
-        "--server.port=8501",
-        "--server.headless=true",
+        "sh",
+        "-lc",
+        "/workspace/scripts/migrate.sh && uv run streamlit run src/paper_reviewer/ui/app.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true",
       ]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
@@ -142,19 +120,15 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
       prefect-server:
         condition: service_healthy
       ollama-pull:
         condition: service_completed_successfully
     command:
       [
-        "uv",
-        "run",
-        "python",
-        "-m",
-        "paper_reviewer.flows.serve",
+        "sh",
+        "-lc",
+        "/workspace/scripts/migrate.sh && uv run python -m paper_reviewer.flows.serve",
       ]
     restart: on-failure
 
@@ -217,8 +191,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
       ollama-pull:
         condition: service_completed_successfully
     command:

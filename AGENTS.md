@@ -8,9 +8,13 @@ It overrides tool-specific skills that assume a host `uv` install (including dlt
 
 ## CLI policy (mandatory)
 
-Agent shells run on the **host**, not inside Docker. This project does **not** install `uv`, Python, or app tooling on the host.
-
 **This file is the only place that defines agent CLI policy.** Do **not** search for, invent, or add tool-specific agent files to “enforce” it (for example `.cursor/rules/`, other IDE rule packs, or duplicate CLI checklists). If the policy must change, edit **this** section (and update [docs/local-development.md](docs/local-development.md) only when the human/local workflow description must stay in sync).
+
+Which rules apply depends on where the agent shell runs. Detect **Dev Container** when `DEVCONTAINER=1` is set (or the workspace path is `/workspace` inside the Compose `workspace` service). Otherwise treat the shell as **host**.
+
+### Host shells (default)
+
+Agent shells on the **host** are outside Docker. This project does **not** install `uv`, Python, or app tooling on the host.
 
 **Never** run on the host:
 
@@ -25,7 +29,7 @@ Agent shells run on the **host**, not inside Docker. This project does **not** i
 
 List recipes and descriptions: `just`. Recipe definitions: [justfile](justfile).
 
-### Awkward or missing recipes
+### Awkward or missing recipes (host only)
 
 If the needed `just` recipe is missing, awkward, hangs (for example follow-only logs), or cannot express the task safely:
 
@@ -51,7 +55,18 @@ just sandbox-run "uv run python scripts/smoke_search_external_sources.py"
 
 Do **not** install `uv` or Python on the host to satisfy those docs. Prefer the **sandbox** for disposable agent work; keep the persistent app (`just up`) for long-lived MCP.
 
-Host tooling: [docs/host-requirements.md](docs/host-requirements.md). App vs sandbox lifecycle: [docs/local-development.md](docs/local-development.md).
+### Dev Container shells
+
+When Cursor (or another IDE) is attached via [`.devcontainer/`](.devcontainer/), the agent terminal already runs inside the Compose `workspace` service. In that case:
+
+- Run `uv` / `uv run pytest` / `uv run dlthub …` **directly** (no `just` wrapper).
+- Do **not** call `just` recipes that need Docker on the host (`just up`, `just run`, `just sandbox-*`, `just test`, `just logs`, …). Those call `docker compose` and fail without a Docker socket mount (not configured).
+- Prefer the app services already started by the Dev Container (`ui`, `db`, Prefect, Ollama). For disposable pytest, run `uv run pytest` in the attached workspace (same image; no separate sandbox project).
+- Jupyter notebooks remain a host/`just notebooks` path unless you start the `notebooks` profile yourself from the host.
+
+MCP: host Cursor uses [`.cursor/mcp.json`](.cursor/mcp.json) (`docker compose exec …`). Inside the Dev Container, [`.devcontainer/mcp.json`](.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio` directly.
+
+Host tooling: [docs/host-requirements.md](docs/host-requirements.md). App vs sandbox lifecycle and Dev Containers: [docs/local-development.md](docs/local-development.md).
 
 ## Cursor Cloud specific instructions
 
@@ -89,8 +104,8 @@ When **planning or implementing** app features under `src/paper_reviewer/`:
 | Document                                                                 | Description                                                                                                                            | When to use                                                                                                                                                                                          |
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [README.md](README.md) | User-facing product intro (problem, terminology, workflow, Getting started, Services); | Human onboarding; Good practices review; do not duplicate deep technical detail here |
-| [docs/host-requirements.md](docs/host-requirements.md)                   | Install Docker Desktop and `just` on the host                                                                                          | Before first local setup; whenever host tooling is missing or version guidance changes                                                                                                               |
-| [docs/local-development.md](docs/local-development.md)                   | `.env` / Compose local parametrization; persistent app vs ephemeral sandbox; agent shells; Cursor Cloud Agent VM (`.cursor/environment.json`); running tests (`just test`); Alembic migrations; dltHub workspace + Cursor MCP enable checklist; `just notebooks` (app stack only) | First local config after host tools; whenever starting the workspace, opening a shell to create/modify the Python project, managing app vs sandbox, applying DB migrations, running tests, enabling dlt-workspace-mcp, looking up Cloud Agent VM setup, or looking up how offline eval notebooks run locally |
+| [docs/host-requirements.md](docs/host-requirements.md)                   | Install Docker Desktop and `just` on the host; optional Dev Containers tooling                                                          | Before first local setup; whenever host tooling is missing or version guidance changes                                                                                                               |
+| [docs/local-development.md](docs/local-development.md)                   | `.env` / Compose; host/`just` vs Dev Containers; LF line endings; app vs sandbox; agent shells; tests; Alembic; dltHub MCP; `just notebooks` | First local config after host tools; whenever starting the workspace, Reopen in Container, managing app vs sandbox, migrations, tests, MCP, offline eval notebooks, or Windows CRLF noise |
 | [docs/dev-practices.md](docs/dev-practices.md)                           | Shared engineering practices: `git mv` for tracked renames; `id` vs `key` identifier naming; vertical feature plan slices; outside-in implementation; per-task TDD boundaries | When moving or renaming tracked files; when naming entity identifiers (`id` / `key` / `doi`); when planning multi-task work or implementing features; whenever looking up repo-wide contributor/agent practices |
 | [docs/technology-stack.md](docs/technology-stack.md)                     | App runtime stack and boundaries: Python, uv, Postgres (including built-in FTS for Papers search), dlt extract (load later), scispaCy, SQLAlchemy/Alembic (including no `ON DELETE CASCADE`), Streamlit, Prefect (Compose) | When adding libraries or structuring features across UI, ingest, search, DB, and jobs; when defining FKs or delete behavior |
 | [docs/ui-style.md](docs/ui-style.md)                                     | Web UI semantic style: links navigate only; buttons mutate; one look per intent (primary / default / cancel / danger); Streamlit widget mapping; theme colours in `.streamlit/config.toml`; sidebar opt-in; in-page phase header/stepper | When adding or changing Streamlit buttons, page links, form submits, empty-state CTAs, or theme colours; when writing UI sections of step specs; when adding a page to (or omitting it from) the left sidebar; when adding a phase landing header or step stepper |

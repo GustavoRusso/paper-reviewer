@@ -1,0 +1,27 @@
+{
+  "dev.containers.showReopenInContainerPrompt": true,
+  
+  "python.terminal.useEnvFile": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+
+  "diffEditor.codeLens": true,
+  "diffEditor.wordWrap": "on",
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.experimental.showMovedCode": true,
+
+  "workbench.colorCustomizations": {
+  "editor.diffEditor.insertedTextBackground": "#00ff0033",
+  "editor.diffEditor.removedTextBackground": "#ff000033",
+  "editor.diffEditor.insertedTextForeground": "#003300",
+  "editor.diffEditor.removedTextForeground": "#330000"
+  },
+
+  "githubPullRequests.defaultMergeMethod": "squash",
+  "githubPullRequests.showPullRequestNumberInTree": true,
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.pullBranch": "prompt",
+  "githubPullRequests.notifications": "pullRequests",
+  "githubPullRequests.assignCreated": "true"
+
+}

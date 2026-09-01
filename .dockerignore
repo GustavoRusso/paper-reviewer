@@ -6,6 +6,10 @@ notebooks
 data
 AGENTS.md
 README.md
+.devcontainer
+.vscode
+.cursor
+.agents
 __pycache__
 *.py[cod]
 *$py.class

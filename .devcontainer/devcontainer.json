@@ -1,0 +1,40 @@
+{
+  "name": "Paper Reviewer",
+  "dockerComposeFile": ["../compose.yml", "compose.override.yml"],
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "runServices": [
+    "workspace",
+    "db",
+    "ui",
+    "prefect-server",
+    "prefect-worker",
+    "ollama",
+    "ollama-pull"
+  ],
+  "shutdownAction": "none",
+  "overrideCommand": false,
+  "forwardPorts": [8501, 4200, 5432, 11434],
+  "portsAttributes": {
+    "8501": { "label": "Paper Reviewer UI", "onAutoForward": "notify" },
+    "4200": { "label": "Prefect UI", "onAutoForward": "silent" },
+    "5432": { "label": "Postgres", "onAutoForward": "silent" },
+    "11434": { "label": "Ollama", "onAutoForward": "silent" }
+  },
+  "remoteEnv": {
+    "DEVCONTAINER": "1"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/.devcontainer/mcp.json,target=/workspace/.cursor/mcp.json,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "uv sync",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.terminal.activateEnvironment": true
+      }
+    }
+  }
+}

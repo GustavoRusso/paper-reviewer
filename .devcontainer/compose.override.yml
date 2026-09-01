@@ -1,0 +1,39 @@
+# Dev Container override: same Compose project as `just up` (paper-reviewer).
+# Clears the `app` profile so db/ui/Prefect/Ollama start without `--profile app`.
+# Notebooks stay on profile `notebooks` (use host `just notebooks` when needed).
+name: paper-reviewer
+
+services:
+  workspace:
+    # Keep the long-lived sleep from the Dockerfile; Dev Containers attach here.
+    command: ["sleep", "infinity"]
+
+  db:
+    profiles: !reset []
+
+  ui:
+    profiles: !reset []
+    depends_on:
+      db:
+        condition: service_healthy
+      prefect-server:
+        condition: service_healthy
+
+  prefect-server:
+    profiles: !reset []
+
+  prefect-worker:
+    profiles: !reset []
+    depends_on:
+      db:
+        condition: service_healthy
+      prefect-server:
+        condition: service_healthy
+      ollama-pull:
+        condition: service_completed_successfully
+
+  ollama:
+    profiles: !reset []
+
+  ollama-pull:
+    profiles: !reset []

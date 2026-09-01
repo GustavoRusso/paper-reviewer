@@ -74,7 +74,7 @@ Fill only what the full text supports.
 
 ### `key_findings` (required)
 
-A short list (typically two or three items) of primary metrics or results. Do not dump every table.
+A short, synthesized list (typically two to four items) detailing the most impactful primary metrics or results. Each finding must state the result and its immediate significance or implication as described by the authors in the text. Do not simply list data points; synthesize the key takeaway.
 
 ### `discussion` (optional)
 
