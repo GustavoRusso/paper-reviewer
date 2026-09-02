@@ -8,7 +8,7 @@ Host tooling (Docker Desktop, `just`), repo layout, and local workflows live els
 - [justfile](../justfile) — recipe definitions (`just` to list them)
 - [local-development.md](local-development.md) — app vs sandbox lifecycle
 - [project-structure.md](project-structure.md) — package layout and what enters production images
-- [AGENTS.md](../AGENTS.md) — agent CLI policy (host vs container)
+- [AGENTS.md](../AGENTS.md) — agent CLI policy (one `just` language)
 
 All stack components below run **inside Docker images**. Bootstrap and package work happens in the Compose `workspace` image via `just` ([local-development.md](local-development.md)).
 
@@ -27,7 +27,7 @@ All stack components below run **inside Docker images**. Bootstrap and package w
 | Web UI | Streamlit | User-facing research workflows |
 | Job orchestrator | Prefect | Long-running jobs (source record, full text, paper briefs). Compose services: [local-development.md](local-development.md); job contracts: [Fulfill papers metadata](specs/2.2.2-fulfill-papers-metadata.md), [Generate paper brief](specs/2.2.3-generate-paper-brief.md). |
 | LLM (paper briefs) | OpenAI | Structured `PaperBriefContent` for `create_paper_brief` only. Optional compatible gateway via `OPENAI_BASE_URL`; model via `OPENAI_MODEL` (empty uses `gpt-4o-mini`; required for a local gateway) ([local-development.md](local-development.md)). The client sends `json_schema` then validates assistant JSON (strips ANSI / Markdown fences for gateways that ignore structured output). A local gateway also gets `reasoning_effort=none`; if `content` is empty the client reads a reasoning field. Prompt: [paper_brief_template.md](../src/paper_reviewer/topic_scope/generate_paper_brief/paper_brief_template.md). Tests stub this boundary; no live API in pytest. |
-| Tests | pytest | Specs and regression tests for `paper_reviewer` (dev-only; run via `just test` in the sandbox) |
+| Tests | pytest | Specs and regression tests for `paper_reviewer` (dev-only; run via `just test` everywhere) |
 
 ## Layer sketch
 
@@ -66,7 +66,7 @@ Today, search external sources calls dlt sources for extract and merges in `pape
 - **Prefect** — Orchestrator for long-running or multi-step jobs (source record, full text, briefs). Compose services: [local-development.md](local-development.md). Trigger from the UI via enqueue helpers; keep business steps in flows/tasks, not in Streamlit callbacks. Progress UIs poll durable DB columns, not Prefect run state.
 - **OpenAI** — Paper-brief drafting only (`create_paper_brief`). Do not call it from Streamlit or from other workflow steps. The client may target an OpenAI-compatible gateway when `OPENAI_BASE_URL` is set. Empty `OPENAI_MODEL` uses `gpt-4o-mini`; a local gateway requires `OPENAI_MODEL`. Env ownership: [local-development.md](local-development.md). Inject or stub the generator in tests ([tdd.md](tdd.md)). The public API honours structured `json_schema`; local gateways may not — the job still extracts and validates `PaperBriefContent`. The job always extracts scientific sections (not the reference list) before the LLM call. When `OPENAI_BASE_URL` is set, the job also sends `max_tokens` (configurable via `OPENAI_GATEWAY_MAX_TOKENS`, default 8192) and `reasoning_effort=none`, appends conciseness instructions (short fields, no LaTeX, omit optional fields), and clips that extract to 8000 characters so llama.cpp-style servers do not stop at their 512-token default or overflow a small context window. Thinking models may put text in a reasoning field; if `content` is empty the client reads that field. On parse failure, empty content, or `finish_reason=length`, the client retries once with a system-prompt suffix requesting shorter output. Do not add partial-JSON salvage (auto-closing truncated braces); the retry and conciseness instructions are the fix.
 - **Streamlit** — Presentation and user interaction only. Delegate heavy work to domain helpers and Prefect; persist via SQLAlchemy. Control semantics (link vs button, intent colours): [ui-style.md](ui-style.md).
-- **pytest** — Test runner for specs and regressions under `tests/`. Style and Test-First workflow: [tdd.md](tdd.md). How to run: [local-development.md](local-development.md#running-tests).
+- **pytest** — Test runner for specs and regressions under `tests/`. Style and Test-First workflow: [tdd.md](tdd.md). Run with `just test` everywhere: [local-development.md](local-development.md#running-tests).
 
 ## Out of scope here
 

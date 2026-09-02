@@ -1,6 +1,6 @@
 # Test-First Spec Implementation (TDD)
 
-Coding agents follow this workflow for every app behavior change. Test runner and stack boundaries: [technology-stack.md](technology-stack.md). Layout of `tests/`: [project-structure.md](project-structure.md). How to run tests (`just test` / sandbox): [local-development.md](local-development.md#running-tests). How to split plan tasks and implement outside-in (layer order within a task): [dev-practices.md](dev-practices.md).
+Coding agents follow this workflow for every app behavior change. Test runner and stack boundaries: [technology-stack.md](technology-stack.md). Layout of `tests/`: [project-structure.md](project-structure.md). How to run tests (`just test`): [local-development.md](local-development.md#running-tests). How to split plan tasks and implement outside-in (layer order within a task): [dev-practices.md](dev-practices.md).
 
 ## When this applies
 
@@ -49,7 +49,7 @@ flowchart LR
 
 ### 3) Validate tests (expect red)
 
-- Run the **narrowest** relevant pytest selection via project recipes (`just test` / sandbox). Host CLI policy: [AGENTS.md](../AGENTS.md). How to run: [local-development.md](local-development.md#running-tests).
+- Run the **narrowest** relevant pytest selection via `just test`. CLI policy: [AGENTS.md](../AGENTS.md). How to run: [local-development.md](local-development.md#running-tests).
 - Failure because the feature is not implemented yet is **expected**.
 - If tests fail for unrelated reasons (broken setup, wrong imports, flaky fixtures), fix the tests or test setup first.
 

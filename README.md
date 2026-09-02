@@ -83,8 +83,12 @@ The assistant drafts a cited introduction that explains what is currently known 
 
 1. Install host tools: [docs/host-requirements.md](docs/host-requirements.md)
 2. Copy `[.env.example](.env.example)` to `.env` and set local values there first (ports, Postgres, Prefect URLs, optional `NCBI_API_KEY`). Variable list and rules: [docs/local-development.md](docs/local-development.md). PubMed key notes: [docs/specs/external-sources/pubmed.md](docs/specs/external-sources/pubmed.md).
-3. Choose how **paper brief** jobs call an LLM (see below), then start the product stack with `just up`. To develop in the IDE, use Cursor **Reopen in Container** (sandbox workspace only; it does not start the UI): [docs/local-development.md](docs/local-development.md)
+3. Choose how **paper brief** jobs call an LLM (see below), then start the product with `just up`.
 4. Open the services listed below (start on Home to see existing **Topic scopes**, or start with Topic intake)
+
+### Develop
+
+Local developers and laptop agents: Cursor **Reopen in Container**. That attaches to the sandbox workspace only (no UI). The product UI stays a separate host `just up`. Same `just` recipe names inside the image. Details: [docs/local-development.md](docs/local-development.md).
 
 
 

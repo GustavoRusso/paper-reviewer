@@ -1,13 +1,33 @@
 # Local development
 
-Two supported ways to develop:
+Two paths only:
 
-| Path | Host needs | How you work |
+```mermaid
+flowchart TB
+  subgraph localPath [Local]
+    tester[Tester: host just up]
+    ide[Developer or laptop agent: Reopen in Container]
+    inner[Inside workspace image: just test / just run]
+    tester --> appStack[Compose project paper-reviewer]
+    ide --> sandboxStack[Compose project paper-reviewer-sandbox]
+    inner --> sandboxStack
+  end
+  subgraph cloudPath [Cursor Cloud]
+    vm[VM host: Docker Engine plus just]
+    cloudJust[just test / just run / just sandbox]
+    vm --> cloudJust
+    cloudJust --> sandboxStack2[paper-reviewer-sandbox]
+  end
+```
+
+| Path | Who | How you work |
 | --- | --- | --- |
-| **Host / `just` (default)** | Docker Desktop + `just` | Testers: `just up` (product stack, project `paper-reviewer`). Develop/test: `just test` / `just run` (sandbox); IDE stays on the host |
-| **Dev Container (local develop)** | Docker Desktop + Cursor/VS Code Dev Containers | **Reopen in Container**; IDE and terminals attach to the sandbox `workspace` (`paper-reviewer-sandbox`) |
+| **Local** | Testers run the product. Developers and laptop agents write code. | Testers: Docker Desktop + `just up` (project `paper-reviewer`). Developers/agents: **Reopen in Container** on the sandbox `workspace` (project `paper-reviewer-sandbox`). Type the same `just` recipes inside the image. |
+| **Cursor Cloud** | Cloud Agents | The VM is the host. Same recipe names. `start` runs `just sandbox` after Docker. Never `just up` from `install` / `start`. |
 
-The product stack (`just up`, project `paper-reviewer`) is a **separate** host run from the Dev Container. Do **not** run host `just sandbox` / `just sandbox-down` while the IDE is attached (same sandbox project; those recipes can recreate or remove the attached container). Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
+The product stack (`just up`) is a **separate** host run from the sandbox. Do **not** run host `just sandbox` / `just sandbox-down` while the IDE is attached (same sandbox project; those recipes can recreate or remove the attached container). Coding and tests use the sandbox. `just up` is only for the product UI (and notebooks, which need app Postgres).
+
+Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy (one `just` language): [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
 
 ## Line endings
 
@@ -22,11 +42,23 @@ On a **Windows host** Git install, set `core.autocrlf` to `input` or `false`. Do
 
 If `git status` shows many modified files with no visible content change, run `git diff --ignore-cr-at-eol`. An empty result means CRLF-only noise; restore with `git restore -- <paths>` (or convert those files back to LF). Files that already have `eol=lf` may still contain CRLF on disk while Git stays clean — convert them to LF before running shell or `just` in Linux.
 
-## Dev Containers
+## Local: run the product
 
-Local develop path. Config lives under [`.devcontainer/`](../.devcontainer/). Workspace helpers for Cursor and VS Code live under [`.vscode/`](../.vscode/).
+Testers (and anyone who needs the UI, Postgres, Prefect, or Ollama) start the persistent app on the host:
 
-1. Copy [`.env.example`](../.env.example) to `.env` (same as the host path).
+```bash
+just up
+```
+
+Open the services in [README.md — Services](../README.md#services). Stack inventory, ports, and smoke checks: [Current stack](#current-stack). Stop with `just down` (volumes stay).
+
+Reopen in Container does **not** start this stack.
+
+## Local: develop
+
+Local developers and laptop agents attach to the sandbox workspace. Config lives under [`.devcontainer/`](../.devcontainer/). Workspace helpers for Cursor and VS Code live under [`.vscode/`](../.vscode/).
+
+1. Copy [`.env.example`](../.env.example) to `.env` (same as the tester path).
 2. Start Docker Desktop.
 3. Open this repo in Cursor (or VS Code with the Dev Containers extension).
 4. On folder open, the IDE detects [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) and shows **Would you like to reopen it inside a container?** — choose **Reopen in Container**. ([`.vscode/extensions.json`](../.vscode/extensions.json) recommends the Dev Containers extension; [`.vscode/settings.json`](../.vscode/settings.json) keeps that prompt enabled.)
@@ -38,13 +70,9 @@ What starts: Compose service `workspace` only (`runServices`). [`.devcontainer/c
 
 Do **not** run host `just sandbox` or `just sandbox-down` while the IDE is attached. Those recipes use the same Compose project and can recreate or remove the attached container. The product UI is a **separate** host `just up` (`paper-reviewer`). Jupyter (`just notebooks`) also stays on the host.
 
-Inside the Dev Container:
+Inside the image, type the same `just` recipes as on the host ([AGENTS.md](../AGENTS.md)). `just test` / `just run` / `just shell` short-circuit. Host-only recipes error (no Docker socket mount). `shutdownAction` is `none`: closing the IDE does not stop the sandbox workspace. After you detach, tear it down from the host with `just sandbox-down` if you want teardown.
 
-- Run `just test`, `just run`, and `just shell` (they short-circuit to `uv` / bash inside the image).
-- Do **not** use host-only recipes (`just up`, `just down`, `just logs`, `just status`, `just migrate`, `just pull-model`, `just notebooks`, `just sandbox`, `just sandbox-down`). There is no Docker socket mount.
-- `shutdownAction` is `none`: closing the IDE does not stop the sandbox workspace. After you detach, tear it down from the host with `just sandbox-down` if you want teardown.
-
-MCP inside the Dev Container: [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio`. Host Cursor still uses [`.cursor/mcp.json`](../.cursor/mcp.json) (`docker compose exec`). Enable MCP in Cursor Settings as in [Enable the dlt-workspace-mcp server](#enable-the-dlt-workspace-mcp-server-in-cursor-manual).
+MCP inside the image: [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio`. Host Cursor uses [`.cursor/mcp.json`](../.cursor/mcp.json) (`docker compose -p paper-reviewer-sandbox exec`). Enable MCP in Cursor Settings as in [Enable the dlt-workspace-mcp server](#enable-the-dlt-workspace-mcp-server-in-cursor-manual).
 
 ## Environment configuration
 
@@ -97,20 +125,13 @@ Compose defines:
 
 ### Schema migrations (Alembic)
 
-Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). The **app** stack starts `db` and the UI without treating Alembic as a required startup service. The sandbox has no `db` service. Apply schema updates explicitly when needed:
+Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). `ui` and `prefect-worker` already run [`scripts/migrate.sh`](../scripts/migrate.sh) when they start. The sandbox and Reopen in Container have no `db`. Apply schema updates on the **host** against the app project:
 
 ```bash
 just migrate
-just run "uv run alembic current"
 ```
 
-Generate a new revision after model changes (review the file before applying; then `just up` or `just migrate`):
-
-```bash
-just run "uv run alembic revision --autogenerate -m 'describe change'"
-```
-
-Use `just shell` / `just sandbox-shell` for interactive work, or `just run` / `just sandbox-run` for non-interactive commands (for example `uv init`, installing packages, or configuring dlt). Changes under `/workspace` persist on the host.
+`just migrate` is host-only. Do not run Alembic in the sandbox (no Postgres). Generate a new revision after model changes needs app Postgres. If you need an autogenerate recipe, follow **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Review the file before applying; then `just migrate`.
 
 ### Local LLM (Ollama)
 
@@ -124,16 +145,11 @@ Manual smoke for Paper archiving ingest: after search, open **Paper archiving**.
 
 Manual smoke for **Regenerate**: when both source-record and full-text statuses are terminal, each paper row on **Paper archiving** shows **Regenerate**. Click it on a paper with full text **Unavailable**. Statuses may change; if full text becomes **Succeeded**, the brief is rewritten. Auto-enqueue still does not submit `ingest_paper` for reused papers that already have a terminal source-record status.
 
-## Agent shells
+## Agent CLI
 
-Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Short form:
+Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Type `just` recipes everywhere. Do not add IDE-specific agent rule files; AGENTS.md is the single owner.
 
-- **Host IDE / host agent terminal:** wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Host MCP uses the sandbox (`paper-reviewer-sandbox`); keep `just up` for the Paper Reviewer UI. Host `uv` / `python` / `pytest` will fail — the Linux `.venv` exists only in the image.
-- **Dev Container IDE / attached agent terminal:** run `just test` / `just run` / `just shell` (they short-circuit inside the image). Do not use host-only recipes (`just up`, `just sandbox`, …).
-
-If a host `just` recipe is missing or awkward, do **not** call `docker` / `docker compose` on the host: stop and propose a [justfile](../justfile) change — see **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Do not add IDE-specific agent rule files for this; AGENTS.md is the single owner.
-
-## Cursor Cloud Agents
+## Cursor Cloud
 
 Cursor Cloud Agents run on a remote Ubuntu VM. The committed [`.cursor/environment.json`](../.cursor/environment.json) is Cursor-only (VS Code does not read it). It is the highest-precedence Cloud Agent environment source.
 
@@ -144,17 +160,17 @@ Cursor Cloud Agents run on a remote Ubuntu VM. The committed [`.cursor/environme
 | [`.cursor/cloud-agent-install.sh`](../.cursor/cloud-agent-install.sh) | Copies `.env.example` to `.env` when `.env` is missing |
 | [`.cursor/cloud-agent-start.sh`](../.cursor/cloud-agent-start.sh) | Starts Docker if needed, waits until the daemon is ready, then `just sandbox`. Never `just up` |
 
-The VM is the **host** in [AGENTS.md](../AGENTS.md). After boot, agents still call `just`; they do not call `docker compose` directly.
+The VM is the host. After boot, agents type the same `just` recipes as local ([AGENTS.md](../AGENTS.md)).
 
-`install` does **not** run `just up`. `start` waits for Docker, then runs `just sandbox` (never `just up`). `just up` pulls the default Ollama model (several GB) and starts the full app stack. Cloud Agents should use the sandbox unless the task needs the UI, Postgres, Prefect, or Ollama.
+`install` does **not** run `just up`. `start` waits for Docker, then runs `just sandbox` (never `just up`). `just up` pulls the default Ollama model (several GB) and starts the full app stack. The Ollama service in [compose.yml](../compose.yml) reserves an NVIDIA GPU. `just up` on Cloud may fail without a GPU; use the sandbox unless the task needs the product.
 
 Put optional API keys (`NCBI_API_KEY`, `OPENAI_API_KEY`) in the Cursor Secrets tab when a task needs live PubMed or the public OpenAI API. Do not commit them. The default `.env.example` values are enough for sandbox tests.
 
-`.cursor/environment.json` is not a Dev Container file. Local Cursor desktop and VS Code keep using Docker Desktop + `just` on your machine.
+`.cursor/environment.json` is not a Dev Container file. Local develop uses [Local: develop](#local-develop).
 
-### Running tests
+## Running tests
 
-Use the sandbox (not host `pytest` / `uv`). Recipes start the sandbox workspace if needed:
+`just test` is the only test command (host, Reopen in Container, and Cloud). On the host or Cloud VM it starts the sandbox workspace if needed; inside the image it short-circuits to `uv run pytest`. Pass optional path or pytest args after the recipe name:
 
 ```bash
 just test
@@ -162,11 +178,11 @@ just test tests/topic_scope/search_external_sources -q
 just test tests/schemas/topic_scope/test_topic_intake.py -q
 ```
 
-`just test` runs `uv run pytest` inside the sandbox `workspace` container. Pass optional path or pytest args after the recipe name. Equivalent ad-hoc form: `just sandbox-run "uv run pytest tests/topic_scope/search_external_sources -q"`. Spec workflow: [tdd.md](tdd.md).
+Equivalent ad-hoc form: `just run "uv run pytest tests/topic_scope/search_external_sources -q"`. Spec workflow: [tdd.md](tdd.md).
 
 The sandbox Compose project starts **`workspace` only** (no `app` profile), so it does not bind ports 8501 or 5432 and does not create an app Postgres volume. Prefect runs with the app profile (`just up`), not the sandbox. Seeding and `just reset` will be added later.
 
-### Offline paper-brief evaluation notebooks
+## Offline paper-brief evaluation notebooks
 
 Do **not** run Jupyter or the eval notebooks on the host. Do **not** use `just sandbox` for this procedure (no app Postgres). Do **not** open the `.ipynb` files with a host kernel in Cursor (the editor will stay on **Detecting kernels**). Short how-to next to the files: [notebooks/README.md](../notebooks/README.md).
 
@@ -201,7 +217,7 @@ flowchart LR
   sandboxProject --> throwawayVol
 ```
 
-Agents should prefer the sandbox for disposable work so the persistent app project stays untouched when both stacks run on the same machine. For when and how to write tests before implementing app behavior, see [tdd.md](tdd.md). For the cross-tool CLI harness, see [AGENTS.md](../AGENTS.md).
+Agents should prefer the sandbox for disposable work so the persistent app project stays untouched when both stacks run on the same machine. Tests: [tdd.md](tdd.md). CLI: [AGENTS.md](../AGENTS.md).
 
 ## dltHub workspace and Cursor AI workbench
 
@@ -213,12 +229,11 @@ These were run inside the sandbox `workspace` container (repo bind-mounted at `/
 
 ```bash
 just sandbox
-# then in the container (e.g. just sandbox-shell):
-uvx dlthub-init@latest
-uv add "dlt[hub]"
-uv add fastmcp
-uv run dlthub ai init --agent cursor
-uv run dlthub ai toolkit install rest-api-pipeline
+just run "uvx dlthub-init@latest"
+just run "uv add 'dlt[hub]'"
+just run "uv add fastmcp"
+just run "uv run dlthub ai init --agent cursor"
+just run "uv run dlthub ai toolkit install rest-api-pipeline"
 ```
 
 That creates/updates the workspace marker, `.dlt` config, Cursor skills/rules under [`.cursor/`](../.cursor/), MCP config [`.cursor/mcp.json`](../.cursor/mcp.json), and the **rest-api-pipeline** toolkit. The workspace image includes `git` because `dlthub ai init` clones the workbench repo.
@@ -226,21 +241,19 @@ That creates/updates the workspace marker, `.dlt` config, Cursor skills/rules un
 Re-check status anytime:
 
 ```bash
-just sandbox-run "uv run dlthub ai status"
+just run "uv run dlthub ai status"
 ```
-
-Or with an interactive shell: `just sandbox-shell`, then `uv run dlthub ai status`.
 
 ### Enable the dlt-workspace-mcp server in Cursor (manual)
 
-MCP always runs **inside** the Compose `workspace` container (no host `uv`). Which config file applies depends on the IDE path:
+MCP always runs **inside** the Compose `workspace` container (no host `uv`). Both paths use project `paper-reviewer-sandbox`:
 
-| IDE path | Config | How MCP starts |
+| Where Cursor runs | Config | How MCP starts |
 | --- | --- | --- |
-| Host Cursor | [`.cursor/mcp.json`](../.cursor/mcp.json) | `docker compose -p paper-reviewer-sandbox … exec workspace uv run dlthub ai mcp --stdio` |
-| Dev Container | [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (mounted over `.cursor/mcp.json`) | `uv run dlthub ai mcp --stdio` |
+| Host or Cloud VM | [`.cursor/mcp.json`](../.cursor/mcp.json) | `docker compose -p paper-reviewer-sandbox … exec workspace uv run dlthub ai mcp --stdio` |
+| Reopen in Container | [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (mounted over `.cursor/mcp.json`) | `uv run dlthub ai mcp --stdio` |
 
-1. Ensure the sandbox `workspace` is running: `just sandbox` (host path; Cloud `start` already does this) or **Reopen in Container** (Dev Container path). Both use project `paper-reviewer-sandbox`. Do not run host `just sandbox` / `just sandbox-down` while the IDE is attached.
+1. Ensure the sandbox `workspace` is running: `just sandbox` (host or Cloud `start`) or **Reopen in Container**. Do not run host `just sandbox` / `just sandbox-down` while the IDE is attached.
 2. Open this project in **Cursor** (host or already attached).
 3. Open **Cursor Settings → MCP**.
 4. Find **`dlt-workspace-mcp`** and **Enable** / approve it if prompted.
@@ -251,9 +264,9 @@ MCP always runs **inside** the Compose `workspace` container (no host `uv`). Whi
 If the server fails to start:
 
 - Error `service "shell" is not running` / unknown service: the Compose service name is **`workspace`**, not `shell` (see `compose.yml`). Reload MCP after fixing `.cursor/mcp.json`.
-- Error `service "workspace" is not running` (host path): run `just sandbox`, wait until it returns, then toggle the MCP server off/on or reload the Cursor window.
-- Confirm `fastmcp` is installed in the project env (`uv add fastmcp` inside `just shell`, or `uv add fastmcp` in a Dev Container terminal).
-- Re-run `uv run dlthub ai init --agent cursor` in the workspace container only if you need to regenerate skills/rules; keep the host Docker-based [`.cursor/mcp.json`](../.cursor/mcp.json) and the Dev Container [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (do not let init overwrite them back to host `uv` without re-applying the correct form).
-- Run `uv run dlthub ai status` inside the container for diagnostics.
+- Error `service "workspace" is not running` (host or Cloud): run `just sandbox`, wait until it returns, then toggle the MCP server off/on or reload the Cursor window.
+- Confirm `fastmcp` is installed in the project env (`just run "uv add fastmcp"`).
+- Re-run `just run "uv run dlthub ai init --agent cursor"` only if you need to regenerate skills/rules; keep the host Docker-based [`.cursor/mcp.json`](../.cursor/mcp.json) and the Reopen in Container [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (do not let init overwrite them back to host `uv` without re-applying the correct form).
+- Run `just run "uv run dlthub ai status"` for diagnostics.
 
 Official references: [REST API Source with dltHub AI Workbench](https://dlthub.com/docs/hub/ingestion/rest-api-source), [Installation](https://dlthub.com/docs/hub/getting-started/installation).

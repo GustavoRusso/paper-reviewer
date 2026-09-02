@@ -51,7 +51,7 @@ flowchart TB
 | Category | Paths | Role |
 | --- | --- | --- |
 | **Runtime (deployed)** | `src/paper_reviewer/`, `alembic/`, `alembic.ini`, `pyproject.toml`, `uv.lock`, `.streamlit/config.toml` | What production containers need to run the UI, flows, ingest, and migrations. Streamlit theme: [ui-style.md](ui-style.md) |
-| **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile`, `.devcontainer/`, `.vscode/` | Image build and local workflows on the host; optional Dev Container attach + IDE reopen prompt; not application runtime code |
+| **Build / orchestration** | `Dockerfile`, `compose.yml`, `.dockerignore`, `justfile`, `.devcontainer/`, `.vscode/` | Image build and local workflows; Dev Container is the local develop attach (override project `paper-reviewer-sandbox`); not application runtime code |
 | **Development-only** | `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `README.md`, seed/fixtures under `tests/` or non-copied `scripts/` | Docs, tests, agent guidance, and eval notebooks/output; exclude from production images. Notebooks import the installed `paper_reviewer` package (Compose bind-mount). `data/` holds the eval corpus and scores and may be committed ([specs/paper-brief-evaluation-offline.md](specs/paper-brief-evaluation-offline.md)); do not add an eval package under `src/`. |
 
 Production Dockerfiles copy only the runtime set. `.dockerignore` excludes `tests/`, `docs/`, `notebooks/`, `data/`, `AGENTS.md`, `.devcontainer/`, `.cursor/`, `.agents/`, `.git/`, and similar paths.
@@ -113,8 +113,8 @@ paper-reviewer/
 │   ├── Dockerfile                      # Cloud Agent host image (Docker + just)
 │   ├── cloud-agent-install.sh
 │   └── cloud-agent-start.sh
-├── .devcontainer/                      # optional IDE attach (Dev Containers)
-├── .vscode/                            # shared Cursor/VS Code: Dev Containers prompt + recommendations
+├── .devcontainer/                      # local develop attach (sandbox project paper-reviewer-sandbox)
+├── .vscode/                            # shared Cursor/VS Code: Reopen in Container prompt + recommendations
 ├── Dockerfile
 ├── .dockerignore
 ├── compose.yml
