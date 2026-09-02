@@ -1,39 +1,11 @@
-# Dev Container override: same Compose project as `just up` (paper-reviewer).
-# Clears the `app` profile so db/ui/Prefect/Ollama start without `--profile app`.
-# Notebooks stay on profile `notebooks` (use host `just notebooks` when needed).
-name: paper-reviewer
+# Dev Container override: same Compose project as `just sandbox` (paper-reviewer-sandbox).
+# Workspace only. App services keep the `app` profile so Reopen in Container does not
+# start the product stack. Product UI is a separate host `just up` (paper-reviewer).
+# Do not run host `just sandbox` / `just sandbox-down` while the IDE is attached
+# (same project; those recipes can recreate or remove the attached container).
+name: paper-reviewer-sandbox
 
 services:
   workspace:
     # Keep the long-lived sleep from the Dockerfile; Dev Containers attach here.
     command: ["sleep", "infinity"]
-
-  db:
-    profiles: !reset []
-
-  ui:
-    profiles: !reset []
-    depends_on:
-      db:
-        condition: service_healthy
-      prefect-server:
-        condition: service_healthy
-
-  prefect-server:
-    profiles: !reset []
-
-  prefect-worker:
-    profiles: !reset []
-    depends_on:
-      db:
-        condition: service_healthy
-      prefect-server:
-        condition: service_healthy
-      ollama-pull:
-        condition: service_completed_successfully
-
-  ollama:
-    profiles: !reset []
-
-  ollama-pull:
-    profiles: !reset []

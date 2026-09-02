@@ -4,10 +4,10 @@ Two supported ways to develop:
 
 | Path | Host needs | How you work |
 | --- | --- | --- |
-| **Host / `just` (default)** | Docker Desktop + `just` | `just up`, `just run`, `just test`; IDE stays on the host |
-| **Dev Container (optional)** | Docker Desktop + Cursor/VS Code Dev Containers | **Reopen in Container**; IDE and terminals attach to Compose `workspace` |
+| **Host / `just` (default)** | Docker Desktop + `just` | Testers: `just up` (product stack, project `paper-reviewer`). Develop/test: `just test` / `just run` (sandbox); IDE stays on the host |
+| **Dev Container (local develop)** | Docker Desktop + Cursor/VS Code Dev Containers | **Reopen in Container**; IDE and terminals attach to the sandbox `workspace` (`paper-reviewer-sandbox`) |
 
-Both paths use the same Compose project (`paper-reviewer`), image, volumes, and app services. Pick one path per session — do not run `just up` and **Reopen in Container** as two separate stacks. Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
+The product stack (`just up`, project `paper-reviewer`) is a **separate** host run from the Dev Container. Do **not** run host `just sandbox` / `just sandbox-down` while the IDE is attached (same sandbox project; those recipes can recreate or remove the attached container). Install host tools first: [host-requirements.md](host-requirements.md). Agent CLI policy: [AGENTS.md](../AGENTS.md). List recipes with `just`; definitions live in [justfile](../justfile).
 
 ## Line endings
 
@@ -24,26 +24,25 @@ If `git status` shows many modified files with no visible content change, run `g
 
 ## Dev Containers
 
-Optional IDE path. Config lives under [`.devcontainer/`](../.devcontainer/). Workspace helpers for Cursor and VS Code live under [`.vscode/`](../.vscode/).
+Local develop path. Config lives under [`.devcontainer/`](../.devcontainer/). Workspace helpers for Cursor and VS Code live under [`.vscode/`](../.vscode/).
 
 1. Copy [`.env.example`](../.env.example) to `.env` (same as the host path).
 2. Start Docker Desktop.
 3. Open this repo in Cursor (or VS Code with the Dev Containers extension).
 4. On folder open, the IDE detects [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) and shows **Would you like to reopen it inside a container?** — choose **Reopen in Container**. ([`.vscode/extensions.json`](../.vscode/extensions.json) recommends the Dev Containers extension; [`.vscode/settings.json`](../.vscode/settings.json) keeps that prompt enabled.)
 5. Wait until the IDE attaches to `/workspace`. `postCreateCommand` runs `uv sync`.
-6. Open the UI at `http://localhost:${UI_PORT}` (default [8501](http://localhost:8501)) and Prefect at `http://localhost:${PREFECT_PORT}` (default [4200](http://localhost:4200)).
 
 Neither Cursor nor VS Code supports a committed repo setting that **silently** forces Reopen in Container on every open (by design). After the first attach, reopen the same entry from **File → Open Recent** (remote/dev-container URI) to reattach without the prompt. You can also run **Dev Containers: Reopen in Container** from the Command Palette anytime.
 
-What starts: Compose services listed in [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json) `runServices` — `workspace`, `db`, `ui`, `prefect-server`, `prefect-worker`, `ollama`, `ollama-pull`. The devcontainer intentionally does not auto-start a one-shot migration step because Alembic is a manual apply step, not a normal long-lived process. [`.devcontainer/compose.override.yml`](../.devcontainer/compose.override.yml) clears the `app` profile and sets Compose project name `paper-reviewer` so volumes match `just up`.
+What starts: Compose service `workspace` only (`runServices`). [`.devcontainer/compose.override.yml`](../.devcontainer/compose.override.yml) sets Compose project name `paper-reviewer-sandbox` (same project as `just sandbox`) and keeps `workspace` on `sleep infinity`. App services stay on profile `app`, so the IDE does not start db, UI, Prefect, or Ollama.
+
+Do **not** run host `just sandbox` or `just sandbox-down` while the IDE is attached. Those recipes use the same Compose project and can recreate or remove the attached container. The product UI is a **separate** host `just up` (`paper-reviewer`). Jupyter (`just notebooks`) also stays on the host.
 
 Inside the Dev Container:
 
-- Run `uv run pytest`, `uv run dlthub …`, and other Python commands **directly** (no `just`).
-- Run the schema migration once after attaching: `uv run alembic upgrade head`.
-- Do **not** use `just` recipes that call `docker compose` (no Docker socket mount).
-- `shutdownAction` is `none`: closing the IDE does not stop the Compose stack. Stop from the host with `just down` when you want teardown.
-- Sandbox (`just sandbox` / `just test`) and Jupyter (`just notebooks`) stay on the **host / `just`** path.
+- Run `just test`, `just run`, and `just shell` (they short-circuit to `uv` / bash inside the image).
+- Do **not** use host-only recipes (`just up`, `just down`, `just logs`, `just status`, `just migrate`, `just pull-model`, `just notebooks`, `just sandbox`, `just sandbox-down`). There is no Docker socket mount.
+- `shutdownAction` is `none`: closing the IDE does not stop the sandbox workspace. After you detach, tear it down from the host with `just sandbox-down` if you want teardown.
 
 MCP inside the Dev Container: [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio`. Host Cursor still uses [`.cursor/mcp.json`](../.cursor/mcp.json) (`docker compose exec`). Enable MCP in Cursor Settings as in [Enable the dlt-workspace-mcp server](#enable-the-dlt-workspace-mcp-server-in-cursor-manual).
 
@@ -130,7 +129,7 @@ Manual smoke for **Regenerate**: when both source-record and full-text statuses 
 Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Short form:
 
 - **Host IDE / host agent terminal:** wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Paper Reviewer UI so `just sandbox-down` does not tear them down. Host `uv` / `python` / `pytest` will fail — the Linux `.venv` exists only in the image.
-- **Dev Container IDE / attached agent terminal:** run `uv` / `pytest` directly. Do not use `just` recipes that need Docker on the host.
+- **Dev Container IDE / attached agent terminal:** run `just test` / `just run` / `just shell` (they short-circuit inside the image). Do not use host-only recipes (`just up`, `just sandbox`, …).
 
 If a host `just` recipe is missing or awkward, do **not** call `docker` / `docker compose` on the host: stop and propose a [justfile](../justfile) change — see **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Do not add IDE-specific agent rule files for this; AGENTS.md is the single owner.
 
@@ -183,8 +182,8 @@ That starts the app stack if needed, then Jupyter Lab in the **`notebooks`** ser
 
 | Environment | Compose project | Data | When to use |
 | --- | --- | --- | --- |
-| **Persistent app** | `paper-reviewer` | Named volumes survive `just down` (when volumes exist) | End-user local use; keep data between sessions |
-| **Ephemeral sandbox** | `paper-reviewer-sandbox` | Volumes removed on teardown | Agents, CI, bug reproduction, disposable experiments |
+| **Persistent app** | `paper-reviewer` | Named volumes survive `just down` (when volumes exist) | Product run (`just up`); keep data between sessions |
+| **Ephemeral sandbox** | `paper-reviewer-sandbox` | Volumes removed on teardown | Local develop (Dev Container attach); agents, CI, disposable experiments |
 
 Both share the same [compose.yml](../compose.yml). Isolation comes from the Compose **project name** (`-p`), so wiping the sandbox never deletes app data.
 
@@ -241,7 +240,7 @@ MCP always runs **inside** the Compose `workspace` container (no host `uv`). Whi
 | Host Cursor | [`.cursor/mcp.json`](../.cursor/mcp.json) | `docker compose … exec workspace uv run dlthub ai mcp --stdio` |
 | Dev Container | [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (mounted over `.cursor/mcp.json`) | `uv run dlthub ai mcp --stdio` |
 
-1. Ensure the app `workspace` is running: `just up` (host path) or **Reopen in Container** (Dev Container path). Prefer the **paper-reviewer** project over the sandbox so host MCP is not torn down by `just sandbox-down`.
+1. Ensure a `workspace` is running: `just up` (host path, project `paper-reviewer`) or **Reopen in Container** (Dev Container path, project `paper-reviewer-sandbox`). Do not run host `just sandbox` / `just sandbox-down` while the IDE is attached.
 2. Open this project in **Cursor** (host or already attached).
 3. Open **Cursor Settings → MCP**.
 4. Find **`dlt-workspace-mcp`** and **Enable** / approve it if prompted.

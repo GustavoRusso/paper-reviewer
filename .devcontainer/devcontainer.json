@@ -3,24 +3,9 @@
   "dockerComposeFile": ["../compose.yml", "compose.override.yml"],
   "service": "workspace",
   "workspaceFolder": "/workspace",
-  "runServices": [
-    "workspace",
-    "db",
-    "ui",
-    "prefect-server",
-    "prefect-worker",
-    "ollama",
-    "ollama-pull"
-  ],
+  "runServices": ["workspace"],
   "shutdownAction": "none",
   "overrideCommand": false,
-  "forwardPorts": [8501, 4200, 5432, 11434],
-  "portsAttributes": {
-    "8501": { "label": "Paper Reviewer UI", "onAutoForward": "notify" },
-    "4200": { "label": "Prefect UI", "onAutoForward": "silent" },
-    "5432": { "label": "Postgres", "onAutoForward": "silent" },
-    "11434": { "label": "Ollama", "onAutoForward": "silent" }
-  },
   "remoteEnv": {
     "DEVCONTAINER": "1"
   },
