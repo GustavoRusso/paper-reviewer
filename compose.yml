@@ -27,6 +27,8 @@ services:
       - .:/workspace
     environment:
       <<: *app-env
+      # justfile detects this instead of /.dockerenv (Windows host just).
+      PAPER_REVIEWER_IN_CONTAINER: "1"
     healthcheck:
       test: ["CMD", "uv", "--version"]
       interval: 5s

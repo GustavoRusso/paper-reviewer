@@ -46,3 +46,4 @@ htmlcov/
 !.vscode/settings.json
 *.swp
 *~
+.cursor/plans/*
