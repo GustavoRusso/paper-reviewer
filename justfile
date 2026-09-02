@@ -44,7 +44,7 @@ up: _require-host
 # Apply Alembic migrations to app Postgres (manual one-off step; not part of app startup)
 migrate: _require-host
     {{ compose }} -p {{ app_project }} --profile app up -d --build --wait workspace db
-    {{ compose }} -p {{ app_project }} exec -T workspace sh -c '/workspace/scripts/migrate.sh'
+    {{ compose }} -p {{ app_project }} exec -T workspace sh /workspace/scripts/migrate.sh
 
 # Pull a local Ollama model (idempotent). Default: gemma4:e4b
 # Usage: just pull-model

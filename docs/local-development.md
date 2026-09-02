@@ -125,7 +125,7 @@ Compose defines:
 
 ### Schema migrations (Alembic)
 
-Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). `ui` and `prefect-worker` already run [`scripts/migrate.sh`](../scripts/migrate.sh) when they start. The sandbox and Reopen in Container have no `db`. Apply schema updates on the **host** against the app project:
+Relational schema versions live under [`alembic/versions/`](../alembic/versions/) (`alembic.ini` + [`alembic/env.py`](../alembic/env.py)). `ui` and `prefect-worker` already run `sh /workspace/scripts/migrate.sh` when they start (so a Windows bind mount does not need an execute bit on [`scripts/migrate.sh`](../scripts/migrate.sh)). The sandbox and Reopen in Container have no `db`. Apply schema updates on the **host** against the app project:
 
 ```bash
 just migrate

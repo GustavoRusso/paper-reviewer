@@ -75,7 +75,7 @@ services:
       [
         "sh",
         "-lc",
-        "/workspace/scripts/migrate.sh && uv run streamlit run src/paper_reviewer/ui/app.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true",
+        "sh /workspace/scripts/migrate.sh && uv run streamlit run src/paper_reviewer/ui/app.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true",
       ]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
@@ -130,7 +130,7 @@ services:
       [
         "sh",
         "-lc",
-        "/workspace/scripts/migrate.sh && uv run python -m paper_reviewer.flows.serve",
+        "sh /workspace/scripts/migrate.sh && uv run python -m paper_reviewer.flows.serve",
       ]
     restart: on-failure
 
