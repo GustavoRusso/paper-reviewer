@@ -128,7 +128,7 @@ Manual smoke for **Regenerate**: when both source-record and full-text statuses 
 
 Follow [AGENTS.md](../AGENTS.md) for the full CLI policy (mandatory). Short form:
 
-- **Host IDE / host agent terminal:** wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Keep the persistent app (`just up`) for long-lived MCP and the Paper Reviewer UI so `just sandbox-down` does not tear them down. Host `uv` / `python` / `pytest` will fail — the Linux `.venv` exists only in the image.
+- **Host IDE / host agent terminal:** wrap every in-container command with `just`. Prefer `just sandbox-run` / `just test` for disposable agent work. Host MCP uses the sandbox (`paper-reviewer-sandbox`); keep `just up` for the Paper Reviewer UI. Host `uv` / `python` / `pytest` will fail — the Linux `.venv` exists only in the image.
 - **Dev Container IDE / attached agent terminal:** run `just test` / `just run` / `just shell` (they short-circuit inside the image). Do not use host-only recipes (`just up`, `just sandbox`, …).
 
 If a host `just` recipe is missing or awkward, do **not** call `docker` / `docker compose` on the host: stop and propose a [justfile](../justfile) change — see **Awkward or missing recipes** in [AGENTS.md](../AGENTS.md). Do not add IDE-specific agent rule files for this; AGENTS.md is the single owner.
@@ -142,11 +142,11 @@ Cursor Cloud Agents run on a remote Ubuntu VM. The committed [`.cursor/environme
 | [`.cursor/environment.json`](../.cursor/environment.json) | Names the VM image, `install`, and `start` commands |
 | [`.cursor/Dockerfile`](../.cursor/Dockerfile) | Host image: Docker Engine, Compose plugin, `just` 1.58.0. Not the app [Dockerfile](../Dockerfile) |
 | [`.cursor/cloud-agent-install.sh`](../.cursor/cloud-agent-install.sh) | Copies `.env.example` to `.env` when `.env` is missing |
-| [`.cursor/cloud-agent-start.sh`](../.cursor/cloud-agent-start.sh) | Starts the Docker daemon and waits until it is ready |
+| [`.cursor/cloud-agent-start.sh`](../.cursor/cloud-agent-start.sh) | Starts Docker if needed, waits until the daemon is ready, then `just sandbox`. Never `just up` |
 
 The VM is the **host** in [AGENTS.md](../AGENTS.md). After boot, agents still call `just`; they do not call `docker compose` directly.
 
-`install` / `start` do **not** run `just up`. That recipe pulls the default Ollama model (several GB) and starts the full app stack. Cloud Agents should use `just sandbox` / `just test` unless the task needs the UI, Postgres, Prefect, or Ollama.
+`install` does **not** run `just up`. `start` waits for Docker, then runs `just sandbox` (never `just up`). `just up` pulls the default Ollama model (several GB) and starts the full app stack. Cloud Agents should use the sandbox unless the task needs the UI, Postgres, Prefect, or Ollama.
 
 Put optional API keys (`NCBI_API_KEY`, `OPENAI_API_KEY`) in the Cursor Secrets tab when a task needs live PubMed or the public OpenAI API. Do not commit them. The default `.env.example` values are enough for sandbox tests.
 
@@ -237,10 +237,10 @@ MCP always runs **inside** the Compose `workspace` container (no host `uv`). Whi
 
 | IDE path | Config | How MCP starts |
 | --- | --- | --- |
-| Host Cursor | [`.cursor/mcp.json`](../.cursor/mcp.json) | `docker compose … exec workspace uv run dlthub ai mcp --stdio` |
+| Host Cursor | [`.cursor/mcp.json`](../.cursor/mcp.json) | `docker compose -p paper-reviewer-sandbox … exec workspace uv run dlthub ai mcp --stdio` |
 | Dev Container | [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (mounted over `.cursor/mcp.json`) | `uv run dlthub ai mcp --stdio` |
 
-1. Ensure a `workspace` is running: `just up` (host path, project `paper-reviewer`) or **Reopen in Container** (Dev Container path, project `paper-reviewer-sandbox`). Do not run host `just sandbox` / `just sandbox-down` while the IDE is attached.
+1. Ensure the sandbox `workspace` is running: `just sandbox` (host path; Cloud `start` already does this) or **Reopen in Container** (Dev Container path). Both use project `paper-reviewer-sandbox`. Do not run host `just sandbox` / `just sandbox-down` while the IDE is attached.
 2. Open this project in **Cursor** (host or already attached).
 3. Open **Cursor Settings → MCP**.
 4. Find **`dlt-workspace-mcp`** and **Enable** / approve it if prompted.
@@ -251,7 +251,7 @@ MCP always runs **inside** the Compose `workspace` container (no host `uv`). Whi
 If the server fails to start:
 
 - Error `service "shell" is not running` / unknown service: the Compose service name is **`workspace`**, not `shell` (see `compose.yml`). Reload MCP after fixing `.cursor/mcp.json`.
-- Error `service "workspace" is not running` (host path): run `just up`, wait until healthy (`just status`), then toggle the MCP server off/on or reload the Cursor window.
+- Error `service "workspace" is not running` (host path): run `just sandbox`, wait until it returns, then toggle the MCP server off/on or reload the Cursor window.
 - Confirm `fastmcp` is installed in the project env (`uv add fastmcp` inside `just shell`, or `uv add fastmcp` in a Dev Container terminal).
 - Re-run `uv run dlthub ai init --agent cursor` in the workspace container only if you need to regenerate skills/rules; keep the host Docker-based [`.cursor/mcp.json`](../.cursor/mcp.json) and the Dev Container [`.devcontainer/mcp.json`](../.devcontainer/mcp.json) (do not let init overwrite them back to host `uv` without re-applying the correct form).
 - Run `uv run dlthub ai status` inside the container for diagnostics.

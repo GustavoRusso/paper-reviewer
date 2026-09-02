@@ -53,7 +53,7 @@ just sandbox-run "curl -sS 'https://example.com/api' | python -c 'import sys,jso
 just sandbox-run "uv run python scripts/smoke_search_external_sources.py"
 ```
 
-Do **not** install `uv` or Python on the host to satisfy those docs. Prefer the **sandbox** for disposable agent work; keep the persistent app (`just up`) for long-lived MCP.
+Do **not** install `uv` or Python on the host to satisfy those docs. Prefer the **sandbox** for disposable agent work and for host MCP. Keep the persistent app (`just up`) for the Paper Reviewer UI.
 
 ### Dev Container shells
 
@@ -64,15 +64,15 @@ When Cursor (or another IDE) is attached via [`.devcontainer/`](.devcontainer/),
 - Prefer the app services already started by the Dev Container (`ui`, `db`, Prefect, Ollama). For disposable pytest, run `uv run pytest` in the attached workspace (same image; no separate sandbox project).
 - Jupyter notebooks remain a host/`just notebooks` path unless you start the `notebooks` profile yourself from the host.
 
-MCP: host Cursor uses [`.cursor/mcp.json`](.cursor/mcp.json) (`docker compose exec …`). Inside the Dev Container, [`.devcontainer/mcp.json`](.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio` directly.
+MCP: host Cursor uses [`.cursor/mcp.json`](.cursor/mcp.json) (`docker compose -p paper-reviewer-sandbox exec …`). Inside the Dev Container, [`.devcontainer/mcp.json`](.devcontainer/mcp.json) is bind-mounted over `.cursor/mcp.json` and runs `uv run dlthub ai mcp --stdio` directly.
 
 Host tooling: [docs/host-requirements.md](docs/host-requirements.md). App vs sandbox lifecycle and Dev Containers: [docs/local-development.md](docs/local-development.md).
 
 ## Cursor Cloud specific instructions
 
-Cursor Cloud Agents use [`.cursor/environment.json`](.cursor/environment.json). That file builds a VM image with Docker Engine and `just`, copies `.env.example` to `.env` when `.env` is missing, and starts the Docker daemon on each boot.
+Cursor Cloud Agents use [`.cursor/environment.json`](.cursor/environment.json). That file builds a VM image with Docker Engine and `just`, copies `.env.example` to `.env` when `.env` is missing, starts the Docker daemon on each boot, then runs `just sandbox`.
 
-After the VM is up, follow the CLI policy above. Use `just sandbox` / `just test` for disposable work. Use `just up` only when you need the persistent app (UI, Postgres, Prefect, Ollama). Do **not** start `just up` from environment `install` or `start` (the first Ollama model pull is several GB).
+After the VM is up, follow the CLI policy above. Use `just sandbox` / `just test` for disposable work. Use `just up` only when you need the persistent app (UI, Postgres, Prefect, Ollama). Do **not** start `just up` from environment `install` or `start` (the first Ollama model pull is several GB). `start` runs `just sandbox` after Docker is ready so host MCP has a workspace.
 
 Details: [docs/local-development.md](docs/local-development.md#cursor-cloud-agents).
 

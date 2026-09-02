@@ -5,7 +5,7 @@
       "args": [
         "compose",
         "-p",
-        "paper-reviewer",
+        "paper-reviewer-sandbox",
         "-f",
         "compose.yml",
         "exec",
